@@ -38,6 +38,7 @@ To run a code block that has been edited, select the block (mouse click inside i
 ```
 
 ```{code-cell} c++
+:tags: [remove-output]
 Type code here!
 ```
 
@@ -52,7 +53,6 @@ C++ programs rely upon libraries – you will not get far without at least one o
 It is an instruction that the contents of a header file are copied into the `.cpp` file when the code is compiled.
 
 ```{code-block} cpp
-:tags: [remove-output]
 int main() {
 **code statements go here**
 }
