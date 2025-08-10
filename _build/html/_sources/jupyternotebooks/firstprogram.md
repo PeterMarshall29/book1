@@ -164,8 +164,7 @@ int main()
 `````{exercise-end}
 `````
 
-```{admonition} Text
-:class: pied-piper
-more text
+```{admonition} An extra exercise
+:class: extra-credit
+An "extra credit" exercise is presented here.
 ```
-
