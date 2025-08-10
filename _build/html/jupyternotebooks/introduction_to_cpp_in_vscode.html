@@ -167,8 +167,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/logo2big.png" class="logo__image only-light" alt="Introduction to C++ Programming - Home"/>
+    <script>document.write(`<img src="../_static/logo2big.png" class="logo__image only-dark" alt="Introduction to C++ Programming - Home"/>`);</script>
   
-    <p class="title logo__title">Introduction to C++ Programming</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -460,7 +466,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -476,6 +484,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-first-project-in-visual-studio">Creating your first project in Visual Studio.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-and-header-files">Source and Header Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-files">Resource Files</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -487,6 +505,44 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="c-in-visual-studio">
 <h1>C++ in Visual Studio<a class="headerlink" href="#c-in-visual-studio" title="Link to this heading">#</a></h1>
+<section id="creating-your-first-project-in-visual-studio">
+<h2>Creating your first project in Visual Studio.<a class="headerlink" href="#creating-your-first-project-in-visual-studio" title="Link to this heading">#</a></h2>
+<p>Select Create a new project.</p>
+<p>Under All Languages, choose c++.</p>
+<figure class="align-default" id="my-fig-ref">
+<img alt="../_images/image1.png" src="../_images/image1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">My figure title.</span><a class="headerlink" href="#my-fig-ref" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Select “empty project”.
+Keep the work project at the start – to distinguish form others options and then give the project a title that includes your name and today’s date.</p>
+<p>ProjectWeek1WorkName03FEB25</p>
+<figure class="align-default" id="my-fig-ref2">
+<img alt="../_images/image2.png" src="../_images/image2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">My figure title.</span><a class="headerlink" href="#my-fig-ref2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Keep a note of where it is being saved – you will need to upload this oneDrive later.</p>
+</section>
+<section id="source-and-header-files">
+<h2>Source and Header Files<a class="headerlink" href="#source-and-header-files" title="Link to this heading">#</a></h2>
+<p>Header files with a .h, .hpp or .hxx extension,  are sources files that containing entity declarations and/or definitions that need to be visible to multiple translation units (see below).
+Each file with the extension .c, .cpp or .cxx defines a translation unit.
+The C and C++ compilers only compile a single file at a time.
+Source files may include header files, which are substituted in place for the #include statement and other directives by the preprocessor, resulting in a single “file” which is then fed to the compiler.
+The source file must contain all type and all object declarations that are referenced, which is the meaning of the undeclared reference compiler error.
+Note that it only requires complete declarations to succeed; definitions are handled at a later stage in the build process.</p>
+</section>
+<section id="resource-files">
+<h2>Resource Files<a class="headerlink" href="#resource-files" title="Link to this heading">#</a></h2>
+<p>Resource files are things like pictures, bitmaps, mp.
+Resource files are platform specific.
+In the case of Microsoft Windows and Microsoft Visual Studio, they define non-code resources such as cursors, icons, bitmap images, string tables and so forth that can be included in the output binary executable.
+A resource script, extension .rc, declares the type, name and location (filename) of the resources to include.
+An optional resource header provides a mnemonic mapping of the resource name to numeric identifiers for use within your program header and source files. The resource compiler, RC.exe, is run to build a resource file from resource script and physical resources (bitmap files, icon files, etc). This resource file has the extension .res.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -543,6 +599,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-first-project-in-visual-studio">Creating your first project in Visual Studio.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-and-header-files">Source and Header Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-files">Resource Files</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

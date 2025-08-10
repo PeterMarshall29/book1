@@ -167,8 +167,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/logo2big.png" class="logo__image only-light" alt="Introduction to C++ Programming - Home"/>
+    <script>document.write(`<img src="../_static/logo2big.png" class="logo__image only-dark" alt="Introduction to C++ Programming - Home"/>`);</script>
   
-    <p class="title logo__title">Introduction to C++ Programming</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -460,7 +466,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -476,6 +484,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-c-language">The C++ Language</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -487,6 +503,34 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-programming">
 <h1>Introduction to Programming<a class="headerlink" href="#introduction-to-programming" title="Link to this heading">#</a></h1>
+<section id="the-c-language">
+<h2>The C++ Language<a class="headerlink" href="#the-c-language" title="Link to this heading">#</a></h2>
+<p>All the `C++ language syntax is detailed here: <a class="reference external" href="https://en.cppreference.com/w/">cppreference.com</a></p>
+<div class="note margin admonition">
+<p class="admonition-title">Note</p>
+<p>Computational A will be using <code class="docutils literal notranslate"><span class="pre">C++20</span></code>.</p>
+</div>
+<p>This will only be useful after you have learned the basics – please ignore until then.</p>
+<hr class="docutils" />
+<p>In the <code class="docutils literal notranslate"><span class="pre">C++</span></code> programming language, consist of two parts: the <strong>core language</strong> and the <strong>standard library</strong>.</p>
+<p>The <strong>C++ Standard Library</strong> is a collection of classes and functions, which are written in the <strong>core language</strong>.
+The entire <code class="docutils literal notranslate"><span class="pre">Cc++</span></code> language is defined by the <strong>C++ ISO Standard</strong>.
+The standard is regularly updated and improved, so you must check which version of the language your code is written in - there may be compatibility issues between versions.
+A large part of the <strong>C++ Standard Library</strong> is based on the <strong>Standard Template Library (STL)</strong>. Useful tools provided by the STL include containers as the collections of objects (such as vectors and lists), iterators that provide array-like access to containers, and algorithms that perform operations such as searching and sorting.</p>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a compiled language.
+The code in each of the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> (and <code class="docutils literal notranslate"><span class="pre">.h</span></code>) pages in your project is first converted to an object file, a file with a <code class="docutils literal notranslate"><span class="pre">.obj</span></code> ending (<code class="docutils literal notranslate"><span class="pre">.o</span></code>) if you are linux, by the compiler, which convers the basically readable <code class="docutils literal notranslate"><span class="pre">C++</span></code> code into machine language – in an object file.
+The <code class="docutils literal notranslate"><span class="pre">cpp</span></code> source code is platform agnostic – but the object and executable files are not portable amongst platforms – not even amongst generations.
+The collection of object files are then linked together by the linker into an executable file;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…
+Other useful extensions: .lib for library files,  <code class="docutils literal notranslate"><span class="pre">.a</span></code> for archive file (similar to library), <code class="docutils literal notranslate"><span class="pre">.so</span></code> for shared object files (like libraries), <code class="docutils literal notranslate"><span class="pre">.c</span></code> for <code class="docutils literal notranslate"><span class="pre">c</span></code> source code,  <code class="docutils literal notranslate"><span class="pre">.cc</span></code> for <code class="docutils literal notranslate"><span class="pre">c</span></code> with classes,  <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> for header for cpp not also c.</p>
+<p>Header files with a .h, .hpp or .hxx extension,  are sources files that containing entity declarations and/or definitions that need to be visible to multiple translation units (see below).
+Each file with the extension .c, .cpp or .cxx defines a translation unit.
+The C and C++ compilers only compile a single file at a time.
+Source files may include header files, which are substituted in place for the #include statement and other directives by the preprocessor, resulting in a single “file” which is then fed to the compiler.
+The source file must contain all type and all object declarations that are referenced, which is the meaning of the undeclared reference compiler error.
+Note that it only requires complete declarations to succeed; definitions are handled at a later stage in the build process.
+Resource files are things like pictures, bitmaps, mp</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -543,6 +587,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-c-language">The C++ Language</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
