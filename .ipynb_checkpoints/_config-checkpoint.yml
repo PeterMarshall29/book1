@@ -1,0 +1,114 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Introduction to C++ Programming
+author: Loughborough Physics
+copyright: "2025"  # Copyright year to be placed in the footer
+logo: logo.png
+exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+  cache: ""    # A path to the jupyter cache that will be used to store execution artifacts. Defaults to `_build/.jupyter_cache/`
+  exclude_patterns: []    # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
+  only_build_toc_files: true
+  timeout: 30    # The maximum time (in seconds) each notebook cell is allowed to run.
+  run_in_temp: false # If `True`, then a temporary directory will be created and used as the command working directory (cwd),
+                                    # otherwise the notebook's parent directory will be the cwd.
+  allow_errors: true # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
+  stderr_output: show  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
+
+#######################################################################################
+# Parse and render settings
+parse:
+  myst_enable_extensions: 
+    - amsmath
+    - colon_fence
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+    #- strikethrough
+    - attrs_inline
+    - deflist
+    - fieldlist
+    - attrs_block
+  myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
+  myst_dmath_double_inline: true  # Allow display math ($$) within an inline context
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/petermarshall29/book1  # Online location of your book
+  #path_to_book:   # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+#######################################################################################
+# Launch button settings
+launch_buttons:
+   notebook_interface: "jupyterlab"  # or "classic"
+   binderhub_url: "https://mybinder.org"
+   thebe: true
+
+#######################################################################################
+# Advanced and power-user settings
+sphinx:
+  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
+    - sphinx_exercise
+    - hoverxref.extension
+    - sphinx_inline_tabs
+    - sphinx_proof
+  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
+  recursive_update          : true # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
+  config                    :   # key-value pairs to directly over-ride the Sphinx configuration
+    pygments_style: lightbulb
+    thebe_config:
+      codemirror-theme:  cobalt
+      mimetype: text/x-c++src
+      codemirror-mode: c++
+
+html_css_files : css/custom.css 
+  #  intersphinx_mapping:
+   #   ebp:
+    #    - "https://executablebooks.org/en/latest/"
+     #   - null
+  #    myst-parser:
+   #     - "https://myst-parser.readthedocs.io/en/latest/"
+    #    - null
+    #  myst-nb:
+  #      - "https://myst-nb.readthedocs.io/en/latest/"
+   #     - null
+    #  sphinx:
+     #   - "https://www.sphinx-doc.org/en/master"
+  #      - null
+   #   nbformat:
+    #    - "https://nbformat.readthedocs.io/en/latest"
+     #   - null
+   #   sd:
+    #    - "https://sphinx-design.readthedocs.io/en/latest"
+     #   - null
+   #   sphinxproof:
+    #    - "https://sphinx-proof.readthedocs.io/en/latest/"
+     #   - null
+ #   hoverxref_intersphinx:
+  #   - "sphinxproof" 

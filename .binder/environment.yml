@@ -1,0 +1,9 @@
+name: jupyter-cpp-environment
+channels:
+  - conda-forge
+dependencies:
+  - libstdcxx-devel_linux-64=*=*19
+  - gcc=13.2
+  - pip
+  - pip:
+    - jupyter-cpp-kernel>=1.0.0a9

@@ -1,0 +1,8 @@
+jupyter-book
+jupyterlab>=4.0.0
+jupyterlab_myst>=2.0.0
+ipywidgets>=8.*
+
+#myst-parser
+#matplotlib
+#numpy
