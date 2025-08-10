@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercises 3
+# Exercise 3
 
 
 
