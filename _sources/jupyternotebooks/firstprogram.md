@@ -13,8 +13,8 @@ kernelspec:
 # First C++ Program
 
 The first program that most people ever write prints "Hello, World!" the first program that most people ever write, because it is traditionally the first one taught - printing words to screen is as simple as it gets, but proves the software is correctly installed.
-```{Admonition} The Hello World Program
-:class: seealso dropdown
+```{Admonition} History of the Hello World Program
+:class: seealso dropdown margin
 See the  [Wikipedia](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
 ```
 
@@ -22,7 +22,10 @@ Type the following code into the empty code window below.
 
 Please type the code exactly as shown - the code will fail if you have any mistakes in the syntax. 
 
-
+```{tip}
+:class: margin
+To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press {kbd}`Shift` + {kbd}`Enter`. 
+```
 ```{code-block} cpp
 :linenos: 
 :emphasize-lines: 3
@@ -35,10 +38,7 @@ int main() {
 	return 0;
 }
 ```
-```{tip}
-:class: margin
-To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press {kbd}`Shift` + {kbd}`Enter`. 
-```
+
 In {ref}`Code 1<codea1>` the highlighted statement is the code that the programmer actually wanted implemented - everything else is require for all C++ programmes just to work.
 
 ```{code-cell} c++
