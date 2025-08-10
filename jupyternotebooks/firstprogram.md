@@ -168,3 +168,7 @@ int main()
 :class: extra-credit
 An "extra credit" exercise is presented here.
 ```
+
+```{admonition} Useful Info
+An "extra credit" exercise is presented here.
+```
