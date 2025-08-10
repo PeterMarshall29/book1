@@ -6,5 +6,5 @@ div.extra-credit .admonition-title {
 }
 div.extra-credit .admonition-title:before {
     color: rgba(var(--pst-color-success), 1);
-    content: '\f19d';
+    content: '\f1a8';
 }
