@@ -52,6 +52,7 @@ C++ programs rely upon libraries – you will not get far without at least one o
 It is an instruction that the contents of a header file are copied into the `.cpp` file when the code is compiled.
 
 ```{code-block} cpp
+:tags: [remove-output]
 int main() {
 **code statements go here**
 }
@@ -113,10 +114,10 @@ or something other
 `std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
 3. To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
 ```{seealso}
+:class: dropdown
 More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/codingtheory1>`
 ```
 4. Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
-
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
 5. This is usually only possible in the main function, but not on every platform.
 6. Whitespace is ignored in C++ - not true in other languages!
