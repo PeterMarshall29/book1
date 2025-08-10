@@ -164,3 +164,8 @@ int main()
 `````{exercise-end}
 `````
 
+```{admonition} Text
+:class: pied-piper
+more text
+```
+
