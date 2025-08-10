@@ -36,7 +36,7 @@ In {ref}`Code 1<Codea1>` the highlighted statement is the code that the programm
 ```{code-cell} cpp
 :linenos: 
 :emphasize-lines: 4
-:label: Codea2
+:name: Codea2
 :caption: Hello World program
 :tags: [skip-execution]
 #include <iostream>
@@ -46,8 +46,6 @@ int main()
 	return 0;
 }
 ```
-
-
 In {ref}`Code 1<Codea2>` the highlighted statement is the code that the programmer actually wants implemented - everything else is ...
 
 
@@ -91,16 +89,17 @@ or something other
 4. 
 ```
 ````
+
 ```{seealso}
 :class: margin
-More on the structure of the C++ language can be found {doc}`here <codingtheory1.md>`
+More on the structure of the C++ language can be found {doc}`here <book1/jupyternotebooks/codingtheory1.md>`
 ```
 
 `````{exercise-start} 
 :label: Exercisea2
 `````
 This code is incorrect. Alter the code so that it runs without error and prints your name.
-`````{code-block} cpp
+`````{code-cell} cpp
 :tags: [remove-output]
 include "iostreams"
 main(){
