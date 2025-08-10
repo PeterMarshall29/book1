@@ -12,14 +12,20 @@ kernelspec:
 
 # First C++ Program
 
+The first program that most people ever write prints "Hello, World!" the first program that most people ever write, because it is traditionally the first one taught - printing words to screen is as simple as it gets, but proves the software is correctly installed.
+```{Admonition} The Hello World Program
+:class: seealso dropdown
+See the  [Wikipedia](https://en.cppreference.com/w/) page for the history of the "Hello, world!" program.
+```
+
 Type the following code into the empty code window below.
-Please type the code exactly as shown. 
-TIP computers cannot correct your mistakes for you!! 
+
+Please type the code exactly as shown - the code will fail if you have any mistakes in the syntax. 
 
 
 ```{code-block} cpp
 :linenos: 
-:emphasize-lines: 4
+:emphasize-lines: 3
 :name: codea1
 :caption: Hello World program
 
@@ -29,13 +35,11 @@ int main() {
 	return 0;
 }
 ```
-
-In {ref}`Code 1<codea1>` the highlighted statement is the code that the programmer actually wants implemented - everything else is ...
-
 ```{tip}
 :class: margin
 To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press {kbd}`Shift` + {kbd}`Enter`. 
 ```
+In {ref}`Code 1<codea1>` the highlighted statement is the code that the programmer actually wanted implemented - everything else is require for all C++ programmes just to work.
 
 ```{code-cell} c++
 :tags: [remove-output]
@@ -134,6 +138,7 @@ More on the structure of the C++ language can be found {doc}`here <../jupyternot
 
 `````{exercise-start}
 :label: exercisea2
+:class: dropdown
 `````
 This code is incorrect. Alter the code so that it runs without error and prints your name.
 ````{code-cell} cpp
@@ -151,7 +156,7 @@ return "Peter";
 #include <iostream>
 int main()
 {
-	std :: cout << "Hello, World!\n";
+	std :: cout << "Put your name here!\n";
 	return 0;
 }
 ```

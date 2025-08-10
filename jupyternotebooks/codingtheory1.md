@@ -12,6 +12,10 @@ kernelspec:
 
 # Introduction to Programming
 
+##
+Start with ideas like syntax...
+
+
 ## The C++ Language
 
 All the `C++ language syntax is detailed here: [cppreference.com](https://en.cppreference.com/w/)
