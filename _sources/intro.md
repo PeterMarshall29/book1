@@ -15,21 +15,11 @@ myst:
   dmath_double_inline: true
 ---
 
-# Welcome to a Jupyter Book for C++
+# Introducton to the C++ Programming Language
 
-This is my first attempt to explore jupyter book with c++
+This book covers the introductory weeks of Computational Physics A - C++ programming basics at Loughbourough University. 
 
-NOTE - only the Hello World page has any real content - the others are only to test concept
-
-Working:
-Navigation and layout
-Code execution on lauch
-Live code exexution.
-
-Not Working:
-
-Some myst or other mark up failing in book but working in notebook.
-
+NOTE - We will transition to Visual Studio in week 3.
 
 ```{tableofcontents}
 ```

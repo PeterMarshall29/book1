@@ -194,7 +194,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to a Jupyter Book for C++
+                    Introducton to the C++ Programming Language
                 </a>
             </li>
         </ul>
@@ -204,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="codingtheory2.html">Coding Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Concepts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction toC++ Programming</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">First C++ Program</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
@@ -520,12 +520,12 @@ TIP computers cannot correct your mistakes for you!!</p>
 </div>
 </div>
 </div>
-<p>In <span class="xref std std-ref">Code 1</span> the highlighted statement is the code that the programmer actually wants implemented - everything else is …</p>
+<p>In <span class="xref std std-ref">Code 2</span> the highlighted statement is the code that the programmer actually wants implemented - everything else is …</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press <kbd class="kbd docutils literal notranslate">Shift</kbd> + <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
 </div>
-<div class="cell tag_mytag docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -540,13 +540,41 @@ TIP computers cannot correct your mistakes for you!!</p>
 <p>Hello, World!</p>
 </div>
 </div>
-<div class="margin admonition seealso">
-<p class="admonition-title">See also</p>
-<p>More on the structure of the C++ language can be found <span class="xref std std-doc">here</span></p>
-</div>
-<div class="exercise admonition" id="Exercisea2">
+<div class="exercise dropdown admonition" id="exercisea1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
+<section id="exercise-content">
+<p>Try making the following changes to the above code - note what happens.</p>
+<ol class="arabic simple">
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">std::</span></code> from line 3.</p></li>
+<li><p>Replace the angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> in the first line with speechmarks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p></li>
+<li><p>Change the returned value from 0 to 1.</p></li>
+<li><p>Remove the return line.</p></li>
+</ol>
+<p>Add or remove spaces anywhere in your code and run the code again. <br />
+Or try somthing else<br />
+or something other</p>
+<div class="solution hint dropdown admonition" id="solutiona1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisea1"> Exercise 1</a></p>
+<section id="solution-content">
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is not part of the c++ core language and comes instead from the <strong>Standard Library</strong>. <code class="docutils literal notranslate"><span class="pre">std::</span></code> denotes the namespace that <code class="docutils literal notranslate"><span class="pre">cout</span></code> belongs to (similar to a folder designation, provided you have included it).</p></li>
+<li><p>To include components of the standard library angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> are used, but we can also include additional code written by the programmer in header files, which are named in speechmarks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+</div>
+</section>
+</div>
+<div class="margin admonition seealso">
+<p class="admonition-title">See also</p>
+<p>More on the structure of the C++ language can be found <a class="reference internal" href="codingtheory1.html"><span class="doc">here</span></a></p>
+</div>
+<div class="exercise admonition" id="exercisea2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
 <section id="exercise-content">
 <p>This code is incorrect. Alter the code so that it runs without error and prints your name.</p>
 <div class="cell tag_remove-output docutils container">
@@ -560,9 +588,9 @@ TIP computers cannot correct your mistakes for you!!</p>
 </div>
 </div>
 </div>
-<div class="solution hint admonition" id="Solutiona2">
+<div class="solution hint dropdown admonition" id="solutiona2">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#Exercisea2"> Exercise 1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisea2"> Exercise 2</a></p>
 <section id="solution-content">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>

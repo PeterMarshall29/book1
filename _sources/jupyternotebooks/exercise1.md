@@ -12,21 +12,21 @@ kernelspec:
 
 # Exercises 1
 
-`````{exercise-start} 
-:label: Exerciseaa1
+`````{exercise-start}
+:label: exerciseaa2
 `````
 This code is incorrect. Alter the code so that it runs without error and prints your name.
-`````{code-block} cpp
+````{code-cell} cpp
 :tags: [remove-output]
 include "iostreams"
 main(){
 cout << "my name is, \n"
 return "Peter";
 }
-`````
-````{solution} Exerciseaa1 
-:class: hint 
-:label: Solutionaa1
+````
+````{solution} exerciseaa2
+:class: hint dropdown
+:label: solutionaa2
 ```{code} cpp
 #include <iostream>
 int main()
