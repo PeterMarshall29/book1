@@ -518,8 +518,8 @@ TIP computers cannot correct your mistakes for you!!</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpbnyg7yj2.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpbnyg7yj2.cpp:4:1: error: &#39;Type&#39; was not declared in this scope; did you mean &#39;wctype&#39;?
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpzyv6yeu0.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpzyv6yeu0.cpp:4:1: error: &#39;Type&#39; was not declared in this scope; did you mean &#39;wctype&#39;?
     4 | Type code here!
       | ^~~~
       | wctype
@@ -590,16 +590,16 @@ or something other</p>
 2.<code class="docutils literal notranslate"><span class="pre">cout</span></code> is not part of the c++ core language and comes instead from the <strong>Standard Library</strong>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::</span></code> denotes the namespace that <code class="docutils literal notranslate"><span class="pre">cout</span></code> belongs to (similar to a folder designation, provided you have included it).
 3. To include components of the standard library angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> are used, but we can also include additional code written by the programmer in <a class="reference internal" href="header_files.html"><span class="doc">**header files**</span></a>, which are included using speechmarks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;myheaderfile.h&quot;</span></code>.</p>
-<div class="admonition seealso">
+<div class="dropdown admonition seealso">
 <p class="admonition-title">See also</p>
 <p>More on the structure of the C++ language can be found <a class="reference internal" href="codingtheory1.html"><span class="doc">here</span></a></p>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure.</p></li>
+<li><p>Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure.
+The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.</p></li>
+<li><p>This is usually only possible in the main function, but not on every platform.</p></li>
+<li><p>Whitespace is ignored in C++ - not true in other languages!</p></li>
 </ol>
-<p>The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
-5. This is usually only possible in the main function, but not on every platform.
-6. Whitespace is ignored in C++ - not true in other languages!</p>
 </section>
 </div>
 </section>
