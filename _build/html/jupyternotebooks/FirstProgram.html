@@ -511,6 +511,25 @@ TIP computers cannot correct your mistakes for you!!</p>
 <p class="admonition-title">Tip</p>
 <p>To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press <kbd class="kbd docutils literal notranslate">Shift</kbd> + <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="o">!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpbnyg7yj2.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpbnyg7yj2.cpp:4:1: error: &#39;Type&#39; was not declared in this scope; did you mean &#39;wctype&#39;?
+    4 | Type code here!
+      | ^~~~
+      | wctype
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
+</pre></div>
+</div>
+</div>
+</div>
 <div class="dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -525,10 +544,10 @@ It is an instruction that the contents of a header file are copied into the <cod
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">main()</span></code> is a function.
-All <code class="docutils literal notranslate"><span class="pre">c++</span></code> programs require a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function (or an equivalent).
-For longer programs that have many functions - the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is the starting point for the logical implementation of the code.
-Functions are explained <a class="reference internal" href="introduction_to_functions.html"><span class="doc">here</span></a>, but you can safely leave this topci until week 2. we will cover functions properly next week.
-Briefly:</p>
+All <code class="docutils literal notranslate"><span class="pre">c++</span></code> programs require a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function (or an equivalent).</p>
+<p>For longer programs that have many functions - the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is the starting point for the logical implementation of the code.</p>
+<p>Functions are explained <a class="reference internal" href="introduction_to_functions.html"><span class="doc">here</span></a>, but you can safely leave this topic until week 2. we will cover functions properly next week.</p>
+<p>Briefly:</p>
 <ul class="simple">
 <li><p>“main” is the name of the function.</p></li>
 <li><p>The empty parentheses (parens) `main()’ indicates that the main function takes no inputs.</p></li>
@@ -537,16 +556,15 @@ Briefly:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is the code used for writing to screen.
-<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> is the “write to” operator (or the “gets from” operator, which makes a little more sense when your are typing left to right!).
-<code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">World!\n&quot;</span></code> is a <code class="docutils literal notranslate"><span class="pre">string</span></code>. String literals are delimited (bracketed) by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.
-Strings are explained <a class="reference internal" href="data_types.html"><span class="doc">here</span></a>
-<code class="docutils literal notranslate"><span class="pre">\n</span></code> is an escape character - this escape character tells the computer to print anything after it on a newline.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is the code used for writing to screen.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> is the “write to” operator (or the “gets from” operator, which makes a little more sense when your are typing left to right!).</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">World!\n&quot;</span></code> is a <code class="docutils literal notranslate"><span class="pre">string</span></code>. String literals are delimited (bracketed) by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>; explained <a class="reference internal" href="data_types.html"><span class="doc">here</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">\n</span></code> is an escape character - this escape character tells the computer to print anything after it on a newline.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>The return <code class="docutils literal notranslate"><span class="pre">keyword</span></code> specifies what the function produces (returns).
-If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.</p>
+<p>The return <code class="docutils literal notranslate"><span class="pre">keyword</span></code> specifies what the function produces (returns).</p>
+<p>If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.</p>
 </div>
 <div class="exercise dropdown admonition" id="exercisea1">
 
@@ -569,18 +587,19 @@ or something other</p>
 <p class="admonition-title">Solution to<a class="reference internal" href="#exercisea1"> Exercise 1</a></p>
 <section id="solution-content">
 <p>1.A semicolon is required need at the end of each statement – exceptions <code class="docutils literal notranslate"><span class="pre">include</span></code>, <code class="docutils literal notranslate"><span class="pre">includes</span></code> and after <code class="docutils literal notranslate"><span class="pre">{</span></code> or <code class="docutils literal notranslate"><span class="pre">}</span></code>.
-2.<code class="docutils literal notranslate"><span class="pre">cout</span></code> is not part of the c++ core language and comes instead from the <strong>Standard Library</strong>. <code class="docutils literal notranslate"><span class="pre">std::</span></code> denotes the namespace that <code class="docutils literal notranslate"><span class="pre">cout</span></code> belongs to (similar to a folder designation, provided you have included it).
+2.<code class="docutils literal notranslate"><span class="pre">cout</span></code> is not part of the c++ core language and comes instead from the <strong>Standard Library</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::</span></code> denotes the namespace that <code class="docutils literal notranslate"><span class="pre">cout</span></code> belongs to (similar to a folder designation, provided you have included it).
 3. To include components of the standard library angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> are used, but we can also include additional code written by the programmer in <a class="reference internal" href="header_files.html"><span class="doc">**header files**</span></a>, which are included using speechmarks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;myheaderfile.h&quot;</span></code>.</p>
-<div class="margin admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
 <p>More on the structure of the C++ language can be found <a class="reference internal" href="codingtheory1.html"><span class="doc">here</span></a></p>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure.
-The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.</p></li>
-<li><p>This is usually only possible in the main function, but not on every platform.</p></li>
-<li><p>Whitespace is ignored in C++ - not true in other languages!</p></li>
+<li><p>Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure.</p></li>
 </ol>
+<p>The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
+5. This is usually only possible in the main function, but not on every platform.
+6. Whitespace is ignored in C++ - not true in other languages!</p>
 </section>
 </div>
 </section>

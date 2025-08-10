@@ -38,9 +38,7 @@ To run a code block that has been edited, select the block (mouse click inside i
 ```
 
 ```{code-cell} c++
- 
-
-  
+Type code here!
 ```
 
 ````{admonition} Code Explanation
@@ -60,8 +58,11 @@ int main() {
 ```
 `main()` is a function.
 All `c++` programs require a `main()` function (or an equivalent).
+
 For longer programs that have many functions - the `main()` function is the starting point for the logical implementation of the code.
-Functions are explained {doc}`here <../jupyternotebooks/introduction_to_functions>`, but you can safely leave this topci until week 2. we will cover functions properly next week. 
+
+Functions are explained {doc}`here <../jupyternotebooks/introduction_to_functions>`, but you can safely leave this topic until week 2. we will cover functions properly next week. 
+
 Briefly:
 - "main" is the name of the function.
 - The empty parentheses (parens) `main()' indicates that the main function takes no inputs.
@@ -71,14 +72,17 @@ Briefly:
 std :: cout << "Hello, World!\n";
 ```
 `cout` is the code used for writing to screen.
+
 `<<` is the "write to" operator (or the "gets from" operator, which makes a little more sense when your are typing left to right!).
-`"Hello, World!\n"` is a `string`. String literals are delimited (bracketed) by `""`. 
-Strings are explained {doc}`here <../jupyternotebooks/data_types>`
+
+`"Hello, World!\n"` is a `string`. String literals are delimited (bracketed) by `""`; explained {doc}`here <../jupyternotebooks/data_types>`.
+
 `\n` is an escape character - this escape character tells the computer to print anything after it on a newline. 
 ```{code-block} cpp
 return 0;
 ```
 The return `keyword` specifies what the function produces (returns).
+
 If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
 
 ````
@@ -104,13 +108,15 @@ or something other
 :label: solutiona1
 
 1.A semicolon is required need at the end of each statement – exceptions `include`, `includes` and after `{` or `}`. 
-2.`cout` is not part of the c++ core language and comes instead from the **Standard Library**. `std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
+2.`cout` is not part of the c++ core language and comes instead from the **Standard Library**. 
+
+`std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
 3. To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
-```{Note}
-:class: margin
+```{seealso}
 More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/codingtheory1>`
 ```
 4. Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
+
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
 5. This is usually only possible in the main function, but not on every platform.
 6. Whitespace is ignored in C++ - not true in other languages!
