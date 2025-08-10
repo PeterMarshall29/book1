@@ -15,7 +15,7 @@ kernelspec:
 The first program that most people ever write prints "Hello, World!" the first program that most people ever write, because it is traditionally the first one taught - printing words to screen is as simple as it gets, but proves the software is correctly installed.
 ```{Admonition} The Hello World Program
 :class: seealso dropdown
-See the  [Wikipedia](https://en.cppreference.com/w/) page for the history of the "Hello, world!" program.
+See the  [Wikipedia](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
 ```
 
 Type the following code into the empty code window below.
@@ -163,25 +163,4 @@ int main()
 ````
 `````{exercise-end}
 `````
-
-
-
-
-
-````{admonition} Exercise
-:class: dropdown tip
-Add or remove spaces anywhere in your code and run the code again. \
-Or try somthing else\
-or something other
-
-```{admonition} Solutions 
-:class: dropdown hint
-1. answer 1
-2. answer 2
-- list q
-- list b
-```
-````
-
-
 
