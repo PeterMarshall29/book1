@@ -24,8 +24,7 @@ TIP computers cannot correct your mistakes for you!!
 :caption: Hello World program
 
 #include <iostream>
-int main()
-{
+int main() {
 	std :: cout << "Hello, World!\n";
 	return 0;
 }
@@ -33,61 +32,90 @@ int main()
 
 In {ref}`Code 1<codea1>` the highlighted statement is the code that the programmer actually wants implemented - everything else is ...
 
-```{code-cell} cpp
-:linenos: 
-:emphasize-lines: 4
-:name: codea2
-:caption: Hello World program
-:tags: [skip-execution]
-#include <iostream>
-int main()
-{
-	std :: cout << "Hello, World!\n";
-	return 0;
-}
-```
-In {ref}`Code 2<codea2>` the highlighted statement is the code that the programmer actually wants implemented - everything else is ...
-
-
 ```{tip}
 :class: margin
 To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press {kbd}`Shift` + {kbd}`Enter`. 
 ```
 
-
 ```{code-cell} c++
-#include <iostream>
-int main()
-{
-	std :: cout << "Hello, World!\n";
-	return 0;
-}
+ 
+
+  
 ```
 
-````{exercise} 
+````{admonition} Code Explanation
+:class: dropdown
+```{code-block} c++
+#include <iostream>
+```
+C++ programs rely upon libraries – you will not get far without at least one of these, because they include basic ‘facilities’ needed such as the code required to allow you to print out a value to the computer.
+
+`#include` provide access to the libraries required by your code.
+It is an instruction that the contents of a header file are copied into the `.cpp` file when the code is compiled.
+
+```{code-block} cpp
+int main() {
+**code statements go here**
+}
+```
+`main()` is a function.
+All `c++` programs require a `main()` function (or an equivalent).
+For longer programs that have many functions - the `main()` function is the starting point for the logical implementation of the code.
+Functions are explained {doc}`here <../jupyternotebooks/introduction_to_functions>`, but you can safely leave this topci until week 2. we will cover functions properly next week. 
+Briefly:
+- "main" is the name of the function.
+- The empty parentheses (parens) `main()' indicates that the main function takes no inputs.
+- `main() returns an integer value `int`, and (usually) the code must make that true.
+
+```{code-block} cpp
+std :: cout << "Hello, World!\n";
+```
+`cout` is the code used for writing to screen.
+`<<` is the "write to" operator (or the "gets from" operator, which makes a little more sense when your are typing left to right!).
+`"Hello, World!\n"` is a `string`. String literals are delimited (bracketed) by `""`. 
+Strings are explained {doc}`here <../jupyternotebooks/data_types>`
+`\n` is an escape character - this escape character tells the computer to print anything after it on a newline. 
+```{code-block} cpp
+return 0;
+```
+The return `keyword` specifies what the function produces (returns).
+If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
+
+````
+
+`````{exercise} 
 :class: dropdown
 :label: exercisea1
 Try making the following changes to the above code - note what happens.
 
-1. Remove `std::` from line 3.
-2. Replace the angle brackets `<>` in the first line with speechmarks `""`.
-2. Change the returned value from 0 to 1.
-3. Remove the return line.
+1. Remove the semicolon in line 3 or 4. 
+2. Remove `std::` from line 3.
+3. Replace the angle brackets `<>` in the first line with speechmarks `""`.
+4. Change the returned value from 0 to 1, and then to a letter.
+5. Remove the return line.
+6. Add some whitespace (spaces) to the code.
 
 Add or remove spaces anywhere in your code and run the code again. \
 Or try somthing else\
 or something other
 
-```{solution} exercisea1 
+````{solution} exercisea1 
 :class: hint dropdown
 :label: solutiona1
 
-1. `cout` is not part of the c++ core language and comes instead from the **Standard Library**. `std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
-2. To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in header files, which are named in speechmarks `""`.
-3. 
-4. 
+1.A semicolon is required need at the end of each statement – exceptions `include`, `includes` and after `{` or `}`. 
+2.`cout` is not part of the c++ core language and comes instead from the **Standard Library**. `std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
+3. To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
+```{Note}
+:class: margin
+More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/codingtheory1>`
 ```
+4. Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
+The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
+5. This is usually only possible in the main function, but not on every platform.
+6. Whitespace is ignored in C++ - not true in other languages!
 ````
+`````
 
 ```{seealso}
 :class: margin

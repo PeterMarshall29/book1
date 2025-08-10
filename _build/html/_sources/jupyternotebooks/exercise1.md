@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercises 1
+# Exercise 1
 
 `````{exercise-start}
 :label: exerciseaa2

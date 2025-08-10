@@ -27,6 +27,9 @@ ProjectWeek1WorkName03FEB25
 :name: my-fig-ref2
 My figure title.
 ```
+Right-click on Source Files and choose “Add” and then “New Module”.
+Copy the path shown for later.
+Select “c++ File(.CPP), give it a _sensible name_, and hit {kbd}`Add`.
 
 
 Keep a note of where it is being saved – you will need to upload this oneDrive later.
