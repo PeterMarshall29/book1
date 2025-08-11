@@ -165,12 +165,14 @@ int main()
 `````{exercise-end}
 `````
 
-```{admonition} {fa}`check` An extra exercise
+```{admonition}  An extra exercise
 :class: extra-credit
+
 An "extra credit" exercise is presented here.
 ```
 
 
-```{admonition}  Useful_Link
+```{admonition}  {fa}`check` Useful_Link
+
 An "extra credit" exercise is presented here.
 ```
