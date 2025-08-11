@@ -13,8 +13,9 @@ kernelspec:
 # First C++ Program
 
 The first program that most people ever write prints "Hello, World!" the first program that most people ever write, because it is traditionally the first one taught - printing words to screen is as simple as it gets, but proves the software is correctly installed.
+
 ```{Admonition} History of the Hello World Program
-:class: seealso dropdown margin
+:class: seealso margin
 See the  [Wikipedia](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
 ```
 
@@ -130,7 +131,7 @@ The returned value is reported to whoever called the function, in the case of ma
 
 ```{seealso}
 :class: margin
-More on the structure of the C++ [testtext](#cpplanguage) `language can be found {doc}`here <../jupyternotebooks/the_cpp_language>`
+More on the structure of the [C++ language](#the_cpp_language) , [C++ language](#cpplanguage) ,  {doc}`here <../jupyternotebooks/the_cpp_language>`
 ```
 
 
@@ -164,11 +165,18 @@ int main()
 `````{exercise-end}
 `````
 
-```{admonition} An extra exercise
+```{admonition} {fa}`check` An extra exercise
 :class: extra-credit
 An "extra credit" exercise is presented here.
 ```
 
+```{admonition} {fa}`check` An extra exercise 2
+:class: extra-credit
+:icon: false
+An "extra credit" exercise is presented here.
+```
+
 ```{admonition} Useful Info
+:icon: false
 An "extra credit" exercise is presented here.
 ```
