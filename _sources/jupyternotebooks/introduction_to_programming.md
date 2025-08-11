@@ -10,7 +10,12 @@ kernelspec:
   name: cpp20
 ---
 
-# Coding Algorithms
+#  Introduction to Computer Programming
+
+Start with ideas like syntax...
+
+
+## Coding Algorithms
 
 
 ## Error Types

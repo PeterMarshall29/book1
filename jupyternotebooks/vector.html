@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>First C++ Program &#8212; Introduction to C++ Programming</title>
+    <title>Vectors &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -32,20 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css?v=7bc2f056" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css?v=37217874" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css?v=d7bf34ee" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=26b9bda1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,9 +61,9 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/js/hoverxref.js?v=c95ade4f"></script>
-    <script src="../_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
-    <script src="../_static/js/micromodal.min.js?v=04d6302d"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
     <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -76,9 +77,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/FirstProgram2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/vector';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Arrays in C++" href="arrays.html" />
+    <link rel="prev" title="Initialisation" href="initialisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,8 +144,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -194,35 +195,57 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to a Jupyter Book for C++
+                    Introducton to the C++ Programming Language
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Concepts</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="codingtheory1.html">Introduction to Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codingtheory2.html">Coding Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_programming.html">Introduction to Computer Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction toC++ Programming</span></p>
-<ul class="nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="variables_and_constants.html">Variables and Constants</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="data_types.html">C++ Data Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="numeric_data_types.html">Numeric Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables_and_constants.html">Variables and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="data_types.html">C++ Data Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="logical_selection.html">Logical Selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_functions.html">Functions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="iteration.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html"><code class="docutils literal notranslate"><span class="pre">For</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise7.html">Exercise 7</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
 <ul class="nav bd-sidenav">
@@ -282,7 +305,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/petermarshall29/book1/master?urlpath=lab/tree/jupyternotebooks/FirstProgram2.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/petermarshall29/book1/master?urlpath=lab/tree/jupyternotebooks/vector.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -348,7 +371,7 @@
       
       
       
-      <li><a href="https://github.com/petermarshall29/book1/issues/new?title=Issue%20on%20page%20%2Fjupyternotebooks/FirstProgram2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/petermarshall29/book1/issues/new?title=Issue%20on%20page%20%2Fjupyternotebooks/vector.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,7 +401,7 @@
       
       
       
-      <li><a href="../_sources/jupyternotebooks/FirstProgram2.ipynb" target="_blank"
+      <li><a href="../_sources/jupyternotebooks/vector.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -395,7 +418,7 @@
       
       
       
-      <li><a href="../_sources/jupyternotebooks/FirstProgram2.md" target="_blank"
+      <li><a href="../_sources/jupyternotebooks/vector.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -466,7 +489,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -477,11 +502,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>First C++ Program</h1>
+    <h1>Vectors</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-with">Iteration with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversing-a-vector">Traversing a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-to-a-vector">Adding to a Vector</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -491,8 +526,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="first-c-program">
-<h1>First C++ Program<a class="headerlink" href="#first-c-program" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="vectors">
+<h1>Vectors<a class="headerlink" href="#vectors" title="Link to this heading">#</a></h1>
+<p>A vector is a sequence of elements that can be accessed by their index
+Add <vector> to header file. #include <vector></p>
+<p>std::vector<int> v = {1,2,3,4,5 };
+std::cout &lt;&lt; v[0];
+ 
+cout will not print a whole vector – but you can index in, and then you are only printing a single integer. Try.
+std::cout &lt;&lt; v;</p>
+<p>Instead, a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is needed.</p>
+<p>std::vector<int> v = {1,2,3,4,5 };
+for (int i = 0; i &lt; v.capacity(); ++i) std::cout &lt;&lt; v[i] &lt;&lt; “\n”;</p>
+<p>or</p>
+<p>for (int i = 0; i &lt; v.size(); ++i) std::cout &lt;&lt; v[i] &lt;&lt; “\n”;</p>
+<section id="iteration-with">
+<h2>Iteration with<a class="headerlink" href="#iteration-with" title="Link to this heading">#</a></h2>
+<p>TRY to create and change a vector of zeros.</p>
+<p>std::vector<int>  vzeros(6) ;
+std::vector<int>  v = { 1,2,3,4,5 };
+vzeros[2] = 5;
+for (int i = 0; i &lt; vzeros.size(); ++i) std::cout &lt;&lt; vz
+eros[i] &lt;&lt; i &lt;&lt;“\n”;</p>
+<p>std::vector<a class="reference external" href="std::string">std::string</a> vEmptyStrings(6);
+for (int i = 0; i &lt; vEmptyStrings.capacity(); ++i) std::cout &lt;&lt; vEmptyStrings[i]&lt;&lt;”, “ &lt;&lt; i &lt;&lt; “\n”;</p>
+</section>
+<section id="traversing-a-vector">
+<h2>Traversing a Vector<a class="headerlink" href="#traversing-a-vector" title="Link to this heading">#</a></h2>
+<p>The range for any vector is the halfopen sequence [0 : v.size() ) meaning 0 is included, but the last element is v.size()-1 .</p>
+<p>A “range for loop” uses this halfopen sequence .
+ 
+std::vector<int> v = { 1,2,3,4,5 };
+v[2] = 5;
+for (int i : v) std::cout &lt;&lt; i &lt;&lt; “\n”;</p>
+<p>The loop runs the same number of times as the number of elements, the loop variable becomes that element each time.</p>
+</section>
+<section id="adding-to-a-vector">
+<h2>Adding to a Vector<a class="headerlink" href="#adding-to-a-vector" title="Link to this heading">#</a></h2>
+<p>A non-existent element cannot be accessed or assigned to in any type of vector or array.
+We can append an extra element at the end using the push_back() function.</p>
+<p>std::vector<int> v = { 1,2,3,4,5 };
+v.push_back(17);
+for (int i : v ) std::cout &lt;&lt; i &lt;&lt;“\n”;</p>
+<p>push_back(17) is another member function – it belongs to std::vector and must be called using the . notation – like methods for swift structures.</p>
+<p>C++ also has arrays like  C – but these need to have their size specified in advance – vector is more useful usually – going to cover those in a later week.</p>
+<hr class="docutils" />
+<p>TRY to read in a possibly large unknown number of data points…</p>
+<p>std::vector<double> growingVector;
+for (double tempVectorNextValue; std::cin &gt;&gt; tempVectorNextValue;)
+growingVector.push_back(tempVectorNextValue);
+ 
+The second term is the condition for the for loop – std::cin &gt;&gt; works if it is given the correct variable type by the user and therefore returns true , otherwise false and the for loop ends.
+Vector has many useful member functions. We can sort out list into ascending order – or otherwise.</p>
+<p>std::vector<double> growingVector;
+for (double tempVectorNextValue; std::cin &gt;&gt; tempVectorNextValue;)
+growingVector.push_back(tempVectorNextValue);
+std::sort(growingVector.begin(),growingVector.end());
+for (double i : growingVector) std::cout &lt;&lt; i &lt;&lt; “\n”;</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -525,12 +616,47 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="initialisation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Initialisation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="arrays.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Arrays in C++</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-with">Iteration with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversing-a-vector">Traversing a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-to-a-vector">Adding to a Vector</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
