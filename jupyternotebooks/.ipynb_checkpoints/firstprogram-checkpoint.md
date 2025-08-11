@@ -18,9 +18,6 @@ The first program that most people ever write prints "Hello, World!" the first p
 See the  [Wikipedia](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
 ```
 
-Type the following code into the empty code window below.
-
-Please type the code exactly as shown - the code will fail if you have any mistakes in the syntax. 
 
 ```{tip}
 :class: margin
@@ -38,6 +35,9 @@ int main() {
 	return 0;
 }
 ```
+Type the following code into the empty code window below.
+
+Please type the code exactly as shown - the code will fail if you have any mistakes in the syntax. 
 
 In {ref}`Code 1<codea1>` the highlighted statement is the code that the programmer actually wanted implemented - everything else is require for all C++ programmes just to work.
 
@@ -119,7 +119,7 @@ or something other
 3. To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
 ```{seealso}
 :class: dropdown
-More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/codingtheory1>`
+More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/the_cpp_language>`
 ```
 4. Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
@@ -130,7 +130,7 @@ The returned value is reported to whoever called the function, in the case of ma
 
 ```{seealso}
 :class: margin
-More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/codingtheory1>`
+More on the structure of the C++ {hoverxref}`testtext <cpplanguage>`language can be found {doc}`here <../jupyternotebooks/the_cpp_language>`
 ```
 
 

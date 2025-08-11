@@ -9,7 +9,7 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-
+(cpplanguage)=
 #  The C++ Language
 
 Start with ideas like syntax...
@@ -20,9 +20,12 @@ Start with ideas like syntax...
 All the `C++ language syntax is detailed here: [cppreference.com](https://en.cppreference.com/w/)
 ```{admonition} Note
 :class: note margin
-Computational A will be using `C++20`.
+Computational A will be using `C++20`  .
 ```
 This will only be useful after you have learned the basics – please ignore until then.
+
+
+
 
 ***
 

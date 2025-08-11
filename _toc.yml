@@ -24,20 +24,20 @@ parts:
         - file: jupyternotebooks/char_and_string
         - file: jupyternotebooks/variables_and_constants
         - file: jupyternotebooks/operations_and_operators
+        - file: jupyternotebooks/boolean_type
         - file: jupyternotebooks/initialisation
         - file: jupyternotebooks/vector
         - file: jupyternotebooks/arrays
         - file: jupyternotebooks/exercise3
     - file: jupyternotebooks/logical_selection
       sections:
-        - file: jupyternotebooks/selection_syntax
         - file: jupyternotebooks/if_statements
         - file: jupyternotebooks/switch_statements
         - file: jupyternotebooks/exercise4
     - file: jupyternotebooks/iteration
       sections:
         - file: jupyternotebooks/for_loops 
-        - file: jupyternotebooks/while_loop 
+        - file: jupyternotebooks/while_loops 
         - file: jupyternotebooks/exercise5  
     - file: jupyternotebooks/introduction_to_functions
       sections:

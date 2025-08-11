@@ -9,7 +9,7 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-
+(cpplanguage)=
 #  The C++ Language
 
 Start with ideas like syntax...
@@ -20,9 +20,12 @@ Start with ideas like syntax...
 All the `C++ language syntax is detailed here: [cppreference.com](https://en.cppreference.com/w/)
 ```{admonition} Note
 :class: note margin
-Computational A will be using `C++20`.
+Computational A will be using `C++20`  .
 ```
 This will only be useful after you have learned the basics – please ignore until then.
+
+
+
 
 ***
 
@@ -49,4 +52,10 @@ The source file must contain all type and all object declarations that are refer
 Note that it only requires complete declarations to succeed; definitions are handled at a later stage in the build process.
 Resource files are things like pictures, bitmaps, mp
 
+***
+C++ implementations are either “hosted” or “free-standing”.
+A hosted implementation includes all the standard-library facilities.
+Freestanding implementations are used when your code require the most minimal operating system support. Some implementations provide a non-standard option that does not use exceptions for really minimal, bare metal programming (directly implemented on hardware). 
+A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library. .
+#include <cstddef> <cfloat> <limits> <climits> <cstdint> <cstdlib> <new> <typeinfo> <exception <initializer_list> <cstdalign> <cstdarg> <cstdbool> <type_traits> <atomic>
 
