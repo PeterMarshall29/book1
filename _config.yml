@@ -75,7 +75,7 @@ launch_buttons:
 sphinx:
   extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
     - sphinx_exercise
-    - hoverxref.extension
+    #- hoverxref.extension - requires documents hosted on readthedocs
     - sphinx_inline_tabs
     - sphinx_proof
     - sphinx_tippy
@@ -86,10 +86,10 @@ sphinx:
     thebe_config:
       codemirror-theme:  cobalt
       mimetype: text/x-c++src
-      codemirror-mode: c++
-    hoverxref_role_types:  
-      hoverxref: tooltip
-      term: tooltip
+      codemirror-mode: clike
+    #hoverxref_role_types:  
+     # hoverxref: tooltip
+      #term: tooltip
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
    #   ebp:
