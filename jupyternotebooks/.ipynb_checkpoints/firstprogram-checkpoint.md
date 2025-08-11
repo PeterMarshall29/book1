@@ -170,13 +170,7 @@ int main()
 An "extra credit" exercise is presented here.
 ```
 
-```{admonition} {fa}`check` An extra exercise 2
-:class: extra-credit
-:icon: false
-An "extra credit" exercise is presented here.
-```
 
-```{admonition} Useful Info
-:icon: false
+```{admonition}  Useful_Link
 An "extra credit" exercise is presented here.
 ```
