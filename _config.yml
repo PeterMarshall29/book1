@@ -87,7 +87,7 @@ sphinx:
       mimetype: text/x-c++src
       codemirror-mode: c++
     hoverxref_role_types:  
-      hoverxref: modal
+      hoverxref: tooltip
       term: tooltip
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
