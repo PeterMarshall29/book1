@@ -79,14 +79,16 @@ sphinx:
     - sphinx_inline_tabs
     - sphinx_proof
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
-  recursive_update          : true # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
+  recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
     pygments_style: lightbulb
     thebe_config:
       codemirror-theme:  cobalt
       mimetype: text/x-c++src
       codemirror-mode: c++
-
+    hoverxref_role_types:  
+      hoverxref: modal
+      term: tooltip
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
    #   ebp:
