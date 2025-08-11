@@ -130,7 +130,7 @@ The returned value is reported to whoever called the function, in the case of ma
 
 ```{seealso}
 :class: margin
-More on the structure of the C++ {hoverxref}`testtext <cpplanguage>`language can be found {doc}`here <../jupyternotebooks/the_cpp_language>`
+More on the structure of the C++ [testtext](#cpplanguage) `language can be found {doc}`here <../jupyternotebooks/the_cpp_language>`
 ```
 
 
