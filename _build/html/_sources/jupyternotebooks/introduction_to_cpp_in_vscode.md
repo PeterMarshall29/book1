@@ -34,6 +34,16 @@ Select “c++ File(.CPP), give it a _sensible name_, and hit {kbd}`Add`.
 
 Keep a note of where it is being saved – you will need to upload this oneDrive later.
 
+Run the code by hitting the hollow green triangle at the top. If that works, then change to release and run again.
+Find the .exe in the file system now and make sure it works. Find the text document in the project folders that has the address of the executable. 
+Basic window terminal - Type help for a command list. Cd and dir are the important ones just now.
+cd source\\repos\\Project10\\x64\\Release
+Type project name.
+Open a shell – the type of shell determines what to do next.
+Then type .\ followed by the address, e.g. .\\source\repos\Project7\Project7\x64\Debug\Project7.exe. 
+Or just .\ followed by name if you have navigated there already.
+Open the terminal and go to the correct location.
+If you just click on application, it may flash up, but not stay open.
 
 
 
