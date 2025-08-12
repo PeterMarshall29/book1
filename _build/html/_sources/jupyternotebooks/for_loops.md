@@ -12,6 +12,8 @@ kernelspec:
 
 # `For` Loops
 
+Conditionally executes a statement repeatedly, where the statement does not need to manage the loop condition.
+
 The management of what controls the loop happens inside the argument to the for command.
 The syntax is 
 “for (loop variable definition and initialisation; condition to continue the loop; increment to loop variable instruction) { code to execute}”
