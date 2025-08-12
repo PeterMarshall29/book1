@@ -76,7 +76,6 @@ launch_buttons:
 sphinx:
   extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
     - sphinx_exercise
-    #- hoverxref.extension - requires documents hosted on readthedocs
     - sphinx_inline_tabs
     - sphinx_proof
     - sphinx_tippy
@@ -88,17 +87,14 @@ sphinx:
       codemirror-theme:  material-ocean
       mimetype: text/x-c++src
       codemirror-mode: clike
-tippy_config:
-  tippy_props:
-    placement: auto-start
-    maxWidth: 500
-    interactive: False
-    theme: light 
-    duration: [200, 100]
-    delay: [200, 500]
-    #hoverxref_role_types:  
-     # hoverxref: tooltip
-      #term: tooltip
+    tippy_props:
+      placement: auto-start
+      maxWidth: 500
+      interactive: False
+      theme: material 
+      duration: [200, 100]
+      delay: [200, 500]
+    
     
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
