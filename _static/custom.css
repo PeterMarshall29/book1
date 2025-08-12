@@ -19,3 +19,6 @@ div.admonition-Useful-Link .admonition-title:before {
     color: rgba(0, 246, 16, 1);
     content: '\f19d';
 }
+
+@import 'tippy.js/themes/light.css';
+@import 'tippy.js/themes/light-border.css';
