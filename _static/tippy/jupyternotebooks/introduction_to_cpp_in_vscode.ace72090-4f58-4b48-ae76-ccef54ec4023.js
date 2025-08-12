@@ -1,0 +1,22 @@
+selector_to_html = {"a[href=\"#source-and-header-files\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Source and Header Files<a class=\"headerlink\" href=\"#source-and-header-files\" title=\"Link to this heading\">#</a></h2><p>Header files with a .h, .hpp or .hxx extension,  are sources files that containing entity declarations and/or definitions that need to be visible to multiple\u00a0translation units\u00a0(see below).\nEach file with the extension .c, .cpp or .cxx defines a\u00a0translation unit.\nThe C and C++ compilers only compile a single file at a time.\nSource files may include header files, which are substituted in place for the #include statement and other directives by the preprocessor, resulting in a single \u201cfile\u201d which is then fed to the compiler.\nThe source file must contain all type and all object declarations that are referenced, which is the meaning of the undeclared reference compiler error.\nNote that it only requires complete\u00a0declarations\u00a0to succeed; definitions are handled at a later stage in the build process.</p>", "a[href=\"#my-fig-ref\"]": "<figure class=\"align-default\" id=\"my-fig-ref\">\n<img alt=\"../_images/image1.png\" src=\"../_images/image1.png\"/>\n<figcaption>\n<p><span class=\"caption-number\">Fig. 1 </span><span class=\"caption-text\">My figure title.</span><a class=\"headerlink\" href=\"#my-fig-ref\" title=\"Link to this image\">#</a></p>\n</figcaption>\n</figure>", "a[href=\"#my-fig-ref2\"]": "<figure class=\"align-default\" id=\"my-fig-ref2\">\n<img alt=\"../_images/image2.png\" src=\"../_images/image2.png\"/>\n<figcaption>\n<p><span class=\"caption-number\">Fig. 2 </span><span class=\"caption-text\">My figure title.</span><a class=\"headerlink\" href=\"#my-fig-ref2\" title=\"Link to this image\">#</a></p>\n</figcaption>\n</figure>", "a[href=\"#creating-your-first-project-in-visual-studio\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Creating your first project in Visual Studio.<a class=\"headerlink\" href=\"#creating-your-first-project-in-visual-studio\" title=\"Link to this heading\">#</a></h2><p>Select Create a new project.</p><p>Under All Languages, choose c++.</p>", "a[href=\"#resource-files\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Resource Files<a class=\"headerlink\" href=\"#resource-files\" title=\"Link to this heading\">#</a></h2><p>Resource files are things like pictures, bitmaps, mp.\nResource files are platform specific.\nIn the case of Microsoft Windows and Microsoft Visual Studio, they define non-code resources such as cursors, icons, bitmap images, string tables and so forth that can be included in the output binary executable.\nA\u00a0resource script, extension .rc, declares the type, name and location (filename) of the resources to include.\nAn optional\u00a0resource header\u00a0provides a mnemonic mapping of the resource name to numeric identifiers for use within your program header and source files. The\u00a0resource compiler, RC.exe, is run to build a resource file from resource script and physical resources (bitmap files, icon files, etc). This resource file has the extension .res.</p>", "a[href=\"#c-in-visual-studio\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">C++ in Visual Studio<a class=\"headerlink\" href=\"#c-in-visual-studio\" title=\"Link to this heading\">#</a></h1><h2>Creating your first project in Visual Studio.<a class=\"headerlink\" href=\"#creating-your-first-project-in-visual-studio\" title=\"Link to this heading\">#</a></h2><p>Select Create a new project.</p><p>Under All Languages, choose c++.</p>"}
+skip_classes = ["headerlink", "sd-stretched-link"]
+
+window.onload = function () {
+    for (const [select, tip_html] of Object.entries(selector_to_html)) {
+        const links = document.querySelectorAll(` ${select}`);
+        for (const link of links) {
+            if (skip_classes.some(c => link.classList.contains(c))) {
+                continue;
+            }
+
+            tippy(link, {
+                content: tip_html,
+                allowHTML: true,
+                arrow: true,
+                placement: 'auto-start', maxWidth: 500, interactive: false,
+
+            });
+        };
+    };
+    console.log("tippy tips loaded!");
+};
