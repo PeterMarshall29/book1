@@ -20,7 +20,7 @@
     }
 
     .card-inner:hover {
-      box-shadow: 0 8px 16px #004754;
+      box-shadow: 0 8px 16px #C71585;
     }
 
     .card-inner.flipped {
@@ -39,7 +39,7 @@
       transition: background-color 0.3s ease-in-out;
     }
     .card-front {
-      background-color: #004754;
+      background-color: #B284BE;
       color: white;
       font-size: 16px;
       padding: 10px;
@@ -47,7 +47,7 @@
     }
 
     .card-front:hover {
-      background-color: #bebd00;
+      background-color: #C71585;
     }
 
     .card-back {
