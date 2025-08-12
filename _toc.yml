@@ -14,6 +14,7 @@ parts:
     - file: jupyternotebooks/firstprogram
       sections:
         - file: jupyternotebooks/exercise1
+        - file: jupyternotebooks/quiz1
     - file: jupyternotebooks/input_and_output
       sections:
         - file: jupyternotebooks/printing_to_file
