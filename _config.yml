@@ -84,18 +84,18 @@ sphinx:
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
     pygments_style: lightbulb
-  tippy_config:
-    tippy_props:
-      placement: auto-start
-      maxWidth: 500
-      interactive: False
-      theme: light 
-      duration: [200, 100]
-      delay: [200, 500]
     thebe_config:
       codemirror-theme:  material-ocean
       mimetype: text/x-c++src
       codemirror-mode: clike
+tippy_config:
+  tippy_props:
+    placement: auto-start
+    maxWidth: 500
+    interactive: False
+    theme: light 
+    duration: [200, 100]
+    delay: [200, 500]
     #hoverxref_role_types:  
      # hoverxref: tooltip
       #term: tooltip
