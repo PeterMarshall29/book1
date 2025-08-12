@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "question": "What is 2 + 2?",
+      "options": ["3", "4", "5", "6"],
+      "correct": "4"
+    },
+    {
+      "id": 2,
+      "question": "What is the capital of France?",
+      "options": ["Paris", "London", "Berlin", "Rome"],
+      "correct": "Paris"
+    },
+    {
+      "id": 3,
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Earth", "Mars", "Jupiter", "Venus"],
+      "correct": "Mars"
+    },
+    {
+      "id": 4,
+      "question": "What is 5 * 6?",
+      "options": ["30", "35", "25", "40"],
+      "correct": "30"
+    },
+    {
+      "id": 5,
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "options": ["Shakespeare", "Dickens", "Austen", "Hemingway"],
+      "correct": "Shakespeare"
+    },
+    {
+      "id": 6,
+      "question": "What is the boiling point of water?",
+      "options": ["90°C", "100°C", "110°C", "120°C"],
+      "correct": "100°C"
+    },
+    {
+      "id": 7,
+      "question": "What is the largest ocean?",
+      "options": ["Atlantic", "Pacific", "Indian", "Arctic"],
+      "correct": "Pacific"
+    },
+    {
+      "id": 8,
+      "question": "What is the square root of 81?",
+      "options": ["7", "8", "9", "10"],
+      "correct": "9"
+    },
+    {
+      "id": 9,
+      "question": "Which country is known as the Land of the Rising Sun?",
+      "options": ["China", "Japan", "India", "Thailand"],
+      "correct": "Japan"
+    },
+    {
+      "id": 10,
+      "question": "Who painted the Mona Lisa?",
+      "options": ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Claude Monet"],
+      "correct": "Leonardo da Vinci"
+    },
+    {
+      "id": 11,
+      "question": "What is the hardest natural substance on Earth?",
+      "options": ["Gold", "Iron", "Diamond", "Platinum"],
+      "correct": "Diamond"
+    },
+    {
+      "id": 12,
+      "question": "What is the main ingredient in guacamole?",
+      "options": ["Tomato", "Avocado", "Cucumber", "Onion"],
+      "correct": "Avocado"
+    }
+  ]
+  

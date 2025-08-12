@@ -1,0 +1,24 @@
+div.extra-credit {
+    border-left-color: rgba(var(--pst-color-success), 1);
+}
+div.extra-credit .admonition-title {
+    background-color: rgba(var(--pst-color-success), .1)
+}
+div.extra-credit .admonition-title:before {
+    color: rgba(var(--pst-color-success), 1);
+    content: '\f8ef';
+}
+
+div.admonition-Useful-Link {
+    border-left-color: rgba(0, 246, 16, 1);
+}
+div.admonition-Useful-Link .admonition-title {
+    background-color: rgba(0, 246, 16, .1);
+}
+div.admonition-Useful-Link .admonition-title:before {
+    color: rgba(0, 246, 16, 1);
+    content: '\f19d';
+}
+
+@import 'tippy.js/themes/light.css';
+@import 'tippy.js/themes/light-border.css';

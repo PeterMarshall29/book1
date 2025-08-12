@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Initialisation &#8212; Introduction to C++ Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=f98d607c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a041fa35" />
+    <link rel="stylesheet" type="text/css" href="../_static/quiz.css?v=508b8a9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/quiz-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=3854d2bf"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
+    <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.9a641eaf-030d-49c9-a13e-29b1572b1c56.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/initialisation';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vectors" href="vector.html" />
+    <link rel="prev" title="Boolean Data Type" href="boolean_type.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo2big.png" class="logo__image only-light" alt="Introduction to C++ Programming - Home"/>
+    <script>document.write(`<img src="../_static/logo2big.png" class="logo__image only-dark" alt="Introduction to C++ Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introducton to the C++ Programming Language
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_programming.html">Introduction to Computer Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="data_types.html">C++ Data Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="numeric_data_types.html">Numeric Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables_and_constants.html">User defined names</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="logical_selection.html">Logical Selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="iteration.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html"><code class="docutils literal notranslate"><span class="pre">For</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise7.html">Exercise 7</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_cpp_in_vscode.html">C++ in Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header_files.html">Header Files</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/petermarshall29/book1/master?urlpath=lab/tree/jupyternotebooks/initialisation.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1/issues/new?title=Issue%20on%20page%20%2Fjupyternotebooks/initialisation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/initialisation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/initialisation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Initialisation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto">Auto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser">Empty initialiser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-inialiser">missing inialiser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialiser-lists">Initialiser Lists</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="initialisation">
+<h1>Initialisation<a class="headerlink" href="#initialisation" title="Link to this heading">#</a></h1>
+<p>Always initialise your variables – prevents accidental use before definition.</p>
+<p>Only exception are strings and vectors; which by default have empty conditions initialised, “” for strings, v.capacity() = 0 for vector.</p>
+<p>This is done by a ‘default constructor’.</p>
+<p>Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value…</p>
+<p>Examples of Declarations – some do not work in current location – others need set up to proceed them.</p>
+<section id="initialisers">
+<h2>Initialisers<a class="headerlink" href="#initialisers" title="Link to this heading">#</a></h2>
+<p>If an initializer is specified for an object, that initializer determines the initial value of an object.
+An initializer can use one of four syntactic styles:
+X a1 {v};
+X a2 = {v};
+X a3 = v;
+X a4(v);
+Of these, only the first can be used in every context
+Anything more complicated than initialising a simple variable is is better done using {}. Initialization using {} is called “list initialization” and does not allow narrowing. That is:</p>
+<ul class="simple">
+<li><p>An integer cannot be converted to another integer that cannot hold its value. For example, char to int is allowed, but not int to char.</p></li>
+<li><p>A floating-point value cannot be converted to another floating-point type that cannot hold its value. For example, float to double is allowed, but not double to float.</p></li>
+<li><p>A floating-point value cannot be converted to an integer type.</p></li>
+<li><p>An integer value cannot
+The = form is traditional and dates back to C, but if in doubt, use the general {}-list form (§6.3.5.2).
+If nothing else, it saves you from conversions that lose information (narrowing conversions; §10.5): be converted to a floating-point type.</p></li>
+</ul>
+<p>If an initializer is specified for an object, that initializer determines the initial value of an object.
+An initializer can use one of four syntactic styles:</p>
+<p>char a1{ ‘p’};
+int a2 = { 2 };
+std::string a3 = “Hello”;
+double a4(2.0);
+Of these, only the first can be used in every context.
+Narrowing Conversion: The = form is traditional and dates back to C, but if in doubt, use the general { } list form . If nothing else, it saves you from conversions that lose information (narrowing conversions).</p>
+</section>
+<section id="auto">
+<h2>Auto<a class="headerlink" href="#auto" title="Link to this heading">#</a></h2>
+<p>When defining a variable, you don’t actually need to state its type explicitly when it can be deduced from the initializer:
+auto b = true; // a bool
+auto ch = ‘x’; // a char
+auto i = 123; // an int
+auto d = 1.2; // a double
+auto z = sqrt(y); // z has the type of whatever sqrt(y) returns</p>
+<p>Warning Be careful – best to always specify type and initialise immediately!</p>
+<p>With auto, we use the = syntax because there is no type conversion involved that might cause problems.
+We use auto where we don’t hav e a specific reason to mention the type explicitly. ‘‘Specific reasons’’ include:</p>
+<ul class="simple">
+<li><p>The definition is in a large scope where we want to make the type clearly visible to readers of our code.</p></li>
+<li><p>We want to be explicit about a variable’s range or precision (e.g., double rather than float).
+Using auto, we avoid redundancy and writing long type names. This is especially important in generic programming where the exact type of an object can be hard for the programmer to know and the type names can be quite long (§4.5.1).
+There is no advantage to using {} initialization, and one trap, when using auto to get the type determined by the initializer. The trap is that if the initializer is a {}-list, we may not want its type deduced (§6.3.6.2). For example:
+So prefer = when using auto.
+auto z1{ 99 }; // z1 is an initializer_list<int> //Student’s to find out what it is.</p></li>
+</ul>
+<p>auto z2 = 99; // z2 is an int</p>
+</section>
+<section id="empty-initialiser">
+<h2>Empty initialiser<a class="headerlink" href="#empty-initialiser" title="Link to this heading">#</a></h2>
+<p>Empty Initialiser List {} is used to indicate that a default value is desired. For example:
+int x4{}; // x4 becomes 0
+double d4{}; // d4 becomes 0.0
+char* p{}; //p becomes nullptr
+std::vector<int> v4{}; // v4 becomes the empty vector
+std::string s4{}; // s4 becomes “”
+Most types have a default value. For integral types, the default value is a suitable representation of
+zero. For pointers, the default value is nullptr .
+For user-defined types, the default value (if any) is determined by the type’s constructors.
+For user-defined types, there can be a distinction between direct initialization (where implicit conversions are allowed) and copy initialization (where they are not).</p>
+</section>
+<section id="missing-inialiser">
+<h2>missing inialiser<a class="headerlink" href="#missing-inialiser" title="Link to this heading">#</a></h2>
+<p>If no initializer is specified, a global (§6.3.4), namespace (§14.3.1), local static (§12.1.8), or static member (§16.2.12) (collectively called static objects) is initialized to {} of the appropriate type. For example:
+int a; // means ‘‘int a{};’’ so that a becomes 0
+double d; // means ‘‘double d{};’’ so that d becomes 0.0</p>
+<p>Local variables and objects created on the free store (sometimes called dynamic objects or heap objects; §11.2) are not initialized by unless they are of user-defined types with a default constructor (§17.3.3). For example:
+int x; // x does not have a well-defined value
+char buf[1024]; // buf[i] does not have a well-defined value
+int* p{ new int }; //<em>p does not have a well-defined value
+char</em> q{ new char[1024] }; // q[i] does not have a well-defined value
+std::string s; // s==“” because of string’s default constructor
+std::vector<char> v; // v=={} because of vector’s default constructor
+std::string* ps{ new std::string }; // *ps is “” because of string’s default constructor
+If you want initialization of local variables of built-in type or objects of built-in type created with new, use {}.</p>
+</section>
+<section id="initialiser-lists">
+<h2>Initialiser Lists<a class="headerlink" href="#initialiser-lists" title="Link to this heading">#</a></h2>
+<p>More complicated
+objects can require more than one value as an initializer. This is primarily handled by initializer
+Lists delimited by { and }. For example:
+int a[] = { 1, 2 }; // array initializer
+struct S { int x; std::string s; };
+S s = { 1, “Helios” }; // struct initializer
+std::complex<double> z = { 0, pi }; // use constructor
+std::vector<double> v = { 0.0, 1.1, 2.2, 3.3 }; // use list constructor</p>
+<p>In some cases, function-style argument lists can also be used (§2.3, §16.2.5). For example:
+std::complex<double> z(0, std::numbers::pi); // use constructor
+std::vector<double> v(10, 3.3); // use constructor : v gets 10 elements initialized to 3.3st constructor</p>
+<p>To access pi – you need to include numbers and GOTO properties, c++language standard, select version 20++.
+ In a declaration, an empty pair of parentheses, (), always means ‘‘function’’ (§12.1). So, if you
+want to be explicit about ‘‘use default initialization’’ you need {}. For example:
+std::complex<double> z1(1, 2); // function-style initializer (initialization by constructor)
+std::complex<double> f1(); // function declaration
+std::complex<double> z2{ 1,2 }; // initialization by constructor to {1,2}
+std::complex<double> f2{}; // initialization by constructor to the default value {0,0}
+Note that initialization using the {} notation does not narrow (§6.3.5). When using auto, a {}-list has its type deduced to std::initializer_list<T>. For example:
+ auto x1{ 1,2,3,4 }; // x1 is an initializer_list<int>
+auto x2{ 1.0, 2.25, 3.5 }; // x2 is an initializer_list of<double>
+auto x3{ 1.0,2 }; // error : cannot deduce the type of {1.0,2} (§6.3.6.2)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "petermarshall29/book1",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "material-ocean",
+            mode: "clike"
+        },
+        kernelOptions: {
+            name: "cpp20",
+            path: "./jupyternotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cpp20'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="boolean_type.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Boolean Data Type</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vector.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vectors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto">Auto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser">Empty initialiser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-inialiser">missing inialiser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialiser-lists">Initialiser Lists</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Loughborough Physics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pointers &#8212; Introduction to C++ Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=f98d607c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a041fa35" />
+    <link rel="stylesheet" type="text/css" href="../_static/quiz.css?v=508b8a9e" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/quiz-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=3854d2bf"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
+    <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.63fa66a6-bbf6-48aa-a705-becee60b1dde.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_pointers';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercise 7" href="exercise7.html" />
+    <link rel="prev" title="Exercise 6" href="exercise6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo2big.png" class="logo__image only-light" alt="Introduction to C++ Programming - Home"/>
+    <script>document.write(`<img src="../_static/logo2big.png" class="logo__image only-dark" alt="Introduction to C++ Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introducton to the C++ Programming Language
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_programming.html">Introduction to Computer Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="data_types.html">C++ Data Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="numeric_data_types.html">Numeric Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables_and_constants.html">User defined names</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="logical_selection.html">Logical Selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="iteration.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html"><code class="docutils literal notranslate"><span class="pre">For</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Pointers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise7.html">Exercise 7</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_cpp_in_vscode.html">C++ in Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header_files.html">Header Files</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/petermarshall29/book1/master?urlpath=lab/tree/jupyternotebooks/introduction_to_pointers.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1/issues/new?title=Issue%20on%20page%20%2Fjupyternotebooks/introduction_to_pointers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/introduction_to_pointers.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/introduction_to_pointers.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pointers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-references">Pointers and References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-arrays">Pointer Arithmetic and Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-expressions-and-arithmetic">Pointer Expressions and Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void">Void</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullptr"><code class="docutils literal notranslate"><span class="pre">nullptr</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-booleans">Pointers and Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-into-arrays">Pointers into Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-to-functions">Pointers to Functions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pointers">
+<h1>Pointers<a class="headerlink" href="#pointers" title="Link to this heading">#</a></h1>
+<p>A pointer should always point at an object, so that dereferencing it is valid. When we don’t have an object to point to or if we need to represent the notion of ‘‘no object available’’ (e.g., for an end of a list), we give the pointer the value nullptr (‘‘the null pointer’’). There is only one nullptr shared by all pointer types:
+ 
+Nullptr is of type pointer.
+ 
+A reference is similar to a pointer.</p>
+<p>But instead, we put the suffix &amp; after the type in the declaration, and do not need the * to access the value.
+References cannot be redirected, they only refer to one object.</p>
+<section id="pointers-and-references">
+<h2>Pointers and References<a class="headerlink" href="#pointers-and-references" title="Link to this heading">#</a></h2>
+<p>A suffix * after a type in a declaration/definition indicates you are creating a pointer to a Name of that type.
+The prefix * before a pointer Name means “contents of” – gets the value associated with the pointer
+The prefix &amp; before a Name means “address of” – gets the address for assignment to a pointer.
+When used in declarations <em>,&amp;, and [] are “declarator operators”.
+The pointer contains only the address, so &amp;Name is that address.
+TRY - Run this code more than once.
+int main() {
+std::vector<double> myVector = { 5.9,8,1.1,2.3,4.5,5.6 };
+ 
+double</em> myPointerToV;
+ 
+myPointerToV = &amp;myVector[3];
+double temp = *myPointerToV;
+ 
+std::cout &lt;&lt; myPointerToV &lt;&lt; “\n”;
+std::cout &lt;&lt; temp &lt;&lt; “\n”;</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return 0;
+</pre></div>
+</div>
+<p>}</p>
+<hr class="docutils" />
+<p>For a type T, T* is the type ‘‘pointer to T.’’ That is, a variable of type T* can hold the address of an object of type T. For example:
+char c = ‘a’; char* p = &amp;c;
+// p holds the address of c; &amp; is the address-of operator or graphically:</p>
+<p>The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer. This operation is also called indirection. The dereferencing operator is (prefix) unary <em>. For example:
+char c = ‘a’;
+char</em> p = &amp;c; // p holds the address of c; &amp; is the address-of operator
+char c2 = *p; // c2 == ’a’; * is the dereference operator
+The object pointed to by p is c, and the value stored in c is ‘a’, so the value of *p assigned to c2 is ‘a’.</p>
+<hr class="docutils" />
+<p>The <em>, meaning ‘‘pointer to,’’ is used as a suffix for a type name. Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
+int</em> pi;      // pointer to int
+char** ppc;    // pointer to pointer to char
+int* ap[15];    // array of 15 pointers to ints
+int (<em>fp)(char</em>);  // pointer to function taking a char* argument; returns an int
+int* f(char*);    // function taking a char* argument; returns a pointer to int
+ 
+Note that == compares addresses (pointer values) when applied to pointers, and not the values pointed to.</p>
+<p>The <em>, meaning ‘‘pointer to,’’ is used as a suffix for a type name. Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
+The location of * is not important, but cannot be used to create multiple pointers – Try this and see where the errors…
+int</em> test = y;
+int <em>test1 = y;
+int * test2 = y;
+int</em> test3, test4;
+test3 = y;
+test4 = y;
+int *test5, test6;
+test5 = y;
+test6 = y;
+int * test7, test8;
+test7 = y;
+test8 = y;</p>
+</section>
+<section id="pointer-arithmetic-and-arrays">
+<h2>Pointer Arithmetic and Arrays<a class="headerlink" href="#pointer-arithmetic-and-arrays" title="Link to this heading">#</a></h2>
+<p>The name of an array is actually a pointer to the ﬁrst element in the array. Writing myArray[3] tells the compiler to return the element that is 3 away from the starting el­ement of myArray. This explains why arrays are always passed by reference: passing an array is really passing a pointer.
+This also explains why array indices start at 0: the ﬁrst element of an array is the element that is 0 away from the start of the array
+Pointer arithmetic
+pointer arithmetic is a way of using subtraction and addition of pointers to move around between locations in memory, typically between array elements. Adding an integer n to a pointer produces a new pointer pointing to n positions further down in memory.
+Take the following code snippet:</p>
+<p>long arr[] = {6,0,9,8};
+long* ptr = arr;
+std::cout &lt;&lt; ptr &lt;&lt; ‘\n’;
+std::cout &lt;&lt; <em>ptr &lt;&lt; ‘\n’;
+ptr++;
+long</em> ptr2 = arr + 3;
+std::cout &lt;&lt; ptr &lt;&lt; ‘\n’;
+std::cout &lt;&lt; *ptr &lt;&lt; ‘\n’;
+std::cout &lt;&lt; ptr2 &lt;&lt; ‘\n’;
+std::cout &lt;&lt; *ptr2 &lt;&lt; ‘\n’;</p>
+</section>
+<section id="pointer-expressions-and-arithmetic">
+<h2>Pointer Expressions and Arithmetic<a class="headerlink" href="#pointer-expressions-and-arithmetic" title="Link to this heading">#</a></h2>
+<p>A limited set of arithmetic operations can be performed on pointers which are:</p>
+<p>incremented ( ++ )
+decremented ( — )
+an integer may be added to a pointer ( + or += )
+an integer may be subtracted from a pointer ( – or -= )
+difference between two pointers (p1-p2)</p>
+<p>(Note: Pointer arithmetic is meaningless unless performed on an array.)</p>
+<p>include <iostream>       // standard IO
+int main() {
+double a = 10.0;
+double&amp; b = a;  // an alias
+std::cout &lt;&lt; “a = “ &lt;&lt; a &lt;&lt; std::endl;
+std::cout &lt;&lt; “b = “ &lt;&lt; b &lt;&lt; std::endl &lt;&lt; std::endl;
+double* pA = &amp;a;
+double* pB = &amp;b;
+b = 6.0;
+std::cout &lt;&lt; “*pA = “ &lt;&lt; *pA &lt;&lt; std::endl;
+std::cout &lt;&lt; “*pB = “ &lt;&lt; *pB &lt;&lt; std::endl;
+return 1;
+}</p>
+<p>Notice that changing the alias changes the original</p>
+</section>
+<section id="void">
+<h2>Void<a class="headerlink" href="#void" title="Link to this heading">#</a></h2>
+<p>In low-level code, we occasionally need to store or pass along an address of a memory location without actually knowing what type of object is stored there. A void∗ is used for that. You can read void∗ as ‘‘pointer to an object of unknown type.’’
+Functions using void* pointers typically exist at the very lowest level of the system, where real hardware resources are manipulated. For example:
+void* my_alloc(size_t n);   // allocate n bytes from my special heap
+Occurrences of void<em>s at higher levels of the system should be viewed with great suspicion because they are likely indicators of design errors. Where used for optimization, void</em> can be hidden behind a type-safe interface.
+Pointers to functions and pointers to members cannot be assigned to void* .</p>
+</section>
+<section id="nullptr">
+<h2><code class="docutils literal notranslate"><span class="pre">nullptr</span></code><a class="headerlink" href="#nullptr" title="Link to this heading">#</a></h2>
+<p>The literal nullptr represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types:
+int* pi = nullptr;  double* pd = nullptr;     int i = nullptr;      // error: i is not a pointer
+int* p = NULL; // using the macro NULL
+There is just one nullptr, which can be used for every pointer type, rather than a null pointer for each pointer type.
+Before nullptr was introduced, zero (0) was used as a notation for the null pointer. For example:
+int* x= 0; // x gets the value nullptr
+No object is allocated with the address 0, and 0 (the all-zeros bit pattern) is the most common repre- sentation of nullptr. Zero (0) is an int. However, the standard conversions allow 0 to be used as a constant of pointer or pointer-to-member type.
+It has been popular to define a macro NULL to represent the null pointer. For example:
+However, there are differences in the definition of NULL in different implementations; for example,
+NULL might be 0 or 0L. In C, NULL is typically (void*)0, which makes it illegal in C++:
+int* p = NULL; // error: can’t assign a void* to an int*
+Using nullptr makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.</p>
+</section>
+<section id="pointers-and-booleans">
+<h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Link to this heading">#</a></h2>
+<p>A pointer can be implicitly converted to a bool. A non-null pointer converts to true; pointers with the value nullptr convert to false. void myFunction(int* myPointer)
+{
+bool myBoolean1 = myPointer;       // narrows to true or false - not a copy!
+std::cout &lt;&lt; myBoolean1 &lt;&lt; ‘\n’;
+bool myBoolean2{ myPointer != nullptr };  // explicit test against nullptr
+std::cout &lt;&lt; myBoolean1 &lt;&lt; ‘\n’;
+if (myPointer) {
+// identical to p!=nullptr
+std::cout &lt;&lt; “not pointing to Null” &lt;&lt; ‘\n’;
+}
+}
+int main() {
+int temp = 17;
+int* myPointerToTemp = nullptr; // or set to temp
+myFunction(myPointerToTemp);
+ 
+return 0;
+}
+I prefer if (p) over if (p!=nullptr) because it more directly expresses the notion ‘‘if p is valid’’ and also because it is shorter. The shorter form leaves fewer opportunities for mistakes.</p>
+</section>
+<section id="pointers-into-arrays">
+<h2>Pointers into Arrays<a class="headerlink" href="#pointers-into-arrays" title="Link to this heading">#</a></h2>
+<p>In C++, pointers and arrays are closely related. The name of an array can be used as a pointer to its initial element. For example:
+int v[] = { 1, 2, 3, 4 };
+int* p1 = v; // pointer to initial element (implicit conversion)
+int* p2 = &amp;v[0]; // pointer to initial element
+int* p3 = v + 4; // pointer to one-beyond-last element
+int* p4 = v + 2; // pointer to other elements
+std::cout &lt;&lt; v &lt;&lt; ‘\n’;
+std::cout &lt;&lt; p1 &lt;&lt; ‘\n’;
+std::cout &lt;&lt; *p1 &lt;&lt; ‘\n’;
+std::cout &lt;&lt; p3 &lt;&lt; ‘\n’;
+std::cout &lt;&lt; <em>p3 &lt;&lt; ‘\n’;
+std::cout &lt;&lt; p4 &lt;&lt; ‘\n’;
+std::cout &lt;&lt; <em>p4 &lt;&lt; ‘\n’;
+Taking a pointer to the element one beyond the end of an array is guaranteed to work. This is important for many algorithms However, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided. For example:
+int</em> p4 = v−1; // before the beginning, undefined: don’t do it
+int</em> p5 = v + 7; // beyond the end, undefined: don’t do it</p>
+<p>The implicit conversion of an array name to a pointer to the initial element of the array is extensively used in function calls in C-style code. For example:
+// extern “C” int strlen(const char*);   // from &lt;string.h&gt;
+void f() {
+char v[] = “Annemarie”;
+char* p = v;  // implicit conversion of char[] to char*
+std::cout &lt;&lt;strlen(p) &lt;&lt; ‘\n’;
+std::cout &lt;&lt; strlen(v) &lt;&lt; ‘\n’;   // implicit conversion of char[] to char*
+//v = p;     // error: cannot assign to array }
+int main() { f(); }
+The same value is passed to the standard-library function strlen() in both calls. The snag is that it is impossible to avoid the implicit conversion. In other words, there is no way of declaring a function so that the array v is copied when the function is called. Fortunately, there is no implicit or explicit conversion from a pointer to an array.
+The implicit conversion of the array argument to a pointer means that the size of the array is lost to the called function. However, the called function must somehow determine the size to perform a meaningful operation. Like other C standard-library functions taking pointers to characters, strlen() relies on zero to indicate end-of-string; strlen(p) returns the number of characters up to and not including the terminating 0. This is all pretty low-level. The standard-library vector, array, and string don’t suffer from this problem. These library types give their number of elements as their size() without having to count elements each time.</p>
+</section>
+<section id="pointers-to-functions">
+<h2>Pointers to Functions<a class="headerlink" href="#pointers-to-functions" title="Link to this heading">#</a></h2>
+<p>Like a (data) object, the code generated for a function body is placed in memory somewhere  and therefore has a unique address associated with it and therefore we can also define a pointer to a function in a similar manner to a pointer to an object.  There are some differences however
+A pointer to function does not allow the code to be modified.
+The pointer obtained by taking the address of a function can be used to call the function.
+void error(std::string s) { std::cout &lt;&lt; s; }
+void (*efct)(std::string); // pointer to
+function taking a string argument and returning nothing
+void f();
+void f()
+{
+efct = &amp;error; // efct points to error
+efct(“error”); // call error through efct
+}
+void error(std::string s) {
+std::cout &lt;&lt; s;
+}
+void (*ptrToError)(std::string);</p>
+<p>void main() {
+ptrToError = &amp;error;
+ptrToError(“Warning!”);</p>
+<p>The compiler will discover that efct is a pointer and call the function pointed to. That is, dereferencing a pointer to function using ∗ is optional. Similarly, using &amp; to get the address of a function is optional:
+void error(std::string s) { std::cout &lt;&lt; s; }
+void (*f1)(std::string) = &amp;error; // OK: same as = error
+void (*f2)(std::string) = error; // OK: same as = &amp;error
+void g()
+{
+f1(“Nasa”); //OK: same as (*f1)(“Nasa”)
+(*f1)(“Apollo”); // OK: as f1(“Apollo”)
+}</p>
+<p>Pointers to functions have argument types declared just like the functions themselves. In pointer assignments, the complete function type must match exactly. For example: void (<em>pf) (std::string); // pointer to void(std::string)
+void f1 (std::string); // void(string)
+int f2 (std::string); // int(string)
+void f3 (int∗); //void(int</em>)
+void f()
+{
+pf = &amp;f1; // OK
+pf = &amp;f2; // error : bad return type
+pf = &amp;f3; // error : bad argument type
+pf(“Hera”); // OK
+pf(1); //error : bad argument type
+int i = pf(“Zeus”); // error : void assigned to int
+}</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "petermarshall29/book1",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "material-ocean",
+            mode: "clike"
+        },
+        kernelOptions: {
+            name: "cpp20",
+            path: "./jupyternotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cpp20'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="exercise6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercise 6</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercise7.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise 7</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-references">Pointers and References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-arrays">Pointer Arithmetic and Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-expressions-and-arithmetic">Pointer Expressions and Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void">Void</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullptr"><code class="docutils literal notranslate"><span class="pre">nullptr</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-booleans">Pointers and Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-into-arrays">Pointers into Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-to-functions">Pointers to Functions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Loughborough Physics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
