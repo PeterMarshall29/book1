@@ -90,13 +90,13 @@ sphinx:
     #hoverxref_role_types:  
      # hoverxref: tooltip
       #term: tooltip
-    tippy_props:
-      placement: auto-start
-      maxWidth: 500
-      interactive: False
-      theme: light 
-      duration: [200, 100]
-      delay: [200, 500]
+tippy_props:
+  placement: auto-start
+  maxWidth: 500
+  interactive: False
+  theme: light 
+  duration: [200, 100]
+  delay: [200, 500]
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
    #   ebp:
