@@ -84,12 +84,19 @@ sphinx:
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
     pygments_style: lightbulb
     thebe_config:
-      codemirror-theme:  cobalt
+      codemirror-theme:  material-ocean
       mimetype: text/x-c++src
       codemirror-mode: clike
     #hoverxref_role_types:  
      # hoverxref: tooltip
       #term: tooltip
+    tippy_props:
+      placement: auto-start
+      maxWidth: 500
+      interactive: False
+      theme: light 
+      duration: [200, 100]
+      delay: [200, 500]
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
    #   ebp:
