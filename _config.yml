@@ -41,7 +41,7 @@ parse:
     - attrs_block
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
   myst_dmath_double_inline: true  # Allow display math ($$) within an inline context
-  myst_highlight_code_blocks: true # last added
+  #myst_highlight_code_blocks: true  - seems to already be included
 
 # Define the name of the latex output file for PDF builds
 latex:
