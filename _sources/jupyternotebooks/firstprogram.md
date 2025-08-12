@@ -16,7 +16,7 @@ The first program that most people ever write prints "Hello, World!" the first p
 
 ```{Admonition} History of the Hello World Program
 :class: seealso margin
-See the  [Wikipedia](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
+See the [Wikipedia](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
 ```
 
 
@@ -105,9 +105,7 @@ Try making the following changes to the above code - note what happens.
 5. Remove the return line.
 6. Add some whitespace (spaces) to the code.
 
-Add or remove spaces anywhere in your code and run the code again. \
-Or try somthing else\
-or something other
+
 
 ````{solution} exercisea1 
 :class: hint dropdown
@@ -131,7 +129,7 @@ The returned value is reported to whoever called the function, in the case of ma
 
 ```{seealso}
 :class: margin
-More on the structure of the [C++ language](#the_cpp_language) , [C++ language](#cpplanguage) ,  {doc}`here <../jupyternotebooks/the_cpp_language>`
+More information about the structure of the [C++ language](#the_cpp_language).
 ```
 
 
@@ -141,7 +139,7 @@ More on the structure of the [C++ language](#the_cpp_language) , [C++ language](
 :label: exercisea2
 :class: dropdown
 `````
-This code is incorrect. Alter the code so that it runs without error and prints your name.
+This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.
 ````{code-cell} cpp
 :tags: [remove-output]
 include "iostreams"
@@ -164,7 +162,7 @@ int main()
 ````
 `````{exercise-end}
 `````
-
+<!-- 
 ```{admonition}  An extra exercise
 :class: extra-credit
 An "extra credit" exercise is presented here.
@@ -178,4 +176,4 @@ An "extra credit" exercise is presented here.
 ```{admonition}  {fa}`check` Title
 :class: note
 An "extra credit" exercise is presented here.
-```
+``` -->
