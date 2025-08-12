@@ -1,4 +1,4 @@
- const apiEndpoint = "questions1.json"; // Fetch questions from this file
+ const apiEndpoint = "../_static/questions1.json"; // Fetch questions from this file
       let currentPage = 0;
       const pageSize = 4;
       let questions = [];
