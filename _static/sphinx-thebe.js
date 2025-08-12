@@ -69,7 +69,7 @@ var modifyDOMForThebe = () => {
 
     // Clean up the language to make it work w/ CodeMirror and add it to the cell
       dataLanguage = detectLanguage(kernelName);
-      dataLanguage = "c++";
+      dataLanguage = "clike";
 
     // Re-arrange the cell and add metadata
     if (codeCellText) {

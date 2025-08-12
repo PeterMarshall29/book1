@@ -167,12 +167,15 @@ int main()
 
 ```{admonition}  An extra exercise
 :class: extra-credit
-
 An "extra credit" exercise is presented here.
 ```
 
+```{admonition}  Useful-Link
+:class: tip
+An "extra credit" exercise is presented here.
+```
 
-```{admonition}  {fa}`check` Useful_Link
-
+```{admonition}  {fa}`check` Title
+:class: note
 An "extra credit" exercise is presented here.
 ```

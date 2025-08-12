@@ -1,4 +1,4 @@
-selector_to_html = {"a[href=\"#logical-selection\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">Logical Selection<a class=\"headerlink\" href=\"#logical-selection\" title=\"Link to this heading\">#</a></h1>"}
+selector_to_html = {"a[href=\"#logical-selection\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">Logical Selection<a class=\"headerlink\" href=\"#logical-selection\" title=\"Link to this heading\">#</a></h1><p>Expressions\nC++ C++ language Expressions\nAn expression is a sequence of operators and their operands, that specifies a computation.</p><p>Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces the result 4) and may generate side-effects (e.g. evaluation of std::printf(\u201c%d\u201d, 4) prints the character \u20184\u2019 on the standard output).</p>"}
 skip_classes = ["headerlink", "sd-stretched-link"]
 
 window.onload = function () {
