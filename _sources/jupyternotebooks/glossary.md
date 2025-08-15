@@ -12,15 +12,16 @@ kernelspec:
 
 # Glossary
 
-{.glossary}
+```{glossary}
 
-term Declaration
+Declaration
+  Declarations introduce names into a C++ program. Each kind of entity is declared differently.
 
-:Declarations introduce names into a C++ program. Each kind of entity is declared differently.
+Definition
+  Definitions are declarations that are sufficient to use the entity identified by the name.
+```
 
-term Definition
 
-:Definitions are declarations that are sufficient to use the entity identified by the name.
 
 
 

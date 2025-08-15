@@ -31,7 +31,7 @@ The development of the C++ language is detailed [here](https://en.cppreference.c
 
 This section provides definitions for the specific terminology and the concepts used when describing the C++ programming language.
 
-A C++ program is a sequence of text files (typically header and source files) that contain declarations. They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.
+A C++ program is a sequence of text files (typically header and source files) that contain {term}`declaration`s. They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.
 
 Certain words in a C++ program have special meaning, and these are known as keywords. Others can be used as identifiers. Comments are ignored during translation. C++ programs also contain literals, the values of characters inside them are determined by character sets and encodings. Certain characters in the program have to be represented with escape sequences.
 
