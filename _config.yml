@@ -94,8 +94,9 @@ sphinx:
       theme: material 
       duration: [200, 100]
       delay: [200, 500]
-    
-    
+    tippy_custom_tips:
+      "https://en.cppreference.com/w/": <p>The Official C++ Standard Reference Documentation</p>
+      "https://en.cppreference.com/w/cpp/language/history.html": <p>Dexcription of the evolution of C++ language</p>
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
    #   ebp:

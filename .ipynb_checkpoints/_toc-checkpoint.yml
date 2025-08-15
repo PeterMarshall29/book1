@@ -51,3 +51,6 @@ parts:
     chapters:
     - file: jupyternotebooks/introduction_to_cpp_in_vscode
     - file: jupyternotebooks/header_files
+    - caption: Additional Information
+    chapters:
+    - file: jupyternotebooks/glossary

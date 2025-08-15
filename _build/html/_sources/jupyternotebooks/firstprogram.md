@@ -163,11 +163,11 @@ int main()
 `````{exercise-end}
 `````
 
-```{admonition} Code Explanation
+:::{admonition} Code Explanation
 :class: exercise2
 :icon: false
 Some Content
-```
+:::
 
 
 

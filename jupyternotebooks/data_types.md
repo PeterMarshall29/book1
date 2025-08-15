@@ -160,6 +160,23 @@ Prints 3 – now change x to 4. The semicolon after the if is a mistake, its lik
 {} is called the empty block – sometimes used into code to register that nothing should be done, like when it’s the else loop that is really wanted – instead of using NOT logic.
 The second {} does nothing special.
 
+## declaration from cppreference
+
+Declarations are how names are introduced (or re-introduced) into the C++ program. Not all declarations actually declare anything, and each kind of entity is declared differently. Definitions are declarations that are sufficient to use the entity identified by the name.
+
+A declaration is one of the following:
+
+Function definition
+Template declaration (including Partial template specialization)
+Explicit template instantiation
+Explicit template specialization
+Namespace definition
+Linkage specification
+Attribute declaration (attr ;)
+(since C++11)
+Empty declaration (;)
+A function declaration without a decl-specifier-seq ﻿:
+
 ## Declaration
 Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of entity the name refers to. For example:
 char ch;
