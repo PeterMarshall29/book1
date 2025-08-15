@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=61668e4a" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=a92ec6da" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
@@ -67,7 +67,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.1dc4ee10-7ee8-4f66-b128-43b14b02f201.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.baedfc02-09a2-455d-8e33-86bc46e100bf.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/glossary';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -516,9 +516,57 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h1>
 <dl class="simple glossary">
+<dt id="term-Camel-Case">Camel Case<a class="headerlink" href="#term-Camel-Case" title="Link to this term">#</a></dt><dd><p><span class="xref std std-ref">Camel Case</span><a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">https://en.wikipedia.org/wiki/Camel_case</a> is one of the naming conventions used to improve the readability of code, whilst avoiding underscores.</p>
+</dd>
+<dt id="term-Class">Class<a class="headerlink" href="#term-Class" title="Link to this term">#</a></dt><dd><p>A</p>
+</dd>
+<dt id="term-Compiler">Compiler<a class="headerlink" href="#term-Compiler" title="Link to this term">#</a></dt><dd><p>The part of a C++ implementation that produces object code from a translation unit</p>
+</dd>
 <dt id="term-Declaration">Declaration<a class="headerlink" href="#term-Declaration" title="Link to this term">#</a></dt><dd><p>Declarations introduce names into a C++ program. Each kind of entity is declared differently.</p>
 </dd>
 <dt id="term-Definition">Definition<a class="headerlink" href="#term-Definition" title="Link to this term">#</a></dt><dd><p>Definitions are declarations that are sufficient to use the entity identified by the name.</p>
+</dd>
+<dt id="term-Free-store">Free store<a class="headerlink" href="#term-Free-store" title="Link to this term">#</a></dt><dd><p><a class="reference internal" href="#term-Memory"><span class="xref std std-term">memory</span></a> allocated by <code class="docutils literal notranslate"><span class="pre">new</span></code>; also called dynamic memory. Often standard library facilities, such as <code class="docutils literal notranslate"><span class="pre">vector</span></code>, can be used to avoid explicit use of free store.</p>
+</dd>
+<dt id="term-Function">Function<a class="headerlink" href="#term-Function" title="Link to this term">#</a></dt><dd><p>A named sequence of statements that can be invoked/called given arguments and that might return a value. The type of the function includes the number and types of argument and the type of the value returned, if any</p>
+</dd>
+<dt id="term-Identifier">Identifier<a class="headerlink" href="#term-Identifier" title="Link to this term">#</a></dt><dd><p>The</p>
+</dd>
+<dt id="term-Iteration">Iteration<a class="headerlink" href="#term-Iteration" title="Link to this term">#</a></dt><dd><p>Iteration</p>
+</dd>
+<dt id="term-Keyword">Keyword<a class="headerlink" href="#term-Keyword" title="Link to this term">#</a></dt><dd><p>An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programmer. <a class="reference external" href="https://en.cppreference.com/w/cpp/keywords.html">Keywords in the C++ language</a>.</p>
+</dd>
+<dt id="term-Linkage">Linkage<a class="headerlink" href="#term-Linkage" title="Link to this term">#</a></dt><dd><p>The process of merging code from separately compiled translation units into a program or part of a program.</p>
+</dd>
+<dt id="term-Linker">Linker<a class="headerlink" href="#term-Linker" title="Link to this term">#</a></dt><dd><p>The part of the C++ implementation that merges the code generated from separately compiled translation units into a program. or part of a program</p>
+</dd>
+<dt id="term-Memory">Memory<a class="headerlink" href="#term-Memory" title="Link to this term">#</a></dt><dd><p>Definition needed</p>
+</dd>
+<dt id="term-Memory-Management">Memory Management<a class="headerlink" href="#term-Memory-Management" title="Link to this term">#</a></dt><dd><p>Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.</p>
+</dd>
+<dt id="term-Name">Name<a class="headerlink" href="#term-Name" title="Link to this term">#</a></dt><dd><p>An identifier. (A minority of names are not identifiers - advanced).</p>
+</dd>
+<dt id="term-Objects">Objects<a class="headerlink" href="#term-Objects" title="Link to this term">#</a></dt><dd><ul class="simple">
+<li><p>A contiguous region of memory holding a value of some type. Objects can be allocated in <a class="reference internal" href="#term-Static-Memory"><span class="xref std std-term">static memory</span></a>, on the <a class="reference internal" href="#term-Stack"><span class="xref std std-term">stack</span></a>, on on the <a class="reference internal" href="#term-Free-store"><span class="xref std std-term">free store</span></a>.</p></li>
+<li><p>A named or unnamed variable of some type; an object of a type with a constructor is not considered an object before the constructor has completed and is no longer considered an object once a destructor has started executing for it. Objects can be allocated in static memory, on the stack, on on the free store.</p></li>
+</ul>
+</dd>
+<dt id="term-Object-file">Object file<a class="headerlink" href="#term-Object-file" title="Link to this term">#</a></dt><dd><p>The file produced by a compiler - the result of compiling a source file.</p>
+</dd>
+<dt id="term-Stack">Stack<a class="headerlink" href="#term-Stack" title="Link to this term">#</a></dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#term-Memory"><span class="xref std std-term">memory</span></a> used to hold <span class="xref std std-term">local variables</span> for a <a class="reference internal" href="#term-Function"><span class="xref std std-term">function</span></a></p></li>
+<li><p>standard library first-in-last-out sequence.</p></li>
+</ul>
+</dd>
+<dt id="term-Static-Memory">Static Memory<a class="headerlink" href="#term-Static-Memory" title="Link to this term">#</a></dt><dd><p>Memory allocated by the <a class="reference internal" href="#term-Linker"><span class="xref std std-term">linker</span></a></p>
+</dd>
+<dt id="term-Syntax">Syntax<a class="headerlink" href="#term-Syntax" title="Link to this term">#</a></dt><dd><p>The set of gramatical rules specifying how the text of a program must be composed. For example, specifying the form of a declaration or the form of a for-statement.</p>
+</dd>
+<dt id="term-Translation-unit">Translation unit<a class="headerlink" href="#term-Translation-unit" title="Link to this term">#</a></dt><dd><p>Part of a program that can be separately compiled. Individual source or header files.</p>
+</dd>
+<dt id="term-Type">Type<a class="headerlink" href="#term-Type" title="Link to this term">#</a></dt><dd><p>A type defines the proper use of a name or an expression.</p>
+</dd>
+<dt id="term-Variable">Variable<a class="headerlink" href="#term-Variable" title="Link to this term">#</a></dt><dd><p>A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.</p>
 </dd>
 </dl>
 </section>
