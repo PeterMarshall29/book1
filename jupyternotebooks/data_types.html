@@ -67,7 +67,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\data_types.e64230ff-cfa5-48c7-a373-3767e7c736f4.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\data_types.fdba6fd1-0c0f-4b74-9552-e4300d1467ce.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/data_types';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -247,6 +247,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_cpp_in_vscode.html">C++ in Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="header_files.html">Header Files</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
 
     </div>
@@ -511,6 +515,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-and-declarations">Types and Declarations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-types-in-c">Fundamental Types in C++</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introductory">Introductory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-from-cppreference">declaration from cppreference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration">Declaration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-of-declarations">The Structure of Declarations</a></li>
 </ul>
@@ -655,6 +660,21 @@ std::cout &lt;&lt; y;
 Prints 3 – now change x to 4. The semicolon after the if is a mistake, its like putting {} instead.
 {} is called the empty block – sometimes used into code to register that nothing should be done, like when it’s the else loop that is really wanted – instead of using NOT logic.
 The second {} does nothing special.</p>
+</section>
+<section id="declaration-from-cppreference">
+<h2>declaration from cppreference<a class="headerlink" href="#declaration-from-cppreference" title="Link to this heading">#</a></h2>
+<p>Declarations are how names are introduced (or re-introduced) into the C++ program. Not all declarations actually declare anything, and each kind of entity is declared differently. Definitions are declarations that are sufficient to use the entity identified by the name.</p>
+<p>A declaration is one of the following:</p>
+<p>Function definition
+Template declaration (including Partial template specialization)
+Explicit template instantiation
+Explicit template specialization
+Namespace definition
+Linkage specification
+Attribute declaration (attr ;)
+(since C++11)
+Empty declaration (;)
+A function declaration without a decl-specifier-seq ﻿:</p>
 </section>
 <section id="declaration">
 <h2>Declaration<a class="headerlink" href="#declaration" title="Link to this heading">#</a></h2>
@@ -902,6 +922,7 @@ return 4.0;
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-and-declarations">Types and Declarations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-types-in-c">Fundamental Types in C++</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introductory">Introductory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-from-cppreference">declaration from cppreference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration">Declaration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-of-declarations">The Structure of Declarations</a></li>
 </ul>
