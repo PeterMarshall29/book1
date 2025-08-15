@@ -12,24 +12,56 @@ kernelspec:
 
 # C++ Data Types
 
+```{admonition} No Spaces in Names!
+:class: margin warning
+Whitespace is not permitted in names.
+Longer names are broken up using underscores or [Camel Case](https://en.wikipedia.org/wiki/Camel_case).
+Special symbols are not permitted.
+```
+
 An identifier is an arbitrarily long sequence of digits, underscores, lowercase and uppercase Latin letters, and most Unicode characters.
 
-The first character of a valid identifier must be one of the following:
+"Name" is generally synonymous with "identifier" - the exceptions are beyond the scope of this book.
 
-uppercase Latin letters A-Z
-lowercase Latin letters a-z
-underscore
-any Unicode character with the Unicode property XID_Start
-Any other character of a valid identifier must be one of the following:
+````{admonition} Rules For Valid Identifiers
+:class: dropdown note
+The options for the first character are: 
 
-digits 0-9
-uppercase Latin letters A-Z
-lowercase Latin letters a-z
-underscore
-any Unicode character with the Unicode property XID_Continue
-The lists of characters with properties XID_Start and XID_Continue can be found in DerivedCoreProperties.txt.
+* Any uppercase Latin letter, i.e. `A-Z`
+* Any lowercase Latin letters, i.e `a-z`
+* An underscore `_`
+* Some Unicode characters
 
-Identifiers are case-sensitive (lowercase and uppercase letters are distinct), and every character is significant. Every identifier must conform to Normalization Form C.
+After the initial character the options become:
+
+* Any digit `0-9`
+* Any uppercase Latin letter, i.e. `A-Z`
+* Any lowercase Latin letters, i.e `a-z`
+* An underscore `_`
+* Some Unicode characters
+
+Identifiers are case-sensitive. Any difference in the pattern of symols creates a new identifier.
+The variabless named `www` and `WWW` are not the same.
+
+```{admonition} Convention for use of Identifiers
+:class: dropdown tip
+
+It is considered best practive to use a consistant wrting format for indentifiers of the same type - this is called a naming convention.
+
+In C++:
+
+* An intial capital letter is only used for a {term}`class`. This makes it easy to distinguish a class from a function etc.
+* Names of functions and variables start with lower case
+* Longer names are generally written in {term}`Camel Case`, where the name is composed of a series of words, and later words start with captial letters.
+[Camel Case](https://en.wikipedia.org/wiki/Camel_case)
+* Pointer variables should be prepended with 'p' and the asterisk '*' should be position next to the variable name instead of the pointer type.
+* Reference variables should be prepended with 'r'. This helps to differentiate between the method returning a modifiable object and the same method returning a non-modifiable object
+* Static variables should be prepended with 's'
+* Global constants should be all capital letters separated with '_'
+
+```
+````
+
 
 Note: Support of Unicode identifiers is limited in most implementations, e.g. gcc (until 10).
 

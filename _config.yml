@@ -97,6 +97,8 @@ sphinx:
     tippy_custom_tips:
       "https://en.cppreference.com/w/": <p>The Official C++ Standard Reference Documentation</p>
       "https://en.cppreference.com/w/cpp/language/history.html": <p>Description of the evolution of C++ language</p>
+      "https://en.cppreference.com/w/cpp/keywords.html": <p>Keywords in the C++ language</p>
+      
 html_css_files : css/custom.css 
   #  intersphinx_mapping:
    #   ebp:

@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=61668e4a" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=a92ec6da" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
@@ -67,7 +67,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\data_types.3ed4fd71-c706-4b8c-b2b3-03577cde057a.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\data_types.125a8fa3-bbe9-4658-a610-c1c021522b3b.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/data_types';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -539,20 +539,49 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="c-data-types">
 <h1>C++ Data Types<a class="headerlink" href="#c-data-types" title="Link to this heading">#</a></h1>
+<div class="margin warning admonition">
+<p class="admonition-title">No Spaces in Names!</p>
+<p>Whitespace is not permitted in names.
+Longer names are broken up using underscores or <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a>.
+Special symbols are not permitted.</p>
+</div>
 <p>An identifier is an arbitrarily long sequence of digits, underscores, lowercase and uppercase Latin letters, and most Unicode characters.</p>
-<p>The first character of a valid identifier must be one of the following:</p>
-<p>uppercase Latin letters A-Z
-lowercase Latin letters a-z
-underscore
-any Unicode character with the Unicode property XID_Start
-Any other character of a valid identifier must be one of the following:</p>
-<p>digits 0-9
-uppercase Latin letters A-Z
-lowercase Latin letters a-z
-underscore
-any Unicode character with the Unicode property XID_Continue
-The lists of characters with properties XID_Start and XID_Continue can be found in DerivedCoreProperties.txt.</p>
-<p>Identifiers are case-sensitive (lowercase and uppercase letters are distinct), and every character is significant. Every identifier must conform to Normalization Form C.</p>
+<p>“Name” is generally synonymous with “identifier” - the exceptions are beyond the scope of this book.</p>
+<div class="dropdown note admonition">
+<p class="admonition-title">Rules For Valid Identifiers</p>
+<p>The options for the first character are:</p>
+<ul class="simple">
+<li><p>Any uppercase Latin letter, i.e. <code class="docutils literal notranslate"><span class="pre">A-Z</span></code></p></li>
+<li><p>Any lowercase Latin letters, i.e <code class="docutils literal notranslate"><span class="pre">a-z</span></code></p></li>
+<li><p>An underscore <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
+<li><p>Some Unicode characters</p></li>
+</ul>
+<p>After the initial character the options become:</p>
+<ul class="simple">
+<li><p>Any digit <code class="docutils literal notranslate"><span class="pre">0-9</span></code></p></li>
+<li><p>Any uppercase Latin letter, i.e. <code class="docutils literal notranslate"><span class="pre">A-Z</span></code></p></li>
+<li><p>Any lowercase Latin letters, i.e <code class="docutils literal notranslate"><span class="pre">a-z</span></code></p></li>
+<li><p>An underscore <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
+<li><p>Some Unicode characters</p></li>
+</ul>
+<p>Identifiers are case-sensitive. Any difference in the pattern of symols creates a new identifier.
+The variabless named <code class="docutils literal notranslate"><span class="pre">www</span></code> and <code class="docutils literal notranslate"><span class="pre">WWW</span></code> are not the same.</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Convention for use of Identifiers</p>
+<p>It is considered best practive to use a consistant wrting format for indentifiers of the same type - this is called a naming convention.</p>
+<p>In C++:</p>
+<ul class="simple">
+<li><p>An intial capital letter is only used for a <a class="reference internal" href="glossary.html#term-Class"><span class="xref std std-term">class</span></a>. This makes it easy to distinguish a class from a function etc.</p></li>
+<li><p>Names of functions and variables start with lower case</p></li>
+<li><p>Longer names are generally written in <a class="reference internal" href="glossary.html#term-Camel-Case"><span class="xref std std-term">Camel Case</span></a>, where the name is composed of a series of words, and later words start with captial letters.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a></p></li>
+<li><p>Pointer variables should be prepended with ‘p’ and the asterisk ‘*’ should be position next to the variable name instead of the pointer type.</p></li>
+<li><p>Reference variables should be prepended with ‘r’. This helps to differentiate between the method returning a modifiable object and the same method returning a non-modifiable object</p></li>
+<li><p>Static variables should be prepended with ‘s’</p></li>
+<li><p>Global constants should be all capital letters separated with ‘_’</p></li>
+</ul>
+</div>
+</div>
 <p>Note: Support of Unicode identifiers is limited in most implementations, e.g. gcc (until 10).</p>
 <section id="types-and-declarations">
 <h2>Types and Declarations<a class="headerlink" href="#types-and-declarations" title="Link to this heading">#</a></h2>
