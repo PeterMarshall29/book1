@@ -67,7 +67,15 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.08c25aa6-38f6-45a5-afe7-d971339c7fa9.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.de681a67-0b61-4dd4-a839-b0b22b3e6bb1.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_programming';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -194,8 +202,9 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Computer Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
@@ -512,7 +521,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programs">Computer Programs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-algorithms">Coding Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
 </ul>
             </nav>
@@ -527,9 +538,90 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-computer-programming">
 <h1>Introduction to Computer Programming<a class="headerlink" href="#introduction-to-computer-programming" title="Link to this heading">#</a></h1>
-<p>Start with ideas like syntax…</p>
+<section id="computer-programs">
+<h2>Computer Programs<a class="headerlink" href="#computer-programs" title="Link to this heading">#</a></h2>
+<p>Computer programs are everywhere - not just inside computers.
+Your digital watch, or calculator, are running embedded computer programs.</p>
+<p>A computer program is a set of instructions that tells a computer (and other devices) what to do. Once a device is programmed, the computer code is invisible.</p>
+<p>Software is the collection of programs running on a computer.
+Harware is the device that the software runs on. Software controls hardware.</p>
+<p>It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that turns programs written in a computer language into the binary code used by the hardware.</p>
+<p>The object of learning computer programming is to become able to write code that correctly instructs a device to perform a series of tasks that it is capable of performing.</p>
+<p>In the Compuational Physics module, we are mainly concerned with writing code that will take user inputs, perform calculations, and then return ‘answers’ to the user. This requires us to learn only a subset of the C++ langugage and programming concepts.</p>
+<pre  class="mermaid">
+          flowchart TD
+    A[&quot;Start&quot;] --&gt; B{&quot;Is it?&quot;}
+    B -- Yes --&gt; C[&quot;OK&quot;]
+    C --&gt; D[&quot;Rethink&quot;]
+    D --&gt; B
+    B -- No ----&gt; E[&quot;End&quot;]
+    D --&gt; n1[&quot;Untitled Node&quot;]
+
+    </pre><p>Start with ideas like syntax…</p>
+</section>
 <section id="coding-algorithms">
 <h2>Coding Algorithms<a class="headerlink" href="#coding-algorithms" title="Link to this heading">#</a></h2>
+<p>The first step in writing a computer program is understand the task that we want the computer to perform.</p>
+<p>If you are not able to deconstruc the task into a series of instruction that can be followed then you cannot write a program to accomplish that task.</p>
+<blockquote>
+<div><p>Programming is understanding</p>
+<p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
+</div></blockquote>
+<p>The process of writing a program can be reduced to four stages</p>
+<ul class="simple">
+<li><p>Analysis of the problem:</p></li>
+</ul>
+<ul class="simple">
+<li><p>What does the program need to do?</p></li>
+<li><p>Are there any constaints on how this can be done? e.g. a particular operating system is required, a limition on resouces (e.g. memory, or time)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Design: How do we solve the problem? What should be the overall struc
+ture of the system? Which parts does it consist of? How do those parts
+communicate with each other? How does the system communicate with
+its users?</p></li>
+<li><p>Programming: Convert your solution to the problem into computer code.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandabiliyt)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Testing: Make sure the program works correctly <strong>under all circumstances</strong></p></li>
+</ul>
+<ul class="simple">
+<li><p>Ensure that all possible scenarios are tried e.g. when a user input is required, what happens in the case of all possible entries.</p></li>
+</ul>
+</section>
+<section id="flowcharts">
+<h2>FlowCharts<a class="headerlink" href="#flowcharts" title="Link to this heading">#</a></h2>
+<p>Flowcharts are very useful diagrams that assist in design of new programs.</p>
+<p>Flow charts are often used to represent algorithms for a program or for a subroutine (methods/functions).</p>
+<p>The diagram show the flow of information, from start to end of the process, through decisions points, loops and I/O using specific symbols for different parts of the algorithm.</p>
+<p>This visual representation of the logical flow of your algortihm may help you to understand if your algorithm is correct before try to write the code to implement it.
+They are particularly useful for identifying missing processes and faulty logic.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="example-table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><pre  class="mermaid">
+          flowchart TD
+    n1[&quot;Start/End&quot;]
+    </pre></td>
+<td><pre  class="mermaid">
+          flowchart TD
+    n2[&quot;Decision&quot;]
+    </pre></td>
+</tr>
+<tr class="row-odd"><td><p>Row2 under Col1</p></td>
+<td><p>Row2 under Col2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Online <a class="reference external" href="https://www.mermaidchart.com/play">tool for desiging flowcharts</a></p>
 </section>
 <section id="error-types">
 <h2>Error Types<a class="headerlink" href="#error-types" title="Link to this heading">#</a></h2>
@@ -606,7 +698,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programs">Computer Programs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-algorithms">Coding Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
 </ul>
   </nav></div>

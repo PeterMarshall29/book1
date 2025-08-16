@@ -169,6 +169,38 @@ int main()
 Some Content
 :::
 
+## Adding Comments
+
+{term}`Comments` are text added to a C++ source or header file that will be ignored by the compiler.
+
+Comments are used are notes and reminders for people who are trying to understand and use the code.
+
+When developing a program it is useful to be able to termporarily hide sections of the code from the compiler by 'commenting them out`.
+
+Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and definitely easier for other to use.
+
+Comments may be added to code in two ways:
+
+C++ style comments have `//` at the start of the comment.
+
+Multiline comments can be created by surround any text with `/*` and `*/`. These may not be nested!
+
+Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse accross it and then simulaneously pressing {kbd}`Ctrl` + {kbd}`/`.
+
+```{code-block} cpp
+
+// A C++ style single line comment
+// Another one
+#include <iostream> // This comments does not affect anything before it on the same line
+
+/* C-style codes are also used */
+/* Best 
+when 
+a 
+multi-line comment is needed
+*/
+
+```
 
 
 <!-- 
