@@ -15,10 +15,13 @@ kernelspec:
 ```{glossary}
 
 Camel Case
-  {ref}`Camel Case`<https://en.wikipedia.org/wiki/Camel_case> is one of the naming conventions used to improve the readability of code, whilst avoiding underscores. 
+  [Camel Case](<https://en.wikipedia.org/wiki/Camel_case) is one of the naming conventions used to improve the readability of code, whilst avoiding underscores. 
 
 Class
   A
+
+Comments
+  Comments are text in a computer program that is only intended as a note to the progammer. Comments are useful as in-code documentation, and also allow part of program to be hidden from the compiler temporarily during development.
 
 Compiler
   The part of a C++ implementation that produces object code from a translation unit
@@ -49,6 +52,9 @@ Linkage
 
 Linker
   The part of the C++ implementation that merges the code generated from separately compiled translation units into a program. or part of a program
+
+Local Variables
+  Definition
 
 Memory
   Definition needed

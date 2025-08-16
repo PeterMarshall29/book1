@@ -12,22 +12,36 @@ kernelspec:
 (cpplanguage)=
 #  The C++ Language
 
-Start with ideas like syntax...
+Introduction to the basic structure of computer program written in the C++ language.
 
+There are simpler programming languages to learn, but once have learned to code in C++ subsequent programming languages are much easier to pick up
 
+{attribution="Bjarne Stroustrup - Creator of C++"}
+> There are only two kinds of languages: the ones people complain about and the ones nobody uses. 
 
-
-All the `C++ language syntax is detailed here: [cppreference.com](https://en.cppreference.com/w/)
-```{admonition} Note
-:class: note margin
-Computational A will be using `C++20`  .
-```
-This will only be useful after you have learned the basics – please ignore until then.
-
-
-The development of the C++ language is detailed [here](https://en.cppreference.com/w/cpp/language/history.html)
 
 ***
+
+Start with ideas like syntax...
+syntax - the set of gramatical rules specifying how the text of a program must be composed. For example, specifying the form of a declaration or the form of a for-statement.
+
+
+
+All the `C++ language syntax is detailed here: [cppreference.com](https://en.cppreference.com/w/) - The reference will become more accessible as you work through the basic concepts convered in this module, but does have some useful information for beginners
+```{admonition} Note
+:class: note margin
+Computational A will be using `C++20`
+```
+```{admonition} Note
+:class: note margin
+The evolution of the C++ language is detailed [here](https://en.cppreference.com/w/cpp/language/history.html)
+```
+
+
+
+***
+The code you will write on these pages do not constitute computer programs. They are 
+
 
 This section provides definitions for the specific terminology and the concepts used when describing the C++ programming language.
 
@@ -60,6 +74,29 @@ A large part of the **C++ Standard Library** is based on the **Standard Template
 
 ***
 
+C++ programs create, destroy, refer to, access, and manipulate {term}`objects`.
+
+An object, in C++, has
+
+* A type
+* A name (optional)
+* A value (which may be indeterminate, e.g. for default-initialized non-class types)
+* A size (can be determined with sizeof);
+
+* Storage duration (automatic, static, dynamic, thread-local);
+lifetime (bounded by storage duration or temporary);
+alignment requirement (can be determined with alignof);
+
+
+
+
+The following entities are not objects: value, reference, function, enumerator, type, non-static class member, template, class or function template specialization, namespace, parameter pack, and this.
+
+A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.
+
+
+***
+
 `C++` is a compiled language. 
 The code in each of the `.cpp` (and `.h`) pages in your project is first converted to an object file, a file with a `.obj` ending (`.o`) if you are linux, by the compiler, which convers the basically readable `C++` code into machine language – in an object file.
 The `cpp` source code is platform agnostic – but the object and executable files are not portable amongst platforms – not even amongst generations.
@@ -81,3 +118,7 @@ Freestanding implementations are used when your code require the most minimal op
 A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library. .
 #include <cstddef> <cfloat> <limits> <climits> <cstdint> <cstdlib> <new> <typeinfo> <exception <initializer_list> <cstdalign> <cstdarg> <cstdbool> <type_traits> <atomic>
 
+***
+
+Memory Management
+  Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.

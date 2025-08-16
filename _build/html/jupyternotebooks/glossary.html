@@ -67,7 +67,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.baedfc02-09a2-455d-8e33-86bc46e100bf.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.6f4eb0ff-bace-4988-830d-01d07741a33c.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/glossary';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -193,8 +193,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_programming.html">Introduction to Computer Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
@@ -516,9 +517,11 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h1>
 <dl class="simple glossary">
-<dt id="term-Camel-Case">Camel Case<a class="headerlink" href="#term-Camel-Case" title="Link to this term">#</a></dt><dd><p><span class="xref std std-ref">Camel Case</span><a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">https://en.wikipedia.org/wiki/Camel_case</a> is one of the naming conventions used to improve the readability of code, whilst avoiding underscores.</p>
+<dt id="term-Camel-Case">Camel Case<a class="headerlink" href="#term-Camel-Case" title="Link to this term">#</a></dt><dd><p>[Camel Case](&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">https://en.wikipedia.org/wiki/Camel_case</a>) is one of the naming conventions used to improve the readability of code, whilst avoiding underscores.</p>
 </dd>
 <dt id="term-Class">Class<a class="headerlink" href="#term-Class" title="Link to this term">#</a></dt><dd><p>A</p>
+</dd>
+<dt id="term-Comments">Comments<a class="headerlink" href="#term-Comments" title="Link to this term">#</a></dt><dd><p>Comments are text in a computer program that is only intended as a note to the progammer. Comments are useful as in-code documentation, and also allow part of program to be hidden from the compiler temporarily during development.</p>
 </dd>
 <dt id="term-Compiler">Compiler<a class="headerlink" href="#term-Compiler" title="Link to this term">#</a></dt><dd><p>The part of a C++ implementation that produces object code from a translation unit</p>
 </dd>
@@ -540,6 +543,8 @@ document.write(`
 </dd>
 <dt id="term-Linker">Linker<a class="headerlink" href="#term-Linker" title="Link to this term">#</a></dt><dd><p>The part of the C++ implementation that merges the code generated from separately compiled translation units into a program. or part of a program</p>
 </dd>
+<dt id="term-Local-Variables">Local Variables<a class="headerlink" href="#term-Local-Variables" title="Link to this term">#</a></dt><dd><p>Definition</p>
+</dd>
 <dt id="term-Memory">Memory<a class="headerlink" href="#term-Memory" title="Link to this term">#</a></dt><dd><p>Definition needed</p>
 </dd>
 <dt id="term-Memory-Management">Memory Management<a class="headerlink" href="#term-Memory-Management" title="Link to this term">#</a></dt><dd><p>Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.</p>
@@ -554,7 +559,7 @@ document.write(`
 <dt id="term-Object-file">Object file<a class="headerlink" href="#term-Object-file" title="Link to this term">#</a></dt><dd><p>The file produced by a compiler - the result of compiling a source file.</p>
 </dd>
 <dt id="term-Stack">Stack<a class="headerlink" href="#term-Stack" title="Link to this term">#</a></dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="#term-Memory"><span class="xref std std-term">memory</span></a> used to hold <span class="xref std std-term">local variables</span> for a <a class="reference internal" href="#term-Function"><span class="xref std std-term">function</span></a></p></li>
+<li><p><a class="reference internal" href="#term-Memory"><span class="xref std std-term">memory</span></a> used to hold <a class="reference internal" href="#term-Local-Variables"><span class="xref std std-term">local variables</span></a> for a <a class="reference internal" href="#term-Function"><span class="xref std std-term">function</span></a></p></li>
 <li><p>standard library first-in-last-out sequence.</p></li>
 </ul>
 </dd>

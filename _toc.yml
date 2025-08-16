@@ -8,8 +8,9 @@ parts:
     chapters:
     - file: jupyternotebooks/introduction_to_programming
     - file: jupyternotebooks/the_cpp_language
-    - file: jupyternotebooks/codingtheory3
+    - file: jupyternotebooks/coding_best_practices
     - file: jupyternotebooks/approachs_to_learning
+    - file: jupyternotebooks/codingtheory3
   - caption: Introduction to C++ Programming
     chapters:
     - file: jupyternotebooks/firstprogram

@@ -12,6 +12,9 @@ kernelspec:
 
 # Exercise 1
 
+Add practice using comments
+
+
 `````{exercise-start}
 :label: exerciseaa2
 `````

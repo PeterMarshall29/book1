@@ -67,11 +67,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.0d5ba1f6-3f81-4339-b3a4-c8dd39373a43.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.da078282-4178-45d4-b4cd-2f167f692049.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/the_cpp_language';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Coding Theory 3" href="codingtheory3.html" />
+    <link rel="next" title="Best Practices in Coding" href="coding_best_practices.html" />
     <link rel="prev" title="Introduction to Computer Programming" href="introduction_to_programming.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,8 +194,9 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_programming.html">Introduction to Computer Programming</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">The C++ Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
@@ -516,15 +517,26 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-c-language">
 <span id="cpplanguage"></span><h1>The C++ Language<a class="headerlink" href="#the-c-language" title="Link to this heading">#</a></h1>
-<p>Start with ideas like syntax…</p>
-<p>All the `C++ language syntax is detailed here: <a class="reference external" href="https://en.cppreference.com/w/">cppreference.com</a></p>
+<p>Introduction to the basic structure of computer program written in the C++ language.</p>
+<p>There are simpler programming languages to learn, but once have learned to code in C++ subsequent programming languages are much easier to pick up</p>
+<blockquote>
+<div><p>There are only two kinds of languages: the ones people complain about and the ones nobody uses.</p>
+<p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>Start with ideas like syntax…
+syntax - the set of gramatical rules specifying how the text of a program must be composed. For example, specifying the form of a declaration or the form of a for-statement.</p>
+<p>All the `C++ language syntax is detailed here: <a class="reference external" href="https://en.cppreference.com/w/">cppreference.com</a> - The reference will become more accessible as you work through the basic concepts convered in this module, but does have some useful information for beginners</p>
 <div class="note margin admonition">
 <p class="admonition-title">Note</p>
-<p>Computational A will be using <code class="docutils literal notranslate"><span class="pre">C++20</span></code>  .</p>
+<p>Computational A will be using <code class="docutils literal notranslate"><span class="pre">C++20</span></code></p>
 </div>
-<p>This will only be useful after you have learned the basics – please ignore until then.</p>
-<p>The development of the C++ language is detailed <a class="reference external" href="https://en.cppreference.com/w/cpp/language/history.html">here</a></p>
+<div class="note margin admonition">
+<p class="admonition-title">Note</p>
+<p>The evolution of the C++ language is detailed <a class="reference external" href="https://en.cppreference.com/w/cpp/language/history.html">here</a></p>
+</div>
 <hr class="docutils" />
+<p>The code you will write on these pages do not constitute computer programs. They are</p>
 <p>This section provides definitions for the specific terminology and the concepts used when describing the C++ programming language.</p>
 <p>A C++ program is a sequence of text files (typically header and source files) that contain <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a>s. They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.</p>
 <p>Certain words in a C++ program have special meaning, and these are known as keywords. Others can be used as identifiers. Comments are ignored during translation. C++ programs also contain literals, the values of characters inside them are determined by character sets and encodings. Certain characters in the program have to be represented with escape sequences.</p>
@@ -540,6 +552,20 @@ document.write(`
 The entire <code class="docutils literal notranslate"><span class="pre">Cc++</span></code> language is defined by the <strong>C++ ISO Standard</strong>.
 The standard is regularly updated and improved, so you must check which version of the language your code is written in - there may be compatibility issues between versions.
 A large part of the <strong>C++ Standard Library</strong> is based on the <strong>Standard Template Library (STL)</strong>. Useful tools provided by the STL include containers as the collections of objects (such as vectors and lists), iterators that provide array-like access to containers, and algorithms that perform operations such as searching and sorting.</p>
+<hr class="docutils" />
+<p>C++ programs create, destroy, refer to, access, and manipulate <a class="reference internal" href="glossary.html#term-Objects"><span class="xref std std-term">objects</span></a>.</p>
+<p>An object, in C++, has</p>
+<ul class="simple">
+<li><p>A type</p></li>
+<li><p>A name (optional)</p></li>
+<li><p>A value (which may be indeterminate, e.g. for default-initialized non-class types)</p></li>
+<li><p>A size (can be determined with sizeof);</p></li>
+<li><p>Storage duration (automatic, static, dynamic, thread-local);
+lifetime (bounded by storage duration or temporary);
+alignment requirement (can be determined with alignof);</p></li>
+</ul>
+<p>The following entities are not objects: value, reference, function, enumerator, type, non-static class member, template, class or function template specialization, namespace, parameter pack, and this.</p>
+<p>A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.</p>
 <hr class="docutils" />
 <p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a compiled language.
 The code in each of the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> (and <code class="docutils literal notranslate"><span class="pre">.h</span></code>) pages in your project is first converted to an object file, a file with a <code class="docutils literal notranslate"><span class="pre">.obj</span></code> ending (<code class="docutils literal notranslate"><span class="pre">.o</span></code>) if you are linux, by the compiler, which convers the basically readable <code class="docutils literal notranslate"><span class="pre">C++</span></code> code into machine language – in an object file.
@@ -559,6 +585,9 @@ A hosted implementation includes all the standard-library facilities.
 Freestanding implementations are used when your code require the most minimal operating system support. Some implementations provide a non-standard option that does not use exceptions for really minimal, bare metal programming (directly implemented on hardware).
 A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library. .
 #include <cstddef> <cfloat> <limits> <climits> <cstdint> <cstdlib> <new> <typeinfo> &lt;exception &lt;initializer_list&gt; <cstdalign> <cstdarg> <cstdbool> &lt;type_traits&gt; <atomic></p>
+<hr class="docutils" />
+<p>Memory Management
+Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -601,11 +630,11 @@ A freestanding implementations generally provide fewer standard-library faciliti
       </div>
     </a>
     <a class="right-next"
-       href="codingtheory3.html"
+       href="coding_best_practices.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Coding Theory 3</p>
+        <p class="prev-next-title">Best Practices in Coding</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

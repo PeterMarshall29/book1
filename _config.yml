@@ -79,6 +79,7 @@ sphinx:
     - sphinx_inline_tabs
     - sphinx_proof
     - sphinx_tippy
+    - sphinxcontrib.mermaid
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
@@ -90,7 +91,7 @@ sphinx:
     tippy_props:
       placement: auto-start
       maxWidth: 500
-      interactive: False
+      interactive: true
       theme: material 
       duration: [200, 100]
       delay: [200, 500]
@@ -98,29 +99,8 @@ sphinx:
       "https://en.cppreference.com/w/": <p>The Official C++ Standard Reference Documentation</p>
       "https://en.cppreference.com/w/cpp/language/history.html": <p>Description of the evolution of C++ language</p>
       "https://en.cppreference.com/w/cpp/keywords.html": <p>Keywords in the C++ language</p>
-      
+      "https://www.mermaidchart.com/play": <p>Flowchart Design Tool</p> 
+    mermaid_params: [ --theme , neutral , --width , 400 , --backgroundColor , transparent ]
+    #mermaid_output_format: svg
+
 html_css_files : css/custom.css 
-  #  intersphinx_mapping:
-   #   ebp:
-    #    - "https://executablebooks.org/en/latest/"
-     #   - null
-  #    myst-parser:
-   #     - "https://myst-parser.readthedocs.io/en/latest/"
-    #    - null
-    #  myst-nb:
-  #      - "https://myst-nb.readthedocs.io/en/latest/"
-   #     - null
-    #  sphinx:
-     #   - "https://www.sphinx-doc.org/en/master"
-  #      - null
-   #   nbformat:
-    #    - "https://nbformat.readthedocs.io/en/latest"
-     #   - null
-   #   sd:
-    #    - "https://sphinx-design.readthedocs.io/en/latest"
-     #   - null
-   #   sphinxproof:
-    #    - "https://sphinx-proof.readthedocs.io/en/latest/"
-     #   - null
- #   hoverxref_intersphinx:
-  #   - "sphinxproof" 
