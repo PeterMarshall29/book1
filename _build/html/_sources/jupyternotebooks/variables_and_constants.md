@@ -14,7 +14,7 @@ kernelspec:
 
 
 
-There are a list of reserved [keywords](https://en.cppreference.com/w/cpp/keyword.html).
+There are a list of reserved [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keyword.html).
 
 The reserved keywords may not be used as object names.
 

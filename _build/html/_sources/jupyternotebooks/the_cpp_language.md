@@ -9,43 +9,45 @@ kernelspec:
   language: c++
   name: cpp20
 ---
+
 (cpplanguage)=
 #  The C++ Language
 
-Introduction to the basic structure of computer program written in the C++ language.
+[Wiki](https://en.wikipedia.org/wiki/C++) The C++ language is one of the most powerful programming languages available today. It was created by Danish computer scientist [Tippy.Wiki Bjarne Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) and first released in 1985. 
 
-There are simpler programming languages to learn, but once have learned to code in C++ subsequent programming languages are much easier to pick up
+C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).
 
+There are simpler programming languages to learn; but once have learned to code in C++ subsequent programming languages are much easier to pick up.
+
+```{note}
+:class: magin
 {attribution="Bjarne Stroustrup - Creator of C++"}
 > There are only two kinds of languages: the ones people complain about and the ones nobody uses. 
+```
+All the `C++ language syntax is detailed here: [The Official C++ Standard Reference Documentation](https://en.cppreference.com/w/) - NB Although it may look daunting, this reference does have some useful information for beginnerss, and will become more accessible as you work through the basic concepts convered in this module.
 
-
-***
-
-Start with ideas like syntax...
-syntax - the set of gramatical rules specifying how the text of a program must be composed. For example, specifying the form of a declaration or the form of a for-statement.
-
-
-
-All the `C++ language syntax is detailed here: [cppreference.com](https://en.cppreference.com/w/) - The reference will become more accessible as you work through the basic concepts convered in this module, but does have some useful information for beginners
 ```{admonition} Note
 :class: note margin
 Computational A will be using `C++20`
 ```
 ```{admonition} Note
 :class: note margin
-The evolution of the C++ language is detailed [here](https://en.cppreference.com/w/cpp/language/history.html)
+The evolution of the C++ language is detailed in: [Description of the evolution of C++ language](https://en.cppreference.com/w/cpp/language/history.html)
 ```
-
-
-
 ***
-The code you will write on these pages do not constitute computer programs. They are 
 
+The live code editor on the following pages, uses a C++ Kernel that runs in Jupyter Notebook. This is not the usual way to work and has signifiant limits.
+
+In later weeks we will move to Visual Studio and start writing complete computer programs that can be compiled into executables - the following notes apply then.
+
+## Structure of C++ Programmes
 
 This section provides definitions for the specific terminology and the concepts used when describing the C++ programming language.
 
-A C++ program is a sequence of text files (typically header and source files) that contain {term}`declaration`s. They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.
+A C++ program is a sequence of text files (typically header and source files) that contain {term}`declaration`s. 
+The declarations are statements written in the C++ language.
+
+In these text files you write the They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.
 
 Certain words in a C++ program have special meaning, and these are known as keywords. Others can be used as identifiers. Comments are ignored during translation. C++ programs also contain literals, the values of characters inside them are determined by character sets and encodings. Certain characters in the program have to be represented with escape sequences.
 
@@ -90,12 +92,16 @@ alignment requirement (can be determined with alignof);
 
 
 
-The following entities are not objects: value, reference, function, enumerator, type, non-static class member, template, class or function template specialization, namespace, parameter pack, and this.
+The following c++ {term}`entities` are not objects: values, references, functions, enumerators, types, non-static class members, templates, namespaces, and `this`. [And some others]
+
+
 
 A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.
 
 
 ***
+## Introduction to the basic structure of computer program written in the C++ language.
+
 
 `C++` is a compiled language. 
 The code in each of the `.cpp` (and `.h`) pages in your project is first converted to an object file, a file with a `.obj` ending (`.o`) if you are linux, by the compiler, which convers the basically readable `C++` code into machine language – in an object file.

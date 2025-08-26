@@ -16,7 +16,7 @@ The first program that most people ever write prints "Hello, World!" the first p
 
 ```{Admonition} History of the Hello World Program
 :class: seealso margin
-See the [Wikipedia](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
+See the [Wiki](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
 ```
 
 
@@ -52,18 +52,23 @@ Type code here!
 ```{code-block} c++
 #include <iostream>
 ```
-C++ programs rely upon libraries – you will not get far without at least one of these, because they include basic ‘facilities’ needed such as the code required to allow you to print out a value to the computer.
+C++ programs rely upon libraries - you will not get far without at least one of these, because they include basic 'facilities' needed such as the code required to allow you to print out a value to the computer.
 
-`#include` provide access to the libraries required by your code.
-It is an instruction that the contents of a header file are copied into the `.cpp` file when the code is compiled.
+`#include` provide access to the libraries required by your code. It is an instruction that the contents of a header file are copied into the `.cpp` file when the code is compiled.
+
+```{tip}
+:class: dropdown
+Use `#include <..faciltiy_name_here..>` to include {term}`standard library facilities` and `#include "<header_file_name.h"` for user defined {term}`header files`
+```
+`<iostream>` is the {term}`standard library facility` containing the functions needed for input and output (writing to the computer screen and accepting input from the keyboard etc..)
 
 ```{code-block} cpp
 int main() {
 **code statements go here**
 }
 ```
-`main()` is a function.
-All `c++` programs require a `main()` function (or an equivalent).
+`main()` is a {term}`function`.
+All c++ programs require a `main()` function (or an equivalent).
 
 For longer programs that have many functions - the `main()` function is the starting point for the logical implementation of the code.
 
@@ -72,22 +77,26 @@ Functions are explained {doc}`here <../jupyternotebooks/introduction_to_function
 Briefly:
 - "main" is the name of the function.
 - The empty parentheses (parens) `main()' indicates that the main function takes no inputs.
-- `main() returns an integer value `int`, and (usually) the code must make that true.
+- `main()` returns an integer value `int`, and (usually) the code must make that true.
 
 ```{code-block} cpp
 std :: cout << "Hello, World!\n";
 ```
-`cout` is the code used for writing to screen.
+`cout` is the code used for writing to screen; pronounced '" - out", and called the character output stream.
+
+`std` identifes that `cout` is found in the standard library facilities.
+
+`::` is the 
 
 `<<` is the "write to" operator (or the "gets from" operator, which makes a little more sense when your are typing left to right!).
 
-`"Hello, World!\n"` is a `string`. String literals are delimited (bracketed) by `""`; explained {doc}`here <../jupyternotebooks/data_types>`.
+`"Hello, World!\n"` is a `string`. String literals are delimited (bracketed) by `""`; explained {doc}`here <../jupyternotebooks/types>`.
 
 `\n` is an escape character - this escape character tells the computer to print anything after it on a newline. 
 ```{code-block} cpp
 return 0;
 ```
-The return `keyword` specifies what the function produces (returns).
+The `return` {term}`keyword` specifies what the function produces (returns).
 
 If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
 
@@ -98,12 +107,12 @@ If a function definition has declared that a particular type of data (an integer
 :label: exercisea1
 Try making the following changes to the above code - note what happens.
 
-1. Remove the semicolon in line 3 or 4. 
-2. Remove `std::` from line 3.
-3. Replace the angle brackets `<>` in the first line with speechmarks `""`.
-4. Change the returned value from 0 to 1, and then to a letter.
-5. Remove the return line.
-6. Add some whitespace (spaces) to the code.
+- Remove the semicolon in line 3 or 4. 
+- Remove `std::` from line 3.
+- Replace the angle brackets `<>` in the first line with speechmarks `""`.
+- Change the returned value from 0 to 1, and then to a letter.
+- Remove the return line.
+- Add some whitespace (spaces) to the code.
 
 
 
@@ -111,19 +120,19 @@ Try making the following changes to the above code - note what happens.
 :class: hint dropdown
 :label: solutiona1
 
-1.A semicolon is required need at the end of each statement – exceptions `include`, `includes` and after `{` or `}`. 
-2.`cout` is not part of the c++ core language and comes instead from the **Standard Library**. 
+- A semicolon is required need at the end of each statement – exceptions `include`, `includes` and after `{` or `}`. 
+- `cout` is not part of the **c++ core language** and comes instead from the **Standard Library**. 
 
 `std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
-3. To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
+- To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
 ```{seealso}
 :class: dropdown
 More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/the_cpp_language>`
 ```
-4. Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
+- Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
-5. This is usually only possible in the main function, but not on every platform.
-6. Whitespace is ignored in C++ - not true in other languages!
+- This is usually only possible in the main function, but not on every platform.
+- Whitespace is ignored in C++ - not true in other languages!
 ````
 `````
 
@@ -140,7 +149,7 @@ More information about the structure of the [C++ language](#the_cpp_language).
 :class: dropdown
 `````
 This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.
-````{code-cell} cpp
+````{code-cell} c++
 :tags: [remove-output]
 include "iostreams"
 main(){
@@ -149,7 +158,7 @@ return "Peter";
 }
 ````
 ````{solution} exercisea2
-:class: hint dropdown
+:class: note dropdown
 :label: solutiona2
 ```{code} cpp
 #include <iostream>
@@ -163,11 +172,14 @@ int main()
 `````{exercise-end}
 `````
 
-:::{admonition} Code Explanation
+<!-- :::{admonition} Code Explanation
 :class: exercise2
 :icon: false
 Some Content
-:::
+::: -->
+
+
+
 
 ## Adding Comments
 
@@ -177,7 +189,7 @@ Comments are used are notes and reminders for people who are trying to understan
 
 When developing a program it is useful to be able to termporarily hide sections of the code from the compiler by 'commenting them out`.
 
-Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and definitely easier for other to use.
+Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and definitely easier for others to use.
 
 Comments may be added to code in two ways:
 
@@ -187,7 +199,7 @@ Multiline comments can be created by surround any text with `/*` and `*/`. These
 
 Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse accross it and then simulaneously pressing {kbd}`Ctrl` + {kbd}`/`.
 
-```{code-block} cpp
+```{code-block} c++
 
 // A C++ style single line comment
 // Another one
@@ -201,20 +213,3 @@ multi-line comment is needed
 */
 
 ```
-
-
-<!-- 
-```{admonition}  An extra exercise
-:class: extra-credit
-An "extra credit" exercise is presented here.
-```
-
-```{admonition}  Useful-Link
-:class: tip
-An "extra credit" exercise is presented here.
-```
-
-```{admonition}  {fa}`check` Title
-:class: note
-An "extra credit" exercise is presented here.
-``` -->

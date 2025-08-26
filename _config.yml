@@ -14,7 +14,7 @@ execute:
   cache: ""    # A path to the jupyter cache that will be used to store execution artifacts. Defaults to `_build/.jupyter_cache/`
   exclude_patterns: []    # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
   only_build_toc_files: true
-  timeout: 30    # The maximum time (in seconds) each notebook cell is allowed to run.
+  timeout: 20    # The maximum time (in seconds) each notebook cell is allowed to run.
   run_in_temp: false # If `True`, then a temporary directory will be created and used as the command working directory (cwd),
                                     # otherwise the notebook's parent directory will be the cwd.
   allow_errors: true # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
@@ -64,6 +64,7 @@ html:
   use_issues_button: true
   use_repository_button: true
 
+
 #######################################################################################
 # Launch button settings
 launch_buttons:
@@ -83,24 +84,25 @@ sphinx:
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
-    pygments_style: lightbulb
+    pygments_style: material
     thebe_config:
-      codemirror-theme:  material-ocean
+      codemirror-theme:  material
       mimetype: text/x-c++src
-      codemirror-mode: clike
+      codemirror-mode: text/x-c++src 
     tippy_props:
       placement: auto-start
-      maxWidth: 500
-      interactive: true
-      theme: material 
+      maxWidth: 300
+      interactive: false
+      theme: transparent #material 
       duration: [200, 100]
-      delay: [200, 500]
+      delay: [200, 0]
     tippy_custom_tips:
       "https://en.cppreference.com/w/": <p>The Official C++ Standard Reference Documentation</p>
       "https://en.cppreference.com/w/cpp/language/history.html": <p>Description of the evolution of C++ language</p>
       "https://en.cppreference.com/w/cpp/keywords.html": <p>Keywords in the C++ language</p>
-      "https://www.mermaidchart.com/play": <p>Flowchart Design Tool</p> 
-    mermaid_params: [ --theme , neutral , --width , 400 , --backgroundColor , transparent ]
-    #mermaid_output_format: svg
-
-html_css_files : css/custom.css 
+      "https://www.mermaidchart.com/play": <p>Flowchart Design Tool</p>
+      "https://en.cppreference.com/w/cpp/language/for.html": <p>For-statements</p> 
+    #mermaid_init_js: "mermaid.initialize({'theme' : 'neutral' , 'width' : '400' , 'backgroundColor' : 'transparent' , 'startOnLoad' : 'true'});"
+    #mermaid_params: {"theme" : "neutral" , "width" : "400" , "backgroundColor" : "transparent" , "startOnLoad" : "false"}
+    #html_js_files: js/mermaid_init.js
+html_css_files : [css/custom.css , css/tippy.css]

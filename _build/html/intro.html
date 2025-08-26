@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Introducton to the C++ Programming Language &#8212; Introduction to C++ Programming</title>
   
@@ -28,46 +29,43 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=f98d607c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=a92ec6da" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0f1db907" />
-    <link rel="stylesheet" type="text/css" href="_static/quiz.css?v=508b8a9e" />
-    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/quiz-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tippy.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="_static/tabs.js?v=3ee01567"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=3854d2bf"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="_static/tippy\intro.1037a4f2-a4c1-4f4b-80e8-b7b32e4ce3cd.js"></script>
+    <script defer="defer" src="_static/tippy\intro.cd779f87-7e70-49c3-a031-393b0fc6a925.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -202,6 +200,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/basic_ideas_and_definitons.html">Basic Ideas and Definitions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/quiz1.html">Quiz 1</a></li>
 </ul>
@@ -211,7 +210,9 @@
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise2.html">Exercise 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/data_types.html">C++ Data Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/objects_values_and_types.html">Objects, Values, and Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/types.html">Types in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/numeric_data_types.html">Numeric Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/char_and_string.html">Characters and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/variables_and_constants.html">User defined names</a></li>
@@ -224,24 +225,20 @@
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise3.html">Exercise 3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/logical_selection.html">Logical Selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/for_loops.html">for-loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/iteration.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/for_loops.html"><code class="docutils literal notranslate"><span class="pre">For</span></code> Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise5.html">Exercise 5</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise6.html">Exercise 6</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise7.html">Exercise 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise6.html">Exercise 6</a></li>
 </ul>
 </details></li>
 </ul>
@@ -253,6 +250,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/solutions_to_exercises.html">Solutions to Exercises</a></li>
 </ul>
 
     </div>
@@ -451,7 +449,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introducton-to-the-c-programming-language">
-<h1>Introducton to the C++ Programming Language<a class="headerlink" href="#introducton-to-the-c-programming-language" title="Link to this heading">#</a></h1>
+<h1>Introducton to the C++ Programming Language<a class="headerlink" href="#introducton-to-the-c-programming-language" title="Permalink to this heading">#</a></h1>
 <p>This book covers the introductory weeks of Computational Physics A - C++ programming basics at Loughbourough University.</p>
 <p>NOTE - We will transition to Visual Studio in week 3.</p>
 <div class="toctree-wrapper compound">
@@ -469,9 +467,8 @@ document.write(`
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/firstprogram.html">First C++ Program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/input_and_output.html">Input and Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/data_types.html">C++ Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/logical_selection.html">Logical Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/iteration.html">Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/objects_values_and_types.html">Objects, Values, and Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/selection_and_iteration.html">Selection and Iteration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/introduction_to_functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/introduction_to_pointers.html">Pointers</a></li>
 </ul>
@@ -487,6 +484,7 @@ document.write(`
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/solutions_to_exercises.html">Solutions to Exercises</a></li>
 </ul>
 </div>
 </section>
@@ -499,8 +497,8 @@ document.write(`
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material-ocean",
-            mode: "clike"
+            theme: "material",
+            mode: "python"
         },
         kernelOptions: {
             name: "python3",

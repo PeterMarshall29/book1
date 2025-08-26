@@ -16,7 +16,7 @@ Add practice using comments
 
 
 `````{exercise-start}
-:label: exerciseaa2
+:label: exercisex1
 `````
 This code is incorrect. Alter the code so that it runs without error and prints your name.
 ````{code-cell} cpp
@@ -27,18 +27,7 @@ cout << "my name is, \n"
 return "Peter";
 }
 ````
-````{solution} exerciseaa2
-:class: hint dropdown
-:label: solutionaa2
-```{code} cpp
-#include <iostream>
-int main()
-{
-	std :: cout << "Hello, World!\n";
-	return 0;
-}
-```
-````
+
 `````{exercise-end}
 `````
 

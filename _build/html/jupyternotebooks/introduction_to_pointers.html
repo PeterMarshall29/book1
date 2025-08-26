@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Pointers &#8212; Introduction to C++ Programming</title>
   
@@ -28,51 +29,48 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=f98d607c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=a92ec6da" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0f1db907" />
-    <link rel="stylesheet" type="text/css" href="../_static/quiz.css?v=508b8a9e" />
-    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/quiz-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=3854d2bf"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.5fae3697-a0b7-4581-b2d2-1ab5f6569487.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.8325b426-0dfb-4a15-8f13-61b76e5f0c94.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_pointers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercise 7" href="exercise7.html" />
-    <link rel="prev" title="Exercise 6" href="exercise6.html" />
+    <link rel="next" title="Exercise 6" href="exercise6.html" />
+    <link rel="prev" title="Exercise 5" href="exercise5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,6 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Ideas and Definitions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
 </ul>
@@ -210,7 +209,9 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="data_types.html">C++ Data Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="objects_values_and_types.html">Objects, Values, and Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numeric_data_types.html">Numeric Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="variables_and_constants.html">User defined names</a></li>
@@ -223,24 +224,20 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="logical_selection.html">Logical Selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html">for-loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="iteration.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="for_loops.html"><code class="docutils literal notranslate"><span class="pre">For</span></code> Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Pointers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise7.html">Exercise 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
 </ul>
 </details></li>
 </ul>
@@ -252,6 +249,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions_to_exercises.html">Solutions to Exercises</a></li>
 </ul>
 
     </div>
@@ -533,7 +531,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pointers">
-<h1>Pointers<a class="headerlink" href="#pointers" title="Link to this heading">#</a></h1>
+<h1>Pointers<a class="headerlink" href="#pointers" title="Permalink to this heading">#</a></h1>
 <p>A pointer should always point at an object, so that dereferencing it is valid. When we don’t have an object to point to or if we need to represent the notion of ‘‘no object available’’ (e.g., for an end of a list), we give the pointer the value nullptr (‘‘the null pointer’’). There is only one nullptr shared by all pointer types:
  
 Nullptr is of type pointer.
@@ -542,7 +540,7 @@ A reference is similar to a pointer.</p>
 <p>But instead, we put the suffix &amp; after the type in the declaration, and do not need the * to access the value.
 References cannot be redirected, they only refer to one object.</p>
 <section id="pointers-and-references">
-<h2>Pointers and References<a class="headerlink" href="#pointers-and-references" title="Link to this heading">#</a></h2>
+<h2>Pointers and References<a class="headerlink" href="#pointers-and-references" title="Permalink to this heading">#</a></h2>
 <p>A suffix * after a type in a declaration/definition indicates you are creating a pointer to a Name of that type.
 The prefix * before a pointer Name means “contents of” – gets the value associated with the pointer
 The prefix &amp; before a Name means “address of” – gets the address for assignment to a pointer.
@@ -597,7 +595,7 @@ test7 = y;
 test8 = y;</p>
 </section>
 <section id="pointer-arithmetic-and-arrays">
-<h2>Pointer Arithmetic and Arrays<a class="headerlink" href="#pointer-arithmetic-and-arrays" title="Link to this heading">#</a></h2>
+<h2>Pointer Arithmetic and Arrays<a class="headerlink" href="#pointer-arithmetic-and-arrays" title="Permalink to this heading">#</a></h2>
 <p>The name of an array is actually a pointer to the ﬁrst element in the array. Writing myArray[3] tells the compiler to return the element that is 3 away from the starting el­ement of myArray. This explains why arrays are always passed by reference: passing an array is really passing a pointer.
 This also explains why array indices start at 0: the ﬁrst element of an array is the element that is 0 away from the start of the array
 Pointer arithmetic
@@ -615,7 +613,7 @@ std::cout &lt;&lt; ptr2 &lt;&lt; ‘\n’;
 std::cout &lt;&lt; *ptr2 &lt;&lt; ‘\n’;</p>
 </section>
 <section id="pointer-expressions-and-arithmetic">
-<h2>Pointer Expressions and Arithmetic<a class="headerlink" href="#pointer-expressions-and-arithmetic" title="Link to this heading">#</a></h2>
+<h2>Pointer Expressions and Arithmetic<a class="headerlink" href="#pointer-expressions-and-arithmetic" title="Permalink to this heading">#</a></h2>
 <p>A limited set of arithmetic operations can be performed on pointers which are:</p>
 <p>incremented ( ++ )
 decremented ( — )
@@ -627,19 +625,19 @@ difference between two pointers (p1-p2)</p>
 int main() {
 double a = 10.0;
 double&amp; b = a;  // an alias
-std::cout &lt;&lt; “a = “ &lt;&lt; a &lt;&lt; std::endl;
-std::cout &lt;&lt; “b = “ &lt;&lt; b &lt;&lt; std::endl &lt;&lt; std::endl;
+std::cout &lt;&lt; “a = ” &lt;&lt; a &lt;&lt; std::endl;
+std::cout &lt;&lt; “b = ” &lt;&lt; b &lt;&lt; std::endl &lt;&lt; std::endl;
 double* pA = &amp;a;
 double* pB = &amp;b;
 b = 6.0;
-std::cout &lt;&lt; “*pA = “ &lt;&lt; *pA &lt;&lt; std::endl;
-std::cout &lt;&lt; “*pB = “ &lt;&lt; *pB &lt;&lt; std::endl;
+std::cout &lt;&lt; “*pA = ” &lt;&lt; *pA &lt;&lt; std::endl;
+std::cout &lt;&lt; “*pB = ” &lt;&lt; *pB &lt;&lt; std::endl;
 return 1;
 }</p>
 <p>Notice that changing the alias changes the original</p>
 </section>
 <section id="void">
-<h2>Void<a class="headerlink" href="#void" title="Link to this heading">#</a></h2>
+<h2>Void<a class="headerlink" href="#void" title="Permalink to this heading">#</a></h2>
 <p>In low-level code, we occasionally need to store or pass along an address of a memory location without actually knowing what type of object is stored there. A void∗ is used for that. You can read void∗ as ‘‘pointer to an object of unknown type.’’
 Functions using void* pointers typically exist at the very lowest level of the system, where real hardware resources are manipulated. For example:
 void* my_alloc(size_t n);   // allocate n bytes from my special heap
@@ -647,7 +645,7 @@ Occurrences of void<em>s at higher levels of the system should be viewed with gr
 Pointers to functions and pointers to members cannot be assigned to void* .</p>
 </section>
 <section id="nullptr">
-<h2><code class="docutils literal notranslate"><span class="pre">nullptr</span></code><a class="headerlink" href="#nullptr" title="Link to this heading">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">nullptr</span></code><a class="headerlink" href="#nullptr" title="Permalink to this heading">#</a></h2>
 <p>The literal nullptr represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types:
 int* pi = nullptr;  double* pd = nullptr;     int i = nullptr;      // error: i is not a pointer
 int* p = NULL; // using the macro NULL
@@ -662,7 +660,7 @@ int* p = NULL; // error: can’t assign a void* to an int*
 Using nullptr makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.</p>
 </section>
 <section id="pointers-and-booleans">
-<h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Link to this heading">#</a></h2>
+<h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Permalink to this heading">#</a></h2>
 <p>A pointer can be implicitly converted to a bool. A non-null pointer converts to true; pointers with the value nullptr convert to false. void myFunction(int* myPointer)
 {
 bool myBoolean1 = myPointer;       // narrows to true or false - not a copy!
@@ -681,10 +679,10 @@ myFunction(myPointerToTemp);
  
 return 0;
 }
-I prefer if (p) over if (p!=nullptr) because it more directly expresses the notion ‘‘if p is valid’’ and also because it is shorter. The shorter form leaves fewer opportunities for mistakes.</p>
+I prefer if § over if (p!=nullptr) because it more directly expresses the notion ‘‘if p is valid’’ and also because it is shorter. The shorter form leaves fewer opportunities for mistakes.</p>
 </section>
 <section id="pointers-into-arrays">
-<h2>Pointers into Arrays<a class="headerlink" href="#pointers-into-arrays" title="Link to this heading">#</a></h2>
+<h2>Pointers into Arrays<a class="headerlink" href="#pointers-into-arrays" title="Permalink to this heading">#</a></h2>
 <p>In C++, pointers and arrays are closely related. The name of an array can be used as a pointer to its initial element. For example:
 int v[] = { 1, 2, 3, 4 };
 int* p1 = v; // pointer to initial element (implicit conversion)
@@ -706,15 +704,15 @@ int</em> p5 = v + 7; // beyond the end, undefined: don’t do it</p>
 void f() {
 char v[] = “Annemarie”;
 char* p = v;  // implicit conversion of char[] to char*
-std::cout &lt;&lt;strlen(p) &lt;&lt; ‘\n’;
+std::cout &lt;&lt;strlen§ &lt;&lt; ‘\n’;
 std::cout &lt;&lt; strlen(v) &lt;&lt; ‘\n’;   // implicit conversion of char[] to char*
 //v = p;     // error: cannot assign to array }
 int main() { f(); }
 The same value is passed to the standard-library function strlen() in both calls. The snag is that it is impossible to avoid the implicit conversion. In other words, there is no way of declaring a function so that the array v is copied when the function is called. Fortunately, there is no implicit or explicit conversion from a pointer to an array.
-The implicit conversion of the array argument to a pointer means that the size of the array is lost to the called function. However, the called function must somehow determine the size to perform a meaningful operation. Like other C standard-library functions taking pointers to characters, strlen() relies on zero to indicate end-of-string; strlen(p) returns the number of characters up to and not including the terminating 0. This is all pretty low-level. The standard-library vector, array, and string don’t suffer from this problem. These library types give their number of elements as their size() without having to count elements each time.</p>
+The implicit conversion of the array argument to a pointer means that the size of the array is lost to the called function. However, the called function must somehow determine the size to perform a meaningful operation. Like other C standard-library functions taking pointers to characters, strlen() relies on zero to indicate end-of-string; strlen§ returns the number of characters up to and not including the terminating 0. This is all pretty low-level. The standard-library vector, array, and string don’t suffer from this problem. These library types give their number of elements as their size() without having to count elements each time.</p>
 </section>
 <section id="pointers-to-functions">
-<h2>Pointers to Functions<a class="headerlink" href="#pointers-to-functions" title="Link to this heading">#</a></h2>
+<h2>Pointers to Functions<a class="headerlink" href="#pointers-to-functions" title="Permalink to this heading">#</a></h2>
 <p>Like a (data) object, the code generated for a function body is placed in memory somewhere  and therefore has a unique address associated with it and therefore we can also define a pointer to a function in a similar manner to a pointer to an object.  There are some differences however
 A pointer to function does not allow the code to be modified.
 The pointer obtained by taking the address of a function can be used to call the function.
@@ -769,8 +767,8 @@ int i = pf(“Zeus”); // error : void assigned to int
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material-ocean",
-            mode: "clike"
+            theme: "material",
+            mode: "text/x-c++src"
         },
         kernelOptions: {
             name: "cpp20",
@@ -792,20 +790,20 @@ int i = pf(“Zeus”); // error : void assigned to int
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="exercise6.html"
+       href="exercise5.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exercise 6</p>
+        <p class="prev-next-title">Exercise 5</p>
       </div>
     </a>
     <a class="right-next"
-       href="exercise7.html"
+       href="exercise6.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercise 7</p>
+        <p class="prev-next-title">Exercise 6</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

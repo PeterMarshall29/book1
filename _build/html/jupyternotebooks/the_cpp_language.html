@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>The C++ Language &#8212; Introduction to C++ Programming</title>
   
@@ -28,46 +29,43 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=f98d607c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=a92ec6da" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0f1db907" />
-    <link rel="stylesheet" type="text/css" href="../_static/quiz.css?v=508b8a9e" />
-    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/quiz-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=3854d2bf"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.da078282-4178-45d4-b4cd-2f167f692049.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.ed86c6d1-b554-494a-a0bf-657a39e75428.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/the_cpp_language';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -201,6 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Ideas and Definitions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
 </ul>
@@ -210,7 +209,9 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="data_types.html">C++ Data Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="objects_values_and_types.html">Objects, Values, and Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numeric_data_types.html">Numeric Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="variables_and_constants.html">User defined names</a></li>
@@ -223,24 +224,20 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="logical_selection.html">Logical Selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html">for-loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="iteration.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="for_loops.html"><code class="docutils literal notranslate"><span class="pre">For</span></code> Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise7.html">Exercise 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
 </ul>
 </details></li>
 </ul>
@@ -252,6 +249,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions_to_exercises.html">Solutions to Exercises</a></li>
 </ul>
 
     </div>
@@ -490,7 +488,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -506,6 +506,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-c-programmes">Structure of C++ Programmes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language">Introduction to the basic structure of computer program written in the C++ language.</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -516,29 +525,35 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-c-language">
-<span id="cpplanguage"></span><h1>The C++ Language<a class="headerlink" href="#the-c-language" title="Link to this heading">#</a></h1>
-<p>Introduction to the basic structure of computer program written in the C++ language.</p>
-<p>There are simpler programming languages to learn, but once have learned to code in C++ subsequent programming languages are much easier to pick up</p>
+<span id="cpplanguage"></span><h1>The C++ Language<a class="headerlink" href="#the-c-language" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/C++">Wiki</a> The C++ language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Tippy.Wiki Bjarne Stroustrup</a> and first released in 1985.</p>
+<p>C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).</p>
+<p>There are simpler programming languages to learn; but once have learned to code in C++ subsequent programming languages are much easier to pick up.</p>
+<div class="magin admonition note">
+<p class="admonition-title">Note</p>
 <blockquote>
 <div><p>There are only two kinds of languages: the ones people complain about and the ones nobody uses.</p>
 <p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
 </div></blockquote>
-<hr class="docutils" />
-<p>Start with ideas like syntax…
-syntax - the set of gramatical rules specifying how the text of a program must be composed. For example, specifying the form of a declaration or the form of a for-statement.</p>
-<p>All the `C++ language syntax is detailed here: <a class="reference external" href="https://en.cppreference.com/w/">cppreference.com</a> - The reference will become more accessible as you work through the basic concepts convered in this module, but does have some useful information for beginners</p>
+</div>
+<p>All the `C++ language syntax is detailed here: <a class="reference external" href="https://en.cppreference.com/w/">The Official C++ Standard Reference Documentation</a> - NB Although it may look daunting, this reference does have some useful information for beginnerss, and will become more accessible as you work through the basic concepts convered in this module.</p>
 <div class="note margin admonition">
 <p class="admonition-title">Note</p>
 <p>Computational A will be using <code class="docutils literal notranslate"><span class="pre">C++20</span></code></p>
 </div>
 <div class="note margin admonition">
 <p class="admonition-title">Note</p>
-<p>The evolution of the C++ language is detailed <a class="reference external" href="https://en.cppreference.com/w/cpp/language/history.html">here</a></p>
+<p>The evolution of the C++ language is detailed in: <a class="reference external" href="https://en.cppreference.com/w/cpp/language/history.html">Description of the evolution of C++ language</a></p>
 </div>
 <hr class="docutils" />
-<p>The code you will write on these pages do not constitute computer programs. They are</p>
+<p>The live code editor on the following pages, uses a C++ Kernel that runs in Jupyter Notebook. This is not the usual way to work and has signifiant limits.</p>
+<p>In later weeks we will move to Visual Studio and start writing complete computer programs that can be compiled into executables - the following notes apply then.</p>
+<section id="structure-of-c-programmes">
+<h2>Structure of C++ Programmes<a class="headerlink" href="#structure-of-c-programmes" title="Permalink to this heading">#</a></h2>
 <p>This section provides definitions for the specific terminology and the concepts used when describing the C++ programming language.</p>
-<p>A C++ program is a sequence of text files (typically header and source files) that contain <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a>s. They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.</p>
+<p>A C++ program is a sequence of text files (typically header and source files) that contain <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a>s.
+The declarations are statements written in the C++ language.</p>
+<p>In these text files you write the They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.</p>
 <p>Certain words in a C++ program have special meaning, and these are known as keywords. Others can be used as identifiers. Comments are ignored during translation. C++ programs also contain literals, the values of characters inside them are determined by character sets and encodings. Certain characters in the program have to be represented with escape sequences.</p>
 <p>The entities of a C++ program are values, objects, references, structured bindings(since C++17), result bindings(since C++26), functions, enumerators, types, class members, templates, template specializations, packs(since C++11), and namespaces. Preprocessor macros are not C++ entities.</p>
 <p>Declarations may introduce entities, associate them with names and define their properties. The declarations that define all properties required to use an entity are definitions. A program must contain only one definition of any non-inline function or variable that is odr-used.</p>
@@ -564,9 +579,12 @@ A large part of the <strong>C++ Standard Library</strong> is based on the <stron
 lifetime (bounded by storage duration or temporary);
 alignment requirement (can be determined with alignof);</p></li>
 </ul>
-<p>The following entities are not objects: value, reference, function, enumerator, type, non-static class member, template, class or function template specialization, namespace, parameter pack, and this.</p>
+<p>The following c++ <a class="reference internal" href="glossary.html#term-Entities"><span class="xref std std-term">entities</span></a> are not objects: values, references, functions, enumerators, types, non-static class members, templates, namespaces, and <code class="docutils literal notranslate"><span class="pre">this</span></code>. [And some others]</p>
 <p>A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.</p>
+</section>
 <hr class="docutils" />
+<section id="introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language">
+<h2>Introduction to the basic structure of computer program written in the C++ language.<a class="headerlink" href="#introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a compiled language.
 The code in each of the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> (and <code class="docutils literal notranslate"><span class="pre">.h</span></code>) pages in your project is first converted to an object file, a file with a <code class="docutils literal notranslate"><span class="pre">.obj</span></code> ending (<code class="docutils literal notranslate"><span class="pre">.o</span></code>) if you are linux, by the compiler, which convers the basically readable <code class="docutils literal notranslate"><span class="pre">C++</span></code> code into machine language – in an object file.
 The <code class="docutils literal notranslate"><span class="pre">cpp</span></code> source code is platform agnostic – but the object and executable files are not portable amongst platforms – not even amongst generations.
@@ -589,6 +607,7 @@ A freestanding implementations generally provide fewer standard-library faciliti
 <p>Memory Management
 Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.</p>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -598,8 +617,8 @@ Methods of allocating and freeing memory. In C++ memory is either static, alloca
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material-ocean",
-            mode: "clike"
+            theme: "material",
+            mode: "text/x-c++src"
         },
         kernelOptions: {
             name: "cpp20",
@@ -644,6 +663,22 @@ Methods of allocating and freeing memory. In C++ memory is either static, alloca
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-c-programmes">Structure of C++ Programmes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language">Introduction to the basic structure of computer program written in the C++ language.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
