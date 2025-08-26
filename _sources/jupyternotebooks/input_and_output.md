@@ -29,8 +29,8 @@ Don't forget to include <iostream> and <string> and to format the main() functio
 :linenos: 
 std::cout<<"Please type your surname!\n";
 std::string surname;
-//std::cin >> surname;
-//std::cout << "Hello, " << surname << "!\n";
+std::cin >> surname;
+std::cout << "Hello, " << surname << "!\n";
 return 0;
 ```
 
@@ -54,8 +54,8 @@ int main()
 {
 	std::cout<<"Please type your surname!\n"; // This is a 'prompt'; a message to the user with instructions.
 	std::string surname;       //This declares a variable of type string.
-	//std::cin >> surname;		//character input stream, takes input from console when 'return' (aka 'newline') is pressed. 
-	//std::cout << "Hello, " << surname << "!\n";
+	std::cin >> surname;		//character input stream, takes input from console when 'return' (aka 'newline') is pressed. 
+	std::cout << "Hello, " << surname << "!\n";
 	return 0;
 }
 ```
@@ -73,14 +73,9 @@ TRY putting a space in the beginning of the user input to cin.
 
 ````
 
-
-
-
-
-
 Now try: 
 ```{code-cell} c++
-:tags: [remove-output]
+:tags: [remove-output, skip-execution]
 #include <iostream>
 int main(){
 int age = 58;
@@ -103,14 +98,14 @@ Lastly keywords are protected and cannot be reused.
 
 
 ```{code-cell} c++
-:tags: [remove-output]
+:tags: [remove-output, skip-execution]
 #include <iostream>
 int main(){
 
 std::cout << "Please type your first name followed by your surname!\n"; 
 std::string surname; 
-//std::cin >> surname;
-//std::cout << "Hello, " << surname << "!\n";
+std::cin >> surname;
+std::cout << "Hello, " << surname << "!\n";
 
 return 0;
 }
@@ -121,15 +116,15 @@ The string input ends when a white space is detected, so TRY
 The convention is that the reading of strings is terminated by any whitespace i.e. space, tab, or newline '\t', '\n'.
 
 ```{code-cell} c++
-:tags: [remove-output]
+:tags: [remove-output, skip-execution]
 #include <iostream>
 int main(){
 int age = 58;
 std::cout << "Please type your first name followed by your surname!\n"; 
 std::string firstName = "Peter";
 std::string surname;       
-//std::cin >> firstName >> surname; //input before space to first variable and input after space to second variable 
-//std::cout << "Hello, " << firstName << " " << surname << ", you are " << age << " years old!\n";
+std::cin >> firstName >> surname; //input before space to first variable and input after space to second variable 
+std::cout << "Hello, " << firstName << " " << surname << ", you are " << age << " years old!\n";
 return 0;
 }
 ```
@@ -137,15 +132,15 @@ return 0;
 Now change to ask for an name followed by an age.
 
 ```{code-cell} c++
-:tags: [remove-output , raises-exception]
+:tags: [remove-output , raises-exception , skip-execution]
 #include <iostream>
 int main(){
 int age = 58;
 std::string firstName = "Peter";
 std::cout << "Please type your first name followed by your age!\n"; 
 std::string surname; 
-//std::cin >> firstName >> age; 
-//std::cout << "Hello, " << firstName << " " << surname << ", you are " << age << " years old!\n";
+std::cin >> firstName >> age; 
+std::cout << "Hello, " << firstName << " " << surname << ", you are " << age << " years old!\n";
 return 0;
 }
 ```

@@ -12,13 +12,18 @@ kernelspec:
 
 # Basic Ideas and Definitions
 
-To continue learning C++ it is helpful to learn a few more basic concepts before delving into what they mean, so we can used these basic ideas to demonstrate them later
+Once you have learned a few more basic parts of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out the new concepts out.
 
-All of the concepts we now introduce will be expanded on in future chapters - this page is not intended to present fully decriptions and definitions. 
+This page leads you through some basic exercies, much of the explanation is left until later chapters, this page is not intended to present fully decriptions and definitions.
 
-Basic arithmetic.
+In the Compuational Physics module, we are mainly concerned with writing code that will take user inputs, perform calculations, and then return 'answers' to the user. This requires us to learn only a subset of the C++ langugage and programming concepts.
 
-We can use `cout` and some basic arithmetic operators to write a simple programs for calculation.
+
+## Basic Arithmetic Operations
+
+All programmeming languages carry out basic arithmetic operationrs. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
+
+`cout` can be used demonstrate the basic arithmetic operations. The {term}`Modulus` operation may be new to you. and some basic arithmetic operators to write a simple programmes for calculation.
 
 ```{code-block} cpp
 :linenos: 
@@ -33,28 +38,30 @@ int main() {
 :tags: [remove-output]
 Type code here!
 ```
-The program evaluates the expressions `4 + 7` before sending the result to the output stream
+The programme evaluates the expression `4 + 7` before sending the result to the character output stream (the screen).
 
+```{exercise}
+:class: dropdown
 Try the operators -,*,/ and %. What does the % operator do? Why might that be useful?
 
 The try using `-` as a prefix on a number, what effect does that have?
+```
 
+## Variables
 
-Variables
+A computer programme that can only perform arithmetic on the values written into the original programme code would not be very useful.
 
-A computer program that can only perform arithmetic on the values written into the original program code would not be much use.
+Instead programmes must be able ask for the numberic values that are to be used in the calculations. 
 
-Instead programs must be able ask for the numbers to be used in the calculations. 
+This requires the computer to store the number, and to be able to identify and manipulate it later.
 
-This requires the computer to store the number, and be able to identify and manipulate it later.
-
-Computers use variables for this purpose. In simplest terms, like in maths, the variable is a name (single character or string of characters) that represent an unspecified value that can be used some way.
+Computers use variables for this purpose. In simplest terms, like in maths, the variable is a name (single character or string of characters) that represent an unspecified value that can be used in some way.
 
 To get started we will look at creating two types of variable.
 
-To create a variable called 'a' that holds an integer value 5, we can used the statement : `int a = 5;`
+To create a variable named 'a' that holds the integer value of 5, we can used the statement : `int a = 5;`
 
-Then we can use `a` anywhere we want to use its value.
+After this statement in the programme, the variable `a` may be used anywhere that we want to use it's value of `5`
 
 Type in the following code.
 
@@ -73,20 +80,32 @@ int main() {
 Type code here!
 ```
 
-When the program gets to `a` following the `<<` operator it sends the value of a to the screen, not the letter a.
+When the programme gets to `a` following the `<<` operator it sends the value of `a` to the screen, not the letter 'a'.
 
-Try declaring a second variable `b` and printing out the value of `a + b`.
+````{exercise}
+:label: exercised0
+:class: dropdown
+What would happen if you now declaring a second variable `b` and intstruct the program to print out `a + b`?
 
-
-Another useful type of variable is the `string` type. A string is a series of characters. 
+Try it in the code space above.
+```{solution} exercised0
+:label: solutiond0
+:class: dropdown
+Now the program has evaluated the arithmetic sum of the values contained in `a` and `b` - and sent that single value to the character output stream.
+```
+````
+## Strings
+Another useful type of variable is the `string` type. A {term}`string` is a series of individual characters. 
 
 To use string-type variables we need an additional component of the standard library, `<string>` to be included.
 
 The string literal must be enclosed in `""`. 
 
-Try 
-
-```{code-block} cpp
+`````{exercise-start}
+:label: exercised1
+:class: dropdown
+`````
+````{code-block} cpp
 :linenos: 
 #include <isotream>
 #include <string>
@@ -95,12 +114,15 @@ int main() {
     std::cout << a;
     return 0;
 }
-```
+````
+````{code} c++
 
-```{code-cell} c++
-:tags: [remove-output]
 Type code here!
-```
+````
+`````{exercise-end}
+`````
+
+
 
 `````{exercise-start}
 :label: exercised2
@@ -108,20 +130,23 @@ Type code here!
 `````
 Try adding a second variable b, with a value of "-fingers" and printing out the value of `a + b` again.
 
-Demonstrating that the `+` operator behaves differently when used with differnt data types. For numeric types it performs 'addition', but for string types it performs 'concatenation'.
-````{solution} exercised2
-:class: dropdown
-:label: note solutiond2
-```{code} c++
-
+```{code-cell} c++
+:tags: [remove-output]
 Type code here!
 ```
+Demonstrating that the `+` operator behaves differently when used with differnt data types. For numeric types it performs 'addition', but for string types it performs 'concatenation'.
+````{admonition} Code Explanation
+:class: dropdown
+If done correctly, you will have demonstrated that `+` operator behaves differently when used with differnt data types. 
+
+For a {term}`numeric data type` it performs 'addition', but for the {term}`string data type` it performs {term}`concatenation`.
 ````
 `````{exercise-end}
 `````
 
+
 `````{exercise-start}
-:label: exercised1
+:label: exercised3
 :class: dropdown
 `````
 Try to fix this code:
@@ -136,19 +161,34 @@ std::float = 12.5;
 return 0;
 }
 ````
-````{solution} exercised1
-:class: note dropdown
-:label: solutiond1
-Strings are part of the standard library, and must be referenced by prefixing `std::` .
-`int`, `float`, `double`, and `char` are all part of the {term}`core language`, and should not have `std::` attached.
-```{code} c++
+````{code} c++
 
 Type code here!
+````
+````{solution} exercised3
+:class: note dropdown
+:label: solutiond3
+```{code-block} cpp
+#include <iostream>
+#include <string>
+int main(){
+    int age = 52;
+    std::string firstName = 12.0;
+    float = 12.5;
+return 0;
+}
 ```
+Strings are part of the standard library, and must be referenced by prefixing with `std::`.
+
+`int`, `float`, `double`, and `char` are all part of the {term}`core language`, and should not have `std::` attached.
 ````
 `````{exercise-end}
 `````
 
+## Errors In Calculations - to be moved
 
+Rounding (or round-off) error: The precision of arithmetic is limited by  a computer is limited
+
+Truncation errors: 
 
 

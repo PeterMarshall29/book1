@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>for-loops &#8212; Introduction to C++ Programming</title>
+    <title>For loops &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.e39671ab-dcfa-4a5c-b9a2-3576afa5a1d8.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.e7fea134-8464-4aab-93e1-a23d63681983.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-9c5e35bc-04c8-410a-bf75-adcada53d0ac] svg, .mermaid[data-zoom-id=id-726b0b25-7cca-4f4d-b9be-c2bc3ecf2285] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-32d95565-8877-4449-a24a-90c968b1bc77] svg, .mermaid[data-zoom-id=id-7f8938f0-2ee1-46f9-ac92-415adc466bbf] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -106,8 +106,8 @@ window.addEventListener("load", load);
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/for_loops';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="while Loops" href="while_loops.html" />
-    <link rel="prev" title="switch Statements" href="switch_statements.html" />
+    <link rel="next" title="While Loops" href="while_loops.html" />
+    <link rel="prev" title="Switch Statements" href="switch_statements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -262,10 +262,10 @@ window.addEventListener("load", load);
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">for-loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">For loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
@@ -538,7 +538,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>for-loops</h1>
+    <h1>For loops</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -566,7 +566,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="for-loops">
-<h1>for-loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h1>
+<h1>For loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h1>
 <p>Conditionally execute a statement, or code block, repeatedly.</p>
 <p>The code block itself does not usually have anything to do with the condition for continuation of iteration, but does often utilise the loop variable to change what happens on each iteration.</p>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/for.html">For-statements</a></p>
@@ -577,7 +577,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-9c5e35bc-04c8-410a-bf75-adcada53d0ac" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-32d95565-8877-4449-a24a-90c968b1bc77" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -608,7 +608,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-726b0b25-7cca-4f4d-b9be-c2bc3ecf2285" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-7f8938f0-2ee1-46f9-ac92-415adc466bbf" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -740,7 +740,8 @@ If no initialization is needed, the initializing statement can be empty.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>05</p>
+<p>0</p>
+<p>5</p>
 <p>14</p>
 <p>23</p>
 </div>
@@ -768,14 +769,16 @@ If no initialization is needed, the initializing statement can be empty.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp_90zhk2a.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmp_90zhk2a.cpp:10:22: error: &#39;a&#39; was not declared in this scope
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp:10:22: error: &#39;a&#39; was not declared in this scope
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                      ^
-C:\Users\Peter\AppData\Local\Temp\tmp_90zhk2a.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
+C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                           ^~~~
-C:\Users\Peter\AppData\Local\Temp\tmp_90zhk2a.cpp:10:27: error: lvalue required as increment operand
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp:10:27: error: lvalue required as increment operand
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
@@ -804,28 +807,28 @@ C:\Users\Peter\AppData\Local\Temp\tmp_90zhk2a.cpp:10:27: error: lvalue required 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp: In function &#39;void loopFunction(int*, int)&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In function &#39;void loopFunction(int*, int)&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
     8 |     while (i !!= terminatiionValue) {
       |           ~ ^~
       |             )
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
     8 |     while (i !!= terminatiionValue) {
       |               ^~
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp:15:19: error: expected identifier before numeric constant
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:19: error: expected identifier before numeric constant
    15 |     loopfunction([1,2,3,4,5], 20);
       |                   ^
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                    ^
       |                    ]
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp: In lambda function:
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In lambda function:
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                 ~          ^
       |                            )
@@ -853,11 +856,11 @@ C:\Users\Peter\AppData\Local\Temp\tmpel_qdlam.cpp:15:28: error: expected &#39;)&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpq9hc9n3b.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpq9hc9n3b.cpp:6:10: error: redeclaration of &#39;long int i&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpzphaf52x.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpzphaf52x.cpp:6:10: error: redeclaration of &#39;long int i&#39;
     6 |     long i = 1;
       |          ^
-C:\Users\Peter\AppData\Local\Temp\tmpq9hc9n3b.cpp:5:10: note: &#39;int i&#39; previously declared here
+C:\Users\Peter\AppData\Local\Temp\tmpzphaf52x.cpp:5:10: note: &#39;int i&#39; previously declared here
     5 | for (int i = 0;;) {
       |          ^
 </pre></div>
@@ -964,7 +967,7 @@ for (auto p = begin©; c!=end©; ++p) {
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</p>
+        <p class="prev-next-title">Switch Statements</p>
       </div>
     </a>
     <a class="right-next"
@@ -972,7 +975,7 @@ for (auto p = begin©; c!=end©; ++p) {
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</p>
+        <p class="prev-next-title">While Loops</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

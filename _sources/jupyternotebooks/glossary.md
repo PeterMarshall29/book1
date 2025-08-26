@@ -23,11 +23,14 @@ Algorithm
 Binary
   [Binary Code](https://en.wikipedia.org/wiki/Binary_code) is a sequence of 1's and 0's. Each one `1` or `0` is called a bit. A computer will read a specific number of bits (e.g. 64) at a time. Differnt sequences are differnt instructions to the CPU.   
 
+Binary File
+  File containing only binary code.
+
 Camel Case
   [Camel Case](https://en.wikipedia.org/wiki/Camel_case) is one of the naming conventions used to improve the readability of code, whilst avoiding underscores. 
 
 Class
-    more basic    ;A blueprint for creating objects, encapsulating data (attributes) and functions (methods).
+  more basic    ;A blueprint for creating objects, encapsulating data (attributes) and functions (methods).
 
 Code Block
   Sequence of {term}`statements` inclosed by curly braces `{}`. Also called a {term}`compound statement`.
@@ -38,8 +41,14 @@ Comments
 Compiler
   The part of a C++ implementation that produces object code from a translation unit. More generally compilers transform source code into other types of code, but most often into native machine code that is interpreted directly by the {term}`CPU`.
 
+Compiled Language
+  def
+
 Compound Statement
   Sequence of {term}`statements` inclosed by curly braces `{}`. Also called a {term}`code block`.
+
+Concatention
+  Joining of two strings together.
 
 Const
   Const: A keyword that makes a variable or function parameter immutable.
@@ -54,7 +63,7 @@ Copy Assignment
   Replacement of the contents of one object with the contents of a second object; the second object is unaffected.
 
 CPU
-  [Central Processing Unit](https://en.wikipedia.org/wiki/Central_processing_unit) is the electronic circuitry inside a computer that executes the machine code version of computer programmes.
+  C[entral Processing Unit](https://en.wikipedia.org/wiki/Central_processing_unit) is the electronic circuitry inside a computer that executes the machine code version of computer programmes.
 
 Data Member
   Member of a class that can hold a value.
@@ -62,17 +71,29 @@ Data Member
 Declaration
   Declarations introduce names into a C++ program. Each kind of entity is declared differently.
 
+Declarations
+  Declarations introduce names into a C++ program. Each kind of entity is declared differently.
+
 Definition
+  Definitions are declarations that are sufficient to use the entity identified by the name.
+
+Definitions
   Definitions are declarations that are sufficient to use the entity identified by the name.
 
 Dynamic Memory
   Memory that is allocated during runtime using `new`; and deallocated using `delete`.
+
+Embedded Programs
+  Programs written on computers and then transferred onto an embedded microprocessor in a device to control its function - also called firmware. The embedded program is an integrated part of the device and not directly accessible by the user. 
 
 Entity
   The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces. ECS consists of three main parts:
 
 Entities
   The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces. ECS consists of three main parts:
+
+Executable File
+  def
 
 Expression
   A series of operators and names the produce a value, or may designate objects or functions. Simplest example would be an arithmetic statement.
@@ -84,7 +105,10 @@ Free store
   {term}`memory` allocated by `new`; also called dynamic memory. Often standard library facilities, such as `vector`, can be used to avoid explicit use of free store.
 
 Function
-  A named sequence of statements that can be invoked/called given arguments and that might return a value. The type of the function includes the number and types of argument and the type of the value returned, if any
+  A named sequence of statements that can be invoked/called given arguments and that might return a value. The type of the function includes the number and types of argument and the type of the value returned, if any. Functions are useful because they are reusable, making code more efficient to write and execute.
+
+Functional Programming
+  Programming paradigm that constructed programs using functions. A declarative model of programming emphasizing "what to do" rather than "how to do it."
 
 Global Scope
   Variables declared outside of all functions or classes have global scope. Global variables are accessible throughout the program, unless shadowed by a local variable with the same name. Global variables are best avoided unless necessary because they may result in unintended consequences in execution.
@@ -140,6 +164,12 @@ Memory Management
 Name
   An identifier. (A minority of names are not identifiers - advanced). 
 
+Numeric Data Type
+  The data types for numeric values - each represents a different type of number to different levels of precision. Includes `int`, `float`, `double`. Some data types require additional specficiers, see the [C++ Reference - Data Types](https://en.cppreference.com/w/cpp/language/types.html)
+
+Modulo Operator
+  Returns the remainder after dividing the lhs number by the rhs number. In C++ this operation only applies to `int` type and is truncating, meaning the quotient, whether positive or negative, is rounded towards before the remainder is determine. Other langugages used 'floored' or 'rounded', and for every new language you will need to determine which is applied, because different results are produced.
+
 Objects
   - A contiguous region of memory holding a value of some type. Objects can be allocated in {term}`static memory`, on the {term}`stack`, on on the {term}`free store`. 
   - A named or unnamed variable of some type; an object of a type with a constructor is not considered an object before the constructor has completed and is no longer considered an object once a destructor has started executing for it. Objects can be allocated in static memory, on the stack, on on the free store.
@@ -148,8 +178,23 @@ Objects
 Object file
   The file produced by a compiler - the result of compiling a source file.
 
+Object files
+  The file produced by a compiler - the result of compiling a source file
+
+Object-oriented programming
+  Programming paradigm that encapsulates related data and functions into objects. An imperative model, focusing on "how to do" tasks step-by-step.
+
 Overloading
   Additing multiple defintions to the operators and functions of the same name but different parameters - each instance acts on objects of different type.
+
+Programming Paradigm
+  Model of how to structure and implement computer programs.
+
+Programming Paradigms
+  Different approaches to writing computer programs. Most common paradigms are: Procedural, Functional, and Object-oriented programming.
+
+Resource files
+  Non code files, such as image files, required by the program.
 
 Scope Resolution Operator
   `::` -  links an entity to its container; like a folder reference.
@@ -178,6 +223,12 @@ Static
   - Used to declare a class member static; the member functions and pes a variable or function belong to the class rather than an instance of the class (an object). Also means there is no pointer to a member function.
   - Specifies a local variable should be allocated to static memory
 
+String
+  def
+
+String Data Type
+  Data consisting of a sequence of characters, bracketed by `""`.
+
 Static Memory
   Memory allocated by the {term}`linker`
 
@@ -191,7 +242,10 @@ Template
   A blueprint for generic and reusable code for functions and classes
 
 Translation unit
-  Part of a program that can be separately compiled. Individual source or header files.
+  Part of a program that can be separately compiled. Individual source, or header, files.
+
+Translation units
+  Part of a program that can be separately compiled. Individual source, or header, files.
 
 Type
  A type defines the proper use of a name or an expression.

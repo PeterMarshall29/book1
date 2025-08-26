@@ -12,6 +12,53 @@ kernelspec:
 
 # Objects, Values, and Types
 
+
+Copied
+
+
+
+
+
+Certain words in a C++ program have special meaning, and these are known as keywords. Others can be used as identifiers. Comments are ignored during translation. C++ programs also contain literals, the values of characters inside them are determined by character sets and encodings. Certain characters in the program have to be represented with escape sequences.
+
+The entities of a C++ program are values, objects, references, structured bindings(since C++17), result bindings(since C++26), functions, enumerators, types, class members, templates, template specializations, packs(since C++11), and namespaces. Preprocessor macros are not C++ entities.
+
+Declarations may introduce entities, associate them with names and define their properties. The declarations that define all properties required to use an entity are definitions. A program must contain only one definition of any non-inline function or variable that is odr-used.
+
+Definitions of functions usually include sequences of statements, some of which include expressions, which specify the computations to be performed by the program.
+
+Names encountered in a program are associated with the declarations that introduced them using name lookup. Each name is only valid within a part of the program called its scope. Some names have linkage which makes them refer to the same entities when they appear in different scopes or translation units.
+
+Each object, reference, function, expression in C++ is associated with a type, which may be fundamental, compound, or user-defined, complete or incomplete, etc.
+
+Declared objects and declared references that are not non-static data members are variables ﻿.
+
+C++ programs create, destroy, refer to, access, and manipulate {term}`objects`.
+
+An object, in C++, has
+
+* A type
+* A name (optional)
+* A value (which may be indeterminate, e.g. for default-initialized non-class types)
+* A size (can be determined with sizeof);
+
+* Storage duration (automatic, static, dynamic, thread-local);
+lifetime (bounded by storage duration or temporary);
+alignment requirement (can be determined with alignof);
+
+
+
+
+The following c++ {term}`entities` are not objects: values, references, functions, enumerators, types, non-static class members, templates, namespaces, and `this`. [And some others]
+
+
+
+A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.
+***
+end of copied
+
+
+
 ## Objects and Variables
 
 An **object** is a region of memory with a **type** that specifies what kind of information can be placed in it.

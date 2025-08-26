@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.7bedc53d-4d4f-4991-a305-c384c7339ce9.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.cf531ef5-085d-421f-ae5c-855ae590ad0b.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/input_and_output';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -225,10 +225,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="for_loops.html">for-loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
@@ -525,8 +525,8 @@ document.write(`
 </div>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
-<span class="linenos">3</span><span class="c1">//std::cin &gt;&gt; surname;</span>
-<span class="linenos">4</span><span class="c1">//std::cout &lt;&lt; &quot;Hello, &quot; &lt;&lt; surname &lt;&lt; &quot;!\n&quot;;</span>
+<span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
+<span class="linenos">4</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="linenos">5</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -545,8 +545,8 @@ document.write(`
 <span class="p">{</span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// This is a &#39;prompt&#39;; a message to the user with instructions.</span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">       </span><span class="c1">//This declares a variable of type string.</span>
-<span class="w">	</span><span class="c1">//std::cin &gt;&gt; surname;		//character input stream, takes input from console when &#39;return&#39; (aka &#39;newline&#39;) is pressed. </span>
-<span class="w">	</span><span class="c1">//std::cout &lt;&lt; &quot;Hello, &quot; &lt;&lt; surname &lt;&lt; &quot;!\n&quot;;</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">		</span><span class="c1">//character input stream, takes input from console when &#39;return&#39; (aka &#39;newline&#39;) is pressed. </span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -558,14 +558,14 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-0">
 
-<p class="admonition-title"><span class="caption-number">Exercise 6 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
 <section id="exercise-content">
 <p>TRY putting a space at the end of the user input to cin. Only part before space is taken up.
 TRY putting a space in the beginning of the user input to cin.</p>
 </section>
 </div>
 <p>Now try:</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -587,15 +587,15 @@ Int has many qualifiers - Int can be dropped and the qualifier used on its own.<
 Names are case sensitive - keep leading capitals for classes.
 Never start with an underscore - it will work, but that pattern is reserved for implementation and system entities, so you risk clashing with something with the same name you did not expect.
 Lastly keywords are protected and cannot be reused.</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your first name followed by your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w"> </span>
-<span class="c1">//std::cin &gt;&gt; surname;</span>
-<span class="c1">//std::cout &lt;&lt; &quot;Hello, &quot; &lt;&lt; surname &lt;&lt; &quot;!\n&quot;;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 
 <span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -605,7 +605,7 @@ Lastly keywords are protected and cannot be reused.</p>
 </div>
 <p>The string input ends when a white space is detected, so TRY</p>
 <p>The convention is that the reading of strings is terminated by any whitespace i.e. space, tab, or newline ‘\t’, ‘\n’.</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -613,8 +613,8 @@ Lastly keywords are protected and cannot be reused.</p>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your first name followed by your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">       </span>
-<span class="c1">//std::cin &gt;&gt; firstName &gt;&gt; surname; //input before space to first variable and input after space to second variable </span>
-<span class="c1">//std::cout &lt;&lt; &quot;Hello, &quot; &lt;&lt; firstName &lt;&lt; &quot; &quot; &lt;&lt; surname &lt;&lt; &quot;, you are &quot; &lt;&lt; age &lt;&lt; &quot; years old!\n&quot;;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w"> </span><span class="c1">//input before space to first variable and input after space to second variable </span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -622,7 +622,7 @@ Lastly keywords are protected and cannot be reused.</p>
 </div>
 </div>
 <p>Now change to ask for an name followed by an age.</p>
-<div class="cell tag_remove-output tag_raises-exception docutils container">
+<div class="cell tag_remove-output tag_raises-exception tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -630,8 +630,8 @@ Lastly keywords are protected and cannot be reused.</p>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your first name followed by your age!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w"> </span>
-<span class="c1">//std::cin &gt;&gt; firstName &gt;&gt; age; </span>
-<span class="c1">//std::cout &lt;&lt; &quot;Hello, &quot; &lt;&lt; firstName &lt;&lt; &quot; &quot; &lt;&lt; surname &lt;&lt; &quot;, you are &quot; &lt;&lt; age &lt;&lt; &quot; years old!\n&quot;;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"> </span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -671,7 +671,8 @@ Try the following code.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>xy</p>
+<p>x</p>
+<p>y</p>
 <p>241</p>
 </div>
 </div>

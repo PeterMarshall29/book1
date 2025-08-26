@@ -65,7 +65,44 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.ed86c6d1-b554-494a-a0bf-657a39e75428.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.566c7352-a2c0-4a31-b918-806bd40a09bb.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+const load = async () => {
+    await mermaid.run();
+    const all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+    if(mermaids_to_add_zoom > 0) {
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-a959a68e-c25e-47d2-9631-2afe8c3e90dd] svg");
+        if(all_mermaids.length !== mermaids_processed.length) {
+            // try again in a sec, wait for mermaids to load
+            setTimeout(load, 200);
+            return;
+        } else if(svgs.size() !== mermaids_to_add_zoom) {
+            // try again in a sec, wait for mermaids to load
+            setTimeout(load, 200);
+            return;
+        } else {
+            svgs.each(function() {
+                var svg = d3.select(this);
+                svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                var inner = svg.select("g");
+                var zoom = d3.zoom().on("zoom", function(event) {
+                    inner.attr("transform", event.transform);
+                });
+                svg.call(zoom);
+            });
+        }
+    }
+};
+
+window.addEventListener("load", load);
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/the_cpp_language';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -225,10 +262,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="for_loops.html">for-loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
@@ -511,8 +548,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-the-c-language">Structure of the C++ Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-c-programmes">Structure of C++ Programmes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language">Introduction to the basic structure of computer program written in the C++ language.</a></li>
 </ul>
             </nav>
         </div>
@@ -526,9 +563,51 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-c-language">
 <span id="cpplanguage"></span><h1>The C++ Language<a class="headerlink" href="#the-c-language" title="Permalink to this heading">#</a></h1>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/C++">Wiki</a> The C++ language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Tippy.Wiki Bjarne Stroustrup</a> and first released in 1985.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/C++">C++</a> language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne_Stroustrup</a> and first released in 1985.</p>
 <p>C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).</p>
 <p>There are simpler programming languages to learn; but once have learned to code in C++ subsequent programming languages are much easier to pick up.</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">C++</label><div class="tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Java</label><div class="tab-content docutils">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorldProgram</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Javascript</label><div class="tab-content docutils">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">Python</label><div class="tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">R</label><div class="tab-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--6" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--6">julia</label><div class="tab-content docutils">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Languages like Julia, have a more modern syntax, and great for writing scripts for scientific computing or machine learning.</p>
+<p>C++ is a more versatile general purpose language, that is platform independent, allows for precise control of hardware and memory.</p>
+<p>If you had to pick one language to learn - the one that provides more career options and a stronger foundation for picking up other languages is best.</p>
 <div class="magin admonition note">
 <p class="admonition-title">Note</p>
 <blockquote>
@@ -536,76 +615,98 @@ document.write(`
 <p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
 </div></blockquote>
 </div>
-<p>All the `C++ language syntax is detailed here: <a class="reference external" href="https://en.cppreference.com/w/">The Official C++ Standard Reference Documentation</a> - NB Although it may look daunting, this reference does have some useful information for beginnerss, and will become more accessible as you work through the basic concepts convered in this module.</p>
+<p>All the `C++ language syntax is detailed the official C++ Standard Reference Documentation <a class="reference external" href="https://en.cppreference.com/w/">here</a> - NB Although it may look daunting, this reference does have some useful information for beginnerss, and will become more accessible as you work through the basic concepts covered in this module.</p>
 <div class="note margin admonition">
 <p class="admonition-title">Note</p>
 <p>Computational A will be using <code class="docutils literal notranslate"><span class="pre">C++20</span></code></p>
 </div>
 <div class="note margin admonition">
 <p class="admonition-title">Note</p>
-<p>The evolution of the C++ language is detailed in: <a class="reference external" href="https://en.cppreference.com/w/cpp/language/history.html">Description of the evolution of C++ language</a></p>
+<p>The evolution of the C++ language is detailed in: <a class="reference external" href="https://en.cppreference.com/w/cpp/language/history.html">Evolution of the C++ language</a></p>
 </div>
 <hr class="docutils" />
 <p>The live code editor on the following pages, uses a C++ Kernel that runs in Jupyter Notebook. This is not the usual way to work and has signifiant limits.</p>
 <p>In later weeks we will move to Visual Studio and start writing complete computer programs that can be compiled into executables - the following notes apply then.</p>
+<p>You might want to down load the Community Edition (free) of Visual Studio in advance.</p>
+<section id="structure-of-the-c-language">
+<h2>Structure of the C++ Language<a class="headerlink" href="#structure-of-the-c-language" title="Permalink to this heading">#</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">C++</span></code> programming language, consist of two parts: the <strong><a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a></strong> and the <strong><a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a></strong>.</p>
+<p>The <strong>C++ Standard Library</strong> is a collection of classes and functions, which are written in the <strong>core language</strong>.</p>
+<p>The entire <code class="docutils literal notranslate"><span class="pre">Cc++</span></code> language is defined by the <strong>C++ ISO Standard</strong>.</p>
+<p>The standard is regularly updated and improved, so you must check which version of the language your code is written in - there may be compatibility issues between versions.</p>
+<p>A large part of the <strong>C++ Standard Library</strong> is based on the <strong>Standard Template Library (STL)</strong>.</p>
+<p>Useful tools provided by the STL include containers as the collections of objects (such as vectors and lists), iterators that provide array-like access to containers, and algorithms that perform operations such as searching and sorting.</p>
+</section>
 <section id="structure-of-c-programmes">
 <h2>Structure of C++ Programmes<a class="headerlink" href="#structure-of-c-programmes" title="Permalink to this heading">#</a></h2>
-<p>This section provides definitions for the specific terminology and the concepts used when describing the C++ programming language.</p>
-<p>A C++ program is a sequence of text files (typically header and source files) that contain <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a>s.
-The declarations are statements written in the C++ language.</p>
-<p>In these text files you write the They undergo translation to become an executable program, which is executed when the C++ implementation calls its main function.</p>
-<p>Certain words in a C++ program have special meaning, and these are known as keywords. Others can be used as identifiers. Comments are ignored during translation. C++ programs also contain literals, the values of characters inside them are determined by character sets and encodings. Certain characters in the program have to be represented with escape sequences.</p>
-<p>The entities of a C++ program are values, objects, references, structured bindings(since C++17), result bindings(since C++26), functions, enumerators, types, class members, templates, template specializations, packs(since C++11), and namespaces. Preprocessor macros are not C++ entities.</p>
-<p>Declarations may introduce entities, associate them with names and define their properties. The declarations that define all properties required to use an entity are definitions. A program must contain only one definition of any non-inline function or variable that is odr-used.</p>
-<p>Definitions of functions usually include sequences of statements, some of which include expressions, which specify the computations to be performed by the program.</p>
-<p>Names encountered in a program are associated with the declarations that introduced them using name lookup. Each name is only valid within a part of the program called its scope. Some names have linkage which makes them refer to the same entities when they appear in different scopes or translation units.</p>
-<p>Each object, reference, function, expression in C++ is associated with a type, which may be fundamental, compound, or user-defined, complete or incomplete, etc.</p>
-<p>Declared objects and declared references that are not non-static data members are variables ﻿.</p>
-<hr class="docutils" />
-<p>In the <code class="docutils literal notranslate"><span class="pre">C++</span></code> programming language, consist of two parts: the <strong>core language</strong> and the <strong>standard library</strong>.</p>
-<p>The <strong>C++ Standard Library</strong> is a collection of classes and functions, which are written in the <strong>core language</strong>.
-The entire <code class="docutils literal notranslate"><span class="pre">Cc++</span></code> language is defined by the <strong>C++ ISO Standard</strong>.
-The standard is regularly updated and improved, so you must check which version of the language your code is written in - there may be compatibility issues between versions.
-A large part of the <strong>C++ Standard Library</strong> is based on the <strong>Standard Template Library (STL)</strong>. Useful tools provided by the STL include containers as the collections of objects (such as vectors and lists), iterators that provide array-like access to containers, and algorithms that perform operations such as searching and sorting.</p>
-<hr class="docutils" />
-<p>C++ programs create, destroy, refer to, access, and manipulate <a class="reference internal" href="glossary.html#term-Objects"><span class="xref std std-term">objects</span></a>.</p>
-<p>An object, in C++, has</p>
+<p>A C++ program is a sequence of text files written in the human-readble C++ language, with file endings such as <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> for source files and <code class="docutils literal notranslate"><span class="pre">.h</span></code> for header files.</p>
+<p>Each c++ language file is called a <a class="reference internal" href="glossary.html#term-Translation-unit"><span class="xref std std-term">translation unit</span></a>, contains a series of declarations. Each <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a> is a statement written in the C++ language, which together form a program.</p>
+<p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a <a class="reference internal" href="glossary.html#term-Compiled-Language"><span class="xref std std-term">compiled language</span></a>. The <a class="reference internal" href="glossary.html#term-Compiler"><span class="xref std std-term">compiler</span></a> converts the (basically) <strong>human-readable</strong> <code class="docutils literal notranslate"><span class="pre">C++</span></code> translation units into machine language files, called <a class="reference internal" href="glossary.html#term-Object-files"><span class="xref std std-term">object files</span></a> that have endings <code class="docutils literal notranslate"><span class="pre">.obj</span> <span class="pre">in</span> <span class="pre">Windows</span> <span class="pre">and</span> </code>.o` in Linux.</p>
+<p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
+<p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
+<pre align="center" data-zoom-id="id-a959a68e-c25e-47d2-9631-2afe8c3e90dd" class="mermaid align-center">
+        flowchart LR
+    A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
+    B -- Object files --&gt; E[&quot;Linker&quot;]
+    C([&quot;Header Files&quot;]) --&gt; D[&quot;Compiler&quot;]
+    D -- Object files --&gt; E
+    E --&gt; F([&quot;Executable Files&quot;])
+
+     A:::Pine
+     B:::Pine
+     E:::Pine
+     C:::Pine
+     D:::Pine
+     F:::Pine
+    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+    linkStyle 0 stroke:#00C853,fill:none
+    linkStyle 1 stroke:#00C853,fill:none
+    linkStyle 2 stroke:#00C853,fill:none
+    linkStyle 3 stroke:#00C853,fill:none
+    linkStyle 4 stroke:#00C853
+    </pre><div class="note dropdown admonition">
+<p class="admonition-title">Additonal Information</p>
+<p>Header files with a <code class="docutils literal notranslate"><span class="pre">.h</span></code>, <code class="docutils literal notranslate"><span class="pre">.hpp</span></code>, or <code class="docutils literal notranslate"><span class="pre">.hxx</span></code> extension,  are sources files that containing entity declarations and/or definitions that need to be visible to multiple <a class="reference internal" href="glossary.html#term-Translation-units"><span class="xref std std-term">translation units</span></a>.</p>
+<p>The C and C++ compilers only compile a single file at a time.</p>
+<p>Source files may include header files, which are substituted in place for the #include statement and other directives by the preprocessor, resulting in a single “file” which is then fed to the compiler.</p>
+<p>The source file must contain all type and all object declarations that are referenced, which is the meaning of the undeclared reference compiler error.</p>
+<p>Compilation only requires complete <a class="reference internal" href="glossary.html#term-Declarations"><span class="xref std std-term">declarations</span></a> to succeed; <a class="reference internal" href="glossary.html#term-Definitions"><span class="xref std std-term">definitions</span></a> are handled at a later stage in the build process.</p>
+<p><a class="reference internal" href="glossary.html#term-Resource-files"><span class="xref std std-term">Resource files</span></a> are things like pictures, bitmaps.</p>
+<p>Other useful extensions: .lib for library files, <code class="docutils literal notranslate"><span class="pre">.a</span></code> for archive file (similar to library), <code class="docutils literal notranslate"><span class="pre">.so</span></code> for shared object files (like libraries), <code class="docutils literal notranslate"><span class="pre">.c</span></code> for <code class="docutils literal notranslate"><span class="pre">c</span></code> source code,  <code class="docutils literal notranslate"><span class="pre">.cc</span></code> for <code class="docutils literal notranslate"><span class="pre">c</span></code> with classes,  <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> for header for cpp not also c.</p>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Implementations</p>
+<p>C++ implementations are either “hosted” or “free-standing”.</p>
+<p>A hosted implementation includes all the standard-library facilities.</p>
+<p>Freestanding implementations are used when your code require the most minimal operating system support.</p>
+<p>A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library:  <code class="docutils literal notranslate"><span class="pre">&lt;cstddef&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cfloat&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;climits&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdint&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdlib&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;new&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;typeinfo&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;exception&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;initializer_list&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdalign&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdarg&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdbool&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;type_traits&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;atomic&gt;</span></code>.</p>
+<p>Some implementations provide a non-standard option that does not use exceptions for really minimal, bare metal programming (directly implemented on hardware).</p>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Memory Management</p>
+<p>Historically, computer memory was much smaller and more expensive. It was necessary to plan how even small programs would manage memory.</p>
+<p>Today computers have relatively large and cheap memory, and memory management need only be considered for more demanding applications, or for embedded devices.</p>
+<p>Assigning objects to the computer’s memory (RAM) is called allocating e.g. allocatd on the stack, allocated on the free store</p>
+<p>In C++, methods are available for allocation and freeing memory during the execution of a program.</p>
+<p>Memory is divided into:</p>
 <ul class="simple">
-<li><p>A type</p></li>
-<li><p>A name (optional)</p></li>
-<li><p>A value (which may be indeterminate, e.g. for default-initialized non-class types)</p></li>
-<li><p>A size (can be determined with sizeof);</p></li>
-<li><p>Storage duration (automatic, static, dynamic, thread-local);
-lifetime (bounded by storage duration or temporary);
-alignment requirement (can be determined with alignof);</p></li>
+<li><p><a class="reference internal" href="glossary.html#term-Static-Memory"><span class="xref std std-term">static memory</span></a> - memory allocated for the program, before it starts execution - region called the data segment - also global memory - controlled by programmer.</p></li>
+<li><p>Automatic local variable memory - region called the <code class="docutils literal notranslate"><span class="pre">stack</span></code> - controlled by logical execution of the program.</p></li>
+<li><p>Dynamic memory - called the {term}`free store - managed by the programmer (region of memory sometimes called the ‘heap’).</p></li>
 </ul>
-<p>The following c++ <a class="reference internal" href="glossary.html#term-Entities"><span class="xref std std-term">entities</span></a> are not objects: values, references, functions, enumerators, types, non-static class members, templates, namespaces, and <code class="docutils literal notranslate"><span class="pre">this</span></code>. [And some others]</p>
-<p>A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.</p>
-</section>
-<hr class="docutils" />
-<section id="introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language">
-<h2>Introduction to the basic structure of computer program written in the C++ language.<a class="headerlink" href="#introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language" title="Permalink to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a compiled language.
-The code in each of the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> (and <code class="docutils literal notranslate"><span class="pre">.h</span></code>) pages in your project is first converted to an object file, a file with a <code class="docutils literal notranslate"><span class="pre">.obj</span></code> ending (<code class="docutils literal notranslate"><span class="pre">.o</span></code>) if you are linux, by the compiler, which convers the basically readable <code class="docutils literal notranslate"><span class="pre">C++</span></code> code into machine language – in an object file.
-The <code class="docutils literal notranslate"><span class="pre">cpp</span></code> source code is platform agnostic – but the object and executable files are not portable amongst platforms – not even amongst generations.
-The collection of object files are then linked together by the linker into an executable file;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…
-Other useful extensions: .lib for library files,  <code class="docutils literal notranslate"><span class="pre">.a</span></code> for archive file (similar to library), <code class="docutils literal notranslate"><span class="pre">.so</span></code> for shared object files (like libraries), <code class="docutils literal notranslate"><span class="pre">.c</span></code> for <code class="docutils literal notranslate"><span class="pre">c</span></code> source code,  <code class="docutils literal notranslate"><span class="pre">.cc</span></code> for <code class="docutils literal notranslate"><span class="pre">c</span></code> with classes,  <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> for header for cpp not also c.</p>
-<p>Header files with a .h, .hpp or .hxx extension,  are sources files that containing entity declarations and/or definitions that need to be visible to multiple translation units (see below).
-Each file with the extension .c, .cpp or .cxx defines a translation unit.
-The C and C++ compilers only compile a single file at a time.
-Source files may include header files, which are substituted in place for the #include statement and other directives by the preprocessor, resulting in a single “file” which is then fed to the compiler.
-The source file must contain all type and all object declarations that are referenced, which is the meaning of the undeclared reference compiler error.
-Note that it only requires complete declarations to succeed; definitions are handled at a later stage in the build process.
-Resource files are things like pictures, bitmaps, mp</p>
-<hr class="docutils" />
-<p>C++ implementations are either “hosted” or “free-standing”.
-A hosted implementation includes all the standard-library facilities.
-Freestanding implementations are used when your code require the most minimal operating system support. Some implementations provide a non-standard option that does not use exceptions for really minimal, bare metal programming (directly implemented on hardware).
-A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library. .
-#include <cstddef> <cfloat> <limits> <climits> <cstdint> <cstdlib> <new> <typeinfo> &lt;exception &lt;initializer_list&gt; <cstdalign> <cstdarg> <cstdbool> &lt;type_traits&gt; <atomic></p>
-<hr class="docutils" />
-<p>Memory Management
-Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.</p>
+<p>Objects are allocated to the free store using <code class="docutils literal notranslate"><span class="pre">new</span></code> and persist until specicially deleted. Failing to deallocate memory in the free store, during execution causes memory resource issues, <code class="docutils literal notranslate"><span class="pre">delete</span></code> must be use to deallocate to prevent a memory leak.</p>
+<p>The stack is memory allocated at run time to hold local variables and arguments for any function call including the main() function. The stack is automatically freed when the function execution ends.</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Out-of-Memory Errors</p>
+<p>Memory is a finite resource and programmers often need to consider how objects are allocated into different types of memory in order to make it possible to run a program on a given device.</p>
+<p>Each type of memory has a different impact on memory resources.</p>
+<p>The amount of static memory required is determined by the static data structures that are required to exist in the computer’s RAM during execution.</p>
+<p>The amount of stack memory required depends on the size of the local variables be and the interaction of the functions that are called. A function that uses a large array and calles itself repeatedly will use up a lot of the available stack. Programs can usuall by rewritten to minimise stack requirement - sometimes by increased static memory.</p>
+<p>In C++, the most likely cause of unexpected “out of memory errors” is running out of memory on the heap as a result of not deallocating objects properly.
+Memory leaks occur when memory remains allocated after it is no longer needed, due to the failure of the program to release memory back to the heap with delete when the object is no longer required (after a function has been executed). Leak in the sense that the program has a decreasig amount of memory available to it. Some lanaguages handle this issue using a process called automatic garbage collection.</p>
+</div>
+</div>
 </section>
 </section>
 
@@ -673,8 +774,8 @@ Methods of allocating and freeing memory. In C++ memory is either static, alloca
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-the-c-language">Structure of the C++ Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-c-programmes">Structure of C++ Programmes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-basic-structure-of-computer-program-written-in-the-c-language">Introduction to the basic structure of computer program written in the C++ language.</a></li>
 </ul>
   </nav></div>
 

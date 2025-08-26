@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.d25d3b27-da83-4ec1-b76f-c8ee0398e44a.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.08f2a2aa-c3ff-4ea9-823a-171f73fbbcda.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-76f39e2f-1462-4bef-b56b-97eb32c33003] svg, .mermaid[data-zoom-id=id-68b3ed4f-dce9-48e6-9bec-a07fbb696f1d] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-796e2a6a-2a12-4607-9131-584cb7f543a4] svg, .mermaid[data-zoom-id=id-9bd9dd19-643f-4932-a94e-20a01d6e8583] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -262,10 +262,10 @@ window.addEventListener("load", load);
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="for_loops.html">for-loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
@@ -570,99 +570,103 @@ document.write(`
 <section id="computer-programs">
 <h2>Computer Programs<a class="headerlink" href="#computer-programs" title="Permalink to this heading">#</a></h2>
 <p>Computer programs are everywhere - not just inside computers.
-Your digital watch, or calculator, are running embedded computer programs.</p>
-<p>A computer program is a set of instructions that tells a computer (and other devices) what to do.</p>
+Your digital watch (if you are still wearing a watch!), calculator, smart speaker, and car are running <a class="reference internal" href="glossary.html#term-Embedded-Programs"><span class="xref std std-term">embedded programs</span></a>.</p>
+<p>A computer programme is a set of instructions that tells a computer (and other devices) what to do.</p>
 <p>Software is the collection of programs running on a computer. Once a device is programmed, the computer code is invisible.</p>
-<p>Harware is the device that the software runs on. Software controls hardware.</p>
-<p>The object of learning computer programming is to become able to write code that correctly instructs a device to perform a series of tasks that it is capable of performing.</p>
-<p>The final result of programming is usually an executable program, which is a binary file capable of running directly on the machine’s hardware.</p>
+<p>Hardware is the device that the software runs on - software controls hardware.</p>
+<p>The object of learning computer programming is to become able to write computer programmes that correctly instruct a device to perform a series of tasks; for example calculate some numbers, based on input from the keyboard, and display the results on the screen.</p>
+<p>The final result of programming is usually an executable program, which is a <a class="reference internal" href="glossary.html#term-Binary-File"><span class="xref std std-term">binary file</span></a> capable of running directly on the machine’s hardware.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Executable files are identified by the file extension <code class="docutils literal notranslate"><span class="pre">.exe</span></code> on PC’s.</p>
+<p>Executable files are identified by the file extension <code class="docutils literal notranslate"><span class="pre">.exe</span></code> (Windows only).</p>
 </div>
-<p>It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that turns programs written in a computer language like C++ into the binary code actually used by the hardware.</p>
-<p>Binary files, are written in <a class="reference internal" href="glossary.html#term-Binary"><span class="xref std std-term">binary</span></a>, but are not necessarily executable. Library files may be written in binary, but are then used by an executable, to provide extra functions or data.</p>
+<p>It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a programme written in a <strong>human readable</strong> language, such as C++, into a an executable programme that can actually run on the hardware.</p>
+<p>The computer code in an executable file is written in <a class="reference internal" href="glossary.html#term-Machine-Code"><span class="xref std std-term">machine code</span></a>, which is <a class="reference internal" href="glossary.html#term-Binary"><span class="xref std std-term">binary</span></a>.</p>
+<p>We could write computer programs in binary, but it would be extremely difficult. The programs we write are built on components written in binary.</p>
+<p>Binary files are not necessarily executable; Library files may be written in binary, which are then used by an executable, providing extra functionality or data.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">Wiki</a>on machine code.</p>
 </div>
-<p>The code inside an executable file is written in <a class="reference internal" href="glossary.html#term-Machine-Code"><span class="xref std std-term">machine code</span></a>, which is in <a class="reference internal" href="glossary.html#term-Binary"><span class="xref std std-term">binary</span></a>. We could write computer programs in binary, but it would be extremely difficult.</p>
-<p>Start with ideas like syntax…
-syntax - the set of gramatical rules specifying how the text of a program must be composed. For example, specifying the form of a declaration or the form of a for-statement.</p>
-<p>In the Compuational Physics module, we are mainly concerned with writing code that will take user inputs, perform calculations, and then return ‘answers’ to the user. This requires us to learn only a subset of the C++ langugage and programming concepts.</p>
 </section>
 <section id="syntax-and-sematics-of-a-programming-language">
 <h2>Syntax and Sematics of a Programming Language<a class="headerlink" href="#syntax-and-sematics-of-a-programming-language" title="Permalink to this heading">#</a></h2>
 <p>Computer code must be <strong>machine-readable</strong>.</p>
-<p>For a computer to use a piece of software, the computer program must be:</p>
+<p>For a computer programme to run correctly on a computer, the programme must be:</p>
 <ul class="simple">
-<li><p>Written in exactly the form expected by the computer</p></li>
-<li><p>Written correctly</p></li>
+<li><p>In exactly the format required by the computer - computers have no flexibility to interpret code that is even slightly incorrect.</p></li>
+<li><p>Logically correct - when the computer follows the correctly formatted instructions - the expected outcome results.</p></li>
 </ul>
-<p>Computers and other devices that run software are only capable of following instructions that a</p>
+<p>The two fundamental concepts that define how a programming language is defined, written, and understood are the <strong>syntax</strong> and <strong>semantics</strong> of the language</p>
+<p>Computer language <a class="reference internal" href="glossary.html#term-Syntax"><span class="xref std std-term">Syntax</span></a> is the prescription for the sequence of symbols required for any given instruction, and for the overall structure of the program.
+Syntax is unique to each language - each language requires a different set of syntactical rules.</p>
+<p>Creating a programme with the correct syntax means it can be correctly compiled, interpreted, and executed by the computer. But it does not mean the programme will do what you wanted it to do!</p>
+<p>The semantics of a computer programme are the meaning and behaviour of the program. The logical flow of the programme must result in it completing the desired task correctly.</p>
+<p>By analogy with ordinary writing:</p>
+<ul class="simple">
+<li><p>The syntax would be the spelling and grammer.</p></li>
+<li><p>The sematics would be the syntactially correct sentences making sense to the reader, both individually and when read together.</p></li>
+</ul>
+<p>A syntax errors occurs when the syntax is incorrect. For example, forgetting the <code class="docutils literal notranslate"><span class="pre">;</span></code> at the end of a statement in C++.
+Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.</p>
+<p>Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable programme that does not work correctly.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Syntax_/(programming_languages/)">Wiki</a> on computer language syntax.</p>
+<p>Learn more about computer language <a class="reference external" href="https://en.wikipedia.org/wiki/Syntax_/(programming_languages/)">syntax</a>.</p>
 </div>
 </section>
 <section id="coding">
 <h2>Coding<a class="headerlink" href="#coding" title="Permalink to this heading">#</a></h2>
 <p>Coding is often synonymous with programming but generally considered to be only a subset of computer programming.</p>
 <p>Coding is the act of writing lines of computer code in the correct syntax for the language being used.</p>
-<p>Programming encompasses the entire process of creating new software. Including</p>
+<p>Programming encompasses the entire process of creating new software. Including:</p>
 <ul class="simple">
-<li><p>Planning the structure of the application</p></li>
-<li><p>Developing an algorithm for the application</p></li>
-<li><p>Designing the appearance, user interface, IO interaction experience.</p></li>
-<li><p>Writing the code - coding</p></li>
-<li><p>Debugging and testing</p></li>
-<li><p>Managing deployment/distribution</p></li>
-<li><p>Maintaining the software - creating updates and patch for issues.</p></li>
+<li><p>Planning the structure of the application.</p></li>
+<li><p>Developing an <a class="reference internal" href="glossary.html#term-Algorithm"><span class="xref std std-term">algorithm</span></a> for the application.</p></li>
+<li><p>Designing the appearance, the user interface, the IO interaction experience.</p></li>
+<li><p>Writing the code - coding.</p></li>
+<li><p>Debugging and testing.</p></li>
+<li><p>Managing deployment/distribution.</p></li>
+<li><p>Maintaining the software - creating updates and patches for issues.</p></li>
 </ul>
 <p>Coding may also refer to writing complete files in languages such as HTML, CSS, or Markdown. These languages are also used to create instructions for a computer, but they have fewer capabiliites, are not capable of computation, using algrorithms and data structures, and are completed as text documents using a simple text editor.</p>
 </section>
 <section id="algorithms">
 <h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading">#</a></h2>
-<p>The first step in writing a computer program is understand the task that we want the computer to perform.</p>
-<p>If you are not able to deconstruct the task into a series of instruction that can be followed then you cannot write a program to accomplish that task.</p>
-<p>Algorithm: A sequence of steps or rules to solve a problem, often implemented using STL (Standard Template Library).</p>
+<p>The first step in writing a computer programme is understand the task that we want the computer to perform.</p>
+<p>If you are not able to deconstruct the task into a series of instructions that can be followed then you cannot write a programme to accomplish that task.</p>
+<p>An <a class="reference internal" href="glossary.html#term-Algorithm"><span class="xref std std-term">algorithm</span></a> is a sequence of steps that, when followed exactly, always lead to the task being completely correctly.</p>
 <blockquote>
 <div><p>Programming is understanding</p>
 <p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
 </div></blockquote>
-<p>The process of writing a program can be reduced to four stages</p>
+<p>The process of writing a programme can be reduced to four stages</p>
 <ul class="simple">
-<li><p>Analysis of the problem:</p></li>
-</ul>
-<ul class="simple">
-<li><p>What does the program need to do?</p></li>
+<li><p>Analysis of the problem:</p>
+<ul>
+<li><p>What does the programme need to do?</p></li>
 <li><p>Are there any constaints on how this can be done? e.g. a particular operating system is required, a limition on resouces (e.g. memory, or time)</p></li>
 </ul>
-<ul class="simple">
-<li><p>Design: How do we solve the problem? What should be the overall struc
-ture of the system? Which parts does it consist of? How do those parts
-communicate with each other? How does the system communicate with
-its users?</p></li>
-<li><p>Programming: Convert your solution to the problem into computer code.</p></li>
+</li>
+<li><p>Design: How do we solve the problem? What should be the overall structure of the system? Which parts does it consist of? How do those parts communicate with each other? How does the system communicate with its users?</p></li>
+<li><p>Programming: Convert your solution to the problem into computer code.</p>
+<ul>
+<li><p>Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandabiliy).</p></li>
 </ul>
-<ul class="simple">
-<li><p>Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandabiliyt)</p></li>
-</ul>
-<ul class="simple">
-<li><p>Testing: Make sure the program works correctly <strong>under all circumstances</strong></p></li>
-</ul>
-<ul class="simple">
+</li>
+<li><p>Testing: Make sure the programme works correctly <strong>under all circumstances</strong>.</p>
+<ul>
 <li><p>Ensure that all possible scenarios are tried e.g. when a user input is required, what happens in the case of all possible entries.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="flowcharts">
 <h2>FlowCharts<a class="headerlink" href="#flowcharts" title="Permalink to this heading">#</a></h2>
-<p>Flowcharts are very useful diagrams that assist in design of new programs.</p>
-<p>Flow charts are often used to represent algorithms for a program or for a subroutine (methods/functions).</p>
-<p>The diagram show the flow of information, from start to end of the process, through decisions points, loops and I/O using specific symbols for different parts of the algorithm.</p>
-<p>This visual representation of the logical flow of your algortihm may help you to understand if your algorithm is correct before try to write the code to implement it.
-They are particularly useful for identifying missing processes and faulty logic.</p>
-<p>Examples of flow charts. Some of these steps could be broken into multiple steps.</p>
+<p>Flowcharts are very useful diagrams that assist in design of new programs, and are often used to represent algorithms for a programme or a subroutine (methods/functions).
+Each flowchart diagram shows the flow of information, from start to end of the process, through decisions points, loops, and I/O using specific symbols for different parts of the algorithm.</p>
+<p>This visual representation of the logical flow of your algortihm may help you to understand if your algorithm is correct before try to write the code to implement it. Flowcharts are particularly useful for identifying missing processes and faulty logic.</p>
+<p>Examples of flow charts. Some of these steps could/should be broken into multiple steps.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-2">
 <thead>
 <tr class="row-odd"><th class="head"><p>Generic Flowchart</p></th>
@@ -670,7 +674,7 @@ They are particularly useful for identifying missing processes and faulty logic.
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-76f39e2f-1462-4bef-b56b-97eb32c33003" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-796e2a6a-2a12-4607-9131-584cb7f543a4" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -701,7 +705,7 @@ They are particularly useful for identifying missing processes and faulty logic.
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-68b3ed4f-dce9-48e6-9bec-a07fbb696f1d" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-9bd9dd19-643f-4932-a94e-20a01d6e8583" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -775,7 +779,7 @@ The shape used is less important when the labels are clear.</p>
     A{&quot;Diamond&quot;}
     </pre></td>
 <td><p>Decision</p></td>
-<td><p>The operation of a program often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows</p></td>
+<td><p>The operation of a programme often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows</p></td>
 </tr>
 <tr class="row-odd"><td><pre  class="mermaid">
           flowchart TD
@@ -795,30 +799,17 @@ The shape used is less important when the labels are clear.</p>
 </table>
 </div>
 </div>
-<p>Online <a class="reference external" href="https://www.mermaidchart.com/play">Flowchart</a> design tool.</p>
+<p>There are many free tools for designing flow charts. One used recently can cound <a class="reference external" href="https://www.mermaidchart.com/play">here</a>.</p>
 </section>
 <section id="error-types">
 <h2>Error Types<a class="headerlink" href="#error-types" title="Permalink to this heading">#</a></h2>
 <p>There are many types of error, but three classifications to understand at this point are:</p>
 <ul class="simple">
-<li><p>Compile time – found by compiler – easily fixed.</p></li>
-<li><p>Link-time errors found by linker – more difficult.</p></li>
-<li><p>Run-time errors, or logic errors, occur after successful creation of the .exe file. Too late to fix – people have died!</p></li>
+<li><p>Compile time errors: found by compiler and easily fixed.</p></li>
+<li><p>Link-time errors: found by linker - more difficult.</p></li>
+<li><p>Run-time, or logic, errors, or logic errors, occur after successful creation of the .exe file. Too late to fix - people may have died!</p></li>
 </ul>
-<!-- 
-<script type="module">
-    var config = {
-      theme: neutral, 
-      flowchart:{
-            useMaxWidth:false,
-            htmlLabels:true
-        }
-      width: 400, 
-      backgroundColor : transparent, 
-    };
-    mermaid.initialize(config);
-</script>
---></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
