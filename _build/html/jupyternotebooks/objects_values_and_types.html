@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\objects_values_and_types.da148f0d-43c2-4fc5-b2d5-6ea2c5b3cc18.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\objects_values_and_types.42e60c2f-9d52-4d99-8f9a-aad00ca783ca.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/objects_values_and_types';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -225,10 +225,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="if_statements.html"><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switch_statements.html"><code class="docutils literal notranslate"><span class="pre">switch</span></code> Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="for_loops.html">for-loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html"><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
 </ul>
 </details></li>
@@ -536,6 +536,29 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="objects-values-and-types">
 <h1>Objects, Values, and Types<a class="headerlink" href="#objects-values-and-types" title="Permalink to this heading">#</a></h1>
+<p>Copied</p>
+<p>Certain words in a C++ program have special meaning, and these are known as keywords. Others can be used as identifiers. Comments are ignored during translation. C++ programs also contain literals, the values of characters inside them are determined by character sets and encodings. Certain characters in the program have to be represented with escape sequences.</p>
+<p>The entities of a C++ program are values, objects, references, structured bindings(since C++17), result bindings(since C++26), functions, enumerators, types, class members, templates, template specializations, packs(since C++11), and namespaces. Preprocessor macros are not C++ entities.</p>
+<p>Declarations may introduce entities, associate them with names and define their properties. The declarations that define all properties required to use an entity are definitions. A program must contain only one definition of any non-inline function or variable that is odr-used.</p>
+<p>Definitions of functions usually include sequences of statements, some of which include expressions, which specify the computations to be performed by the program.</p>
+<p>Names encountered in a program are associated with the declarations that introduced them using name lookup. Each name is only valid within a part of the program called its scope. Some names have linkage which makes them refer to the same entities when they appear in different scopes or translation units.</p>
+<p>Each object, reference, function, expression in C++ is associated with a type, which may be fundamental, compound, or user-defined, complete or incomplete, etc.</p>
+<p>Declared objects and declared references that are not non-static data members are variables ﻿.</p>
+<p>C++ programs create, destroy, refer to, access, and manipulate <a class="reference internal" href="glossary.html#term-Objects"><span class="xref std std-term">objects</span></a>.</p>
+<p>An object, in C++, has</p>
+<ul class="simple">
+<li><p>A type</p></li>
+<li><p>A name (optional)</p></li>
+<li><p>A value (which may be indeterminate, e.g. for default-initialized non-class types)</p></li>
+<li><p>A size (can be determined with sizeof);</p></li>
+<li><p>Storage duration (automatic, static, dynamic, thread-local);
+lifetime (bounded by storage duration or temporary);
+alignment requirement (can be determined with alignof);</p></li>
+</ul>
+<p>The following c++ <a class="reference internal" href="glossary.html#term-Entities"><span class="xref std std-term">entities</span></a> are not objects: values, references, functions, enumerators, types, non-static class members, templates, namespaces, and <code class="docutils literal notranslate"><span class="pre">this</span></code>. [And some others]</p>
+<p>A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration.</p>
+<hr class="docutils" />
+<p>end of copied</p>
 <section id="objects-and-variables">
 <h2>Objects and Variables<a class="headerlink" href="#objects-and-variables" title="Permalink to this heading">#</a></h2>
 <p>An <strong>object</strong> is a region of memory with a <strong>type</strong> that specifies what kind of information can be placed in it.</p>

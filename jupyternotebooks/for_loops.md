@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# for-loops
+# For loops
 
 Conditionally execute a statement, or code block, repeatedly.
 

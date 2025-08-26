@@ -91,9 +91,9 @@ sphinx:
       codemirror-mode: text/x-c++src 
     tippy_props:
       placement: auto-start
-      maxWidth: 300
+      maxWidth: 500
       interactive: false
-      theme: transparent #material 
+      theme: material   #controlled by tippy.css 
       duration: [200, 100]
       delay: [200, 0]
     tippy_custom_tips:

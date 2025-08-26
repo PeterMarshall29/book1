@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# `switch` Statements
+# Switch Statements
 
 Commonly used alternative to if. Easier to follow than nested if statements.
 Here the while loop is just to keep it running – only interested in the switch loop.

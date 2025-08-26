@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# `if` Statements
+# If Statements
 
 
 Try this code:

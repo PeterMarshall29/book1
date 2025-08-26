@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# `while` Loops
+# While Loops
 
 
 Its generally better to use for loops in C++, but while loops exist too.
@@ -32,22 +32,20 @@ Its generally better to use for loops in C++, but while loops exist too.
       n1 -- Condition False --> E(["Continue to Next Section of Program"])
       D --> F["Increment Loop Variable, or Implement Selection Criteria"]
       F --> C
-      A:::Rose
-      B:::Rose
-      C:::Rose
-      D:::Rose
-      E:::Rose
-      F:::Rose
-      n1:::Rose
-      classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+      n1@{ shape: anchor}
+      style A fill:#E1BEE7,stroke:#AA00FF
+      style B fill:#E1BEE7,stroke:#AA00FF
+      style C fill:#E1BEE7,stroke:#AA00FF
+      style D fill:#E1BEE7,stroke:#AA00FF
+      style E fill:#E1BEE7,stroke:#AA00FF
+      style F fill:#E1BEE7,stroke:#AA00FF  
       linkStyle 0 stroke:#AA00FF,fill:none
       linkStyle 1 stroke:#AA00FF,fill:none
-      linkStyle 2 stroke:#AA00FF,fill:none
+      linkStyle 2 stroke:#AA00FF
       linkStyle 3 stroke:#AA00FF,fill:none
       linkStyle 4 stroke:#AA00FF,fill:none
       linkStyle 5 stroke:#AA00FF,fill:none
-      linkStyle 6 stroke:#AA00FF,fill:none
-      linkStyle 7 stroke:#AA00FF
+      linkStyle 6 stroke:#AA00FF,fill:none0FF
     ```
   - ```{mermaid}
     :align: center
@@ -60,6 +58,20 @@ Its generally better to use for loops in C++, but while loops exist too.
       n1 -- Condition False --> E(["Continue fa:fa-code"])
       D --> F["Increment Loop Counter: Count += 1"]
       F --> C
+      n1@{ shape: anchor}
+      style A fill:#E1BEE7,stroke:#AA00FF
+      style B fill:#E1BEE7,stroke:#AA00FF
+      style C fill:#E1BEE7,stroke:#AA00FF
+      style D fill:#E1BEE7,stroke:#AA00FF
+      style E fill:#E1BEE7,stroke:#AA00FF
+      style F fill:#E1BEE7,stroke:#AA00FF  
+      linkStyle 0 stroke:#AA00FF,fill:none
+      linkStyle 1 stroke:#AA00FF,fill:none
+      linkStyle 2 stroke:#AA00FF
+      linkStyle 3 stroke:#AA00FF,fill:none
+      linkStyle 4 stroke:#AA00FF,fill:none
+      linkStyle 5 stroke:#AA00FF,fill:none
+      linkStyle 6 stroke:#AA00FF,fill:none
     ```
 ```
 
