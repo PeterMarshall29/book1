@@ -120,7 +120,7 @@ int main() {
 }
 ````
 ````{code-cell} c++
-
+:tags: [remove-output, skip-execution]
 Type code here!
 ````
 `````{exercise-end}
@@ -132,13 +132,12 @@ Type code here!
 :label: exercised2
 :class: dropdown
 `````
-Try adding a second variable b, with a value of "-fingers" and printing out the value of `a + b` again.
+Try adding a second variable, b, with a value of "-fingers", and then try printing out the value of `a + b` again.
 
 ```{code-cell} c++
 :tags: [remove-output]
 Type code here!
 ```
-Demonstrating that the `+` operator behaves differently when used with differnt data types. For numeric types it performs 'addition', but for string types it performs 'concatenation'.
 ````{admonition} Code Explanation
 :class: dropdown
 If done correctly, you will have demonstrated that `+` operator behaves differently when used with differnt data types. 
@@ -212,7 +211,7 @@ int main(){
 return 0;
 }
 ```
-Strings are part of the standard library, and must be referenced by prefixing with `std::`.
+`string` type variables are part of the standard library, and must be referenced by prefixing with `std::`.
 
 `int`, `float`, `double`, and `char` are all part of the {term}`core language`, and should not have `std::` attached.
 ````

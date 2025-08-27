@@ -16,7 +16,6 @@ There are a lot of numeric data types but to start learning C++ we really only n
 
 The default integer type use for integers and the double type for numbers with decimal points including those in scientific notation.
 
-
 ## Intger Types
 
 `int` is the keyword for the default {term}`integer type`. 
@@ -59,8 +58,6 @@ For example, 2.998 e8 is not a floating-point literal, and would be intpreted as
 65.43 e − 21
 
 `Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
-
-
 
 
 ## Max Size of Numeric Values

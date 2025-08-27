@@ -12,33 +12,92 @@ kernelspec:
 
 # Printing to File
 
-How to write to a file in C++
-1.	Add if not already there:
-#include <iostream>
-#include <fstream> 
-2.	In the main function, before any writing and outside of any loops, put the following code.
-int main()
-{ 
-    std::ofstream outputFile("exampleName1.txt")
-“outputFile” is the parameter name/reference to your file used in your code and the file is called “exampleName1.txt”
-3.	To write a line of data to the file, add inside a loop in the main function:
-outputFile << value1 << ", \t" << value2 << "\n";
-4.	Repeat the [ << value1 << ", \t" ] for as many values as needed.
-5.	Still inside main, but after all writes to the file - Close the file
-    outputFile.close();
-   return 0;
+For printing to and reading from a file, the standard library provides `<fstream>`. 
 
- [ Optional - Check if the file is open
-    if (outFile.is_open()) {
-        outputFile << "Hello, World!" << std::endl;
+To only read or only write - there are also `<ifstream>` and `<ofstream>` - both in `<fstream>`
+
+Try the following code: make sure you can find the file created, and check its contents.
+
+The location of the file can be set by the programmer.
+
+Using Visual Studio, without specifying more than the file name, the file will be found in c://users/YourUserName/source/repo/nameOfYourProject/nameOfYourProject/
+
+```{code-block} cpp
+:linenos:
+#include <iostream>
+#include <string>
+#include <fstream> 
+int main() {
+    
+    std::fstream outputFileStream("exampleFileName.txt", std::ios::out);
+    //std::ofstream outputFileStream("exampleFileName.txt");
+    int value1 = 10;
+    std::string value2 = "apples";
+    
+    outputFileStream << value1 << ", \t" << value2 << "\n";
+
+    // optionally throw error if if the file is not open.
+    if (outputFileStream.is_open()) {
+        outputFileStream << "Hello, World!" << std::endl;
         std::cout << "Data successfully written to the file!" << std::endl;
-    } else {
+    }
+    else {
         std::cerr << "Error: Unable to open the file for writing." << std::endl;
     }
-    outputFile.clse();
+    
+    outputFileStream.close();
     return 0;
 }
-]
-6.	The file will be found in the repos as usual; see screenAdd image5.pngshot beneath for example.
+```
 
+````{admonition} Code Explanation
+:class: note dropdown
+
+`std::fstream streamName("fileName.txt", std::ios::out);` is equivalent to `std::ofstream streamName ("fileName.txt");`
+
+Both creata a file-stream named `streamName` and create and open a new file called "fileName.txt" associated with the stream.
+
+`<<` operator inserts formatted information into the file.
+
+`is_open()` is a member function that checks the stream has an associate file.
+
+The `close()` is good practice; ensure the stream is closed and the file is ready. 
+
+If the file stream fails to open, the stream is in the `bad()` state, which may be a result of using a non standard operating system. IOStreams can be in one of 4 states, which can be checked by the program; good(), eof(), and fail(). More details can be found in the [C++ Reference](https://en.cppreference.com/w/cpp/io/basic_fstream.html)
+
+`std::ios::out` is a **stream mode parameter**. There is also an equivalent `std::fstream::out`; since fstream inherits from ios, ios is preferred becasue it is used elsewhere too.
+
+```{list-table}
+:header-rows: 1
+:name: Stream Modes
+* - Mode
+  - Effect
+* - ios_base::app
+  - "append" add to the end of the file
+* - ios_base::ate
+  - "at end" - opens and seeks end of file
+* - os_base::in
+  - For Reading
+* - ios_base::out
+  - For writing
+* - ios_base::trunc  
+  - Truncates the file to 0 length  
+```
+````
+
+## Adding Data to a File
+
+Try changing what was written to the file and running the program again. You should find that the contents of the file have been overwitten.
+
+You will most like want to add information to a file, rather than replace its contents, for that we use a different **stream mode paramaters** which control the operation `<<`.
+
+If you replace the stream mode parameter with `std::ios::app` the new data will be appended to after the current data.
+
+```{code-block} cpp
+std::fstream outputFileStream("exampleFileName.txt", std::ios::app);
+```
+
+## Reading from a File
+
+Reading entire file or one line at a time.
 

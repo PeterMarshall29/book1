@@ -32,6 +32,7 @@ Badly written code is:
 :class: margin
 {attribution="Clean Code, Rob Martin"}
 > You should name a variable using the same care with which you name a first-born child.
+
 > A long descriptive name is better than a short enigmatic name.
 ```
 It is tempting to create identifiers using short, even single letter, names - this is a mistake.
