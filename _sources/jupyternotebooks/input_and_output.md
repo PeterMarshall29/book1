@@ -14,15 +14,15 @@ kernelspec:
 
 The basic facilities for a user to interact with a program are provided by the `<iostream>` component of the {term}`standard library`.
 
-`<iostream>` contains the additional functions needed to program the computer to print values to the computer montior/screen and to accept input from the user via the keyboard.
+`<iostream>` contains additional functions that can be used by a program to print information on monitor/screen and to accept input from the user via the keyboard.
 
-Until we can program these interactions, it is difficult to make any progress learning a computing language, because 
+Until we can program these interactions, it is difficult to make any progress learning a computing language, because we have no insight into what the program has done.
 
 Type the following code into the empty code window below.
 
 ```{tip}
 :class: margin
-Don't forget to include <iostream> and <string> and to format the main() function correctly.
+Don't forget to include <iostream> and <string> and to format the `main()` function correctly.
 ```
 
 ```{code-block} cpp
@@ -39,22 +39,21 @@ return 0;
 Type code here!
 ```
 
-
-
-
 ````{admonition} Code Explanation
 :class: dropdown
 
-`cin` is the character input stream, pronounced 'see - in'. Used to read input from the keyboard.
+`cin` is the character input stream, pronounced 'see - in'; used to read input from the keyboard.
 
-`>>` is the input stream operator, also called the "get from" or "extraction" operator - directs where the input goes to, a variable name usually.
+The input stream waits for the return key, taking any characters types in before {kbd}`return`
+
+`>>` is the input stream operator, also called the "get from" or "extraction" operator - directs where the input goes to - a variable name usually.
 
 ```{code-block} c++
 int main()
 {
-	std::cout<<"Please type your surname!\n"; // This is a 'prompt'; a message to the user with instructions.
-	std::string surname;       //This declares a variable of type string.
-	std::cin >> surname;		//character input stream, takes input from console when 'return' (aka 'newline') is pressed. 
+	std::cout<<"Please type your surname!\n"; //This is a 'prompt'; a message to the user with instructions.
+	std::string surname;    //Declares a variable of type string.
+	std::cin >> surname;		//Character input stream, takes input from console when 'return' (aka 'newline') is pressed. 
 	std::cout << "Hello, " << surname << "!\n";
 	return 0;
 }
@@ -68,33 +67,16 @@ int main()
 ````
 ````{exercise}
 :class: dropdown
-TRY putting a space at the end of the user input to cin. Only part before space is taken up.
+TRY putting a space at the end of the user input to cin. 
+
 TRY putting a space in the beginning of the user input to cin.
 
+`cin` stops taking input when it encounters the first whitespace. Code still waits for {kbd}`return`.
 ````
 
-Now try: 
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-#include <iostream>
-int main(){
-int age = 58;
-std::string firstName = "Peter";
-float shoeSize = 10.5;
-double c = 3.0e-8;
-char example = 'p';
-return 0;
-}
-```
 
-Notice the single quotes for a char type, and one option for scientific notation.
-Float is smaller than double - depends on bits of system - double precision floating point number.
-Int has many qualifiers - Int can be dropped and the qualifier used on its own.
 
-Variable Names cannot start with a number, contain a whitespace or special symbols - only letters, numbers and underscore are permitted.
-Names are case sensitive - keep leading capitals for classes.
-Never start with an underscore - it will work, but that pattern is reserved for implementation and system entities, so you risk clashing with something with the same name you did not expect.
-Lastly keywords are protected and cannot be reused.
+
 
 
 ```{code-cell} c++
@@ -153,6 +135,15 @@ A string is not an integer, so is recorded as integral value 0.
 Older C++ version might give a random value such as -96738 . Unfortunately this overwrites an initial value if you have used one.
 
 Handling input format errors is a separate lesson.
+
+## Formating the Ouput
+
+
+
+
+
+
+##
 
 4 Ways to convert an integer to a string: 3 more to discuss later.
 Add this to header file.
@@ -214,3 +205,68 @@ return 0;
 Prints 3 - now change `x` to '4'. The semicolon after the if is a mistake, its like putting {} instead. 
 `{}` is called the empty block - sometimes used into code to register that nothing should be done, like when it's the else loop that is really wanted - instead of using `NOT` logic.
 The second `{}` does nothing special.
+
+lo
+
+## Formatting Output
+
+The default output for a floating point number is 6 digits. The number is rounded to give the best approximation that can be printed with 6 digits.
+
+This may not be sufficient, if you want to spot a rounding or truncation error.
+
+The actual value stored by the computer will have more digits, so a comparison of one against another may fail.
+
+The format that is printed to the screen can be formatted as follows.
+
+```{code-cell} cpp
+:tags: [remove-output]
+#include <iostream>
+int main(){
+std::cout << std::defaultfloat << 12345.987654321 << "  " << std::scientific << 123456789 << "  " << std::fixed << 0.123456789 << '\n';
+return 0;
+}
+```
+std::defaultfloat is the what would happen if nothing was set, used when you want to return to the default.
+
+std::scientific formats the number in to scientific notation, and to have 6 digits after the decimal point.
+
+std::fixed keeps the number of digits after the decimal point to 6.
+
+The precision used for these options may also be set.
+
+After including the `<iomanip>` component of the Standard Library,  `<< std::setprecision()` controls the pecision of what follows.
+
+```{code-cell} cpp
+:tags: [remove-output]
+#include <iostream>
+#include <iomanip>
+int main(){
+std::cout << std::setprecision(64) << sin(acos(-1) / 4) << "  " << sin(std::numbers::pi/4)<< "  " << sqrt(2) / 2 << '\n';
+return 0;
+}
+```
+
+
+
+## getline()
+
+An alternative to `cin` is to use getline(), which will ignore whitespace and collecte every character before {kbd}`return` into a single string.
+
+The downside is that you may need to split up the string later. See [<sstream>](https://en.cppreference.com/w/cpp/io/basic_stringstream.html) for further information on how to separate a string.
+
+```{code-cell} c++
+:tags: [remove-output , raises-exception , skip-execution]
+#include <iostream>
+#include <string>
+int main() {
+	std::string sentence;
+	getline(std::cin, sentence);
+	std::cout << sentence << std::endl;
+	return 0;
+}
+```
+The `getline()` function takes two arguments. The name of input stream and the name of the string to write to.getline(std::cin, sentence); 
+
+`std::endl` inserts a newline character into the the output sequence and is therefore almost the same as `'\n'`.
+
+`endl` additionally flushes the output stream, forces the output to appear in real time; advancd issue. 

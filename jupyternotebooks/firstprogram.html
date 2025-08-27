@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.d5bf2dd9-d3f7-4fd3-a346-35456f2a383f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.b3875d64-d392-4a69-ae20-7c7c58a64c1d.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/firstprogram';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -600,7 +600,7 @@ All c++ programs require a <code class="docutils literal notranslate"><span clas
 
 <p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
 <section id="exercise-content">
-<p>Try making the following changes to the above code - note what happens.</p>
+<p>Try making the following changes to the above code - run the code after each change and note what happens.</p>
 <ul class="simple">
 <li><p>Remove the semicolon in line 3 or 4.</p></li>
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">std::</span></code> from line 3.</p></li>
@@ -608,6 +608,7 @@ All c++ programs require a <code class="docutils literal notranslate"><span clas
 <li><p>Change the returned value from 0 to 1, and then to a letter.</p></li>
 <li><p>Remove the return line.</p></li>
 <li><p>Add some whitespace (spaces) to the code.</p></li>
+<li><p>Change some letters to capitals</p></li>
 </ul>
 <div class="solution hint dropdown admonition" id="solutiona1">
 
@@ -630,6 +631,7 @@ All c++ programs require a <code class="docutils literal notranslate"><span clas
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.</p></li>
 <li><p>This is usually only possible in the main function, but not on every platform.</p></li>
 <li><p>Whitespace is ignored in C++ - not true in other languages!</p></li>
+<li><p>C++ is <a class="reference internal" href="glossary.html#term-Case-Sensitive"><span class="xref std std-term">case sensitive</span></a>.</p></li>
 </ul>
 </section>
 </div>
@@ -686,16 +688,16 @@ Some Content
 <p>C++ style comments have <code class="docutils literal notranslate"><span class="pre">//</span></code> at the start of the comment.</p>
 <p>Multiline comments can be created by surround any text with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>. These may not be nested!</p>
 <p>Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse accross it and then simulaneously pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">/</kbd>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// A C++ style single line comment</span>
-<span class="c1">// Another one</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> // This comments does not affect anything before it on the same line</span>
+<div class="highlight-t notranslate"><div class="highlight"><pre><span></span>// A C++ style single line comment
+// Another one
+#include &lt;iostream&gt; // This comments does not affect anything before it on the same line
 
-<span class="cm">/* C-style codes are also used */</span>
-<span class="cm">/* Best </span>
-<span class="cm">when </span>
-<span class="cm">a </span>
-<span class="cm">multi-line comment is needed</span>
-<span class="cm">*/</span>
+/* C-style codes are also used */
+/* Best 
+when 
+a 
+multi-line comment is needed
+*/
 </pre></div>
 </div>
 </section>
@@ -711,7 +713,7 @@ Some Content
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material",
+            theme: "<cm-material>",
             mode: "text/x-c++src"
         },
         kernelOptions: {

@@ -108,14 +108,14 @@ The string literal must be enclosed in `""`.
 ````{code-block} cpp
 :linenos: 
 #include <isotream>
-#include <string>
+**!! Insert code to add string library here !!**
 int main() {
     std::string a = "Fish";
     std::cout << a;
     return 0;
 }
 ````
-````{code} c++
+````{code-cell} c++
 
 Type code here!
 ````
@@ -144,12 +144,46 @@ For a {term}`numeric data type` it performs 'addition', but for the {term}`strin
 `````{exercise-end}
 `````
 
+## More Data Types
+
+In addition to strings, and integers, we need variable from the {term}`floating point number types` and {term}`char type`.
+
+Correct the following code and add a line to print out all the named variables, separated by tabs.
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+int main(){
+int age = 58;
+std::string firstName = "Peter";
+float shoeSize = 10.5;
+double c = 3.0e-8;
+char middleInitial = 'J';
+return 0;
+}
+```
+```{admonition} Code Explanation
+:class: note dropdown
+
+Single quotes denote a {term}`char type`. 
+
+`Float` and `double` are both used for {term}`floating point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
+
+Scientific notation is formated using a lower or upper case `e` between the significant and the index WITHOUT ANY SPACES!!   
+
+`int` is the keyword for the {term}`integer type`. 
+
+`int` may be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long, `long long`. The modifiers may be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char, and `long` may precede `double`.
+
+```
+
+
 
 `````{exercise-start}
 :label: exercised3
 :class: dropdown
 `````
 Try to fix this code:
+
 ````{code-cell} cpp
 :tags: [remove-output]
 :linenos: 
@@ -160,10 +194,6 @@ string firstName = 12.0;
 std::float = 12.5;
 return 0;
 }
-````
-````{code} c++
-
-Type code here!
 ````
 ````{solution} exercised3
 :class: note dropdown
@@ -184,11 +214,5 @@ Strings are part of the standard library, and must be referenced by prefixing wi
 ````
 `````{exercise-end}
 `````
-
-## Errors In Calculations - to be moved
-
-Rounding (or round-off) error: The precision of arithmetic is limited by  a computer is limited
-
-Truncation errors: 
 
 

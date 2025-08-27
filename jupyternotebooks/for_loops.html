@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.e7fea134-8464-4aab-93e1-a23d63681983.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.d4d206a1-4e92-4a39-8551-973bae2697d7.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-32d95565-8877-4449-a24a-90c968b1bc77] svg, .mermaid[data-zoom-id=id-7f8938f0-2ee1-46f9-ac92-415adc466bbf] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-e2e64ed6-dd71-472c-8c82-687c04de0fe1] svg, .mermaid[data-zoom-id=id-b72db6a2-fb12-4956-942d-d5ca2be99f5b] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -577,7 +577,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-32d95565-8877-4449-a24a-90c968b1bc77" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-e2e64ed6-dd71-472c-8c82-687c04de0fe1" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -608,7 +608,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-7f8938f0-2ee1-46f9-ac92-415adc466bbf" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-b72db6a2-fb12-4956-942d-d5ca2be99f5b" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -769,16 +769,14 @@ If no initialization is needed, the initializing statement can be empty.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp:10:22: error: &#39;a&#39; was not declared in this scope
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpyzzm9_ot.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpyzzm9_ot.cpp:10:22: error: &#39;a&#39; was not declared in this scope
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                      ^
-C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
+C:\Users\Peter\AppData\Local\Temp\tmpyzzm9_ot.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                           ^~~~
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp:10:27: error: lvalue required as increment operand
+C:\Users\Peter\AppData\Local\Temp\tmpyzzm9_ot.cpp:10:27: error: lvalue required as increment operand
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
@@ -807,28 +805,28 @@ C:\Users\Peter\AppData\Local\Temp\tmpud3rff1l.cpp:10:27: error: increment of rea
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In function &#39;void loopFunction(int*, int)&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp: In function &#39;void loopFunction(int*, int)&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
     8 |     while (i !!= terminatiionValue) {
       |           ~ ^~
       |             )
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
     8 |     while (i !!= terminatiionValue) {
       |               ^~
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:19: error: expected identifier before numeric constant
-   15 |     loopfunction([1,2,3,4,5], 20);
-      |                   ^
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp:15:19: error: expected identifier before numeric constant
+   15 |     loopfunction([1,2,3,4,5], 20);
+      |                   ^
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                    ^
       |                    ]
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In lambda function:
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp: In lambda function:
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmp17ccynf8.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                 ~          ^
       |                            )
@@ -856,11 +854,11 @@ C:\Users\Peter\AppData\Local\Temp\tmpvrpcg8xs.cpp:15:28: error: expected &#39;)&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpzphaf52x.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpzphaf52x.cpp:6:10: error: redeclaration of &#39;long int i&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpvmkiseyw.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpvmkiseyw.cpp:6:10: error: redeclaration of &#39;long int i&#39;
     6 |     long i = 1;
       |          ^
-C:\Users\Peter\AppData\Local\Temp\tmpzphaf52x.cpp:5:10: note: &#39;int i&#39; previously declared here
+C:\Users\Peter\AppData\Local\Temp\tmpvmkiseyw.cpp:5:10: note: &#39;int i&#39; previously declared here
     5 | for (int i = 0;;) {
       |          ^
 </pre></div>
@@ -898,7 +896,8 @@ for (auto p = begin©; c!=end©; ++p) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>00</p>
+<p>0</p>
+<p>0</p>
 <p>01</p>
 <p>52</p>
 <p>03</p>
@@ -939,7 +938,7 @@ for (auto p = begin©; c!=end©; ++p) {
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material",
+            theme: "<cm-material>",
             mode: "text/x-c++src"
         },
         kernelOptions: {

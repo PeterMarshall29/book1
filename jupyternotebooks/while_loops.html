@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.0409e949-233c-4cd1-a5f9-07b71e97e5db.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.694b467e-8bfb-4ffd-8f98-243afa7e9656.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-74c6fe6a-ea2a-487d-9ad3-d239e21344a8] svg, .mermaid[data-zoom-id=id-87b00200-2fee-4e58-be52-015918d93953] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b00916d1-222e-4deb-ad31-3eb39a53e5f4] svg, .mermaid[data-zoom-id=id-983cdf27-cd49-43ff-a51b-48b07a3eee59] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -575,7 +575,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-74c6fe6a-ea2a-487d-9ad3-d239e21344a8" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-b00916d1-222e-4deb-ad31-3eb39a53e5f4" class="mermaid align-center">
         flowchart TD
   A([&quot;Program Flow Approaches the While Loop&quot;]) --&gt; B[&quot;Set Loop Variable&quot;]
   B --&gt; C{&quot;Check Termination Condition&quot;}
@@ -599,7 +599,7 @@ document.write(`
   linkStyle 5 stroke:#AA00FF,fill:none
   linkStyle 6 stroke:#AA00FF,fill:none0FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-87b00200-2fee-4e58-be52-015918d93953" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-983cdf27-cd49-43ff-a51b-48b07a3eee59" class="mermaid align-center">
         flowchart TD
   A([&quot;Arrival&quot;]) --&gt; B[&quot;Set Loop Counter: Count = 1;&quot;]
   B --&gt; C{&quot;Check Counter &amp;lt; 100&quot;}
@@ -668,8 +668,7 @@ Use Crtl+Z to end a loop. Ctrl+D in linux.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0</p>
-<p>1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19</p>
+<p>0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19</p>
 <p>The loop terminated when i =20. First element was 0!</p>
 </div>
 </div>
@@ -691,10 +690,7 @@ Use Crtl+Z to end a loop. Ctrl+D in linux.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>1</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
-</pre></div>
-</div>
+<p>1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19</p>
 </div>
 </div>
 </section>
@@ -713,7 +709,7 @@ Use Crtl+Z to end a loop. Ctrl+D in linux.</p>
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material",
+            theme: "<cm-material>",
             mode: "text/x-c++src"
         },
         kernelOptions: {
