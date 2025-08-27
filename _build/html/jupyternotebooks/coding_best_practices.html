@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\coding_best_practices.b3cf9151-19df-40cc-8a55-eebca343f8ff.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\coding_best_practices.91816e1f-213d-4a42-a653-96a0ed682735.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/coding_best_practices';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -587,14 +587,10 @@ Modern editors will autocomplete long identifer names - you will not need to kee
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <blockquote>
-<div><p>Every time you write a comment, you should grimace and feel the failure of your ability of expression.</p>
+<div><p>Every time you write a comment, you should grimace and feel the failure of your ability of expression.<br />
+A long descriptive name is better than a long descriptive comment.<br />
+Redundant comments are just places to collect lies and misinformation.</p>
 <p class="attribution">—Clean Code, Rob Martin</p>
-</div></blockquote>
-<blockquote>
-<div><p>A long descriptive name is better than a long descriptive comment.</p>
-</div></blockquote>
-<blockquote>
-<div><p>Redundant comments are just places to collect lies and misinformation.</p>
 </div></blockquote>
 </div>
 <div class="margin admonition note">
@@ -639,7 +635,7 @@ Modern editors will autocomplete long identifer names - you will not need to kee
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material",
+            theme: "<cm-material>",
             mode: "text/x-c++src"
         },
         kernelOptions: {

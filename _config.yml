@@ -86,7 +86,7 @@ sphinx:
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
     pygments_style: material
     thebe_config:
-      codemirror-theme:  material
+      codemirror-theme:  <cm-material>
       mimetype: text/x-c++src
       codemirror-mode: text/x-c++src 
     tippy_props:

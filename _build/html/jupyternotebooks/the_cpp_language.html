@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.566c7352-a2c0-4a31-b918-806bd40a09bb.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.ce8f6d59-337a-4e4c-b5ed-8c4b2f5909f6.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-a959a68e-c25e-47d2-9631-2afe8c3e90dd] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-65c98506-4b73-4c03-a2e4-1de2f5932fd8] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -645,7 +645,7 @@ document.write(`
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
-<pre align="center" data-zoom-id="id-a959a68e-c25e-47d2-9631-2afe8c3e90dd" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-65c98506-4b73-4c03-a2e4-1de2f5932fd8" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]
@@ -692,11 +692,11 @@ document.write(`
 <p>Memory is divided into:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="glossary.html#term-Static-Memory"><span class="xref std std-term">static memory</span></a> - memory allocated for the program, before it starts execution - region called the data segment - also global memory - controlled by programmer.</p></li>
-<li><p>Automatic local variable memory - region called the <code class="docutils literal notranslate"><span class="pre">stack</span></code> - controlled by logical execution of the program.</p></li>
-<li><p>Dynamic memory - called the {term}`free store - managed by the programmer (region of memory sometimes called the ‘heap’).</p></li>
+<li><p>Automatic local variable memory - region called the <a class="reference internal" href="glossary.html#term-Stack"><span class="xref std std-term">stack</span></a> - controlled by logical execution of the program.</p></li>
+<li><p><a class="reference internal" href="glossary.html#term-Dynamic-Memory"><span class="xref std std-term">Dynamic memory</span></a> - called the <a class="reference internal" href="glossary.html#term-Free-store"><span class="xref std std-term">free store</span></a> - managed by the programmer (region of memory sometimes called the <span class="xref std std-term">heap</span>).</p></li>
 </ul>
 <p>Objects are allocated to the free store using <code class="docutils literal notranslate"><span class="pre">new</span></code> and persist until specicially deleted. Failing to deallocate memory in the free store, during execution causes memory resource issues, <code class="docutils literal notranslate"><span class="pre">delete</span></code> must be use to deallocate to prevent a memory leak.</p>
-<p>The stack is memory allocated at run time to hold local variables and arguments for any function call including the main() function. The stack is automatically freed when the function execution ends.</p>
+<p>The stack is memory allocated at run time to hold local variables and arguments for any function call including the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function. The stack is automatically freed when the function execution ends.</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">Out-of-Memory Errors</p>
 <p>Memory is a finite resource and programmers often need to consider how objects are allocated into different types of memory in order to make it possible to run a program on a given device.</p>
@@ -718,7 +718,7 @@ Memory leaks occur when memory remains allocated after it is no longer needed, d
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material",
+            theme: "<cm-material>",
             mode: "text/x-c++src"
         },
         kernelOptions: {

@@ -187,13 +187,13 @@ In C++, methods are available for allocation and freeing memory during the execu
 
 Memory is divided into:
 * {term}`static memory` - memory allocated for the program, before it starts execution - region called the data segment - also global memory - controlled by programmer.
-* Automatic local variable memory - region called the `stack` - controlled by logical execution of the program.
-* Dynamic memory - called the {term}`free store - managed by the programmer (region of memory sometimes called the 'heap').
+* Automatic local variable memory - region called the {term}`stack` - controlled by logical execution of the program.
+* {term}`Dynamic memory` - called the {term}`free store` - managed by the programmer (region of memory sometimes called the {term}`heap`).
 
 
 Objects are allocated to the free store using `new` and persist until specicially deleted. Failing to deallocate memory in the free store, during execution causes memory resource issues, `delete` must be use to deallocate to prevent a memory leak. 
 
-The stack is memory allocated at run time to hold local variables and arguments for any function call including the main() function. The stack is automatically freed when the function execution ends.
+The stack is memory allocated at run time to hold local variables and arguments for any function call including the `main()` function. The stack is automatically freed when the function execution ends.
 
 ```{admonition} Out-of-Memory Errors
 :class: note dropdown

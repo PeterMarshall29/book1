@@ -105,7 +105,7 @@ If a function definition has declared that a particular type of data (an integer
 `````{exercise} 
 :class: dropdown
 :label: exercisea1
-Try making the following changes to the above code - note what happens.
+Try making the following changes to the above code - run the code after each change and note what happens.
 
 - Remove the semicolon in line 3 or 4. 
 - Remove `std::` from line 3.
@@ -113,6 +113,7 @@ Try making the following changes to the above code - note what happens.
 - Change the returned value from 0 to 1, and then to a letter.
 - Remove the return line.
 - Add some whitespace (spaces) to the code.
+- Change some letters to capitals
 
 
 
@@ -133,6 +134,7 @@ More on the structure of the C++ language can be found {doc}`here <../jupyternot
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
 - This is usually only possible in the main function, but not on every platform.
 - Whitespace is ignored in C++ - not true in other languages!
+- C++ is {term}`case sensitive`.
 ````
 `````
 
@@ -199,8 +201,7 @@ Multiline comments can be created by surround any text with `/*` and `*/`. These
 
 Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse accross it and then simulaneously pressing {kbd}`Ctrl` + {kbd}`/`.
 
-```{code-block} c++
-
+```{code-block} t
 // A C++ style single line comment
 // Another one
 #include <iostream> // This comments does not affect anything before it on the same line

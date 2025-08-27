@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.08f2a2aa-c3ff-4ea9-823a-171f73fbbcda.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.e8c46d0b-b3e0-4ad5-80a6-e5a004593ed6.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-796e2a6a-2a12-4607-9131-584cb7f543a4] svg, .mermaid[data-zoom-id=id-9bd9dd19-643f-4932-a94e-20a01d6e8583] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-a592dc6d-3841-46b8-9be5-726343546e9b] svg, .mermaid[data-zoom-id=id-8390dedd-950a-4d7c-be2c-af7942213de9] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -554,6 +554,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations">Errors In Calculations</a></li>
 </ul>
             </nav>
         </div>
@@ -674,7 +675,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-796e2a6a-2a12-4607-9131-584cb7f543a4" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-a592dc6d-3841-46b8-9be5-726343546e9b" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -705,7 +706,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-9bd9dd19-643f-4932-a94e-20a01d6e8583" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-8390dedd-950a-4d7c-be2c-af7942213de9" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -810,6 +811,13 @@ The shape used is less important when the labels are clear.</p>
 <li><p>Run-time, or logic, errors, or logic errors, occur after successful creation of the .exe file. Too late to fix - people may have died!</p></li>
 </ul>
 </section>
+<section id="errors-in-calculations">
+<h2>Errors In Calculations<a class="headerlink" href="#errors-in-calculations" title="Permalink to this heading">#</a></h2>
+<p>Rounding (or round-off) error: The precision of arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.</p>
+<p>For example <code class="docutils literal notranslate"><span class="pre">sin(acos(-1)/4)</span></code> will not be identically equalt to <code class="docutils literal notranslate"><span class="pre">sqrt(2)/2</span></code>, provided sufficient decimaly place are used and testing their equality would produce an unexpected resutl</p>
+<p><code class="docutils literal notranslate"><span class="pre">acos(-1)</span></code> is a simple way to obtain the value of <code class="docutils literal notranslate"><span class="pre">pi</span></code> in C++</p>
+<p>Truncation errors: Result from the use of an approximation. For example using numerical integration techniques, or Euler’s method.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -820,7 +828,7 @@ The shape used is less important when the labels are clear.</p>
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material",
+            theme: "<cm-material>",
             mode: "text/x-c++src"
         },
         kernelOptions: {
@@ -882,6 +890,7 @@ The shape used is less important when the labels are clear.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations">Errors In Calculations</a></li>
 </ul>
   </nav></div>
 

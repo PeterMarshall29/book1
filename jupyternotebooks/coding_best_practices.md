@@ -68,10 +68,8 @@ Lay out your code so that it is easy to read:
 
 ```{note}
 {attribution="Clean Code, Rob Martin"}
-> Every time you write a comment, you should grimace and feel the failure of your ability of expression.
-
-> A long descriptive name is better than a long descriptive comment.
-
+> Every time you write a comment, you should grimace and feel the failure of your ability of expression.\
+> A long descriptive name is better than a long descriptive comment.\
 > Redundant comments are just places to collect lies and misinformation.
 ```
 

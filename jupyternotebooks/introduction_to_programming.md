@@ -257,3 +257,12 @@ There are many types of error, but three classifications to understand at this p
 - Link-time errors: found by linker - more difficult. 
 - Run-time, or logic, errors, or logic errors, occur after successful creation of the .exe file. Too late to fix - people may have died!
 
+## Errors In Calculations 
+
+Rounding (or round-off) error: The precision of arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.
+
+For example `sin(acos(-1)/4)` will not be identically equalt to `sqrt(2)/2`, provided sufficient decimaly place are used and testing their equality would produce an unexpected resutl
+
+`acos(-1)` is a simple way to obtain the value of `pi` in C++
+
+Truncation errors: Result from the use of an approximation. For example using numerical integration techniques, or Euler's method.

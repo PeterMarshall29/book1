@@ -29,6 +29,12 @@ Binary File
 Camel Case
   [Camel Case](https://en.wikipedia.org/wiki/Camel_case) is one of the naming conventions used to improve the readability of code, whilst avoiding underscores. 
 
+Case Sensitive
+  Upper and lower case letters are iterprete as different symbols. If a keyword is all lower case, you must use all lower case. The name `myFunction` is distinct from the name `myfunction`. Adopting a strict convention for naming, such as {term}`camel case` makes it easier to avoid this mistake.      
+
+Char Type
+  Type for representing individual characters. Character literals are enclosed by `' '`. Also an integer type - each character has an associate integer value.
+
 Class
   more basic    ;A blueprint for creating objects, encapsulating data (attributes) and functions (methods).
 
@@ -101,6 +107,12 @@ Expression
 Expression Statements
   An expression followed by a semicolon.
 
+Floating-Point Numbers
+  Numbers with a decimal point. Represented in code by the addition of `.0` to whole numbers.
+
+Floating-Point Number Types
+  Float, Double, and Long Double. Floatig point literals are interpreted as `double` type unless the letter f or l is added as a suffix.
+
 Free store
   {term}`memory` allocated by `new`; also called dynamic memory. Often standard library facilities, such as `vector`, can be used to avoid explicit use of free store.
 
@@ -121,6 +133,12 @@ Identifier
 
 Instruction Set Architecture
   Specifies the format of machine code used by the programmable interface of a {term}`CPU`. The 'instuctions' are patterns of bits, each of which is unique to a specific task.   
+
+int
+  Key word for the Integer type.
+
+Integer type
+  Type for integer values (whole numbers - all both positive and negative and zero). Maybe preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long, `long long`. The modifiers may be used on their own, and int is implied; but `signed` and `unsigned` may also precede `char.
 
 Iteration
   Iteration

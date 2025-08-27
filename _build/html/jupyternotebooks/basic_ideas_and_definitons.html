@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.4f428660-87c0-48ab-ae34-10374e9a3487.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.e7a5c8bc-e36d-41a0-aec1-0d55ab244318.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -514,7 +514,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic-operations">Basic Arithmetic Operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations-to-be-moved">Errors In Calculations - to be moved</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data-types">More Data Types</a></li>
 </ul>
             </nav>
         </div>
@@ -611,16 +611,32 @@ document.write(`
 <p class="admonition-title"><span class="caption-number">Exercise 5 </span></p>
 <section id="exercise-content">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;isotream&gt;</span>
-<span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
-<span class="linenos">3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="o">**!!</span><span class="w"> </span><span class="n">Insert</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="o">!!**</span>
+<span class="linenos">3</span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">4</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Fish&quot;</span><span class="p">;</span>
 <span class="linenos">5</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="linenos">6</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="linenos">7</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="o">!</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="o">!</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpmpmkfcr6.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpmpmkfcr6.cpp:4:1: error: &#39;Type&#39; was not declared in this scope; did you mean &#39;wctype&#39;?
+    4 | Type code here!
+      | ^~~~
+      | wctype
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </div>
@@ -644,6 +660,33 @@ document.write(`
 </div>
 </section>
 </div>
+</section>
+<section id="more-data-types">
+<h2>More Data Types<a class="headerlink" href="#more-data-types" title="Permalink to this heading">#</a></h2>
+<p>In addition to strings, and integers, we need variable from the <span class="xref std std-term">floating point number types</span> and <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
+<p>Correct the following code and add a line to print out all the named variables, separated by tabs.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">58</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">shoeSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.5</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0e-8</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">middleInitial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;J&#39;</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Code Explanation</p>
+<p>Single quotes denote a <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Float</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> are both used for <span class="xref std std-term">floating point numbers</span> - “double” denoting double precision (twice as many bits equired for their reprentation in binary).</p>
+<p>Scientific notation is formated using a lower or upper case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the significant and the index WITHOUT ANY SPACES!!</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code> is the keyword for the <a class="reference internal" href="glossary.html#term-Integer-type"><span class="xref std std-term">integer type</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code> may be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long,</span> </code>long long<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">The</span> <span class="pre">modifiers</span> <span class="pre">may</span> <span class="pre">be</span> <span class="pre">used</span> <span class="pre">on</span> <span class="pre">their</span> <span class="pre">own,</span> <span class="pre">and</span> </code>int<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">implied;</span> <span class="pre">but</span></code>signed<code class="docutils literal notranslate"><span class="pre">and</span></code>unsigned<code class="docutils literal notranslate"><span class="pre">may</span> <span class="pre">also</span> <span class="pre">precede</span></code>char, and <code class="docutils literal notranslate"><span class="pre">long</span></code> may precede <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
+</div>
 <div class="exercise dropdown admonition" id="exercised3">
 
 <p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
@@ -661,9 +704,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</div>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="o">!</span>
-</pre></div>
 </div>
 <div class="solution note dropdown admonition" id="solutiond3">
 
@@ -686,11 +726,6 @@ document.write(`
 </section>
 </div>
 </section>
-<section id="errors-in-calculations-to-be-moved">
-<h2>Errors In Calculations - to be moved<a class="headerlink" href="#errors-in-calculations-to-be-moved" title="Permalink to this heading">#</a></h2>
-<p>Rounding (or round-off) error: The precision of arithmetic is limited by  a computer is limited</p>
-<p>Truncation errors:</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -701,7 +736,7 @@ document.write(`
             ref: "master",
         },
         codeMirrorConfig: {
-            theme: "material",
+            theme: "<cm-material>",
             mode: "text/x-c++src"
         },
         kernelOptions: {
@@ -760,7 +795,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic-operations">Basic Arithmetic Operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations-to-be-moved">Errors In Calculations - to be moved</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data-types">More Data Types</a></li>
 </ul>
   </nav></div>
 
