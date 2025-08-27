@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\printing_to_file.3e264bd6-2801-4964-8bff-e4624291efec.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\printing_to_file.f9cd4251-9c2d-40ab-b5d4-de67c9aff54a.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/printing_to_file';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -488,7 +488,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -504,6 +506,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-a-file">Adding Data to a File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-from-a-file">Reading from a File</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -515,35 +526,85 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="printing-to-file">
 <h1>Printing to File<a class="headerlink" href="#printing-to-file" title="Permalink to this heading">#</a></h1>
-<p>How to write to a file in C++</p>
-<ol class="arabic simple">
-<li><p>Add if not already there:
-#include <iostream>
-#include <fstream></p></li>
-<li><p>In the main function, before any writing and outside of any loops, put the following code.
-int main()
-{
-std::ofstream outputFile(“exampleName1.txt”)
-“outputFile” is the parameter name/reference to your file used in your code and the file is called “exampleName1.txt”</p></li>
-<li><p>To write a line of data to the file, add inside a loop in the main function:
-outputFile &lt;&lt; value1 &lt;&lt; “, \t” &lt;&lt; value2 &lt;&lt; “\n”;</p></li>
-<li><p>Repeat the [ &lt;&lt; value1 &lt;&lt; “, \t” ] for as many values as needed.</p></li>
-<li><p>Still inside main, but after all writes to the file - Close the file
-outputFile.close();
-return 0;</p></li>
-</ol>
-<p>[ Optional - Check if the file is open
-if (outFile.is_open()) {
-outputFile &lt;&lt; “Hello, World!” &lt;&lt; std::endl;
-std::cout &lt;&lt; “Data successfully written to the file!” &lt;&lt; std::endl;
-} else {
-std::cerr &lt;&lt; “Error: Unable to open the file for writing.” &lt;&lt; std::endl;
-}
-outputFile.clse();
-return 0;
-}
-]
-6.	The file will be found in the repos as usual; see screenAdd image5.pngshot beneath for example.</p>
+<p>For printing to and reading from a file, the standard library provides <code class="docutils literal notranslate"><span class="pre">&lt;fstream&gt;</span></code>.</p>
+<p>To only read or only write - there are also <code class="docutils literal notranslate"><span class="pre">&lt;ifstream&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;ofstream&gt;</span></code> - both in <code class="docutils literal notranslate"><span class="pre">&lt;fstream&gt;</span></code></p>
+<p>Try the following code: make sure you can find the file created, and check its contents.</p>
+<p>The location of the file can be set by the programmer.</p>
+<p>Using Visual Studio, without specifying more than the file name, the file will be found in c://users/YourUserName/source/repo/nameOfYourProject/nameOfYourProject/</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span><span class="c1"> </span>
+<span class="linenos"> 4</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">outputFileStream</span><span class="p">(</span><span class="s">&quot;exampleFileName.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="c1">//std::ofstream outputFileStream(&quot;exampleFileName.txt&quot;);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;apples&quot;</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">    </span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">outputFileStream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, </span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">    </span><span class="c1">// optionally throw error if if the file is not open.</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">outputFileStream</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">        </span><span class="n">outputFileStream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Data successfully written to the file!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">18</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error: Unable to open the file for writing.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">21</span><span class="w">    </span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">outputFileStream</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="linenos">23</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">24</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Code Explanation</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::fstream</span> <span class="pre">streamName(&quot;fileName.txt&quot;,</span> <span class="pre">std::ios::out);</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">std::ofstream</span> <span class="pre">streamName</span> <span class="pre">(&quot;fileName.txt&quot;);</span></code></p>
+<p>Both creata a file-stream named <code class="docutils literal notranslate"><span class="pre">streamName</span></code> and create and open a new file called “fileName.txt” associated with the stream.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator inserts formatted information into the file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">is_open()</span></code> is a member function that checks the stream has an associate file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">close()</span></code> is good practice; ensure the stream is closed and the file is ready.</p>
+<p>If the file stream fails to open, the stream is in the <code class="docutils literal notranslate"><span class="pre">bad()</span></code> state, which may be a result of using a non standard operating system. IOStreams can be in one of 4 states, which can be checked by the program; good(), eof(), and fail(). More details can be found in the <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_fstream.html">C++ Reference</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">std::ios::out</span></code> is a <strong>stream mode parameter</strong>. There is also an equivalent <code class="docutils literal notranslate"><span class="pre">std::fstream::out</span></code>; since fstream inherits from ios, ios is preferred becasue it is used elsewhere too.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="stream-modes">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ios_base::app</p></td>
+<td><p>“append” add to the end of the file</p></td>
+</tr>
+<tr class="row-odd"><td><p>ios_base::ate</p></td>
+<td><p>“at end” - opens and seeks end of file</p></td>
+</tr>
+<tr class="row-even"><td><p>os_base::in</p></td>
+<td><p>For Reading</p></td>
+</tr>
+<tr class="row-odd"><td><p>ios_base::out</p></td>
+<td><p>For writing</p></td>
+</tr>
+<tr class="row-even"><td><p>ios_base::trunc</p></td>
+<td><p>Truncates the file to 0 length</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="adding-data-to-a-file">
+<h2>Adding Data to a File<a class="headerlink" href="#adding-data-to-a-file" title="Permalink to this heading">#</a></h2>
+<p>Try changing what was written to the file and running the program again. You should find that the contents of the file have been overwitten.</p>
+<p>You will most like want to add information to a file, rather than replace its contents, for that we use a different <strong>stream mode paramaters</strong> which control the operation <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>.</p>
+<p>If you replace the stream mode parameter with <code class="docutils literal notranslate"><span class="pre">std::ios::app</span></code> the new data will be appended to after the current data.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">outputFileStream</span><span class="p">(</span><span class="s">&quot;exampleFileName.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">app</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-from-a-file">
+<h2>Reading from a File<a class="headerlink" href="#reading-from-a-file" title="Permalink to this heading">#</a></h2>
+<p>Reading entire file or one line at a time.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -600,6 +661,22 @@ return 0;
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-data-to-a-file">Adding Data to a File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-from-a-file">Reading from a File</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
