@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.ce8f6d59-337a-4e4c-b5ed-8c4b2f5909f6.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.e659b894-96c6-49cb-a3fd-fdec737d63c8.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-65c98506-4b73-4c03-a2e4-1de2f5932fd8] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-261456e7-af29-4dc9-b1f1-12d76e73ff18] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -563,7 +563,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-c-language">
 <span id="cpplanguage"></span><h1>The C++ Language<a class="headerlink" href="#the-c-language" title="Permalink to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/C++">C++</a> language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne_Stroustrup</a> and first released in 1985.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/C%2B%2B">C%2B%2B</a> language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne_Stroustrup</a> and first released in 1985.</p>
 <p>C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).</p>
 <p>There are simpler programming languages to learn; but once have learned to code in C++ subsequent programming languages are much easier to pick up.</p>
 <div class="tab-set docutils">
@@ -645,7 +645,7 @@ document.write(`
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
-<pre align="center" data-zoom-id="id-65c98506-4b73-4c03-a2e4-1de2f5932fd8" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-261456e7-af29-4dc9-b1f1-12d76e73ff18" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]
@@ -693,7 +693,7 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference internal" href="glossary.html#term-Static-Memory"><span class="xref std std-term">static memory</span></a> - memory allocated for the program, before it starts execution - region called the data segment - also global memory - controlled by programmer.</p></li>
 <li><p>Automatic local variable memory - region called the <a class="reference internal" href="glossary.html#term-Stack"><span class="xref std std-term">stack</span></a> - controlled by logical execution of the program.</p></li>
-<li><p><a class="reference internal" href="glossary.html#term-Dynamic-Memory"><span class="xref std std-term">Dynamic memory</span></a> - called the <a class="reference internal" href="glossary.html#term-Free-store"><span class="xref std std-term">free store</span></a> - managed by the programmer (region of memory sometimes called the <span class="xref std std-term">heap</span>).</p></li>
+<li><p><a class="reference internal" href="glossary.html#term-Dynamic-Memory"><span class="xref std std-term">Dynamic memory</span></a> - called the <a class="reference internal" href="glossary.html#term-Free-store"><span class="xref std std-term">free store</span></a> - managed by the programmer (region of memory sometimes called the <a class="reference internal" href="glossary.html#term-Heap"><span class="xref std std-term">heap</span></a>).</p></li>
 </ul>
 <p>Objects are allocated to the free store using <code class="docutils literal notranslate"><span class="pre">new</span></code> and persist until specicially deleted. Failing to deallocate memory in the free store, during execution causes memory resource issues, <code class="docutils literal notranslate"><span class="pre">delete</span></code> must be use to deallocate to prevent a memory leak.</p>
 <p>The stack is memory allocated at run time to hold local variables and arguments for any function call including the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function. The stack is automatically freed when the function execution ends.</p>

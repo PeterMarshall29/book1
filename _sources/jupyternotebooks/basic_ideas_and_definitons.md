@@ -23,7 +23,9 @@ In the Compuational Physics module, we are mainly concerned with writing code th
 
 All programmeming languages carry out basic arithmetic operationrs. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
 
-`cout` can be used demonstrate the basic arithmetic operations. The {term}`Modulus` operation may be new to you. and some basic arithmetic operators to write a simple programmes for calculation.
+`cout` can be used demonstrate the basic arithmetic operations. 
+
+Type in the following and try the exercise.
 
 ```{code-block} cpp
 :linenos: 
@@ -43,6 +45,8 @@ The programme evaluates the expression `4 + 7` before sending the result to the 
 ```{exercise}
 :class: dropdown
 Try the operators -,*,/ and %. What does the % operator do? Why might that be useful?
+
+The {term}`Modulo` operator may be new to you.
 
 The try using `-` as a prefix on a number, what effect does that have?
 ```
@@ -146,7 +150,7 @@ For a {term}`numeric data type` it performs 'addition', but for the {term}`strin
 
 ## More Data Types
 
-In addition to strings, and integers, we need variable from the {term}`floating point number types` and {term}`char type`.
+In addition to strings, and integers, we need variable from the {term}`floating-point number types` and {term}`char type`.
 
 Correct the following code and add a line to print out all the named variables, separated by tabs.
 
@@ -166,7 +170,7 @@ return 0;
 
 Single quotes denote a {term}`char type`. 
 
-`Float` and `double` are both used for {term}`floating point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
+`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
 
 Scientific notation is formated using a lower or upper case `e` between the significant and the index WITHOUT ANY SPACES!!   
 

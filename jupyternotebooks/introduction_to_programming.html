@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.e8c46d0b-b3e0-4ad5-80a6-e5a004593ed6.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.74201118-2412-4d7a-bb66-686267248dc5.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-a592dc6d-3841-46b8-9be5-726343546e9b] svg, .mermaid[data-zoom-id=id-8390dedd-950a-4d7c-be2c-af7942213de9] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-1c88601c-ee11-4a67-929c-a9c996219ee2] svg, .mermaid[data-zoom-id=id-22920460-336d-404f-9dd6-1ef3ac8fb936] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -587,7 +587,7 @@ Your digital watch (if you are still wearing a watch!), calculator, smart speake
 <p>Binary files are not necessarily executable; Library files may be written in binary, which are then used by an executable, providing extra functionality or data.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">Wiki</a>on machine code.</p>
+<p>Wiki on <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">Machine_code</a></p>
 </div>
 </section>
 <section id="syntax-and-sematics-of-a-programming-language">
@@ -613,7 +613,7 @@ Syntax errors are easily found at compile time - the compiler will not let you h
 <p>Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable programme that does not work correctly.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Learn more about computer language <a class="reference external" href="https://en.wikipedia.org/wiki/Syntax_/(programming_languages/)">syntax</a>.</p>
+<p>Learn more about computer language <a class="reference external" href="https://en.wikipedia.org/wiki/Syntax_(programming_languages)">Syntax_(programming_languages)</a>.</p>
 </div>
 </section>
 <section id="coding">
@@ -675,7 +675,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-a592dc6d-3841-46b8-9be5-726343546e9b" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-1c88601c-ee11-4a67-929c-a9c996219ee2" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -706,7 +706,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-8390dedd-950a-4d7c-be2c-af7942213de9" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-22920460-336d-404f-9dd6-1ef3ac8fb936" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
