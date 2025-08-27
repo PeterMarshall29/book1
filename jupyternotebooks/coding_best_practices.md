@@ -79,7 +79,7 @@ Lay out your code so that it is easy to read:
 > If the comment and code disagree, both are probably wrong.
 ```
 
-Article on [best practices](https://en.wikipedia.org/wiki/Coding_best_practices) in coding.
+Article on [Coding_best_practices](https://en.wikipedia.org/wiki/Coding_best_practices) in coding.
 
 ## Testing
 ```{note}

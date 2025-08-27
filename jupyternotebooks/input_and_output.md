@@ -12,11 +12,9 @@ kernelspec:
 
 # Input and Output
 
-The basic facilities for a user to interact with a program are provided by the `<iostream>` component of the {term}`standard library`.
+The `<iostream>` component of the {term}`standard library` allows the a user to interact with a program, by providing commands that can be instruct a program to print information on the monitor/screen and to accept input via the keyboard.
 
-`<iostream>` contains additional functions that can be used by a program to print information on monitor/screen and to accept input from the user via the keyboard.
-
-Until we can program these interactions, it is difficult to make any progress learning a computing language, because we have no insight into what the program has done.
+Until we can program these interactions, it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.
 
 Type the following code into the empty code window below.
 
@@ -62,7 +60,7 @@ int main()
 ```{code-block} cpp
 
 ```
-`"Hello, "` is a string-literal. Surname is a named object of type string.
+`"Hello, "` is a string-literal. Surname is a named object of type `string`.
 
 ````
 ````{exercise}

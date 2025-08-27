@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.e7a5c8bc-e36d-41a0-aec1-0d55ab244318.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.a23bc5af-32a7-4bd5-9d7d-4457898d8df4.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -534,7 +534,8 @@ document.write(`
 <section id="basic-arithmetic-operations">
 <h2>Basic Arithmetic Operations<a class="headerlink" href="#basic-arithmetic-operations" title="Permalink to this heading">#</a></h2>
 <p>All programmeming languages carry out basic arithmetic operationrs. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.</p>
-<p><code class="docutils literal notranslate"><span class="pre">cout</span></code> can be used demonstrate the basic arithmetic operations. The <span class="xref std std-term">Modulus</span> operation may be new to you. and some basic arithmetic operators to write a simple programmes for calculation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cout</span></code> can be used demonstrate the basic arithmetic operations.</p>
+<p>Type in the following and try the exercise.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;isotream&gt;</span>
 <span class="linenos">2</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
@@ -555,6 +556,7 @@ document.write(`
 <p class="admonition-title"><span class="caption-number">Exercise 3 </span></p>
 <section id="exercise-content">
 <p>Try the operators -,*,/ and %. What does the % operator do? Why might that be useful?</p>
+<p>The <span class="xref std std-term">Modulo</span> operator may be new to you.</p>
 <p>The try using <code class="docutils literal notranslate"><span class="pre">-</span></code> as a prefix on a number, what effect does that have?</p>
 </section>
 </div>
@@ -626,8 +628,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpmpmkfcr6.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpmpmkfcr6.cpp:4:1: error: &#39;Type&#39; was not declared in this scope; did you mean &#39;wctype&#39;?
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpvdo2psj7.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpvdo2psj7.cpp:4:1: error: &#39;Type&#39; was not declared in this scope; did you mean &#39;wctype&#39;?
     4 | Type code here!
       | ^~~~
       | wctype
@@ -656,14 +658,14 @@ C:\Users\Peter\AppData\Local\Temp\tmpmpmkfcr6.cpp:4:1: error: &#39;Type&#39; was
 <div class="dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
 <p>If done correctly, you will have demonstrated that <code class="docutils literal notranslate"><span class="pre">+</span></code> operator behaves differently when used with differnt data types.</p>
-<p>For a <a class="reference internal" href="glossary.html#term-Numeric-Data-Type"><span class="xref std std-term">numeric data type</span></a> it performs ‘addition’, but for the <a class="reference internal" href="glossary.html#term-String-Data-Type"><span class="xref std std-term">string data type</span></a> it performs <span class="xref std std-term">concatenation</span>.</p>
+<p>For a <a class="reference internal" href="glossary.html#term-Numeric-Data-Type"><span class="xref std std-term">numeric data type</span></a> it performs ‘addition’, but for the <a class="reference internal" href="glossary.html#term-String-Data-Type"><span class="xref std std-term">string data type</span></a> it performs <a class="reference internal" href="glossary.html#term-Concatenation"><span class="xref std std-term">concatenation</span></a>.</p>
 </div>
 </section>
 </div>
 </section>
 <section id="more-data-types">
 <h2>More Data Types<a class="headerlink" href="#more-data-types" title="Permalink to this heading">#</a></h2>
-<p>In addition to strings, and integers, we need variable from the <span class="xref std std-term">floating point number types</span> and <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
+<p>In addition to strings, and integers, we need variable from the <a class="reference internal" href="glossary.html#term-Floating-Point-Number-Types"><span class="xref std std-term">floating-point number types</span></a> and <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
 <p>Correct the following code and add a line to print out all the named variables, separated by tabs.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -682,7 +684,7 @@ C:\Users\Peter\AppData\Local\Temp\tmpmpmkfcr6.cpp:4:1: error: &#39;Type&#39; was
 <div class="note dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
 <p>Single quotes denote a <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Float</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> are both used for <span class="xref std std-term">floating point numbers</span> - “double” denoting double precision (twice as many bits equired for their reprentation in binary).</p>
+<p><code class="docutils literal notranslate"><span class="pre">Float</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> are both used for <a class="reference internal" href="glossary.html#term-Floating-Point-Numbers"><span class="xref std std-term">floating-point numbers</span></a> - “double” denoting double precision (twice as many bits equired for their reprentation in binary).</p>
 <p>Scientific notation is formated using a lower or upper case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the significant and the index WITHOUT ANY SPACES!!</p>
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> is the keyword for the <a class="reference internal" href="glossary.html#term-Integer-type"><span class="xref std std-term">integer type</span></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> may be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long,</span> </code>long long<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">The</span> <span class="pre">modifiers</span> <span class="pre">may</span> <span class="pre">be</span> <span class="pre">used</span> <span class="pre">on</span> <span class="pre">their</span> <span class="pre">own,</span> <span class="pre">and</span> </code>int<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">implied;</span> <span class="pre">but</span></code>signed<code class="docutils literal notranslate"><span class="pre">and</span></code>unsigned<code class="docutils literal notranslate"><span class="pre">may</span> <span class="pre">also</span> <span class="pre">precede</span></code>char, and <code class="docutils literal notranslate"><span class="pre">long</span></code> may precede <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>

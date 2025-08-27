@@ -16,7 +16,7 @@ The first program that most people ever write prints "Hello, World!" the first p
 
 ```{Admonition} History of the Hello World Program
 :class: seealso margin
-See the [Wiki](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page for the history of the "Hello, world!" program.
+See the [Hello, World! program](https://en.wikipedia.org/wiki/"Hello,_World!"_program) page for the history of the "Hello, world!" program.
 ```
 
 
@@ -24,7 +24,7 @@ See the [Wiki](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) page f
 :class: margin
 To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press {kbd}`Shift` + {kbd}`Enter`. 
 ```
-```{code-block} cpp
+```{code-block} c++
 :linenos: 
 :emphasize-lines: 3
 :name: codea1
@@ -201,12 +201,14 @@ Multiline comments can be created by surround any text with `/*` and `*/`. These
 
 Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse accross it and then simulaneously pressing {kbd}`Ctrl` + {kbd}`/`.
 
-```{code-block} t
+```{code-block} ruby
 // A C++ style single line comment
 // Another one
-#include <iostream> // This comments does not affect anything before it on the same line
+include <iostream> // This comments does not affect anything before it on the same line
 
-/* C-style codes are also used */
+/* C-style codes are also used 
+*/
+
 /* Best 
 when 
 a 

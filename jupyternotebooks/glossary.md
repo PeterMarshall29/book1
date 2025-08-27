@@ -53,7 +53,7 @@ Compiled Language
 Compound Statement
   Sequence of {term}`statements` inclosed by curly braces `{}`. Also called a {term}`code block`.
 
-Concatention
+Concatenation
   Joining of two strings together.
 
 Const
@@ -127,6 +127,9 @@ Global Scope
 
 Header Files
   DEF
+
+Heap
+  def
 
 Identifier
   The {term}`name` given to any {term}`entity` that may have a used defined name.

@@ -13,7 +13,7 @@ kernelspec:
 (cpplanguage)=
 #  The C++ Language
 
-The [C++](https://en.wikipedia.org/wiki/C++) language is one of the most powerful programming languages available today. It was created by Danish computer scientist [Bjarne_Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) and first released in 1985. 
+The [C%2B%2B](https://en.wikipedia.org/wiki/C%2B%2B) language is one of the most powerful programming languages available today. It was created by Danish computer scientist [Bjarne_Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) and first released in 1985. 
 
 C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).
 

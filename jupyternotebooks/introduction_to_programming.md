@@ -41,7 +41,7 @@ Binary files are not necessarily executable; Library files may be written in bin
 
 ```{tip}
 :class: margin
-[Wiki](https://en.wikipedia.org/wiki/Machine_code)on machine code.
+Wiki on [Machine_code](https://en.wikipedia.org/wiki/Machine_code)
 ```
 
 
@@ -73,7 +73,7 @@ Semantic errors are logic errors and will not necessarily be caught by the compi
 
 ```{tip}
 :class: margin
-Learn more about computer language [syntax](https://en.wikipedia.org/wiki/Syntax_/(programming_languages/)).
+Learn more about computer language [Syntax_(programming_languages)](https://en.wikipedia.org/wiki/Syntax_(programming_languages)).
 ```
 ## Coding
 

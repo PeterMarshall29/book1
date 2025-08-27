@@ -47,7 +47,7 @@ The syntax does note permit any whitespace in a floating point literal
 For example, 65.43 e−21 is not a floating-point literal but rather four separate lexical tokens (causing a syntax error):
 65.43 e − 21
 
-`Float` and `double` are both used for {term}`floating point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
+`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
 
 ## Scientific Notation
 
@@ -58,7 +58,7 @@ The syntax does note permit any whitespace in a floating point literal.
 For example, 2.998 e8 is not a floating-point literal, and would be intpreted as the separate lexical tokens and cause a syntax error at compile time
 65.43 e − 21
 
-`Float` and `double` are both used for {term}`floating point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
+`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
 
 
 
