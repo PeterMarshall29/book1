@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Basic Ideas and Definitions &#8212; Introduction to C++ Programming</title>
+    <title>Learing the Basics &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.5eb7334e-65dd-42a2-8ae0-a7780f4a64c4.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.9382d493-1125-47f3-9d97-db2095c1377a.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -199,7 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic Ideas and Definitions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
 </ul>
@@ -501,7 +501,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Basic Ideas and Definitions</h1>
+    <h1>Learing the Basics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -515,6 +515,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data-types">More Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">Escape Characters</a></li>
 </ul>
             </nav>
         </div>
@@ -526,9 +527,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="basic-ideas-and-definitions">
-<h1>Basic Ideas and Definitions<a class="headerlink" href="#basic-ideas-and-definitions" title="Permalink to this heading">#</a></h1>
-<p>Once you have learned a few more basic parts of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out the new concepts out.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="learing-the-basics">
+<h1>Learing the Basics<a class="headerlink" href="#learing-the-basics" title="Permalink to this heading">#</a></h1>
+<p>Once you have learned a few more basic parts of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out the new concepts.</p>
 <p>This page leads you through some basic exercies, much of the explanation is left until later chapters, this page is not intended to present fully decriptions and definitions.</p>
 <p>In the Compuational Physics module, we are mainly concerned with writing code that will take user inputs, perform calculations, and then return ‘answers’ to the user. This requires us to learn only a subset of the C++ langugage and programming concepts.</p>
 <section id="basic-arithmetic-operations">
@@ -556,7 +557,7 @@ document.write(`
 <p class="admonition-title"><span class="caption-number">Exercise 3 </span></p>
 <section id="exercise-content">
 <p>Try the operators -,*,/ and %. What does the % operator do? Why might that be useful?</p>
-<p>The <span class="xref std std-term">Modulo</span> operator may be new to you.</p>
+<p>The <a class="reference internal" href="glossary.html#term-Modulo-Operator"><span class="xref std std-term">Modulo operator</span></a> may be new to you. See Wiki for more information: <a class="reference external" href="https://en.wikipedia.org/wiki/Modulo">Modulo</a></p>
 <p>The try using <code class="docutils literal notranslate"><span class="pre">-</span></code> as a prefix on a number, what effect does that have?</p>
 </section>
 </div>
@@ -608,7 +609,7 @@ document.write(`
 <p>Another useful type of variable is the <code class="docutils literal notranslate"><span class="pre">string</span></code> type. A <a class="reference internal" href="glossary.html#term-String"><span class="xref std std-term">string</span></a> is a series of individual characters.</p>
 <p>To use string-type variables we need an additional component of the standard library, <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> to be included.</p>
 <p>The string literal must be enclosed in <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
-<div class="exercise dropdown admonition" id="exercised1">
+<div class="exercise dropdown admonition" id="exerciseb1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 5 </span></p>
 <section id="exercise-content">
@@ -630,7 +631,7 @@ document.write(`
 </div>
 </section>
 </div>
-<div class="exercise dropdown admonition" id="exercised2">
+<div class="exercise dropdown admonition" id="exerciseb2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 6 </span></p>
 <section id="exercise-content">
@@ -676,7 +677,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> is the keyword for the <a class="reference internal" href="glossary.html#term-Integer-type"><span class="xref std std-term">integer type</span></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> may be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long,</span> </code>long long<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">The</span> <span class="pre">modifiers</span> <span class="pre">may</span> <span class="pre">be</span> <span class="pre">used</span> <span class="pre">on</span> <span class="pre">their</span> <span class="pre">own,</span> <span class="pre">and</span> </code>int<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">implied;</span> <span class="pre">but</span></code>signed<code class="docutils literal notranslate"><span class="pre">and</span></code>unsigned<code class="docutils literal notranslate"><span class="pre">may</span> <span class="pre">also</span> <span class="pre">precede</span></code>char, and <code class="docutils literal notranslate"><span class="pre">long</span></code> may precede <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
 </div>
-<div class="exercise dropdown admonition" id="exercised3">
+<div class="exercise dropdown admonition" id="exerciseb3">
 
 <p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
 <section id="exercise-content">
@@ -694,9 +695,9 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="solution note dropdown admonition" id="solutiond3">
+<div class="solution note dropdown admonition" id="solutionb3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercised3"> Exercise 7</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseb3"> Exercise 7</a></p>
 <section id="solution-content">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
@@ -713,6 +714,43 @@ document.write(`
 </section>
 </div>
 </section>
+</div>
+</section>
+<section id="escape-characters">
+<h2>Escape Characters<a class="headerlink" href="#escape-characters" title="Permalink to this heading">#</a></h2>
+<p><a class="reference internal" href="glossary.html#term-Escape-Sequences"><span class="xref std std-term">Escape sequences</span></a>, or ‘escape characters’, are used to represent special characters within a string or character literal.</p>
+<p>Each escape character is identifed to the program by prefixing <code class="docutils literal notranslate"><span class="pre">\</span></code> to the character.</p>
+<p>These are mostly used in formating output. A full list of escape characters in c++ can be found <a class="reference external" href="https://en.cppreference.com/w/cpp/language/escape.html">here</a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="escape-sequence">
+<thead>
+<tr class="row-odd"><th class="head"><p>Character</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Effect/Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+<td><p>Newline.</p></td>
+<td><p>Instructs the computer to print any following outputs on the next line.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+<td><p>Tab (Horizontal).</p></td>
+<td><p>Instructs the computer to put a horizontal tab before any further output to the screen or file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\v</span></code></p></td>
+<td><p>Vertical Tab.</p></td>
+<td><p>Instructs the computer to put a vertical tab before any further output to the screen or file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\\</span></code></p></td>
+<td><p>Backslash</p></td>
+<td><p>Indentifies intention of a literal backslash</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;</span></code></p></td>
+<td><p>Single and double quote marks</p></td>
+<td><p>Indentifies intention of a literal quote marks</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 </section>
@@ -785,6 +823,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data-types">More Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">Escape Characters</a></li>
 </ul>
   </nav></div>
 

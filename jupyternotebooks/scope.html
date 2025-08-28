@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.a9fc81ea-c7a8-430d-a764-5e4db0d8a181.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.4f7449ff-5399-408b-b0b7-8f377c7953fb.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/scope';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -199,7 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Ideas and Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
 </ul>
@@ -537,7 +537,7 @@ For example, the statements inside different functions are said to have differen
 <p>The scope of names determines where the name can be used. Named objects can only be accessed with their own scope.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>A named object can only be used with its scope.</p>
+<p>A named object can only be used within its scope.</p>
 </div>
 <p>The main scopes are:</p>
 <ul class="simple">
@@ -558,7 +558,7 @@ For example, the statements inside different functions are said to have differen
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">::</span></code> is the scope resolution operator.
-Used to access a named object in a</p>
+Used to access a named object in a particular namespace.</p>
 </div>
 <p>Because of scope, the same name can there be used mutiple times throughout a program, even for objects of different types, provided each has a different scope.
 or different objects in different scopes - but this leads to unnecessary confusion and should be avoided.</p>
@@ -577,8 +577,7 @@ or different objects in different scopes - but this leads to unnecessary confusi
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>hell</p>
-<p>o</p>
+<p>hello</p>
 </div>
 </div>
 <div class="dropdown admonition">

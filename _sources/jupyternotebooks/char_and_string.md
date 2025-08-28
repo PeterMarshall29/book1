@@ -14,29 +14,117 @@ kernelspec:
 
 ## Character Data Types
 
-There are many character sets and character set encodings in use. C++ provides a variety of character types that reflect that – often bewildering – variety:
-* char: The default character type, used for program text. A char is used for the implementation’s character set and is usually 8 bits.
-* signed char: Like char, but guaranteed to be signed, that is, capable of holding both positive and negative values.
-* unsigned char: Like char, but guaranteed to be unsigned.
+In C++ there are a range of character sets and character set encodings available. Char variables are represented by 8 bits, which puts a limit on the character set of 256 items.
+
+The basic, and default character type is `char`. There will be no immediate need to look into any others.
+
+A char-type variable can hold a character of the implementation’s character set. 
+
+Char type is created using single quotes `' '` around a character literal. For example: 
+```{code-block} cpp
+char myCharacter = 'Z';
+```
+The character set we are using is called ASCII,  (American Standard Code for Information Interchange) that represents 128 characters chosen to match the characters appearing on your keyboard.
+
+`0` is also used as a null pointer constant, and as the {term}`null character`. 
+
+Different countries with different symbol requirements for their keyboards (e.g., æ, þ, and ß) will use different character sets and you must never rely on char values for the execution of a published program.
+```{admonition} Additonal Character Types
+:class: dropdown
+* char: Default character type - used for program text - usually 8 bits.
+* signed char: Like char, but for signed character representation - able of holding both positive and negative values.
 * wchar_t: Provided to hold characters of a larger character set such as Unicode. The size of wchar_t is implementation-defined and large enough to hold the largest character set supported by the implementation’s locale.
 * char16_t: A type for holding 16-bit character sets, such as UTF-16.
 * char32_t: A type for holding 32-bit character sets, such as UTF-32.
-These are six distinct types (despite the fact that the _t suffix is often used to denote aliases; §6.5). On each implementation, the char type will be identical to that of either signed char or unsigned char, but these three names are still considered separate types. 
-A char variable can hold a character of the implementation’s character set. For example:
-char ch = 'a';
-Almost universally, a char has 8 bits so that it can hold one of 256 different values. Typically, the character set is a variant of ISO-646, for example ASCII, thus providing the characters appearing on your keyboard. Many problems arise from the fact that this set of characters is only partially standardized.
 
-It is safe to assume that the implementation character set includes the decimal digits, the 26 alphabetic characters of English, and some of the basic punctuation characters. It is not safe to assume that:
-* There are no more than 127 characters in an 8-bit character set (e.g., some sets provide 255 characters).
-* There are no more alphabetic characters than English provides (most European languages provide more, e.g., æ, þ, and ß).
-* The alphabetic characters are contiguous (EBCDIC leaves a gap between 'i' and 'j’).
-* Every character used to write C++ is available (e.g., some national character sets do not provide {, }, [, ], |, and \).
-* Achar fits in 1 byte. There are embedded processors without byte accessing hardware for which a char is 4 bytes. Also, one could reasonably use a 16-bit Unicode encoding for the basic chars.
-Whenever possible, we should avoid making assumptions about the representation of objects. This general rule applies even to characters.
-Each character has an integer value in the character set used by the implementation. For example, the value of 'b' is 98 in the ASC II character set. Here is a loop that outputs the the integer value of any character you care to input:
-void printIntegerValues()
+For more information see the C++ reference [here] (https://en.cppreference.com/w/cpp/language/types.html).
+```
+Try the following code.
+```{code-block} c++
+char a = 'x';
+char b = 'y';
+int c = a + b;
+std::cout << a << b << c;
+return 0;
+```
+```{code-cell} c++
+:tags: [remove-output]
+Type code here!
+```
+````{exercise}
+:class: dropdown
+- Captialize the two letters and run the code again.
+- Make more changes to try to make senses of the output.
+- Try numbers instead - what is the sum of '1' and '1' anyway?
+- But a least its half as much as '2' and '2' still, right?
+
+```{admonition} Code Explanation
+`char` is an integral type - all characters have a corresponding integer value, and arithmetic operations can be applied.
+
+For 8 bit representations like `char`, the integer value run from 0 to 255.
+
+The character '1' has the integer value of 49.
+
+Being next in sequence, the character '2' has the integer value 50.
+
+The values of all `char` characters can be found [here](https://en.cppreference.com/w/cpp/language/ascii.html).
+
+The captials letters have different integer values to their lower case version. This is why names are case sensitive.
+
+```
+
+````
+
+## String Type
+
+A `string` is variable of type 'string' which is composed of a series of character literals bracketed by a pair of double quote marks `" "`.
+
+The standard library component `<string>` define strings and the operations and functions that work with string-type variables.
+
+
+
+
+
+`""` denotes an empty string. Still a string, and distinct from null????
+
+
+
+## Formating the Ouput
+
+
+
+
+##
+
+4 Ways to convert an integer to a string: 3 more to discuss later.
+Add this to header file.
+
+```{code-block} c++
+template<class T> std::string to_string(const T& t)
 {
-for (char inputChar; std::cin >> inputChar; )
-std::cout << "the value of '" << inputChar << "' is " << int{ inputChar } << '\n';
+std::ostringstream os;
+os << t;
+return os.str();
 }
+```
+This code creates a generic template for conversion to a string - we will circle back to how it works.
 
+Then replace cout line in the previous code with:
+
+```{code-block} c++
+std::cout << "Study " + to_string(c2) + " times harder " + motivator + "!\n";
+Try typing two names in a row again. Why does the code fail?
+```
+
+
+
+
+
+
+
+`{...code here...}` identifies a code block, or an in initialiser.
+Prints 3 - now change `x` to '4'. The semicolon after the if is a mistake, its like putting {} instead. 
+`{}` is called the empty block - sometimes used into code to register that nothing should be done, like when it's the else loop that is really wanted - instead of using `NOT` logic.
+The second `{}` does nothing special.
+
+lo

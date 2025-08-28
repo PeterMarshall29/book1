@@ -150,6 +150,16 @@ NULL might be 0 or 0L. In C, NULL is typically (void*)0, which makes it illegal 
 int* p = NULL; // error: can’t assign a void* to an int*
 Using nullptr makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.
 
+**copied form referecne
+std::nullptr_t
+Defined in header <cstddef>
+typedef decltype(nullptr) nullptr_t;
+(since C++11)
+std::nullptr_t is the type of the null pointer literal, nullptr. It is a distinct type that is not itself a pointer type or a pointer to member type. All Its prvalues are null pointer constants.
+
+sizeof(std::nullptr_t) is equal to sizeof(void*).
+
+
 ## Pointers and Booleans
  A pointer can be implicitly converted to a bool. A non-null pointer converts to true; pointers with the value nullptr convert to false. void myFunction(int* myPointer)
 {

@@ -25,7 +25,7 @@ For example, the statements inside different functions are said to have differen
 The scope of names determines where the name can be used. Named objects can only be accessed with their own scope.
 
 ```{important}
-A named object can only be used with its scope.
+A named object can only be used within its scope.
 ```
 
 The main scopes are:
@@ -46,7 +46,7 @@ Function scopes:
 
 ```{Note}
 `::` is the scope resolution operator.
-Used to access a named object in a
+Used to access a named object in a particular namespace.
 ```
 
 

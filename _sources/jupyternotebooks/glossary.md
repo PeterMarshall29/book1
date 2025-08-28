@@ -20,6 +20,12 @@ Assignment
 Algorithm
   Algorithm: A sequence of steps or rules to solve a problem, often implemented using STL (Standard Template Library).
 
+Arguments
+  Values passed to a function or template. For templates the arguments are usually types.
+
+ASCII
+  American Standard Code for Information Interchange -  a character encoding standard that represents text in computers and other devices. It uses 7 bits to encode 128 characters.
+
 Binary
   [Binary Code](https://en.wikipedia.org/wiki/Binary_code) is a sequence of 1's and 0's. Each one `1` or `0` is called a bit. A computer will read a specific number of bits (e.g. 64) at a time. Differnt sequences are differnt instructions to the CPU.   
 
@@ -69,7 +75,7 @@ Copy Assignment
   Replacement of the contents of one object with the contents of a second object; the second object is unaffected.
 
 CPU
-  C[entral Processing Unit](https://en.wikipedia.org/wiki/Central_processing_unit) is the electronic circuitry inside a computer that executes the machine code version of computer programmes.
+  [Central Processing Unit](https://en.wikipedia.org/wiki/Central_processing_unit) is the electronic circuitry inside a computer that executes the machine code version of computer programmes.
 
 Data Member
   Member of a class that can hold a value.
@@ -98,6 +104,9 @@ Entity
 Entities
   The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces. ECS consists of three main parts:
 
+Escape Sequences
+  Used in programming languages to represent special characters within a string or character literal. They are identified by the prefix backslash `\`. Examples are `\n`, `\t`, and `\\` to represent 'newline', 'tab' - and to identify that a backslash is just a back slash literal.
+
 Executable File
   def
 
@@ -117,7 +126,22 @@ Free store
   {term}`memory` allocated by `new`; also called dynamic memory. Often standard library facilities, such as `vector`, can be used to avoid explicit use of free store.
 
 Function
-  A named sequence of statements that can be invoked/called given arguments and that might return a value. The type of the function includes the number and types of argument and the type of the value returned, if any. Functions are useful because they are reusable, making code more efficient to write and execute.
+  A named sequence of statements that can be invoked/called by a program, optionally using arguments supplied by the function call, to optionall return a value to the program. The type of the function includes the number and types of argument and the type of the value returned. Functions are useful because they are reusable, making code more efficient to write and execute.
+
+Function Argument
+  The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
+
+Function Body
+  Sequence of statement to be executed when the function is called.
+
+Function Declaration
+  Statement of the name, types of any arguments and the return type of a function.
+
+Function Definiton
+  Function declarartion that include the {term}`function body`.
+
+Function Parameter
+  Placeholders in the function declaration for the arguments that will be passed in. The parameter is the local variable name within the function associated with its argument value.
 
 Functional Programming
   Programming paradigm that constructed programs using functions. A declarative model of programming emphasizing "what to do" rather than "how to do it."
@@ -133,6 +157,9 @@ Heap
 
 Identifier
   The {term}`name` given to any {term}`entity` that may have a used defined name.
+
+Infix Operator
+  Operator that sits between two variables, denoting an operation using both. As opposed to unary, prefix and postfix operators that act on one variable position before or after it.
 
 Instruction Set Architecture
   Specifies the format of machine code used by the programmable interface of a {term}`CPU`. The 'instuctions' are patterns of bits, each of which is unique to a specific task.   
@@ -182,14 +209,21 @@ Memory
 Memory Management
   Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.
 
+
+Modulo Operator
+  [Modulo](https://en.wikipedia.org/wiki/Modulo) operation returns the remainder after dividing the lhs number by the rhs number. In C++ this operation only applies to `int` type and is truncating, meaning the quotient, whether positive or negative, is rounded towards before the remainder is determine. Other langugages used 'floored' or 'rounded', and for every new language you will need to determine which is applied, because different results are produced. 
+
 Name
   An identifier. (A minority of names are not identifiers - advanced). 
 
 Numeric Data Type
   The data types for numeric values - each represents a different type of number to different levels of precision. Includes `int`, `float`, `double`. Some data types require additional specficiers, see the [C++ Reference - Data Types](https://en.cppreference.com/w/cpp/language/types.html)
 
-Modulo Operator
-  Returns the remainder after dividing the lhs number by the rhs number. In C++ this operation only applies to `int` type and is truncating, meaning the quotient, whether positive or negative, is rounded towards before the remainder is determine. Other langugages used 'floored' or 'rounded', and for every new language you will need to determine which is applied, because different results are produced.
+Null
+  The integer constant zero.
+
+Null Character
+  The null character is a control character represented by escape sequence '\0' that has an integer value of 0. May be used to signify the end of a string in C-style strings (character arrays). '\0' is a character literal with a value of 0. Can also reprsent the `nullptr` for comparison expressions. The null character is stored as a byte (8 bits) with all bits set to zero.
 
 Objects
   - A contiguous region of memory holding a value of some type. Objects can be allocated in {term}`static memory`, on the {term}`stack`, on on the {term}`free store`. 
@@ -272,7 +306,10 @@ Type
  A type defines the proper use of a name or an expression.
 
 Type Casting
-  Converting a variable from one type to another. Setting the initial type.
+  Converting a value of one type to another for assignment to a variable of the new type.
+
+Type System
+  def
 
 Variable
   A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration - a named object in a scope.

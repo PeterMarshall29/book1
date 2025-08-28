@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.e7d18dbc-a043-4bd4-976c-ad2312f1cbc0.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.aea9d230-96af-45ce-aaba-24ae7cf86b38.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-06449369-646f-4228-b3af-1a3ec8c4f758] svg, .mermaid[data-zoom-id=id-c2fb9443-184f-4f89-9956-351e2b82e002] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-60a9a7d3-ea1c-45db-a34e-4a8f47ca2d6b] svg, .mermaid[data-zoom-id=id-f14c7336-dfa7-4f28-b050-bdbc7cdae1bf] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -236,7 +236,7 @@ window.addEventListener("load", load);
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Ideas and Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
 </ul>
@@ -575,7 +575,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-06449369-646f-4228-b3af-1a3ec8c4f758" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-60a9a7d3-ea1c-45db-a34e-4a8f47ca2d6b" class="mermaid align-center">
         flowchart TD
   A([&quot;Program Flow Approaches the While Loop&quot;]) --&gt; B[&quot;Set Loop Variable&quot;]
   B --&gt; C{&quot;Check Termination Condition&quot;}
@@ -599,7 +599,7 @@ document.write(`
   linkStyle 5 stroke:#AA00FF,fill:none
   linkStyle 6 stroke:#AA00FF,fill:none0FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-c2fb9443-184f-4f89-9956-351e2b82e002" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-f14c7336-dfa7-4f28-b050-bdbc7cdae1bf" class="mermaid align-center">
         flowchart TD
   A([&quot;Arrival&quot;]) --&gt; B[&quot;Set Loop Counter: Count = 1;&quot;]
   B --&gt; C{&quot;Check Counter &amp;lt; 100&quot;}
@@ -690,7 +690,10 @@ Use Crtl+Z to end a loop. Ctrl+D in linux.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19</p>
+<p>1</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
+</pre></div>
+</div>
 </div>
 </div>
 </section>
