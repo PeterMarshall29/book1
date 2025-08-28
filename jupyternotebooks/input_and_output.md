@@ -16,6 +16,8 @@ The `<iostream>` component of the {term}`standard library` allows users to inter
 
 Before learning to program these basic instructions it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.
 
+***
+
 Type the following code into the empty code window below, add the missing programme statements, and run the completed code.
 
 ```{tip}
@@ -157,11 +159,11 @@ std::cout << std::defaultfloat << 12345.987654321 << "  " << std::scientific << 
 return 0;
 }
 ```
-std::defaultfloat is the what would happen if nothing was set, used when you want to return to the default.
+`std::defaultfloat` is the what would happen if nothing was set, used when you want to return to the default.
 
-std::scientific formats the number in to scientific notation, and to have 6 digits after the decimal point.
+`std::scientific` formats the number in to scientific notation, and to have 6 digits after the decimal point.
 
-std::fixed keeps the number of digits after the decimal point to 6.
+`std::fixed` keeps the number of digits after the decimal point to 6.
 
 The precision used for these options may also be set.
 

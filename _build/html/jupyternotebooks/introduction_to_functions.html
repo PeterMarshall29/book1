@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.140b21b9-1637-4cef-9d74-cdf29f435504.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.789fa23a-93d0-4ea2-93e3-d8d08918dfc0.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -511,15 +511,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-call-and-return">Function Call and Return</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-constant-reference">Pass by Constant Reference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference">Pass by Reference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-definition">Declarations and Definition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations">Declarations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation">Initialisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-declarations">Structure of Declarations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-or-shadowed-names">Hidden or Shadowed Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-definitions">Declarations and Definitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference-and-passing-by-constant-reference">Pass by Reference and passing by Constant Reference</a></li>
 </ul>
             </nav>
         </div>
@@ -534,10 +527,11 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
 <p>Programmers often want to use the same lines of code repeatedly in the same program, and possibly in a lot of different programs.</p>
-<p>A sequence of statement (code block) can be made reusable by encapsulating them into a function.</p>
+<p>A sequence of statements (code block) can be made reusable by encapsulating them into a function.</p>
 <p>At its simplest, a function is just a sequence of statement collected and given a name that can be used to cause the statement to be executed.</p>
 <p>When a function is called (or invoked) the statements are executed as though they had been types at the same point in your program.</p>
 <p>Functions may be identified in code by finding a name suffixed by parentheses, which may be empty or contain arguments, e.g. <code class="docutils literal notranslate"><span class="pre">main()</span></code></p>
+<hr class="docutils" />
 <p>Functions offer many benefits to the programmer. Functions:</p>
 <ul class="simple">
 <li><p>Make programming more efficient by enabling the reuse of code blocks.</p></li>
@@ -546,9 +540,15 @@ document.write(`
 <li><p>Make it easier to test the program - testing reduces to testing functions and their interactions.</p></li>
 </ul>
 <p>Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g., computations) were not clearly separated and named.</p>
+<hr class="docutils" />
 <p>Functional programming is a programming paradigm that constructs programs from only functions.</p>
 <p>C++ is a multi=paradigm language - we will use a combination of functional programming and object-oriented programming. Possibly with some Generic programming.</p>
-<p>Run this code…</p>
+<hr class="docutils" />
+<div class="exercise dropdown admonition" id="exerciseu1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<section id="exercise-content">
+<p>Run this code.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
@@ -595,6 +595,122 @@ document.write(`
 <p>The function must be placed outside of the main function.</p>
 </div>
 <p>For now we will place the functions above the main function, but in future all functions should be placed in <a class="reference internal" href="glossary.html#term-Header-Files"><span class="xref std std-term">header files</span></a>, using the <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive to make them available to <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
+</div>
+</section>
+</div>
+<p>Functions would be less useful if they could only use the variables that were defined in the function body - global variables could be used, but these are generally to be avoided.</p>
+<p>When a function is called values may be <strong>passed in</strong> as <span class="xref std std-term">function arguments</span> to the function. These values become local variables that can be used within the function.</p>
+<p>A result can also be returned.</p>
+<div class="exercise dropdown admonition" id="exerciseu2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<section id="exercise-content">
+<p>Run this code.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">squareOf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">		</span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Code Explanation</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> function returns an integer value when it is called, and that value is then used by the character output stream, in the same fashion as the result of evaluating an expression.</p>
+<p>If a return value is not used, it is better practice to declare return type as <code class="docutils literal notranslate"><span class="pre">void</span></code>. It is also common practice to put <code class="docutils literal notranslate"><span class="pre">return;</span></code> at the end of a void function - though not strictly necessary.</p>
+<p>You should have a <code class="docutils literal notranslate"><span class="pre">return</span></code>, or an <code class="docutils literal notranslate"><span class="pre">error</span></code> for every possible way out of a function; for a void function it is acceptable to just drop through.</p>
+<hr class="docutils" />
+<p>The definiton of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> has a single parameter called ‘x’ of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. Parameters names are local variables that may be used in the body of the function - have the value that was passed in.</p>
+<hr class="docutils" />
+<p>The type of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> is <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">(int)</span></code>.</p>
+<hr class="docutils" />
+<p>To call <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> its name must be included in a code statement followed by <code class="docutils literal notranslate"><span class="pre">()</span></code> with either an integer value in the parentheses or an integer type variable, that must have been initialised with a value before the call.</p>
+</div>
+<ul class="simple">
+<li><p>Try moving the definition of squareOf() to below the main function.</p></li>
+<li><p>Try moving the definition of squareOf() to inside the main function.</p></li>
+<li><p>Try changing the function declaration so that it expects a paramater of type <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p>Find two ways to make the above code print the square of all of the values from 1 to 100.</p></li>
+</ul>
+<div class="solution note dropdown admonition" id="solutionu2">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseu2"> Exercise 14</a></p>
+<section id="solution-content">
+<p>The function could only be placed above <code class="docutils literal notranslate"><span class="pre">main()</span></code> - because a function cannot be used before it has been declared.</p>
+<p>Integers can be converted to doubles at run time, so the code works.</p>
+<p>The loop-variable <code class="docutils literal notranslate"><span class="pre">i</span></code> is being incremented in two places - this is bad practice.</p>
+<p>Removing the <code class="docutils literal notranslate"><span class="pre">++i</span></code> would be the best approach.</p>
+<p>Alternatively letting the loop run to 200 but</p>
+</section>
+</div>
+</section>
+</div>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Declaration: Statement of the functions name and input/output types.
+A definition requires the declaration (again) followed by the code body.</p>
+<p>“Declarations are not defintitions”.</p>
+</div>
+<section id="declarations-and-definitions">
+<h2>Declarations and Definitions<a class="headerlink" href="#declarations-and-definitions" title="Permalink to this heading">#</a></h2>
+<p>Every entity, including functions, must be declared before they may be used.</p>
+<p>Reason: Two functions may be called in each others definiton, but they cannot both be defined first.</p>
+<p>The solution is to declare both functions before defining either one.</p>
+<p>Since the declaration does not refer to the other function, the problems disappears.</p>
+<p>Having been apprised of the name and type of the function, the program can look for the definition.</p>
+<p>The declaration is just an interface; it describes what the definition has to conform to.</p>
+<hr class="docutils" />
+<p>A definition requires the code body also. ‘Declarations are not definitions’.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// is a declaration</span>
+
+<span class="c1">//This is the corresponding defintion.</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello Class!&quot;</span><span class="p">;</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>An entity may be declared more than once - but a defintion cannot be repeated, or the code will not compile.</p>
+<p>A second declaration may not have a different type pattern to the first for a given identifier.</p>
+</div>
+<hr class="docutils" />
+<p>Another possible definition would be:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello Class!&quot;</span><span class="p">;</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If the parameter type in the declaration is not named in the definition, then it cannot be used in the function, and does not have to be passed in.</p>
+<p>A value return is a form of initialisation – types must of course be matched.</p>
+<p>But now an integer value that absolutely must be passed in - cannot be accessed/used.</p>
+<p>Parameter names are not formally necessary in the declaration, and in fact are ignored by the compiler - they are only required in the corresponding definition.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>So this is an acceptable declaration.</p>
+<p>However, the safest way to ensure your declaration and definiton type patterns and name spellings match, is to cut &amp; paste from one to other. It also helps the reader to understand a program</p>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">extern</span></code> keyword means the myFunction declaration is not a definition. It is rarely used.</p>
+</div>
 <div class="dropdown note admonition">
 <p class="admonition-title">Notes on the Syntax of a Function Declaration and Call</p>
 <p>Declaration Syntax: <code class="docutils literal notranslate"><span class="pre">returnType</span> <span class="pre">functionIdentifier</span> <span class="pre">(</span> <span class="pre">parameter-list</span> <span class="pre">);</span></code></p>
@@ -611,314 +727,142 @@ document.write(`
 </div>
 <p>These are the declaration of two different functions. The program will identify which one is required by a function call based on the types of the arguments supplied.</p>
 </div>
-</div>
-<p>Run this code.</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">squareOf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">		</span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+</section>
+<section id="pass-by-reference-and-passing-by-constant-reference">
+<h2>Pass by Reference and passing by Constant Reference<a class="headerlink" href="#pass-by-reference-and-passing-by-constant-reference" title="Permalink to this heading">#</a></h2>
+<p>Sometimes it is better not to pass a value directly into a function. For instance you might be sending a long array of large numbers, or a very lareg image.</p>
+<p>When a value is passed into a function, a new copy of that values is created in the memory - a local copy for the use of the function.</p>
+<p>This can be use up too many resources and too much time unnecessarily. Programs run faster when function parameter as passed by reference.</p>
+<p>The alternative approach is to only pass in a reference to the location of the variable. This is calle <a class="reference internal" href="glossary.html#term-Passing-by-Reference"><span class="xref std std-term">passing by reference</span></a>.</p>
+<p>The <a class="reference internal" href="glossary.html#term-Reference"><span class="xref std std-term">reference</span></a> is the <a class="reference internal" href="glossary.html#term-Memory-Address"><span class="xref std std-term">memory address</span></a> of a named object.</p>
+<hr class="docutils" />
+<p>To declare that a parameter will by passed by reference, its type is declared with an ampersand attached to the end.</p>
+<p>Passing by reference poses one risk - the original object is not affected by a function call when passed by a value, because a local copy is generated</p>
+<p>To prevent the function altering the name object that is referenced the paramater must be listed as <a class="reference internal" href="glossary.html#term-Constant"><span class="xref std std-term">constant</span></a>, by putting the <code class="docutils literal notranslate"><span class="pre">const</span></code> keyword before, space separated.</p>
+<p>This is called <a class="reference internal" href="glossary.html#term-Passing-by-Constant-Reference"><span class="xref std std-term">passing by constant reference</span></a>.</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Passing by Constant Reference Example</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;{&quot;</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos"> 6</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos"> 8</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="p">}</span>
+<span class="linenos">10</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.6</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">12</span><span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">	</span>
+<span class="linenos">13</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </div>
 <div class="note dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> function returns an integer value when it is called, and that value is then used by the character output stream.</p>
-<p>If a return value is not used, it is better practice to declare return type as <code class="docutils literal notranslate"><span class="pre">void</span></code>. It is also common practice to put <code class="docutils literal notranslate"><span class="pre">return;</span></code> at the end of a void function - though not strictly necessary.</p>
-<p>The definiton of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> has a single parameter called ‘x’ of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-<p>The type of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> is <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">(int)</span></code>.</p>
-<p>To call <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> its name must be included in a code statement followed by <code class="docutils literal notranslate"><span class="pre">()</span></code> with either an integer value in the parentheses or an integer type variable, that must have been initialised with a value before the call.</p>
-<p>The value returned from the call to <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> is used by the output stream. Similar to the evaluation of an expression, the function is called and it value used.</p>
+<p class="admonition-title">Passing by Reference Examples</p>
+<p>Pass by reference allows us to modify the original values.</p>
+<p>Example: two ways for a program to modify some named variable</p>
+<p>To be accessible by a function the variable must be global, which means declaring it before the main function, otherwise the myPrint functions could not alter it, only its copy.</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Method 1 – Alter a Global Variable</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.6</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 2</span><span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="p">{</span>
+<span class="linenos"> 4</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;{&quot;</span><span class="p">;</span>
+<span class="linenos"> 5</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos"> 7</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos"> 9</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">10</span><span class="p">}</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter2</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="linenos">13</span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;{&quot;</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">16</span><span class="w">		</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">18</span><span class="w">		</span>
+<span class="linenos">19</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">21</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">22</span><span class="p">}</span>
+<span class="linenos">23</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">24</span><span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="linenos">25</span><span class="w">	</span><span class="n">myPrinter2</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">	</span>
+<span class="linenos">26</span><span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="linenos">27</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">28</span><span class="p">}</span>
+</pre></div>
 </div>
-<div class="exercise admonition" id="exerciseu3">
-
-<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
-<section id="exercise-content">
-<ul class="simple">
-<li><p>Try moving the definition of squareOf() to below the main function.</p></li>
-<li><p>Try moving the definition of squareOf() to inside the main function.</p></li>
-<li><p>Try changing the function declaration so that it expects a paramater of type <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
-<li><p>Find two ways to make the above code print the square of all of the values from 1 to 100.</p></li>
-</ul>
-<div class="solution dropdown admonition" id="solutionu3">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseu3"> Exercise 13</a></p>
-<section id="solution-content">
-<p>You should have found that the function must go above <code class="docutils literal notranslate"><span class="pre">main()</span></code> - because a function cannot be used before it has been declared.</p>
-<p>Integers can be converted to doubles at run time, so the code works.</p>
-</section>
 </div>
-</section>
-</div>
-<div class="exercise dropdown admonition" id="exerciseu2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
-<section id="exercise-content">
-<p>This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="w"> </span><span class="s">&quot;iostreams&quot;</span>
-<span class="n">main</span><span class="p">(){</span>
-<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;my name is, </span><span class="se">\n</span><span class="s">&quot;</span>
-<span class="k">return</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<p>Notice that it does not matter whether the a[i] = a[i] + 1;</p>
+<p>Line is before or after the print, since a copy of the original is being printed. This method still works if you pass by reference, but not the order matters since you are accessing the original for each output.</p>
+<p>This is not helpful, because now you have a global variable.</p>
+<p>Method 2 - Change the local parameter – which is a reference to the external value.</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Method 2 - Change the local parameter</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;{&quot;</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos"> 6</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos"> 8</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="p">}</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter2</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="linenos">12</span><span class="p">{</span>
+<span class="linenos">13</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;{&quot;</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">		</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos">16</span><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">17</span><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">19</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">20</span><span class="p">}</span>
+<span class="linenos">21</span><span class="w"> </span>
+<span class="linenos">22</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">23</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.6</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">24</span><span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="linenos">25</span><span class="w">	</span><span class="n">myPrinter2</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="linenos">27</span><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">28</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="solution note dropdown admonition" id="solutionu2">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseu2"> Exercise 14</a></p>
-<section id="solution-content">
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Put your name here!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-</div>
-</section>
-</div>
-<p>TRY moving the square definition after main – what happens?</p>
-<div class="margin admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Declaration: Statement of the functions name and input/output types.
-A definition requires the declaration (again) followed by the code body.</p>
-<p>“Declarations are not defintitions”.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span>int myFunction(int); // is a declaration
-
-int myFunction(int x) {
-	std::cout &lt;&lt; &quot;Hello Class!&quot;;
-	return x;
+<!-- 
+`````{exercise-start}
+:label: exerciseu3
+:class: dropdown
+`````
+This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.
+````{code-cell} c++
+:tags: [remove-output]
+include "iostreams"
+main(){
+cout << "my name is, \n"
+return "Peter";
 }
-Is a definition.
-
-We could also have,
- 
-int myFunction(int) {
-	std::cout &lt;&lt; &quot;Hello Class!&quot;;
+````
+````{solution} exerciseu3
+:class: note dropdown
+:label: solutionu3
+```{code} cpp
+#include <iostream>
+int main()
+{
+	std :: cout << "Put your name here!\n";
 	return 0;
 }
-But then the integer that must be passed in cannot be accessed or used…
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp303wjgkn.cpp:18:71: error: stray &#39;\205&#39; in program
-   18 | But then the integer that must be passed in cannot be accessed or used&lt;85&gt;
-      |                                                                       ^~~~
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp303wjgkn.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmp303wjgkn.cpp:6:23: error: a function-definition is not allowed here before &#39;{&#39; token
-    6 | int myFunction(int x) {
-      |                       ^
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp303wjgkn.cpp:10:1: error: &#39;Is&#39; was not declared in this scope
-   10 | Is a definition.
-      | ^~
-</pre></div>
-</div>
-</div>
-</div>
-<section id="function-call-and-return">
-<h2>Function Call and Return<a class="headerlink" href="#function-call-and-return" title="Permalink to this heading">#</a></h2>
-<p>Examples:
-double fct(int a, double d) { return a*d; }</p>
-<p>If the function returns nothing label it with void.
-List all values to be passed in – in the order that they will used in the call.
-Names of parameters in the function declaration are the local names used within the function.</p>
-<p>int myFunc1(std::vector<a class="reference external" href="std::string">std::string</a> vs, std::string s, int hint); // naming arguments
-int myFunc2(std::vector<a class="reference external" href="std::string">std::string</a>, std::string, int); // not naming arguments</p>
-<p>Names are not formally necessary in the declaration, but must be given in the definition part.
-Names in the declaration help us understand the intention of the programmer.</p>
-<p>If the parameter type in the declaration is not named in the definition, then it is not used in the function, and does not have to be passed in.  A value return is a form of initialisation – types must of course be matched.</p>
-<p>You should have a return or an error for every possible way out of a function. Except for a void function, where it is acceptable to just drop through.</p>
-</section>
-<section id="pass-by-constant-reference">
-<h2>Pass by Constant Reference<a class="headerlink" href="#pass-by-constant-reference" title="Permalink to this heading">#</a></h2>
-<p>If you are not passing small values, then passing by value is costly because it creates a new local copy – could be an image with gigabytes. A memory address of a name is called a reference.
-A parameter type that has &amp; attached, indicated that a reference to a name is being passed in.
-Const is used to stop the function altering the name referenced.
-All programs run faster when function parameters are references not values (i.e. copied).</p>
-<p>void myPrinter(const std::vector<double>&amp; v)
-{
-std::cout &lt;&lt; “{”;
-for (int i = 0; i &lt; v.size(); ++i) {
-std::cout &lt;&lt; v[i];
-if (i != v.size() - 1) std::cout &lt;&lt; “,”;
-}
-std::cout &lt;&lt; “}\n”;
-}
-int main() {
-std::vector<double> a = { 5.9,8,1.1,2.3,4.5,5.6 };
-myPrinter(a);	
-return 0;
-}</p>
-</section>
-<section id="pass-by-reference">
-<h2>Pass by Reference<a class="headerlink" href="#pass-by-reference" title="Permalink to this heading">#</a></h2>
-<p>Pass by reference allows us to modify the original values.
-Example: two ways for a program to modify some named variable
-To be accessible by a function the variable must be global, which means declaring it before the main function, otherwise the myPrint functions could not alter it, only its copy.
-Example 1 – altering a global variable.
-std::vector<double> a = { 5.9,8,1.1,2.3,4.5,5.6 };
-void myPrinter(std::vector<double> v)
-{
-std::cout &lt;&lt; “{”;
-for (int i = 0; i &lt; v.size(); ++i) {
-std::cout &lt;&lt; v[i];
-if (i != v.size() - 1) std::cout &lt;&lt; “,”;
-}
-std::cout &lt;&lt; “}\n”;
-}</p>
-<p>void myPrinter2(std::vector<double> v)
-{
-std::cout &lt;&lt; “{”;
-for (int i = 0; i &lt; v.size(); ++i) {
-a[i] = a[i] + 1;
-std::cout &lt;&lt; v[i];</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>	if (i != v.size() - 1) std::cout &lt;&lt; &quot;,&quot;;
-}
-std::cout &lt;&lt; &quot;}\n&quot;;
-</pre></div>
-</div>
-<p>}
- int main() {
-myPrinter(a);
-myPrinter2(a);	
-myPrinter(a);
-return 0;
-}
-Notice that it does not matter whether the a[i] = a[i] + 1;
-Line is before or after the print, since a copy of the original is being printed. This method still works if you pass by reference, but not the order matters since you are accessing the original for each output.</p>
-<p>This is not helpful, because now you have a global variable.
-Way number 2 - Change the local parameter – which is a reference to the external value.</p>
-<p>void myPrinter(std::vector<double>&amp; v)
-{
-std::cout &lt;&lt; “{”;
-for (int i = 0; i &lt; v.size(); ++i) {
-std::cout &lt;&lt; v[i];
-if (i != v.size() - 1) std::cout &lt;&lt; “,”;
-}
-std::cout &lt;&lt; “}\n”;
-}</p>
-<p>void myPrinter2(std::vector<double>&amp; v)
-{
-std::cout &lt;&lt; “{”;
-for (int i = 0; i &lt; v.size(); ++i) {
-v[i] = v[i] + 1;
-std::cout &lt;&lt; v[i];
-if (i != v.size() - 1) std::cout &lt;&lt; “,”;
-}
-std::cout &lt;&lt; “}\n”;
-}
- 
-int main() {
-std::vector<double> a = { 5.9,8,1.1,2.3,4.5,5.6 };
-myPrinter(a);
-myPrinter2(a);
-myPrinter(a);
-return 0;
-}</p>
-</section>
-<section id="declarations-and-definition">
-<h2>Declarations and Definition<a class="headerlink" href="#declarations-and-definition" title="Permalink to this heading">#</a></h2>
-<p>A definition requires the code body also. ‘Declarations are not definitions’.</p>
-<p>int myFunction(int); // is a declaration</p>
-<p>int myFunction(int x) {
-std::cout &lt;&lt; “Hello Class!”;
-return x;
-} //Is a definition.</p>
-<p>We could also have
-int myFunction(int) {
-std::cout &lt;&lt; “Hello Class!”;
-return 0;
-}
-But then the integer that must be passed in cannot be accessed or used…
- 
-You can declare anything as often as you want – only definitions cannot be repeated.
-And you cannot declare a second time, for the same name that does not match the pattern of an existing definition.</p>
-</section>
-<section id="declarations">
-<h2>Declarations<a class="headerlink" href="#declarations" title="Permalink to this heading">#</a></h2>
-<p>Everything must be declared before it can be used.
-Reason: what if you call two functions in each others definition – one definition must come first – the solution is declare both – then it does not matter, which is defined first. And the declaration does not involve the other functions, so no issues there.
- 
-Kinds of declarations
-There are many kinds of entities that a programmer can define in C++. The most interesting are:
-Variables
-Constants
-Functions
-Namespaces
-Types (classes and enumerations)
-Templates</p>
-<p>The declaration is just an interface – describes what the definition has to conform to.
-extern int myFunction(int);
-extern keyword means the myFunction declaration is not a definition. It is rarely used.</p>
-</section>
-<section id="initialisation">
-<h2>Initialisation<a class="headerlink" href="#initialisation" title="Permalink to this heading">#</a></h2>
-<p>Always initialise your variables – prevents accidental use before definition.</p>
-<p>Only exception are strings and vectors; which by default have empty conditions initialised, “” for strings, v.capacity() = 0 for vector.</p>
-<p>This is done by a ‘default constructor’.</p>
-<p>Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value…</p>
-<p>Examples of Declarations – some do not work in current location – others need set up to proceed them.</p>
-</section>
-<section id="structure-of-declarations">
-<h2>Structure of Declarations<a class="headerlink" href="#structure-of-declarations" title="Permalink to this heading">#</a></h2>
-<p>The structure of a declaration is defined by the C++ grammar (§iso.A). This grammar evolved over four decades, starting with the early C grammars, and is quite complicated. However, without too many radical simplifications, we can consider a declaration as having five parts (in order):
-• Optional prefix specifiers (e.g., static or virtual)
-• A base type (e.g., vector<double> or const int)
-• A declarator optionally including a name (e.g., p[7], n, or ∗(∗)[])
-• Optional suffix function specifiers (e.g., const or noexcept)
-• An optional initializer or function body (e.g., ={7,5,3} or {return x;})
-Except for function and namespace definitions, a declaration is terminated by a semicolon.</p>
-</section>
-<section id="declaration-good-practice">
-<h2>Declaration Good Practice<a class="headerlink" href="#declaration-good-practice" title="Permalink to this heading">#</a></h2>
-<p>Before the main() put:</p>
-<p>Constant declarations
-Function prototype declarations</p>
-<p>Inside main() put:</p>
-<p>Variable declarations</p>
-<p>Remember that choice of position affects scope</p>
-</section>
-<section id="hidden-or-shadowed-names">
-<h2>Hidden or Shadowed Names<a class="headerlink" href="#hidden-or-shadowed-names" title="Permalink to this heading">#</a></h2>
-<p>A declaration of a name in a block can hide a declaration in an enclosing block or a global name.
-That is, a name can be redefined to refer to a different entity within a block. After exit from the block, the name resumes its previous meaning.</p>
-<p>A hidden global name can be referred to using the scope resolution operator, ::. For example:
-int x;
-void main()
-{
-int x = 1; // hide global x
-::x = 2; // assign to global x
-x = 3; // assign to local x</p>
-<p>std::cout &lt;&lt; x &lt;&lt; ‘\n’;
-std::cout &lt;&lt; ::x;
-// …
-}</p>
-<p>There is no way to use a hidden local name.</p>
-</section>
+```
+````
+`````{exercise-end}
+````` --></section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -987,15 +931,8 @@ std::cout &lt;&lt; ::x;
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-call-and-return">Function Call and Return</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-constant-reference">Pass by Constant Reference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference">Pass by Reference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-definition">Declarations and Definition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations">Declarations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation">Initialisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-declarations">Structure of Declarations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-or-shadowed-names">Hidden or Shadowed Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-definitions">Declarations and Definitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference-and-passing-by-constant-reference">Pass by Reference and passing by Constant Reference</a></li>
 </ul>
   </nav></div>
 

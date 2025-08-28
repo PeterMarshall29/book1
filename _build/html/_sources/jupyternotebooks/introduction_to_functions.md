@@ -14,13 +14,15 @@ kernelspec:
 
 Programmers often want to use the same lines of code repeatedly in the same program, and possibly in a lot of different programs.
 
-A sequence of statement (code block) can be made reusable by encapsulating them into a function.
+A sequence of statements (code block) can be made reusable by encapsulating them into a function.
 
 At its simplest, a function is just a sequence of statement collected and given a name that can be used to cause the statement to be executed.
 
 When a function is called (or invoked) the statements are executed as though they had been types at the same point in your program.
 
 Functions may be identified in code by finding a name suffixed by parentheses, which may be empty or contain arguments, e.g. `main()`
+
+***
 
 Functions offer many benefits to the programmer. Functions: 
 
@@ -31,13 +33,21 @@ Functions offer many benefits to the programmer. Functions:
 
 Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g., computations) were not clearly separated and named.
 
+***
+
 Functional programming is a programming paradigm that constructs programs from only functions.
 
 C++ is a multi=paradigm language - we will use a combination of functional programming and object-oriented programming. Possibly with some Generic programming.
 
-Run this code..
+***
 
-```{code-cell} c++
+``````{exercise-start}
+:label: exerciseu1
+:class: dropdown
+``````
+Run this code.
+
+`````{code-cell} c++
 :linenos:
 :tags: [remove-output]
 #include <iostream> 
@@ -51,8 +61,7 @@ int main() {
 	myFirstFunction();
 	return 0;
 }
-```
-
+`````
 `````{admonition} Code Explanation
 :class: note dropdown
 ```{code-block} c++
@@ -93,6 +102,146 @@ The function must be placed outside of the main function.
 ```
 For now we will place the functions above the main function, but in future all functions should be placed in {term}`header files`, using the `#include` directive to make them available to `main()`.
 
+
+`````
+``````{exercise-end}
+``````
+
+Functions would be less useful if they could only use the variables that were defined in the function body - global variables could be used, but these are generally to be avoided.
+
+When a function is called values may be **passed in** as {term}`function arguments` to the function. These values become local variables that can be used within the function.
+
+A result can also be returned.
+
+
+`````{exercise-start}
+:label: exerciseu2
+:class: dropdown
+`````
+Run this code. 
+````{code-cell} cpp
+:linenos:
+:tags: [remove-output]
+#include <iostream>
+
+int squareOf(int x) {
+	return x * x;
+}
+int main()
+{
+	for (int i = 0; i < 20; ++i) {
+		std::cout << i << "\t" << squareOf(i) << "\n";
+		++i;
+	}
+	return 0;
+}
+````
+````{admonition} Code Explanation
+:class: note dropdown
+
+The `squareOf()` function returns an integer value when it is called, and that value is then used by the character output stream, in the same fashion as the result of evaluating an expression.
+
+If a return value is not used, it is better practice to declare return type as `void`. It is also common practice to put `return;` at the end of a void function - though not strictly necessary. 
+
+You should have a `return`, or an `error` for every possible way out of a function; for a void function it is acceptable to just drop through.
+***
+The definiton of `squareOf()` has a single parameter called 'x' of type `int`. Parameters names are local variables that may be used in the body of the function - have the value that was passed in.
+***
+The type of `squareOf()` is `int (int)`.
+***
+To call `squareOf()` its name must be included in a code statement followed by `()` with either an integer value in the parentheses or an integer type variable, that must have been initialised with a value before the call.
+
+````
+- Try moving the definition of squareOf() to below the main function. 
+- Try moving the definition of squareOf() to inside the main function.
+- Try changing the function declaration so that it expects a paramater of type `double`.
+- Find two ways to make the above code print the square of all of the values from 1 to 100.
+
+````{solution} exerciseu2
+:class: note dropdown
+:label: solutionu2
+
+The function could only be placed above `main()` - because a function cannot be used before it has been declared.
+
+Integers can be converted to doubles at run time, so the code works.
+
+The loop-variable `i` is being incremented in two places - this is bad practice.
+
+Removing the `++i` would be the best approach. 
+
+Alternatively letting the loop run to 200 but 
+````
+`````{exercise-end}
+`````
+
+```{tip}
+:class: margin
+Declaration: Statement of the functions name and input/output types.
+A definition requires the declaration (again) followed by the code body.
+
+"Declarations are not defintitions".
+```
+## Declarations and Definitions
+Every entity, including functions, must be declared before they may be used. 
+
+Reason: Two functions may be called in each others definiton, but they cannot both be defined first. 
+
+The solution is to declare both functions before defining either one.
+
+Since the declaration does not refer to the other function, the problems disappears.
+
+Having been apprised of the name and type of the function, the program can look for the definition.
+
+The declaration is just an interface; it describes what the definition has to conform to.
+
+***
+
+A definition requires the code body also. ‘Declarations are not definitions’.
+```{code-block} c++
+int myFunction(int); // is a declaration
+
+//This is the corresponding defintion.
+int myFunction(int x) {
+	std::cout << "Hello Class!";
+	return x;
+} 
+```
+```{important}
+An entity may be declared more than once - but a defintion cannot be repeated, or the code will not compile.
+
+A second declaration may not have a different type pattern to the first for a given identifier.
+```
+***
+
+Another possible definition would be:
+```{code-block} c++
+int myFunction(int) {
+	std::cout << "Hello Class!";
+	return 0;
+}
+```
+If the parameter type in the declaration is not named in the definition, then it cannot be used in the function, and does not have to be passed in. 
+
+ A value return is a form of initialisation – types must of course be matched.
+ 
+But now an integer value that absolutely must be passed in - cannot be accessed/used.
+
+Parameter names are not formally necessary in the declaration, and in fact are ignored by the compiler - they are only required in the corresponding definition.
+
+```{code-block} c++
+int myFunction(int);
+```
+So this is an acceptable declaration.
+
+However, the safest way to ensure your declaration and definiton type patterns and name spellings match, is to cut & paste from one to other. It also helps the reader to understand a program
+***
+````{note}
+```{code-block} c++
+extern int myFunction(int);
+```
+The `extern` keyword means the myFunction declaration is not a definition. It is rarely used.
+````
+
 ````{admonition} Notes on the Syntax of a Function Declaration and Call
 :class: dropdown note
 
@@ -119,143 +268,34 @@ int myFunction(int a, int b);
 These are the declaration of two different functions. The program will identify which one is required by a function call based on the types of the arguments supplied.
 
 ````
-`````
 
-Run this code. 
-```{code-cell} cpp
+## Pass by Reference and passing by Constant Reference
+
+Sometimes it is better not to pass a value directly into a function. For instance you might be sending a long array of large numbers, or a very lareg image.
+
+When a value is passed into a function, a new copy of that values is created in the memory - a local copy for the use of the function.
+
+This can be use up too many resources and too much time unnecessarily. Programs run faster when function parameter as passed by reference.
+
+The alternative approach is to only pass in a reference to the location of the variable. This is calle {term}`passing by reference`.
+
+The {term}`reference` is the {term}`memory address` of a named object. 
+
+***
+To declare that a parameter will by passed by reference, its type is declared with an ampersand attached to the end.
+
+Passing by reference poses one risk - the original object is not affected by a function call when passed by a value, because a local copy is generated
+
+To prevent the function altering the name object that is referenced the paramater must be listed as {term}`constant`, by putting the `const` keyword before, space separated.
+
+This is called {term}`passing by constant reference`.
+
+````{admonition} Passing by Constant Reference Example
+:class: note dropdown
+
+```{code-block} c++
 :linenos:
-:tags: [remove-output]
-#include <iostream>
-
-int squareOf(int x) {
-	return x * x;
-}
-int main()
-{
-	for (int i = 0; i < 100; ++i) {
-		std::cout << i << "\t" << squareOf(i) << "\n";
-		++i;
-	}
-	return 0;
-}
-```
-````{admonition} Code Explanation
-:class: note dropdown
-
-The `squareOf()` function returns an integer value when it is called, and that value is then used by the character output stream.
-
-If a return value is not used, it is better practice to declare return type as `void`. It is also common practice to put `return;` at the end of a void function - though not strictly necessary. 
-
-The definiton of `squareOf()` has a single parameter called 'x' of type `int`.
-
-The type of `squareOf()` is `int (int)`.
-
-To call `squareOf()` its name must be included in a code statement followed by `()` with either an integer value in the parentheses or an integer type variable, that must have been initialised with a value before the call.
-
-The value returned from the call to `squareOf()` is used by the output stream. Similar to the evaluation of an expression, the function is called and it value used.
-
-````
-
-````{exercise}
-:label: exerciseu3
-- Try moving the definition of squareOf() to below the main function. 
-- Try moving the definition of squareOf() to inside the main function.
-- Try changing the function declaration so that it expects a paramater of type `double`.
-- Find two ways to make the above code print the square of all of the values from 1 to 100.
-
-```{solution} exerciseu3
-:label: solutionu3
-:class: dropdown
-You should have found that the function must go above `main()` - because a function cannot be used before it has been declared.
-
-Integers can be converted to doubles at run time, so the code works.
-
-```
-````
-
-
-`````{exercise-start}
-:label: exerciseu2
-:class: dropdown
-`````
-This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.
-````{code-cell} c++
-:tags: [remove-output]
-include "iostreams"
-main(){
-cout << "my name is, \n"
-return "Peter";
-}
-````
-````{solution} exerciseu2
-:class: note dropdown
-:label: solutionu2
-```{code} cpp
-#include <iostream>
-int main()
-{
-	std :: cout << "Put your name here!\n";
-	return 0;
-}
-```
-````
-`````{exercise-end}
-`````
-
-
-TRY moving the square definition after main – what happens?
-
-```{tip}
-:class: margin
-Declaration: Statement of the functions name and input/output types.
-A definition requires the declaration (again) followed by the code body.
-
-"Declarations are not defintitions".
-```
-```{code-cell} c++
-int myFunction(int); // is a declaration
-
-int myFunction(int x) {
-	std::cout << "Hello Class!";
-	return x;
-}
-Is a definition.
-
-We could also have,
- 
-int myFunction(int) {
-	std::cout << "Hello Class!";
-	return 0;
-}
-But then the integer that must be passed in cannot be accessed or used…
-```
-
-## Function Call and Return
-
-Examples:
-double fct(int a, double d) { return a*d; }
-
-If the function returns nothing label it with void.
-List all values to be passed in – in the order that they will used in the call. 
-Names of parameters in the function declaration are the local names used within the function.
-
-int myFunc1(std::vector<std::string> vs, std::string s, int hint); // naming arguments
-int myFunc2(std::vector<std::string>, std::string, int); // not naming arguments
-
-Names are not formally necessary in the declaration, but must be given in the definition part. 
-Names in the declaration help us understand the intention of the programmer.
-
-If the parameter type in the declaration is not named in the definition, then it is not used in the function, and does not have to be passed in.  A value return is a form of initialisation – types must of course be matched.
-
-You should have a return or an error for every possible way out of a function. Except for a void function, where it is acceptable to just drop through.
-
-## Pass by Constant Reference
-
-If you are not passing small values, then passing by value is costly because it creates a new local copy – could be an image with gigabytes. A memory address of a name is called a reference.
-A parameter type that has & attached, indicated that a reference to a name is being passed in.
-Const is used to stop the function altering the name referenced.
-All programs run faster when function parameters are references not values (i.e. copied).
-
+:dedent:
 void myPrinter(const std::vector<double>& v)
 {
 	std::cout << "{";
@@ -270,13 +310,20 @@ int main() {
 	myPrinter(a);	
 	return 0;
 }
-
-## Pass by Reference
-
+````
+`````{admonition} Passing by Reference Examples
+:class: note dropdown
 Pass by reference allows us to modify the original values.
+
 Example: two ways for a program to modify some named variable
+
 To be accessible by a function the variable must be global, which means declaring it before the main function, otherwise the myPrint functions could not alter it, only its copy.
-Example 1 – altering a global variable.
+
+
+````{admonition} Method 1 – Alter a Global Variable
+:class: note dropdown
+```{code-block} c++
+:linenos:
 std::vector<double> a = { 5.9,8,1.1,2.3,4.5,5.6 };
 void myPrinter(std::vector<double> v)
 {
@@ -305,11 +352,20 @@ void myPrinter2(std::vector<double> v)
 	myPrinter(a);
 	return 0;
 }
+```
+````
 Notice that it does not matter whether the a[i] = a[i] + 1;
+
 Line is before or after the print, since a copy of the original is being printed. This method still works if you pass by reference, but not the order matters since you are accessing the original for each output.
 
 This is not helpful, because now you have a global variable.
-Way number 2 - Change the local parameter – which is a reference to the external value.
+
+Method 2 - Change the local parameter – which is a reference to the external value.
+
+````{admonition} Method 2 - Change the local parameter
+:class: note dropdown
+```{code-block} c++
+:linenos:
 
 void myPrinter(std::vector<double>& v)
 {
@@ -320,7 +376,6 @@ void myPrinter(std::vector<double>& v)
 	}
 	std::cout << "}\n";
 }
-
 
 void myPrinter2(std::vector<double>& v)
 {
@@ -341,108 +396,42 @@ int main() {
 		return 0;
 }
 
-## Declarations and Definition
+```
+````
+`````
 
-A definition requires the code body also. ‘Declarations are not definitions’.
 
-int myFunction(int); // is a declaration
 
-int myFunction(int x) {
-	std::cout << "Hello Class!";
-	return x;
-} //Is a definition.
 
-We could also have 
-int myFunction(int) {
-	std::cout << "Hello Class!";
+
+
+
+
+<!-- 
+`````{exercise-start}
+:label: exerciseu3
+:class: dropdown
+`````
+This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.
+````{code-cell} c++
+:tags: [remove-output]
+include "iostreams"
+main(){
+cout << "my name is, \n"
+return "Peter";
+}
+````
+````{solution} exerciseu3
+:class: note dropdown
+:label: solutionu3
+```{code} cpp
+#include <iostream>
+int main()
+{
+	std :: cout << "Put your name here!\n";
 	return 0;
 }
-But then the integer that must be passed in cannot be accessed or used…
- 
-You can declare anything as often as you want – only definitions cannot be repeated. 
-And you cannot declare a second time, for the same name that does not match the pattern of an existing definition.
-
-## Declarations
-
-Everything must be declared before it can be used. 
-Reason: what if you call two functions in each others definition – one definition must come first – the solution is declare both – then it does not matter, which is defined first. And the declaration does not involve the other functions, so no issues there.
- 
-Kinds of declarations
-There are many kinds of entities that a programmer can define in C++. The most interesting are:
-Variables
-Constants
-Functions 
-Namespaces 
-Types (classes and enumerations)
-Templates
-
-The declaration is just an interface – describes what the definition has to conform to.
-extern int myFunction(int);
-extern keyword means the myFunction declaration is not a definition. It is rarely used.
-
-## Initialisation
-
-Always initialise your variables – prevents accidental use before definition.
-
-Only exception are strings and vectors; which by default have empty conditions initialised, “” for strings, v.capacity() = 0 for vector.
-
-This is done by a ‘default constructor’.
-
-Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value..
-
-Examples of Declarations – some do not work in current location – others need set up to proceed them.
-
-## Structure of Declarations
-The structure of a declaration is defined by the C++ grammar (§iso.A). This grammar evolved over four decades, starting with the early C grammars, and is quite complicated. However, without too many radical simplifications, we can consider a declaration as having five parts (in order):
-• Optional prefix specifiers (e.g., static or virtual)
-• A base type (e.g., vector<double> or const int)
-• A declarator optionally including a name (e.g., p[7], n, or ∗(∗)[])
-• Optional suffix function specifiers (e.g., const or noexcept)
-• An optional initializer or function body (e.g., ={7,5,3} or {return x;})
-Except for function and namespace definitions, a declaration is terminated by a semicolon.
-
-## Declaration Good Practice
-
-Before the main() put:
-
-
-Constant declarations
-Function prototype declarations
-
-Inside main() put:
-
-Variable declarations
-
-Remember that choice of position affects scope
-
-## Hidden or Shadowed Names
-A declaration of a name in a block can hide a declaration in an enclosing block or a global name.
-That is, a name can be redefined to refer to a different entity within a block. After exit from the block, the name resumes its previous meaning.
-
-A hidden global name can be referred to using the scope resolution operator, ::. For example:
-int x;
-void main()
-{
-int x = 1; // hide global x
-::x = 2; // assign to global x
-x = 3; // assign to local x
-
-std::cout << x << '\n';
-std::cout << ::x;
-// ...
-} 
-
-There is no way to use a hidden local name.
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+````
+`````{exercise-end}
+````` -->

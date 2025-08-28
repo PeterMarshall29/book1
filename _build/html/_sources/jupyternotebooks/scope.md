@@ -141,6 +141,39 @@ It is usually possible to use the same name more than once, provided each declar
 
 An exception is the loop variable in a `for` loop. Another type with the s
 
+## Declaration Good Practice
+
+Before the `main()` function put:
+
+* Constant declarations
+* Function prototype declarations
+
+Inside the `main()` function put:
+
+*Variable declarations
+
+```{tip}
+Remember that the position chosen for a declaration affects the {term}`scope` of the entity.
+
+## Hidden or Shadowed Names
+A declaration of a name in a block can hide a declaration in an enclosing block or a global name.
+That is, a name can be redefined to refer to a different entity within a block. After exit from the block, the name resumes its previous meaning.
+
+A hidden global name can be referred to using the scope resolution operator, ::. For example:
+int x;
+void main()
+{
+int x = 1; // hide global x
+::x = 2; // assign to global x
+x = 3; // assign to local x
+
+std::cout << x << '\n';
+std::cout << ::x;
+// ...
+} 
+
+There is no way to use a hidden local name.
+
 
 
 
@@ -186,3 +219,31 @@ double Peter::piper(bool) {
 return 4.0;
 }
 
+##  Why Global Variables Should be Avoided
+
+**copied
+Cons of Using Global Variables
+
+Namespace Pollution: Global variables clutter the global namespace, increasing the risk of naming collisions, especially in large projects or when integrating third-party libraries.
+
+Reduced Modularity: They break the encapsulation of functions, making the code less modular and harder to maintain.
+
+Harder Debugging: Since global variables can be modified from anywhere, tracking down bugs caused by unintended changes becomes challenging.
+
+Performance Overhead: Accessing global variables is slower than accessing local variables due to the scope chain lookup.
+
+Security Risks: In browser environments, global variables are properties of the window object, making them accessible and modifiable by external scripts.
+
+Memory Consumption: Global variables persist for the lifetime of the program, potentially leading to higher memory usage.
+
+Compatibility Issues: Global variables can unintentionally override standard APIs or future browser features, causing compatibility problems.
+
+Best Practices
+
+To mitigate the risks of global variables:
+
+Use local variables whenever possible.
+
+Encapsulate variables within functions, modules, or classes.
+
+Use a namespace object to group related global variables and avoid collisions.
