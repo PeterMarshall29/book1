@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.4f7449ff-5399-408b-b0b7-8f377c7953fb.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.7458c720-8fe7-4ea7-a351-8e82b1f2f4c4.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/scope';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -514,7 +514,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Scope</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scoping-rules-and-exceptions">Scoping Rules and Exceptions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shadowing">Shadowing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespace">Namespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
 </ul>
             </nav>
         </div>
@@ -633,8 +633,34 @@ Outside: Void MyClassName::f() {} // the definition.</p>
 <p>It is usually possible to use the same name more than once, provided each declaration has different scope.</p>
 <p>An exception is the loop variable in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Another type with the s</p>
 </section>
-<section id="namespace">
-<h2>Namespace<a class="headerlink" href="#namespace" title="Permalink to this heading">#</a></h2>
+<section id="declaration-good-practice">
+<h2>Declaration Good Practice<a class="headerlink" href="#declaration-good-practice" title="Permalink to this heading">#</a></h2>
+<p>Before the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:</p>
+<ul class="simple">
+<li><p>Constant declarations</p></li>
+<li><p>Function prototype declarations</p></li>
+</ul>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:</p>
+<p>*Variable declarations</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Remember that the position chosen for a declaration affects the <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a> of the entity.</p>
+<h2 class="rubric" id="hidden-or-shadowed-names">Hidden or Shadowed Names</h2>
+<p>A declaration of a name in a block can hide a declaration in an enclosing block or a global name.
+That is, a name can be redefined to refer to a different entity within a block. After exit from the block, the name resumes its previous meaning.</p>
+<p>A hidden global name can be referred to using the scope resolution operator, ::. For example:
+int x;
+void main()
+{
+int x = 1; // hide global x
+::x = 2; // assign to global x
+x = 3; // assign to local x</p>
+<p>std::cout &lt;&lt; x &lt;&lt; ‘\n’;
+std::cout &lt;&lt; ::x;
+// …
+}</p>
+<p>There is no way to use a hidden local name.</p>
+<h2 class="rubric" id="namespace">Namespace</h2>
 <p>Namespace is a language feature exclusively used to express scoping.
 Creating a namespace allows you to write sperate parts of a longer program without fear that the names used will not have been used elsewhere.
  
@@ -670,6 +696,22 @@ double pepper(bool) { return 5.0; }
 <p>double Peter::piper(bool) {
 return 4.0;
 }</p>
+<h2 class="rubric" id="why-global-variables-should-be-avoided">Why Global Variables Should be Avoided</h2>
+<p>**copied
+Cons of Using Global Variables</p>
+<p>Namespace Pollution: Global variables clutter the global namespace, increasing the risk of naming collisions, especially in large projects or when integrating third-party libraries.</p>
+<p>Reduced Modularity: They break the encapsulation of functions, making the code less modular and harder to maintain.</p>
+<p>Harder Debugging: Since global variables can be modified from anywhere, tracking down bugs caused by unintended changes becomes challenging.</p>
+<p>Performance Overhead: Accessing global variables is slower than accessing local variables due to the scope chain lookup.</p>
+<p>Security Risks: In browser environments, global variables are properties of the window object, making them accessible and modifiable by external scripts.</p>
+<p>Memory Consumption: Global variables persist for the lifetime of the program, potentially leading to higher memory usage.</p>
+<p>Compatibility Issues: Global variables can unintentionally override standard APIs or future browser features, causing compatibility problems.</p>
+<p>Best Practices</p>
+<p>To mitigate the risks of global variables:</p>
+<p>Use local variables whenever possible.</p>
+<p>Encapsulate variables within functions, modules, or classes.</p>
+<p>Use a namespace object to group related global variables and avoid collisions.</p>
+</div>
 </section>
 </section>
 
@@ -740,7 +782,7 @@ return 4.0;
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Scope</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scoping-rules-and-exceptions">Scoping Rules and Exceptions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shadowing">Shadowing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespace">Namespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
 </ul>
   </nav></div>
 

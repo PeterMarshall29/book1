@@ -131,6 +131,9 @@ Function
 Function Argument
   The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
 
+Function Argument
+  The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
+
 Function Body
   Sequence of statement to be executed when the function is called.
 
@@ -203,6 +206,9 @@ Machine Code
 Member
   Types, variables and constants, and functions declared within the scope of, and therefore belonging to, a class.
 
+Memory Address
+  A reference to a specific location in the computer's memory. 
+
 Memory
   Definition needed
 
@@ -242,14 +248,26 @@ Object-oriented programming
 Overloading
   Additing multiple defintions to the operators and functions of the same name but different parameters - each instance acts on objects of different type.
 
+Passing by Constant Reference
+  def
+
+Passing by Reference
+  If a function parameter type is declared to be a reference to a type, then a reference to a variable can be passed instead of the variable itself. This saves the memory overhead needed to create the local copy of the passed in value, and allows the function to operate on the orginal value instead. Also called call-by-reference, as opposed to call-by-value when the actual value is passed in.
+
 Programming Paradigm
   Model of how to structure and implement computer programs.
 
 Programming Paradigms
   Different approaches to writing computer programs. Most common paradigms are: Procedural, Functional, and Object-oriented programming.
 
+Reference
+  def
+
 Resource files
   Non code files, such as image files, required by the program.
+
+Scope
+  def
 
 Scope Resolution Operator
   `::` -  links an entity to its container; like a folder reference.

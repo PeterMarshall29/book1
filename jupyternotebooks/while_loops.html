@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.aea9d230-96af-45ce-aaba-24ae7cf86b38.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.197b0c86-e7b2-45ed-afb0-fabd693416af.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-60a9a7d3-ea1c-45db-a34e-4a8f47ca2d6b] svg, .mermaid[data-zoom-id=id-f14c7336-dfa7-4f28-b050-bdbc7cdae1bf] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-6750d80a-693a-4bab-be34-0d624e064281] svg, .mermaid[data-zoom-id=id-fb3d29a7-1326-4573-9749-174d90734d16] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -575,7 +575,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-60a9a7d3-ea1c-45db-a34e-4a8f47ca2d6b" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-6750d80a-693a-4bab-be34-0d624e064281" class="mermaid align-center">
         flowchart TD
   A([&quot;Program Flow Approaches the While Loop&quot;]) --&gt; B[&quot;Set Loop Variable&quot;]
   B --&gt; C{&quot;Check Termination Condition&quot;}
@@ -599,7 +599,7 @@ document.write(`
   linkStyle 5 stroke:#AA00FF,fill:none
   linkStyle 6 stroke:#AA00FF,fill:none0FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-f14c7336-dfa7-4f28-b050-bdbc7cdae1bf" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-fb3d29a7-1326-4573-9749-174d90734d16" class="mermaid align-center">
         flowchart TD
   A([&quot;Arrival&quot;]) --&gt; B[&quot;Set Loop Counter: Count = 1;&quot;]
   B --&gt; C{&quot;Check Counter &amp;lt; 100&quot;}

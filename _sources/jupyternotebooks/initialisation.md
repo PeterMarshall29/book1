@@ -39,6 +39,20 @@ Global built-in type variables are initialised with default of 0 – but you sho
 Examples of Declarations – some do not work in current location – others need set up to proceed them.
 
 
+## Structure of Declarations
+The structure of a declaration is defined by the C++ grammar (§iso.A). This grammar evolved over four decades, starting with the early C grammars, and is quite complicated. However, without too many radical simplifications, we can consider a declaration as having five parts (in order):
+• Optional prefix specifiers (e.g., static or virtual)
+• A base type (e.g., vector<double> or const int)
+• A declarator optionally including a name (e.g., p[7], n, or ∗(∗)[])
+• Optional suffix function specifiers (e.g., const or noexcept)
+• An optional initializer or function body (e.g., ={7,5,3} or {return x;})
+Except for function and namespace definitions, a declaration is terminated by a semicolon.
+
+
+
+
+
+
 
 ## Initialisers
 If an initializer is specified for an object, that initializer determines the initial value of an object.
