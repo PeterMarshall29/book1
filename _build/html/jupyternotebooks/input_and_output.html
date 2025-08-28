@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.965c620e-2939-4c0c-a487-72b9e816aaf7.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.c6b4de44-2eaf-43a1-9767-705d66bfcfcb.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/input_and_output';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -199,7 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Ideas and Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
 </ul>
@@ -511,8 +511,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-the-ouput">Formating the Ouput</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting Output</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getline">getline()</a></li>
 </ul>
@@ -528,12 +526,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="input-and-output">
 <h1>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> allows the a user to interact with a program, by providing commands that can be instruct a program to print information on the monitor/screen and to accept input via the keyboard.</p>
-<p>Until we can program these interactions, it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.</p>
-<p>Type the following code into the empty code window below.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> allows users to interact with programmes, by providing additional commands for programming the computer to print information on the monitor/screen and accept input via the keyboard.</p>
+<p>Before learning to program these basic instructions it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.</p>
+<p>Type the following code into the empty code window below, add the missing programme statements, and run the completed code.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Don’t forget to include <iostream> and <string> and to format the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function correctly.</p>
+<p>Don’t forget to include <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> and to format the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function correctly.</p>
 </div>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
@@ -554,17 +552,15 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">cin</span></code> is the character input stream, pronounced ‘see - in’; used to read input from the keyboard.</p>
 <p>The input stream waits for the return key, taking any characters types in before <kbd class="kbd docutils literal notranslate">return</kbd></p>
 <p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> is the input stream operator, also called the “get from” or “extraction” operator - directs where the input goes to - a variable name usually.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//This is a &#39;prompt&#39;; a message to the user with instructions.</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">    </span><span class="c1">//Declares a variable of type string.</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">		</span><span class="c1">//Character input stream, takes input from console when &#39;return&#39; (aka &#39;newline&#39;) is pressed. </span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="linenos">3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">4</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">    </span><span class="c1">//Declares a variable of type string.</span>
+<span class="linenos">5</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//This is a &#39;prompt&#39;; a message to the user with instructions.</span>
+<span class="linenos">6</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">		</span><span class="c1">//Character input stream, takes input from console when &#39;return&#39; (aka &#39;newline&#39;) is pressed. </span>
+<span class="linenos">7</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">8</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">9</span><span class="p">}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">&quot;</span></code> is a string-literal. Surname is a named object of type <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
@@ -573,136 +569,71 @@ document.write(`
 
 <p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
 <section id="exercise-content">
-<p>TRY putting a space at the end of the user input to cin.</p>
-<p>TRY putting a space in the beginning of the user input to cin.</p>
-<p><code class="docutils literal notranslate"><span class="pre">cin</span></code> stops taking input when it encounters the first whitespace. Code still waits for <kbd class="kbd docutils literal notranslate">return</kbd>.</p>
+<p>Try the following code. Use the above code box.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span>
+<span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in your full name!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span>
+<span class="linenos">4</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fullName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Code Explanation</p>
+<p><code class="docutils literal notranslate"><span class="pre">cin</span></code> stops recording the input when it encounters the first whitespace, following any character (initial whitespace is ignored). Code still waits for <kbd class="kbd docutils literal notranslate">return</kbd>.</p>
+<p>Any whitespace terminates the reading of the input string i.e. inlcuding space, tab, or newline (<code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
+</div>
+<p>We obviously need to be able to type in several words, at the same time, separate by a <kbd class="kbd docutils literal notranslate">space</kbd>.</p>
+<p>There are several methods open to us; depending on whether we may want each word recorded as a separate string, or just a long string with spaces…</p>
+<p>Try the following code.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
+<span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
+<span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your first name followed by your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos">4</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
+<span class="linenos">5</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Code Explanation</p>
+<p>The input stream sends everything before the first whitespace to the first variable, if a second <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>operator is found then the input between the first and second whitespace is sent to the second variable and so on.</p>
+<p>The program expects two inputs, so the <kbd class="kbd docutils literal notranslate">return</kbd> key will only move the cursor to a new line until a second character or string is found.</p>
+<p>More advanced methods are available to clean up some issues caused by potential variation in what is typed by the user.</p>
+</div>
 </section>
 </div>
-<div class="cell tag_remove-output tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-1">
 
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your first name followed by your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w"> </span>
-<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
+<section id="exercise-content">
+<ul class="simple">
+<li><p>Try the following code - which should work.</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">58</span><span class="p">;</span>
+<span class="linenos">2</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Dr&quot;</span><span class="p">;</span>
+<span class="linenos">3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
+<span class="linenos">4</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">5</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">  </span>
+<span class="linenos">6</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>The string input ends when a white space is detected, so TRY</p>
-<p>The convention is that the reading of strings is terminated by any whitespace i.e. space, tab, or newline ‘\t’, ‘\n’.</p>
-<div class="cell tag_remove-output tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">58</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your first name followed by your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">       </span>
-<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w"> </span><span class="c1">//input before space to first variable and input after space to second variable </span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<ul class="simple">
+<li><p>Now change the code to ask the user to input a their salutation, followed by their first name, followed by their surname, followed by their age.</p></li>
+<li><p>Try responding with 4 words, rather than 3 words and a number</p></li>
+<li><p>Change the existing output line to print <code class="docutils literal notranslate"><span class="pre">surname</span> <span class="pre">*</span> <span class="pre">2</span></code> and then try <code class="docutils literal notranslate"><span class="pre">surname</span> <span class="pre">+</span> <span class="pre">age</span></code>.</p></li>
+</ul>
+<div class="note dropdown admonition">
+<p class="admonition-title">Code Explanation</p>
+<p>This changed and add code lines should be similar to this.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type salutation, followed by your first name, followed by your surname, followed by your age</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>Attempting to add or multiply a string and integer is not permitted by the <a class="reference internal" href="glossary.html#term-Type-System"><span class="xref std std-term">type system</span></a>.</p>
+<p>If a fourth string is input, when the program expects an integer, a null value is recorded, which unfortunately overwrote the existing value, if ther was one, and is why the program printed ‘0’.</p>
+<p>A professional program would need to be able to catch this input error. Older C++ version might give a random value such as -96738 .</p>
 </div>
-</div>
-<p>Now change to ask for an name followed by an age.</p>
-<div class="cell tag_remove-output tag_raises-exception tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">58</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your first name followed by your age!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w"> </span>
-<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"> </span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Respond with a name “whitespace” age. Then try again but type in two names.</p>
-<p>A string is not an integer, so is recorded as integral value 0.</p>
-<p>Older C++ version might give a random value such as -96738 . Unfortunately this overwrites an initial value if you have used one.</p>
-<p>Handling input format errors is a separate lesson.</p>
-<section id="formating-the-ouput">
-<h2>Formating the Ouput<a class="headerlink" href="#formating-the-ouput" title="Permalink to this heading">#</a></h2>
 </section>
-<section id="id1">
-<h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>4 Ways to convert an integer to a string: 3 more to discuss later.
-Add this to header file.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">os</span><span class="p">;</span>
-<span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
-<span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
 </div>
-<p>This code creates a generic template for conversion to a string - we will circle back to how it works.</p>
-<p>Then replace cout line in the previous code with:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Study &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; times harder &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">motivator</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="n">Try</span><span class="w"> </span><span class="n">typing</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="n">again</span><span class="p">.</span><span class="w"> </span><span class="n">Why</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">fail</span><span class="o">?</span>
-</pre></div>
-</div>
-<p>Char type is created using single quotes.
-Try the following code.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;x&#39;</span><span class="p">;</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;y&#39;</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<p>x</p>
-<p>y241</p>
-</div>
-</div>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="o">!</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Change the letter to try to make senses of the output.
-Try numbers instead - what is the sum of 1 and 1 anyway?
-But a least its half as much as 2 and 2 still, right?</p>
-<p>Try this code</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">{...code</span> <span class="pre">here...}</span></code> identifies a code block, or an in initialiser.
-Prints 3 - now change <code class="docutils literal notranslate"><span class="pre">x</span></code> to ‘4’. The semicolon after the if is a mistake, its like putting {} instead.
-<code class="docutils literal notranslate"><span class="pre">{}</span></code> is called the empty block - sometimes used into code to register that nothing should be done, like when it’s the else loop that is really wanted - instead of using <code class="docutils literal notranslate"><span class="pre">NOT</span></code> logic.
-The second <code class="docutils literal notranslate"><span class="pre">{}</span></code> does nothing special.</p>
-<p>lo</p>
-</section>
 <section id="formatting-output">
 <h2>Formatting Output<a class="headerlink" href="#formatting-output" title="Permalink to this heading">#</a></h2>
 <p>The default output for a floating point number is 6 digits. The number is rounded to give the best approximation that can be printed with 6 digits.</p>
@@ -828,8 +759,6 @@ The second <code class="docutils literal notranslate"><span class="pre">{}</span
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-the-ouput">Formating the Ouput</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting Output</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getline">getline()</a></li>
 </ul>

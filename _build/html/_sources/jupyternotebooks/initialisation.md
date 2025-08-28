@@ -12,6 +12,22 @@ kernelspec:
 
 # Initialisation
 
+*** code from other pages to be fit in
+```{code-cell} c++
+:tags: [remove-output]
+#include <iostream>
+int main(){
+int x = 5;
+int y;
+if (x == 5);
+{ y = 3; }
+std::cout << y;
+return 0;
+}
+```
+
+
+
 Always initialise your variables – prevents accidental use before definition.
 
 Only exception are strings and vectors; which by default have empty conditions initialised, “” for strings, v.capacity() = 0 for vector.

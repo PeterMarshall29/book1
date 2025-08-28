@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.dd2e66bc-e825-4e1f-913c-d36617b32652.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.4b0df75c-6c46-4ad5-b9f7-9ffbba9cbea0.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/types';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -199,7 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Ideas and Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
 </ul>
@@ -512,6 +512,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-system">Type System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-to-type">Casting to Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-type-of-a-variable">Determining the Type of a Variable</a></li>
 </ul>
             </nav>
         </div>
@@ -525,14 +527,95 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="types-in-c">
 <h1>Types in C++<a class="headerlink" href="#types-in-c" title="Permalink to this heading">#</a></h1>
-<p>Copied
-C++ is a <strong>strongly-typed language</strong>. Once a variable type is set, for example when a number is cast as a <strong>double</strong>, the type cannot be changed, and the numeric value cannot be converted to an integer which means that when you say a variable is an integer, it stays an integer. This is unlike weakly-typed languages like Javascript/ECMAScript, where variables can change types.</p>
+<p>The <strong>type</strong> of a variable defines its properties, the rules it must obey, and the set of operators and functions availabe to members of the type.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">+</span></code> behaves differently when used an <a class="reference internal" href="glossary.html#term-Infix-Operator"><span class="xref std std-term">infix operator</span></a> between two integers compared to two strings.</p>
+<p>It would also not make much sence to be able to add string-type to double-type variables, so the type system helps by preventing this.</p>
+<p>C++ is a <strong>strongly-typed language</strong>.</p>
+<p>Once a variable type is set, for example when a number is cast as a <strong>double</strong>, the type cannot be changed, and the numeric value cannot be converted to an integer which means that when you say a variable is an integer, it stays an integer. This is unlike weakly-typed languages like Javascript/ECMAScript, where variables can change types.</p>
+<p>#include <iostream>, <string>
+#include <fstream></p>
+<p>int main() {
+std::cout &lt;&lt; “Please type your first name followed by your age…\n”;
+std::string firstName;
+int age;
+std::cin &gt;&gt; firstName &gt;&gt; age; //input before space to first variable and input after space to second variable
+std::cout &lt;&lt; “Hello, ” &lt;&lt; firstName  &lt;&lt; “, you are ” &lt;&lt; age &lt;&lt; ” years old!\n”;
+return 0;
+}</p>
+<p>Try changing the output line to print a single value:</p>
+<ul class="simple">
+<li><p>firstName + age</p></li>
+<li><p>firstname * 2</p></li>
+</ul>
 <p>The two reasons for this are efficiency and safety. If you allow variable’s types to change, you must keep track of what type a variable currently is, which has a cost. Keeping types fixed eliminates that cost. As for safety, consider this: in Javascript, if variable a equals 1 and variable b equals 2, and both are integers, then “a + b” gives 3… if both are text strings, “a + b” gives 12… but what do you get if one is an integer and one is a string? You could make up rules to answer the question, but that just makes things more complicated. It is safer to require programmers to explicitly say whether they want to add two integers or two strings. Type safety is a very important feature of C++, that makes your code efficient and easy to predict how it will behave.</p>
 <p>There are several fundamental types in C++ – the exact number depends on the version. Here are some of the more basic ones:
 end of copied</p>
 <section id="type-system">
 <h2>Type System<a class="headerlink" href="#type-system" title="Permalink to this heading">#</a></h2>
 <p>The C++ type system keeps track of the size of the memory block, and how to interpret the value in it. The binary code in a memory block could represent the integer value 33 or be the ASCII code for ‘!’ - the type tells the computer which was intended.</p>
+</section>
+<section id="casting-to-type">
+<h2>Casting to Type<a class="headerlink" href="#casting-to-type" title="Permalink to this heading">#</a></h2>
+<p>Although the type of a variable cannot be changed.</p>
+<p>The value of a variable can be copy assigned to another variable that has a differnt type  - not all permutations are permitted.</p>
+<p>Casting to type, means conversion from the original type to the type of the variable that the value is being assigned.</p>
+<p>This is often useful, even necessary when working with numeric types.</p>
+<p>When a new entity is declared it is given its type - called ‘casting to type’</p>
+<p>C++ is a <strong>strongly-typed language</strong>. Once a type is set, it cannot be changed.</p>
+<p>variable type is set, for example when a number is cast as a <strong>double</strong>, the type cannot be changed, and the numeric value cannot be converted to an integer which means that when you say a variable is an integer, it stays an integer. This is unlike weakly-typed languages like Javascript/ECMAScript, where variables can change types.</p>
+<p>The two reasons for this are efficiency and safety. If you allow variable’s types to change, you must keep track of what type a variable currently is, which has a cost. Keeping types fixed eliminates that cost. As for safety, consider this: in Javascript, if variable a equals 1 and variable b equals 2, and both are integers, then “a + b” gives 3… if both are text strings, “a + b” gives 12… but what do you get if one is an integer and one is a string? You could make up rules to answer the question, but that just makes things more complicated. It is safer to require programmers to explicitly say whether they want to add two integers or two strings. Type safety is a very important feature of C++, that makes your code efficient and easy to predict how it will behave.</p>
+<p>There are several fundamental types in C++ – the exact number depends on the version. Here are some of the more basic ones:
+end of copied</p>
+</section>
+<section id="determining-the-type-of-a-variable">
+<h2>Determining the Type of a Variable<a class="headerlink" href="#determining-the-type-of-a-variable" title="Permalink to this heading">#</a></h2>
+<p>It is tremendously useful to be able to check the type of a variable.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">myChar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;P&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;when&#39;s lunch?&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myInt</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myBool</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myDouble</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myChar</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myString</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This produces more easily understood values for the primitive types.</p>
+<div class="exercise admonition" id="jupyternotebooks/types-exercise-0">
+
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
+<section id="exercise-content">
+<p>Use typid on a function.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Only use the functions name - no parentheses!</p>
+</div>
+<div class="admonition-code-explanation admonition">
+<p class="admonition-title">Code Explanation</p>
+<p>On a function such as:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">typeid(square).name()</span></code> returns <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">--cdecl(int,</span> <span class="pre">double)</span></code>.</p>
+<p>The function type is <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">(int,</span> <span class="pre">double)</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">__cdecl</span></code> refers to the calling convention of a function, different compilers may handle this differently - not important now.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</div>
 </section>
 </section>
 
@@ -601,6 +684,8 @@ end of copied</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-system">Type System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-to-type">Casting to Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-type-of-a-variable">Determining the Type of a Variable</a></li>
 </ul>
   </nav></div>
 

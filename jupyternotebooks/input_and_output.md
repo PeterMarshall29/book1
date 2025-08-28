@@ -12,15 +12,15 @@ kernelspec:
 
 # Input and Output
 
-The `<iostream>` component of the {term}`standard library` allows the a user to interact with a program, by providing commands that can be instruct a program to print information on the monitor/screen and to accept input via the keyboard.
+The `<iostream>` component of the {term}`standard library` allows users to interact with programmes, by providing additional commands for programming the computer to print information on the monitor/screen and accept input via the keyboard.
 
-Until we can program these interactions, it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.
+Before learning to program these basic instructions it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.
 
-Type the following code into the empty code window below.
+Type the following code into the empty code window below, add the missing programme statements, and run the completed code.
 
 ```{tip}
 :class: margin
-Don't forget to include <iostream> and <string> and to format the `main()` function correctly.
+Don't forget to include `<iostream>` and `<string>` and to format the `main()` function correctly.
 ```
 
 ```{code-block} cpp
@@ -47,164 +47,96 @@ The input stream waits for the return key, taking any characters types in before
 `>>` is the input stream operator, also called the "get from" or "extraction" operator - directs where the input goes to - a variable name usually.
 
 ```{code-block} c++
-int main()
-{
-	std::cout<<"Please type your surname!\n"; //This is a 'prompt'; a message to the user with instructions.
+:linenos:
+#include <iostream>
+#include <string>
+int main() {
 	std::string surname;    //Declares a variable of type string.
+  std::cout<<"Please type your surname!\n"; //This is a 'prompt'; a message to the user with instructions.
 	std::cin >> surname;		//Character input stream, takes input from console when 'return' (aka 'newline') is pressed. 
 	std::cout << "Hello, " << surname << "!\n";
 	return 0;
 }
 ```
-
-```{code-block} cpp
-
-```
 `"Hello, "` is a string-literal. Surname is a named object of type `string`.
-
 ````
+
+
 ````{exercise}
 :class: dropdown
-TRY putting a space at the end of the user input to cin. 
+Try the following code. Use the above code box.
+```{code-block} c++
+:linenos:
+std::string fullName;
+std::cout << "Please type in your full name!\n"; 
+std::cin >> fullName;
+std::cout << "Hello, " << fullName << "!\n";
+```
+```{admonition} Code Explanation
+:class: dropdown
+`cin` stops recording the input when it encounters the first whitespace, following any character (initial whitespace is ignored). Code still waits for {kbd}`return`.
 
-TRY putting a space in the beginning of the user input to cin.
+Any whitespace terminates the reading of the input string i.e. inlcuding space, tab, or newline (`\t`, `\n`).
 
-`cin` stops taking input when it encounters the first whitespace. Code still waits for {kbd}`return`.
+```
+We obviously need to be able to type in several words, at the same time, separate by a {kbd}`space`. 
+
+There are several methods open to us; depending on whether we may want each word recorded as a separate string, or just a long string with spaces..
+
+Try the following code.
+```{code-block} c++
+:linenos:
+std::string firstName;
+std::string surname;
+std::cout << "Please type your first name followed by your surname!\n"; 
+std::cin >> firstName >> surname;
+std::cout << "Hello, " << firstName << " " << surname << "!\n";
+```
+```{admonition} Code Explanation
+:class: dropdown
+The input stream sends everything before the first whitespace to the first variable, if a second `>>`operator is found then the input between the first and second whitespace is sent to the second variable and so on.
+
+The program expects two inputs, so the {kbd}`return` key will only move the cursor to a new line until a second character or string is found.
+
+More advanced methods are available to clean up some issues caused by potential variation in what is typed by the user.
+```
 ````
 
 
+`````{exercise}
+:class: dropdown
+- Try the following code - which should work.
 
+````{code-block} c++
+:linenos:
+    int age = 58;
+    std::string salutation = "Dr";
+    std::string surname;
+    std::cout << "Please type your surname!\n";
+    std::cin >> surname;  
+    std::cout << "Hello, " << salutation << " " << surname << ", you are " << age << " years old!\n";
+````
+- Now change the code to ask the user to input a their salutation, followed by their first name, followed by their surname, followed by their age.
+- Try responding with 4 words, rather than 3 words and a number
+- Change the existing output line to print `surname * 2` and then try `surname + age`.
 
+````{admonition} Code Explanation
+:class: note dropdown
 
-
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-#include <iostream>
-int main(){
-
-std::cout << "Please type your first name followed by your surname!\n"; 
-std::string surname; 
-std::cin >> surname;
-std::cout << "Hello, " << surname << "!\n";
-
-return 0;
-}
-```
-
-The string input ends when a white space is detected, so TRY
-
-The convention is that the reading of strings is terminated by any whitespace i.e. space, tab, or newline '\t', '\n'.
-
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-#include <iostream>
-int main(){
-int age = 58;
-std::cout << "Please type your first name followed by your surname!\n"; 
-std::string firstName = "Peter";
-std::string surname;       
-std::cin >> firstName >> surname; //input before space to first variable and input after space to second variable 
-std::cout << "Hello, " << firstName << " " << surname << ", you are " << age << " years old!\n";
-return 0;
-}
-```
-
-Now change to ask for an name followed by an age.
-
-```{code-cell} c++
-:tags: [remove-output , raises-exception , skip-execution]
-#include <iostream>
-int main(){
-int age = 58;
-std::string firstName = "Peter";
-std::cout << "Please type your first name followed by your age!\n"; 
-std::string surname; 
-std::cin >> firstName >> age; 
-std::cout << "Hello, " << firstName << " " << surname << ", you are " << age << " years old!\n";
-return 0;
-}
-```
-
-
-Respond with a name "whitespace" age. Then try again but type in two names.
-
-A string is not an integer, so is recorded as integral value 0. 
-
-Older C++ version might give a random value such as -96738 . Unfortunately this overwrites an initial value if you have used one.
-
-Handling input format errors is a separate lesson.
-
-## Formating the Ouput
-
-
-
-
-
-
-##
-
-4 Ways to convert an integer to a string: 3 more to discuss later.
-Add this to header file.
-
+This changed and add code lines should be similar to this.
 ```{code-block} c++
-template<class T> std::string to_string(const T& t)
-{
-std::ostringstream os;
-os << t;
-return os.str();
-}
+std::string firstName;
+std::cout << "Please type salutation, followed by your first name, followed by your surname, followed by your age\n";
+std::cin >> salutation >> firstName >> surname >> age;
+std::cout << "Hello, " << salutation << " " << firstName << " " << surname << ", you are " << age << " years old!\n";
 ```
-This code creates a generic template for conversion to a string - we will circle back to how it works.
+Attempting to add or multiply a string and integer is not permitted by the {term}`type system`.
 
-Then replace cout line in the previous code with:
+If a fourth string is input, when the program expects an integer, a null value is recorded, which unfortunately overwrote the existing value, if ther was one, and is why the program printed '0'.
 
-```{code-block} c++
-std::cout << "Study " + to_string(c2) + " times harder " + motivator + "!\n";
-Try typing two names in a row again. Why does the code fail?
-```
-
-
-Char type is created using single quotes.
-Try the following code.
-```{code-cell} c++
-char a = 'x';
-char b = 'y';
-int c = a + b;
-std::cout << a << b << c;
-return 0;
-```
-```{code-cell} c++
-:tags: [remove-output]
-Type code here!
-```
-
-Change the letter to try to make senses of the output.
-Try numbers instead - what is the sum of 1 and 1 anyway?
-But a least its half as much as 2 and 2 still, right?
-
-Try this code
-```{code-cell} c++
-:tags: [remove-output]
-#include <iostream>
-int main(){
-int x = 5;
-int y;
-if (x == 5);
-{ y = 3; }
-std::cout << y;
-return 0;
-}
-```
-
-
-
-
-`{...code here...}` identifies a code block, or an in initialiser.
-Prints 3 - now change `x` to '4'. The semicolon after the if is a mistake, its like putting {} instead. 
-`{}` is called the empty block - sometimes used into code to register that nothing should be done, like when it's the else loop that is really wanted - instead of using `NOT` logic.
-The second `{}` does nothing special.
-
-lo
+A professional program would need to be able to catch this input error. Older C++ version might give a random value such as -96738 . 
+````
+`````
 
 ## Formatting Output
 
@@ -218,6 +150,7 @@ The format that is printed to the screen can be formatted as follows.
 
 ```{code-cell} cpp
 :tags: [remove-output]
+:linenos:
 #include <iostream>
 int main(){
 std::cout << std::defaultfloat << 12345.987654321 << "  " << std::scientific << 123456789 << "  " << std::fixed << 0.123456789 << '\n';
@@ -236,6 +169,7 @@ After including the `<iomanip>` component of the Standard Library,  `<< std::set
 
 ```{code-cell} cpp
 :tags: [remove-output]
+:linenos:
 #include <iostream>
 #include <iomanip>
 int main(){
@@ -254,6 +188,7 @@ The downside is that you may need to split up the string later. See [<sstream>](
 
 ```{code-cell} c++
 :tags: [remove-output , raises-exception , skip-execution]
+:linenos:
 #include <iostream>
 #include <string>
 int main() {

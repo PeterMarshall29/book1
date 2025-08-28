@@ -10,9 +10,9 @@ kernelspec:
   name: cpp20
 ---
 
-# Basic Ideas and Definitions
+# Learing the Basics
 
-Once you have learned a few more basic parts of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out the new concepts out.
+Once you have learned a few more basic parts of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out the new concepts.
 
 This page leads you through some basic exercies, much of the explanation is left until later chapters, this page is not intended to present fully decriptions and definitions.
 
@@ -46,7 +46,7 @@ The programme evaluates the expression `4 + 7` before sending the result to the 
 :class: dropdown
 Try the operators -,*,/ and %. What does the % operator do? Why might that be useful?
 
-The {term}`Modulo` operator may be new to you.
+The {term}`Modulo operator` may be new to you. See Wiki for more information: [Modulo](https://en.wikipedia.org/wiki/Modulo)
 
 The try using `-` as a prefix on a number, what effect does that have?
 ```
@@ -106,7 +106,7 @@ To use string-type variables we need an additional component of the standard lib
 The string literal must be enclosed in `""`. 
 
 `````{exercise-start}
-:label: exercised1
+:label: exerciseb1
 :class: dropdown
 `````
 ````{code-block} cpp
@@ -129,7 +129,7 @@ Type code here!
 
 
 `````{exercise-start}
-:label: exercised2
+:label: exerciseb2
 :class: dropdown
 `````
 Try adding a second variable, b, with a value of "-fingers", and then try printing out the value of `a + b` again.
@@ -182,7 +182,7 @@ Scientific notation is formated using a lower or upper case `e` between the sign
 
 
 `````{exercise-start}
-:label: exercised3
+:label: exerciseb3
 :class: dropdown
 `````
 Try to fix this code:
@@ -198,9 +198,9 @@ std::float = 12.5;
 return 0;
 }
 ````
-````{solution} exercised3
+````{solution} exerciseb3
 :class: note dropdown
-:label: solutiond3
+:label: solutionb3
 ```{code-block} cpp
 #include <iostream>
 #include <string>
@@ -218,4 +218,33 @@ return 0;
 `````{exercise-end}
 `````
 
+## Escape Characters
 
+{term}`Escape sequences`, or 'escape characters', are used to represent special characters within a string or character literal.
+
+Each escape character is identifed to the program by prefixing `\` to the character.
+
+These are mostly used in formating output. A full list of escape characters in c++ can be found [here](https://en.cppreference.com/w/cpp/language/escape.html).
+
+```{list-table}
+:header-rows: 1
+:name: Escape Sequence
+* - Character
+  - Name
+  - Effect/Description
+* - `\n`
+  - Newline. 
+  - Instructs the computer to print any following outputs on the next line.
+* - `\t`
+  - Tab (Horizontal). 
+  - Instructs the computer to put a horizontal tab before any further output to the screen or file. 
+* - `\v`
+  - Vertical Tab. 
+  - Instructs the computer to put a vertical tab before any further output to the screen or file. 
+* - `\\`
+  - Backslash
+  - Indentifies intention of a literal backslash
+* - `'`, `"`
+  - Single and double quote marks
+  - Indentifies intention of a literal quote marks
+```

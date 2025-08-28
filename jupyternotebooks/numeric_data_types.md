@@ -31,34 +31,23 @@ Integer literals must not be written with a decimal point i.e. do not write the 
 ## Floating-Point Literals
 `Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (meaning twice as many bits are used to represent the double values in binary code).
 
-Examples of how floating-point literal may be typed: `3.14`, `.14`, `3.`, `-1.2e10`, `1.23e−105`.
+Examples of how floating-point literal may be typed: `3.14`, `.14`, `-3.`, `2.99e8`, `6.63e−34`.
 
 Floating point numbers are expressed to different levels of precision; `float` for single precision (32-bit), `double` for double precision(64-bit), and `long double for extended precision (80-bit).
 
 A floating-point literal is of interpreted to be of type `double` by default, but to reduce memory usuage using a `float` or when larger values are required using `long double`, the suffix f, or l may be added.
 
-A floating-point literal of type `float` is defined by adding the suffix f (or F) to the number: `3.1415f`, `2.0f` `2.997925F` `2.9e−3f`
-A `long double` is defined by adding the suffix l (or L): `3.141L`, `2.0L`, `2.997925L`, `2.9e−3L`.
+A floating-point literal of type `float` is defined by adding the suffix 'f' (or 'F') to the number:  `2.997925F`.
 
-
-The syntax does note permit any whitespace in a floating point literal 
-
-For example, 65.43 e−21 is not a floating-point literal but rather four separate lexical tokens (causing a syntax error):
-65.43 e − 21
-
-`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
+A `long double` is defined by adding the suffix 'l' (or 'L'): `5.55e207L`.
 
 ## Scientific Notation
 
 Scientific notation is formated using a lower or upper case `e` between the significant and the index WITHOUT ANY SPACES!!   
 
-The syntax does note permit any whitespace in a floating point literal. 
+The syntax does not permit any whitespace in a floating point literal. 
 
-For example, 2.998 e8 is not a floating-point literal, and would be intpreted as the separate lexical tokens and cause a syntax error at compile time
-65.43 e − 21
-
-`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
-
+For example, 2.998 e8 is not a floating-point literal, and would be intpreted as three separate lexical tokens and cause a syntax error at compile time.
 
 ## Max Size of Numeric Values
 The maximum value that can be storde by each {term}`numeric data type` depends on number of bits used by the computer architecture. 
@@ -136,8 +125,6 @@ int main() {
 }
 ```
 
-
-
 ## Decimal, Hexidecimal, Octal, and Binary.
 
 Integer literals may also represent numbers in octal or hexidecimal
@@ -163,3 +150,15 @@ int main() {
 ```
 `<< std::hex` and `<< std::oct` are instructions to the output stream to convert and display the next integer values in octal or hexidecimal. 
 `std::dec` restores to decimal, the intruction affects all subsequent integers until changed.
+
+
+
+
+## Void Type
+
+`void` is also a type - but it has an empty set of values. 
+
+It is an incomplete type that cannot be completed (consequently, objects of type void are disallowed). There are no arrays of void, nor references to void. 
+
+However, pointers to void and functions returning type void are permitted.
+
