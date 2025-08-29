@@ -16,7 +16,7 @@ Programmers often want to use the same lines of code repeatedly in the same prog
 
 A sequence of statements (code block) can be made reusable by encapsulating them into a function.
 
-At its simplest, a function is just a sequence of statement collected and given a name that can be used to cause the statement to be executed.
+At its simplest, a function is just a sequence of statement collected and given a name - to identify the statement.
 
 When a function is called (or invoked) the statements are executed as though they had been types at the same point in your program.
 
@@ -34,12 +34,12 @@ Functions offer many benefits to the programmer. Functions:
 Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g., computations) were not clearly separated and named.
 
 ***
-
+```{note}
+:class: margin
 Functional programming is a programming paradigm that constructs programs from only functions.
 
-C++ is a multi=paradigm language - we will use a combination of functional programming and object-oriented programming. Possibly with some Generic programming.
-
-***
+C++ is a multiparadigm language - we will use a combination of functional programming and object-oriented programming. Possibly with some Generic programming.
+```
 
 ``````{exercise-start}
 :label: exerciseu1
@@ -65,37 +65,47 @@ int main() {
 `````{admonition} Code Explanation
 :class: note dropdown
 ```{code-block} c++
-void myFirstFunction () 
+void myFirstFunction () {
+	std::cout << "Hello, World!" << '\n';
+}
 ```
-This is the {term}`function declaration`. If it is not followed by the function body, then it must be followed by `;`.
+This is the {term}`function definition`. 
 
-When immediately followed by the {term}`function body`, the two parts form the function {term}`definition`.
+The statements inside the curly braces `{}` (a code block) are the function body.
 
-The funtion identifier (name) is 'myFirstFuncton' - user-defined.
+````{tip}
+:class: margin
+Not shown in this example - the statement before the function body, followed by a `;` is a {term}`function declaration`.
+```{code-block} c++
+void myFirstFunction (); 
+```
+````Not shown in this example - the statement before the function body, followed by a `;` is a {term}`function declaration`.````
 
-The keyword before the name, specfies the type of the value that will be returned when the function completes its execution.
+The funtion {term}`identifier` (name) is 'myFirstFuncton' - which is user-defined.
+
+The {term}`keyword` before the identifier, specfies the type of the value that will be returned when the function completes its execution.
 
 `Void` indicates that nothing is returned by this function, and therefore we do not need to use the `return` keyword. 
 
 The type of this function is `void()`. 
 
-`int` indicates that `main()` returns an integer, hence we need `return 0;`.
+`int` indicates that `main()` returns an integer, hence we need `return 0;`, and the type is `int()`.
 
-The empty parentheses `()` indicate that this function takes no {term}`arguments` (more below on arguments)
+The empty parentheses `()` indicate that this function takes no {term}`arguments`. (more below on arguments)
 
 ```{code-block} c++
 {
 	std::cout << "Hello, World!" << '\n';
 }
 ```
-This the function body - This code that will be executed every time that the function is called.
+This the function body - the code that will be executed every time the function is **called**.
 
 If there are nested blocks inside the function, the outermost block is the function body.
 
 ```{code-block} c++
 	myFirstFunction();
 ```
-This is function call. To call a function we state its name followed by `()`. If the function takes arguments, their values must be supplied in the parentheses
+This is a {term}`function call`. To call a function we state its name followed by `()`. If the function takes arguments, their values must be supplied in the parentheses
 
 ```{important}
 The function must be placed outside of the main function. 
@@ -106,13 +116,29 @@ For now we will place the functions above the main function, but in future all f
 `````
 ``````{exercise-end}
 ``````
+Functions are much more useful when variable are passed into them and value are returned from them.
+
+because inforation can be passed into the function when they are called.
 
 Functions would be less useful if they could only use the variables that were defined in the function body - global variables could be used, but these are generally to be avoided.
 
-When a function is called values may be **passed in** as {term}`function arguments` to the function. These values become local variables that can be used within the function.
+When a function is called values may be **passed in** as {term}`function arguments` to the function. These values become local variables that can be used within the function. The outcome of the function call thus changes in response to the supplied variables
 
 A result can also be returned.
 
+
+
+```{admonition} Using values returend by a function.
+:class: dropdown note
+
+Where the function call is encountered in the execution of a program, the program calls the function, and then substitues the returned value at that point in the code.
+
+The `return` statement intialises a variable of the return type. This is identical to copy initialisation, but the variable is unnamed
+
+It is often enough to just have the function call, see the next example, however the returned value is then not available later in the program.
+
+The alternative is to assign the returned value by copy assignment to a variable.
+```
 
 `````{exercise-start}
 :label: exerciseu2
@@ -141,10 +167,22 @@ int main()
 
 The `squareOf()` function returns an integer value when it is called, and that value is then used by the character output stream, in the same fashion as the result of evaluating an expression.
 
+The return value of a function can also be used by copy assignment.
+
 If a return value is not used, it is better practice to declare return type as `void`. It is also common practice to put `return;` at the end of a void function - though not strictly necessary. 
 
-You should have a `return`, or an `error` for every possible way out of a function; for a void function it is acceptable to just drop through.
-***
+```{admonition} Ways to exit a function
+:class: note dropdown
+There are 4 ways for the program to exit a function.
+
+- Executing a `return` statement - `return can be positioned a more than one point in a function that uses selection and iteration statements.
+- {term}`Falling through`
+- Throwing an {term}`exception` - this can be handled programmatically.
+- By invoking another function that fails to return.
+; for a void function it is acceptable to just drop through
+
+The programmer should always ensrue there is a `return`, or an `error`, for every possible logical way out of a function.
+```
 The definiton of `squareOf()` has a single parameter called 'x' of type `int`. Parameters names are local variables that may be used in the body of the function - have the value that was passed in.
 ***
 The type of `squareOf()` is `int (int)`.
@@ -269,7 +307,7 @@ These are the declaration of two different functions. The program will identify 
 
 ````
 
-## Pass by Reference and passing by Constant Reference
+## Pass by Reference and Passing by Constant Reference
 
 Sometimes it is better not to pass a value directly into a function. For instance you might be sending a long array of large numbers, or a very lareg image.
 
@@ -400,7 +438,7 @@ int main() {
 ````
 `````
 
-
+## `constexpr` Functions
 
 
 

@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.8a336819-d77f-4a6b-8045-6ae63b3eee38.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.6b1b0e7f-08a0-45a0-9acd-2291b2404df3.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +78,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-210ff98d-2c5e-42ea-8902-e2a2ce222d29] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-8d861110-7f19-404c-b2b4-c62934f6a007] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -645,7 +645,7 @@ document.write(`
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
-<pre align="center" data-zoom-id="id-210ff98d-2c5e-42ea-8902-e2a2ce222d29" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-8d861110-7f19-404c-b2b4-c62934f6a007" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]
@@ -682,6 +682,9 @@ document.write(`
 <p>Freestanding implementations are used when your code require the most minimal operating system support.</p>
 <p>A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library:  <code class="docutils literal notranslate"><span class="pre">&lt;cstddef&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cfloat&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;climits&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdint&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdlib&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;new&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;typeinfo&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;exception&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;initializer_list&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdalign&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdarg&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdbool&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;type_traits&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;atomic&gt;</span></code>.</p>
 <p>Some implementations provide a non-standard option that does not use exceptions for really minimal, bare metal programming (directly implemented on hardware).</p>
+<p>The C++ standard leaves some important features and rules to be implementation-defined. There is therefore much scope for unexpected behaviours between implementations.</p>
+<p>Programs often rely upon on implementation-defined behaviours.</p>
+<p>To enable portability the programmed should always understand be clear about which features , it is wise to be explicit about what implementation-defined features are being used and to try to isolate implementation specific features to specific parts of the program - in separate files, functions etc. - then only these sections need be changed.</p>
 </div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Memory Management</p>
