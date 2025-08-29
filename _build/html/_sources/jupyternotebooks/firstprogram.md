@@ -178,13 +178,18 @@ int main()
 
 ## Adding Comments
 
-{term}`Comments` are text added to a C++ source or header file that will be ignored by the compiler.
+{term}`Comments` are plain text added to a C++ source or header file that will be ignored by the compiler.
 
 Comments are used are notes and reminders for people who are trying to understand and use the code.
 
 When developing a program it is useful to be able to termporarily hide sections of the code from the compiler by 'commenting them out`.
 
 Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and definitely easier for others to use.
+
+Since the comments are ignore, there are no special rules for them, except that they must be identidied as {term}`comments`.
+
+````{admonition} How to Insert Comments
+:class: note dropdown
 
 Comments may be added to code in two ways:
 
@@ -209,3 +214,4 @@ multi-line comment is needed
 */
 
 ```
+````

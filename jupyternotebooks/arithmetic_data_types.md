@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# Numeric Data Types
+# Arithmetic Data Types
 
 There are a lot of numeric data types but to start learning C++ we really only need two of them.
 
@@ -37,9 +37,9 @@ Floating point numbers are expressed to different levels of precision; `float` f
 
 A floating-point literal is of interpreted to be of type `double` by default, but to reduce memory usuage using a `float` or when larger values are required using `long double`, the suffix f, or l may be added.
 
-A floating-point literal of type `float` is defined by adding the suffix 'f' (or 'F') to the number:  `2.997925F`.
+A floating-point literal of type `float` is defined by adding the postfix 'f' (or 'F') to the number:  `2.997925F`.
 
-A `long double` is defined by adding the suffix 'l' (or 'L'): `5.55e207L`.
+A `long double` is defined by adding the postfix 'l' (or 'L'): `5.55e207L`.
 
 ## Scientific Notation
 
@@ -112,13 +112,12 @@ It is often the case that a program will make a decision based on whether or not
 
 A litte care must be taken when dealing with floating point numbers. In some languages alternaive methods to calculate the same number will yield differnt values.
 
-```{code-cell}
+```{code-cell} c++
 int main() {
-	std::cout << std::setprecision(20) << sin(acos(-1) / 4) << "  " << sin(std::numbers::pi/4)<< "  " << sqrt(2) / 2 << '\n';
+	std::cout << std::setprecision(20) << sin(acos(-1) / 4) << '\t' << sin(std::numbers::pi/4)<< '\t' << sqrt(2) / 2 << '\n';
 	if (sin(acos(-1) / 4) == sqrt(2) / 2) {
 		std::cout << "Good - Exactly equal!";
-	}
-	else {
+	} else {
 		std::cout << "Aarghh - Only nearly equal!";
 	}
 	return 0;
@@ -144,7 +143,7 @@ Integer values can be output in octal or hexidecimal as follows:
 
 ```{code-cell} cpp
 int main() {
-	std::cout << 100 << '\n' << std::hex << 100 << '\n' << std::oct << 100 << '\n' << std::dec << 100;
+	std::cout << 100 << '\t' << std::hex << 100 << '\t' << std::oct << 100 << '\t' << std::dec << 100;
 	return 0;
 }
 ```

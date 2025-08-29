@@ -65,11 +65,11 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.296e3bcd-aa77-4ce9-b6b4-293bb2a940b2.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.04c467d0-23d9-42c5-bc8c-5db1a6c18178.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/scope';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Numeric Data Types" href="numeric_data_types.html" />
+    <link rel="next" title="Arithmetic Data Types" href="arithmetic_data_types.html" />
     <link rel="prev" title="Types in C++" href="types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,7 +194,6 @@
 <li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
@@ -209,16 +208,15 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="objects_values_and_types.html">Objects, Values, and Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="numeric_data_types.html">Numeric Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables_and_constants.html">User defined names</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
@@ -537,15 +535,12 @@ document.write(`
 <div class="tip margin admonition">
 <p class="admonition-title">Good Practice</p>
 <p>Always use indenting to reinforce scoping changes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For example, the statements inside different functions are said to have different scope.
-
-The scope of each named object determines where the object may be used - named objects can only be accessed within their own scope.
-
-```{important}
-:class: dropdown
-A named object can only be used within its scope.
-</pre></div>
 </div>
+<p>For example, the statements inside different functions are said to have different scope.</p>
+<p>The scope of each named object determines where the object may be used - named objects can only be accessed within their own scope.</p>
+<div class="dropdown admonition important">
+<p class="admonition-title">Important</p>
+<p>A named object can only be used within its scope.</p>
 </div>
 <p>The main scopes are:</p>
 <ul class="simple">
@@ -568,7 +563,7 @@ A named object can only be used within its scope.
 <p><code class="docutils literal notranslate"><span class="pre">::</span></code> is the scope resolution operator.
 Used to access a named object in a particular namespace.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
@@ -581,10 +576,6 @@ Used to access a named object in a particular namespace.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<p>hell</p>
-<p>o</p>
 </div>
 </div>
 <div class="dropdown admonition">
@@ -645,7 +636,7 @@ Used to access a named object in a particular namespace.</p>
 <p>A declaration of a name in a block shadows the same name declarated in an enclosing block or a global name.</p>
 <p>Shadowing hides the names in the higher scopes.</p>
 <p>A hidden global name can still be referred to using the scope resolution operator, <code class="docutils literal notranslate"><span class="pre">::</span></code> For example:</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -656,16 +647,6 @@ Used to access a named object in a particular namespace.</p>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// print local x</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">::</span><span class="n">x</span><span class="p">;</span><span class="w">      </span><span class="c1">// print global x</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp93b54ghl.cpp:4:1: error: &#39;::main&#39; must return &#39;int&#39;
-    4 | void main() {
-      | ^~~~
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
 </pre></div>
 </div>
 </div>
@@ -705,33 +686,36 @@ Entities decalared in a namespace can only be accessed by using the namespces’
 <p>The programmer can no longer resue any of the identifers in that namespace.</p>
 <p>It becomes difficult to keep track of where an identifer actually comes from</p>
 </div>
-<p>A member can be declared within a namespace definition and defined later using the <code class="docutils literal notranslate"><span class="pre">namespacename</span> <span class="pre">::</span> <span class="pre">member-name</span></code> notation.</p>
+<p>A member can be declared within a namespace definition and defined later using the notation:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>nameSpacename::memberName` notation. 
+</pre></div>
+</div>
 <p>Members of a namespace must be introduced using this notation:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>namespace namespace−name {
-<span class="linenos"> 2</span>	// declaration and definitions
-<span class="linenos"> 3</span>}
-<span class="linenos"> 4</span>namespace Parser {
-<span class="linenos"> 5</span>	double expr(bool); // declaration
-<span class="linenos"> 6</span>	double term(bool);
-<span class="linenos"> 7</span>	double prim(bool);
-<span class="linenos"> 8</span>}
-<span class="linenos"> 9</span>double val = Parser::expr(1); // use
-<span class="linenos">10</span>double Parser::expr(bool b) // definition
-<span class="linenos">11</span>{
-<span class="linenos">12</span>	// ...
-<span class="linenos">13</span>}
-<span class="linenos">14</span> 
-<span class="linenos">15</span>std::string s;
-<span class="linenos">16</span>//using std::vector;
-<span class="linenos">17</span>using namespace std;
-<span class="linenos">18</span>namespace Peter {
-<span class="linenos">19</span>double piper(bool);
-<span class="linenos">20</span>double pepper(bool) { return 5.0; }
-<span class="linenos">21</span>}
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">namespace</span><span class="w"> </span><span class="nn">namespaceName</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">	</span><span class="c1">// declaration and definitions</span>
+<span class="linenos"> 3</span><span class="p">}</span>
+<span class="linenos"> 4</span><span class="k">namespace</span><span class="w"> </span><span class="nn">Parser</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="nf">expr</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span><span class="w"> </span><span class="c1">// declaration</span>
+<span class="linenos"> 6</span><span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="nf">term</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="nf">prim</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="p">}</span>
+<span class="linenos"> 9</span><span class="kt">double</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parser</span><span class="o">::</span><span class="n">expr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// use</span>
+<span class="linenos">10</span><span class="kt">double</span><span class="w"> </span><span class="nf">Parser::expr</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="c1">// definition</span>
+<span class="linenos">11</span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">	</span><span class="c1">// ...</span>
+<span class="linenos">13</span><span class="p">}</span>
+<span class="linenos">14</span><span class="w"> </span>
+<span class="linenos">15</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="linenos">16</span><span class="c1">//using std::vector;</span>
+<span class="linenos">17</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="linenos">18</span><span class="k">namespace</span><span class="w"> </span><span class="nn">Peter</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">19</span><span class="kt">double</span><span class="w"> </span><span class="nf">piper</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+<span class="linenos">20</span><span class="kt">double</span><span class="w"> </span><span class="nf">pepper</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">21</span><span class="p">}</span>
 <span class="linenos">22</span>
-<span class="linenos">23</span>double Peter::piper(bool) {
-<span class="linenos">24</span>return 4.0;
-<span class="linenos">25</span>}
+<span class="linenos">23</span><span class="kt">double</span><span class="w"> </span><span class="n">Peter</span><span class="o">::</span><span class="n">piper</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">24</span><span class="k">return</span><span class="w"> </span><span class="mf">4.0</span><span class="p">;</span>
+<span class="linenos">25</span><span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -777,11 +761,11 @@ Entities decalared in a namespace can only be accessed by using the namespces’
       </div>
     </a>
     <a class="right-next"
-       href="numeric_data_types.html"
+       href="arithmetic_data_types.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Numeric Data Types</p>
+        <p class="prev-next-title">Arithmetic Data Types</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

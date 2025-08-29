@@ -65,12 +65,12 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\char_and_string.647ddaf1-807d-4374-8925-182c63fa2530.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\char_and_string.5ad37722-bc24-4a79-8dfe-8f880116ddc4.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/char_and_string';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="User defined names" href="variables_and_constants.html" />
-    <link rel="prev" title="Numeric Data Types" href="numeric_data_types.html" />
+    <link rel="next" title="Boolean Data Type" href="boolean_type.html" />
+    <link rel="prev" title="Arithmetic Data Types" href="arithmetic_data_types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,7 +194,6 @@
 <li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codingtheory3.html">Coding Theory 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
@@ -209,16 +208,15 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="objects_values_and_types.html">Objects, Values, and Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="numeric_data_types.html">Numeric Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Characters and Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables_and_constants.html">User defined names</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
@@ -514,7 +512,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#character-data-types">Character Data Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-type">String Type</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-the-ouput">Formating the Ouput</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-int-to-string">Converting <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">string</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -551,7 +549,16 @@ document.write(`
 </ul>
 <p>For more information see the C++ reference <a class="reference external" href="https://en.cppreference.com/w/cpp/language/types.html">here</a>.</p>
 </div>
-<p>Try the following code.</p>
+<div class="exercise admonition" id="jupyternotebooks/char_and_string-exercise-0">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<section id="exercise-content">
+<dl class="myst field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dropdown
+Try the following code.</p>
+</dd>
+</dl>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;x&#39;</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;y&#39;</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
@@ -566,17 +573,14 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="exercise dropdown admonition" id="jupyternotebooks/char_and_string-exercise-0">
-
-<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
-<section id="exercise-content">
+<p>Find out what happens when you:</p>
 <ul class="simple">
 <li><p>Captialize the two letters and run the code again.</p></li>
 <li><p>Make more changes to try to make senses of the output.</p></li>
 <li><p>Try numbers instead - what is the sum of ‘1’ and ‘1’ anyway?</p></li>
-<li><p>But a least its half as much as ‘2’ and ‘2’ still, right?</p></li>
+<li><p>Check that at least its half as much as ‘2’ and ‘2’ still, right?</p></li>
 </ul>
-<div class="admonition-code-explanation admonition">
+<div class="dropdown note admonition">
 <p class="admonition-title">Code Explanation</p>
 <p><code class="docutils literal notranslate"><span class="pre">char</span></code> is an integral type - all characters have a corresponding integer value, and arithmetic operations can be applied.</p>
 <p>For 8 bit representations like <code class="docutils literal notranslate"><span class="pre">char</span></code>, the integer value run from 0 to 255.</p>
@@ -597,8 +601,8 @@ document.write(`
 <section id="formating-the-ouput">
 <h2>Formating the Ouput<a class="headerlink" href="#formating-the-ouput" title="Permalink to this heading">#</a></h2>
 </section>
-<section id="id1">
-<h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="converting-int-to-string">
+<h2>Converting <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">string</span></code><a class="headerlink" href="#converting-int-to-string" title="Permalink to this heading">#</a></h2>
 <p>4 Ways to convert an integer to a string: 3 more to discuss later.
 Add this to header file.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
@@ -615,11 +619,26 @@ Add this to header file.</p>
 <span class="n">Try</span><span class="w"> </span><span class="n">typing</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="n">again</span><span class="p">.</span><span class="w"> </span><span class="n">Why</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">fail</span><span class="o">?</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">{...code</span> <span class="pre">here...}</span></code> identifies a code block, or an in initialiser.
-Prints 3 - now change <code class="docutils literal notranslate"><span class="pre">x</span></code> to ‘4’. The semicolon after the if is a mistake, its like putting {} instead.
-<code class="docutils literal notranslate"><span class="pre">{}</span></code> is called the empty block - sometimes used into code to register that nothing should be done, like when it’s the else loop that is really wanted - instead of using <code class="docutils literal notranslate"><span class="pre">NOT</span></code> logic.
-The second <code class="docutils literal notranslate"><span class="pre">{}</span></code> does nothing special.</p>
-<p>lo</p>
+<p>Char type is created using single quotes.
+Try the following code.</p>
+<p>char a = ‘x’;
+char b = ‘y’;
+int c = a + b;
+std::cout &lt;&lt; a &lt;&lt; b &lt;&lt; c;
+return 0;</p>
+<p>Change the letter to try to make senses of the output.
+Try numbers instead – what is the sum of 1 and 1 anyway?
+But a least its half as much as 2 and 2 still, right?</p>
+<p>Try this code
+int x = 5;
+int y;
+if (x == 5);
+{ y = 3; }
+std::cout &lt;&lt; y;
+{ …code here…} identifies a code block, or an in initialiser.
+Prints 3 – now change x to 4. The semicolon after the if is a mistake, its like putting {} instead.
+{} is called the empty block – sometimes used into code to register that nothing should be done, like when it’s the else loop that is really wanted – instead of using NOT logic.
+The second {} does nothing special.</p>
 </section>
 </section>
 
@@ -654,20 +673,20 @@ The second <code class="docutils literal notranslate"><span class="pre">{}</span
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="numeric_data_types.html"
+       href="arithmetic_data_types.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Numeric Data Types</p>
+        <p class="prev-next-title">Arithmetic Data Types</p>
       </div>
     </a>
     <a class="right-next"
-       href="variables_and_constants.html"
+       href="boolean_type.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">User defined names</p>
+        <p class="prev-next-title">Boolean Data Type</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -690,7 +709,7 @@ The second <code class="docutils literal notranslate"><span class="pre">{}</span
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#character-data-types">Character Data Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-type">String Type</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-the-ouput">Formating the Ouput</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-int-to-string">Converting <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">string</span></code></a></li>
 </ul>
   </nav></div>
 

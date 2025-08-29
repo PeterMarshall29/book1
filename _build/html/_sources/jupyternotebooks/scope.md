@@ -23,7 +23,7 @@ The purpose of a scope is to keep names "local", so that they won’t interfere 
 ```{admonition} Good Practice
 :class: tip margin
 Always use indenting to reinforce scoping changes.
-``` 
+```
 For example, the statements inside different functions are said to have different scope.
 
 The scope of each named object determines where the object may be used - named objects can only be accessed within their own scope.
@@ -56,6 +56,7 @@ Used to access a named object in a particular namespace.
 ```
 
 ```{code-cell} c++
+:tags: [remove-output]
 #include <iostream>
 #include <string>
 int x = 10;
@@ -149,7 +150,7 @@ Shadowing hides the names in the higher scopes.
 A hidden global name can still be referred to using the scope resolution operator, `::` For example:
 
 ```{code-cell} c++
-
+:tags: [remove-output]
 int x;
 void main() {
     int x = 3; // Intialise local x
@@ -200,14 +201,17 @@ The programmer can no longer resue any of the identifers in that namespace.
 
 It becomes difficult to keep track of where an identifer actually comes from
 ```
-
-
-A member can be declared within a namespace definition and defined later using the `namespacename :: member-name` notation. 
+A member can be declared within a namespace definition and defined later using the notation:
+```{code-block} c++
+nameSpacename::memberName` notation. 
+```
 
 Members of a namespace must be introduced using this notation:
+
 ```{code-block} c++
 :linenos:
-namespace namespace−name {
+
+namespace namespaceName {
 	// declaration and definitions
 }
 namespace Parser {
@@ -232,4 +236,5 @@ double pepper(bool) { return 5.0; }
 double Peter::piper(bool) {
 return 4.0;
 }
+
 ```

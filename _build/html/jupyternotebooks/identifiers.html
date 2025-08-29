@@ -1,0 +1,816 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Identifiers and Declarations &#8212; Introduction to C++ Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
+    <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.1abd61d2-a1d9-4120-9d7f-4a9a256dbb06.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/identifiers';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Types in C++" href="types.html" />
+    <link rel="prev" title="Objects, Values, Variables, and Constants" href="objects_values_variables_and_constants.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo2big.png" class="logo__image only-light" alt="Introduction to C++ Programming - Home"/>
+    <script>document.write(`<img src="../_static/logo2big.png" class="logo__image only-dark" alt="Introduction to C++ Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introducton to the C++ Programming Language
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_programming.html">Introduction to Computer Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Identifiers and Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_cpp_in_vscode.html">C++ in Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header_files.html">Header Files</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions_to_exercises.html">Solutions to Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/petermarshall29/book1/master?urlpath=lab/tree/jupyternotebooks/identifiers.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1/issues/new?title=Issue%20on%20page%20%2Fjupyternotebooks/identifiers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/identifiers.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/identifiers.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Identifiers and Declarations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-identifiers">User-defined Identifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keywords">Keywords</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration">Declaration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-of-declarations">The Structure of Declarations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarators">Declarators</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="identifiers-and-declarations">
+<h1>Identifiers and Declarations<a class="headerlink" href="#identifiers-and-declarations" title="Permalink to this heading">#</a></h1>
+<p>Most entities in the C++ language have an identifier (a name).</p>
+<p>Writing a program usually required additional instances of entities to be created by the programmer and each must be given unique identifier.</p>
+<div class="margin warning admonition">
+<p class="admonition-title">No Spaces in Identfiers!</p>
+<p>Whitespace is not permitted in identifiers/names.
+Longer names are broken up using underscores or <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case2</a>.
+Special symbols are not permitted.</p>
+</div>
+<p>Identifiers are then used to identify entities in the program text, such as variables, functions and classes.</p>
+<p>An identifier is an arbitrarily long sequence of digits, underscores, lowercase and uppercase Latin letters, and most Unicode characters.</p>
+<p>Identifiers encountered in a program are associated with the declarations that introduced them using a name lookup.</p>
+<p>“Name” is generally synonymous with “identifier” - the exceptions are beyond the scope of this book.</p>
+<p>Each name is only valid within a part of the program called its <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>.</p>
+<p>Some names have linkage which makes them refer to the same entities when they appear in different scopes or translation units.</p>
+<section id="user-defined-identifiers">
+<h2>User-defined Identifiers<a class="headerlink" href="#user-defined-identifiers" title="Permalink to this heading">#</a></h2>
+<p>Certain words in a C++ program have special meaning, and these are known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>.</p>
+<p>Keywords may not be used as an identifier.</p>
+<p>Other words may beused as identifiers, unless they have already been used in the same <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>.</p>
+<div class="dropdown note admonition">
+<p class="admonition-title">Rules For Valid Identifiers</p>
+<p>The options for the first character are:</p>
+<ul class="simple">
+<li><p>Any uppercase Latin letter, i.e. <code class="docutils literal notranslate"><span class="pre">A-Z</span></code></p></li>
+<li><p>Any lowercase Latin letters, i.e <code class="docutils literal notranslate"><span class="pre">a-z</span></code></p></li>
+<li><p>An underscore <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
+<li><p>Some Unicode characters</p></li>
+</ul>
+<p>After the initial character the options become:</p>
+<ul class="simple">
+<li><p>Any digit <code class="docutils literal notranslate"><span class="pre">0-9</span></code></p></li>
+<li><p>Any uppercase Latin letter, i.e. <code class="docutils literal notranslate"><span class="pre">A-Z</span></code></p></li>
+<li><p>Any lowercase Latin letters, i.e <code class="docutils literal notranslate"><span class="pre">a-z</span></code></p></li>
+<li><p>An underscore <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
+<li><p>Some Unicode characters</p></li>
+</ul>
+<p>Identifiers are case-sensitive. Any difference in the pattern of symols creates a new identifier.
+The variabless named <code class="docutils literal notranslate"><span class="pre">www</span></code> and <code class="docutils literal notranslate"><span class="pre">WWW</span></code> are not the same.</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Convention for use of Identifiers</p>
+<p>It is considered best practive to use a consistant wrting format for indentifiers of the same type - this is called a naming convention.</p>
+<p>In C++:</p>
+<ul class="simple">
+<li><p>An intial capital letter is only used for a <a class="reference internal" href="glossary.html#term-Class"><span class="xref std std-term">class</span></a>. This makes it easy to distinguish a class from a function etc.</p></li>
+<li><p>Names of functions and variables start with lower case</p></li>
+<li><p>Longer names are generally written in Camel Case, where the name is composed of a series of words, and later words start with captial letters.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a></p></li>
+<li><p>Pointer variables should be prepended with ‘p’ and the asterisk ‘*’ should be position next to the variable name instead of the pointer type.</p></li>
+<li><p>Reference variables should be prepended with ‘r’. This helps to differentiate between the method returning a modifiable object and the same method returning a non-modifiable object</p></li>
+<li><p>Static variables should be prepended with ‘s’</p></li>
+<li><p>Global constants should be all capital letters separated with ‘_’</p></li>
+</ul>
+</div>
+</div>
+<p>Note: Support of Unicode identifiers is limited in most implementations, e.g. gcc (until 10).</p>
+</section>
+<section id="keywords">
+<h2>Keywords<a class="headerlink" href="#keywords" title="Permalink to this heading">#</a></h2>
+<p>Certain words in a C++ program have special meaning, known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>, which are reserved</p>
+<p>The reserved keywords may not be used as object names.</p>
+<p>There are a list of reserved <a class="reference external" href="https://en.cppreference.com/w/cpp/keyword.html">Keywords in the C++ language</a>.</p>
+</section>
+<section id="declaration">
+<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
+<p>Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of entity the name refers to.</p>
+<div class="dropdown note admonition">
+<p class="admonition-title">Examples of Declarations</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>char myChar;
+<span class="linenos"> 2</span>std::string myString;
+<span class="linenos"> 3</span>auto count = 1;  
+<span class="linenos"> 4</span>const double pi {3.1415926535897};
+<span class="linenos"> 5</span>const char* myPlace = &quot;lboro&quot;;
+<span class="linenos"> 6</span>const char* season[] = { &quot;spring&quot;, &quot;summer&quot;, &quot;fall&quot;, &quot;winter&quot; };
+<span class="linenos"> 7</span>std::vector&lt;std::string&gt; ourPeople{ &quot;Kelly&quot;, &quot;Sasha&quot;, &quot;Mark&quot;, &quot;Anna&quot;, &quot;Steve&quot;, &quot;Sarah&quot;, &quot;Peter&quot; };
+<span class="linenos"> 8</span>double std::sqrt(double);  //function declaration - parameter name optional
+<span class="linenos"> 9</span>struct Date { int d = 3, m, y; };    //struct declaration
+<span class="linenos">10</span>int day(Date * p) { return p −&gt; d; };
+<span class="linenos">11</span>template&lt;class T&gt; T abs(T a) { return a &lt; 0 ? −a : a; };
+<span class="linenos">12</span>constexpr int fac(int n) { return (n &lt; 2) ? 1 : n*fac(n−1); } ;
+</pre></div>
+</div>
+</div>
+<section id="the-structure-of-declarations">
+<h3>The Structure of Declarations<a class="headerlink" href="#the-structure-of-declarations" title="Permalink to this heading">#</a></h3>
+<p>The structure of a declaration is defined by the C++ grammar, and has 5 basics part.</p>
+<ul class="simple">
+<li><p>Optional prefix specifiers (e.g., static or virtual)</p></li>
+<li><p>A base type (e.g., vector<double> or const int)</p></li>
+<li><p>A declarator optionally including a name (e.g., p[7], n, or ∗(∗)[])</p></li>
+<li><p>Optional suffix function specifiers (e.g., const or noexcept)</p></li>
+<li><p>An optional initializer or function body (e.g., ={7,5,3} or {return x;})
+Except for function and namespace definitions, a declaration is terminated by a semicolon.</p></li>
+</ul>
+</section>
+</section>
+<section id="declarators">
+<h2>Declarators<a class="headerlink" href="#declarators" title="Permalink to this heading">#</a></h2>
+<p>A declarator is composed of a name and optionally some declarator operators.
+The most common declarator operators are:</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Declarator Operators</p>
+<div class="pst-scrollable-table-container"><table class="table" id="decalarator-operatorsvalue-of-an-object-containing-01110000">
+<thead>
+<tr class="row-odd"><th class="head"><p>Position</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Prefix</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Pointer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prefix</p></td>
+<td><p>*const</p></td>
+<td><p>Constant pointer</p></td>
+</tr>
+<tr class="row-even"><td><p>Prefix</p></td>
+<td><p>*volatile</p></td>
+<td><p>Volatile pointer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prefix</p></td>
+<td><p>&amp;</p></td>
+<td><p>lvalue reference</p></td>
+</tr>
+<tr class="row-even"><td><p>Prefix</p></td>
+<td><p>&amp;&amp;</p></td>
+<td><p>rvalue reference</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prefix</p></td>
+<td><p>auto</p></td>
+<td><p>function</p></td>
+</tr>
+<tr class="row-even"><td><p>Postfix</p></td>
+<td><p>[]</p></td>
+<td><p>Array</p></td>
+</tr>
+<tr class="row-odd"><td><p>Postfix</p></td>
+<td><p>()</p></td>
+<td><p>Function</p></td>
+</tr>
+<tr class="row-even"><td><p>Postfix</p></td>
+<td><p>-&gt;</p></td>
+<td><p>Returns from function</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Declarators are tricky because the are designed to mirror their use in expressions; for example ∗ is prefix and [] and () are postfix.</p>
+<p>The postfix declarator operators bind tighter than the prefix ones.</p>
+<p>Consequently, char∗kings[] is an array of pointers to char, whereas char(∗kings)[] is a pointer to an array of char.</p>
+<p>We have to use parentheses to express types such as ‘‘pointer to array’’ and ‘‘pointer to function’</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "petermarshall29/book1",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "<cm-material>",
+            mode: "text/x-c++src"
+        },
+        kernelOptions: {
+            name: "cpp20",
+            path: "./jupyternotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cpp20'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="objects_values_variables_and_constants.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Objects, Values, Variables, and Constants</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="types.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Types in C++</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-identifiers">User-defined Identifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keywords">Keywords</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration">Declaration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-of-declarations">The Structure of Declarations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarators">Declarators</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Loughborough Physics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

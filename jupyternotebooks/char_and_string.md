@@ -39,26 +39,31 @@ Different countries with different symbol requirements for their keyboards (e.g.
 
 For more information see the C++ reference [here](https://en.cppreference.com/w/cpp/language/types.html).
 ```
+
+`````{exercise-start}
+`````
+:class: dropdown
 Try the following code.
-```{code-block} c++
+````{code-block} c++
 char a = 'x';
 char b = 'y';
 int c = a + b;
 std::cout << a << b << c;
 return 0;
-```
-```{code-cell} c++
+````
+````{code-cell} c++
 :tags: [remove-output]
 Type code here!
-```
-````{exercise}
-:class: dropdown
+````
+Find out what happens when you:
 - Captialize the two letters and run the code again.
 - Make more changes to try to make senses of the output.
 - Try numbers instead - what is the sum of '1' and '1' anyway?
-- But a least its half as much as '2' and '2' still, right?
+- Check that at least its half as much as '2' and '2' still, right?
 
-```{admonition} Code Explanation
+````{admonition} Code Explanation
+:class: dropdown note
+
 `char` is an integral type - all characters have a corresponding integer value, and arithmetic operations can be applied.
 
 For 8 bit representations like `char`, the integer value run from 0 to 255.
@@ -70,18 +75,15 @@ Being next in sequence, the character '2' has the integer value 50.
 The values of all `char` characters can be found [here](https://en.cppreference.com/w/cpp/language/ascii.html).
 
 The captials letters have different integer values to their lower case version. This is why names are case sensitive.
-
-```
-
 ````
+`````{exercise-end}
+`````
 
 ## String Type
 
 A `string` is variable of type 'string' which is composed of a series of character literals bracketed by a pair of double quote marks `" "`.
 
 The standard library component `<string>` define strings and the operations and functions that work with string-type variables.
-
-
 
 
 
@@ -94,7 +96,7 @@ The standard library component `<string>` define strings and the operations and 
 
 
 
-##
+## Converting `int` to `string`
 
 4 Ways to convert an integer to a string: 3 more to discuss later.
 Add this to header file.
@@ -119,12 +121,26 @@ Try typing two names in a row again. Why does the code fail?
 
 
 
+Char type is created using single quotes.
+Try the following code.
 
+char a = 'x';
+char b = 'y';
+int c = a + b;
+std::cout << a << b << c;
+return 0;
 
+Change the letter to try to make senses of the output.
+Try numbers instead – what is the sum of 1 and 1 anyway?
+But a least its half as much as 2 and 2 still, right?
 
-`{...code here...}` identifies a code block, or an in initialiser.
-Prints 3 - now change `x` to '4'. The semicolon after the if is a mistake, its like putting {} instead. 
-`{}` is called the empty block - sometimes used into code to register that nothing should be done, like when it's the else loop that is really wanted - instead of using `NOT` logic.
-The second `{}` does nothing special.
-
-lo
+Try this code
+int x = 5;
+int y;
+if (x == 5);
+{ y = 3; }
+std::cout << y;
+{ …code here…} identifies a code block, or an in initialiser.
+Prints 3 – now change x to 4. The semicolon after the if is a mistake, its like putting {} instead. 
+{} is called the empty block – sometimes used into code to register that nothing should be done, like when it’s the else loop that is really wanted – instead of using NOT logic.
+The second {} does nothing special.

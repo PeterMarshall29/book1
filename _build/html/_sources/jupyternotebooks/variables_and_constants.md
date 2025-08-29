@@ -10,18 +10,11 @@ kernelspec:
   name: cpp20
 ---
 
-# User defined names
-
-
-
-There are a list of reserved [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keyword.html).
-
-The reserved keywords may not be used as object names.
-
-
-
 # Variables and Constants
 
+Declared objects and declared references that are not non-static data members are variables ﻿.
+
+Computers need to store information - they cannot do anythin
 
 We can do nothing of interest with a computer without storing data (information). The places in which data is stored are called “objects”.
 The ‘type’ of an object determines what it can store, but also what operations are available to work with that type of data.

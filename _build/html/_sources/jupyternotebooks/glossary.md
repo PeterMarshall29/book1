@@ -47,6 +47,9 @@ Char Type
 Class
   more basic    ;A blueprint for creating objects, encapsulating data (attributes) and functions (methods).
 
+Class Member
+  def
+
 Code Block
   Sequence of {term}`statements` inclosed by curly braces `{}`. Also called a {term}`compound statement`.
 
@@ -107,6 +110,15 @@ Entity
 Entities
   The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces. ECS consists of three main parts:
 
+Enumeration
+  User-defined type consisting of a set of named values.
+
+Enumerations
+  User-defined type consisting of a set of named values.
+
+Enumerator
+  A name identifying a value of an enumeration. 
+
 Escape Sequences
   Used in programming languages to represent special characters within a string or character literal. They are identified by the prefix backslash `\`. Examples are `\n`, `\t`, and `\\` to represent 'newline', 'tab' - and to identify that a backslash is just a back slash literal.
 
@@ -137,6 +149,9 @@ Free store
 Function
   A named sequence of statements that can be invoked/called by a program, optionally using arguments supplied by the function call, to optionall return a value to the program. The type of the function includes the number and types of argument and the type of the value returned. Functions are useful because they are reusable, making code more efficient to write and execute.
 
+Functions
+  A named sequence of statements that can be invoked/called by a program, optionally using arguments supplied by the function call, to optionall return a value to the program. The type of the function includes the number and types of argument and the type of the value returned. Functions are useful because they are reusable, making code more efficient to write and execute.
+
 Function Argument
   The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
 
@@ -161,6 +176,9 @@ Function Parameter
 Functional Programming
   Programming paradigm that constructed programs using functions. A declarative model of programming emphasizing "what to do" rather than "how to do it."
 
+Fundamental Types
+  Types provide by the core langugae.
+
 Global Scope
   Variables declared outside of all functions or classes have global scope. Global variables are accessible throughout the program, unless shadowed by a local variable with the same name. Global variables are best avoided unless necessary because they may result in unintended consequences in execution.
 
@@ -172,6 +190,9 @@ Heap
 
 Identifier
   The {term}`name` given to any {term}`entity` that may have a used defined name.
+
+Immutable
+  Fixed, constant, not permitted to change after initialisation.
 
 Infix Operator
   Operator that sits between two variables, denoting an operation using both. As opposed to unary, prefix and postfix operators that act on one variable position before or after it.
@@ -195,6 +216,9 @@ Iteration Statements
   Iterations statements include the `for`-statement, the `while`-statement and the `do`-statement; used to repeat the execution of a block of code until a condition is met or changes.
 
 Keyword
+  An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programmer. [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keywords.html).
+
+Keywords
   An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programmer. [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keywords.html).
 
 Linkage
@@ -236,6 +260,15 @@ Modulo Operator
 Name
   An identifier. (A minority of names are not identifiers - advanced). 
 
+Named Object
+  A variable
+
+Namespace
+  def
+
+Namespaces
+  def
+
 Numeric Data Type
   The data types for numeric values - each represents a different type of number to different levels of precision. Includes `int`, `float`, `double`. Some data types require additional specficiers, see the [C++ Reference - Data Types](https://en.cppreference.com/w/cpp/language/types.html)
 
@@ -276,6 +309,12 @@ Programming Paradigms
 
 Reference
   def
+
+References
+  def
+
+Reserved Characters
+  Some characters cannot be freely used becasue the have special meaning in the syntax. Some may be overloaded. Examples: `#`, `\`, arithmetic operators, comparison operators, punctuation symbols. 
 
 Resource files
   Non code files, such as image files, required by the program.
@@ -328,6 +367,9 @@ Syntax
 Template
   A blueprint for generic and reusable code for functions and classes
 
+Templates
+  A blueprint for generic and reusable code for functions and classes
+
 Translation unit
   Part of a program that can be separately compiled. Individual source, or header, files.
 
@@ -336,6 +378,9 @@ Translation units
 
 Type
  A type defines the proper use of a name or an expression.
+
+Types
+  A type defines the proper use of a name or an expression.
 
 Type Casting
   Assigning a value of a different type to an object of a new type. Casting/conversion can be implicit or explicit.
@@ -354,6 +399,15 @@ Type System
 
 Variable
   A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration - a named object in a scope.
+
+Value
+  def
+
+Values
+  def
+
+Void
+  def
 
 ```
 
