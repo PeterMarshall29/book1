@@ -198,7 +198,6 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/the_cpp_language.html">The C++ Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/coding_best_practices.html">Best Practices in Coding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/approachs_to_learning.html">How to Learn C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyternotebooks/codingtheory3.html">Coding Theory 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
@@ -213,16 +212,15 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise2.html">Exercise 2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/objects_values_and_types.html">Objects, Values, and Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="jupyternotebooks/objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/identifiers.html">Identifiers and Declarations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/types.html">Types in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/scope.html">Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/numeric_data_types.html">Numeric Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/arithmetic_data_types.html">Arithmetic Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/variables_and_constants.html">User defined names</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/boolean_type.html">Boolean Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/vector.html">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/arrays.html">Arrays in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jupyternotebooks/exercise3.html">Exercise 3</a></li>
@@ -469,14 +467,16 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Class"><strong>Class</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-Class-Member"><strong>Class Member</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Code-Block"><strong>Code Block</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Comments"><strong>Comments</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-Compiled-Language"><strong>Compiled Language</strong></a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Compiled-Language"><strong>Compiled Language</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Compiler"><strong>Compiler</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Compound-Statement"><strong>Compound Statement</strong></a>
@@ -525,10 +525,16 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Entity"><strong>Entity</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-Escape-Sequences"><strong>Escape Sequences</strong></a>
+      <li><a href="jupyternotebooks/glossary.html#term-Enumeration"><strong>Enumeration</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Enumerations"><strong>Enumerations</strong></a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Enumerator"><strong>Enumerator</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Escape-Sequences"><strong>Escape Sequences</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Exception"><strong>Exception</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Executable-File"><strong>Executable File</strong></a>
@@ -555,10 +561,10 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Function-Argument"><strong>Function Argument</strong></a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Function-Arguments"><strong>Function Arguments</strong></a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Function-Body"><strong>Function Body</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Function-Call"><strong>Function Call</strong></a>
@@ -570,6 +576,10 @@ document.write(`
       <li><a href="jupyternotebooks/glossary.html#term-Function-Parameter"><strong>Function Parameter</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Functional-Programming"><strong>Functional Programming</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Functions"><strong>Functions</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Fundamental-Types"><strong>Fundamental Types</strong></a>
 </li>
   </ul></td>
 </tr></table>
@@ -599,14 +609,16 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Identifier"><strong>Identifier</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-Immutable"><strong>Immutable</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Infix-Operator"><strong>Infix Operator</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Instruction-Set-Architecture"><strong>Instruction Set Architecture</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-int"><strong>int</strong></a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-int"><strong>int</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Integer-type"><strong>Integer type</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Iteration"><strong>Iteration</strong></a>
@@ -622,6 +634,10 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Keyword"><strong>Keyword</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Keywords"><strong>Keywords</strong></a>
 </li>
   </ul></td>
 </tr></table>
@@ -671,10 +687,16 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Name"><strong>Name</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-Null"><strong>Null</strong></a>
+      <li><a href="jupyternotebooks/glossary.html#term-Named-Object"><strong>Named Object</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Namespace"><strong>Namespace</strong></a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Namespaces"><strong>Namespaces</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Null"><strong>Null</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Null-Character"><strong>Null Character</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Numeric-Data-Type"><strong>Numeric Data Type</strong></a>
@@ -721,8 +743,12 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Reference"><strong>Reference</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-References"><strong>References</strong></a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Reserved-Characters"><strong>Reserved Characters</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Resource-files"><strong>Resource files</strong></a>
 </li>
   </ul></td>
@@ -769,6 +795,8 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Template"><strong>Template</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-Templates"><strong>Templates</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Translation-unit"><strong>Translation unit</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Translation-units"><strong>Translation units</strong></a>
@@ -787,13 +815,23 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Type-System"><strong>Type System</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-Types"><strong>Types</strong></a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Value"><strong>Value</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Values"><strong>Values</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Variable"><strong>Variable</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Void"><strong>Void</strong></a>
 </li>
   </ul></td>
 </tr></table>

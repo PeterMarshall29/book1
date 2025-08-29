@@ -46,7 +46,9 @@ The programme evaluates the expression `4 + 7` before sending the result to the 
 :class: dropdown
 Try the operators -,*,/ and %. What does the % operator do? Why might that be useful?
 
-The {term}`Modulo operator` may be new to you. See Wiki for more information: [Modulo](https://en.wikipedia.org/wiki/Modulo)
+The {term}`Modulo operator` may be new to you. See Wiki for more information:
+
+[Modulo](https://en.wikipedia.org/wiki/Modulo) : See Wiki for more information:
 
 The try using `-` as a prefix on a number, what effect does that have?
 ```
@@ -221,6 +223,8 @@ return 0;
 ## Escape Characters
 
 {term}`Escape sequences`, or 'escape characters', are used to represent special characters within a string or character literal.
+
+Certain characters in the program have to be represented with {term}`escape sequences` because the are {term}`reserved characters` that have specific meaning to the compiler.
 
 Each escape character is identifed to the program by prefixing `\` to the character.
 
