@@ -12,19 +12,24 @@ kernelspec:
 
 # Scope
 
-Different distinguishable parts of a programs structure are called scopes. 
+Different distinguishable parts of a programs structure are called scopes e.g. inside a particular function.
 
 The location of a declaration introduces the name into the scope at that location.
 
-The purpose of a scope is to keep names "local", so that they won’t interfere with names declared elsewhere; i.e. same names can be used in different local scopes.
+Objects declared in different scopes can use the same identifier.
 
-Try to always use indenting to reinforce scoping changes.
- 
+The purpose of a scope is to keep names "local", so that they won’t interfere with the same names declared elsewhere.
+
+```{admonition} Good Practice
+:class: tip margin
+Always use indenting to reinforce scoping changes.
+``` 
 For example, the statements inside different functions are said to have different scope.
 
-The scope of names determines where the name can be used. Named objects can only be accessed with their own scope.
+The scope of each named object determines where the object may be used - named objects can only be accessed within their own scope.
 
 ```{important}
+:class: dropdown
 A named object can only be used within its scope.
 ```
 
@@ -36,23 +41,19 @@ The main scopes are:
 * Local scope: Accessible only with the block where they are declaredin a block i.e. between `{ }`, or in a function argument list
 * Statement scopes: e.g., in a for-statement
 
-Scopes are used as to describe the corresponding names: e.g. global variable, local variable, statement (loop) variable.
+Specific scopes are often used as adjectives describing entities: e.g. global variable, local variable, statement (loop) variable.
 
 Function scopes:
-* A function declared on its own, has global scope, and called a global function. 
+* A function declared on its own, has global scope - a 'global' function. 
 * A (member) function declared inside a class only has class scope, and can only be accessed through an object of that class.
 * Namespace functions are accessed using the namespace name e.g. `std::cout`.
 * Lamda function have local scope being anonymous functions declared inside other functions and only accessible to the function. 
 
 ```{Note}
+:class: margin
 `::` is the scope resolution operator.
 Used to access a named object in a particular namespace.
 ```
-
-
-
-Because of scope, the same name can there be used mutiple times throughout a program, even for objects of different types, provided each has a different scope.
-or different objects in different scopes - but this leads to unnecessary confusion and should be avoided.
 
 ```{code-cell} c++
 #include <iostream>
@@ -78,66 +79,49 @@ int main() {
 **code statements go here**
 }
 ```
-
-
 ````
 
+## Global Variables
+A variable with {term}`global scope` is declared outside of all functions and classes. 
 
-Objects may have the same name if they are different types - but this is unhelpful and to be avoided.
+Global variables are accessible throughout the program, unless shadowed by a local variable with the same name. 
 
-Using the same name with a different type
-
-## Scope
-A named object is declared "in scope". A “scope” is a region of program text, e.g. inside a single function. The object is only valid within that region of the program unless it is defined to have “global scope”.
-The main purpose of a scope is to keep names “local”, so that they won’t interfere with names declared elsewhere; i.e. same names can be used in different local scopes.
-
-Try to always use indenting to reinforce scoping changes.
- 
- 
-There are several kinds of scopes that we use to control where our names can
-be used:
-• The global scope: the area of text outside any other scope
-• A namespace scope: a named scope nested in the global scope or in another namespace
-• A class scope: the area of text within a class
-• A local scope: between { . . . } braces of a block or in a function argument list
-• A statement scope: e.g., in a for-statement
-
-
-
-
-## Scoping Rules and Exceptions
-
-A variable with {term}`global scope`  Variables declared outside of all functions or classes have global scope. Global variables are accessible throughout the program, unless shadowed by a local variable with the same name. Global variables are best avoided unless necessary because they may result in unintended consequences in execution.
-
-
-
-You need to keep in mind the following rules:
-
-In each scope, local variables are used in preference to others with the same name, this is called {term}`shadowing`.
-A local variable will be used in preference to a global variable of the same name.
-
-Variables cannot be accessed outside of their scope, loop variable, function parameters only exist inside their scope. Class and struct variables can be accessed by indexing in.
+Global variables are best avoided unless necessary because they may result in unintended consequences in execution. Global variables need long descriptive names - adding the word 'Global' at the end of the name is good practice.
 
 Make global variable have long detailed names.
 
 Do not use global variables if possible, its hard to keep track of which functions may be altering their values.
 
-The quality of a program is often said to be inversely proportional to the number of global variables as the index of an exponential – keep it to one or two at most.
- 
-Blocks: Blocks within functions (nested blocks) or other block have their own scope
-Functions: Local or nested functions
-Classes: Classes can have member classes; classes within another class, also called nested classes.
-Local classes are those declared with in functions – best avoided – function is too long if it benefits from the use of a class.
-A member definition can be outside its class, provided it is declared inside the class.
+The quality of a program is often said to be inversely proportional to the number of global variables as the index of an exponential – keep it to one or two at mo
 
-Inside: Void f(); // declaration
-Outside: Void MyClassName::f() {} // the definition.
+```{admonition} Reasons to Avoid Global Variables
+:class: tip dropdown
+Namespace Pollution: Risk of naming collisions, when your global variable's identifier matches one used in a library you include.
+
+Maintenance: Reduction of modularity makes programs more difficult to maintain. Modular programmes encapsulate everything needed by individual functions and classes into them relying only on information passed on call. 
+
+Debugging: Global variables can be modified by any part of the program, making it difficult to track down bugs caused by unintended changes.
+
+Execution speed: Accessing global variables is often slower than accessing local variables to the scope chain lookup.
+
+Memory Consumption: Global variables occupy space for the lifetime of the program - but may never be needed or used rarely.
+
+Multi-threaded programs: Global variables can cause data races.
+```
+```{admonition} Scoping Best Practices
+:class: tip dropdown
+Use local variables whenever possible.
+
+Encapsulate variables within functions, modules, or classes.
+
+Use a namespace object to group related global variables and avoid collisions.
+```
+
 
 
 ## Shadowing
 
 It is usually possible to use the same name more than once, provided each declaration has different scope.
-
 
 An exception is the loop variable in a `for` loop. Another type with the s
 
@@ -152,47 +136,77 @@ Inside the `main()` function put:
 
 *Variable declarations
 
-```{tip}
-Remember that the position chosen for a declaration affects the {term}`scope` of the entity.
 
 ## Hidden or Shadowed Names
-A declaration of a name in a block can hide a declaration in an enclosing block or a global name.
-That is, a name can be redefined to refer to a different entity within a block. After exit from the block, the name resumes its previous meaning.
+Scope allows the definition of multiple entities with the same name.
 
-A hidden global name can be referred to using the scope resolution operator, ::. For example:
+The compiler associates each name with the version of the name in the current scope.
+
+A declaration of a name in a block shadows the same name declarated in an enclosing block or a global name.
+
+Shadowing hides the names in the higher scopes.
+
+A hidden global name can still be referred to using the scope resolution operator, `::` For example:
+
+```{code-cell} c++
+
 int x;
-void main()
-{
-int x = 1; // hide global x
-::x = 2; // assign to global x
-x = 3; // assign to local x
+void main() {
+    int x = 3; // Intialise local x
+    ::x = 5;   // Initialise global x
+    x = 10;     // Assign to local x
 
-std::cout << x << '\n';
-std::cout << ::x;
-// ...
-} 
+    std::cout << x << '\n'; // print local x
+    std::cout << ::x;      // print global x
+}
 
-There is no way to use a hidden local name.
-
-
+```
+An exception is the loop variable in a `for` loop. Another variable cannot use its identifier or shadow the loop variable.
 
 
 ## Namespace
-Namespace is a language feature exclusively used to express scoping.
-Creating a namespace allows you to write sperate parts of a longer program without fear that the names used will not have been used elsewhere.
- 
-The standard library facilities are defined in namespace std, so to use them, you need an explicit qualification, a using declaration, or a using directive:
+Namespace is a language feature exclusively used to express scoping. 
 
+A namespace is a named scope, which is a separate container for related entities (variables, functions, classes etc.).
+
+Creating a namespace allows the programmer to write a part of a longer program separatedly and not worry about repeating a variable name.
+ 
+Entities decalared in a namespace can only be accessed by using the namespces' identifier and the {term}`scope resolution operator`. 
+
+Namespaces can also be nested if needed. 
+
+The standard library facilities are defined in namespace `std`, so to use entities from the stadard library we must use the explicit qualification `std::`.
+
+## Accessing Enities in a Namepace
+There are three ways to access the entities contained within a namespace
+
+- By explicit qualification, e.g. `myNamespace::myEntity`.
+- By a using declaration
+- By a using directive:
+
+```{code-block} c++
 std::string s; // explicit qualification
 
 using std::vector; // using declaration
-vector<int>v(7);
+vector<int> myVector(10);   // instead of std::vector<int> myVector(10);
 
 using namespace std; // using directive
-map<string, double> m; 
- 
-A member can be declared within a namespace definition and defined later using the namespacename :: member-name notation. Members of a namespace must be introduced using this notation:
+map<string, double> m;   //insted of std::map
+```
+```{tip}
+It is bad pratice to use a 'using directive'.
 
+The programmer can no longer resue any of the identifers in that namespace.
+
+It becomes difficult to keep track of where an identifer actually comes from
+```
+
+
+A member can be declared within a namespace definition and defined later using the `namespacename :: member-name` notation. 
+
+Members of a namespace must be introduced using this notation:
+```{code-block} c++
+:linenos:
 namespace namespace−name {
 	// declaration and definitions
 }
@@ -218,32 +232,4 @@ double pepper(bool) { return 5.0; }
 double Peter::piper(bool) {
 return 4.0;
 }
-
-##  Why Global Variables Should be Avoided
-
-**copied
-Cons of Using Global Variables
-
-Namespace Pollution: Global variables clutter the global namespace, increasing the risk of naming collisions, especially in large projects or when integrating third-party libraries.
-
-Reduced Modularity: They break the encapsulation of functions, making the code less modular and harder to maintain.
-
-Harder Debugging: Since global variables can be modified from anywhere, tracking down bugs caused by unintended changes becomes challenging.
-
-Performance Overhead: Accessing global variables is slower than accessing local variables due to the scope chain lookup.
-
-Security Risks: In browser environments, global variables are properties of the window object, making them accessible and modifiable by external scripts.
-
-Memory Consumption: Global variables persist for the lifetime of the program, potentially leading to higher memory usage.
-
-Compatibility Issues: Global variables can unintentionally override standard APIs or future browser features, causing compatibility problems.
-
-Best Practices
-
-To mitigate the risks of global variables:
-
-Use local variables whenever possible.
-
-Encapsulate variables within functions, modules, or classes.
-
-Use a namespace object to group related global variables and avoid collisions.
+```

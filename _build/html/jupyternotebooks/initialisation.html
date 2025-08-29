@@ -65,7 +65,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.bb9179c1-37d5-4b3f-bb9d-385f545b1107.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.5b4a0595-49c0-4da6-a889-23e3524522fe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/initialisation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -511,6 +511,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-declarations">Structure of Declarations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto">Auto</a></li>
@@ -551,6 +552,16 @@ document.write(`
 <p>This is done by a ‘default constructor’.</p>
 <p>Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value…</p>
 <p>Examples of Declarations – some do not work in current location – others need set up to proceed them.</p>
+<section id="declaration-good-practice">
+<h2>Declaration Good Practice<a class="headerlink" href="#declaration-good-practice" title="Permalink to this heading">#</a></h2>
+<p>Before the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:</p>
+<ul class="simple">
+<li><p>Constant declarations</p></li>
+<li><p>Function prototype declarations</p></li>
+</ul>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:</p>
+<p>*Variable declarations</p>
+</section>
 <section id="structure-of-declarations">
 <h2>Structure of Declarations<a class="headerlink" href="#structure-of-declarations" title="Permalink to this heading">#</a></h2>
 <p>The structure of a declaration is defined by the C++ grammar (§iso.A). This grammar evolved over four decades, starting with the early C grammars, and is quite complicated. However, without too many radical simplifications, we can consider a declaration as having five parts (in order):
@@ -728,6 +739,7 @@ auto x3{ 1.0,2 }; // error : cannot deduce the type of {1.0,2} (§6.3.6.2)</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-declarations">Structure of Declarations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto">Auto</a></li>

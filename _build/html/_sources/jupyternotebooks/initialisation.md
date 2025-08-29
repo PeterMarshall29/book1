@@ -38,6 +38,17 @@ Global built-in type variables are initialised with default of 0 – but you sho
 
 Examples of Declarations – some do not work in current location – others need set up to proceed them.
 
+## Declaration Good Practice
+
+Before the `main()` function put:
+
+* Constant declarations
+* Function prototype declarations
+
+Inside the `main()` function put:
+
+*Variable declarations
+
 
 ## Structure of Declarations
 The structure of a declaration is defined by the C++ grammar (§iso.A). This grammar evolved over four decades, starting with the early C grammars, and is quite complicated. However, without too many radical simplifications, we can consider a declaration as having five parts (in order):

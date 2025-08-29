@@ -37,7 +37,7 @@ Different countries with different symbol requirements for their keyboards (e.g.
 * char16_t: A type for holding 16-bit character sets, such as UTF-16.
 * char32_t: A type for holding 32-bit character sets, such as UTF-32.
 
-For more information see the C++ reference [here] (https://en.cppreference.com/w/cpp/language/types.html).
+For more information see the C++ reference [here](https://en.cppreference.com/w/cpp/language/types.html).
 ```
 Try the following code.
 ```{code-block} c++

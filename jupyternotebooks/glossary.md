@@ -38,6 +38,9 @@ Camel Case
 Case Sensitive
   Upper and lower case letters are iterprete as different symbols. If a keyword is all lower case, you must use all lower case. The name `myFunction` is distinct from the name `myfunction`. Adopting a strict convention for naming, such as {term}`camel case` makes it easier to avoid this mistake.      
 
+Casting to Type
+  def
+
 Char Type
   Type for representing individual characters. Character literals are enclosed by `' '`. Also an integer type - each character has an associate integer value.
 
@@ -72,7 +75,7 @@ Core Language
   def
 
 Copy Assignment
-  Replacement of the contents of one object with the contents of a second object; the second object is unaffected.
+  Replacement of the contents of one object with the contents of a second object; the second object is unaffected by the operation. Can also intitialise an object.
 
 CPU
   [Central Processing Unit](https://en.wikipedia.org/wiki/Central_processing_unit) is the electronic circuitry inside a computer that executes the machine code version of computer programmes.
@@ -107,6 +110,9 @@ Entities
 Escape Sequences
   Used in programming languages to represent special characters within a string or character literal. They are identified by the prefix backslash `\`. Examples are `\n`, `\t`, and `\\` to represent 'newline', 'tab' - and to identify that a backslash is just a back slash literal.
 
+Exception
+  def
+
 Executable File
   def
 
@@ -115,6 +121,9 @@ Expression
 
 Expression Statements
   An expression followed by a semicolon.
+
+Falling Through
+  When a program reaches the end of code block and just continues onto the next statements. Will be an error for a function if a return is expected, but permitted for `void`.
 
 Floating-Point Numbers
   Numbers with a decimal point. Represented in code by the addition of `.0` to whole numbers.
@@ -131,16 +140,19 @@ Function
 Function Argument
   The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
 
-Function Argument
+Function Arguments
   The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
 
 Function Body
   Sequence of statement to be executed when the function is called.
 
+Function Call
+  A function is 'called' or 'invoked' by a statement of the function name followed by the values to be passed to the function in parenthesis. Any value returned by the function can be used by {term}`copy assignment`.
+
 Function Declaration
   Statement of the name, types of any arguments and the return type of a function.
 
-Function Definiton
+Function Definition
   Function declarartion that include the {term}`function body`.
 
 Function Parameter
@@ -215,9 +227,11 @@ Memory
 Memory Management
   Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.
 
+Modulo
+  [Modulo](https://en.wikipedia.org/wiki/Modulo) operation returns the remainder after dividing the lhs number by the rhs number. In C++ this operation only applies to `int` type and is truncating, meaning the quotient, whether positive or negative, is rounded towards before the remainder is determine. Other langugages used 'floored' or 'rounded', and for every new language you will need to determine which is applied, because different results are produced.
 
 Modulo Operator
-  [Modulo](https://en.wikipedia.org/wiki/Modulo) operation returns the remainder after dividing the lhs number by the rhs number. In C++ this operation only applies to `int` type and is truncating, meaning the quotient, whether positive or negative, is rounded towards before the remainder is determine. Other langugages used 'floored' or 'rounded', and for every new language you will need to determine which is applied, because different results are produced. 
+  `%` Infix operator for modulo operationsthat  returns the remainder after dividing the lhs number by the rhs number. In C++ this operation only applies to `int` type and is truncating, meaning the quotient, whether positive or negative, is rounded towards before the remainder is determine. Other langugages used 'floored' or 'rounded', and for every new language you will need to determine which is applied, because different results are produced. 
 
 Name
   An identifier. (A minority of names are not identifiers - advanced). 
@@ -324,10 +338,19 @@ Type
  A type defines the proper use of a name or an expression.
 
 Type Casting
-  Converting a value of one type to another for assignment to a variable of the new type.
+  Assigning a value of a different type to an object of a new type. Casting/conversion can be implicit or explicit.
+
+Type Checking
+  The compiler checks every expression to ensure all objects are used correctly in accodance with their type. 
+
+Type Conversion
+  Alternative name for type casting. 
+
+Type Safety
+  The property that an object can be accessed only according to its definition. C++ is higly type safe, but a programmer can still violate type safety by explicit casting, by using an uninitialized variable, by using a pointer that doesn't point to an object, by accessing beyond the end of an array, and by misusing a union. Type safety must be preserved for a program to be correct and maintainable.
 
 Type System
-  def
+  The set of rules prescribing how each object may be used according to their types.
 
 Variable
   A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration - a named object in a scope.

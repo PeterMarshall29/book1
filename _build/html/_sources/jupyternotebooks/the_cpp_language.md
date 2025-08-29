@@ -170,6 +170,13 @@ Freestanding implementations are used when your code require the most minimal op
 A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library:  `<cstddef>`, `<cfloat>`, `<limits>`, `<climits>`, `<cstdint>`, `<cstdlib>`, `<new>`, `<typeinfo>`, `<exception>`, `<initializer_list>`, `<cstdalign>`, `<cstdarg>`, `<cstdbool>`, `<type_traits>`, and `<atomic>`.
 
 Some implementations provide a non-standard option that does not use exceptions for really minimal, bare metal programming (directly implemented on hardware).
+
+The C++ standard leaves some important features and rules to be implementation-defined. There is therefore much scope for unexpected behaviours between implementations.
+
+Programs often rely upon on implementation-defined behaviours. 
+
+To enable portability the programmed should always understand be clear about which features , it is wise to be explicit about what implementation-defined features are being used and to try to isolate implementation specific features to specific parts of the program - in separate files, functions etc. - then only these sections need be changed.
+
 ```
 
 
