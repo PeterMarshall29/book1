@@ -18,10 +18,39 @@ This page leads you through some basic exercies, much of the explanation is left
 
 In the Compuational Physics module, we are mainly concerned with writing code that will take user inputs, perform calculations, and then return 'answers' to the user. This requires us to learn only a subset of the C++ langugage and programming concepts.
 
+## Expressions and Statements
+
+A computer programme is a sequences of statements, which are executed sequentially.
+````{admonition} Types of Statement
+:class: dropdown
+C++ includes the following types of statements:
+* Labeled statements - adds a label to another type of statement, to allow control of the flow.
+* Expression statements
+* Compound statements
+* [Selection](selection) statements
+* [Iteration](iteration) statements
+* [Jump statements]
+````
+The simplest type of statement is an {term}`expression statement` - an expression followed by a terminator.
+
+Expression are sequences of operators and their operands, that specifies a computation.
+
+When the expression statement is executed, the expression is evaluated, producing a result which will have a {term}`value` and a {term}`type`.
+
+Statements are always terminated by either a semicolon `;` or by a {term}`code block` {...some code here...}, which may be empty or contain statements.
+
+Forgetting to terminate a statement correctly will result in a compile-time error. 
+```{tip}
+:class: margin
+The Visual Studio IDE indicates a missing `;` by highlighting the start of the next line of code.
+```
+A semicolon is a statement terminator, and by itself a statement, an {term}`empty statement` (null statement). 
+
+An expression statement without an expression is called a {term}`null statement`, which may be used to provide an empty body to a for or while loop, or to carry a label in the end of a compound statement.
 
 ## Basic Arithmetic Operations
 
-All programmeming languages carry out basic arithmetic operationrs. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
+All programmeming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
 
 `cout` can be used demonstrate the basic arithmetic operations. 
 

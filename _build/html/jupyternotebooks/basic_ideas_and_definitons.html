@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.580e4a92-25d8-4109-bb95-9455b3a8184c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.b1839c6b-fa31-4cd8-8e01-188a773d79ed.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -510,6 +510,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-statements">Expressions and Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic-operations">Basic Arithmetic Operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
@@ -531,9 +532,36 @@ document.write(`
 <p>Once you have learned a few more basic parts of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out the new concepts.</p>
 <p>This page leads you through some basic exercies, much of the explanation is left until later chapters, this page is not intended to present fully decriptions and definitions.</p>
 <p>In the Compuational Physics module, we are mainly concerned with writing code that will take user inputs, perform calculations, and then return ‘answers’ to the user. This requires us to learn only a subset of the C++ langugage and programming concepts.</p>
+<section id="expressions-and-statements">
+<h2>Expressions and Statements<a class="headerlink" href="#expressions-and-statements" title="Permalink to this heading">#</a></h2>
+<p>A computer programme is a sequences of statements, which are executed sequentially.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Types of Statement</p>
+<p>C++ includes the following types of statements:</p>
+<ul class="simple">
+<li><p>Labeled statements - adds a label to another type of statement, to allow control of the flow.</p></li>
+<li><p>Expression statements</p></li>
+<li><p>Compound statements</p></li>
+<li><p><a class="reference internal" href="selection_and_iteration.html#selection"><span class="std std-ref">Selection</span></a> statements</p></li>
+<li><p><a class="reference internal" href="selection_and_iteration.html#iteration"><span class="std std-ref">Iteration</span></a> statements</p></li>
+<li><p>[Jump statements]</p></li>
+</ul>
+</div>
+<p>The simplest type of statement is an <a class="reference internal" href="glossary.html#term-Expression-Statement"><span class="xref std std-term">expression statement</span></a> - an expression followed by a terminator.</p>
+<p>Expression are sequences of operators and their operands, that specifies a computation.</p>
+<p>When the expression statement is executed, the expression is evaluated, producing a result which will have a <a class="reference internal" href="glossary.html#term-Value"><span class="xref std std-term">value</span></a> and a <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a>.</p>
+<p>Statements are always terminated by either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or by a <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code block</span></a> {…some code here…}, which may be empty or contain statements.</p>
+<p>Forgetting to terminate a statement correctly will result in a compile-time error.</p>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Visual Studio IDE indicates a missing <code class="docutils literal notranslate"><span class="pre">;</span></code> by highlighting the start of the next line of code.</p>
+</div>
+<p>A semicolon is a statement terminator, and by itself a statement, an <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> (null statement).</p>
+<p>An expression statement without an expression is called a <a class="reference internal" href="glossary.html#term-Null-Statement"><span class="xref std std-term">null statement</span></a>, which may be used to provide an empty body to a for or while loop, or to carry a label in the end of a compound statement.</p>
+</section>
 <section id="basic-arithmetic-operations">
 <h2>Basic Arithmetic Operations<a class="headerlink" href="#basic-arithmetic-operations" title="Permalink to this heading">#</a></h2>
-<p>All programmeming languages carry out basic arithmetic operationrs. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.</p>
+<p>All programmeming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cout</span></code> can be used demonstrate the basic arithmetic operations.</p>
 <p>Type in the following and try the exercise.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;isotream&gt;</span>
@@ -820,6 +848,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-statements">Expressions and Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic-operations">Basic Arithmetic Operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>

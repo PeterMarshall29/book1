@@ -9,11 +9,15 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-
 # How to Learn C++
+Growth mind set bit..
 
 
-Growth mind set bit
+Practice, Practice, Practice..
 
-
+```{note}
+:class: margin
+{attribution="Bjarne Stroustrup - Inventor of C++" }
+> "If you never fail, your aren't trying hard enough"
+```
 

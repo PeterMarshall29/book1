@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.910be0e0-7663-4ea4-992c-fcc5a8bc50a7.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.adcf6321-3656-4994-bac3-07a5f5bed4e9.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/selection_and_iteration';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -512,6 +512,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">Selection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-statement">Jump Statement</a></li>
 </ul>
             </nav>
         </div>
@@ -525,28 +526,88 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="selection-and-iteration">
 <h1>Selection and Iteration<a class="headerlink" href="#selection-and-iteration" title="Permalink to this heading">#</a></h1>
-<p>Expressions
-C++ C++ language Expressions
-An expression is a sequence of operators and their operands, that specifies a computation.</p>
-<p>Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces the result 4) and may generate side-effects (e.g. evaluation of std::printf(“%d”, 4) prints the character ‘4’ on the standard output).</p>
-<p>Each C++ expression is characterized by two independent properties: A type and a value category.</p>
-<p>General
-value categories (lvalue, rvalue, glvalue, prvalue, xvalue(since C++11)) classify expressions by their values
-order of evaluation of arguments and subexpressions specify the order in which intermediate results are obtained</p>
+<p>Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a programme.</p>
+<p>The <span class="xref std std-term">control flow</span> refers to the order in which all its statements are executed.</p>
+<p>More literally <span class="xref std std-term">control flow</span> refers to the sequential flow of <em><strong>control</strong></em> through the program - i.e. the current statement has <em>control</em> of the processor.</p>
+<p><a class="reference internal" href="glossary.html#term-Control-Flow-Statements"><span class="xref std std-term">Control flow statements</span></a> break up the flow of execution, by transferring control of execution to the next statement by deciding between two possible paths.</p>
+<hr class="docutils" />
+<p>Without selection statements a program can only run from beginning to end - executing the same statements in the same order every time.</p>
+<p>Without iteration statement a program has to end - your phone’s program is constantly running because code is repeatedly executed in a loop.</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>‘Control Flow’ and ‘Flow Control’ are used almost interchangebly.</p>
+<p>Flow control, just refers to controlling the sequential flow of execution.</p>
+<p>Both refer to the mechanisms that dictate the order in which statements are executed in a program.</p>
+</div>
+<div class="admonition-statements-and-expressions admonition">
+<p class="admonition-title">Statements and Expressions</p>
+<p>A computer programme is a sequences of statements, which are executed sequentially.</p>
+<p>The order of the execution, is determined by the <span class="xref std std-term">control flow</span>
+A computer programme is a sequences of statements, which are executed sequentially.</p>
+<p>The simplest type of statement is an <a class="reference internal" href="glossary.html#term-Expression-Statement"><span class="xref std std-term">expression statement</span></a> - an expression followed by a terminator.</p>
+<p>Expression are sequences of operators and their operands, that specifies a computation.</p>
+<p>When the expression statement is executed, the expression is evaluated, producing a result which will have a <a class="reference internal" href="glossary.html#term-Value"><span class="xref std std-term">value</span></a> and a <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a>.</p>
+<p>Statements are always terminated by either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or by a <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code block</span></a> {…some code here…}, which may be empty or contain statements.</p>
+<p>Forgetting to terminate a statement correctly will result in a compile-time error.</p>
+<p>A semicolon is a statement terminator, and by itself a statement, an <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> (null statement).</p>
+<p>An expression statement without an expression is called a <a class="reference internal" href="glossary.html#term-Null-Statement"><span class="xref std std-term">null statement</span></a>, which may be used to provide an empty body to a for or while loop, or to carry a label in the end of a compound statement.
+Statements always terminate with either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or with a code block `{…some code here…}.</p>
+<p>A code block may be a compound statement, enclosing multiple statements.</p>
+<p>Forgetting to terminate a statement correctly will result in a compile-time error.</p>
+</div>
 <section id="selection">
-<h2>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">#</a></h2>
+<p>Selection statements conditonally changes the control flow.</p>
+<p>A decison is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.</p>
+<p>In C++ the selections statements are the <a class="reference internal" href="if_statements.html#if"><span class="std std-ref">if</span></a>-statement and the <a class="reference internal" href="switch_statements.html#switch"><span class="std std-ref">switch</span></a>-statement</p>
 </section>
 <section id="iteration">
-<h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this heading">#</a></h2>
 <p>As an example of iteration, consider the first program ever to run on a stored-program computer (the EDSAC).</p>
 <p>It was written and run by David Wheeler in the computer laboratory in Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:</p>
-<p>int i = 0;
-while (i &lt; 100) {
-std::cout &lt;&lt; i &lt;&lt; “\t” &lt;&lt; i * i &lt;&lt; “\n”;
-++i;
-}
-Its usually best to use a for loop – even if you want it to run forever – shown later on. If you know how many iterations are required, use a for loop. If you want it to possibly keep running still use a for loop – it cannot be set up without a condition.</p>
-<p>Iterations statements are the <code class="docutils literal notranslate"><span class="pre">for</span></code>-statement, the <code class="docutils literal notranslate"><span class="pre">while</span></code>-statement and the <code class="docutils literal notranslate"><span class="pre">do</span></code>-statement.</p>
+<div class="example dropdown admonition" id="examplep1">
+
+<p class="admonition-title"><span class="caption-number">example 4 </span></p>
+<section id="example-content">
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="explanation dropdown admonition" id="explanationp1">
+
+<p class="admonition-title">Explanation of<a class="reference internal" href="#examplep1"> Example 4</a></p>
+<section id="explanation-content">
+</section>
+</div>
+</section>
+</div>
+<p>Iterations statements are the <a class="reference internal" href="for_loops.html#for"><span class="std std-ref">for</span></a>-statement, the <a class="reference internal" href="while_loops.html#while"><span class="std std-ref">while</span></a>-statement, the do-while-statement, and the range-for statement.</p>
+<p>Its usually best to use a for loop – even if you want it to run forever – shown later on. If you know how many iterations are required, use a for loop. If you want it to possibly keep running still use a for loop – it cannot be set up without a condition.</p>
+</section>
+<section id="jump-statement">
+<h2>Jump Statement<a class="headerlink" href="#jump-statement" title="Permalink to this heading">#</a></h2>
+<p>Jump Statements unconditionally transfers control to another part of the programme.</p>
+<p>The available Jump Statements in C++ are.</p>
+<ul class="simple">
+<li><p>Break statement</p></li>
+<li><p>Continue statement</p></li>
+<li><p>Return statement with an optional expression</p></li>
+<li><p>Return statement using list initialization</p></li>
+<li><p>Goto statement</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">return</span></code> - control transfers to the statement following the funcion call.
+<code class="docutils literal notranslate"><span class="pre">break</span></code> - control transfers to the statement after the selection or iteration block.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -618,6 +679,7 @@ Its usually best to use a for loop – even if you want it to run forever – sh
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">Selection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-statement">Jump Statement</a></li>
 </ul>
   </nav></div>
 

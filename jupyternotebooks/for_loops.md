@@ -9,9 +9,13 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-
+(for)=
 # For loops
-
+```{note}
+:class: margin
+{attribution="Zeno of Elea" }
+> WHat has been said once can always be repeated.
+```
 Conditionally execute a statement, or code block, repeatedly.
 
 The code block itself does not usually have anything to do with the condition for continuation of iteration, but does often utilise the loop variable to change what happens on each iteration.

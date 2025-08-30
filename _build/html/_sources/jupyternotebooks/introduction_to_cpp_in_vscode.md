@@ -9,8 +9,24 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-
+(Visual Studio)=
 # C++ in Visual Studio
+
+Visual Studio is a comprehensive Integrated Development Environment (IDE) developed by Microsoft - we will be using the community edition for much of this module.
+
+VS is designed to facilitate the entire software development lifecycle, from writing and editing code to debugging, building, and deploying applications.
+
+A key benefit of an IDE, especially to new programmers, is the **syntax error highlighting** which warns you of issues that will prevent compilation.
+
+Others benefits are built-in debugging tools, a GUI file management system, and version control. 
+
+VS support development in many programming languages, including C++, C#, JavaScript, TypeScript, Python.
+
+Other IDE's are available, such as Xcode on MacOS. Xcode may be used for your project work on this module, but will not be supported.
+```{important}
+:class: margin
+Please note: VS and VS Code are different programmes.
+```
 ## Creating your first project in Visual Studio.
 Select Create a new project.
 

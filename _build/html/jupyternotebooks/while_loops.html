@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.cce6b888-9749-4374-a665-6cdf4800b6ab.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.200ac8b2-b518-4c2f-a900-f70c0d68b7e9.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-debc65c6-123d-40c0-b059-f47a4711f460] svg, .mermaid[data-zoom-id=id-dc473a94-2b39-488e-8bdb-42177b735796] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-ba8e42a1-e41d-425c-865c-770ccbd781eb] svg, .mermaid[data-zoom-id=id-c7565dc7-d597-43c3-8e1c-f96ca73026e6] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -565,8 +565,24 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="while-loops">
-<h1>While Loops<a class="headerlink" href="#while-loops" title="Permalink to this heading">#</a></h1>
-<p>Its generally better to use for loops in C++, but while loops exist too.</p>
+<span id="while"></span><h1>While Loops<a class="headerlink" href="#while-loops" title="Permalink to this heading">#</a></h1>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>It’s déjà vu all over again.</p>
+<p class="attribution">—Yogi Berra</p>
+</div></blockquote>
+</div>
+<figure class="align-default" id="my-fig-ref-t1">
+<img alt="../_images/programmingloops.svg" src="../_images/programmingloops.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">My figure title.</span><a class="headerlink" href="#my-fig-ref-t1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As an example of iteration, consider the first program ever to run on a
+stored-program computer (the EDSAC). It was written and run by David Wheeler
+in the computer laboratory in Cambridge University, England, on May 6, 1949,
+to calculate and print a simple list of squares like this:
+Its generally better to use for loops in C++, but while loops exist too.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-4">
 <thead>
 <tr class="row-odd"><th class="head"><p>Generic While Loop</p></th>
@@ -574,7 +590,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-debc65c6-123d-40c0-b059-f47a4711f460" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-ba8e42a1-e41d-425c-865c-770ccbd781eb" class="mermaid align-center">
         flowchart TD
   A([&quot;Program Flow Approaches the While Loop&quot;]) --&gt; B[&quot;Set Loop Variable&quot;]
   B --&gt; C{&quot;Check Termination Condition&quot;}
@@ -598,7 +614,7 @@ document.write(`
   linkStyle 5 stroke:#AA00FF,fill:none
   linkStyle 6 stroke:#AA00FF,fill:none0FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-dc473a94-2b39-488e-8bdb-42177b735796" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-c7565dc7-d597-43c3-8e1c-f96ca73026e6" class="mermaid align-center">
         flowchart TD
   A([&quot;Arrival&quot;]) --&gt; B[&quot;Set Loop Counter: Count = 1;&quot;]
   B --&gt; C{&quot;Check Counter &amp;lt; 100&quot;}
@@ -637,6 +653,14 @@ Notice that the conditional statement for both while and if are in parens.
 In this case – the loop condition is the receipt of a valid input.
 Try again but make the variable int’s. What happens if you type letters?
 Use Crtl+Z to end a loop. Ctrl+D in linux.</p>
+<p>int main()
+{
+int i = 0; // start from 0
+while (i&lt;100) {
+cout &lt;&lt; i &lt;&lt; ‘\t’ &lt;&lt; square(i) &lt;&lt; ‘\n’;
+++i; // increment i (that is, i becomes i+1)
+}
+}</p>
 <section id="loop-exit">
 <h2>Loop Exit<a class="headerlink" href="#loop-exit" title="Permalink to this heading">#</a></h2>
 <p>If the condition of an iteration statement is forgotten the loop will run until the program crashes - this can tie up a computer for a very long time.</p>
@@ -689,10 +713,7 @@ Use Crtl+Z to end a loop. Ctrl+D in linux.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>1</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
-</pre></div>
-</div>
+<p>1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19</p>
 </div>
 </div>
 </section>

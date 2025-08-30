@@ -9,10 +9,23 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-
+(while)=
 # While Loops
+```{note}
+:class: margin
+{attribution="Yogi Berra" }
+> It's déjà vu all over again.
+```
 
 
+```{figure} ../images/programmingloops.svg
+:name: my-fig-ref-t1
+My figure title.
+```
+As an example of iteration, consider the first program ever to run on a
+stored-program computer (the EDSAC). It was written and run by David Wheeler
+in the computer laboratory in Cambridge University, England, on May 6, 1949,
+to calculate and print a simple list of squares like this:
 Its generally better to use for loops in C++, but while loops exist too.
 
 
@@ -89,7 +102,14 @@ In this case – the loop condition is the receipt of a valid input.
 Try again but make the variable int’s. What happens if you type letters?
 Use Crtl+Z to end a loop. Ctrl+D in linux.
 
-
+int main()
+{
+int i = 0; // start from 0
+while (i<100) {
+cout << i << '\t' << square(i) << '\n';
+++i; // increment i (that is, i becomes i+1)
+}
+}
 
 
 ## Loop Exit
