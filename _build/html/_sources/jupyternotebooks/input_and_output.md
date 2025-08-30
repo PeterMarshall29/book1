@@ -18,36 +18,37 @@ Before learning to program these basic instructions it is difficult to make any 
 
 ***
 
-Type the following code into the empty code window below, add the missing programme statements, and run the completed code.
+
 
 ```{tip}
 :class: margin
 Don't forget to include `<iostream>` and `<string>` and to format the `main()` function correctly.
 ```
 
-```{code-block} cpp
+`````{example-start}
+:label: Examplec1
+:class: dropdown
+`````
+Type the following code into the empty code window below, add the missing programme statements, and run the completed code.
+````{code-block} cpp
 :linenos: 
 std::cout<<"Please type your surname!\n";
 std::string surname;
 std::cin >> surname;
 std::cout << "Hello, " << surname << "!\n";
 return 0;
-```
-
-```{code-cell} c++
+````
+````{code-cell} c++
 :tags: [remove-output]
 Type code here!
-```
-
+````
 ````{admonition} Code Explanation
 :class: dropdown
-
 `cin` is the character input stream, pronounced 'see - in'; used to read input from the keyboard.
 
 The input stream waits for the return key, taking any characters types in before {kbd}`return`
 
 `>>` is the input stream operator, also called the "get from" or "extraction" operator - directs where the input goes to - a variable name usually.
-
 ```{code-block} c++
 :linenos:
 #include <iostream>
@@ -62,7 +63,8 @@ int main() {
 ```
 `"Hello, "` is a string-literal. Surname is a named object of type `string`.
 ````
-
+`````{example-end}
+`````
 
 ````{exercise}
 :class: dropdown
@@ -81,7 +83,7 @@ std::cout << "Hello, " << fullName << "!\n";
 Any whitespace terminates the reading of the input string i.e. inlcuding space, tab, or newline (`\t`, `\n`).
 
 ```
-We obviously need to be able to type in several words, at the same time, separate by a {kbd}`space`. 
+Unsurprisingly we do sometime need to be able to type in several words at the same time, separated by a {kbd}`space`. 
 
 There are several methods open to us; depending on whether we may want each word recorded as a separate string, or just a long string with spaces..
 
@@ -103,12 +105,9 @@ The program expects two inputs, so the {kbd}`return` key will only move the curs
 More advanced methods are available to clean up some issues caused by potential variation in what is typed by the user.
 ```
 ````
-
-
 `````{exercise}
 :class: dropdown
-- Try the following code - which should work.
-
+Try the following code - which should work.
 ````{code-block} c++
 :linenos:
     int age = 58;
@@ -122,7 +121,7 @@ More advanced methods are available to clean up some issues caused by potential 
 - Try responding with 4 words, rather than 3 words and a number
 - Change the existing output line to print `surname * 2` and then try `surname + age`.
 
-````{admonition} Code Explanation
+````{admonition} Code Solution and Explanation
 :class: note dropdown
 
 This changed and add code lines should be similar to this.
@@ -148,9 +147,14 @@ This may not be sufficient, if you want to spot a rounding or truncation error.
 
 The actual value stored by the computer will have more digits, so a comparison of one against another may fail.
 
-The format that is printed to the screen can be formatted as follows.
 
-```{code-cell} cpp
+`````{example-start}
+:label: Examplec2
+:class: dropdown
+`````
+:class: dropdown
+The format that is printed to the screen can be formatted as follows.
+````{code-cell} cpp
 :tags: [remove-output]
 :linenos:
 #include <iostream>
@@ -158,7 +162,7 @@ int main(){
 std::cout << std::defaultfloat << 12345.987654321 << "  " << std::scientific << 123456789 << "  " << std::fixed << 0.123456789 << '\n';
 return 0;
 }
-```
+````
 `std::defaultfloat` is the what would happen if nothing was set, used when you want to return to the default.
 
 `std::scientific` formats the number in to scientific notation, and to have 6 digits after the decimal point.
@@ -169,7 +173,7 @@ The precision used for these options may also be set.
 
 After including the `<iomanip>` component of the Standard Library,  `<< std::setprecision()` controls the pecision of what follows.
 
-```{code-cell} cpp
+````{code-cell} cpp
 :tags: [remove-output]
 :linenos:
 #include <iostream>
@@ -178,17 +182,20 @@ int main(){
 std::cout << std::setprecision(64) << sin(acos(-1) / 4) << "  " << sin(std::numbers::pi/4)<< "  " << sqrt(2) / 2 << '\n';
 return 0;
 }
-```
-
-
+````
+`````{example-end}
+`````
 
 ## getline()
 
 An alternative to `cin` is to use getline(), which will ignore whitespace and collecte every character before {kbd}`return` into a single string.
 
 The downside is that you may need to split up the string later. See [<sstream>](https://en.cppreference.com/w/cpp/io/basic_stringstream.html) for further information on how to separate a string.
-
-```{code-cell} c++
+`````{example-start}
+:label: Examplec3
+:class: dropdown
+`````
+````{code-cell} c++
 :tags: [remove-output , raises-exception , skip-execution]
 :linenos:
 #include <iostream>
@@ -199,9 +206,11 @@ int main() {
 	std::cout << sentence << std::endl;
 	return 0;
 }
-```
+````
 The `getline()` function takes two arguments. The name of input stream and the name of the string to write to.getline(std::cin, sentence); 
 
 `std::endl` inserts a newline character into the the output sequence and is therefore almost the same as `'\n'`.
 
 `endl` additionally flushes the output stream, forces the output to appear in real time; advancd issue. 
+`````{example-end}
+`````

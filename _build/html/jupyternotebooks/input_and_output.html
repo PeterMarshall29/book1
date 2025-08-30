@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.3e2017b4-c025-44d5-a5fd-eae3a4733fe1.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.4b29bac5-49b8-47c5-9340-f41269f707bc.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/input_and_output';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -528,11 +528,15 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> allows users to interact with programmes, by providing additional commands for programming the computer to print information on the monitor/screen and accept input via the keyboard.</p>
 <p>Before learning to program these basic instructions it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.</p>
 <hr class="docutils" />
-<p>Type the following code into the empty code window below, add the missing programme statements, and run the completed code.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Don’t forget to include <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> and to format the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function correctly.</p>
 </div>
+<div class="example dropdown admonition" id="Examplec1">
+
+<p class="admonition-title"><span class="caption-number">example 5 </span></p>
+<section id="example-content">
+<p>Type the following code into the empty code window below, add the missing programme statements, and run the completed code.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
 <span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
@@ -565,9 +569,11 @@ document.write(`
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">&quot;</span></code> is a string-literal. Surname is a named object of type <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
 </div>
-<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-0">
+</section>
+</div>
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
 <section id="exercise-content">
 <p>Try the following code. Use the above code box.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span>
@@ -581,7 +587,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">cin</span></code> stops recording the input when it encounters the first whitespace, following any character (initial whitespace is ignored). Code still waits for <kbd class="kbd docutils literal notranslate">return</kbd>.</p>
 <p>Any whitespace terminates the reading of the input string i.e. inlcuding space, tab, or newline (<code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
 </div>
-<p>We obviously need to be able to type in several words, at the same time, separate by a <kbd class="kbd docutils literal notranslate">space</kbd>.</p>
+<p>Unsurprisingly we do sometime need to be able to type in several words at the same time, separated by a <kbd class="kbd docutils literal notranslate">space</kbd>.</p>
 <p>There are several methods open to us; depending on whether we may want each word recorded as a separate string, or just a long string with spaces…</p>
 <p>Try the following code.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
@@ -599,13 +605,11 @@ document.write(`
 </div>
 </section>
 </div>
-<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-1">
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
 <section id="exercise-content">
-<ul class="simple">
-<li><p>Try the following code - which should work.</p></li>
-</ul>
+<p>Try the following code - which should work.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">58</span><span class="p">;</span>
 <span class="linenos">2</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Dr&quot;</span><span class="p">;</span>
 <span class="linenos">3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
@@ -620,7 +624,7 @@ document.write(`
 <li><p>Change the existing output line to print <code class="docutils literal notranslate"><span class="pre">surname</span> <span class="pre">*</span> <span class="pre">2</span></code> and then try <code class="docutils literal notranslate"><span class="pre">surname</span> <span class="pre">+</span> <span class="pre">age</span></code>.</p></li>
 </ul>
 <div class="note dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<p class="admonition-title">Code Solution and Explanation</p>
 <p>This changed and add code lines should be similar to this.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type salutation, followed by your first name, followed by your surname, followed by your age</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -639,7 +643,16 @@ document.write(`
 <p>The default output for a floating point number is 6 digits. The number is rounded to give the best approximation that can be printed with 6 digits.</p>
 <p>This may not be sufficient, if you want to spot a rounding or truncation error.</p>
 <p>The actual value stored by the computer will have more digits, so a comparison of one against another may fail.</p>
-<p>The format that is printed to the screen can be formatted as follows.</p>
+<div class="example dropdown admonition" id="Examplec2">
+
+<p class="admonition-title"><span class="caption-number">example 6 </span></p>
+<section id="example-content">
+<dl class="myst field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dropdown
+The format that is printed to the screen can be formatted as follows.</p>
+</dd>
+</dl>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -669,10 +682,16 @@ document.write(`
 </div>
 </div>
 </section>
+</div>
+</section>
 <section id="getline">
 <h2>getline()<a class="headerlink" href="#getline" title="Permalink to this heading">#</a></h2>
 <p>An alternative to <code class="docutils literal notranslate"><span class="pre">cin</span></code> is to use getline(), which will ignore whitespace and collecte every character before <kbd class="kbd docutils literal notranslate">return</kbd> into a single string.</p>
 <p>The downside is that you may need to split up the string later. See <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_stringstream.html"><sstream></a> for further information on how to separate a string.</p>
+<div class="example dropdown admonition" id="Examplec3">
+
+<p class="admonition-title"><span class="caption-number">example 7 </span></p>
+<section id="example-content">
 <div class="cell tag_remove-output tag_raises-exception tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -690,6 +709,8 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function takes two arguments. The name of input stream and the name of the string to write to.getline(std::cin, sentence);</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::endl</span></code> inserts a newline character into the the output sequence and is therefore almost the same as <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">endl</span></code> additionally flushes the output stream, forces the output to appear in real time; advancd issue.</p>
+</section>
+</div>
 </section>
 <div class="toctree-wrapper compound">
 </div>

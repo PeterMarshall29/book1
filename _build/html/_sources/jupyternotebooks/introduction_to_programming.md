@@ -104,9 +104,11 @@ If you are not able to deconstruct the task into a series of instructions that c
 
 An {term}`algorithm` is a sequence of steps that, when followed exactly, always lead to the task being completely correctly.
 
+````{note}
+:class: margin
 {attribution="Bjarne Stroustrup - Creator of C++"}
 > Programming is understanding
-
+````
 The process of writing a programme can be reduced to four stages 
 
 - Analysis of the problem: 
@@ -270,6 +272,10 @@ There are many types of error, but three classifications to understand at this p
 - Compile time errors: found by compiler and easily fixed.
 - Link-time errors: found by linker - more difficult. 
 - Run-time, or logic, errors, or logic errors, occur after successful creation of the .exe file. Too late to fix - people may have died!
+
+An ill-formed C++ program is one that violates the rules of the C++ language, either in terms of syntax or semantics, as defined by the C++ standard. 
+
+Ill-formed programmes contain errors that prevent it from being valid or correctly interpreted by the compiler.
 
 ## Errors In Calculations 
 

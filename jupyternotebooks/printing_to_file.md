@@ -20,9 +20,16 @@ Try the following code: make sure you can find the file created, and check its c
 
 The location of the file can be set by the programmer.
 
-Using Visual Studio, without specifying more than the file name, the file will be found in c://users/YourUserName/source/repo/nameOfYourProject/nameOfYourProject/
+Using Visual Studio, without specifying more than the file name, the file will be found in 
 
-```{code-block} cpp
+```{code-block} rust 
+C://users/YourUserName/source/repos/nameOfYourProject/nameOfYourProject/newFileName.txt
+```
+`````{example-start}
+:label: Exampled1
+:class: dropdown
+`````
+````{code-block} cpp
 :linenos:
 #include <iostream>
 #include <string>
@@ -48,8 +55,7 @@ int main() {
     outputFileStream.close();
     return 0;
 }
-```
-
+````
 ````{admonition} Code Explanation
 :class: note dropdown
 
@@ -84,6 +90,8 @@ If the file stream fails to open, the stream is in the `bad()` state, which may 
   - Truncates the file to 0 length  
 ```
 ````
+`````{example-end}
+`````
 
 ## Adding Data to a File
 

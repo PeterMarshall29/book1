@@ -29,7 +29,7 @@ For example, the statements inside different functions are said to have differen
 The scope of each named object determines where the object may be used - named objects can only be accessed within their own scope.
 
 ```{important}
-:class: dropdown
+:class: margin
 A named object can only be used within its scope.
 ```
 
@@ -55,7 +55,11 @@ Function scopes:
 Used to access a named object in a particular namespace.
 ```
 
-```{code-cell} c++
+`````{example-start}
+:label: exampleg1
+:class: dropdown
+`````
+````{code-cell} c++
 :tags: [remove-output]
 #include <iostream>
 #include <string>
@@ -66,22 +70,21 @@ int main()
     std :: cout << x;
 	return 0;
 }
-```
-
+````
 ````{admonition} Code Explanation
 :class: dropdown
 ```{code-block} c++
 int x = 10;
 ```
 Declares an object of integer type with {term}`global scope`.
-
 ```{code-block} cpp
 int main() {
 **code statements go here**
 }
 ```
 ````
-
+`````{example-end}
+`````
 ## Global Variables
 A variable with {term}`global scope` is declared outside of all functions and classes. 
 
@@ -149,7 +152,11 @@ Shadowing hides the names in the higher scopes.
 
 A hidden global name can still be referred to using the scope resolution operator, `::` For example:
 
-```{code-cell} c++
+`````{example-start}
+:label: exampleg2
+:class: dropdown
+`````
+````{code-cell} c++
 :tags: [remove-output]
 int x;
 void main() {
@@ -160,8 +167,10 @@ void main() {
     std::cout << x << '\n'; // print local x
     std::cout << ::x;      // print global x
 }
+````
+`````{example-end}
+`````
 
-```
 An exception is the loop variable in a `for` loop. Another variable cannot use its identifier or shadow the loop variable.
 
 
@@ -185,6 +194,10 @@ There are three ways to access the entities contained within a namespace
 - By a using declaration
 - By a using directive:
 
+`````{example-start}
+:label: exampleg3
+:class: dropdown
+`````
 ```{code-block} c++
 std::string s; // explicit qualification
 
@@ -195,11 +208,16 @@ using namespace std; // using directive
 map<string, double> m;   //insted of std::map
 ```
 ```{tip}
+:class: dropdown
 It is bad pratice to use a 'using directive'.
 
 The programmer can no longer resue any of the identifers in that namespace.
 
 It becomes difficult to keep track of where an identifer actually comes from
+```
+`````{example-end}
+`````
+
 ```
 A member can be declared within a namespace definition and defined later using the notation:
 ```{code-block} c++

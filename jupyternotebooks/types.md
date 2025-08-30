@@ -76,7 +76,7 @@ Casting may be implicit or explicit.
 
 ### Implicit Casting
 ````{admonition} Type Promotion Hierarchy
-:class: note margin dropdown
+:class: tip margin 
 ```{mermaid}
 :align: center
 :zoom:
@@ -114,9 +114,12 @@ For numeric values - this is called type promotion - the type with the smallest 
 
 Type promotion occurs in arithmetic expressions, when the types are mismatched, but convertable, and in functions, if the passed in types is smaller than the expected type.
 
-
-For example, in the following code, a has been promoted to type `double from type `int`.
-```{code-cell} c++
+`````{example-start}
+:label: examplef1
+:class: dropdown
+`````
+In the following code, 'a' has been promoted to type `double` from type `int`.
+````{code-cell} c++
 :tags: [remove-output]
 #include <iostream>
 #include <typeinfo>
@@ -125,17 +128,15 @@ int main() {
     double b = 2.0;
     std::cout << typeid(a + b).name() << '\t' << a + b  << '\n'; 
 }
-```
-
+````
 ```{exercise}
 :class: dropdown
-
 Try the following:
-
 - Used some other types and check the hierarchy in the margin is correct.
 - What happen if you use (a + 6l)
 ```
-
+`````{example-end}
+`````
 Type promotion can cause problems, and needs to be considered carefully if you want to rely on your calculations - but less often than type demotion.
 
 ### Explicit Casting
@@ -155,8 +156,11 @@ c-stlye cast can also be used:
 
 It is tremendously useful to be able to check the type of a variable.
 
-
-```{code-cell} c++
+`````{example-start}
+:label: examplef2
+:class: dropdown
+`````
+````{code-cell} c++
 :tags: [remove-output]
 #include <iostream>
 #include <string>
@@ -171,11 +175,8 @@ int main() {
     std::cout << typeid(myInt).name()  << '\t' << typeid(myBool).name() << '\t' << typeid(myDouble).name() << '\t' << typeid(myChar).name() << '\t' << typeid(myString).name() << '\n';
     return 0;
 }
-```
-
+````
 This produces more easily understood values for the primitive types. 
-
-
 ````{exercise}
 :class: dropdown
 Use typid on a function.
@@ -197,7 +198,8 @@ The function type is `int (int, double)`.
 `__cdecl` refers to the calling convention of a function, different compilers may handle this differently - not important now.
 ```
 ````
-
+`````{example-end}
+`````
 ## Deducing a Type: auto and decltype()
 
 C++ provides two mechanisms for deducing a type from an expression - or rather for reporting the type that is already known to the compiler.

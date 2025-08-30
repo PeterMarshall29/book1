@@ -16,14 +16,7 @@ kernelspec:
 {attribution="Yogi Berra" }
 > When you get to a fork in the road, take it.
 ```
-
-
-If statements are found in most programming languages.
-The C++ patter is if..elif..else.
-
-
-
-The if-statement is used to chose between two possible paths..
+The if-statement is used to chose between two possible paths.
 
 At its simplest, an if block can change something depending on a condition
 
@@ -32,6 +25,113 @@ The syntax of the if-statement is:
 ```{code-block} c++
 if (condition) { Code block to execute if condtion is true } 
 ```
+
+
+
+`````{admonition} If-Statements in Other Languages
+:class: note dropdown
+
+If statements are found in most programming languages.
+The C++ patter is if..elif..else.
+
+Some languages have an 'elseif' or similar, but c++ nest if-else statements. 
+
+````{tab} C++
+```{code-block} c++
+#include <iostream>
+int number = 0; 
+if (number < 0) {
+    cout << "Negative number"; 
+} else if (number > 0) { 
+  cout << "Positive number"; 
+} else { 
+  cout << "Zero"; 
+}
+```
+````
+````{tab} C#
+```{code-block} cs
+int number = 0;
+if (number < 0) {
+  Console.WriteLine("Negative number");
+} else if (number > 0) {
+  Console.WriteLine("Positive number");
+} else {
+  Console.WriteLine("Zero");
+}
+```
+````
+````{tab} Java
+```{code-block} java
+int number = 0;
+if (number < 0) {
+  System.out.println("Negative number");
+} else if (number > 0) {
+  System.out.println("Positive number");
+} else {
+  System.out.println("Zero");
+}
+```
+````
+````{tab} Javascript
+```{code-block} javascript
+const number = 0;
+if (number < 0) {
+  Console.Log("Negative number");
+}
+else if (number > 0) {
+  Console.Log("Positive number");
+}
+else {
+  Console.Log("Zero");
+}
+```
+````
+````{tab} Python
+```{code-block} python
+number = 0
+if number < 0:
+    print('Negative number')
+elif number > 0:
+    print('Positive number')
+else:
+    print('Zero')
+```
+````
+````{tab} Ruby
+```{code-block} ruby
+number = 0
+if number < 0
+  puts "Negative number"
+elsif number > 0
+  puts "Positive number"
+else
+  puts "Zero"
+```
+````
+````{tab} julia
+```{code-block} julia
+number = 0
+if (number > 0)
+    println("Positive")
+elseif (number < 0)
+    println("Negative number")
+else
+    println("Zero")
+end
+```
+````
+````{tab} ada
+```{code-block} ada
+if a > 0 then
+      Put_Line("yes");
+else
+      Put_Line("no");
+end if;
+```
+````
+`````
+
 
 
 `````{example-start}
@@ -55,7 +155,7 @@ int main() {
 ````
 ````{explanation} exampleq1
 :label: explanationq1
-:class: dropdown
+:class: dropdown note
 ```{code-block} c++
 (answer == '42') 
 ```
@@ -67,8 +167,6 @@ More correctly, the condition is evaluated. It it evaluates to the boolean value
 
 
 The progam works - ied does basically work.
-
-
 ````
 `````{example-end}
 `````
@@ -76,7 +174,7 @@ The progam works - ied does basically work.
 
 `````{example-start}
 :label: exampleq2
-:class: dropdown
+:class: dropdown note
 `````
 Try this code:
 ````{code-cell}  c++
@@ -118,90 +216,3 @@ Every possible way to exit a selection, iteration, or function must have either 
 
 
 
-Try this code:
-int x = 0;
-int y = 0;
-std::cout << "Please enter two integral values: \n";
-std::cin >> x >> y;
-if (x < y) {
-		std::cout << "The maximum value = max(" << x << "," << y << ") is " << y << 		". \n";
-		} else {
-		std::cout << "The maximum value = max(" << x << "," << y << ") is " << x << 		". \n";
-		}	
-Code basically works except does not  return the value if two identical values are entered – also behaves oddly if first number is a double – takes part before the decimal point then reports having received the second part as 0 without pause. If second is a double, it rounds or ignores what is after the decimal point. 
-This fixes part of the issue – other issues left as an exercise.
-if (x < y) {
-std::cout << "The maximum value = max(" << x << "," << y << ") is " << y << ". \n";
-}
-else if (x > y) {
-std::cout << "The maximum value = max(" << x << "," << y << ") is " << x << ". \n";
-}
-else {
-std::cout << "The values are identical. \n";
-}
-
-
-
-
-````{tab} C++
-```{code-block} c++
-#include <iostream>
-int main() {
-  std::cout << "Hello, World!" << std::endl;
-}
-```
-````
-````{tab} C
-```{code-block} c
-#include <iostream>
-if (a > 0) { 
-    puts("yes");
-}
-else {
-    puts("no");
-}
-```
-````
-
-
-````{tab} Java
-```{code-block} java
-public class HelloWorldProgram {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!");
-  }
-}
-```
-````
-````{tab} Javascript
-```{code-block} javascript
-console.log("Hello, World!");
-```
-````
-````{tab} Python
-```{code-block} python
-if a > 0: 
-    print("yes")
-else:
-    print("no")
-```
-````
-````{tab} R
-```{code-block} r
-print("Hello, World!")
-```
-````
-````{tab} julia
-```{code-block} julia
-"Hello, World!"
-```
-````
-````{tab} ada
-```{code-block} ada
-if a > 0 then
-      Put_Line("yes");
-else
-      Put_Line("no");
-end if;
-```
-````

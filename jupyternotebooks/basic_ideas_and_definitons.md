@@ -54,34 +54,39 @@ All programmeming languages carry out basic arithmetic operations. Normally we d
 
 `cout` can be used demonstrate the basic arithmetic operations. 
 
+`````{example-start}
+:label: Exampleb1
+:class: dropdown
+`````
 Type in the following and try the exercise.
-
-```{code-block} cpp
+````{code-block} cpp
 :linenos: 
 #include <isotream>
 int main() {
     std::cout << 4 + 7;
     return 0;
 }
-```
-
-```{code-cell} c++
+````
+````{code-cell} c++
 :tags: [remove-output]
 Type code here!
-```
+````
 The programme evaluates the expression `4 + 7` before sending the result to the character output stream (the screen).
-
-```{exercise}
+````{exercise}
 :class: dropdown
-Try the operators -,*,/ and %. What does the % operator do? Why might that be useful?
-
+- Try the operators -,*,/ and %. 
+- What does the % operator do? 
+- Why might that be useful?
+```{admonition} Code Explanation
+:class: dropdown
 The {term}`Modulo operator` may be new to you. See Wiki for more information:
 
 [Modulo](https://en.wikipedia.org/wiki/Modulo) : See Wiki for more information:
 
 The try using `-` as a prefix on a number, what effect does that have?
-```
-
+````
+`````{example-end}
+`````
 ## Variables
 
 A computer programme that can only perform arithmetic on the values written into the original programme code would not be very useful.
@@ -98,9 +103,13 @@ To create a variable named 'a' that holds the integer value of 5, we can used th
 
 After this statement in the programme, the variable `a` may be used anywhere that we want to use it's value of `5`
 
-Type in the following code.
+`````{example-start}
+:label: Exampleb2
+:class: dropdown
+`````
+Type in the following code and try the Exercise.
 
-```{code-block} cpp
+````{code-block} cpp
 :linenos: 
 #include <isotream>
 int main() {
@@ -108,27 +117,28 @@ int main() {
     std::cout << a;
     return 0;
 }
-```
-
-```{code-cell} c++
+````
+````{code-cell} c++
 :tags: [remove-output]
 Type code here!
-```
+````
 
 When the programme gets to `a` following the `<<` operator it sends the value of `a` to the screen, not the letter 'a'.
 
 ````{exercise}
-:label: exercised0
+:label: exerciseb1
 :class: dropdown
 What would happen if you now declaring a second variable `b` and intstruct the program to print out `a + b`?
 
 Try it in the code space above.
-```{solution} exercised0
-:label: solutiond0
-:class: dropdown
+```{solution} exerciseb1
+:label: solutionb1
+:class: dropdown note
 Now the program has evaluated the arithmetic sum of the values contained in `a` and `b` - and sent that single value to the character output stream.
 ```
 ````
+`````{example-end}
+`````
 ## Strings
 Another useful type of variable is the `string` type. A {term}`string` is a series of individual characters. 
 
@@ -136,10 +146,11 @@ To use string-type variables we need an additional component of the standard lib
 
 The string literal must be enclosed in `""`. 
 
-`````{exercise-start}
-:label: exerciseb1
+`````{example-start}
+:label: Exampleb3
 :class: dropdown
 `````
+Try the following Code and complete the exercise.
 ````{code-block} cpp
 :linenos: 
 #include <isotream>
@@ -154,37 +165,32 @@ int main() {
 :tags: [remove-output, skip-execution]
 Type code here!
 ````
-`````{exercise-end}
-`````
-
-
-
-`````{exercise-start}
-:label: exerciseb2
-:class: dropdown
-`````
+````{exercise}
 Try adding a second variable, b, with a value of "-fingers", and then try printing out the value of `a + b` again.
 
-```{code-cell} c++
-:tags: [remove-output]
-Type code here!
-```
-````{admonition} Code Explanation
+```{admonition} Code Explanation
 :class: dropdown
 If done correctly, you will have demonstrated that `+` operator behaves differently when used with differnt data types. 
 
 For a {term}`numeric data type` it performs 'addition', but for the {term}`string data type` it performs {term}`concatenation`.
+```
 ````
-`````{exercise-end}
+`````{example-end}
 `````
+
+
+
 
 ## More Data Types
 
 In addition to strings, and integers, we need variable from the {term}`floating-point number types` and {term}`char type`.
 
+`````{example-start}
+:label: Exampleb4
+:class: dropdown
+`````
 Correct the following code and add a line to print out all the named variables, separated by tabs.
-
-```{code-cell} c++
+````{code-cell} c++
 :tags: [remove-output, skip-execution]
 int main(){
 int age = 58;
@@ -194,10 +200,9 @@ double c = 3.0e-8;
 char middleInitial = 'J';
 return 0;
 }
-```
-```{admonition} Code Explanation
+````
+````{admonition} Code Explanation
 :class: note dropdown
-
 Single quotes denote a {term}`char type`. 
 
 `Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
@@ -207,11 +212,9 @@ Scientific notation is formated using a lower or upper case `e` between the sign
 `int` is the keyword for the {term}`integer type`. 
 
 `int` may be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long, `long long`. The modifiers may be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char, and `long` may precede `double`.
-
-```
-
-
-
+````
+`````{example-end}
+`````
 `````{exercise-start}
 :label: exerciseb3
 :class: dropdown
@@ -232,6 +235,7 @@ return 0;
 ````{solution} exerciseb3
 :class: note dropdown
 :label: solutionb3
+
 ```{code-block} cpp
 #include <iostream>
 #include <string>

@@ -14,7 +14,7 @@ kernelspec:
 ```{note}
 :class: margin
 {attribution="Zeno of Elea" }
-> WHat has been said once can always be repeated.
+> What has been said once can always be repeated.
 ```
 Conditionally execute a statement, or code block, repeatedly.
 
@@ -102,9 +102,8 @@ The code block itself does not usually have anything to do with the condition fo
       linkStyle 8 stroke:#AA00FF
     ```
 ```
-
-
 The management of what controls the loop happens inside the argument to the for command.
+
 The syntax is `for (loop variable definition and initialisation; condition to continue the loop; increment to loop variable instruction) { code to execute}`
 
 Without the increment, which is not required, the loop just runs forever but you can also affect the condition that is checked every time from inside the code block.
@@ -118,8 +117,6 @@ std::cout << i << "\t" << i * i << "\n";
 }
 ```
 The highlighted code statements are repeated as many times as required by the `for` statement.
-
-
 ````{admonition} Code Explanation
 :class: dropdown
 
@@ -145,7 +142,6 @@ The for loop runs until this condition become true. The condition must be an exp
 
 **After** executing the for-loops code block, the loop variable is increased or decreased according to this instruction.
 ```
-
 ````
 
 ust equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
@@ -172,9 +168,11 @@ int main() {
 If the final value of an index needs to be known after exit from a for-loop, the index variable must
 be declared outside the for-loop (e.g., see 9.6).
 If no initialization is needed, the initializing statement can be empty.
+## Forever
 
 
-
+The curious notation for(;;) is a way to specify an infinite loop; you could pronounce it "forever".
+Behaves the same as while(true)
 
 ## Single Commands
 If there is only a single statement i.e. not a whole code block of statements, then the statement can simply be placed after for-statement, and closed with;

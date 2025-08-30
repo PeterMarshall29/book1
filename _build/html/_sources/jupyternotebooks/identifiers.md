@@ -16,10 +16,10 @@ Most entities in the C++ language have an identifier (a name).
 
 Writing a program usually required additional instances of entities to be created by the programmer and each must be given unique identifier.
 
-```{admonition} No Spaces in Identfiers!
+```{admonition} No Whitespace in Identfiers!
 :class: margin warning
 Whitespace is not permitted in identifiers/names.
-Longer names are broken up using underscores or [Camel Case2](https://en.wikipedia.org/wiki/Camel_case).
+Longer names are broken up using underscores or [Camel Case](https://en.wikipedia.org/wiki/Camel_case).
 Special symbols are not permitted.
 ```
 Identifiers are then used to identify entities in the program text, such as variables, functions and classes.
@@ -44,7 +44,7 @@ Other words may beused as identifiers, unless they have already been used in the
 
 
 ````{admonition} Rules For Valid Identifiers
-:class: dropdown note
+:class: dropdown 
 The options for the first character are: 
 
 * Any uppercase Latin letter, i.e. `A-Z`
@@ -90,7 +90,7 @@ Certain words in a C++ program have special meaning, known as {term}`keywords`, 
 
 The reserved keywords may not be used as object names.
 
-There are a list of reserved [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keyword.html).
+Here is a list of reserved [keywords](https://en.cppreference.com/w/cpp/keyword.html)in the C++ language from the CPP reference.
 
 ## Declaration
 ```{tip}
@@ -106,23 +106,24 @@ Before a name (identifier) can be used in a C++ program, it must be declared. Th
 ````{admonition} Examples of Declarations
 :class: dropdown note
 
-```{code-block} c++
+```{code-block} 
 :linenos:
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <string>
 char myChar;
 std::string myString;
-auto count = 1;  
-const double pi {3.1415926535897};
+auto count = 1;
+const double pi{ 3.1415926535897 };
 const char* myPlace = "lboro";
 const char* season[] = { "spring", "summer", "fall", "winter" };
 std::vector<std::string> ourPeople{ "Kelly", "Sasha", "Mark", "Anna", "Steve", "Sarah", "Peter" };
 double std::sqrt(double);  //function declaration - parameter name optional
 struct Date { int d = 3, m, y; };    //struct declaration
-int day(Date * p) { return p −> d; };
-template<class T> T abs(T a) { return a < 0 ? −a : a; };
-constexpr int fac(int n) { return (n < 2) ? 1 : n*fac(n−1); } ;
+int day(Date* p) { return p−>d; }
+template<class T> T abs(T a) { return a < 0 ? -a : a; };
+constexpr int fac(int n) { return (n < 2) ? 1 : n * fac(n−1); }
 ```
 ````
 ### The Structure of Declarations

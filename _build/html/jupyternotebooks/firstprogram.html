@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.a39b23aa-c5df-419e-b766-7db7a88618b3.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.9c1e9f9f-db00-4d71-b815-ffc4d2db27db.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/firstprogram';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -510,7 +510,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-comments">Adding Comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-comments">C++ Comments</a></li>
 </ul>
             </nav>
         </div>
@@ -595,6 +595,10 @@ All c++ programs require a <code class="docutils literal notranslate"><span clas
 <p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> specifies what the function produces (returns).</p>
 <p>If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.</p>
 </div>
+<div class="margin admonition seealso">
+<p class="admonition-title">See also</p>
+<p>More information about the structure of the <a class="reference internal" href="the_cpp_language.html"><span class="doc std std-doc">C++ language</span></a>.</p>
+</div>
 <div class="exercise dropdown admonition" id="exercisea1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
@@ -620,12 +624,6 @@ All c++ programs require a <code class="docutils literal notranslate"><span clas
 <p><code class="docutils literal notranslate"><span class="pre">std::</span></code> denotes the namespace that <code class="docutils literal notranslate"><span class="pre">cout</span></code> belongs to (similar to a folder designation, provided you have included it).</p>
 <ul class="simple">
 <li><p>To include components of the standard library angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> are used, but we can also include additional code written by the programmer in <a class="reference internal" href="header_files.html"><span class="doc">**header files**</span></a>, which are included using speechmarks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;myheaderfile.h&quot;</span></code>.</p></li>
-</ul>
-<div class="dropdown admonition seealso">
-<p class="admonition-title">See also</p>
-<p>More on the structure of the C++ language can be found <a class="reference internal" href="the_cpp_language.html"><span class="doc">here</span></a></p>
-</div>
-<ul class="simple">
 <li><p>Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure.
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.</p></li>
 <li><p>This is usually only possible in the main function, but not on every platform.</p></li>
@@ -635,10 +633,6 @@ The returned value is reported to whoever called the function, in the case of ma
 </section>
 </div>
 </section>
-</div>
-<div class="margin admonition seealso">
-<p class="admonition-title">See also</p>
-<p>More information about the structure of the <a class="reference internal" href="the_cpp_language.html"><span class="doc std std-doc">C++ language</span></a>.</p>
 </div>
 <div class="exercise dropdown admonition" id="exercisea2">
 
@@ -672,8 +666,8 @@ The returned value is reported to whoever called the function, in the case of ma
 </div>
 </section>
 </div>
-<section id="adding-comments">
-<h2>Adding Comments<a class="headerlink" href="#adding-comments" title="Permalink to this heading">#</a></h2>
+<section id="c-comments">
+<h2>C++ Comments<a class="headerlink" href="#c-comments" title="Permalink to this heading">#</a></h2>
 <p><a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">Comments</span></a> are plain text added to a C++ source or header file that will be ignored by the compiler.</p>
 <p>Comments are used are notes and reminders for people who are trying to understand and use the code.</p>
 <p>When developing a program it is useful to be able to termporarily hide sections of the code from the compiler by ‘commenting them out`.</p>
@@ -769,7 +763,7 @@ The returned value is reported to whoever called the function, in the case of ma
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-comments">Adding Comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-comments">C++ Comments</a></li>
 </ul>
   </nav></div>
 

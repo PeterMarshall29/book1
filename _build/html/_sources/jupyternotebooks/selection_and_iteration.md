@@ -32,7 +32,7 @@ Flow control, just refers to controlling the sequential flow of execution.
 Both refer to the mechanisms that dictate the order in which statements are executed in a program. 
 ```
 ````{admonition} Statements and Expressions
-
+:class: dropdown
 A computer programme is a sequences of statements, which are executed sequentially.
 
 The order of the execution, is determined by the {term}`control flow`
@@ -92,7 +92,7 @@ int main() {
 ````
 ````{explanation} examplep1
 :label: explanationp1
-:class: dropdown
+:class: dropdown note
 ````
 `````{example-end}
 `````

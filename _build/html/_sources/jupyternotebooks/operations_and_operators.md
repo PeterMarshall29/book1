@@ -26,9 +26,11 @@ Each C++ expression is characterized by two independent properties: A type and a
 
 
 ## Operations and Operators
-Each type has different operators.
+Each {term}`type` can be operated on by specific operators
 
-Some operators are are overloade - `+` is the addition operator for arithmetic types, but the {term}`concatenation` operator for `string` and `char` types.
+Some operators are overloaded - `+` is the addition operator for arithmetic types, but the {term}`concatenation` operator for `string` and `char` types.
+
+Programmers can also overload some operators.
 
 `````{example-start} Example
 :label: examplek1
@@ -57,7 +59,7 @@ Try moving the declaration of name to after
 ```
 ````{explanation} examplek1
 :label: explanationk1
-:class: dropdown
+:class: dropdown tip
 
 ````
 `````{example-end}
@@ -109,7 +111,9 @@ Count = count + n can be written as count+=n
 
 {term}`Assignment` operators modify the value of an object.
 
-{term}`Copy Assignment` replace the contents of an object (often a value) with the contents of a second object, or a new value. The second object is unaffected
+{term}`Copy Assignment` replace the contents of an object (often a value) with the contents of a second object.
+
+I or a new value. The second object is unaffected
 
 ```{code-cell} c++
 #include <iostream>
@@ -158,10 +162,82 @@ int main() {
 Example:
 `return (a >= b) ? a : b;`
 
-`?` construct is called an arithmetic if or a conditional expression. 
+`?` construct is called an 'arithmetic if' or a conditional expression. 
 The returned value will be a if the condition is true and b if the condition is false.
 value of (a >= b) ? a : b is a if a >= b and b otherwise.
 That is, if the condition is true, the ternary operator value a if true, otherwise value b.
+
+
+
+
+`````{exercise-start}
+:label: exercisek2
+:class: dropdown
+`````
+Complete this code using the ternary operator to print out the name of the enemy that is closest.
+````{code-cell} c++
+#include <iostream>
+#include <string>
+int main() {
+	while (true) {
+		std::string city1;
+		std::cout << "Enter the name of city 1...";
+		std::cin >> city1; 
+		int dist1;
+		std::cout << "Enter the distance to city 1 from Glasgow...";
+		std::cin >> dist1;
+		std::string city2;
+		std::cout << "Enter the name of city 1...";
+		std::cin >> city2;
+		int dist2;
+		std::cout << "Enter the distance to city 1 from Glasgow...";
+		std::cin >> dist2;
+		
+	}
+	return 0;
+}
+````
+
+````{solution} exercisek2
+:label: solutionk2
+:class: dropdown note
+````
+```{code-block} c++
+		(dist2 < dist1) ? std::cout << "City 2 \n" : std::cout << "City 1 \n";
+```
+
+`````{exercise-end}
+`````
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+    // game loop
+    while (1) {
+        string enemy1; // name of enemy 1
+        cin >> enemy1; cin.ignore();
+        int dist1; // distance to enemy 1
+        cin >> dist1; cin.ignore();
+        string enemy2; // name of enemy 2
+        cin >> enemy2; cin.ignore();
+        int dist2; // distance to enemy 2
+        cin >> dist2; cin.ignore();
+
+        // Write an action using cout. DON'T FORGET THE "<< endl"
+
+        // Enter the code here
+
+    }
+}
+
+
+
 
 ## Useful functions
 

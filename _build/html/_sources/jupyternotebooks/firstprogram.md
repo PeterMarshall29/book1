@@ -101,7 +101,10 @@ The `return` {term}`keyword` specifies what the function produces (returns).
 If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
 
 ````
-
+```{seealso}
+:class: margin
+More information about the structure of the [C++ language](#the_cpp_language).
+```
 `````{exercise} 
 :class: dropdown
 :label: exercisea1
@@ -126,10 +129,6 @@ Try making the following changes to the above code - run the code after each cha
 
 `std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
 - To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
-```{seealso}
-:class: dropdown
-More on the structure of the C++ language can be found {doc}`here <../jupyternotebooks/the_cpp_language>`
-```
 - Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
 The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
 - This is usually only possible in the main function, but not on every platform.
@@ -138,10 +137,6 @@ The returned value is reported to whoever called the function, in the case of ma
 ````
 `````
 
-```{seealso}
-:class: margin
-More information about the structure of the [C++ language](#the_cpp_language).
-```
 
 
 
@@ -162,7 +157,7 @@ return "Peter";
 ````{solution} exercisea2
 :class: note dropdown
 :label: solutiona2
-```{code} cpp
+```{code-block} cpp
 #include <iostream>
 int main()
 {
@@ -175,8 +170,7 @@ int main()
 `````
 
 
-
-## Adding Comments
+## C++ Comments
 
 {term}`Comments` are plain text added to a C++ source or header file that will be ignored by the compiler.
 

@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.aaeac57d-54c0-4c4d-a548-57ef25509809.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.0a1412c9-c459-4521-a49a-fb1020e5fa62.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-a70606a9-b898-4867-8812-13bfb2f31c17] svg, .mermaid[data-zoom-id=id-68e92a23-db2e-4e7b-843e-8a8e0caa054f] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-16a42f88-acab-4bac-bd6e-42c82cf700e6] svg, .mermaid[data-zoom-id=id-76213976-a1e7-4908-afc0-3add3df9040b] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -547,6 +547,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forever">Forever</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-commands">Single Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives-for-for-statements">Alternatives for For-statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-workings-and-comparison-to-while-loops">Inner Workings and Comparison to While Loops</a></li>
@@ -569,7 +570,7 @@ document.write(`
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
 <blockquote>
-<div><p>WHat has been said once can always be repeated.</p>
+<div><p>What has been said once can always be repeated.</p>
 <p class="attribution">—Zeno of Elea</p>
 </div></blockquote>
 </div>
@@ -583,7 +584,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-a70606a9-b898-4867-8812-13bfb2f31c17" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-16a42f88-acab-4bac-bd6e-42c82cf700e6" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -614,7 +615,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-68e92a23-db2e-4e7b-843e-8a8e0caa054f" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-76213976-a1e7-4908-afc0-3add3df9040b" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -656,8 +657,8 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>The management of what controls the loop happens inside the argument to the for command.
-The syntax is <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(loop</span> <span class="pre">variable</span> <span class="pre">definition</span> <span class="pre">and</span> <span class="pre">initialisation;</span> <span class="pre">condition</span> <span class="pre">to</span> <span class="pre">continue</span> <span class="pre">the</span> <span class="pre">loop;</span> <span class="pre">increment</span> <span class="pre">to</span> <span class="pre">loop</span> <span class="pre">variable</span> <span class="pre">instruction)</span> <span class="pre">{</span> <span class="pre">code</span> <span class="pre">to</span> <span class="pre">execute}</span></code></p>
+<p>The management of what controls the loop happens inside the argument to the for command.</p>
+<p>The syntax is <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(loop</span> <span class="pre">variable</span> <span class="pre">definition</span> <span class="pre">and</span> <span class="pre">initialisation;</span> <span class="pre">condition</span> <span class="pre">to</span> <span class="pre">continue</span> <span class="pre">the</span> <span class="pre">loop;</span> <span class="pre">increment</span> <span class="pre">to</span> <span class="pre">loop</span> <span class="pre">variable</span> <span class="pre">instruction)</span> <span class="pre">{</span> <span class="pre">code</span> <span class="pre">to</span> <span class="pre">execute}</span></code></p>
 <p>Without the increment, which is not required, the loop just runs forever but you can also affect the condition that is checked every time from inside the code block.</p>
 <div class="literal-block-wrapper docutils container" id="codef1">
 <div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">For Loop Template</span><a class="headerlink" href="#codef1" title="Permalink to this code">#</a></div>
@@ -710,6 +711,11 @@ The syntax is <code class="docutils literal notranslate"><span class="pre">for</
 <p>If the final value of an index needs to be known after exit from a for-loop, the index variable must
 be declared outside the for-loop (e.g., see 9.6).
 If no initialization is needed, the initializing statement can be empty.</p>
+<section id="forever">
+<h2>Forever<a class="headerlink" href="#forever" title="Permalink to this heading">#</a></h2>
+<p>The curious notation for(;;) is a way to specify an infinite loop; you could pronounce it “forever”.
+Behaves the same as while(true)</p>
+</section>
 <section id="single-commands">
 <h2>Single Commands<a class="headerlink" href="#single-commands" title="Permalink to this heading">#</a></h2>
 <p>If there is only a single statement i.e. not a whole code block of statements, then the statement can simply be placed after for-statement, and closed with;</p>
@@ -724,7 +730,10 @@ If no initialization is needed, the initializing statement can be empty.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0	1	2	3	4	5	6	7	8	9</p>
+<p>0</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1	2	3	4	5	6	7	8	9	
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -743,8 +752,7 @@ If no initialization is needed, the initializing statement can be empty.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0</p>
-<p>5</p>
+<p>05</p>
 <p>14</p>
 <p>23</p>
 </div>
@@ -772,14 +780,18 @@ If no initialization is needed, the initializing statement can be empty.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp05enjn2q.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmp05enjn2q.cpp:10:22: error: &#39;a&#39; was not declared in this scope
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp:10:22: error: &#39;a&#39; was not declared in this scope
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                      ^
-C:\Users\Peter\AppData\Local\Temp\tmp05enjn2q.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                           ^~~~
-C:\Users\Peter\AppData\Local\Temp\tmp05enjn2q.cpp:10:27: error: lvalue required as increment operand
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp:10:27: error: lvalue required as increment operand
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
@@ -808,28 +820,26 @@ C:\Users\Peter\AppData\Local\Temp\tmp05enjn2q.cpp:10:27: error: lvalue required 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp: In function &#39;void loopFunction(int*, int)&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In function &#39;void loopFunction(int*, int)&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
     8 |     while (i !!= terminatiionValue) {
       |           ~ ^~
       |             )
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
     8 |     while (i !!= terminatiionValue) {
       |               ^~
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp:15:19: error: expected identifier before numeric constant
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:19: error: expected identifier before numeric constant
    15 |     loopfunction([1,2,3,4,5], 20);
       |                   ^
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                    ^
       |                    ]
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp: In lambda function:
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In lambda function:
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                 ~          ^
       |                            )
@@ -857,11 +867,11 @@ C:\Users\Peter\AppData\Local\Temp\tmpac1982gd.cpp:15:28: error: expected &#39;)&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp48ambdx2.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmp48ambdx2.cpp:6:10: error: redeclaration of &#39;long int i&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpkocvgheg.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpkocvgheg.cpp:6:10: error: redeclaration of &#39;long int i&#39;
     6 |     long i = 1;
       |          ^
-C:\Users\Peter\AppData\Local\Temp\tmp48ambdx2.cpp:5:10: note: &#39;int i&#39; previously declared here
+C:\Users\Peter\AppData\Local\Temp\tmpkocvgheg.cpp:5:10: note: &#39;int i&#39; previously declared here
     5 | for (int i = 0;;) {
       |          ^
 </pre></div>
@@ -899,7 +909,8 @@ for (auto p = begin©; c!=end©; ++p) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>00</p>
+<p>0</p>
+<p>0</p>
 <p>01</p>
 <p>52</p>
 <p>03</p>
@@ -995,6 +1006,7 @@ for (auto p = begin©; c!=end©; ++p) {
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forever">Forever</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-commands">Single Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives-for-for-statements">Alternatives for For-statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-workings-and-comparison-to-while-loops">Inner Workings and Comparison to While Loops</a></li>

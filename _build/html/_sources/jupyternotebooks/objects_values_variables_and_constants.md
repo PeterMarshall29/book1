@@ -28,6 +28,7 @@ The data stored in an object is called the `value` – values need not be number
 
 A value is a set of bits interpreted according to a type. For example, the value of an object containing the binary code `01110000`:
 
+````{sidebar} My sidebar title
 ```{list-table}
 :header-rows: 1
 :name: Value of an object containing `01110000`
@@ -36,6 +37,7 @@ A value is a set of bits interpreted according to a type. For example, the value
 * - int
   - 112
 ```
+````
 
 C++ programs also contain {term}`literals`, the values of characters inside them are determined by character sets and encodings.
 

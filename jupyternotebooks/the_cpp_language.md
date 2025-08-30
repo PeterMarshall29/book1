@@ -73,7 +73,7 @@ If you had to pick one language to learn - the one that provides more career opt
 {attribution="Bjarne Stroustrup - Creator of C++"}
 > There are only two kinds of languages: the ones people complain about and the ones nobody uses. 
 ```
-All the `C++ language syntax is detailed the official C++ Standard Reference Documentation [here](https://en.cppreference.com/w/) - NB Although it may look daunting, this reference does have some useful information for beginnerss, and will become more accessible as you work through the basic concepts covered in this module.
+All the C++ language syntax is detailed the official C++ Standard Reference Documentation [here](https://en.cppreference.com/w/), although it may look daunting, this reference does have some useful information for beginnerss, and will become more accessible as you work through the basic concepts covered in this module.
 
 ```{admonition} Note
 :class: note margin
@@ -145,9 +145,6 @@ flowchart LR
 
 ```
 
-```{admonition} Additonal Information
-:class: note dropdown
-
 Header files with a `.h`, `.hpp`, or `.hxx` extension,  are sources files that containing entity declarations and/or definitions that need to be visible to multiple {term}`translation units`.
 
 The C and C++ compilers only compile a single file at a time. 
@@ -161,8 +158,6 @@ Compilation only requires complete {term}`declarations` to succeed; {term}`defin
 {term}`Resource files` are things like pictures, bitmaps.
 
 Other useful extensions: .lib for library files, `.a` for archive file (similar to library), `.so` for shared object files (like libraries), `.c` for `c` source code,  `.cc` for `c` with classes,  `.hpp` for header for cpp not also c.
-
-```
 
 ```{admonition} Implementations
 :class: note dropdown

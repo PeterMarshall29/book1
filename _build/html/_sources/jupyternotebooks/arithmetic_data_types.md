@@ -42,18 +42,19 @@ A floating-point literal of type `float` is defined by adding the postfix 'f' (o
 A `long double` is defined by adding the postfix 'l' (or 'L'): `5.55e207L`.
 
 ## Scientific Notation
-
-Scientific notation is formated using a lower, or upper, case `e` between the mantissa and the index **no whitespace** is permitted.
-
+````{sidebar}
 ````{admonition} Scientific Notation Example
 $$
 2.99e8 = 2.99 \times 10^{8}
 $$
 ````
+`````
+Scientific notation is formated using a lower, or upper, case `e` between the mantissa and the index **no whitespace** is permitted.
 
 The syntax does not permit any whitespace in a floating point literal. 
 
 For example, 2.998 e8 is not a floating-point literal, and would be intpreted as three separate lexical tokens and cause a syntax error at compile time.
+
 (SizeOfNumericValues)=
 ## Max Size of Numeric Values
 The maximum value that can be storde by each {term}`numeric data type` depends on number of bits used by the computer architecture. 
@@ -64,10 +65,12 @@ A 64 bit architecture means that processors are able to load and store 64 bit fl
 
 Integer values do not follow a 
 On a 64 bits system: `int` uses 32 bits: `short` uses 16 bits, and `long` uses 64 bits.
-
+````{sidebar}
 ```{list-table}
 :header-rows: 1
-:name: Maximum size of Numeric Types on a 64 bit architecture
+:name: Numeric Types on a 64 bit architecture
+* - Type
+  - Max Numeric Value
 * - short
   - 32767
 * - Int
@@ -81,7 +84,7 @@ On a 64 bits system: `int` uses 32 bits: `short` uses 16 bits, and `long` uses 6
 * - long Double  
   - 1.18973e+4932 
 ```
-
+`````
 ## Checking the Size Limits of Numeric Type of Your C++ Implemetation
 
 `sizeof()` returns the number of bytes used to store values of that type.
@@ -127,9 +130,13 @@ Accessed as `std::numbers::pi`.
 
 It is often the case that a program will make a decision based on whether or not two values are identical.
 
-A litte care must be taken when dealing with floating point numbers. In some languages alternaive methods to calculate the same number will yield differnt values.
+A little care must be taken when dealing with floating point numbers. In some languages alternaive methods to calculate the same number will yield differnt values.
 
-```{code-cell} c++
+`````{example-start}
+:class: dropdown
+`````
+````{code-cell} c++
+:tags: [remove-output]
 int main() {
 	std::cout << std::setprecision(20) << sin(acos(-1) / 4) << '\t' << sin(std::numbers::pi/4)<< '\t' << sqrt(2) / 2 << '\n';
 	if (sin(acos(-1) / 4) == sqrt(2) / 2) {
@@ -139,8 +146,9 @@ int main() {
 	}
 	return 0;
 }
-```
-
+````
+`````{example-end}
+`````
 ## Decimal, Hexidecimal, Octal, and Binary.
 
 Integer literals may also represent numbers in octal or hexidecimal
@@ -154,20 +162,24 @@ Hexidecimal letters start 0x, so the hexideciamal value '3f' woudl be `0x3f`
 Hexidecimal is base 16, the units are 1,2,3,4,5,6,7,8,9,A,B,C,D,E,F. The value in decimal of the hexidecimal number 3f is 63.
 
 
-### Formatiing Octal and Hexidecimal Output
+### Formating Octal and Hexidecimal Outputs
 
 Integer values can be output in octal or hexidecimal as follows:
-
-```{code-cell} cpp
+`````{example-start}
+:class: dropdown
+`````
+````{code-cell} cpp
+:tags: [remove-output]
 int main() {
 	std::cout << 100 << '\t' << std::hex << 100 << '\t' << std::oct << 100 << '\t' << std::dec << 100;
 	return 0;
 }
-```
+````
 `<< std::hex` and `<< std::oct` are instructions to the output stream to convert and display the next integer values in octal or hexidecimal. 
 `std::dec` restores to decimal, the intruction affects all subsequent integers until changed.
 
-
+`````{example-end}
+`````
 
 
 ## Void Type
