@@ -17,6 +17,9 @@ kernelspec:
 Assignment
   DEf
 
+Assignment Operator
+  `=`
+
 Algorithm
   Algorithm: A sequence of steps or rules to solve a problem, often implemented using STL (Standard Template Library).
 
@@ -47,7 +50,7 @@ Char Type
 Class
   more basic    ;A blueprint for creating objects, encapsulating data (attributes) and functions (methods).
 
-Class Member
+Class Members
   def
 
 Code Block
@@ -74,6 +77,15 @@ Const
 Constant
   A variable or function parameter that is immutable - the value cannot be changed after it has been initialised.
 
+Construction
+  def
+
+Constructor
+  def
+
+Constructors
+  def
+
 Core Language
   def
 
@@ -91,6 +103,9 @@ Declaration
 
 Declarations
   Declarations introduce names into a C++ program. Each kind of entity is declared differently.
+
+Declarator
+  The part of a declaration that specifies the name of an entity, and may include modifiers
 
 Definition
   Definitions are declarations that are sufficient to use the entity identified by the name.
@@ -203,6 +218,15 @@ Instruction Set Architecture
 int
   Key word for the Integer type.
 
+Initialisation
+  Setting the initial value of an object. Defintion results when initialisation is added to a declaration. Initialization is different from assignment because there is no previous value involved and initialization is done by {term}`constructors`.
+
+Initialiser
+  def
+
+initialiser List
+  A comma-delimited list of expressions enclosed in curly braces; used to initialize a struct or an array.
+
 Integer type
   Type for integer values (whole numbers - all both positive and negative and zero). Maybe preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long, `long long`. The modifiers may be used on their own, and int is implied; but `signed` and `unsigned` may also precede `char.
 
@@ -226,6 +250,9 @@ Linkage
 
 Linker
   The part of the C++ implementation that merges the code generated from separately compiled translation units into a program. or part of a program
+
+List Initialisation
+  Initialisatin using `{}`; e.g int myInt {intial value or expression to produce the intial value}
 
 Literal
   A fixed value written directly into a program. e.g. the number '1', generally found on the RHS of assignment operations. The notation used for boolean types, character types, string types, numeric types etc., e.g. the work `true` is a boolean literal when used appropriately.
@@ -268,6 +295,9 @@ Namespace
 
 Namespaces
   def
+
+Narrowing
+  A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type; leading to data loss or undefined behaviors.
 
 Numeric Data Type
   The data types for numeric values - each represents a different type of number to different levels of precision. Includes `int`, `float`, `double`. Some data types require additional specficiers, see the [C++ Reference - Data Types](https://en.cppreference.com/w/cpp/language/types.html)

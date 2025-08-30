@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
@@ -65,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.226cd23b-9ad6-4243-bec2-16e5562b866d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.89f5cd1b-0ec6-470e-9037-7f928718ca17.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-c9b5bd0c-e26e-4b89-8ac2-cebc46f8831c] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-cfe9081b-1f90-47e6-a820-2a3c6dff9c99] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -643,7 +644,7 @@ document.write(`
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
-<pre align="center" data-zoom-id="id-c9b5bd0c-e26e-4b89-8ac2-cebc46f8831c" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-cfe9081b-1f90-47e6-a820-2a3c6dff9c99" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]

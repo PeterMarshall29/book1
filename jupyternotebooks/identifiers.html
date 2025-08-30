@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
@@ -65,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.1abd61d2-a1d9-4120-9d7f-4a9a256dbb06.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.7141e3e4-c5e9-4f36-8059-fa33fdcc6775.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/identifiers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -593,21 +594,34 @@ The variabless named <code class="docutils literal notranslate"><span class="pre
 </section>
 <section id="declaration">
 <h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:</p>
+<ul class="simple">
+<li><p>Constant declarations</p></li>
+<li><p>Function prototype declarations
+Inside the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:
+*Variable declarations</p></li>
+</ul>
+</div>
 <p>Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of entity the name refers to.</p>
 <div class="dropdown note admonition">
 <p class="admonition-title">Examples of Declarations</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>char myChar;
-<span class="linenos"> 2</span>std::string myString;
-<span class="linenos"> 3</span>auto count = 1;  
-<span class="linenos"> 4</span>const double pi {3.1415926535897};
-<span class="linenos"> 5</span>const char* myPlace = &quot;lboro&quot;;
-<span class="linenos"> 6</span>const char* season[] = { &quot;spring&quot;, &quot;summer&quot;, &quot;fall&quot;, &quot;winter&quot; };
-<span class="linenos"> 7</span>std::vector&lt;std::string&gt; ourPeople{ &quot;Kelly&quot;, &quot;Sasha&quot;, &quot;Mark&quot;, &quot;Anna&quot;, &quot;Steve&quot;, &quot;Sarah&quot;, &quot;Peter&quot; };
-<span class="linenos"> 8</span>double std::sqrt(double);  //function declaration - parameter name optional
-<span class="linenos"> 9</span>struct Date { int d = 3, m, y; };    //struct declaration
-<span class="linenos">10</span>int day(Date * p) { return p −&gt; d; };
-<span class="linenos">11</span>template&lt;class T&gt; T abs(T a) { return a &lt; 0 ? −a : a; };
-<span class="linenos">12</span>constexpr int fac(int n) { return (n &lt; 2) ? 1 : n*fac(n−1); } ;
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>#include &lt;iostream&gt;
+<span class="linenos"> 2</span>#include &lt;vector&gt;
+<span class="linenos"> 3</span>#include &lt;cmath&gt;
+<span class="linenos"> 4</span>char myChar;
+<span class="linenos"> 5</span>std::string myString;
+<span class="linenos"> 6</span>auto count = 1;  
+<span class="linenos"> 7</span>const double pi {3.1415926535897};
+<span class="linenos"> 8</span>const char* myPlace = &quot;lboro&quot;;
+<span class="linenos"> 9</span>const char* season[] = { &quot;spring&quot;, &quot;summer&quot;, &quot;fall&quot;, &quot;winter&quot; };
+<span class="linenos">10</span>std::vector&lt;std::string&gt; ourPeople{ &quot;Kelly&quot;, &quot;Sasha&quot;, &quot;Mark&quot;, &quot;Anna&quot;, &quot;Steve&quot;, &quot;Sarah&quot;, &quot;Peter&quot; };
+<span class="linenos">11</span>double std::sqrt(double);  //function declaration - parameter name optional
+<span class="linenos">12</span>struct Date { int d = 3, m, y; };    //struct declaration
+<span class="linenos">13</span>int day(Date * p) { return p −&gt; d; };
+<span class="linenos">14</span>template&lt;class T&gt; T abs(T a) { return a &lt; 0 ? −a : a; };
+<span class="linenos">15</span>constexpr int fac(int n) { return (n &lt; 2) ? 1 : n*fac(n−1); } ;
 </pre></div>
 </div>
 </div>
@@ -626,8 +640,9 @@ Except for function and namespace definitions, a declaration is terminated by a 
 </section>
 <section id="declarators">
 <h2>Declarators<a class="headerlink" href="#declarators" title="Permalink to this heading">#</a></h2>
-<p>A declarator is composed of a name and optionally some declarator operators.
-The most common declarator operators are:</p>
+<p>A declarator is just the name specficied for the new entity in the declaration.</p>
+<p>A declarator may be composed of both the ame and some optional declarator operators/modifiers.</p>
+<p>The most common declarator operators are:</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">Declarator Operators</p>
 <div class="pst-scrollable-table-container"><table class="table" id="decalarator-operatorsvalue-of-an-object-containing-01110000">
@@ -681,7 +696,7 @@ The most common declarator operators are:</p>
 </table>
 </div>
 </div>
-<p>Declarators are tricky because the are designed to mirror their use in expressions; for example ∗ is prefix and [] and () are postfix.</p>
+<p>Declarators are tricky because they are designed to mirror their use in expressions; for example ∗ is prefix and [] and () are postfix.</p>
 <p>The postfix declarator operators bind tighter than the prefix ones.</p>
 <p>Consequently, char∗kings[] is an array of pointers to char, whereas char(∗kings)[] is a pointer to an array of char.</p>
 <p>We have to use parentheses to express types such as ‘‘pointer to array’’ and ‘‘pointer to function’</p>
