@@ -9,7 +9,7 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-
+(switch)=
 # Switch Statements
 
 Commonly used alternative to if. Easier to follow than nested if statements.

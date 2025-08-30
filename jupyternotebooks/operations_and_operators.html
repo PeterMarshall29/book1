@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.54bbca74-9f52-4f48-9d9d-55cd61e8729e.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.0cb5003d-6dd6-43b8-a543-3600f46b72ca.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/operations_and_operators';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -538,7 +538,47 @@ document.write(`
 </section>
 <section id="id1">
 <h2>Operations and Operators<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>Each type has different operators – some are overloaded. + is addition for numeric types, but concatenation for string and char</p>
+<p>Each type has different operators.</p>
+<p>Some operators are are overloade - <code class="docutils literal notranslate"><span class="pre">+</span></code> is the addition operator for arithmetic types, but the <a class="reference internal" href="glossary.html#term-Concatenation"><span class="xref std std-term">concatenation</span></a> operator for <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">char</span></code> types.</p>
+<div class="example dropdown admonition" id="examplek1">
+
+<p class="admonition-title"><span class="caption-number">example 3 </span> (Example)</p>
+<section id="example-content">
+<p>Complete and run the following code:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please enter a number followed by your surname.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"> </span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">motivator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Dr.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Study &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; times harder &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">motivator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+</pre></div>
+</div>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Write</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="p">..</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise dropdown admonition" id="jupyternotebooks/operations_and_operators-exercise-1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<section id="exercise-content">
+<p>Try moving the declaration of name to after</p>
+</section>
+</div>
+<div class="explanation dropdown admonition" id="explanationk1">
+
+<p class="admonition-title">Explanation of<a class="reference internal" href="#examplek1"> Example 3 (Example)</a></p>
+<section id="explanation-content">
+</section>
+</div>
+</section>
+</div>
 <p>Try this code</p>
 <p>int count;
 std::cout &lt;&lt; “Please enter a number followed by your surname.\n”;

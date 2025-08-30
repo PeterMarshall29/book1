@@ -26,9 +26,47 @@ Each C++ expression is characterized by two independent properties: A type and a
 
 
 ## Operations and Operators
-Each type has different operators – some are overloaded. + is addition for numeric types, but concatenation for string and char
+Each type has different operators.
+
+Some operators are are overloade - `+` is the addition operator for arithmetic types, but the {term}`concatenation` operator for `string` and `char` types.
+
+`````{example-start} Example
+:label: examplek1
+:class: dropdown
+`````
+Complete and run the following code:
+````{code-block} c++
+int count;
+std::string name;
+std::cout << "Please enter a number followed by your surname.\n";
+std::cin >> count; 
+std::string name;
+std::cin >> name;
+int c2 = count + 2;
+std::string motivator = "Dr." + name;
+std::cout << "Study " << c2 << " times harder " << motivator << "!\n";
+return 0; 
+````
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+Write code here..
+````
+```{exercise}
+:class: dropdown
+Try moving the declaration of name to after 
+```
+````{explanation} examplek1
+:label: explanationk1
+:class: dropdown
+
+````
+`````{example-end}
+`````
 
 Try this code
+
+
+
 
 int count;
 std::cout << "Please enter a number followed by your surname.\n";

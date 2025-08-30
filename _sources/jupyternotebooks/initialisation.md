@@ -39,7 +39,7 @@ Initialisation also takes place during function calls: function parameters and t
 
 There a differnt ways to intialise an object.
 
-If an {term}`initializer` is specified for an object, that initializer determines the initial value of an object.
+If an {term}`initialiser` is specified for an object, that initializer determines the initial value of an object.
 
 The initialiser is just 
 

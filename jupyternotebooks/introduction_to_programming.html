@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.812b908e-2db4-4737-b34c-6c3eb39b4411.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.079cebd6-6ef0-44b6-bedf-985af8fd2f13.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-a7bf993d-2cfe-4961-8132-22ce1a926bf0] svg, .mermaid[data-zoom-id=id-2e123775-0a6d-40de-ae9f-93dbbe4a6917] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-2608350c-0b6a-474d-bb08-46a0e35a9b18] svg, .mermaid[data-zoom-id=id-af2e586f-14af-4fd1-b658-532c4d5badca] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -548,10 +548,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programs">Computer Programs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-of-computer-programmes">Execution of Computer Programmes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-sematics-of-a-programming-language">Syntax and Sematics of a Programming Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environments">Programming Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations">Errors In Calculations</a></li>
 </ul>
@@ -588,6 +590,10 @@ Your digital watch (if you are still wearing a watch!), calculator, smart speake
 <p class="admonition-title">Tip</p>
 <p>Wiki on <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">Machine_code</a></p>
 </div>
+</section>
+<section id="execution-of-computer-programmes">
+<h2>Execution of Computer Programmes<a class="headerlink" href="#execution-of-computer-programmes" title="Permalink to this heading">#</a></h2>
+<p>When a computer program runs - is executed -</p>
 </section>
 <section id="syntax-and-sematics-of-a-programming-language">
 <h2>Syntax and Sematics of a Programming Language<a class="headerlink" href="#syntax-and-sematics-of-a-programming-language" title="Permalink to this heading">#</a></h2>
@@ -674,7 +680,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-a7bf993d-2cfe-4961-8132-22ce1a926bf0" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-2608350c-0b6a-474d-bb08-46a0e35a9b18" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -705,7 +711,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-2e123775-0a6d-40de-ae9f-93dbbe4a6917" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-af2e586f-14af-4fd1-b658-532c4d5badca" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -801,6 +807,13 @@ The shape used is less important when the labels are clear.</p>
 </div>
 <p>There are many free tools for designing flow charts. One used recently can cound <a class="reference external" href="https://www.mermaidchart.com/play">here</a>.</p>
 </section>
+<section id="programming-environments">
+<h2>Programming Environments<a class="headerlink" href="#programming-environments" title="Permalink to this heading">#</a></h2>
+<p>C++ programmes are written in plain text, so a simple text editor like “Notepad” on windows, or “Edit” in the Windows Terminal.</p>
+<p>Some of your teacher learned to write computer programmes in plain text because there were no alternatives.</p>
+<p>Today programmes are usuall written in an IDE - Integrated Development Environment.</p>
+<p>We will be using [Visual Studio](Visual Studio) for this module.</p>
+</section>
 <section id="error-types">
 <h2>Error Types<a class="headerlink" href="#error-types" title="Permalink to this heading">#</a></h2>
 <p>There are many types of error, but three classifications to understand at this point are:</p>
@@ -884,10 +897,12 @@ The shape used is less important when the labels are clear.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programs">Computer Programs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-of-computer-programmes">Execution of Computer Programmes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-sematics-of-a-programming-language">Syntax and Sematics of a Programming Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environments">Programming Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations">Errors In Calculations</a></li>
 </ul>

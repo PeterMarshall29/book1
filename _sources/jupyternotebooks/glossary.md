@@ -71,6 +71,12 @@ Compound Statement
 Concatenation
   Joining of two strings together.
 
+Contol Flow
+  The sequential flow of ***control*** through the program -  the current statement has *control* of the processor. The order in which individual statements, instructions, or function calls of an imperative program are executed, or evaluated. 
+
+Control Flow Statements
+  Selection and iteration statements: `if`, `switch`, `for`, `while`
+
 Const
   Const: A keyword that makes a variable or function parameter immutable.
 
@@ -119,6 +125,9 @@ Dynamic Memory
 Embedded Programs
   Programs written on computers and then transferred onto an embedded microprocessor in a device to control its function - also called firmware. The embedded program is an integrated part of the device and not directly accessible by the user. 
 
+Empty Statement
+  A statement that consists of only a semicolon `;`. It does nothing and is often referred to as a {term}`null statement`. Empty states are used where the syntax requires a statement but the contents are optionally not required, to provide an empty body to a for or while loop, or to carry a label in the end of a compound statement.
+
 Entity
   The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces. ECS consists of three main parts:
 
@@ -146,6 +155,9 @@ Executable File
 Expression
   A series of operators and names the produce a value, or may designate objects or functions. Simplest example would be an arithmetic statement.
 
+Expression Statement
+  An expression followed by a semicolon.
+
 Expression Statements
   An expression followed by a semicolon.
 
@@ -157,6 +169,10 @@ Floating-Point Numbers
 
 Floating-Point Number Types
   Float, Double, and Long Double. Floatig point literals are interpreted as `double` type unless the letter f or l is added as a suffix.
+
+Flow Control
+  Control of the sequential flow of execution.
+
 
 Free store
   {term}`memory` allocated by `new`; also called dynamic memory. Often standard library facilities, such as `vector`, can be used to avoid explicit use of free store.
@@ -307,6 +323,9 @@ Null
 
 Null Character
   The null character is a control character represented by escape sequence '\0' that has an integer value of 0. May be used to signify the end of a string in C-style strings (character arrays). '\0' is a character literal with a value of 0. Can also reprsent the `nullptr` for comparison expressions. The null character is stored as a byte (8 bits) with all bits set to zero.
+
+Null Statement
+  The {term}`Empty statement`: valid in C++ and can be used in certain scenarios where a statement is syntactically required but no action is needed.
 
 Objects
   - A contiguous region of memory holding a value of some type. Objects can be allocated in {term}`static memory`, on the {term}`stack`, on on the {term}`free store`. 

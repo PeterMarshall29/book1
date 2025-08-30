@@ -43,6 +43,9 @@ Binary files are not necessarily executable; Library files may be written in bin
 :class: margin
 Wiki on [Machine_code](https://en.wikipedia.org/wiki/Machine_code)
 ```
+## Execution of Computer Programmes
+
+When a computer program runs - is executed - 
 
 
 ## Syntax and Sematics of a Programming Language
@@ -249,6 +252,17 @@ The shape used is less important when the labels are clear.
 ````
 
 There are many free tools for designing flow charts. One used recently can cound [here](https://www.mermaidchart.com/play).
+
+## Programming Environments
+
+C++ programmes are written in plain text, so a simple text editor like "Notepad" on windows, or "Edit" in the Windows Terminal.
+
+Some of your teacher learned to write computer programmes in plain text because there were no alternatives.
+
+Today programmes are usuall written in an IDE - Integrated Development Environment. 
+
+We will be using [Visual Studio](Visual Studio) for this module.
+
 
 ## Error Types
 

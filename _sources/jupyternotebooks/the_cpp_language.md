@@ -13,10 +13,15 @@ kernelspec:
 (cpplanguage)=
 #  The C++ Language
 
-The [C%2B%2B](https://en.wikipedia.org/wiki/C%2B%2B) language is one of the most powerful programming languages available today. It was created by Danish computer scientist [Bjarne_Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) and first released in 1985. 
+The [C++](https://en.wikipedia.org/wiki/C%2B%2B) language is one of the most powerful programming languages available today. It was created by Danish computer scientist [Bjarne_Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) and first released in 1985. 
 
 C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).
 
+```{note}
+:class: margin
+{attribution="Bjarne Stroustrup - Creator of C++"}
+> A programmer is a machine for turning caffeine into code.
+```
 There are simpler programming languages to learn; but once have learned to code in C++ subsequent programming languages are much easier to pick up.
 
 ````{tab} C++
@@ -64,7 +69,7 @@ C++ is a more versatile general purpose language, that is platform independent, 
 If you had to pick one language to learn - the one that provides more career options and a stronger foundation for picking up other languages is best.
 
 ```{note}
-:class: magin
+:class: margin
 {attribution="Bjarne Stroustrup - Creator of C++"}
 > There are only two kinds of languages: the ones people complain about and the ones nobody uses. 
 ```

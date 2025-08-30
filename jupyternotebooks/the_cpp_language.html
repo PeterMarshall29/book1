@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.89f5cd1b-0ec6-470e-9037-7f928718ca17.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.538181aa-7404-4dbc-bf76-7403736424d2.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-cfe9081b-1f90-47e6-a820-2a3c6dff9c99] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b8ab45b1-51f4-4588-908d-d5fbdbc95046] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -562,8 +562,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-c-language">
 <span id="cpplanguage"></span><h1>The C++ Language<a class="headerlink" href="#the-c-language" title="Permalink to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/C%2B%2B">C%2B%2B</a> language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne_Stroustrup</a> and first released in 1985.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne_Stroustrup</a> and first released in 1985.</p>
 <p>C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>A programmer is a machine for turning caffeine into code.</p>
+<p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
+</div></blockquote>
+</div>
 <p>There are simpler programming languages to learn; but once have learned to code in C++ subsequent programming languages are much easier to pick up.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">C++</label><div class="tab-content docutils">
@@ -607,7 +614,7 @@ document.write(`
 <p>Languages like Julia, have a more modern syntax, and great for writing scripts for scientific computing or machine learning.</p>
 <p>C++ is a more versatile general purpose language, that is platform independent, allows for precise control of hardware and memory.</p>
 <p>If you had to pick one language to learn - the one that provides more career options and a stronger foundation for picking up other languages is best.</p>
-<div class="magin admonition note">
+<div class="margin admonition note">
 <p class="admonition-title">Note</p>
 <blockquote>
 <div><p>There are only two kinds of languages: the ones people complain about and the ones nobody uses.</p>
@@ -644,7 +651,7 @@ document.write(`
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
-<pre align="center" data-zoom-id="id-cfe9081b-1f90-47e6-a820-2a3c6dff9c99" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-b8ab45b1-51f4-4588-908d-d5fbdbc95046" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]
