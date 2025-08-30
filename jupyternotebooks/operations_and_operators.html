@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.0cb5003d-6dd6-43b8-a543-3600f46b72ca.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.66785cb9-b532-4044-a035-95dc4fb95558.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/operations_and_operators';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -538,11 +538,12 @@ document.write(`
 </section>
 <section id="id1">
 <h2>Operations and Operators<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>Each type has different operators.</p>
-<p>Some operators are are overloade - <code class="docutils literal notranslate"><span class="pre">+</span></code> is the addition operator for arithmetic types, but the <a class="reference internal" href="glossary.html#term-Concatenation"><span class="xref std std-term">concatenation</span></a> operator for <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">char</span></code> types.</p>
+<p>Each <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a> can be operated on by specific operators</p>
+<p>Some operators are overloaded - <code class="docutils literal notranslate"><span class="pre">+</span></code> is the addition operator for arithmetic types, but the <a class="reference internal" href="glossary.html#term-Concatenation"><span class="xref std std-term">concatenation</span></a> operator for <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">char</span></code> types.</p>
+<p>Programmers can also overload some operators.</p>
 <div class="example dropdown admonition" id="examplek1">
 
-<p class="admonition-title"><span class="caption-number">example 3 </span> (Example)</p>
+<p class="admonition-title"><span class="caption-number">example 18 </span> (Example)</p>
 <section id="example-content">
 <p>Complete and run the following code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
@@ -566,14 +567,14 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/operations_and_operators-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
 <section id="exercise-content">
 <p>Try moving the declaration of name to after</p>
 </section>
 </div>
-<div class="explanation dropdown admonition" id="explanationk1">
+<div class="explanation dropdown tip admonition" id="explanationk1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#examplek1"> Example 3 (Example)</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#examplek1"> Example 18 (Example)</a></p>
 <section id="explanation-content">
 </section>
 </div>
@@ -613,7 +614,8 @@ Count = count + n can be written as count+=n</p>
 <section id="assignment-operators">
 <h2>Assignment operators<a class="headerlink" href="#assignment-operators" title="Permalink to this heading">#</a></h2>
 <p><a class="reference internal" href="glossary.html#term-Assignment"><span class="xref std std-term">Assignment</span></a> operators modify the value of an object.</p>
-<p><a class="reference internal" href="glossary.html#term-Copy-Assignment"><span class="xref std std-term">Copy Assignment</span></a> replace the contents of an object (often a value) with the contents of a second object, or a new value. The second object is unaffected</p>
+<p><a class="reference internal" href="glossary.html#term-Copy-Assignment"><span class="xref std std-term">Copy Assignment</span></a> replace the contents of an object (often a value) with the contents of a second object.</p>
+<p>I or a new value. The second object is unaffected</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -675,10 +677,78 @@ Count = count + n can be written as count+=n</p>
 <h2>Ternary Operators<a class="headerlink" href="#ternary-operators" title="Permalink to this heading">#</a></h2>
 <p>Example:
 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(a</span> <span class="pre">&gt;=</span> <span class="pre">b)</span> <span class="pre">?</span> <span class="pre">a</span> <span class="pre">:</span> <span class="pre">b;</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">?</span></code> construct is called an arithmetic if or a conditional expression.
+<p><code class="docutils literal notranslate"><span class="pre">?</span></code> construct is called an ‘arithmetic if’ or a conditional expression.
 The returned value will be a if the condition is true and b if the condition is false.
 value of (a &gt;= b) ? a : b is a if a &gt;= b and b otherwise.
 That is, if the condition is true, the ternary operator value a if true, otherwise value b.</p>
+<div class="exercise dropdown admonition" id="exercisek2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<section id="exercise-content">
+<p>Complete this code using the ternary operator to print out the name of the enemy that is closest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">city1</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter the name of city 1...&quot;</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">city1</span><span class="p">;</span><span class="w"> </span>
+<span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">dist1</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter the distance to city 1 from Glasgow...&quot;</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">dist1</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">city2</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter the name of city 1...&quot;</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">city2</span><span class="p">;</span>
+<span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">dist2</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter the distance to city 1 from Glasgow...&quot;</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">dist2</span><span class="p">;</span>
+<span class="w">		</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Enter the name of city 1…</p>
+</div>
+</div>
+<div class="solution dropdown note admonition" id="solutionk2">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisek2"> Exercise 14</a></p>
+<section id="solution-content">
+</section>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">		</span><span class="p">(</span><span class="n">dist2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dist1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 2 </span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 1 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</div>
+<p>#include <iostream></p>
+<p>using namespace std;</p>
+<p>int main()
+{</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// game loop
+while (1) {
+    string enemy1; // name of enemy 1
+    cin &gt;&gt; enemy1; cin.ignore();
+    int dist1; // distance to enemy 1
+    cin &gt;&gt; dist1; cin.ignore();
+    string enemy2; // name of enemy 2
+    cin &gt;&gt; enemy2; cin.ignore();
+    int dist2; // distance to enemy 2
+    cin &gt;&gt; dist2; cin.ignore();
+
+    // Write an action using cout. DON&#39;T FORGET THE &quot;&lt;&lt; endl&quot;
+
+    // Enter the code here
+
+}
+</pre></div>
+</div>
+<p>}</p>
 </section>
 <section id="useful-functions">
 <h2>Useful functions<a class="headerlink" href="#useful-functions" title="Permalink to this heading">#</a></h2>

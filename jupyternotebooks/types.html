@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.f1080392-666a-4fb7-9c2f-a43d2ec37a53.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.c893bd69-626c-4eff-9f25-f1c63e3c8f18.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-31bafb9e-92e5-4dbf-8f18-d4af1f935d23] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-79ab895e-bd91-4b53-96c3-af1d5b09d9f0] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -616,9 +616,9 @@ document.write(`
 <p>Casting may be implicit or explicit.</p>
 <section id="implicit-casting">
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
-<div class="note margin dropdown admonition">
+<div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-31bafb9e-92e5-4dbf-8f18-d4af1f935d23" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-79ab895e-bd91-4b53-96c3-af1d5b09d9f0" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
@@ -647,7 +647,11 @@ document.write(`
 <p>The compiler has to have a set of rules for each possible conversion - programmers need to be aware of what might be applied.</p>
 <p>For numeric values - this is called type promotion - the type with the smallest precision is converted to the type with the larger precision.</p>
 <p>Type promotion occurs in arithmetic expressions, when the types are mismatched, but convertable, and in functions, if the passed in types is smaller than the expected type.</p>
-<p>For example, in the following code, a has been promoted to type <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">from</span> <span class="pre">type</span> </code>int`.</p>
+<div class="example dropdown admonition" id="examplef1">
+
+<p class="admonition-title"><span class="caption-number">example 9 </span></p>
+<section id="example-content">
+<p>In the following code, ‘a’ has been promoted to type <code class="docutils literal notranslate"><span class="pre">double</span></code> from type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -661,15 +665,17 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-0">
+<div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
 <section id="exercise-content">
 <p>Try the following:</p>
 <ul class="simple">
 <li><p>Used some other types and check the hierarchy in the margin is correct.</p></li>
 <li><p>What happen if you use (a + 6l)</p></li>
 </ul>
+</section>
+</div>
 </section>
 </div>
 <p>Type promotion can cause problems, and needs to be considered carefully if you want to rely on your calculations - but less often than type demotion.</p>
@@ -687,6 +693,10 @@ document.write(`
 <section id="determining-the-type-of-a-variable">
 <h2>Determining the Type of a Variable<a class="headerlink" href="#determining-the-type-of-a-variable" title="Permalink to this heading">#</a></h2>
 <p>It is tremendously useful to be able to check the type of a variable.</p>
+<div class="example dropdown admonition" id="examplef2">
+
+<p class="admonition-title"><span class="caption-number">example 10 </span></p>
+<section id="example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -707,9 +717,9 @@ document.write(`
 </div>
 </div>
 <p>This produces more easily understood values for the primitive types.</p>
-<div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-1">
+<div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
 <section id="exercise-content">
 <p>Use typid on a function.</p>
 <div class="admonition hint">
@@ -730,6 +740,8 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">__cdecl</span></code> refers to the calling convention of a function, different compilers may handle this differently - not important now.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
+</div>
+</section>
 </div>
 </section>
 </div>

@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\printing_to_file.d7cb3ec2-1884-4251-83bb-25986bd1e118.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\printing_to_file.07b15022-2cdc-4a91-9fa6-92b5fb17d3b7.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/printing_to_file';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -529,7 +529,14 @@ document.write(`
 <p>To only read or only write - there are also <code class="docutils literal notranslate"><span class="pre">&lt;ifstream&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;ofstream&gt;</span></code> - both in <code class="docutils literal notranslate"><span class="pre">&lt;fstream&gt;</span></code></p>
 <p>Try the following code: make sure you can find the file created, and check its contents.</p>
 <p>The location of the file can be set by the programmer.</p>
-<p>Using Visual Studio, without specifying more than the file name, the file will be found in c://users/YourUserName/source/repo/nameOfYourProject/nameOfYourProject/</p>
+<p>Using Visual Studio, without specifying more than the file name, the file will be found in</p>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span><span class="c1">//users/YourUserName/source/repos/nameOfYourProject/nameOfYourProject/newFileName.txt</span>
+</pre></div>
+</div>
+<div class="example dropdown admonition" id="Exampled1">
+
+<p class="admonition-title"><span class="caption-number">example 8 </span></p>
+<section id="example-content">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span><span class="c1"> </span>
@@ -590,6 +597,8 @@ document.write(`
 </tbody>
 </table>
 </div>
+</div>
+</section>
 </div>
 <section id="adding-data-to-a-file">
 <h2>Adding Data to a File<a class="headerlink" href="#adding-data-to-a-file" title="Permalink to this heading">#</a></h2>

@@ -66,7 +66,44 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.e212d959-18a6-4d9d-9d51-885e5ec3e99c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.e41beb18-9259-4ce8-8b37-e6e29da557ce.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+const load = async () => {
+    await mermaid.run();
+    const all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+    if(mermaids_to_add_zoom > 0) {
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-6d2810cb-81ae-47a6-bf92-0766270a62fb] svg");
+        if(all_mermaids.length !== mermaids_processed.length) {
+            // try again in a sec, wait for mermaids to load
+            setTimeout(load, 200);
+            return;
+        } else if(svgs.size() !== mermaids_to_add_zoom) {
+            // try again in a sec, wait for mermaids to load
+            setTimeout(load, 200);
+            return;
+        } else {
+            svgs.each(function() {
+                var svg = d3.select(this);
+                svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                var inner = svg.select("g");
+                var zoom = d3.zoom().on("zoom", function(event) {
+                    inner.attr("transform", event.transform);
+                });
+                svg.call(zoom);
+            });
+        }
+    }
+};
+
+window.addEventListener("load", load);
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/switch_statements';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -514,67 +551,199 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="switch-statements">
 <span id="switch"></span><h1>Switch Statements<a class="headerlink" href="#switch-statements" title="Permalink to this heading">#</a></h1>
-<p>Commonly used alternative to if. Easier to follow than nested if statements.
-Here the while loop is just to keep it running – only interested in the switch loop.
-constexpr double cm_per_inch = 2.54;
-double length = 1;
-while (true) {
-char unit = ‘a’;
-std::cout &lt;&lt; “Please type in a length followed by a unit c or i: \n”;
-std::cin &gt;&gt; length &gt;&gt; unit;
-switch (unit) {
-case ‘i’:
-std::cout &lt;&lt; length &lt;&lt; “in==” &lt;&lt; cm_per_inch * length &lt;&lt; “cm.\n”;
-break;
-case ‘c’:
-std::cout &lt;&lt; length &lt;&lt; “cm==” &lt;&lt; length / cm_per_inch &lt;&lt; “in.\n”;
-break;
-default:
-std::cout &lt;&lt; “Sorry, I do not know what that unit is…\n”;
-break;
-}
-}
-The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute The syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
-<p>You can switch on a string value – only int,  char, or enumeration type.
-Selection based on a string requires an ‘if’ statement or a ‘map’.</p>
-<p>Switch variable must be a constant expression i.e. must be literal value typed at the case line.</p>
-<p>A single case can be executed for several case labels. But case labels cannot be used for two cases.</p>
-<p>Most compilers do not warn if you forget break – it is required – try it.
-Without the breaks -  all the code blocks below the first detected case will also be executed.
-Pretty sure the last one does not need a break??</p>
-<p>To use multiple labels for the same case.
-case ‘0’: case ‘2’: case ‘4’: case ‘6’: case ‘8’:</p>
-<p>std::cout &lt;&lt; “please enter an expression to be evaluated (only +,-,<em>,/ for now, ADD an x to show the end of your expression):”;
-int lhs = 0;
-int rhs = 0;
-int result;
-std::cin &gt;&gt; lhs;
-if (!std::cin) throw std::runtime_error(“no first operand”);
-for (char operation; std::cin &gt;&gt; operation;) { //keeps reading cin until it gets an operator
-if (operation != ‘x’) std::cin &gt;&gt; rhs;
-if (!std::cin) throw std::runtime_error(“no second operand”);
- 
-switch (operation) {
-case ‘+’:
-result = lhs + rhs;
-break;
-case ‘-’:
-result = lhs - rhs;
-break;
-case ‘</em>’:
-result = lhs * rhs;
-break;
-case ‘/’:
-result = lhs / rhs;
-break;
-default:
-std::cout &lt;&lt; result &lt;&lt; ‘\n’;
-return 0;
-}
-lhs = result;
-}</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>throw std::runtime_error(&quot;bad expression&quot;);
+<p>An alternative to an if-statement ladder is the switch-statement.</p>
+<p>A switch statement is generally easier to read than nested if statements.</p>
+<div class="note admonition">
+<p class="admonition-title">The Syntax of a switch-statement:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">first_possible_value_of_</span><span class="w"> </span><span class="no">condtion</span><span class="w"> </span><span class="p">:</span>
+<span class="w">			</span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="p">....;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">second_possible_value_of_condtion</span><span class="p">:</span>
+<span class="w">			</span><span class="n">Alternative</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="p">...;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">third_possible_value_of_condtion</span><span class="p">:</span>
+<span class="w">			</span><span class="n">Different</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="p">...;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">default</span><span class="o">:</span>
+<span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Sorry, no case matched the condition value....</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="p">}</span>
 </pre></div>
+</div>
+</div>
+<p>The switch statement test the value of its condition againt a series of possible alternative values.</p>
+<p>The condition may be either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition.</p>
+<p>The cases are the possible values that will trigger a decision to swith control flow.</p>
+<p>The program checks each case from the top down.</p>
+<p>If the case label constant value does not match the value of the condition then the program ignores the corresponding code block, and moves onto the next case.</p>
+<p>If a value matches, the corresponding statements are exectuted, followed by the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement, which causes the program to exit the switch-statement and move onto the next statement after the switch-block.</p>
+<p>If no statement match, then either the optional default block is executed, or control passes back.</p>
+<p>The break-statements prevent more than one case being triggered
+The break statements are not optional.</p>
+<p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
+<pre align="center" data-zoom-id="id-6d2810cb-81ae-47a6-bf92-0766270a62fb" class="mermaid align-center">
+        flowchart LR
+    A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
+    B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
+    B -- False --&gt; D{&quot;Case 2 Match&quot;}
+    D -- True --&gt; E[&quot;Execute Case 2 Statements, then Break&quot;]
+    D -- False --&gt; F{&quot;Case 3 Match&quot;}
+    F -- True --&gt; G[&quot;Execute Case 3 Statements, then Break&quot;]
+    F -- False --&gt; H[&quot;Execute Default Case Statements, then Break&quot;]
+    E --&gt; I([&quot;Exit Switch Statement&quot;])
+    G --&gt; I
+    H --&gt; I
+    C --&gt; I
+     A:::Class_01
+     B:::Class_01
+     C:::Class_01
+     D:::Class_01
+     E:::Class_01
+     F:::Class_01
+     G:::Class_01
+     H:::Class_01
+     I:::Class_01
+    classDef Class_01 fill:#AA00FF, stroke:#2962FF, color:#000000
+    linkStyle 0 stroke:#AA00FF,fill:none
+    linkStyle 1 stroke:#AA00FF,fill:none
+    linkStyle 2 stroke:#AA00FF,fill:none
+    linkStyle 3 stroke:#AA00FF,fill:none
+    linkStyle 4 stroke:#AA00FF,fill:none
+    linkStyle 5 stroke:#AA00FF,fill:none
+    linkStyle 6 stroke:#AA00FF,fill:none
+    linkStyle 7 stroke:#AA00FF,fill:none
+    linkStyle 8 stroke:#AA00FF,fill:none
+    linkStyle 9 stroke:#AA00FF,fill:none
+    linkStyle 10 stroke:#AA00FF,fill:none
+    </pre><div class="dropdown note admonition">
+<p class="admonition-title">Switch Rules</p>
+<p>Switch variables must be constant expressions i.e. there must be literal value typed at the case line.</p>
+<p>Switch variables may only be of the types: integral (including <code class="docutils literal notranslate"><span class="pre">char</span></code>), enumeration, or class.</p>
+<p>The swtich case You cannot switch on a string value – selection based on a <code class="docutils literal notranslate"><span class="pre">string</span></code> requires an if-statement or a ‘map’.</p>
+<p>A single case can be executed for several case labels. But case labels cannot be used for two cases.</p>
+<p>i.e. use multiple labels for the same case: e.g. case ‘0’: case ‘2’: case ‘4’: case ‘6’: case ‘8’: …then case statements…</p>
+<p>Most compilers do not warn if you forget break – it is required – try it.</p>
+<p>Without the breaks -  all the code blocks below the first detected case will also be executed.</p>
+</div>
+<div class="example dropdown admonition" id="exampler1">
+
+<p class="admonition-title"><span class="caption-number">example 22 </span></p>
+<section id="example-content">
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">cm_per_inch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.54</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="kt">char</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a length followed by a unit symbol, either c or i: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">unit</span><span class="p">;</span>
+<span class="w">		</span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="p">:</span>
+<span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;in==&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cm_per_inch</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;cm.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">:</span>
+<span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;cm==&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cm_per_inch</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;in.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">default</span><span class="o">:</span>
+<span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Sorry, I do not know what that unit is....</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="p">}</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="explanation dropdown note admonition" id="explanationr1">
+
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Example 22</a></p>
+<section id="explanation-content">
+<p>In this example, the while loop is just to keep the program running – we are only interested in the switch loop.</p>
+<p>constexpr double cm_per_inch = 2.54 - the conversion factor.</p>
+<p>Every time the while loop runs, the user is asked to input a value for ‘unit’, and then the switch statement runs, using unit as its condition.</p>
+<p>There are two cases - switching to their code block if the condtion yield a value of ‘i’ or ‘c’.</p>
+<p>The break statements cause the program to exit the switch-statement after completing the successful switch.</p>
+<p>If neither ‘i’ nor ‘c’ is typed in then the default case is executed.</p>
+<p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute The syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<section id="exercise-content">
+<ul class="simple">
+<li><p>Try removing the break statement from the default case.</p></li>
+<li><p>Try removing the second break statements.</p></li>
+<li><p>Try removing all first and second break statements.</p></li>
+<li><p>Try writing two cases, both with the case label ‘c’.</p></li>
+</ul>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div class="example dropdown admonition" id="exampler2">
+
+<p class="admonition-title"><span class="caption-number">example 23 </span></p>
+<section id="example-content">
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;please enter an expression to be evaluated (only +,-,*,/ for now, ADD an x to show the end of your expression):&quot;</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">lhs</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;no first operand&quot;</span><span class="p">);</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">operation</span><span class="p">;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">operation</span><span class="p">;)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//keeps reading cin until it gets an operator</span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">operation</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;x&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;no second operand&quot;</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="w">		</span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">:</span>
+<span class="w">			</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;-&#39;</span><span class="p">:</span>
+<span class="w">			</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;*&#39;</span><span class="p">:</span>
+<span class="w">			</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;/&#39;</span><span class="p">:</span>
+<span class="w">			</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span>
+<span class="w">		</span><span class="k">default</span><span class="o">:</span>
+<span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">			</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">		</span><span class="p">}</span>
+<span class="w">		</span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="w">		</span>
+<span class="w">	</span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;bad expression&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="explanation dropdown hint admonition" id="explanationr2">
+
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Example 23</a></p>
+<section id="explanation-content">
+<p>words</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-5">
+
+<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
+<section id="exercise-content">
+<p>wrds</p>
+</section>
+</div>
+</section>
+</div>
+</section>
 </div>
 </section>
 

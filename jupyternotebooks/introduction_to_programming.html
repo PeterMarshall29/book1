@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.079cebd6-6ef0-44b6-bedf-985af8fd2f13.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.539c0632-09cc-40cf-9fa0-9eb506ede8ab.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-2608350c-0b6a-474d-bb08-46a0e35a9b18] svg, .mermaid[data-zoom-id=id-af2e586f-14af-4fd1-b658-532c4d5badca] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-4deaa53c-b60b-418c-a40f-2ebbe0135b68] svg, .mermaid[data-zoom-id=id-d8b253b9-8476-4cbd-97f8-505d415d833f] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -642,10 +642,13 @@ Syntax errors are easily found at compile time - the compiler will not let you h
 <p>The first step in writing a computer programme is understand the task that we want the computer to perform.</p>
 <p>If you are not able to deconstruct the task into a series of instructions that can be followed then you cannot write a programme to accomplish that task.</p>
 <p>An <a class="reference internal" href="glossary.html#term-Algorithm"><span class="xref std std-term">algorithm</span></a> is a sequence of steps that, when followed exactly, always lead to the task being completely correctly.</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
 <blockquote>
 <div><p>Programming is understanding</p>
 <p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
 </div></blockquote>
+</div>
 <p>The process of writing a programme can be reduced to four stages</p>
 <ul class="simple">
 <li><p>Analysis of the problem:</p>
@@ -680,7 +683,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-2608350c-0b6a-474d-bb08-46a0e35a9b18" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-4deaa53c-b60b-418c-a40f-2ebbe0135b68" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -711,7 +714,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-af2e586f-14af-4fd1-b658-532c4d5badca" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-d8b253b9-8476-4cbd-97f8-505d415d833f" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -822,6 +825,8 @@ The shape used is less important when the labels are clear.</p>
 <li><p>Link-time errors: found by linker - more difficult.</p></li>
 <li><p>Run-time, or logic, errors, or logic errors, occur after successful creation of the .exe file. Too late to fix - people may have died!</p></li>
 </ul>
+<p>An ill-formed C++ program is one that violates the rules of the C++ language, either in terms of syntax or semantics, as defined by the C++ standard.</p>
+<p>Ill-formed programmes contain errors that prevent it from being valid or correctly interpreted by the compiler.</p>
 </section>
 <section id="errors-in-calculations">
 <h2>Errors In Calculations<a class="headerlink" href="#errors-in-calculations" title="Permalink to this heading">#</a></h2>

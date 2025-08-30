@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.0997031d-bee4-4da9-890b-7b9ff3ec312d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.6868bfae-7d9e-42d0-864d-918218519e8e.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/identifiers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -533,9 +533,9 @@ document.write(`
 <p>Most entities in the C++ language have an identifier (a name).</p>
 <p>Writing a program usually required additional instances of entities to be created by the programmer and each must be given unique identifier.</p>
 <div class="margin warning admonition">
-<p class="admonition-title">No Spaces in Identfiers!</p>
+<p class="admonition-title">No Whitespace in Identfiers!</p>
 <p>Whitespace is not permitted in identifiers/names.
-Longer names are broken up using underscores or <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case2</a>.
+Longer names are broken up using underscores or <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a>.
 Special symbols are not permitted.</p>
 </div>
 <p>Identifiers are then used to identify entities in the program text, such as variables, functions and classes.</p>
@@ -549,7 +549,7 @@ Special symbols are not permitted.</p>
 <p>Certain words in a C++ program have special meaning, and these are known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>.</p>
 <p>Keywords may not be used as an identifier.</p>
 <p>Other words may beused as identifiers, unless they have already been used in the same <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>.</p>
-<div class="dropdown note admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Rules For Valid Identifiers</p>
 <p>The options for the first character are:</p>
 <ul class="simple">
@@ -590,7 +590,7 @@ The variabless named <code class="docutils literal notranslate"><span class="pre
 <h2>Keywords<a class="headerlink" href="#keywords" title="Permalink to this heading">#</a></h2>
 <p>Certain words in a C++ program have special meaning, known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>, which are reserved</p>
 <p>The reserved keywords may not be used as object names.</p>
-<p>There are a list of reserved <a class="reference external" href="https://en.cppreference.com/w/cpp/keyword.html">Keywords in the C++ language</a>.</p>
+<p>Here is a list of reserved <a class="reference external" href="https://en.cppreference.com/w/cpp/keyword.html">keywords</a>in the C++ language from the CPP reference.</p>
 </section>
 <section id="declaration">
 <h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
@@ -607,21 +607,22 @@ Inside the <code class="docutils literal notranslate"><span class="pre">main()</
 <p>Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of entity the name refers to.</p>
 <div class="dropdown note admonition">
 <p class="admonition-title">Examples of Declarations</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>#include &lt;iostream&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>#include &lt;iostream&gt;
 <span class="linenos"> 2</span>#include &lt;vector&gt;
 <span class="linenos"> 3</span>#include &lt;cmath&gt;
-<span class="linenos"> 4</span>char myChar;
-<span class="linenos"> 5</span>std::string myString;
-<span class="linenos"> 6</span>auto count = 1;  
-<span class="linenos"> 7</span>const double pi {3.1415926535897};
-<span class="linenos"> 8</span>const char* myPlace = &quot;lboro&quot;;
-<span class="linenos"> 9</span>const char* season[] = { &quot;spring&quot;, &quot;summer&quot;, &quot;fall&quot;, &quot;winter&quot; };
-<span class="linenos">10</span>std::vector&lt;std::string&gt; ourPeople{ &quot;Kelly&quot;, &quot;Sasha&quot;, &quot;Mark&quot;, &quot;Anna&quot;, &quot;Steve&quot;, &quot;Sarah&quot;, &quot;Peter&quot; };
-<span class="linenos">11</span>double std::sqrt(double);  //function declaration - parameter name optional
-<span class="linenos">12</span>struct Date { int d = 3, m, y; };    //struct declaration
-<span class="linenos">13</span>int day(Date * p) { return p −&gt; d; };
-<span class="linenos">14</span>template&lt;class T&gt; T abs(T a) { return a &lt; 0 ? −a : a; };
-<span class="linenos">15</span>constexpr int fac(int n) { return (n &lt; 2) ? 1 : n*fac(n−1); } ;
+<span class="linenos"> 4</span>#include &lt;string&gt;
+<span class="linenos"> 5</span>char myChar;
+<span class="linenos"> 6</span>std::string myString;
+<span class="linenos"> 7</span>auto count = 1;
+<span class="linenos"> 8</span>const double pi{ 3.1415926535897 };
+<span class="linenos"> 9</span>const char* myPlace = &quot;lboro&quot;;
+<span class="linenos">10</span>const char* season[] = { &quot;spring&quot;, &quot;summer&quot;, &quot;fall&quot;, &quot;winter&quot; };
+<span class="linenos">11</span>std::vector&lt;std::string&gt; ourPeople{ &quot;Kelly&quot;, &quot;Sasha&quot;, &quot;Mark&quot;, &quot;Anna&quot;, &quot;Steve&quot;, &quot;Sarah&quot;, &quot;Peter&quot; };
+<span class="linenos">12</span>double std::sqrt(double);  //function declaration - parameter name optional
+<span class="linenos">13</span>struct Date { int d = 3, m, y; };    //struct declaration
+<span class="linenos">14</span>int day(Date* p) { return p−&gt;d; }
+<span class="linenos">15</span>template&lt;class T&gt; T abs(T a) { return a &lt; 0 ? -a : a; };
+<span class="linenos">16</span>constexpr int fac(int n) { return (n &lt; 2) ? 1 : n * fac(n−1); }
 </pre></div>
 </div>
 </div>

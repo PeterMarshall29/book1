@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.60d321e3-7b3a-4851-a677-ff68666cfb25.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.7f1121b5-b710-4d70-8777-1c31a9bb9fff.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/if_statements';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -521,17 +521,117 @@ document.write(`
 <p class="attribution">—Yogi Berra</p>
 </div></blockquote>
 </div>
-<p>If statements are found in most programming languages.
-The C++ patter is if…elif…else.</p>
-<p>The if-statement is used to chose between two possible paths…</p>
+<p>The if-statement is used to chose between two possible paths.</p>
 <p>At its simplest, an if block can change something depending on a condition</p>
 <p>The syntax of the if-statement is:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Code</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">condtion</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
 </pre></div>
 </div>
+<div class="note dropdown admonition">
+<p class="admonition-title">If-Statements in Other Languages</p>
+<p>If statements are found in most programming languages.
+The C++ patter is if…elif…else.</p>
+<p>Some languages have an ‘elseif’ or similar, but c++ nest if-else statements.</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">C++</label><div class="tab-content docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Negative number&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Positive number&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Zero&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">C#</label><div class="tab-content docutils">
+<div class="highlight-cs notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Negative number&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Positive number&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Zero&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Java</label><div class="tab-content docutils">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Negative number&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Positive number&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Zero&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">Javascript</label><div class="tab-content docutils">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Console</span><span class="p">.</span><span class="nx">Log</span><span class="p">(</span><span class="s2">&quot;Negative number&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Console</span><span class="p">.</span><span class="nx">Log</span><span class="p">(</span><span class="s2">&quot;Positive number&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Console</span><span class="p">.</span><span class="nx">Log</span><span class="p">(</span><span class="s2">&quot;Zero&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">Python</label><div class="tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Negative number&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Positive number&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zero&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--6" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--6">Ruby</label><div class="tab-content docutils">
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Negative number&quot;</span>
+<span class="k">elsif</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Positive number&quot;</span>
+<span class="k">else</span>
+<span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Zero&quot;</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--7" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--7">julia</label><div class="tab-content docutils">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Positive&quot;</span><span class="p">)</span>
+<span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Negative number&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Zero&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--8" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--8">ada</label><div class="tab-content docutils">
+<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+      <span class="n">Put_Line</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">);</span>
+<span class="kr">else</span>
+      <span class="n">Put_Line</span><span class="p">(</span><span class="s">&quot;no&quot;</span><span class="p">);</span>
+<span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="example dropdown admonition" id="exampleq1">
 
-<p class="admonition-title"><span class="caption-number">example 5 </span></p>
+<p class="admonition-title"><span class="caption-number">example 20 </span></p>
 <section id="example-content">
 <p>Try this code:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -551,9 +651,9 @@ The C++ patter is if…elif…else.</p>
 </div>
 </div>
 </div>
-<div class="explanation dropdown admonition" id="explanationq1">
+<div class="explanation dropdown note admonition" id="explanationq1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleq1"> Example 5</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleq1"> Example 20</a></p>
 <section id="explanation-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>(answer == &#39;42&#39;) 
 </pre></div>
@@ -568,9 +668,9 @@ More correctly, the condition is evaluated. It it evaluates to the boolean value
 </div>
 </section>
 </div>
-<div class="example dropdown admonition" id="exampleq2">
+<div class="example dropdown note admonition" id="exampleq2">
 
-<p class="admonition-title"><span class="caption-number">example 6 </span></p>
+<p class="admonition-title"><span class="caption-number">example 21 </span></p>
 <section id="example-content">
 <p>Try this code:</p>
 <div class="cell tag_remove-output docutils container">
@@ -608,89 +708,6 @@ This fixes part of the issue – other issues left as an exercise
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Every possible way to exit a selection, iteration, or function must have either a return or an error attached to it.</p>
-</div>
-<p>Try this code:
-int x = 0;
-int y = 0;
-std::cout &lt;&lt; “Please enter two integral values: \n”;
-std::cin &gt;&gt; x &gt;&gt; y;
-if (x &lt; y) {
-std::cout &lt;&lt; “The maximum value = max(” &lt;&lt; x &lt;&lt; “,” &lt;&lt; y &lt;&lt; “) is ” &lt;&lt; y &lt;&lt; 		“. \n”;
-} else {
-std::cout &lt;&lt; “The maximum value = max(” &lt;&lt; x &lt;&lt; “,” &lt;&lt; y &lt;&lt; “) is ” &lt;&lt; x &lt;&lt; 		“. \n”;
-}	
-Code basically works except does not  return the value if two identical values are entered – also behaves oddly if first number is a double – takes part before the decimal point then reports having received the second part as 0 without pause. If second is a double, it rounds or ignores what is after the decimal point.
-This fixes part of the issue – other issues left as an exercise.
-if (x &lt; y) {
-std::cout &lt;&lt; “The maximum value = max(” &lt;&lt; x &lt;&lt; “,” &lt;&lt; y &lt;&lt; “) is ” &lt;&lt; y &lt;&lt; “. \n”;
-}
-else if (x &gt; y) {
-std::cout &lt;&lt; “The maximum value = max(” &lt;&lt; x &lt;&lt; “,” &lt;&lt; y &lt;&lt; “) is ” &lt;&lt; x &lt;&lt; “. \n”;
-}
-else {
-std::cout &lt;&lt; “The values are identical. \n”;
-}</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">C++</label><div class="tab-content docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">C</label><div class="tab-content docutils">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;no&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Java</label><div class="tab-content docutils">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorldProgram</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">Javascript</label><div class="tab-content docutils">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">Python</label><div class="tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--6" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--6">R</label><div class="tab-content docutils">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--7" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--7">julia</label><div class="tab-content docutils">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;Hello, World!&quot;</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--8" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--8">ada</label><div class="tab-content docutils">
-<div class="highlight-ada notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
-      <span class="n">Put_Line</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">);</span>
-<span class="kr">else</span>
-      <span class="n">Put_Line</span><span class="p">(</span><span class="s">&quot;no&quot;</span><span class="p">);</span>
-<span class="kr">end</span> <span class="kr">if</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 

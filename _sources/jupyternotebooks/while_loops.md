@@ -41,11 +41,11 @@ Its generally better to use for loops in C++, but while loops exist too.
       A(["Program Flow Approaches the While Loop"]) --> B["Set Loop Variable"]
       B --> C{"Check Termination Condition"}
       C -- Condition True --> D["Processes to be Repeated Every Loop"]
-      C --> n1["Anchor"]
-      n1 -- Condition False --> E(["Continue to Next Section of Program"])
+      C --> n["Anchor"]
+      n -- Condition False --> E(["Continue to Next Section of Program"])
       D --> F["Increment Loop Variable, or Implement Selection Criteria"]
       F --> C
-      n1@{ shape: anchor}
+      n@{ shape: anchor}
       style A fill:#E1BEE7,stroke:#AA00FF
       style B fill:#E1BEE7,stroke:#AA00FF
       style C fill:#E1BEE7,stroke:#AA00FF
@@ -67,11 +67,11 @@ Its generally better to use for loops in C++, but while loops exist too.
       A(["Arrival"]) --> B["Set Loop Counter: Count = 1;"]
       B --> C{"Check Counter &lt; 100"}
       C -- Condition True --> D["Process to be Repeated Every Loop"]
-      C --> n1["Anchor"]
-      n1 -- Condition False --> E(["Continue fa:fa-code"])
+      C --> n["Anchor"]
+      n -- Condition False --> E(["Continue fa:fa-code"])
       D --> F["Increment Loop Counter: Count += 1"]
       F --> C
-      n1@{ shape: anchor}
+      n@{ shape: anchor}
       style A fill:#E1BEE7,stroke:#AA00FF
       style B fill:#E1BEE7,stroke:#AA00FF
       style C fill:#E1BEE7,stroke:#AA00FF

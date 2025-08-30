@@ -71,7 +71,7 @@ Compound Statement
 Concatenation
   Joining of two strings together.
 
-Contol Flow
+Control Flow
   The sequential flow of ***control*** through the program -  the current statement has *control* of the processor. The order in which individual statements, instructions, or function calls of an imperative program are executed, or evaluated. 
 
 Control Flow Statements

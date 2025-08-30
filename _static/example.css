@@ -11,17 +11,17 @@
 /*********************************************
 * Example *
 *********************************************/
-div.example {
+div.example2 {
   border-color: var(--note-border-color);
   background-color: var(--note-title-color);
 }
 
-div.example p.admonition-title {
+div.example2 p.admonition-title {
   background-color: var(--note-title-color);
 }
 
 /* Remove content box */
-div.example p.admonition-title::after {
+div.example2 p.admonition-title::after {
   content: "\f303";
 }
 
