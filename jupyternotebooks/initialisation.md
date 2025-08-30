@@ -12,73 +12,77 @@ kernelspec:
 
 # Initialisation
 
-*** code from other pages to be fit in
-```{code-cell} c++
-:tags: [remove-output]
-#include <iostream>
-int main(){
-int x = 5;
-int y;
-if (x == 5);
-{ y = 3; }
-std::cout << y;
-return 0;
-}
+{term}`Initialisation` is the setting of the intial value of a variable for the first time (at the time of {term}`construction`).
+
+Definiton is therefore decalaration plus initialisation.
+
+Initialisation is different from assignment because there is no previous value involved and initialization is done by {term}`constructors`.
+
+Best practice is to always initialise your variables – the benefits include preventing you from accidentally tyring to use a variable that has been declared, but not defined.
+
+```{tip}
+:class: margin
+Don't declare a variable until you have a value for it.
 ```
-
-
-
-Always initialise your variables – prevents accidental use before definition.
-
-Only exception are strings and vectors; which by default have empty conditions initialised, “” for strings, v.capacity() = 0 for vector.
+The exceptions are `string` and `vector`. Both are initialised by default as empty - `""` for `string`, `v.capacity() = 0` for `vector`.
 
 This is done by a ‘default constructor’.
 
-Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value..
+Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value.
 
-Examples of Declarations – some do not work in current location – others need set up to proceed them.
+The initial value may be provided in the initializer section of a declarator or a new expression. 
 
-## Declaration Good Practice
-
-Before the `main()` function put:
-
-* Constant declarations
-* Function prototype declarations
-
-Inside the `main()` function put:
-
-*Variable declarations
-
-
-## Structure of Declarations
-The structure of a declaration is defined by the C++ grammar (§iso.A). This grammar evolved over four decades, starting with the early C grammars, and is quite complicated. However, without too many radical simplifications, we can consider a declaration as having five parts (in order):
-• Optional prefix specifiers (e.g., static or virtual)
-• A base type (e.g., vector<double> or const int)
-• A declarator optionally including a name (e.g., p[7], n, or ∗(∗)[])
-• Optional suffix function specifiers (e.g., const or noexcept)
-• An optional initializer or function body (e.g., ={7,5,3} or {return x;})
-Except for function and namespace definitions, a declaration is terminated by a semicolon.
-
-
-
-
-
+Initialisation also takes place during function calls: function parameters and the function return values are both initialized.
 
 
 ## Initialisers
-If an initializer is specified for an object, that initializer determines the initial value of an object.
-An initializer can use one of four syntactic styles:
-X a1 {v};
-X a2 = {v};
-X a3 = v;
-X a4(v);
-Of these, only the first can be used in every context
-Anything more complicated than initialising a simple variable is is better done using {}. Initialization using {} is called “list initialization” and does not allow narrowing. That is:
-* An integer cannot be converted to another integer that cannot hold its value. For example, char to int is allowed, but not int to char.
-* A floating-point value cannot be converted to another floating-point type that cannot hold its value. For example, float to double is allowed, but not double to float. 
-* A floating-point value cannot be converted to an integer type.
+
+There a differnt ways to intialise an object.
+
+If an {term}`initializer` is specified for an object, that initializer determines the initial value of an object.
+
+The initialiser is just 
+
+An initialiser can use one of four syntactic styles:
+
+`````{example-start}
+:label: examplem1
+:class: dropdown
+`````
+````{code-cell} C++
+#include <iostream>
+int main() {
+  iny myInt = 99;  
+  int myFirstInt {5};         // List initialisation
+  int mySecondInt = {55};     // Copy initialisaton
+  int myThirdInt = 555;       // Copy initialisaton 
+  int myFourthInt (5555);     // Direct initialisation
+  std::cout << myFirstInt << '\n' << mySecondInt  << '\n' << myThirdInt << '\n' << myFourthInt; 
+  return 0;
+}
+````
+`````{example-end}
+`````
+Initialization using `{}` is called {term}`list initialisation` - this is the best one to chose because it can be used in every context you will encounter.
+
+It is recommended that list initialisation is used for anything more complicated that a simple variable - even though not having the {term}`assignment operator` `=` may be a little disconcerting at first.
+
+Anything more complicated than initialising a simple variable is is better done using {} because {term}`list initialisation` does not permit {term}`narrowing` conversion. 
+
+A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type; leading to data loss or undefined behaviors.
+
+List initialisation ensures that:
+
+* An `integer` cannot be converted to a `char`, but `char` to `int is permitted.
+* a `double` cannot be converted to a `float`, ut the reverse is permitted 
+* A floating-point values are not converted to an integer type.
 * An integer value cannot
+
+Informaiton on the sizes of the arithmetic types is [here](SizeOfNumericValues)
+
+
 The = form is traditional and dates back to C, but if in doubt, use the general {}-list form (§6.3.5.2).
+
 If nothing else, it saves you from conversions that lose information (narrowing conversions; §10.5): be converted to a floating-point type.
 
 If an initializer is specified for an object, that initializer determines the initial value of an object.
@@ -92,13 +96,33 @@ Of these, only the first can be used in every context.
 Narrowing Conversion: The = form is traditional and dates back to C, but if in doubt, use the general { } list form . If nothing else, it saves you from conversions that lose information (narrowing conversions). 
 
 
+## Initialiser Semantics
+
+If no initializer is specified for an object, the object is default-initialized. 
+
+If no initializer is specified for a reference, the program is ill-formed.
+
+If the initializer specified for an object is () the object is value-initialized. 
+
+If the initializer specified for a reference is (), the program is ill-formed.
+
+The semantics of initializers are as follows:
+
+If the entity being initialized is a reference, see reference initialization.
+Otherwise, the entity being initialized is an object. Given the type of the object as T:
+If the initializer is of syntax (1), the object is copy-initialized.
+
+
 
 ## Auto
+
+The type of simple variable can be deduced fr
+
 When defining a variable, you don’t actually need to state its type explicitly when it can be deduced from the initializer:
-auto b = true; // a bool
-auto ch = 'x'; // a char
-auto i = 123; // an int
-auto d = 1.2; // a double
+auto b = true; // `true` or `false` are recognised as `bool` type
+auto ch = 'x'; //  Single quotes are reserved to denote `char` type
+auto i = 123; //   Number literal without the decimal point is interpreted to be an `int`No decimal point in a number literalan int
+auto d = 1.2; //   a double
 auto z = sqrt(y); // z has the type of whatever sqrt(y) returns
 
 Warning Be careful – best to always specify type and initialise immediately!
@@ -172,3 +196,18 @@ auto x2{ 1.0, 2.25, 3.5 }; // x2 is an initializer_list of<double>
 auto x3{ 1.0,2 }; // error : cannot deduce the type of {1.0,2} (§6.3.6.2)
  
 
+
+
+*** code from other pages to be fit in
+```{code-cell} c++
+:tags: [remove-output]
+#include <iostream>
+int main(){
+int x = 5;
+int y;
+if (x == 5);
+{ y = 3; }
+std::cout << y;
+return 0;
+}
+```

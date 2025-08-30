@@ -80,6 +80,7 @@ sphinx:
     - sphinx_inline_tabs
     - sphinx_proof
     - sphinx_exercise
+    - sphinx_example
     - sphinxcontrib.mermaid
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)

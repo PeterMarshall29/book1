@@ -203,7 +203,7 @@ It becomes difficult to keep track of where an identifer actually comes from
 ```
 A member can be declared within a namespace definition and defined later using the notation:
 ```{code-block} c++
-nameSpacename::memberName` notation. 
+nameSpacename::memberName 
 ```
 
 Members of a namespace must be introduced using this notation:

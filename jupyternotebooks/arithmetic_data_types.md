@@ -16,13 +16,13 @@ There are a lot of numeric data types but to start learning C++ we really only n
 
 The default integer type use for integers and the double type for numbers with decimal points including those in scientific notation.
 
-## Intger Types
+## Integer Types
 
 `int` is the keyword for the default {term}`integer type`. 
 
-There are a set of other integer types: `int` may be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long, `long long`. 
+There are a set of other integer types: `int` may be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long`, `long long`. 
 
-The modifiers may also be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char, and `long` may precede `double`.
+The modifiers may also be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char`, and `long` may precede `double`.
 
 An integer literal is just the number itself as opposed to an `int` which is a variable of type `int` having an integer value.
 
@@ -43,12 +43,18 @@ A `long double` is defined by adding the postfix 'l' (or 'L'): `5.55e207L`.
 
 ## Scientific Notation
 
-Scientific notation is formated using a lower or upper case `e` between the significant and the index WITHOUT ANY SPACES!!   
+Scientific notation is formated using a lower, or upper, case `e` between the mantissa and the index **no whitespace** is permitted.
+
+````{admonition} Scientific Notation Example
+$$
+2.99e8 = 2.99 \times 10^{8}
+$$
+````
 
 The syntax does not permit any whitespace in a floating point literal. 
 
 For example, 2.998 e8 is not a floating-point literal, and would be intpreted as three separate lexical tokens and cause a syntax error at compile time.
-
+(SizeOfNumericValues)=
 ## Max Size of Numeric Values
 The maximum value that can be storde by each {term}`numeric data type` depends on number of bits used by the computer architecture. 
 
@@ -82,7 +88,11 @@ On a 64 bits system: `int` uses 32 bits: `short` uses 16 bits, and `long` uses 6
 
 The `<limits>` component of the {term}`Standard Library` has some useful function such as max(), lowest(), and min(), which will return the largest value that can be stored in that type.
 
-```{code-cell}
+`````{example-start}
+:label: exampleh1
+:class: dropdown
+`````
+````{code-cell}
 :tags: [remove-output, skip-execution]
 #include <iostream>
 #include <limits>
@@ -97,8 +107,15 @@ std::cout << "largest long double == " << std::numeric_limits<long double>::max(
 std::cout << "char is signed == " << std::numeric_limits<char>::is_signed << '\n';
 	return 0;
 }
-```
+````
+````{explanation} exampleh1
+:label: explanationh1
+:class: dropdown
 Note: Min() is the smallest positive value. Lowest() is the most negative value, where applicable.
+````
+`````{example-end}
+`````
+
 
 ## Useful Constants
 

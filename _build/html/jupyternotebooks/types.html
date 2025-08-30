@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
@@ -65,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.4a7ea27d-f7f0-4043-9ec5-ff89a7fb3193.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.adf3e590-b4e0-48a1-beea-b7fe2b2b7885.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -78,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-bb077da7-7f76-4c92-8ee4-4f18ed56534e] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-6ebce8f3-2efe-4d65-a76b-41400f6a8c0b] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -617,7 +618,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="note margin dropdown admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-bb077da7-7f76-4c92-8ee4-4f18ed56534e" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-6ebce8f3-2efe-4d65-a76b-41400f6a8c0b" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]

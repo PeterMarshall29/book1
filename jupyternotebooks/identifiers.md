@@ -92,9 +92,15 @@ The reserved keywords may not be used as object names.
 
 There are a list of reserved [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keyword.html).
 
-
 ## Declaration
-
+```{tip}
+:class: margin
+Before the `main()` function put:
+* Constant declarations
+* Function prototype declarations
+Inside the `main()` function put:
+*Variable declarations
+```
 Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of entity the name refers to. 
 
 ````{admonition} Examples of Declarations
@@ -102,6 +108,9 @@ Before a name (identifier) can be used in a C++ program, it must be declared. Th
 
 ```{code-block} c++
 :linenos:
+#include <iostream>
+#include <vector>
+#include <cmath>
 char myChar;
 std::string myString;
 auto count = 1;  
@@ -129,7 +138,10 @@ Except for function and namespace definitions, a declaration is terminated by a 
 
 ## Declarators
 
-A declarator is composed of a name and optionally some declarator operators. 
+A declarator is just the name specficied for the new entity in the declaration.
+
+A declarator may be composed of both the ame and some optional declarator operators/modifiers. 
+
 The most common declarator operators are:
 
 ````{admonition} Declarator Operators
@@ -169,7 +181,7 @@ The most common declarator operators are:
   - Returns from function
 ```
 ````
-Declarators are tricky because the are designed to mirror their use in expressions; for example ∗ is prefix and [] and () are postfix. 
+Declarators are tricky because they are designed to mirror their use in expressions; for example ∗ is prefix and [] and () are postfix. 
 
 The postfix declarator operators bind tighter than the prefix ones. 
 

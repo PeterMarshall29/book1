@@ -1,0 +1,22 @@
+selector_to_html = {"a[href=\"glossary.html#term-Iteration-Statement\"]": "<dt id=\"term-Iteration-Statement\">Iteration Statement</dt><dd><p>terations statements include the <code class=\"docutils literal notranslate\"><span class=\"pre\">for</span></code>-statement, the <code class=\"docutils literal notranslate\"><span class=\"pre\">while</span></code>-statement and the <code class=\"docutils literal notranslate\"><span class=\"pre\">do</span></code>-statement; used to repeat the execution of a block of code until a condition is met or changes.</p></dd>", "a[href=\"#goto\"]": "<h3 class=\"tippy-header\" style=\"margin-top: 0;\">Goto<a class=\"headerlink\" href=\"#goto\" title=\"Permalink to this heading\">#</a></h3><p><code class=\"docutils literal notranslate\"><span class=\"pre\">goto</span></code> statements are best avoided in most programming languages. Code has a simpler structure, and is more easily obtained without the use of <code class=\"docutils literal notranslate\"><span class=\"pre\">goto</span></code>.</p>", "a[href=\"#while-loops\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">While Loops<a class=\"headerlink\" href=\"#while-loops\" title=\"Permalink to this heading\">#</a></h1><p>Its generally better to use for loops in C++, but while loops exist too.</p>", "a[href=\"#loop-exit\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Loop Exit<a class=\"headerlink\" href=\"#loop-exit\" title=\"Permalink to this heading\">#</a></h2><p>If the condition of an iteration statement is forgotten the loop will run until the program crashes - this can tie up a computer for a very long time.</p><p>The iteration condition may also be intentially omitted, provided there is an alternaive method provided to end the loop.</p>", "a[href=\"glossary.html#term-Switch-Statement\"]": "<dt id=\"term-Switch-Statement\">Switch Statement</dt><dd><p>Def</p></dd>", "a[href=\"#continue\"]": "<h3 class=\"tippy-header\" style=\"margin-top: 0;\"><code class=\"docutils literal notranslate\"><span class=\"pre\">continue</span></code><a class=\"headerlink\" href=\"#continue\" title=\"Permalink to this heading\">#</a></h3>", "a[href=\"#break\"]": "<h3 class=\"tippy-header\" style=\"margin-top: 0;\"><code class=\"docutils literal notranslate\"><span class=\"pre\">break</span></code><a class=\"headerlink\" href=\"#break\" title=\"Permalink to this heading\">#</a></h3><p><code class=\"docutils literal notranslate\"><span class=\"pre\">break</span></code> - cause the program to break out of the nearest enclosing <a class=\"reference internal\" href=\"glossary.html#term-Switch-Statement\"><span class=\"xref std std-term\">switch statement</span></a> or <a class=\"reference internal\" href=\"glossary.html#term-Iteration-Statement\"><span class=\"xref std std-term\">iteration statement</span></a> . <code class=\"docutils literal notranslate\"><span class=\"pre\">break</span></code> is used if the logical flow may require the program to leave the loop in the middle.</p><p>The <code class=\"docutils literal notranslate\"><span class=\"pre\">break</span></code> is usually found as an option in a selection-statement within the loop.</p>"}
+skip_classes = ["headerlink", "sd-stretched-link"]
+
+window.onload = function () {
+    for (const [select, tip_html] of Object.entries(selector_to_html)) {
+        const links = document.querySelectorAll(` ${select}`);
+        for (const link of links) {
+            if (skip_classes.some(c => link.classList.contains(c))) {
+                continue;
+            }
+
+            tippy(link, {
+                content: tip_html,
+                allowHTML: true,
+                arrow: true,
+                placement: 'auto-start', maxWidth: 500, interactive: false, theme: 'material', duration: [200, 100], delay: [200, 0],
+
+            });
+        };
+    };
+    console.log("tippy tips loaded!");
+};

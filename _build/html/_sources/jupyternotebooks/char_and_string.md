@@ -41,8 +41,9 @@ For more information see the C++ reference [here](https://en.cppreference.com/w/
 ```
 
 `````{exercise-start}
-`````
 :class: dropdown
+`````
+
 Try the following code.
 ````{code-block} c++
 char a = 'x';

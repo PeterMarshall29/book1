@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
@@ -65,7 +66,9 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\arithmetic_data_types.69499e11-53fe-443a-b584-750bc3cc1e45.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\arithmetic_data_types.5ce50c55-9d06-476e-b729-50c32b4b2015.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/arithmetic_data_types';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -509,7 +512,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intger-types">Intger Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-types">Integer Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-literals">Floating-Point Literals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-notation">Scientific Notation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-size-of-numeric-values">Max Size of Numeric Values</a></li>
@@ -536,11 +539,11 @@ document.write(`
 <h1>Arithmetic Data Types<a class="headerlink" href="#arithmetic-data-types" title="Permalink to this heading">#</a></h1>
 <p>There are a lot of numeric data types but to start learning C++ we really only need two of them.</p>
 <p>The default integer type use for integers and the double type for numbers with decimal points including those in scientific notation.</p>
-<section id="intger-types">
-<h2>Intger Types<a class="headerlink" href="#intger-types" title="Permalink to this heading">#</a></h2>
+<section id="integer-types">
+<h2>Integer Types<a class="headerlink" href="#integer-types" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> is the keyword for the default <a class="reference internal" href="glossary.html#term-Integer-type"><span class="xref std std-term">integer type</span></a>.</p>
-<p>There are a set of other integer types: <code class="docutils literal notranslate"><span class="pre">int</span></code> may be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long,</span> </code>long long`.</p>
-<p>The modifiers may also be used on their own, and <code class="docutils literal notranslate"><span class="pre">int</span></code> is implied; but <code class="docutils literal notranslate"><span class="pre">signed</span></code> and <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> may also precede <code class="docutils literal notranslate"><span class="pre">char,</span> <span class="pre">and</span> </code>long<code class="docutils literal notranslate"><span class="pre">may</span> <span class="pre">precede</span></code>double`.</p>
+<p>There are a set of other integer types: <code class="docutils literal notranslate"><span class="pre">int</span></code> may be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>.</p>
+<p>The modifiers may also be used on their own, and <code class="docutils literal notranslate"><span class="pre">int</span></code> is implied; but <code class="docutils literal notranslate"><span class="pre">signed</span></code> and <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> may also precede <code class="docutils literal notranslate"><span class="pre">char</span></code>, and <code class="docutils literal notranslate"><span class="pre">long</span></code> may precede <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
 <p>An integer literal is just the number itself as opposed to an <code class="docutils literal notranslate"><span class="pre">int</span></code> which is a variable of type <code class="docutils literal notranslate"><span class="pre">int</span></code> having an integer value.</p>
 <p>Integer literals must not be written with a decimal point i.e. do not write the number seven as 7.0, this will be interpreted as a floating-point number.</p>
 </section>
@@ -555,12 +558,19 @@ document.write(`
 </section>
 <section id="scientific-notation">
 <h2>Scientific Notation<a class="headerlink" href="#scientific-notation" title="Permalink to this heading">#</a></h2>
-<p>Scientific notation is formated using a lower or upper case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the significant and the index WITHOUT ANY SPACES!!</p>
+<p>Scientific notation is formated using a lower, or upper, case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the mantissa and the index <strong>no whitespace</strong> is permitted.</p>
+<div class="admonition-scientific-notation-example admonition">
+<p class="admonition-title">Scientific Notation Example</p>
+<div class="math notranslate nohighlight">
+\[
+2.99e8 = 2.99 \times 10^{8}
+\]</div>
+</div>
 <p>The syntax does not permit any whitespace in a floating point literal.</p>
 <p>For example, 2.998 e8 is not a floating-point literal, and would be intpreted as three separate lexical tokens and cause a syntax error at compile time.</p>
 </section>
 <section id="max-size-of-numeric-values">
-<h2>Max Size of Numeric Values<a class="headerlink" href="#max-size-of-numeric-values" title="Permalink to this heading">#</a></h2>
+<span id="sizeofnumericvalues"></span><h2>Max Size of Numeric Values<a class="headerlink" href="#max-size-of-numeric-values" title="Permalink to this heading">#</a></h2>
 <p>The maximum value that can be storde by each <a class="reference internal" href="glossary.html#term-Numeric-Data-Type"><span class="xref std std-term">numeric data type</span></a> depends on number of bits used by the computer architecture.</p>
 <p>Most computers use 64 bits, meaning that 64 bits are used to represent addresses in memory, allowing larger numbers to be stored.</p>
 <p>A 64 bit architecture means that processors are able to load and store 64 bit floating point numbers.</p>
@@ -596,6 +606,10 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 <h2>Checking the Size Limits of Numeric Type of Your C++ Implemetation<a class="headerlink" href="#checking-the-size-limits-of-numeric-type-of-your-c-implemetation" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> returns the number of bytes used to store values of that type.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">Standard Library</span></a> has some useful function such as max(), lowest(), and min(), which will return the largest value that can be stored in that type.</p>
+<div class="example dropdown admonition" id="exampleh1">
+
+<p class="admonition-title"><span class="caption-number">example 1 </span></p>
+<section id="example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -615,7 +629,15 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 </div>
+<div class="explanation dropdown admonition" id="explanationh1">
+
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleh1"> Example 1</a></p>
+<section id="explanation-content">
 <p>Note: Min() is the smallest positive value. Lowest() is the most negative value, where applicable.</p>
+</section>
+</div>
+</section>
+</div>
 </section>
 <section id="useful-constants">
 <h2>Useful Constants<a class="headerlink" href="#useful-constants" title="Permalink to this heading">#</a></h2>
@@ -666,7 +688,8 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>100	64	144	100</p>
+<p>10</p>
+<p>0	64	144	100</p>
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">std::hex</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">std::oct</span></code> are instructions to the output stream to convert and display the next integer values in octal or hexidecimal.
@@ -745,7 +768,7 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intger-types">Intger Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-types">Integer Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-literals">Floating-Point Literals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-notation">Scientific Notation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-size-of-numeric-values">Max Size of Numeric Values</a></li>
