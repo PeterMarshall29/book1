@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
@@ -66,7 +68,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.0285ba77-969f-49d8-abc1-7649edfedfae.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.60cfca3d-b332-4b91-9f52-e5df32a7f8e1.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +81,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-248fdd6f-a107-4722-938a-c18c435124e3] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-2cb2033f-4c54-4aa3-a6bd-6badaaf689e7] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -105,6 +107,9 @@ const load = async () => {
 window.addEventListener("load", load);
 </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/types';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scope" href="scope.html" />
@@ -238,7 +243,7 @@ window.addEventListener("load", load);
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -618,7 +623,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-248fdd6f-a107-4722-938a-c18c435124e3" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-2cb2033f-4c54-4aa3-a6bd-6badaaf689e7" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
@@ -753,35 +758,41 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">decltype(expr)</span></code> is used to deduce the of something that is not a simple initializer, such as the return type for a function, or the type of a class member.</p>
 <p>There is not much advantage in using auto instead of int for an expression as simple as 123.</p>
 <p>For types that are more difficult to write and therefore harder to know, auto is much more useful.</p>
-<p>Example</p>
-<p>template<class T> void f1(std::vector<T>&amp;arg)
-{
-for (std::vector<T>::iterator p = arg.begin(); p != arg.end(); ++p)
-*p = 7;
-for (auto p = arg.begin(); p != arg.end(); ++p)
-*p = 7;
-}
-The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes.</p>
-<p>The language provides two mechanisms for deducing a type from an expression:
-auto for deducing a type of an object from its initializer; the type can be the type of a vari- able, a const, or a constexpr.
-decltype(expr) for deducing the type of something that is not a simple initializer, such as the return type for a function or the type of a class member.
-The deduction done here is very simple: auto and decltype() simply report the type of an expression already known to the compiler.</p>
-<p>6.3.6.1 The auto Type Specifier
-When a declaration of a variable has an initializer, we don’t need to explicitly specify a type. Instead, we can let the variable have the type of its initializer. Consider:
-int a1 = 123;
-char a2 = 123;
-auto a3 = 123; // the type of a3 is ‘‘int’’int a1 = 123; char a2 = 123;
-auto a3 = 123; // the type of a3 is ‘‘int’’
-The type of the integer literal 123 is int, so a3 is an int. That is, auto is a placeholder for the type of the initializer.
-There is not much advantage in using auto instead of int for an expression as simple as 123. The harder the type is to write and the harder the type is to know, the more useful auto becomes. For example:
-template<class T> void f1(std::vector<T>&amp;arg)
-{
-for (std::vector<T>::iterator p = arg.begin(); p != arg.end(); ++p)
-*p = 7;
-for (auto p = arg.begin(); p != arg.end(); ++p)
-*p = 7;
-}
-The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes.</p>
+<p>Example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes.</p>
+<p>c++ provides two mechanisms for deducing a type from an expression:</p>
+<p><code class="docutils literal notranslate"><span class="pre">auto</span></code> for deducing a type of an object from its initializer; the type can be the type of a variable, a <code class="docutils literal notranslate"><span class="pre">const</span></code>, or a <code class="docutils literal notranslate"><span class="pre">constexpr</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">decltype(expr)</span></code> for deducing the type of something that is not a simple initializer, such as the return type for a function or the type of a class member.</p>
+<p>The deduction done here is very simple: <code class="docutils literal notranslate"><span class="pre">auto</span></code> and <code class="docutils literal notranslate"><span class="pre">decltype()</span></code> simply report the type of an expression already known to the compiler.</p>
+<p>When a declaration of a variable has an initializer, we don’t need to explicitly specify a type.</p>
+<p>Instead, we can let the variable have the type of its initializer. Consider:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">char</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">a3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"> </span><span class="c1">// the type of a3 is ‘‘int’’int a1 = 123; char a2 = 123;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">a3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"> </span><span class="c1">// the type of a3 is ‘‘int’’</span>
+</pre></div>
+</div>
+<p>The type of the integer literal 123 is int, so a3 is an int. That is, auto is a placeholder for the type of the initializer.</p>
+<p>There is not much advantage in using auto instead of int for an expression as simple as .123… The harder the type is to write and the harder the type is to know, the more useful auto becomes. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes.</p>
 </section>
 <section id="lvalue-and-rvalue">
 <h2><code class="docutils literal notranslate"><span class="pre">lvalue</span></code> and <code class="docutils literal notranslate"><span class="pre">rvalue</span></code><a class="headerlink" href="#lvalue-and-rvalue" title="Permalink to this heading">#</a></h2>
@@ -790,33 +801,27 @@ The loop using auto is the more convenient to write and the easier to read. Also
 <p>Not all <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> may be used on the left-hand side of an assignment, for example if the <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> refers to a constant.</p>
 <p>An <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> that has not been declared const is called a modifiable <code class="docutils literal notranslate"><span class="pre">lvalue</span></code>.</p>
 <p>This simple and low-level notion of an object should not be confused with the notions of class object and object of polymorphic type.</p>
-<p>Rvalue means ‘‘a value that is not an lvalue,’’ such as a temporary value (e.g., the value returned by a function).
-If you need to be more technical because you want to read the ISO C++ standard a deeper definition is required. There are two properties that matter for an object when it comes to addressing, copying, and moving:
+<p>Rvalue means “a value that is not an lvalue”, such as a temporary value (e.g., the value returned by a function).</p>
+<p>There are two properties that matter for an object when it comes to addressing, copying, and moving:
 • Has identity: The program has the name of, pointer to, or reference to the object so that it is possible to determine if two objects are the same, whether the value of the object has changed, etc.
-• Movable: The object may be moved from (i.e., we are allowed to move its value to another location and leave the object in a valid but unspecified state, rather than copying).
-For practical programming, thinking in terms of rvalue and lvalue is usually sufficient. Note that every expression is either an lvalue or an rvalue, but not both.</p>
-<p>It turns out that three of the four possible combinations of those two properties are needed to precisely describe the C++ language rules (we have no need for objects that do not have identity and cannot be moved). Using ‘‘m for movable’’ and ‘‘i for has identity,’’ we can represent this classification of expressions graphically:</p>
-<p>diagram from week 2 slide 66
-So, a classical lvalue is something that has identity and cannot be moved (because we could examine it after a move), and a classical rvalue is anything that we are allowed to move from.
-The other alternatives are prvalue (‘‘pure rvalue’’), glvalue (‘‘generalized lvalue’’), and xvalue (‘‘x’’ for ‘‘extraordinary’’ or ‘‘expert only’’; the suggestions for the meaning of this ‘‘x’’ have been quite imaginative). For example:
-void f(std::vector<a class="reference external" href="std::string">std::string</a>&amp; vs)
-{
-std::vector<a class="reference external" href="std::string">std::string</a>&amp; v2 = std::move(vs); // move vs to v2
-// …
-}
-Here, std::move(vs) is an xvalue: it clearly has identity (we can refer to it as vs), but we have explicitly given permission for it to be moved from by calling std::move().</p>
+• Movable: The object may be moved from (i.e., we are allowed to move its value to another location and leave the object in a valid but unspecified state, rather than copying).</p>
+<p>For practical programming, thinking in terms of rvalue and lvalue is usually sufficient. Note that every expression is either an lvalue or an rvalue, but not both.</p>
+<p>It turns out that three of the four possible combinations of those two properties are needed to precisely describe the C++ language rules (we have no need for objects that do not have identity and cannot be moved).</p>
 </section>
 <section id="type-aliases">
 <h2>Type Aliases<a class="headerlink" href="#type-aliases" title="Permalink to this heading">#</a></h2>
-<p>Sometimes, we need a new name for a type. Possible reasons include:</p>
+<p>Sometimes, we need a new name for a type.</p>
+<p>Possible reasons include:</p>
 <ul class="simple">
 <li><p>The original name is too long, or complicated in some way.</p></li>
 <li><p>A programming technique requires different types to have the same name in a context.</p></li>
 <li><p>A specific type is mentioned in one place only to simplify maintenance.</p></li>
 </ul>
-<p>For example:
-using Pchar = char∗; // pointer to character
-using PF = int(∗)(double); // pointer to function taking a double and returning an int</p>
+<p>For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pchar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointer to character</span>
+<span class="k">using</span><span class="w"> </span><span class="n">PF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">double</span><span class="p">);</span><span class="w"> </span><span class="c1">// pointer to function taking a double and returning an int</span>
+</pre></div>
+</div>
 </section>
 </section>
 

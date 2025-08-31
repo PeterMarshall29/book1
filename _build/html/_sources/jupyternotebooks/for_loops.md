@@ -18,8 +18,8 @@ kernelspec:
 ```
 The for-statement conditionally executes a statement, or code block, repeatedly. Also known as the {term}`for-loop`.
 
-````{admonition} The syntax of the For-Statement
-```{code-block} cppp
+````{admonition} The Syntax of the For-Statement
+```{code-block} cpp
 for ( ...loop_variable_definition_and_initialisation... ; 
       ...condition_to_continue_the_loop... ; 
       ...increment_to_loop_variable_instruction... ;) 
@@ -93,16 +93,16 @@ The code-block usually has not effect on the loop condition (best practice) but 
       G --> D
       E --> H[/"Ouput Result"/]
       H --> I(["End"])
-      A:::Rose
-      B:::Rose
-      C:::Rose
-      D:::Rose
-      E:::Rose
-      F:::Rose
-      G:::Rose
-      H:::Rose
-      I:::Rose
-      classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+      A:::Class_01
+      B:::Class_01
+      C:::Class_01
+      D:::Class_01
+      E:::Class_01
+      F:::Class_01
+      G:::Class_01
+      H:::Class_01
+      I:::Class_01
+      classDef Class_01 fill:#AA00FF, stroke:#2962FF, color:#000000
       linkStyle 0 stroke:#AA00FF,fill:none
       linkStyle 1 stroke:#AA00FF,fill:none
       linkStyle 2 stroke:#AA00FF,fill:none
@@ -166,6 +166,7 @@ The third and final argument is the for-statement increment.
 
 **After** executing the for-loops code block, the loop variable is increased or decreased according to this instruction.
 ````
+
 `````
 ``````{example-end}
 ``````
@@ -276,7 +277,11 @@ for (auto p = begin(c); c!=end(c); ++p) {
 // ... use iterator p for elements in container c ...
 }
 
-## requires vector
+## Iteration with `vector`
+
+```{warning}
+The next sections requires you to have read the chapter on [vectors](vectors).
+```
 TRY to create and change a vector of zeros.
 
 ```{code-cell} c++
@@ -303,4 +308,16 @@ int main() {
     for (int i = 0; i < vEmptyStrings.capacity(); ++i) std::cout << vEmptyStrings[i]<<", " << i << "\n";
 }
 ```
+(range-for)=
+## Range-For: Traversing a Vector
 
+The range for any vector is the halfopen sequence [0 : vectorName.size() ) meaning 0 is included, but the last element is `vectorName.size()-1` .
+
+A `range-for` loop uses this halfopen sequence.
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+std::vector<int> myVector = { 1, 2, 3, 4, 5 };
+myVector[2] = 5;
+for (int i : myVector) std::cout << i << "\n";
+```
+The loop runs the same number of times as the number of elements, the loop variable becomes that element each time.

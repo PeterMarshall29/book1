@@ -10,7 +10,21 @@ kernelspec:
   name: cpp20
 ---
 
-# Quiz 1
+# Quizzes
+
+##  Quiz 1
+
+<div class="container">
+      <div id="home" class="flex-center flex-column">
+        <h1>Quick Quiz</h1>
+        <a class="btn" href="../_static/game.html">Play</a>
+        <a class="btn" href="../_static/highscores.html">High Scores</a>
+</div>
+
+
+
+
+## Quiz 2
 
 <div class="quiz-container" id="quiz-container"></div>
     <div class="navigation">

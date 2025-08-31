@@ -22,6 +22,8 @@ When a function is called (or invoked) the statements are executed as though the
 
 Functions may be identified in code by finding a name suffixed by parentheses, which may be empty or contain arguments, e.g. `main()`
 
+In a declaration, an empty pair of parentheses, `()`, always means "function" in c++.
+
 ***
 
 Functions offer many benefits to the programmer. Functions: 

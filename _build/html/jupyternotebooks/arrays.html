@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
@@ -66,8 +68,11 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\arrays.a0d7cde8-31eb-46cb-ad25-70ec29cd19e7.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\arrays.a124759c-315d-4237-a63d-976e50153439.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/arrays';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Exercise 3" href="exercise3.html" />
@@ -201,7 +206,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -525,117 +530,151 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="arrays-in-c">
 <h1>Arrays in C++<a class="headerlink" href="#arrays-in-c" title="Permalink to this heading">#</a></h1>
-<p>C++ also has arrays like swift to an extend,  but c++ arrays must have their size specified in advance – vector is a more useful type to use usually, but we need to understand the basic arrays also.
-An array is C++’s fundamental way of representing a sequence of objects in memory. If what you want is a simple fixed-length sequence of objects of a given type in memory, an array is the ideal solution.
-For every other need, an array has serious problems.
-An array can be allocated statically, on the stack, and on the free store. For example:
-int a1[10];    // 10 ints in static storage
-void f()
-{
-int a2[20];       // 20 ints on the stack
-int* p = new int[40];   // 40 ints on the free store
-// …
-}</p>
-<p>For a type T, T[size] is the type ‘‘array of size elements of type T.’’ The elements are indexed from 0 to size−1. For example:
-float v[3];   // an array of three floats: v[0], v[1], v[2]
-char* a[32];  // an array of 32 pointers to char: a[0] … a[31]
- 
-You can access an array using the subscript operator, [ ], or through a pointer (using operator * or operator []). For example:
-void f()
-{
-int aa[10];
-aa[6] = 9;   // assign to aa’s 7th element
-int x = aa[99]; // undefined behavior
-}
-Access out of the range of an array is undefined and usually disastrous. In particular, run-time range checking is neither guaranteed nor common.
-The number of elements of the array, the array bound, must be a constant expression. If you need variable bounds, use a vector . For example:
-void f(int n)
-{
-int v1[n];     // error: array size not a constant expression
-vector<int> v2(n); // OK: vector with n int elements
-}</p>
-<p>An array can be initialized by a list of values. For example:
-int v1[] = { 1, 2, 3, 4 };
-char v2[] = { ‘a’, ‘b’, ‘c’, 0 };
-When an array is declared without a specific size, but with an initializer list, the size is calculated by counting the elements of the initializer list. Consequently, v1 and v2 are of type int[4] and char[4], respectively. If a size is explicitly specified, it is an error to give surplus elements in an ini- tializer list. For example:
-char v3[2] = { ‘a’, ‘b’, 0 };   // error: too many initializers
-char v4[3] = { ‘a’, ‘b’, 0 };   // OK
-If the initializer supplies too few elements for an array, 0 is used for the rest. For example:
-int v5[8] = { 1, 2, 3, 4 };
-is equivalent to
-int v5[] = { 1, 2, 3, 4 , 0, 0, 0, 0 };
-There is no built-in copy operation for arrays. You cannot initialize one array with another (not even of exactly the same type), and there is no array assignment:
-int v6[8] = v5; // error : can’t copy an array (cannot assign an int* to an array)
-v6 = v5; // error : no array assignment
-Similarly, you can’t pass arrays by value. When you need assignment to a collection of objects, use a vector, an array, or valarray  instead.
+<p>C++ uses simple built-in arrays, discussed on this page - and also a separate <code class="docutils literal notranslate"><span class="pre">&lt;array&gt;</span></code> library, not discussed.</p>
+<p>The built-in have values and length fixed at initilisation, and they may not be copied.</p>
+<p>An array is the C++ fundamental method for representing a sequence of objects in memory.</p>
+<p>If what you want is a simple fixed-length sequence of objects of a given type in memory, an array is the ideal solution.</p>
+<p>For every other need, an array has serious problems.</p>
+<div class="admonition-syntax-of-c-array admonition">
+<p class="admonition-title">Syntax of C++ Array</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="n">arrayName</span><span class="p">[</span><span class="o">...</span><span class="n">number</span> <span class="n">of</span> <span class="n">elements</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>An array can be allocated statically, on the stack, and on the free store. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w">    </span><span class="c1">// 10 ints in static storage</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a2</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span><span class="w">       </span><span class="c1">// 20 ints on the stack</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span><span class="w">   </span><span class="c1">// 40 ints on the free store</span>
+<span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For a type <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">T[size]</span></code> is the type “array of size elements of type T”. The elements are indexed from 0 to <code class="docutils literal notranslate"><span class="pre">size−1</span></code>. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w">   </span><span class="c1">// an array of three floats: v[0], v[1], v[2]</span>
+<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span><span class="w">  </span><span class="c1">// an array of 32 pointers to char: a[0] .. a[31]</span>
+</pre></div>
+</div>
+<p>You can access an array using the subscript operator, <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>, or through a pointer (using operator <code class="docutils literal notranslate"><span class="pre">*</span></code> or operator <code class="docutils literal notranslate"><span class="pre">[]</span></code>). For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">aa</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="n">aa</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w">   </span><span class="c1">// assign to aa’s 7th element</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aa</span><span class="p">[</span><span class="mi">99</span><span class="p">];</span><span class="w"> </span><span class="c1">// undefined behavior</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Access out of the range of an array is undefined and usually disastrous. In particular, run-time range checking is neither guaranteed nor common.
+The number of elements of the array, the array bound, must be a constant expression. If you need variable bounds, use a vector . For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w">     </span><span class="c1">// error: array size not a constant expression</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK: vector with n int elements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>An array can be initialized by a list of values. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">v2</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>When an array is declared without a specific size, but with an initializer list, the size is calculated by counting the elements of the initializer list. Consequently, <code class="docutils literal notranslate"><span class="pre">v1</span></code> and <code class="docutils literal notranslate"><span class="pre">v2</span></code> are of type <code class="docutils literal notranslate"><span class="pre">int[4]</span></code> and <code class="docutils literal notranslate"><span class="pre">char[4]</span></code>, respectively. If a size is explicitly specified, it is an error to give surplus elements in an initialiser list. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">v3</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span><span class="w">   </span><span class="c1">// error: too many initializers</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">v4</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span><span class="w">   </span><span class="c1">// OK</span>
+</pre></div>
+</div>
+<p>If the initializer supplies too few elements for an array, 0 is used for the rest. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">v5</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<span class="c1">// equivalent to</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">v5</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>There is no built-in copy operation for arrays. You cannot initialize one array with another (not even of exactly the same type), and there is no array assignment:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">v6</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v5</span><span class="p">;</span><span class="w"> </span><span class="c1">// error : can’t copy an array (cannot assign an int* to an array)</span>
+<span class="n">v6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v5</span><span class="p">;</span><span class="w"> </span><span class="c1">// error : no array assignment</span>
+</pre></div>
+</div>
+<p>Similarly, you can’t pass arrays by value. When you need assignment to a collection of objects, use a vector, an array, or valarray  instead.
 An array of characters can be conveniently initialized by a string literal.</p>
 <p>The C++ built-in array is an inherently low-level facility that should primarily be used inside the implementation of higher-level, better-behaved, data structures, such as the standard-library vector or array.
 There is no array assignment, and the name of an array implicitly converts to a pointer to its first element at the slightest provocation.
 Do not use arrays in interfaces (e.g., as function arguments) because the implicit conversion to pointer is the root cause of many common errors in C code and C-style C++ code.
 If you allocate an array on the free store, be sure to delete[] its pointer once only and only after its last us.</p>
-<p>One of the most widely used kinds of arrays is a zero-terminated array of char. That’s the way C stores strings, so a zero-terminated array of char is often called a C-style string. C++ string literals follow that convention, and some standard-library functions (e.g., strcpy() and strcmp() )rely on it. Often, a char* or a const char* is assumed to point to a zero-terminated sequence of characters.</p>
+<p>One of the most widely used kinds of arrays is a zero-terminated array of char. That’s the way C stores strings, so a zero-terminated array of char is often called a C-style string. C++ string literals follow that convention, and some standard-library functions (e.g., <code class="docutils literal notranslate"><span class="pre">strcpy()</span></code> and <code class="docutils literal notranslate"><span class="pre">strcmp()</span></code> )rely on it. Often, a <code class="docutils literal notranslate"><span class="pre">char*</span></code> or a <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char*</span></code> is assumed to point to a zero-terminated sequence of characters.</p>
 <section id="passing-arrays">
 <h2>Passing Arrays<a class="headerlink" href="#passing-arrays" title="Permalink to this heading">#</a></h2>
-<p>Arrays cannot directly be passed by value. Instead, an array is passed as a pointer to its first element. For example:
-void comp(double arg[10]) // arg is a double*
-{
-for (int i = 0; i != 10; ++i)
-arg[i] += 99;
-}
-void f()
-{
-double a1[10];
-double a2[5];
-double a3[100];
-comp(a1);
-comp(a2); // disaster!
-comp(a3); // uses only the first 10 elements
-};
-This code looks sane, but it is not. The code compiles, but the call comp(a2) will write beyond the bounds of a2. Also, anyone who guessed that the array was passed by value will be disappointed: the writes to arg[i] are writes directly to the elements of comp()’s argument, rather than to a copy.
-The function could equivalently have been written as
-void comp(double* arg)
-{
-for (int i = 0; i != 10; ++i)
-arg[i] += 99;
-}
-Now the insanity is (hopefully) obvious. When used as a function argument, the first dimension of an array is simply treated as a pointer. Any array bound specified is simply ignored. This implies that if you want to pass a sequence of elements without losing size information, you should not pass a built-in array. Instead, you can place the array inside a class as a member (as is done for std::array) or define a class that acts as a handle (as in std::string or std::vector).</p>
+<p>Arrays cannot directly be passed by value. Instead, an array is passed as a pointer to its first element. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">comp</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">arg</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span><span class="w"> </span><span class="c1">// arg is a double*</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">		</span><span class="n">arg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="n">a1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="n">a2</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="n">a3</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">	</span><span class="n">comp</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+<span class="w">	</span><span class="n">comp</span><span class="p">(</span><span class="n">a2</span><span class="p">);</span><span class="w"> </span><span class="c1">// disaster!</span>
+<span class="n">comp</span><span class="p">(</span><span class="n">a3</span><span class="p">);</span><span class="w"> </span><span class="c1">// uses only the first 10 elements</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This code looks sane, but it is not. The code compiles, but the call comp(a2) will write beyond the bounds of a2. Also, anyone who guessed that the array was passed by value will be disappointed: the writes to <code class="docutils literal notranslate"><span class="pre">arg[i]</span></code> are writes directly to the elements of <code class="docutils literal notranslate"><span class="pre">comp()</span></code>’s argument, rather than to a copy.
+The function could equivalently have been written as</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">comp</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">		</span><span class="n">arg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now the insanity is (hopefully) obvious. When used as a function argument, the first dimension of an array is simply treated as a pointer. Any array bound specified is simply ignored. This implies that if you want to pass a sequence of elements without losing size information, you should not pass a built-in array. Instead, you can place the array inside a class as a member (as is done for <code class="docutils literal notranslate"><span class="pre">std::array</span></code>) or define a class that acts as a handle (as in <code class="docutils literal notranslate"><span class="pre">std::string</span></code> or <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>).</p>
 </section>
 <section id="multidimenstional-arrays">
 <h2>Multidimenstional Arrays<a class="headerlink" href="#multidimenstional-arrays" title="Permalink to this heading">#</a></h2>
-<p>int main() {
-// creating 2d and 3d array
-int arr1[2][4];
-int arr2[2][4][8];</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// using sizeof() operator to get the size of the above
-// arrays
-std::cout &lt;&lt; &quot;Size of array arr1: &quot; &lt;&lt; sizeof(arr1)
-    &lt;&lt; &quot; bytes&quot; &lt;&lt; std::endl;
-std::cout &lt;&lt; &quot;Size of array arr2: &quot; &lt;&lt; sizeof(arr2)
-    &lt;&lt; &quot; bytes&quot;;
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// creating 2d and 3d array</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr2</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">8</span><span class="p">];</span>
 
-return 0;
+<span class="w">    </span><span class="c1">// using sizeof() operator to get the size of the above</span>
+<span class="w">    </span><span class="c1">// arrays</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Size of array arr1: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Size of array arr2: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>}</p>
 <ol class="arabic simple">
 <li><p>Initialize 2D array using the Initializer list</p></li>
 </ol>
 <p>We can initialize a 2D array using an initializer list in two ways. Below is the first method of initializing a 2D array using an initializer list.</p>
 <p>First Method: The below array has 2 rows and 4 columns. The elements are filled in a way that the first 4 elements are filled in the first row and the next 4 elements are filled in the second row.</p>
-<p>int myArray[2][4] = { 0, 1, 2, 3, 4, 5, 6, 7 };</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
 <p>Second Method: The below way is the cleaner way to initialize a 2D array the nested list represents the elements in a row and the number of elements inside it is equal to the number of columns in a 2D array. The number of nested lists represents the number of columns.</p>
-<p>int myArray2[2][4] = { {0, 1, 2, 3}, {4, 5, 6, 7} };</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myArray2</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
 <ol class="arabic simple" start="2">
 <li><p>Initialization of 2D array using Loops
 We can also initialize 2D array using loops. To initialize 2D array we have to use two nested loops and nested loops are equal to the dimension. For example, to initialize a 3D array we have to use three nested loops. Let’s see an example.</p></li>
 </ol>
-<p>Example: In the below example we have initializes the 2D array with 1. The outer loop is used to track rows “i=0” means the first row because of 0 indexing similarly “j=0” means the first column and combining this x [0][0] represents the first cell of the 2D array.
-int myArray3[2][4];
-for (int i = 0; i &lt; 2; i++) {
-for (int j = 0; j &lt; 4; j++) {
-x[i][j] = 1;
-}
-}</p>
+<p>Example: In the below example we have initializes the 2D array with 1. The outer loop is used to track rows <code class="docutils literal notranslate"><span class="pre">i=0</span></code> means the first row because of 0 indexing similarly <code class="docutils literal notranslate"><span class="pre">j=0</span></code> means the first column and combining this <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">[0][0]</span></code> represents the first cell of the 2D array.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myArray3</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 

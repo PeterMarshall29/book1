@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
@@ -66,7 +68,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.dfd4c16c-10fa-4f50-ac9b-ce619b5eb8cc.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.4e03e4cf-3a35-433a-b79e-2e35d6e7a2a3.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +81,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-38ae52ef-9d39-4ec0-b8e5-792e9977b929] svg, .mermaid[data-zoom-id=id-4d1df342-98e4-49f4-b19c-ac04608e5a49] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-938f5350-b7fe-4f12-bfc3-97806f687197] svg, .mermaid[data-zoom-id=id-44307742-5860-43b0-ab3e-a661951cd40f] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -105,6 +107,9 @@ const load = async () => {
 window.addEventListener("load", load);
 </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/for_loops';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="While Loops" href="while_loops.html" />
@@ -238,7 +243,7 @@ window.addEventListener("load", load);
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -553,7 +558,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-workings-and-comparison-to-while-loops">Inner Workings and Comparison to While Loops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auto">Using <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requires-vector">requires vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-with-vector">Iteration with <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range-for-traversing-a-vector">Range-For: Traversing a Vector</a></li>
 </ul>
             </nav>
         </div>
@@ -576,11 +582,11 @@ document.write(`
 </div>
 <p>The for-statement conditionally executes a statement, or code block, repeatedly. Also known as the <a class="reference internal" href="glossary.html#term-For-loop"><span class="xref std std-term">for-loop</span></a>.</p>
 <div class="admonition-the-syntax-of-the-for-statement admonition">
-<p class="admonition-title">The syntax of the For-Statement</p>
-<div class="highlight-cppp notranslate"><div class="highlight"><pre><span></span>for ( ...loop_variable_definition_and_initialisation... ; 
-      ...condition_to_continue_the_loop... ; 
-      ...increment_to_loop_variable_instruction... ;) 
-      { ...code_to_be_executed_every_loop...}
+<p class="admonition-title">The Syntax of the For-Statement</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">...</span><span class="n">loop_variable_definition_and_initialisation</span><span class="p">...</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
+<span class="w">      </span><span class="p">...</span><span class="n">condition_to_continue_the_loop</span><span class="p">...</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
+<span class="w">      </span><span class="p">...</span><span class="n">increment_to_loop_variable_instruction</span><span class="p">...</span><span class="w"> </span><span class="p">;)</span><span class="w"> </span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="n">code_to_be_executed_every_loop</span><span class="p">...}</span>
 </pre></div>
 </div>
 </div>
@@ -595,7 +601,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-38ae52ef-9d39-4ec0-b8e5-792e9977b929" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-938f5350-b7fe-4f12-bfc3-97806f687197" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -626,7 +632,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-4d1df342-98e4-49f4-b19c-ac04608e5a49" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-44307742-5860-43b0-ab3e-a661951cd40f" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -644,16 +650,16 @@ document.write(`
   G --&gt; D
   E --&gt; H[/&quot;Ouput Result&quot;/]
   H --&gt; I([&quot;End&quot;])
-  A:::Rose
-  B:::Rose
-  C:::Rose
-  D:::Rose
-  E:::Rose
-  F:::Rose
-  G:::Rose
-  H:::Rose
-  I:::Rose
-  classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+  A:::Class_01
+  B:::Class_01
+  C:::Class_01
+  D:::Class_01
+  E:::Class_01
+  F:::Class_01
+  G:::Class_01
+  H:::Class_01
+  I:::Class_01
+  classDef Class_01 fill:#AA00FF, stroke:#2962FF, color:#000000
   linkStyle 0 stroke:#AA00FF,fill:none
   linkStyle 1 stroke:#AA00FF,fill:none
   linkStyle 2 stroke:#AA00FF,fill:none
@@ -670,7 +676,7 @@ document.write(`
 </div>
 <div class="example dropdown admonition" id="examples1">
 
-<p class="admonition-title"><span class="caption-number">example 24 </span> (For-statement)</p>
+<p class="admonition-title"><span class="caption-number">example 27 </span> (For-statement)</p>
 <section id="example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -761,10 +767,7 @@ Behaves the same as while(true)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1	2	3	4	5	6	7	8	9	
-</pre></div>
-</div>
+<p>0	1	2	3	4	5	6	7	8	9</p>
 </div>
 </div>
 </section>
@@ -811,16 +814,16 @@ Behaves the same as while(true)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp:10:22: error: &#39;a&#39; was not declared in this scope
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpsejh_4tb.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpsejh_4tb.cpp:10:22: error: &#39;a&#39; was not declared in this scope
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                      ^
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpsejh_4tb.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                           ^~~~
-C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp:10:27: error: lvalue required as increment operand
+C:\Users\Peter\AppData\Local\Temp\tmpsejh_4tb.cpp:10:27: error: lvalue required as increment operand
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
@@ -849,28 +852,26 @@ C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp:10:27: error: lvalue required 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In function &#39;void loopFunction(int*, int)&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp: In function &#39;void loopFunction(int*, int)&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
     8 |     while (i !!= terminatiionValue) {
       |           ~ ^~
       |             )
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
     8 |     while (i !!= terminatiionValue) {
       |               ^~
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:19: error: expected identifier before numeric constant
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp:15:19: error: expected identifier before numeric constant
    15 |     loopfunction([1,2,3,4,5], 20);
       |                   ^
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                    ^
       |                    ]
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In lambda function:
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp: In lambda function:
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpz6squywt.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                 ~          ^
       |                            )
@@ -898,13 +899,13 @@ C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:28: error: expected &#39;)&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp4fmxdvli.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmp4fmxdvli.cpp:6:10: error: redeclaration of &#39;long int i&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpie6mmwoh.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpie6mmwoh.cpp:6:10: error: redeclaration of &#39;long int i&#39;
     6 |     long i = 1;
       |          ^
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp4fmxdvli.cpp:5:10: note: &#39;int i&#39; previously declared here
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpie6mmwoh.cpp:5:10: note: &#39;int i&#39; previously declared here
     5 | for (int i = 0;;) {
       |          ^
 </pre></div>
@@ -923,8 +924,12 @@ for (auto p = begin©; c!=end©; ++p) {
 // … use iterator p for elements in container c …
 }</p>
 </section>
-<section id="requires-vector">
-<h2>requires vector<a class="headerlink" href="#requires-vector" title="Permalink to this heading">#</a></h2>
+<section id="iteration-with-vector">
+<h2>Iteration with <code class="docutils literal notranslate"><span class="pre">vector</span></code><a class="headerlink" href="#iteration-with-vector" title="Permalink to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The next sections requires you to have read the chapter on <a class="reference internal" href="vector.html#vectors"><span class="std std-ref">vectors</span></a>.</p>
+</div>
 <p>TRY to create and change a vector of zeros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,7 +969,8 @@ for (auto p = begin©; c!=end©; ++p) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>, 0</p>
+<p>,</p>
+<p>0</p>
 <p>, 1</p>
 <p>, 2</p>
 <p>, 3</p>
@@ -972,6 +978,21 @@ for (auto p = begin©; c!=end©; ++p) {
 <p>, 5</p>
 </div>
 </div>
+</section>
+<section id="range-for-traversing-a-vector">
+<span id="range-for"></span><h2>Range-For: Traversing a Vector<a class="headerlink" href="#range-for-traversing-a-vector" title="Permalink to this heading">#</a></h2>
+<p>The range for any vector is the halfopen sequence [0 : vectorName.size() ) meaning 0 is included, but the last element is <code class="docutils literal notranslate"><span class="pre">vectorName.size()-1</span></code> .</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">range-for</span></code> loop uses this halfopen sequence.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
+<span class="n">myVector</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">myVector</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The loop runs the same number of times as the number of elements, the loop variable becomes that element each time.</p>
 </section>
 </section>
 
@@ -1045,7 +1066,8 @@ for (auto p = begin©; c!=end©; ++p) {
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-workings-and-comparison-to-while-loops">Inner Workings and Comparison to While Loops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auto">Using <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requires-vector">requires vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-with-vector">Iteration with <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range-for-traversing-a-vector">Range-For: Traversing a Vector</a></li>
 </ul>
   </nav></div>
 

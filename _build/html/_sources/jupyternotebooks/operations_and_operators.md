@@ -116,6 +116,7 @@ Count = count + n can be written as count+=n
 I or a new value. The second object is unaffected
 
 ```{code-cell} c++
+:tags: [remove-output, skip-execution] 
 #include <iostream>
 int main() {
   int a = 5;
@@ -176,6 +177,7 @@ That is, if the condition is true, the ternary operator value a if true, otherwi
 `````
 Complete this code using the ternary operator to print out the name of the enemy that is closest.
 ````{code-cell} c++
+:tags: [remove-output, skip-execution] 
 #include <iostream>
 #include <string>
 int main() {

@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
@@ -66,8 +68,11 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.e9e3f954-71de-4dec-af6d-9b14f34bd1fe.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.4b6b05e8-c529-4844-a0f3-fedb348143ef.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/boolean_type';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Initialisation" href="initialisation.html" />
@@ -201,7 +206,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -524,59 +529,73 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="boolean-data-type">
 <h1>Boolean Data Type<a class="headerlink" href="#boolean-data-type" title="Permalink to this heading">#</a></h1>
-<p>Generally, you will only need to use bool for logical values, char for characters, int for integer values, and double for floating-point values.
-Unless you are pushing the computer to its limits, you don’t need to worry about optimisation quite so much these days, and especially when just starting out.
-In c++ the integral and floating-point types are available in a variety of sizes to allow you to optimise the amount of memory storage utilised and therefore the precision and the range available in computation.
-Computers usually use bytes characters, words integer values, some entity most suitable for floating-point computation, and addresses for referring to those entities.
-The C++ fundamental types together with pointers and arrays present these machine-level notions to the programmer in a reasonably implementation-independent manner.</p>
-<p>A Boolean, bool, can have one of the two values true or false. A Boolean is used to express the results of logical operations. For example:
-void myFunction(int a, int b)
-{
-bool myBoolean{ a == b };
-// …
-}
-If a and b have the same value, myBoolean becomes true; otherwise, b1 becomes false.
-A common use of bool is as the type of the result of a function that tests some condition (a pred- icate). For example:</p>
-<p>bool is_open(myFile);
-bool greater(int a, int b) { return a&gt;b; }</p>
-<p>By definition, true has the value 1 when converted to an integer and false has the value 0. Con- versely, integers can be implicitly converted to bool values: nonzero integers convert to true and 0 converts to false. For example:
-bool b1 = 7;  // 7!=0, so b becomes true
-bool b2{ 7 };  // error: narrowing (§2.2.2, §10.5)
-int i1 = true;  // i1 becomes 1
-int i2{ true };  // i2 becomes 1z
-If you prefer to use the {}-initializer syntax to prevent narrowing, yet still want to convert an int to a bool, you can be explicit:
-void myFunnction(int i)
-{
-bool myBoolean{i!=0};
-};</p>
-<p>In arithmetic and logical expressions, bools are converted to ints; integer arithmetic and logical operations are performed on the converted values. If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true. For example:
-bool a = true;
-bool b = true;
-bool x = a + b; // a+b is 2, so x becomes true
-bool y = a || b; // a||b is 1, so y becomes true (“||” means “or”)
-bool z = a-b; // a-b is 0, so z becomes false</p>
+<p>Generally, you will only need to use bool for logical values, char for characters, int for integer values, and double for floating-point values.</p>
+<p>Unless you are pushing the computer to its limits, you don’t need to worry about optimisation quite so much these days, and especially when just starting out.</p>
+<p>In c++ the integral and floating-point types are available in a variety of sizes to allow you to optimise the amount of memory storage utilised and therefore the precision and the range available in computation.</p>
+<p>Computers usually use bytes characters, words integer values, some entity most suitable for floating-point computation, and addresses for referring to those entities.</p>
+<p>The C++ fundamental types together with pointers and arrays present these machine-level notions to the programmer in a reasonably implementation-independent manner.</p>
+<p>A Boolean, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, can have one of the two values true or false.</p>
+<p>A Boolean is used to express the results of logical operations. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">};</span>
+<span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> have the same value, <code class="docutils literal notranslate"><span class="pre">myBoolean</span></code> becomes <code class="docutils literal notranslate"><span class="pre">true</span></code>; otherwise, <code class="docutils literal notranslate"><span class="pre">myBoolean</span></code> becomes <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>A common use of <code class="docutils literal notranslate"><span class="pre">bool</span></code> is as the type of the result of a function that tests some condition (a predicate). For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_open</span><span class="p">(</span><span class="n">myFile</span><span class="p">);</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">greater</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>By definition, true has the value 1 when converted to an integer and false has the value 0.</p>
+<p>Conversely, integers can be implicitly converted to bool values: nonzero integers convert to <code class="docutils literal notranslate"><span class="pre">true</span></code> and ‘0’ converts to <code class="docutils literal notranslate"><span class="pre">false</span></code>. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">  </span><span class="c1">// 7!=0, so b becomes true</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">b2</span><span class="p">{</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// error: narrowing </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// i1 becomes 1</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i2</span><span class="p">{</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// i2 becomes 1z</span>
+</pre></div>
+</div>
+<p>If you prefer to use the {}-initializer syntax to prevent narrowing, yet still want to convert an <code class="docutils literal notranslate"><span class="pre">int</span></code> to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, you can be explicit:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunnction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">{</span><span class="n">i</span><span class="o">!=</span><span class="mi">0</span><span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>In arithmetic and logical expressions, bools are converted to ints; integer arithmetic and logical operations are performed on the converted values.</p>
+<p>If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a+b is 2, so x becomes true</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a||b is 1, so y becomes true (&quot;||&quot; means &quot;or&quot;)</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a-b is 0, so z becomes false</span>
+</pre></div>
+</div>
 <section id="pointers-converting-to-booleans">
 <h2>Pointers Converting to Booleans<a class="headerlink" href="#pointers-converting-to-booleans" title="Permalink to this heading">#</a></h2>
-<p>A pointer can be implicitly converted to a bool (§10.5.2.5). A non-null pointer converts to true; pointers with the value nullptr convert to false. For example:
- void myFunction(int* myPointer)
-{
-bool myBoolean1 = myPointer;  // narrows to true or false - not a copy!
-std::cout &lt;&lt; myBoolean1 &lt;&lt; ‘\n’;
-bool myBoolean2{ myPointer != nullptr };  // explicit test against nullptr
-std::cout &lt;&lt; myBoolean1 &lt;&lt; ‘\n’;
-if (myPointer) { // identical to p!=nullptr
-std::cout &lt;&lt; “not pointing to Null” &lt;&lt; ‘\n’;
-}
-}
- int main() {
-int temp = 17;
-int* myPointerToTemp = nullptr; // or set to temp
-myFunction(myPointerToTemp);
- 
-return 0;
- 
-}
-I prefer if § over if (p!=nullptr) because it more directly expresses the notion ‘‘if p is valid’’ and also because it is shorter. The shorter form leaves fewer opportunities for mistakes.</p>
+<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. A non-null pointer converts to <code class="docutils literal notranslate"><span class="pre">true</span></code>; pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myPointer</span><span class="p">;</span><span class="w">  </span><span class="c1">// narrows to true or false - not a copy!</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean2</span><span class="p">{</span><span class="w"> </span><span class="n">myPointer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// explicit test against nullptr</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myPointer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// identical to p!=nullptr</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;not pointing to Null&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// or set to temp</span>
+<span class="w">	</span><span class="n">myFunction</span><span class="p">(</span><span class="n">myPointerToTemp</span><span class="p">);</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>I prefer <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(p)</span></code> over <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(p!=nullptr)</span></code> because it more directly expresses the notion “if p is valid” and also because it is shorter.</p>
+<p>The shorter form leaves fewer opportunities for mistakes.</p>
 </section>
 </section>
 

@@ -22,6 +22,8 @@ When a function is called (or invoked) the statements are executed as though the
 
 Functions may be identified in code by finding a name suffixed by parentheses, which may be empty or contain arguments, e.g. `main()`
 
+In a declaration, an empty pair of parentheses, `()`, always means "function" in c++.
+
 ***
 
 Functions offer many benefits to the programmer. Functions: 
@@ -74,7 +76,6 @@ This is the {term}`function definition`.
 The statements inside the curly braces `{}` (a code block) are the function body.
 
 ````{tip}
-:class:
 Not shown in this example - the statement before the function body, followed by a `;` is a {term}`function declaration`.
 ```{code-block} c++
 void myFirstFunction (); 

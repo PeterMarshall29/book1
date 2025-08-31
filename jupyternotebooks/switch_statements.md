@@ -94,19 +94,21 @@ flowchart LR
 ```
 ```{admonition} Switch Rules
 :class: dropdown note
-Switch variables must be constant expressions i.e. there must be literal value typed at the case line.
+???correction needed
 
-Switch variables may only be of the types: integral (including `char`), enumeration, or class.
+- Switch variables must be constant expressions i.e. there must be literal value typed at the case line.
 
-The swtich case You cannot switch on a string value – selection based on a `string` requires an if-statement or a 'map'.
+- Switch variables may only be of the types: integral (including `char`), enumeration, or class.
 
-A single case can be executed for several case labels. But case labels cannot be used for two cases.
+- The swtich case You cannot switch on a string value – selection based on a `string` requires an if-statement or a 'map'.
+
+- A single case can be executed for several case labels. But case labels cannot be used for two cases.
 
 i.e. use multiple labels for the same case: e.g. case '0': case '2': case '4': case '6': case '8': ..then case statements...
 
-Most compilers do not warn if you forget break – it is required – try it.
+- Most compilers do not warn if you forget break – it is required – try it.
 
-Without the breaks -  all the code blocks below the first detected case will also be executed.
+- Without the breaks -  all the code blocks below the first detected case will also be executed.
 ```
 
 
@@ -115,7 +117,7 @@ Without the breaks -  all the code blocks below the first detected case will als
 :class: dropdown
 `````
 ````{code-cell}  c++
-:tags: [remove-output]
+:tags: [remove-output, skip-execution]
 #include <iostream>
 int main() {
 	constexpr double cm_per_inch = 2.54;
@@ -172,7 +174,7 @@ The value in parentheses after the switch keyword is compared to the case values
 :class: dropdown
 `````
 ````{code-cell}  c++
-:tags: [remove-output]
+:tags: [remove-output, skip-execution]
 #include <iostream>
 int main() {
 
