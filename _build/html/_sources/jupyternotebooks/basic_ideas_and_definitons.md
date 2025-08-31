@@ -87,6 +87,53 @@ The try using `-` as a prefix on a number, what effect does that have?
 ````
 `````{example-end}
 `````
+## Mathematical Functions
+
+To access additional mathematical functions we can include the <cmath> component of the standard library.
+
+````{admonition} <cmath> Functions
+:class: note dropdown
+```{list-table}
+:header-rows: 1
+:name: <cmath>
+* - Function
+  - Description
+* - fabs(x) 
+  - Absolute value of real value x
+* - pow(x, y)
+  - x raised to power y
+* - sqrt(x) 
+  - Square root of x
+* - ceil(x) 
+  - Least integer greater than or equal to x
+* - floor(x)
+  - Greatest integer less than or equal to x
+* - exp(x)
+  - Exponential function ex
+* - log(x)
+  - Natural logarithm of x
+* - log10(x)
+  - Base-10 logarithm of x
+* - sin(x)
+  - Sine of x (in radians)
+* - cos(x)
+  - Cosine of x (in radians)
+* - tan(x)
+  - Tangent of x (in radians)
+* - asin(x)
+  - Inverse sine of x
+* - acos(x)
+  - Inverse cosine of x
+* - atan(x)
+  - Inverse tangent of x
+* - sinh(x)
+  - Hyperbolic sine of x
+* - cosh(x)
+  - Hyperbolic cosine of x
+* - tanh(x)
+  - Hyperbolic tangent of x
+```
+````
 ## Variables
 
 A computer programme that can only perform arithmetic on the values written into the original programme code would not be very useful.
@@ -254,6 +301,36 @@ return 0;
 `````
 
 ## Escape Characters
+
+````{note}
+:class: margin
+
+Waka poetry consists of five lines, with a syllable count of 5-7-5-7-7. The form is similar to haiku but with two additional lines.
+
+A poll conducted among INFOCUS readers had established "waka" as the
+proper pronunciation for the angle-bracket characters <,
+
+The Waka Waka Poem " by Fred Bremmer and Steve Kroeze. 
+```{card}
+<>!*''#
+^"`$$-
+!*=@$_
+%*<>~#4
+&[]../
+|{,,SYSTEM HALTED
+```
+Translation:
+```{card}
+Waka waka bang splat tick tick hash,
+Caret quote back-tick dollar dollar dash,
+Bang splat equal at dollar underscore,
+Percent splat waka waka tilde number four,
+Ampersand bracket bracket dot dot slash,
+Vertical-bar curly-bracket comma comma CRASH .
+
+From https://ascii.co.uk/art/poem
+```
+````
 
 {term}`Escape sequences`, or 'escape characters', are used to represent special characters within a string or character literal.
 

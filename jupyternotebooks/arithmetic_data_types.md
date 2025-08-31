@@ -42,7 +42,7 @@ A floating-point literal of type `float` is defined by adding the postfix 'f' (o
 A `long double` is defined by adding the postfix 'l' (or 'L'): `5.55e207L`.
 
 ## Scientific Notation
-````{sidebar}
+`````{sidebar}
 ````{admonition} Scientific Notation Example
 $$
 2.99e8 = 2.99 \times 10^{8}

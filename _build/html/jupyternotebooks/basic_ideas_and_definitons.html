@@ -66,7 +66,9 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.272798f7-7082-4aa9-b0de-dd67e4fd0bad.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.a6fbe30c-57f8-4f0b-a99e-f019033a75df.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -512,6 +514,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-statements">Expressions and Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic-operations">Basic Arithmetic Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-functions">Mathematical Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data-types">More Data Types</a></li>
@@ -601,6 +604,74 @@ document.write(`
 </section>
 </div>
 </section>
+</div>
+</section>
+<section id="mathematical-functions">
+<h2>Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Permalink to this heading">#</a></h2>
+<p>To access additional mathematical functions we can include the <cmath> component of the standard library.</p>
+<div class="note dropdown admonition">
+<p class="admonition-title"><cmath> Functions</p>
+<div class="pst-scrollable-table-container"><table class="table" id="cmath">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fabs(x)</p></td>
+<td><p>Absolute value of real value x</p></td>
+</tr>
+<tr class="row-odd"><td><p>pow(x, y)</p></td>
+<td><p>x raised to power y</p></td>
+</tr>
+<tr class="row-even"><td><p>sqrt(x)</p></td>
+<td><p>Square root of x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ceil(x)</p></td>
+<td><p>Least integer greater than or equal to x</p></td>
+</tr>
+<tr class="row-even"><td><p>floor(x)</p></td>
+<td><p>Greatest integer less than or equal to x</p></td>
+</tr>
+<tr class="row-odd"><td><p>exp(x)</p></td>
+<td><p>Exponential function ex</p></td>
+</tr>
+<tr class="row-even"><td><p>log(x)</p></td>
+<td><p>Natural logarithm of x</p></td>
+</tr>
+<tr class="row-odd"><td><p>log10(x)</p></td>
+<td><p>Base-10 logarithm of x</p></td>
+</tr>
+<tr class="row-even"><td><p>sin(x)</p></td>
+<td><p>Sine of x (in radians)</p></td>
+</tr>
+<tr class="row-odd"><td><p>cos(x)</p></td>
+<td><p>Cosine of x (in radians)</p></td>
+</tr>
+<tr class="row-even"><td><p>tan(x)</p></td>
+<td><p>Tangent of x (in radians)</p></td>
+</tr>
+<tr class="row-odd"><td><p>asin(x)</p></td>
+<td><p>Inverse sine of x</p></td>
+</tr>
+<tr class="row-even"><td><p>acos(x)</p></td>
+<td><p>Inverse cosine of x</p></td>
+</tr>
+<tr class="row-odd"><td><p>atan(x)</p></td>
+<td><p>Inverse tangent of x</p></td>
+</tr>
+<tr class="row-even"><td><p>sinh(x)</p></td>
+<td><p>Hyperbolic sine of x</p></td>
+</tr>
+<tr class="row-odd"><td><p>cosh(x)</p></td>
+<td><p>Hyperbolic cosine of x</p></td>
+</tr>
+<tr class="row-even"><td><p>tanh(x)</p></td>
+<td><p>Hyperbolic tangent of x</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </section>
 <section id="variables">
@@ -765,6 +836,34 @@ document.write(`
 </section>
 <section id="escape-characters">
 <h2>Escape Characters<a class="headerlink" href="#escape-characters" title="Permalink to this heading">#</a></h2>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>Waka poetry consists of five lines, with a syllable count of 5-7-5-7-7. The form is similar to haiku but with two additional lines.</p>
+<p>A poll conducted among INFOCUS readers had established “waka” as the
+proper pronunciation for the angle-bracket characters &lt;,</p>
+<p>The Waka Waka Poem ” by Fred Bremmer and Steve Kroeze.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">&lt;&gt;!*‘’#
+^”`$<span class="math notranslate nohighlight">\(-
+!*=&#64;\)</span>_</p>
+<p class="sd-card-text">&amp;[]…/
+|{,SYSTEM HALTED</p>
+</div>
+</div>
+<p>Translation:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Waka waka bang splat tick tick hash,
+Caret quote back-tick dollar dollar dash,
+Bang splat equal at dollar underscore,
+Percent splat waka waka tilde number four,
+Ampersand bracket bracket dot dot slash,
+Vertical-bar curly-bracket comma comma CRASH .</p>
+<p class="sd-card-text">From <a class="reference external" href="https://ascii.co.uk/art/poem">https://ascii.co.uk/art/poem</a></p>
+</div>
+</div>
+</div>
 <p><a class="reference internal" href="glossary.html#term-Escape-Sequences"><span class="xref std std-term">Escape sequences</span></a>, or ‘escape characters’, are used to represent special characters within a string or character literal.</p>
 <p>Certain characters in the program have to be represented with <a class="reference internal" href="glossary.html#term-Escape-Sequences"><span class="xref std std-term">escape sequences</span></a> because the are <a class="reference internal" href="glossary.html#term-Reserved-Characters"><span class="xref std std-term">reserved characters</span></a> that have specific meaning to the compiler.</p>
 <p>Each escape character is identifed to the program by prefixing <code class="docutils literal notranslate"><span class="pre">\</span></code> to the character.</p>
@@ -869,6 +968,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-statements">Expressions and Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic-operations">Basic Arithmetic Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-functions">Mathematical Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-data-types">More Data Types</a></li>

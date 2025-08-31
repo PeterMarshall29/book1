@@ -15,12 +15,12 @@ parts:
     - file: jupyternotebooks/firstprogram #A
       sections:
         - file: jupyternotebooks/basic_ideas_and_definitons  #B
-        - file: jupyternotebooks/exercise1  
+        - file: jupyternotebooks/exercise1  #ex1
         - file: jupyternotebooks/quiz1
     - file: jupyternotebooks/input_and_output  #C  
       sections:
         - file: jupyternotebooks/printing_to_file  #D
-        - file: jupyternotebooks/exercise2
+        - file: jupyternotebooks/exercise2  #ex2
     - file: jupyternotebooks/objects_values_variables_and_constants  #E
       sections:
         - file: jupyternotebooks/identifiers #W

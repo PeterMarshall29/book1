@@ -11,7 +11,14 @@ kernelspec:
 ---
 
 # Selection and Iteration
+```{note}
+:class: margin
+'Control Flow' and 'Flow Control' are used almost interchangebly.
 
+Flow control, just refers to controlling the sequential flow of execution.
+
+Both refer to the mechanisms that dictate the order in which statements are executed in a program. 
+```
 Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a programme. 
 
 The {term}`control flow` refers to the order in which all its statements are executed. 
@@ -23,14 +30,7 @@ More literally {term}`control flow` refers to the sequential flow of ***control*
 Without selection statements a program can only run from beginning to end - executing the same statements in the same order every time.
 
 Without iteration statement a program has to end - your phone's program is constantly running because code is repeatedly executed in a loop.
-```{note}
-:class: margin
-'Control Flow' and 'Flow Control' are used almost interchangebly.
 
-Flow control, just refers to controlling the sequential flow of execution.
-
-Both refer to the mechanisms that dictate the order in which statements are executed in a program. 
-```
 ````{admonition} Statements and Expressions
 :class: dropdown
 A computer programme is a sequences of statements, which are executed sequentially.
@@ -60,24 +60,40 @@ Forgetting to terminate a statement correctly will result in a compile-time erro
 (selection)=
 ## Selection
 
-Selection statements conditonally changes the control flow.
+Selection statements conditonally change the control flow.
 
 A decison is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.
 
-In C++ the selections statements are the [if](if)-statement and the [switch](switch)-statement
+In C++ the selections statements are the [if](if)-statement and the [switch](switch)-statement.
 
 
 (iteration)=
 ## Iteration
 
-As an example of iteration, consider the first program ever to run on a stored-program computer (the EDSAC). 
+Computer programmes often repeat the same execution of the same lines of code - Iteration statements instruct the computer to repeat the same statements a finite number of times, or until a testable condition changes.
 
-It was written and run by David Wheeler in the computer laboratory in Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:
+Iterations statements in C++ are the [for](for)-statement, the [while](while)-statement, the do-while-statement, and the range-for statement.
+
+For-statements repeat a code-block a finite number of times in most programming languages. In C++ the for-statement has additional flexibility and is preferred 
+
+While-statements repeat the code-block until a testable condition changes.
+
+Do-while-statements differ from while-statements by always executing the code-block once before testing the iteration condition for the first time.
+
+Range-for statements repeat the code-block once for each element in an array - a simpler version of the for-statement.
+
+Its usually best to use a for loop – even if you want it to run forever – shown later on. If you know how many iterations are required, use a for loop. If you want it to possibly keep running still use a for loop – it cannot be set up without a condition.
+
+
+The first program ever to run on a stored-program computer (the EDSAC), included iteration. 
+
+Written and David Wheeler in the run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:
 
 `````{example-start}
 :label: examplep1
 :class: dropdown
 `````
+This is the c++ equivalent of  Wheeler's programme.
 ````{code-cell} c++
 :tags: [remove-output]
 #include <iostream>
@@ -96,11 +112,6 @@ int main() {
 ````
 `````{example-end}
 `````
-
-Iterations statements are the [for](for)-statement, the [while](while)-statement, the do-while-statement, and the range-for statement.
-
-Its usually best to use a for loop – even if you want it to run forever – shown later on. If you know how many iterations are required, use a for loop. If you want it to possibly keep running still use a for loop – it cannot be set up without a condition.
-
 ## Jump Statement
 
 Jump Statements unconditionally transfers control to another part of the programme.

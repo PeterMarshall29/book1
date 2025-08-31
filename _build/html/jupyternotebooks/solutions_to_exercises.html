@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\solutions_to_exercises.fc2e8ca5-603b-483c-849d-f05ba0826c32.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\solutions_to_exercises.6d8e0f96-846b-40da-8f56-6c4b386927ce.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/solutions_to_exercises';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -525,6 +525,23 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
+</section>
+</div>
+<div class="solution dropdown admonition" id="solutionex21">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="exercise2.html#exerciseex21"> Exercise 10</a></p>
+<section id="solution-content">
+<p>#include <iostream>
+#include <cmath>
+int main() {
+constexpr double SPEED_OF_LIGHT = 2.9979e8;
+double mass;
+std::cout &lt;&lt; “Please input a mass (in kilograms): \n”;
+std::cin &gt;&gt; mass;
+double energy = mass * pow(SPEED_OF_LIGHT, 2);
+std::cout &lt;&lt; mass &lt;&lt; ” Kilograms of matter are eqivalent to ” &lt;&lt; energy &lt;&lt; ” joules of energy. \n”;
+return 0;
+}</p>
 </section>
 </div>
 </section>

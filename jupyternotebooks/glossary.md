@@ -173,6 +173,8 @@ Floating-Point Number Types
 Flow Control
   Control of the sequential flow of execution.
 
+For-loop
+  Common name for the for-statement.
 
 Free store
   {term}`memory` allocated by `new`; also called dynamic memory. Often standard library facilities, such as `vector`, can be used to avoid explicit use of free store.

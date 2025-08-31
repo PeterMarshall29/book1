@@ -16,9 +16,21 @@ kernelspec:
 {attribution="Zeno of Elea" }
 > What has been said once can always be repeated.
 ```
-Conditionally execute a statement, or code block, repeatedly.
+The for-statement conditionally executes a statement, or code block, repeatedly. Also known as the {term}`for-loop`.
 
-The code block itself does not usually have anything to do with the condition for continuation of iteration, but does often utilise the loop variable to change what happens on each iteration.
+````{admonition} The syntax of the For-Statement
+```{code-block} cppp
+for ( ...loop_variable_definition_and_initialisation... ; 
+      ...condition_to_continue_the_loop... ; 
+      ...increment_to_loop_variable_instruction... ;) 
+      { ...code_to_be_executed_every_loop...}
+```
+````
+The management of the loop happens inside the argument to the for-statement command.
+
+Without the increment, which is not required, the loop just runs forever but you can also affect the condition that is checked every time from inside the code block.
+
+The code-block usually has not effect on the loop condition (best practice) but it does often utilise the loop variable to change what happens on each iteration.
 
 [For-statements](https://en.cppreference.com/w/cpp/language/for.html)
 
@@ -102,56 +114,66 @@ The code block itself does not usually have anything to do with the condition fo
       linkStyle 8 stroke:#AA00FF
     ```
 ```
-The management of what controls the loop happens inside the argument to the for command.
 
-The syntax is `for (loop variable definition and initialisation; condition to continue the loop; increment to loop variable instruction) { code to execute}`
 
-Without the increment, which is not required, the loop just runs forever but you can also affect the condition that is checked every time from inside the code block.
-```{code-block} c++
+``````{example-start} For-statement
+:label: examples1
+:class: dropdown
+``````
+`````{code-cell} c++
+:tags: [remove-output]
 :linenos: 
 :emphasize-lines: 2
-:name: codef1
+:name: codes1
 :caption: For Loop Template
-for (int i = 0; i < 100; ++i) {
+for (int i = 0; i < 10; ++i) {
 std::cout << i << "\t" << i * i << "\n";
 }
-```
+`````
 The highlighted code statements are repeated as many times as required by the `for` statement.
-````{admonition} Code Explanation
+`````{admonition} Code Explanation
 :class: dropdown
-
-The syntax for a for loop is:
+````{card}
+The syntax for this example for-statement loop is:
 ```{code-block} c++
 for (int i = 0; i < 100; ++i) {
 **Code statements to be executed each time the loop runs go here** 
 }
 ```
-The 3 terms in the paranthesis control the operation of the for loop.
-```{note}
-`int i = 0;` is the for-statement initialiser. 
-
-This statement names a loop variable called 'i' and sets its initial value to 0.
+The 3 terms in the parantheses control the operation of the for loop.
+````
+````{card}
+```{code-block} c++ 
+int i = 0;
 ```
-```{note}
-`i < 100;` is the for-statement condition. 
+The first argument is the for-statement initialiser. 
 
-The for loop runs until this condition become true. The condition must be an expression that returns a boolean.
+This statement names a loop-variable `i` and initialises it with a value of `0`.
+````
+````{card}
+```{code-block} c++
+ i < 100;
 ```
-```{note}
-`++1` is the for-statement increment. 
+The second argument is the for-statement condition. 
+
+The for-loop runs until this condition becomes false. The condition must be an expression that returns a boolean, and it must be true on the first loop - or the program exits the loop.
+````
+````{card}
+```{code-block} c++
+++i;
+```
+The third and final argument is the for-statement increment. 
 
 **After** executing the for-loops code block, the loop variable is increased or decreased according to this instruction.
-```
 ````
-
-ust equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
-
-
-
-
+`````
+``````{example-end}
+``````
 ````{admonition} Tip
 :class: dropdown 
-Be careful not to also increment the loop variable within the execution block, this can also be done and create more options for what happens, but should not generally be done without good purpose.
+It is bad practice, and a common mistake, to increment the loop-variable within the execution block; this should only be done for a good reason - it is always better to seperate concerns; leave control to the loop arguments.
+
+By mistake this is sometimes done in addition to the for-statement argument ; both increment instruction are implemented each loop. this can also be done and create more options for what happens, but should not generally be done without good purpose.
 ```{code-block} c++
 int main() {
   for (int x = 0; x<50; ++x) {     // for i in the half-open range 0 to less than 50 `[0:50)` 
@@ -162,8 +184,6 @@ int main() {
 }
 ```
 ````
-
-
 
 If the final value of an index needs to be known after exit from a for-loop, the index variable must
 be declared outside the for-loop (e.g., see 9.6).

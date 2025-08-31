@@ -25,5 +25,21 @@ int main()
 ```
 ````
 
-
+`````{solution-start} exerciseex21
+:label: solutionex21
+:class: dropdown
+`````
+#include <iostream> 
+#include <cmath> 
+int main() {
+    constexpr double SPEED_OF_LIGHT = 2.9979e8;
+    double mass;
+    std::cout << "Please input a mass (in kilograms): \n";
+    std::cin >> mass;
+    double energy = mass * pow(SPEED_OF_LIGHT, 2);
+    std::cout << mass << " Kilograms of matter are eqivalent to " << energy << " joules of energy. \n";
+    return 0;
+}
+`````{solution-end}
+`````
 

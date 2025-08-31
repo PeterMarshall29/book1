@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.e41beb18-9259-4ce8-8b37-e6e29da557ce.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.a0a318c2-2fc0-4a2b-9d9f-2aa216eaeff4.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-6d2810cb-81ae-47a6-bf92-0766270a62fb] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-9ff50d4b-745e-4b7a-8163-fd11e8ef0738] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -553,7 +553,7 @@ document.write(`
 <span id="switch"></span><h1>Switch Statements<a class="headerlink" href="#switch-statements" title="Permalink to this heading">#</a></h1>
 <p>An alternative to an if-statement ladder is the switch-statement.</p>
 <p>A switch statement is generally easier to read than nested if statements.</p>
-<div class="note admonition">
+<div class="note dropdown admonition">
 <p class="admonition-title">The Syntax of a switch-statement:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">first_possible_value_of_</span><span class="w"> </span><span class="no">condtion</span><span class="w"> </span><span class="p">:</span>
@@ -582,7 +582,7 @@ document.write(`
 <p>The break-statements prevent more than one case being triggered
 The break statements are not optional.</p>
 <p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-6d2810cb-81ae-47a6-bf92-0766270a62fb" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-9ff50d4b-745e-4b7a-8163-fd11e8ef0738" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
@@ -670,7 +670,7 @@ The break statements are not optional.</p>
 <p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute The syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
 <section id="exercise-content">
 <ul class="simple">
 <li><p>Try removing the break statement from the default case.</p></li>
@@ -736,7 +736,7 @@ The break statements are not optional.</p>
 <p>words</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
 <section id="exercise-content">
 <p>wrds</p>
 </section>

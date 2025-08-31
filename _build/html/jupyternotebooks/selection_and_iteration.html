@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.dfe78b4f-0ace-48cd-b26f-08faea69e053.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.0c9bcd83-44bb-47d9-85e2-966d3709cecb.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/selection_and_iteration';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -526,6 +526,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="selection-and-iteration">
 <h1>Selection and Iteration<a class="headerlink" href="#selection-and-iteration" title="Permalink to this heading">#</a></h1>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>‘Control Flow’ and ‘Flow Control’ are used almost interchangebly.</p>
+<p>Flow control, just refers to controlling the sequential flow of execution.</p>
+<p>Both refer to the mechanisms that dictate the order in which statements are executed in a program.</p>
+</div>
 <p>Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a programme.</p>
 <p>The <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the order in which all its statements are executed.</p>
 <p>More literally <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the sequential flow of <em><strong>control</strong></em> through the program - i.e. the current statement has <em>control</em> of the processor.</p>
@@ -533,12 +539,6 @@ document.write(`
 <hr class="docutils" />
 <p>Without selection statements a program can only run from beginning to end - executing the same statements in the same order every time.</p>
 <p>Without iteration statement a program has to end - your phone’s program is constantly running because code is repeatedly executed in a loop.</p>
-<div class="margin admonition note">
-<p class="admonition-title">Note</p>
-<p>‘Control Flow’ and ‘Flow Control’ are used almost interchangebly.</p>
-<p>Flow control, just refers to controlling the sequential flow of execution.</p>
-<p>Both refer to the mechanisms that dictate the order in which statements are executed in a program.</p>
-</div>
 <div class="dropdown admonition">
 <p class="admonition-title">Statements and Expressions</p>
 <p>A computer programme is a sequences of statements, which are executed sequentially.</p>
@@ -557,18 +557,26 @@ Statements always terminate with either a semicolon <code class="docutils litera
 </div>
 <section id="selection">
 <span id="id1"></span><h2>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">#</a></h2>
-<p>Selection statements conditonally changes the control flow.</p>
+<p>Selection statements conditonally change the control flow.</p>
 <p>A decison is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.</p>
-<p>In C++ the selections statements are the <a class="reference internal" href="if_statements.html#if"><span class="std std-ref">if</span></a>-statement and the <a class="reference internal" href="switch_statements.html#switch"><span class="std std-ref">switch</span></a>-statement</p>
+<p>In C++ the selections statements are the <a class="reference internal" href="if_statements.html#if"><span class="std std-ref">if</span></a>-statement and the <a class="reference internal" href="switch_statements.html#switch"><span class="std std-ref">switch</span></a>-statement.</p>
 </section>
 <section id="iteration">
 <span id="id2"></span><h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this heading">#</a></h2>
-<p>As an example of iteration, consider the first program ever to run on a stored-program computer (the EDSAC).</p>
-<p>It was written and run by David Wheeler in the computer laboratory in Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:</p>
+<p>Computer programmes often repeat the same execution of the same lines of code - Iteration statements instruct the computer to repeat the same statements a finite number of times, or until a testable condition changes.</p>
+<p>Iterations statements in C++ are the <a class="reference internal" href="for_loops.html#for"><span class="std std-ref">for</span></a>-statement, the <a class="reference internal" href="while_loops.html#while"><span class="std std-ref">while</span></a>-statement, the do-while-statement, and the range-for statement.</p>
+<p>For-statements repeat a code-block a finite number of times in most programming languages. In C++ the for-statement has additional flexibility and is preferred</p>
+<p>While-statements repeat the code-block until a testable condition changes.</p>
+<p>Do-while-statements differ from while-statements by always executing the code-block once before testing the iteration condition for the first time.</p>
+<p>Range-for statements repeat the code-block once for each element in an array - a simpler version of the for-statement.</p>
+<p>Its usually best to use a for loop – even if you want it to run forever – shown later on. If you know how many iterations are required, use a for loop. If you want it to possibly keep running still use a for loop – it cannot be set up without a condition.</p>
+<p>The first program ever to run on a stored-program computer (the EDSAC), included iteration.</p>
+<p>Written and David Wheeler in the run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:</p>
 <div class="example dropdown admonition" id="examplep1">
 
 <p class="admonition-title"><span class="caption-number">example 19 </span></p>
 <section id="example-content">
+<p>This is the c++ equivalent of  Wheeler’s programme.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -592,8 +600,6 @@ Statements always terminate with either a semicolon <code class="docutils litera
 </div>
 </section>
 </div>
-<p>Iterations statements are the <a class="reference internal" href="for_loops.html#for"><span class="std std-ref">for</span></a>-statement, the <a class="reference internal" href="while_loops.html#while"><span class="std std-ref">while</span></a>-statement, the do-while-statement, and the range-for statement.</p>
-<p>Its usually best to use a for loop – even if you want it to run forever – shown later on. If you know how many iterations are required, use a for loop. If you want it to possibly keep running still use a for loop – it cannot be set up without a condition.</p>
 </section>
 <section id="jump-statement">
 <h2>Jump Statement<a class="headerlink" href="#jump-statement" title="Permalink to this heading">#</a></h2>
