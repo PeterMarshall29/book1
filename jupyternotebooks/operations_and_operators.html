@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
@@ -66,8 +68,11 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.7d4f50a2-bd32-4491-9b2a-9b3fb5a31f8d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.83d6326c-83b5-4514-8b0f-323dbf416f3f.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/operations_and_operators';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Vectors" href="vector.html" />
@@ -201,7 +206,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -616,7 +621,7 @@ Count = count + n can be written as count+=n</p>
 <p><a class="reference internal" href="glossary.html#term-Assignment"><span class="xref std std-term">Assignment</span></a> operators modify the value of an object.</p>
 <p><a class="reference internal" href="glossary.html#term-Copy-Assignment"><span class="xref std std-term">Copy Assignment</span></a> replace the contents of an object (often a value) with the contents of a second object.</p>
 <p>I or a new value. The second object is unaffected</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -629,12 +634,6 @@ Count = count + n can be written as count+=n</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<p>5</p>
-<p>10</p>
-<p>10</p>
-<p>10</p>
 </div>
 </div>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-2">
@@ -686,7 +685,7 @@ That is, if the condition is true, the ternary operator value a if true, otherwi
 <p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
 <section id="exercise-content">
 <p>Complete this code using the ternary operator to print out the name of the enemy that is closest.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
@@ -710,10 +709,6 @@ That is, if the condition is true, the ternary operator value a if true, otherwi
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<p>Enter the name of city 1..</p>
-<p>.</p>
 </div>
 </div>
 <div class="solution dropdown note admonition" id="solutionk2">

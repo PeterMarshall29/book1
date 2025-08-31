@@ -161,10 +161,8 @@ int main() {
 ```
 `answer==42` is the condition. The condition must be put in parentheses - if is a function.
 is the condition that is to be checked. The code blo
-`{ std::cout << "You are trully wise";`
-        }
+`{ std::cout << "You are trully wise";}`
 More correctly, the condition is evaluated. It it evaluates to the boolean value `1` then teh code blokIt the conditon is found to be true, then the code block is ecex
-
 
 The progam works - ied does basically work.
 ````
@@ -178,7 +176,7 @@ The progam works - ied does basically work.
 `````
 Try this code:
 ````{code-cell}  c++
-:tags: [remove-output]
+:tags: [remove-output, skip-execution]
 #include <iostream>
 int main() {
     int x = 0;
@@ -186,13 +184,13 @@ int main() {
     std::cout << "Please enter two integral values: \n";
     std::cin >> x >> y;
     if (x < y) {
-        std::cout << "The maximum value = max(" << x << "," << y << ") is " << y << 		". \n";
+        std::cout << "The maximum value = max(" << x << "," << y << ") is " << y << ". \n";
         } else {
-        std::cout << "The maximum value = max(" << x << "," << y << ") is " << x << 		". \n";
+        std::cout << "The maximum value = max(" << x << "," << y << ") is " << x << ". \n";
         }	
     return 0;
 }
-
+````
 ````{explanation} exampleq2
 :label: explanationq2
 :class: dropdown

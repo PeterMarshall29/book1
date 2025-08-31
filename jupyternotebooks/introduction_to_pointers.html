@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
@@ -66,8 +68,11 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.63b57ee1-1ef5-4ee3-b5e5-c6f66431eb4c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.65a75b73-f0bd-4b1d-823a-7e67d139d435.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_pointers';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Exercise 6" href="exercise6.html" />
@@ -201,7 +206,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -511,7 +516,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-references">Pointers and References</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-arrays">Pointer Arithmetic and Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-arrays">Pointer Arithmetic and Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic">Pointer Arithmetic</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-expressions-and-arithmetic">Pointer Expressions and Arithmetic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void">Void</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullptr"><code class="docutils literal notranslate"><span class="pre">nullptr</span></code></a></li>
@@ -531,59 +539,80 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pointers">
 <h1>Pointers<a class="headerlink" href="#pointers" title="Permalink to this heading">#</a></h1>
-<p>A pointer should always point at an object, so that dereferencing it is valid. When we don’t have an object to point to or if we need to represent the notion of ‘‘no object available’’ (e.g., for an end of a list), we give the pointer the value nullptr (‘‘the null pointer’’). There is only one nullptr shared by all pointer types:
+<p>A pointer should always point at an object, so that dereferencing it is valid. When we don’t have an object to point to or if we need to represent the notion of “no object available” (e.g., for an end of a list), we give the pointer the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> (the null pointer). There is only one nullptr shared by all pointer types:
  
 Nullptr is of type pointer.
  
 A reference is similar to a pointer.</p>
-<p>But instead, we put the suffix &amp; after the type in the declaration, and do not need the * to access the value.
-References cannot be redirected, they only refer to one object.</p>
+<p>But instead, we put the suffix <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> after the type in the declaration, and do not need the <code class="docutils literal notranslate"><span class="pre">*</span></code> to access the value.</p>
+<p>References cannot be redirected, they only refer to one object.</p>
 <section id="pointers-and-references">
 <h2>Pointers and References<a class="headerlink" href="#pointers-and-references" title="Permalink to this heading">#</a></h2>
-<p>A suffix * after a type in a declaration/definition indicates you are creating a pointer to a Name of that type.
-The prefix * before a pointer Name means “contents of” – gets the value associated with the pointer
-The prefix &amp; before a Name means “address of” – gets the address for assignment to a pointer.
-When used in declarations <em>,&amp;, and [] are “declarator operators”.
-The pointer contains only the address, so &amp;Name is that address.
-TRY - Run this code more than once.
-int main() {
-std::vector<double> myVector = { 5.9,8,1.1,2.3,4.5,5.6 };
- 
-double</em> myPointerToV;
- 
-myPointerToV = &amp;myVector[3];
-double temp = *myPointerToV;
- 
-std::cout &lt;&lt; myPointerToV &lt;&lt; “\n”;
-std::cout &lt;&lt; temp &lt;&lt; “\n”;</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return 0;
+<p>A suffix <code class="docutils literal notranslate"><span class="pre">*</span></code> after a type in a declaration/definition indicates you are creating a pointer to a variable of that type.</p>
+<p>The prefix <code class="docutils literal notranslate"><span class="pre">*</span></code> before a pointer’s identifier means “contents of” – the value is the value of the object associated with the pointer</p>
+<p>The prefix <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> before an identified means “address of” – the value is the address of the object in memory, for assignment to a pointer.</p>
+<p>When used in declarations <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, and <code class="docutils literal notranslate"><span class="pre">[]</span></code> are “declarator operators”.</p>
+<p>The pointer contains only the address, so &amp;identified is the address in memory of the object named “identifier”</p>
+<div class="example dropdown admonition" id="examplev1">
+
+<p class="admonition-title"><span class="caption-number">example 28 </span></p>
+<section id="example-content">
+<p>TRY - Run this code more than once.</p>
+<div class="cell tag_remove-ouput tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.6</span><span class="w"> </span><span class="p">};</span>
+<span class="w">	</span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToV</span><span class="p">;</span>
+<span class="w">	</span><span class="n">myPointerToV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myVector</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerToV</span><span class="p">;</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myPointerToV</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>}</p>
-<hr class="docutils" />
-<p>For a type T, T* is the type ‘‘pointer to T.’’ That is, a variable of type T* can hold the address of an object of type T. For example:
-char c = ‘a’; char* p = &amp;c;
-// p holds the address of c; &amp; is the address-of operator or graphically:</p>
-<p>The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer. This operation is also called indirection. The dereferencing operator is (prefix) unary <em>. For example:
-char c = ‘a’;
-char</em> p = &amp;c; // p holds the address of c; &amp; is the address-of operator
-char c2 = *p; // c2 == ’a’; * is the dereference operator
-The object pointed to by p is c, and the value stored in c is ‘a’, so the value of *p assigned to c2 is ‘a’.</p>
-<hr class="docutils" />
-<p>The <em>, meaning ‘‘pointer to,’’ is used as a suffix for a type name. Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
-int</em> pi;      // pointer to int
+</div>
+</div>
+<div class="admonition-code-explanation admonition">
+<p class="admonition-title">Code Explanation</p>
+<p>For a type <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">T*</span></code> is the type “pointer to T”. That is, a variable of type <code class="docutils literal notranslate"><span class="pre">T*</span></code> can hold the address of an object of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<p>For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> holds the address of <code class="docutils literal notranslate"><span class="pre">c</span></code>; <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is the “address-of” operator.</p>
+<p>The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer.</p>
+<p>This operation is also called indirection. The dereferencing operator is (prefix) unary *. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// p holds the address of c; &amp; is the address-of operator</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// c2 == ’a’; * is the dereference operator</span>
+</pre></div>
+</div>
+<p>The object pointed to by <code class="docutils literal notranslate"><span class="pre">p</span></code> is <code class="docutils literal notranslate"><span class="pre">c</span></code>, and the value stored in <code class="docutils literal notranslate"><span class="pre">c</span></code> is ‘a’, so the value of <code class="docutils literal notranslate"><span class="pre">*p</span></code> assigned to <code class="docutils literal notranslate"><span class="pre">c2</span></code> is ‘a’.</p>
+</div>
+</section>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Pointer Syntax</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code>, meaning “pointer to”, is used as a suffix for a type name. Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>int* pi;      // pointer to int
 char** ppc;    // pointer to pointer to char
 int* ap[15];    // array of 15 pointers to ints
-int (<em>fp)(char</em>);  // pointer to function taking a char* argument; returns an int
+int (*fp)(char*);  // pointer to function taking a char* argument; returns an int
 int* f(char*);    // function taking a char* argument; returns a pointer to int
- 
-Note that == compares addresses (pointer values) when applied to pointers, and not the values pointed to.</p>
-<p>The <em>, meaning ‘‘pointer to,’’ is used as a suffix for a type name. Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
-The location of * is not important, but cannot be used to create multiple pointers – Try this and see where the errors…
-int</em> test = y;
-int <em>test1 = y;
+``` 
+Note that `==` compares addresses (pointer values) when applied to pointers, and not the values pointed to.
+
+The `*`, meaning &quot;pointer to&quot;, is used as a suffix for a type name. 
+
+Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
+
+The location of `*` is not important, but cannot be used to create multiple pointers – Try this and see where the errors arise.
+```{code-block} c++
+int* test = y;
+int *test1 = y;
 int * test2 = y;
-int</em> test3, test4;
+int* test3, test4;
 test3 = y;
 test4 = y;
 int *test5, test6;
@@ -591,25 +620,35 @@ test5 = y;
 test6 = y;
 int * test7, test8;
 test7 = y;
-test8 = y;</p>
+test8 = y;
+</pre></div>
+</div>
+</div>
 </section>
 <section id="pointer-arithmetic-and-arrays">
 <h2>Pointer Arithmetic and Arrays<a class="headerlink" href="#pointer-arithmetic-and-arrays" title="Permalink to this heading">#</a></h2>
-<p>The name of an array is actually a pointer to the ﬁrst element in the array. Writing myArray[3] tells the compiler to return the element that is 3 away from the starting el­ement of myArray. This explains why arrays are always passed by reference: passing an array is really passing a pointer.
-This also explains why array indices start at 0: the ﬁrst element of an array is the element that is 0 away from the start of the array
-Pointer arithmetic
-pointer arithmetic is a way of using subtraction and addition of pointers to move around between locations in memory, typically between array elements. Adding an integer n to a pointer produces a new pointer pointing to n positions further down in memory.
-Take the following code snippet:</p>
-<p>long arr[] = {6,0,9,8};
-long* ptr = arr;
-std::cout &lt;&lt; ptr &lt;&lt; ‘\n’;
-std::cout &lt;&lt; <em>ptr &lt;&lt; ‘\n’;
-ptr++;
-long</em> ptr2 = arr + 3;
-std::cout &lt;&lt; ptr &lt;&lt; ‘\n’;
-std::cout &lt;&lt; *ptr &lt;&lt; ‘\n’;
-std::cout &lt;&lt; ptr2 &lt;&lt; ‘\n’;
-std::cout &lt;&lt; *ptr2 &lt;&lt; ‘\n’;</p>
+<p>The name of an array is actually a pointer to the ﬁrst element in the array.</p>
+<p>Writing <code class="docutils literal notranslate"><span class="pre">myArray[3]</span></code> tells the compiler to return the element that is 3 away from the starting el­ement of myArray.</p>
+<p>This explains why arrays are always passed by reference: passing an array is really passing a pointer.</p>
+<p>This also explains why array indices start at 0: the ﬁrst element of an array is the element that is 0 away from the start of the array</p>
+<section id="pointer-arithmetic">
+<h3>Pointer Arithmetic<a class="headerlink" href="#pointer-arithmetic" title="Permalink to this heading">#</a></h3>
+<p>Pointer arithmetic is a way of using subtraction and addition of pointers to move around between locations in memory, typically between array elements.</p>
+<p>Adding an integer ‘n’ to a pointer produces a new pointer pointing to ‘n’ positions further down in memory.</p>
+<p>Take the following code snippet:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">};</span>
+<span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">ptr</span><span class="o">++</span><span class="p">;</span>
+<span class="kt">long</span><span class="o">*</span><span class="w"> </span><span class="n">ptr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="pointer-expressions-and-arithmetic">
 <h2>Pointer Expressions and Arithmetic<a class="headerlink" href="#pointer-expressions-and-arithmetic" title="Permalink to this heading">#</a></h2>
@@ -620,146 +659,195 @@ an integer may be added to a pointer ( + or += )
 an integer may be subtracted from a pointer ( – or -= )
 difference between two pointers (p1-p2)</p>
 <p>(Note: Pointer arithmetic is meaningless unless performed on an array.)</p>
-<p>include <iostream>       // standard IO
-int main() {
-double a = 10.0;
-double&amp; b = a;  // an alias
-std::cout &lt;&lt; “a = ” &lt;&lt; a &lt;&lt; std::endl;
-std::cout &lt;&lt; “b = ” &lt;&lt; b &lt;&lt; std::endl &lt;&lt; std::endl;
-double* pA = &amp;a;
-double* pB = &amp;b;
-b = 6.0;
-std::cout &lt;&lt; “*pA = ” &lt;&lt; *pA &lt;&lt; std::endl;
-std::cout &lt;&lt; “*pB = ” &lt;&lt; *pB &lt;&lt; std::endl;
-return 1;
-}</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="w"> </span><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span><span class="w">       </span><span class="c1">// standard IO</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.0</span><span class="p">;</span>
+<span class="w">		</span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// an alias</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;a = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;b = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">		</span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">pA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="w">		</span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">pB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+<span class="w">		</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;*pA = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pA</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;*pB = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pB</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">	</span><span class="p">}</span>
+</pre></div>
+</div>
 <p>Notice that changing the alias changes the original</p>
 </section>
 <section id="void">
 <h2>Void<a class="headerlink" href="#void" title="Permalink to this heading">#</a></h2>
-<p>In low-level code, we occasionally need to store or pass along an address of a memory location without actually knowing what type of object is stored there. A void∗ is used for that. You can read void∗ as ‘‘pointer to an object of unknown type.’’
-Functions using void* pointers typically exist at the very lowest level of the system, where real hardware resources are manipulated. For example:
-void* my_alloc(size_t n);   // allocate n bytes from my special heap
-Occurrences of void<em>s at higher levels of the system should be viewed with great suspicion because they are likely indicators of design errors. Where used for optimization, void</em> can be hidden behind a type-safe interface.
-Pointers to functions and pointers to members cannot be assigned to void* .</p>
+<p>In low-level code, we occasionally need to store or pass along an address of a memory location without actually knowing what type of object is stored there.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">void∗</span></code> is used for that purpose; you can read <code class="docutils literal notranslate"><span class="pre">void∗</span></code> as “pointer to an object of unknown type”.</p>
+<p>Functions using <code class="docutils literal notranslate"><span class="pre">void*</span></code> pointers typically exist at the very lowest level of the system, where real hardware resources are manipulated.</p>
+<p>For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">my_alloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">   </span><span class="c1">// allocate n bytes from my special heap</span>
+</pre></div>
+</div>
+<p>Occurrences of <code class="docutils literal notranslate"><span class="pre">void*</span></code> at higher levels of the system should be viewed with great suspicion because they are likely indicators of design errors.</p>
+<p>Where used for optimization, <code class="docutils literal notranslate"><span class="pre">void*</span></code> can be hidden behind a type-safe interface.</p>
+<p>Pointers to functions and pointers to members cannot be assigned to <code class="docutils literal notranslate"><span class="pre">void*</span></code>.</p>
 </section>
 <section id="nullptr">
 <h2><code class="docutils literal notranslate"><span class="pre">nullptr</span></code><a class="headerlink" href="#nullptr" title="Permalink to this heading">#</a></h2>
-<p>The literal nullptr represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types:
-int* pi = nullptr;  double* pd = nullptr;     int i = nullptr;      // error: i is not a pointer
-int* p = NULL; // using the macro NULL
-There is just one nullptr, which can be used for every pointer type, rather than a null pointer for each pointer type.
-Before nullptr was introduced, zero (0) was used as a notation for the null pointer. For example:
-int* x= 0; // x gets the value nullptr
-No object is allocated with the address 0, and 0 (the all-zeros bit pattern) is the most common repre- sentation of nullptr. Zero (0) is an int. However, the standard conversions allow 0 to be used as a constant of pointer or pointer-to-member type.
-It has been popular to define a macro NULL to represent the null pointer. For example:
+<p>The literal <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">  </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">pd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">     </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">      </span><span class="c1">// error: i is not a pointer</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="c1">// using the macro NULL</span>
+</pre></div>
+</div>
+<p>There is just one <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>, which can be used for every pointer type, rather than a null pointer for each pointer type.</p>
+<p>Before nullptr was introduced, zero (0) was used as a notation for the null pointer. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// x gets the value nullptr</span>
+</pre></div>
+</div>
+<p>No object is allocated with the address ‘0’, and ‘0’ (the all-zeros bit pattern) is the most common representation of ‘nullptr’.</p>
+<p>Zero (0) is an <code class="docutils literal notranslate"><span class="pre">int</span></code>. However, the standard conversions allow ‘0’ to be used as a constant of ‘pointer’ or ‘pointer-to-member’ type.</p>
+<p>It has been popular to define a macro <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to represent the ‘null pointer’. For example:
 However, there are differences in the definition of NULL in different implementations; for example,
-NULL might be 0 or 0L. In C, NULL is typically (void*)0, which makes it illegal in C++:
-int* p = NULL; // error: can’t assign a void* to an int*
-Using nullptr makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.</p>
-<p>**copied form referecne
-std::nullptr_t
-Defined in header <cstddef>
-typedef decltype(nullptr) nullptr_t;
-(since C++11)
-std::nullptr_t is the type of the null pointer literal, nullptr. It is a distinct type that is not itself a pointer type or a pointer to member type. All Its prvalues are null pointer constants.</p>
-<p>sizeof(std::nullptr_t) is equal to sizeof(void*).</p>
+NULL might be 0 or 0L.</p>
+<p>In C, <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is typically <code class="docutils literal notranslate"><span class="pre">(void*)0</span></code>, which makes it illegal in C++:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="c1">// error: can’t assign a void* to an int*</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.</p>
+<p>**copied form referecne</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">nullptr_t</span>
+<span class="n">Defined</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cstddef</span><span class="o">&gt;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">nullptr_t</span><span class="p">;</span>
+<span class="p">(</span><span class="n">since</span><span class="w"> </span><span class="n">C</span><span class="o">++</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">nullptr_t</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">literal</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">.</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">distinct</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="n">type</span><span class="p">.</span><span class="w"> </span><span class="n">All</span><span class="w"> </span><span class="n">Its</span><span class="w"> </span><span class="n">prvalues</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">constants</span><span class="p">.</span>
+
+<span class="k">sizeof</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">nullptr_t</span><span class="p">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">).</span>
+</pre></div>
+</div>
 </section>
 <section id="pointers-and-booleans">
 <h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Permalink to this heading">#</a></h2>
-<p>A pointer can be implicitly converted to a bool. A non-null pointer converts to true; pointers with the value nullptr convert to false. void myFunction(int* myPointer)
-{
-bool myBoolean1 = myPointer;       // narrows to true or false - not a copy!
-std::cout &lt;&lt; myBoolean1 &lt;&lt; ‘\n’;
-bool myBoolean2{ myPointer != nullptr };  // explicit test against nullptr
-std::cout &lt;&lt; myBoolean1 &lt;&lt; ‘\n’;
-if (myPointer) {
-// identical to p!=nullptr
-std::cout &lt;&lt; “not pointing to Null” &lt;&lt; ‘\n’;
-}
-}
-int main() {
-int temp = 17;
-int* myPointerToTemp = nullptr; // or set to temp
-myFunction(myPointerToTemp);
- 
-return 0;
-}
-I prefer if § over if (p!=nullptr) because it more directly expresses the notion ‘‘if p is valid’’ and also because it is shorter. The shorter form leaves fewer opportunities for mistakes.</p>
+<p>A pointer can be implicitly converted to a bool. A non-null pointer converts to true; pointers with the value nullptr convert to false.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myPointer</span><span class="p">;</span><span class="w">       </span><span class="c1">// narrows to true or false - not a copy!</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean2</span><span class="p">{</span><span class="w"> </span><span class="n">myPointer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// explicit test against nullptr</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myPointer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="c1">// identical to p!=nullptr</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;not pointing to Null&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// or set to temp</span>
+<span class="w">	</span><span class="n">myFunction</span><span class="p">(</span><span class="n">myPointerToTemp</span><span class="p">);</span>
+<span class="w"> </span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>I prefer if § over if (p!=nullptr) because it more directly expresses the notion ‘‘if p is valid’’ and also because it is shorter. The shorter form leaves fewer opportunities for mistakes.</p>
 </section>
 <section id="pointers-into-arrays">
 <h2>Pointers into Arrays<a class="headerlink" href="#pointers-into-arrays" title="Permalink to this heading">#</a></h2>
-<p>In C++, pointers and arrays are closely related. The name of an array can be used as a pointer to its initial element. For example:
-int v[] = { 1, 2, 3, 4 };
-int* p1 = v; // pointer to initial element (implicit conversion)
-int* p2 = &amp;v[0]; // pointer to initial element
-int* p3 = v + 4; // pointer to one-beyond-last element
-int* p4 = v + 2; // pointer to other elements
-std::cout &lt;&lt; v &lt;&lt; ‘\n’;
-std::cout &lt;&lt; p1 &lt;&lt; ‘\n’;
-std::cout &lt;&lt; *p1 &lt;&lt; ‘\n’;
-std::cout &lt;&lt; p3 &lt;&lt; ‘\n’;
-std::cout &lt;&lt; <em>p3 &lt;&lt; ‘\n’;
-std::cout &lt;&lt; p4 &lt;&lt; ‘\n’;
-std::cout &lt;&lt; <em>p4 &lt;&lt; ‘\n’;
-Taking a pointer to the element one beyond the end of an array is guaranteed to work. This is important for many algorithms However, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided. For example:
-int</em> p4 = v−1; // before the beginning, undefined: don’t do it
-int</em> p5 = v + 7; // beyond the end, undefined: don’t do it</p>
+<p>In C++, pointers and arrays are closely related. The name of an array can be used as a pointer to its initial element. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointer to initial element (implicit conversion)</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="c1">// pointer to initial element</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointer to one-beyond-last element</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointer to other elements</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p4</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p4</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Taking a pointer to the element one beyond the end of an array is guaranteed to work.</p>
+<p>This is important for many algorithms However, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing.</p>
+<p>The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>int* p4 = v−1; // before the beginning, undefined: don’t do it
+int* p5 = v + 7; // beyond the end, undefined: don’t do it
+</pre></div>
+</div>
 <p>The implicit conversion of an array name to a pointer to the initial element of the array is extensively used in function calls in C-style code. For example:
-// extern “C” int strlen(const char*);   // from &lt;string.h&gt;
-void f() {
-char v[] = “Annemarie”;
-char* p = v;  // implicit conversion of char[] to char*
-std::cout &lt;&lt;strlen§ &lt;&lt; ‘\n’;
-std::cout &lt;&lt; strlen(v) &lt;&lt; ‘\n’;   // implicit conversion of char[] to char*
-//v = p;     // error: cannot assign to array }
-int main() { f(); }
-The same value is passed to the standard-library function strlen() in both calls. The snag is that it is impossible to avoid the implicit conversion. In other words, there is no way of declaring a function so that the array v is copied when the function is called. Fortunately, there is no implicit or explicit conversion from a pointer to an array.
-The implicit conversion of the array argument to a pointer means that the size of the array is lost to the called function. However, the called function must somehow determine the size to perform a meaningful operation. Like other C standard-library functions taking pointers to characters, strlen() relies on zero to indicate end-of-string; strlen§ returns the number of characters up to and not including the terminating 0. This is all pretty low-level. The standard-library vector, array, and string don’t suffer from this problem. These library types give their number of elements as their size() without having to count elements each time.</p>
+// extern “C” int strlen(const char*);   // from &lt;string.h&gt;</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="n">v</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Annemarie&quot;</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w">  </span><span class="c1">// implicit conversion of char[] to char*</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">strlen</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">// implicit conversion of char[] to char*</span>
+<span class="w">	</span><span class="c1">//v = p;     // error: cannot assign to array</span>
+<span class="w">	 </span><span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The same value is passed to the standard-library function strlen() in both calls.</p>
+<p>The snag is that it is impossible to avoid the implicit conversion.</p>
+<p>In other words, there is no way of declaring a function so that the array v is copied when the function is called.</p>
+<p>Fortunately, there is no implicit or explicit conversion from a pointer to an array.</p>
+<p>The implicit conversion of the array argument to a pointer means that the size of the array is lost to the called function.</p>
+<p>However, the called function must somehow determine the size to perform a meaningful operation.</p>
+<p>Like other C standard-library functions taking pointers to characters, <code class="docutils literal notranslate"><span class="pre">strlen()</span></code> relies on zero to indicate end-of-string; <code class="docutils literal notranslate"><span class="pre">strlen(p)</span></code> returns the number of characters up to and not including the terminating ‘0’. This is all pretty low-level.</p>
+<p>The standard-library <code class="docutils literal notranslate"><span class="pre">vector</span></code>, <code class="docutils literal notranslate"><span class="pre">array</span></code>, and <code class="docutils literal notranslate"><span class="pre">string</span></code> don’t suffer from this problem. These library types give their number of elements as their <code class="docutils literal notranslate"><span class="pre">size()</span></code> without having to count elements each time.</p>
 </section>
 <section id="pointers-to-functions">
 <h2>Pointers to Functions<a class="headerlink" href="#pointers-to-functions" title="Permalink to this heading">#</a></h2>
-<p>Like a (data) object, the code generated for a function body is placed in memory somewhere  and therefore has a unique address associated with it and therefore we can also define a pointer to a function in a similar manner to a pointer to an object.  There are some differences however
-A pointer to function does not allow the code to be modified.
-The pointer obtained by taking the address of a function can be used to call the function.
-void error(std::string s) { std::cout &lt;&lt; s; }
-void (*efct)(std::string); // pointer to
-function taking a string argument and returning nothing
-void f();
-void f()
-{
-efct = &amp;error; // efct points to error
-efct(“error”); // call error through efct
-}
-void error(std::string s) {
-std::cout &lt;&lt; s;
-}
-void (*ptrToError)(std::string);</p>
-<p>void main() {
-ptrToError = &amp;error;
-ptrToError(“Warning!”);</p>
-<p>The compiler will discover that efct is a pointer and call the function pointed to. That is, dereferencing a pointer to function using ∗ is optional. Similarly, using &amp; to get the address of a function is optional:
-void error(std::string s) { std::cout &lt;&lt; s; }
-void (*f1)(std::string) = &amp;error; // OK: same as = error
-void (*f2)(std::string) = error; // OK: same as = &amp;error
-void g()
-{
-f1(“Nasa”); //OK: same as (*f1)(“Nasa”)
-(*f1)(“Apollo”); // OK: as f1(“Apollo”)
-}</p>
-<p>Pointers to functions have argument types declared just like the functions themselves. In pointer assignments, the complete function type must match exactly. For example: void (<em>pf) (std::string); // pointer to void(std::string)
-void f1 (std::string); // void(string)
-int f2 (std::string); // int(string)
-void f3 (int∗); //void(int</em>)
-void f()
-{
-pf = &amp;f1; // OK
-pf = &amp;f2; // error : bad return type
-pf = &amp;f3; // error : bad argument type
-pf(“Hera”); // OK
-pf(1); //error : bad argument type
-int i = pf(“Zeus”); // error : void assigned to int
-}</p>
+<p>Like a (data) object, the code generated for a function body is placed in memory somewhere and therefore has a unique address associated with it and therefore we can also define a pointer to a function in a similar manner to a pointer to an object.  There are some differences however:</p>
+<p>A pointer to function does not allow the code to be modified.</p>
+<p>The pointer obtained by taking the address of a function can be used to call the function.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">error</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">efct</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">);</span><span class="w"> </span><span class="c1">// pointer to</span>
+<span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">taking</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">returning</span><span class="w"> </span><span class="n">nothing</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">efct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">;</span><span class="w"> </span><span class="c1">// efct points to error</span>
+<span class="w">    </span><span class="n">efct</span><span class="p">(</span><span class="s">&quot;error&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// call error through efct</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">error</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptrToError</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="n">ptrToError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">;</span>
+<span class="n">ptrToError</span><span class="p">(</span><span class="s">&quot;Warning!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The compiler will discover that efct is a pointer and call the function pointed to.</p>
+<p>That is, dereferencing a pointer to function using ∗ is optional.</p>
+<p>Similarly, using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to get the address of a function is optional:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">error</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK: same as = error</span>
+<span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">error</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK: same as = &amp;error</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">f1</span><span class="p">(</span><span class="s">&quot;Nasa&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">//OK: same as (*f1)(&quot;Nasa&quot;)</span>
+<span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="s">&quot;Apollo&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK: as f1(&quot;Apollo&quot;)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pointers to functions have argument types declared just like the functions themselves.</p>
+<p>In pointer assignments, the complete function type must match exactly.</p>
+<p>For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">);</span><span class="w"> </span><span class="c1">// pointer to void(std::string)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f1</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">);</span><span class="w"> </span><span class="c1">// void(string)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f2</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">);</span><span class="w"> </span><span class="c1">// int(string)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f3</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">);</span><span class="w"> </span><span class="c1">//void(int*)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">pf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f1</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="n">pf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f2</span><span class="p">;</span><span class="w"> </span><span class="c1">// error : bad return type</span>
+<span class="n">pf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f3</span><span class="p">;</span><span class="w"> </span><span class="c1">// error : bad argument type</span>
+<span class="n">pf</span><span class="p">(</span><span class="s">&quot;Hera&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="n">pf</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">//error : bad argument type</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pf</span><span class="p">(</span><span class="s">&quot;Zeus&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// error : void assigned to int</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -830,7 +918,10 @@ int i = pf(“Zeus”); // error : void assigned to int
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-references">Pointers and References</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-arrays">Pointer Arithmetic and Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-arrays">Pointer Arithmetic and Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic">Pointer Arithmetic</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-expressions-and-arithmetic">Pointer Expressions and Arithmetic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void">Void</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullptr"><code class="docutils literal notranslate"><span class="pre">nullptr</span></code></a></li>

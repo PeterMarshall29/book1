@@ -44,9 +44,7 @@ A `long double` is defined by adding the postfix 'l' (or 'L'): `5.55e207L`.
 ## Scientific Notation
 `````{sidebar}
 ````{admonition} Scientific Notation Example
-$$
-2.99e8 = 2.99 \times 10^{8}
-$$
+$2.99e8 = 2.99 \times 10^{8}$
 ````
 `````
 Scientific notation is formated using a lower, or upper, case `e` between the mantissa and the index **no whitespace** is permitted.

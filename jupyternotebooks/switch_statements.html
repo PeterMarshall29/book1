@@ -41,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
     <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
   
@@ -66,7 +68,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.a0a318c2-2fc0-4a2b-9d9f-2aa216eaeff4.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.475f5225-4fb3-4b53-9e63-faf98a03220a.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +81,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-9ff50d4b-745e-4b7a-8163-fd11e8ef0738] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-8995787e-ad11-49d0-8c3a-9afd0bc0c352] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -105,6 +107,9 @@ const load = async () => {
 window.addEventListener("load", load);
 </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/switch_statements';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="For loops" href="for_loops.html" />
@@ -238,7 +243,7 @@ window.addEventListener("load", load);
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -582,7 +587,7 @@ document.write(`
 <p>The break-statements prevent more than one case being triggered
 The break statements are not optional.</p>
 <p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-9ff50d4b-745e-4b7a-8163-fd11e8ef0738" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-8995787e-ad11-49d0-8c3a-9afd0bc0c352" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
@@ -618,19 +623,24 @@ The break statements are not optional.</p>
     linkStyle 10 stroke:#AA00FF,fill:none
     </pre><div class="dropdown note admonition">
 <p class="admonition-title">Switch Rules</p>
-<p>Switch variables must be constant expressions i.e. there must be literal value typed at the case line.</p>
-<p>Switch variables may only be of the types: integral (including <code class="docutils literal notranslate"><span class="pre">char</span></code>), enumeration, or class.</p>
-<p>The swtich case You cannot switch on a string value – selection based on a <code class="docutils literal notranslate"><span class="pre">string</span></code> requires an if-statement or a ‘map’.</p>
-<p>A single case can be executed for several case labels. But case labels cannot be used for two cases.</p>
+<p>???correction needed</p>
+<ul class="simple">
+<li><p>Switch variables must be constant expressions i.e. there must be literal value typed at the case line.</p></li>
+<li><p>Switch variables may only be of the types: integral (including <code class="docutils literal notranslate"><span class="pre">char</span></code>), enumeration, or class.</p></li>
+<li><p>The swtich case You cannot switch on a string value – selection based on a <code class="docutils literal notranslate"><span class="pre">string</span></code> requires an if-statement or a ‘map’.</p></li>
+<li><p>A single case can be executed for several case labels. But case labels cannot be used for two cases.</p></li>
+</ul>
 <p>i.e. use multiple labels for the same case: e.g. case ‘0’: case ‘2’: case ‘4’: case ‘6’: case ‘8’: …then case statements…</p>
-<p>Most compilers do not warn if you forget break – it is required – try it.</p>
-<p>Without the breaks -  all the code blocks below the first detected case will also be executed.</p>
+<ul class="simple">
+<li><p>Most compilers do not warn if you forget break – it is required – try it.</p></li>
+<li><p>Without the breaks -  all the code blocks below the first detected case will also be executed.</p></li>
+</ul>
 </div>
 <div class="example dropdown admonition" id="exampler1">
 
-<p class="admonition-title"><span class="caption-number">example 22 </span></p>
+<p class="admonition-title"><span class="caption-number">example 25 </span></p>
 <section id="example-content">
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -659,7 +669,7 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown note admonition" id="explanationr1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Example 22</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Example 25</a></p>
 <section id="explanation-content">
 <p>In this example, the while loop is just to keep the program running – we are only interested in the switch loop.</p>
 <p>constexpr double cm_per_inch = 2.54 - the conversion factor.</p>
@@ -670,7 +680,7 @@ The break statements are not optional.</p>
 <p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute The syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
 <section id="exercise-content">
 <ul class="simple">
 <li><p>Try removing the break statement from the default case.</p></li>
@@ -686,9 +696,9 @@ The break statements are not optional.</p>
 </div>
 <div class="example dropdown admonition" id="exampler2">
 
-<p class="admonition-title"><span class="caption-number">example 23 </span></p>
+<p class="admonition-title"><span class="caption-number">example 26 </span></p>
 <section id="example-content">
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -731,12 +741,12 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown hint admonition" id="explanationr2">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Example 23</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Example 26</a></p>
 <section id="explanation-content">
 <p>words</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
 <section id="exercise-content">
 <p>wrds</p>
 </section>

@@ -212,9 +212,8 @@ There is not much advantage in using auto instead of int for an expression as si
 
 For types that are more difficult to write and therefore harder to know, auto is much more useful. 
 
-Example
-
-
+Example:
+```{code-block} c++
 template<class T> void f1(std::vector<T>&arg)
 {
 for (std::vector<T>::iterator p = arg.begin(); p != arg.end(); ++p)
@@ -222,23 +221,30 @@ for (std::vector<T>::iterator p = arg.begin(); p != arg.end(); ++p)
 for (auto p = arg.begin(); p != arg.end(); ++p)
 *p = 7;
 }
+```
 The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes. 
 
+c++ provides two mechanisms for deducing a type from an expression:
 
+`auto` for deducing a type of an object from its initializer; the type can be the type of a variable, a `const`, or a `constexpr`.
 
-The language provides two mechanisms for deducing a type from an expression:
-auto for deducing a type of an object from its initializer; the type can be the type of a vari- able, a const, or a constexpr.
-decltype(expr) for deducing the type of something that is not a simple initializer, such as the return type for a function or the type of a class member.
-The deduction done here is very simple: auto and decltype() simply report the type of an expression already known to the compiler.
+`decltype(expr)` for deducing the type of something that is not a simple initializer, such as the return type for a function or the type of a class member.
 
-6.3.6.1 The auto Type Specifier
-When a declaration of a variable has an initializer, we don’t need to explicitly specify a type. Instead, we can let the variable have the type of its initializer. Consider:
+The deduction done here is very simple: `auto` and `decltype()` simply report the type of an expression already known to the compiler.
+
+When a declaration of a variable has an initializer, we don't need to explicitly specify a type. 
+
+Instead, we can let the variable have the type of its initializer. Consider:
+```{code-block} c++
 int a1 = 123; 
 char a2 = 123;
 auto a3 = 123; // the type of a3 is ‘‘int’’int a1 = 123; char a2 = 123;
 auto a3 = 123; // the type of a3 is ‘‘int’’
+```
 The type of the integer literal 123 is int, so a3 is an int. That is, auto is a placeholder for the type of the initializer.
-There is not much advantage in using auto instead of int for an expression as simple as 123. The harder the type is to write and the harder the type is to know, the more useful auto becomes. For example:
+
+There is not much advantage in using auto instead of int for an expression as simple as .123.. The harder the type is to write and the harder the type is to know, the more useful auto becomes. For example:
+```{code-block} c++
 template<class T> void f1(std::vector<T>&arg)
 {
 for (std::vector<T>::iterator p = arg.begin(); p != arg.end(); ++p)
@@ -246,6 +252,7 @@ for (std::vector<T>::iterator p = arg.begin(); p != arg.end(); ++p)
 for (auto p = arg.begin(); p != arg.end(); ++p)
 *p = 7;
 }
+```
 The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes. 
 
 ## `lvalue` and `rvalue`
@@ -260,37 +267,30 @@ An `lvalue` that has not been declared const is called a modifiable `lvalue`.
 
 This simple and low-level notion of an object should not be confused with the notions of class object and object of polymorphic type.
 
+Rvalue means "a value that is not an lvalue", such as a temporary value (e.g., the value returned by a function). 
 
-Rvalue means ‘‘a value that is not an lvalue,’’ such as a temporary value (e.g., the value returned by a function). 
-If you need to be more technical because you want to read the ISO C++ standard a deeper definition is required. There are two properties that matter for an object when it comes to addressing, copying, and moving: 
+There are two properties that matter for an object when it comes to addressing, copying, and moving: 
 • Has identity: The program has the name of, pointer to, or reference to the object so that it is possible to determine if two objects are the same, whether the value of the object has changed, etc.
 • Movable: The object may be moved from (i.e., we are allowed to move its value to another location and leave the object in a valid but unspecified state, rather than copying). 
+
 For practical programming, thinking in terms of rvalue and lvalue is usually sufficient. Note that every expression is either an lvalue or an rvalue, but not both.
 
-It turns out that three of the four possible combinations of those two properties are needed to precisely describe the C++ language rules (we have no need for objects that do not have identity and cannot be moved). Using ‘‘m for movable’’ and ‘‘i for has identity,’’ we can represent this classification of expressions graphically:
-
-diagram from week 2 slide 66
-So, a classical lvalue is something that has identity and cannot be moved (because we could examine it after a move), and a classical rvalue is anything that we are allowed to move from. 
-The other alternatives are prvalue (‘‘pure rvalue’’), glvalue (‘‘generalized lvalue’’), and xvalue (‘‘x’’ for ‘‘extraordinary’’ or ‘‘expert only’’; the suggestions for the meaning of this ‘‘x’’ have been quite imaginative). For example:
-void f(std::vector<std::string>& vs)
-{
-	std::vector<std::string>& v2 = std::move(vs); // move vs to v2
-	// ...
-}
-Here, std::move(vs) is an xvalue: it clearly has identity (we can refer to it as vs), but we have explicitly given permission for it to be moved from by calling std::move().
+It turns out that three of the four possible combinations of those two properties are needed to precisely describe the C++ language rules (we have no need for objects that do not have identity and cannot be moved). 
 
 ## Type Aliases
 
-Sometimes, we need a new name for a type. Possible reasons include:
+Sometimes, we need a new name for a type. 
 
+Possible reasons include:
 * The original name is too long, or complicated in some way.
 * A programming technique requires different types to have the same name in a context.
 * A specific type is mentioned in one place only to simplify maintenance.
 
 For example:
-using Pchar = char∗; // pointer to character
-using PF = int(∗)(double); // pointer to function taking a double and returning an int
-
+```{code-block} c++
+using Pchar = char*; // pointer to character
+using PF = int(*)(double); // pointer to function taking a double and returning an int
+```
 
 
 

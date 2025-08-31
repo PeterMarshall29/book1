@@ -120,47 +120,63 @@ If the initializer is of syntax (1), the object is copy-initialized.
 The type of simple variable can be deduced fr
 
 When defining a variable, you don’t actually need to state its type explicitly when it can be deduced from the initializer:
+```{code-block} c++
 auto b = true; // `true` or `false` are recognised as `bool` type
 auto ch = 'x'; //  Single quotes are reserved to denote `char` type
 auto i = 123; //   Number literal without the decimal point is interpreted to be an `int`No decimal point in a number literalan int
 auto d = 1.2; //   a double
 auto z = sqrt(y); // z has the type of whatever sqrt(y) returns
-
+```
 Warning Be careful – best to always specify type and initialise immediately!
 
 With auto, we use the = syntax because there is no type conversion involved that might cause problems.
-We use auto where we don’t hav e a specific reason to mention the type explicitly. ‘‘Specific reasons’’ include:
+
+We use auto where we don’t hav e a specific reason to mention the type explicitly. 
+
+"Specific reasons" include:
 * The definition is in a large scope where we want to make the type clearly visible to readers of our code.
 * We want to be explicit about a variable’s range or precision (e.g., double rather than float).
-Using auto, we avoid redundancy and writing long type names. This is especially important in generic programming where the exact type of an object can be hard for the programmer to know and the type names can be quite long (§4.5.1).
-There is no advantage to using {} initialization, and one trap, when using auto to get the type determined by the initializer. The trap is that if the initializer is a {}-list, we may not want its type deduced (§6.3.6.2). For example:
-So prefer = when using auto.
+
+Using auto, we avoid redundancy and writing long type names. 
+
+This is especially important in generic programming where the exact type of an object can be hard for the programmer to know and the type names can be quite long.
+
+There is no advantage to using {} initialization, and one trap, when using auto to get the type determined by the initializer. 
+
+The trap is that if the initializer is a {}-list, we may not want its type deduced. For example:
+```{code-block} c++
 auto z1{ 99 }; // z1 is an initializer_list<int> //Student’s to find out what it is.
-
 auto z2 = 99; // z2 is an int
-
-
+```
+So prefer = when using auto.
 
 ## Empty initialiser
 
 Empty Initialiser List {} is used to indicate that a default value is desired. For example:
+```{code-block} c++
 int x4{}; // x4 becomes 0
 double d4{}; // d4 becomes 0.0
 char* p{}; //p becomes nullptr
 std::vector<int> v4{}; // v4 becomes the empty vector
 std::string s4{}; // s4 becomes ""
-Most types have a default value. For integral types, the default value is a suitable representation of
-zero. For pointers, the default value is nullptr . 
+```
+Most types have a default value. For integral types, the default value is a suitable representation of zero. 
+
+For pointers, the default value is `nullptr`. 
+
 For user-defined types, the default value (if any) is determined by the type’s constructors.
+
 For user-defined types, there can be a distinction between direct initialization (where implicit conversions are allowed) and copy initialization (where they are not).
 
 ## missing inialiser
 
-If no initializer is specified, a global (§6.3.4), namespace (§14.3.1), local static (§12.1.8), or static member (§16.2.12) (collectively called static objects) is initialized to {} of the appropriate type. For example:
+If no initializer is specified, a `global`, `namespace`, `local static`, or `static member` (static objects) is initialized to `{}` of the appropriate type. For example:
+```{code-block} c++
 int a; // means ‘‘int a{};’’ so that a becomes 0
 double d; // means ‘‘double d{};’’ so that d becomes 0.0
-
-Local variables and objects created on the free store (sometimes called dynamic objects or heap objects; §11.2) are not initialized by unless they are of user-defined types with a default constructor (§17.3.3). For example:
+```
+Local variables and objects created on the free store are not initialized by unless they are of user-defined types with a default constructor. For example:
+```{code-block} c++
 int x; // x does not have a well-defined value
 char buf[1024]; // buf[i] does not have a well-defined value
 int* p{ new int }; //*p does not have a well-defined value
@@ -168,35 +184,48 @@ char* q{ new char[1024] }; // q[i] does not have a well-defined value
 std::string s; // s=="" because of string’s default constructor
 std::vector<char> v; // v=={} because of vector’s default constructor
 std::string* ps{ new std::string }; // *ps is "" because of string’s default constructor
+```
 If you want initialization of local variables of built-in type or objects of built-in type created with new, use {}.
 
 ## Initialiser Lists
-More complicated
-objects can require more than one value as an initializer. This is primarily handled by initializer
+More complicated objects can require more than one value as an initializer. This is primarily handled by initializer
 Lists delimited by { and }. For example:
+```{code-block} c++
 int a[] = { 1, 2 }; // array initializer
 struct S { int x; std::string s; };
 S s = { 1, "Helios" }; // struct initializer
 std::complex<double> z = { 0, pi }; // use constructor
 std::vector<double> v = { 0.0, 1.1, 2.2, 3.3 }; // use list constructor
-
-In some cases, function-style argument lists can also be used (§2.3, §16.2.5). For example:
+```
+In some cases, function-style argument lists can also be used. For example:
+```{code-block} c++
 std::complex<double> z(0, std::numbers::pi); // use constructor
 std::vector<double> v(10, 3.3); // use constructor : v gets 10 elements initialized to 3.3st constructor 
+```
+To access 'pi' – you need to include numbers and change Visual Studio project properties, c++language standard, select version 20++.
 
-To access pi – you need to include numbers and GOTO properties, c++language standard, select version 20++.
- In a declaration, an empty pair of parentheses, (), always means ‘‘function’’ (§12.1). So, if you
-want to be explicit about ‘‘use default initialization’’ you need {}. For example:
+In a declaration, an empty pair of parentheses, (), always means "function". 
+
+So, if you want to be explicit about "use default initialization" you need {}. For example:
+
+```{code-block} c++
 std::complex<double> z1(1, 2); // function-style initializer (initialization by constructor)
 std::complex<double> f1(); // function declaration
 std::complex<double> z2{ 1,2 }; // initialization by constructor to {1,2}
 std::complex<double> f2{}; // initialization by constructor to the default value {0,0}
-Note that initialization using the {} notation does not narrow (§6.3.5). When using auto, a {}-list has its type deduced to std::initializer_list<T>. For example:
- auto x1{ 1,2,3,4 }; // x1 is an initializer_list<int>
-auto x2{ 1.0, 2.25, 3.5 }; // x2 is an initializer_list of<double>
-auto x3{ 1.0,2 }; // error : cannot deduce the type of {1.0,2} (§6.3.6.2)
- 
+```
 
+Note that initialization using the {} notation does not narrow. 
+
+When using `auto`, a {}-list has its type deduced to `std::initializer_list<T>`. For example:
+
+```{code-block} c++
+auto x1{ 1, 2, 3, 4 }; // x1 is an initializer_list<int>
+auto x2{ 1.0, 2.25, 3.5 }; // x2 is an initializer_list of<double>
+``` 
+```{code-block} c++
+auto x3{ 1.0, 2 }; // error : cannot deduce the type of 
+``` 
 
 
 *** code from other pages to be fit in
