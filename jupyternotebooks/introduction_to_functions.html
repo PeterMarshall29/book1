@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.347dcf77-64ee-483d-a4b8-5b40615d72a4.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.944c8a19-720c-4c4f-8e58-f041a0c5d3ce.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -548,7 +548,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseu1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
 <section id="exercise-content">
 <p>Run this code.</p>
 <div class="cell tag_remove-output docutils container">
@@ -577,13 +577,14 @@ document.write(`
 </div>
 <p>This is the <a class="reference internal" href="glossary.html#term-Function-Definition"><span class="xref std std-term">function definition</span></a>.</p>
 <p>The statements inside the curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> (a code block) are the function body.</p>
-<div class="margin admonition tip">
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Not shown in this example - the statement before the function body, followed by a <code class="docutils literal notranslate"><span class="pre">;</span></code> is a <a class="reference internal" href="glossary.html#term-Function-Declaration"><span class="xref std std-term">function declaration</span></a>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFirstFunction</span><span class="w"> </span><span class="p">();</span><span class="w"> </span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">shown</span> <span class="pre">in</span> <span class="pre">this</span> <span class="pre">example</span> <span class="pre">-</span> <span class="pre">the</span> <span class="pre">statement</span> <span class="pre">before</span> <span class="pre">the</span> <span class="pre">function</span> <span class="pre">body,</span> <span class="pre">followed</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">`;`</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">{term}`function</span> <span class="pre">declaration`.</span></code></p>
+</div>
+<p>Not shown in this example - the statement before the function body, followed by a <code class="docutils literal notranslate"><span class="pre">;</span></code> is a <a class="reference internal" href="glossary.html#term-Function-Declaration"><span class="xref std std-term">function declaration</span></a>.````</p>
 <p>The funtion <a class="reference internal" href="glossary.html#term-Identifier"><span class="xref std std-term">identifier</span></a> (name) is ‘myFirstFuncton’ - which is user-defined.</p>
 <p>The <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> before the identifier, specfies the type of the value that will be returned when the function completes its execution.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Void</span></code> indicates that nothing is returned by this function, and therefore we do not need to use the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword.</p>
@@ -607,7 +608,6 @@ document.write(`
 </div>
 <p>For now we will place the functions above the main function, but in future all functions should be placed in <a class="reference internal" href="glossary.html#term-Header-Files"><span class="xref std std-term">header files</span></a>, using the <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive to make them available to <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
 </div>
-</div>
 </section>
 </div>
 <p>Functions are much more useful when variable are passed into them and value are returned from them.</p>
@@ -616,7 +616,7 @@ document.write(`
 <p>When a function is called values may be <strong>passed in</strong> as <a class="reference internal" href="glossary.html#term-Function-Arguments"><span class="xref std std-term">function arguments</span></a> to the function. These values become local variables that can be used within the function. The outcome of the function call thus changes in response to the supplied variables</p>
 <p>A result can also be returned.</p>
 <div class="dropdown note admonition">
-<p class="admonition-title">Using values returend by a function.</p>
+<p class="admonition-title">Using Return Values</p>
 <p>Where the function call is encountered in the execution of a program, the program calls the function, and then substitues the returned value at that point in the code.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement intialises a variable of the return type. This is identical to copy initialisation, but the variable is unnamed</p>
 <p>It is often enough to just have the function call, see the next example, however the returned value is then not available later in the program.</p>
@@ -624,7 +624,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseu2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
 <section id="exercise-content">
 <p>Run this code.</p>
 <div class="cell tag_remove-output docutils container">
@@ -677,7 +677,7 @@ document.write(`
 </ul>
 <div class="solution note dropdown admonition" id="solutionu2">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseu2"> Exercise 18</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseu2"> Exercise 19</a></p>
 <section id="solution-content">
 <p>The function could only be placed above <code class="docutils literal notranslate"><span class="pre">main()</span></code> - because a function cannot be used before it has been declared.</p>
 <p>Integers can be converted to doubles at run time, so the code works.</p>

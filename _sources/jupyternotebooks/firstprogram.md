@@ -136,11 +136,6 @@ The returned value is reported to whoever called the function, in the case of ma
 - C++ is {term}`case sensitive`.
 ````
 `````
-
-
-
-
-
 `````{exercise-start}
 :label: exercisea2
 :class: dropdown
@@ -168,8 +163,6 @@ int main()
 ````
 `````{exercise-end}
 `````
-
-
 ## C++ Comments
 
 {term}`Comments` are plain text added to a C++ source or header file that will be ignored by the compiler.

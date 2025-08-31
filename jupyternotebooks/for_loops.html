@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.0a1412c9-c459-4521-a49a-fb1020e5fa62.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.dfd4c16c-10fa-4f50-ac9b-ce619b5eb8cc.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -79,7 +79,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-16a42f88-acab-4bac-bd6e-42c82cf700e6] svg, .mermaid[data-zoom-id=id-76213976-a1e7-4908-afc0-3add3df9040b] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-38ae52ef-9d39-4ec0-b8e5-792e9977b929] svg, .mermaid[data-zoom-id=id-4d1df342-98e4-49f4-b19c-ac04608e5a49] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -574,8 +574,19 @@ document.write(`
 <p class="attribution">—Zeno of Elea</p>
 </div></blockquote>
 </div>
-<p>Conditionally execute a statement, or code block, repeatedly.</p>
-<p>The code block itself does not usually have anything to do with the condition for continuation of iteration, but does often utilise the loop variable to change what happens on each iteration.</p>
+<p>The for-statement conditionally executes a statement, or code block, repeatedly. Also known as the <a class="reference internal" href="glossary.html#term-For-loop"><span class="xref std std-term">for-loop</span></a>.</p>
+<div class="admonition-the-syntax-of-the-for-statement admonition">
+<p class="admonition-title">The syntax of the For-Statement</p>
+<div class="highlight-cppp notranslate"><div class="highlight"><pre><span></span>for ( ...loop_variable_definition_and_initialisation... ; 
+      ...condition_to_continue_the_loop... ; 
+      ...increment_to_loop_variable_instruction... ;) 
+      { ...code_to_be_executed_every_loop...}
+</pre></div>
+</div>
+</div>
+<p>The management of the loop happens inside the argument to the for-statement command.</p>
+<p>Without the increment, which is not required, the loop just runs forever but you can also affect the condition that is checked every time from inside the code block.</p>
+<p>The code-block usually has not effect on the loop condition (best practice) but it does often utilise the loop variable to change what happens on each iteration.</p>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/for.html">For-statements</a></p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-3">
 <thead>
@@ -584,7 +595,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-16a42f88-acab-4bac-bd6e-42c82cf700e6" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-38ae52ef-9d39-4ec0-b8e5-792e9977b929" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -615,7 +626,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-76213976-a1e7-4908-afc0-3add3df9040b" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-4d1df342-98e4-49f4-b19c-ac04608e5a49" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -657,47 +668,67 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>The management of what controls the loop happens inside the argument to the for command.</p>
-<p>The syntax is <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(loop</span> <span class="pre">variable</span> <span class="pre">definition</span> <span class="pre">and</span> <span class="pre">initialisation;</span> <span class="pre">condition</span> <span class="pre">to</span> <span class="pre">continue</span> <span class="pre">the</span> <span class="pre">loop;</span> <span class="pre">increment</span> <span class="pre">to</span> <span class="pre">loop</span> <span class="pre">variable</span> <span class="pre">instruction)</span> <span class="pre">{</span> <span class="pre">code</span> <span class="pre">to</span> <span class="pre">execute}</span></code></p>
-<p>Without the increment, which is not required, the loop just runs forever but you can also affect the condition that is checked every time from inside the code block.</p>
-<div class="literal-block-wrapper docutils container" id="codef1">
-<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">For Loop Template</span><a class="headerlink" href="#codef1" title="Permalink to this code">#</a></div>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-</span><span class="linenos">3</span><span class="p">}</span>
+<div class="example dropdown admonition" id="examples1">
+
+<p class="admonition-title"><span class="caption-number">example 24 </span> (For-statement)</p>
+<section id="example-content">
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
+</div>
 </div>
 </div>
 <p>The highlighted code statements are repeated as many times as required by the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
-<p>The syntax for a for loop is:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">The syntax for this example for-statement loop is:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="o">**</span><span class="n">Code</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="o">**</span><span class="w"> </span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The 3 terms in the paranthesis control the operation of the for loop.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span></code> is the for-statement initialiser.</p>
-<p>This statement names a loop variable called ‘i’ and sets its initial value to 0.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">100;</span></code> is the for-statement condition.</p>
-<p>The for loop runs until this condition become true. The condition must be an expression that returns a boolean.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">++1</span></code> is the for-statement increment.</p>
-<p><strong>After</strong> executing the for-loops code block, the loop variable is increased or decreased according to this instruction.</p>
+<p class="sd-card-text">The 3 terms in the parantheses control the operation of the for loop.</p>
 </div>
 </div>
-<p>ust equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The first argument is the for-statement initialiser.</p>
+<p class="sd-card-text">This statement names a loop-variable <code class="docutils literal notranslate"><span class="pre">i</span></code> and initialises it with a value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The second argument is the for-statement condition.</p>
+<p class="sd-card-text">The for-loop runs until this condition becomes false. The condition must be an expression that returns a boolean, and it must be true on the first loop - or the program exits the loop.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The third and final argument is the for-statement increment.</p>
+<p class="sd-card-text"><strong>After</strong> executing the for-loops code block, the loop variable is increased or decreased according to this instruction.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
 <div class="dropdown admonition">
 <p class="admonition-title">Tip</p>
-<p>Be careful not to also increment the loop variable within the execution block, this can also be done and create more options for what happens, but should not generally be done without good purpose.</p>
+<p>It is bad practice, and a common mistake, to increment the loop-variable within the execution block; this should only be done for a good reason - it is always better to seperate concerns; leave control to the loop arguments.</p>
+<p>By mistake this is sometimes done in addition to the for-statement argument ; both increment instruction are implemented each loop. this can also be done and create more options for what happens, but should not generally be done without good purpose.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="c1">// for i in the half-open range 0 to less than 50 `[0:50)` </span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span>
@@ -780,18 +811,16 @@ Behaves the same as while(true)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp:10:22: error: &#39;a&#39; was not declared in this scope
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp:10:22: error: &#39;a&#39; was not declared in this scope
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                      ^
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp:10:27: error: increment of read-only location &#39;(const char*)&quot;\011&quot;&#39;
    10 |         std::cout &lt;&lt; a &lt;&lt; &quot;\t&quot;
       |                           ^~~~
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp:10:27: error: lvalue required as increment operand
+C:\Users\Peter\AppData\Local\Temp\tmpfuoc2aj3.cpp:10:27: error: lvalue required as increment operand
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
@@ -820,26 +849,28 @@ C:\Users\Peter\AppData\Local\Temp\tmpct_4p6of.cpp:10:22: error: &#39;a&#39; was 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In function &#39;void loopFunction(int*, int)&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In function &#39;void loopFunction(int*, int)&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:8:13: error: expected &#39;)&#39; before &#39;!&#39; token
     8 |     while (i !!= terminatiionValue) {
       |           ~ ^~
       |             )
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:8:15: error: expected primary-expression before &#39;!=&#39; token
     8 |     while (i !!= terminatiionValue) {
       |               ^~
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:19: error: expected identifier before numeric constant
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:19: error: expected identifier before numeric constant
    15 |     loopfunction([1,2,3,4,5], 20);
       |                   ^
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:20: error: expected &#39;]&#39; before &#39;,&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                    ^
       |                    ]
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In lambda function:
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In lambda function:
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:20: error: expected &#39;{&#39; before &#39;,&#39; token
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmpatpfo32u.cpp:15:28: error: expected &#39;)&#39; before &#39;]&#39; token
    15 |     loopfunction([1,2,3,4,5], 20);
       |                 ~          ^
       |                            )
@@ -867,11 +898,13 @@ C:\Users\Peter\AppData\Local\Temp\tmpqjnlvvk4.cpp:15:28: error: expected &#39;)&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpkocvgheg.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpkocvgheg.cpp:6:10: error: redeclaration of &#39;long int i&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp4fmxdvli.cpp: In function &#39;int main()&#39;:
+C:\Users\Peter\AppData\Local\Temp\tmp4fmxdvli.cpp:6:10: error: redeclaration of &#39;long int i&#39;
     6 |     long i = 1;
       |          ^
-C:\Users\Peter\AppData\Local\Temp\tmpkocvgheg.cpp:5:10: note: &#39;int i&#39; previously declared here
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmp4fmxdvli.cpp:5:10: note: &#39;int i&#39; previously declared here
     5 | for (int i = 0;;) {
       |          ^
 </pre></div>

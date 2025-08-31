@@ -66,7 +66,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.8cfe38bc-01b3-4470-b37e-e1c097e9b170.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.8e0ec88f-efff-4399-b9cb-17c651e6aae2.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/initialisation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -552,7 +552,7 @@ document.write(`
 
 <p class="admonition-title"><span class="caption-number">example 17 </span></p>
 <section id="example-content">
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -564,18 +564,6 @@ document.write(`
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInt</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myThirdInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFourthInt</span><span class="p">;</span><span class="w"> </span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Peter\AppData\Local\Temp\tmpptjsy_2k.cpp: In function &#39;int main()&#39;:
-C:\Users\Peter\AppData\Local\Temp\tmpptjsy_2k.cpp:5:3: error: &#39;iny&#39; was not declared in this scope; did you mean &#39;int&#39;?
-    5 |   iny myInt = 99;
-      |   ^~~
-      |   int
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Unable to compile the source code. Return error: 0x1.
 </pre></div>
 </div>
 </div>
@@ -593,7 +581,7 @@ C:\Users\Peter\AppData\Local\Temp\tmpptjsy_2k.cpp:5:3: error: &#39;iny&#39; was 
 <li><p>A floating-point values are not converted to an integer type.</p></li>
 <li><p>An integer value cannot</p></li>
 </ul>
-<p>Informaiton on the sizes of the arithmetic types is <a class="reference internal" href="#SizeOfNumericValues"><span class="xref myst">here</span></a></p>
+<p>Informaiton on the sizes of the arithmetic types is <a class="reference internal" href="arithmetic_data_types.html#sizeofnumericvalues"><span class="std std-ref">here</span></a></p>
 <p>The = form is traditional and dates back to C, but if in doubt, use the general {}-list form (§6.3.5.2).</p>
 <p>If nothing else, it saves you from conversions that lose information (narrowing conversions; §10.5): be converted to a floating-point type.</p>
 <p>If an initializer is specified for an object, that initializer determines the initial value of an object.

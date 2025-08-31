@@ -50,6 +50,7 @@ An initialiser can use one of four syntactic styles:
 :class: dropdown
 `````
 ````{code-cell} C++
+:tags: [remove-output]
 #include <iostream>
 int main() {
   iny myInt = 99;  

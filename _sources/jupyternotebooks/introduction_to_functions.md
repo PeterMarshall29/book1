@@ -74,12 +74,13 @@ This is the {term}`function definition`.
 The statements inside the curly braces `{}` (a code block) are the function body.
 
 ````{tip}
-:class: margin
+:class:
 Not shown in this example - the statement before the function body, followed by a `;` is a {term}`function declaration`.
 ```{code-block} c++
 void myFirstFunction (); 
 ```
-````Not shown in this example - the statement before the function body, followed by a `;` is a {term}`function declaration`.````
+````
+Not shown in this example - the statement before the function body, followed by a `;` is a {term}`function declaration`.````
 
 The funtion {term}`identifier` (name) is 'myFirstFuncton' - which is user-defined.
 
@@ -128,7 +129,7 @@ A result can also be returned.
 
 
 
-```{admonition} Using values returend by a function.
+```{admonition} Using Return Values
 :class: dropdown note
 
 Where the function call is encountered in the execution of a program, the program calls the function, and then substitues the returned value at that point in the code.
@@ -164,7 +165,6 @@ int main()
 ````
 ````{admonition} Code Explanation
 :class: note dropdown
-
 The `squareOf()` function returns an integer value when it is called, and that value is then used by the character output stream, in the same fashion as the result of evaluating an expression.
 
 The return value of a function can also be used by copy assignment.
@@ -188,13 +188,11 @@ The definiton of `squareOf()` has a single parameter called 'x' of type `int`. P
 The type of `squareOf()` is `int (int)`.
 ***
 To call `squareOf()` its name must be included in a code statement followed by `()` with either an integer value in the parentheses or an integer type variable, that must have been initialised with a value before the call.
-
 ````
 - Try moving the definition of squareOf() to below the main function. 
 - Try moving the definition of squareOf() to inside the main function.
 - Try changing the function declaration so that it expects a paramater of type `double`.
 - Find two ways to make the above code print the square of all of the values from 1 to 100.
-
 ````{solution} exerciseu2
 :class: note dropdown
 :label: solutionu2

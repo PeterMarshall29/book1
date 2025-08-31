@@ -17,7 +17,7 @@ An alternative to an if-statement ladder is the switch-statement.
 A switch statement is generally easier to read than nested if statements.
 
 ````{admonition} The Syntax of a switch-statement:
-:class: note
+:class: note dropdown
 ```{code-block} c++
 
 switch (condition) {
