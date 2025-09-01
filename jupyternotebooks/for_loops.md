@@ -116,7 +116,7 @@ The code-block usually has not effect on the loop condition (best practice) but 
 ```
 
 
-``````{example-start} For-statement
+``````{code_example-start} For-statement
 :label: examples1
 :class: dropdown
 ``````
@@ -168,7 +168,7 @@ The third and final argument is the for-statement increment.
 ````
 
 `````
-``````{example-end}
+``````{code_example-end}
 ``````
 ````{admonition} Tip
 :class: dropdown 

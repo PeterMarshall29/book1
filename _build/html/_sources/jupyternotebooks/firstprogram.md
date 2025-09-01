@@ -13,17 +13,16 @@ kernelspec:
 # First C++ Program
 
 The first program that most people ever write prints "Hello, World!" the first program that most people ever write, because it is traditionally the first one taught - printing words to screen is as simple as it gets, but proves the software is correctly installed.
-
 ```{Admonition} History of the Hello World Program
 :class: seealso margin
 See the [Hello, World! program](https://en.wikipedia.org/wiki/"Hello,_World!"_program) page for the history of the "Hello, world!" program.
 ```
-
-
 ```{tip}
 :class: margin
 To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press {kbd}`Shift` + {kbd}`Enter`. 
 ```
+`````{code_example-start}
+`````
 ```{code-block} c++
 :linenos: 
 :emphasize-lines: 3
@@ -36,17 +35,16 @@ int main() {
 	return 0;
 }
 ```
-Type the following code into the empty code window below.
+Type the above code into the empty code window below. Turn on the Live Code editor using the Rocket Icon at the top of the page.
 
-Please type the code exactly as shown - the code will fail if you have any mistakes in the syntax. 
+Please type the code exactly as shown - the code will fail if there are any mistakes in the syntax. 
 
 In {ref}`Code 1<codea1>` the highlighted statement is the code that the programmer actually wanted implemented - everything else is require for all C++ programmes just to work.
 
-```{code-cell} c++
+````{code-cell} c++
 :tags: [remove-output]
 Type code here!
-```
-
+````
 ````{admonition} Code Explanation
 :class: dropdown
 ```{code-block} c++
@@ -101,6 +99,8 @@ The `return` {term}`keyword` specifies what the function produces (returns).
 If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
 
 ````
+`````{code_example-end}
+`````
 ```{seealso}
 :class: margin
 More information about the structure of the [C++ language](#the_cpp_language).
@@ -136,22 +136,23 @@ The returned value is reported to whoever called the function, in the case of ma
 - C++ is {term}`case sensitive`.
 ````
 `````
-`````{exercise-start}
+``````{exercise-start}
 :label: exercisea2
 :class: dropdown
-`````
+``````
 This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.
-````{code-cell} c++
+`````{code-cell} c++
 :tags: [remove-output]
 include "iostreams"
 main(){
 cout << "my name is, \n"
 return "Peter";
 }
-````
-````{solution} exercisea2
+`````
+`````{solution} exercisea2
 :class: note dropdown
 :label: solutiona2
+pre comment
 ```{code-block} cpp
 #include <iostream>
 int main()
@@ -160,9 +161,9 @@ int main()
 	return 0;
 }
 ```
-````
-`````{exercise-end}
 `````
+``````{exercise-end}
+``````
 ## C++ Comments
 
 {term}`Comments` are plain text added to a C++ source or header file that will be ignored by the compiler.

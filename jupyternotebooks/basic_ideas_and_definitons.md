@@ -54,7 +54,7 @@ All programmeming languages carry out basic arithmetic operations. Normally we d
 
 `cout` can be used demonstrate the basic arithmetic operations. 
 
-`````{example-start}
+`````{code_example-start}
 :label: Exampleb1
 :class: dropdown
 `````
@@ -85,7 +85,7 @@ The {term}`Modulo operator` may be new to you. See Wiki for more information:
 
 The try using `-` as a prefix on a number, what effect does that have?
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 ## Mathematical Functions
 
@@ -150,7 +150,7 @@ To create a variable named 'a' that holds the integer value of 5, we can used th
 
 After this statement in the programme, the variable `a` may be used anywhere that we want to use it's value of `5`
 
-`````{example-start}
+`````{code_example-start}
 :label: Exampleb2
 :class: dropdown
 `````
@@ -184,7 +184,7 @@ Try it in the code space above.
 Now the program has evaluated the arithmetic sum of the values contained in `a` and `b` - and sent that single value to the character output stream.
 ```
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 ## Strings
 Another useful type of variable is the `string` type. A {term}`string` is a series of individual characters. 
@@ -193,7 +193,7 @@ To use string-type variables we need an additional component of the standard lib
 
 The string literal must be enclosed in `""`. 
 
-`````{example-start}
+`````{code_example-start}
 :label: Exampleb3
 :class: dropdown
 `````
@@ -222,7 +222,7 @@ If done correctly, you will have demonstrated that `+` operator behaves differen
 For a {term}`numeric data type` it performs 'addition', but for the {term}`string data type` it performs {term}`concatenation`.
 ```
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 
@@ -232,7 +232,7 @@ For a {term}`numeric data type` it performs 'addition', but for the {term}`strin
 
 In addition to strings, and integers, we need variable from the {term}`floating-point number types` and {term}`char type`.
 
-`````{example-start}
+`````{code_example-start}
 :label: Exampleb4
 :class: dropdown
 `````
@@ -260,7 +260,7 @@ Scientific notation is formated using a lower or upper case `e` between the sign
 
 `int` may be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long, `long long`. The modifiers may be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char, and `long` may precede `double`.
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 `````{exercise-start}
 :label: exerciseb3

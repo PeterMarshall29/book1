@@ -42,13 +42,12 @@ A floating-point literal of type `float` is defined by adding the postfix 'f' (o
 A `long double` is defined by adding the postfix 'l' (or 'L'): `5.55e207L`.
 
 ## Scientific Notation
+Scientific notation is formated using a lower, or upper, case `e` between the mantissa and the index **no whitespace** is permitted.
 `````{sidebar}
 ````{admonition} Scientific Notation Example
 $2.99e8 = 2.99 \times 10^{8}$
 ````
 `````
-Scientific notation is formated using a lower, or upper, case `e` between the mantissa and the index **no whitespace** is permitted.
-
 The syntax does not permit any whitespace in a floating point literal. 
 
 For example, 2.998 e8 is not a floating-point literal, and would be intpreted as three separate lexical tokens and cause a syntax error at compile time.
@@ -63,7 +62,8 @@ A 64 bit architecture means that processors are able to load and store 64 bit fl
 
 Integer values do not follow a 
 On a 64 bits system: `int` uses 32 bits: `short` uses 16 bits, and `long` uses 64 bits.
-````{sidebar}
+````{admonition} Size of Arithmetic Types
+:class: margin note
 ```{list-table}
 :header-rows: 1
 :name: Numeric Types on a 64 bit architecture
@@ -89,7 +89,7 @@ On a 64 bits system: `int` uses 32 bits: `short` uses 16 bits, and `long` uses 6
 
 The `<limits>` component of the {term}`Standard Library` has some useful function such as max(), lowest(), and min(), which will return the largest value that can be stored in that type.
 
-`````{example-start}
+`````{code_example-start}
 :label: exampleh1
 :class: dropdown
 `````
@@ -109,12 +109,12 @@ std::cout << "char is signed == " << std::numeric_limits<char>::is_signed << '\n
 	return 0;
 }
 ````
-````{explanation} exampleh1
+````{code_explanation} exampleh1
 :label: explanationh1
 :class: dropdown
 Note: Min() is the smallest positive value. Lowest() is the most negative value, where applicable.
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 
@@ -130,7 +130,7 @@ It is often the case that a program will make a decision based on whether or not
 
 A little care must be taken when dealing with floating point numbers. In some languages alternaive methods to calculate the same number will yield differnt values.
 
-`````{example-start}
+`````{code_example-start}
 :class: dropdown
 `````
 ````{code-cell} c++
@@ -145,7 +145,7 @@ int main() {
 	return 0;
 }
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 ## Decimal, Hexidecimal, Octal, and Binary.
 
@@ -163,7 +163,7 @@ Hexidecimal is base 16, the units are 1,2,3,4,5,6,7,8,9,A,B,C,D,E,F. The value i
 ### Formating Octal and Hexidecimal Outputs
 
 Integer values can be output in octal or hexidecimal as follows:
-`````{example-start}
+`````{code_example-start}
 :class: dropdown
 `````
 ````{code-cell} cpp
@@ -176,7 +176,7 @@ int main() {
 `<< std::hex` and `<< std::oct` are instructions to the output stream to convert and display the next integer values in octal or hexidecimal. 
 `std::dec` restores to decimal, the intruction affects all subsequent integers until changed.
 
-`````{example-end}
+`````{code_example-end}
 `````
 
 
