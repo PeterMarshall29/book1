@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/game.css" />
@@ -68,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.475f5225-4fb3-4b53-9e63-faf98a03220a.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.0ebda214-98e1-4bf6-8709-780c92dc4ada.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -81,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-8995787e-ad11-49d0-8c3a-9afd0bc0c352] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-35f0b8f1-7280-4a8c-8f7f-9bd197097c8b] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -587,7 +588,7 @@ document.write(`
 <p>The break-statements prevent more than one case being triggered
 The break statements are not optional.</p>
 <p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-8995787e-ad11-49d0-8c3a-9afd0bc0c352" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-35f0b8f1-7280-4a8c-8f7f-9bd197097c8b" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
@@ -638,7 +639,7 @@ The break statements are not optional.</p>
 </div>
 <div class="example dropdown admonition" id="exampler1">
 
-<p class="admonition-title"><span class="caption-number">example 25 </span></p>
+<p class="admonition-title"><span class="caption-number">example 18 </span></p>
 <section id="example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -669,7 +670,7 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown note admonition" id="explanationr1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Example 25</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Code Example 18</a></p>
 <section id="explanation-content">
 <p>In this example, the while loop is just to keep the program running – we are only interested in the switch loop.</p>
 <p>constexpr double cm_per_inch = 2.54 - the conversion factor.</p>
@@ -696,7 +697,7 @@ The break statements are not optional.</p>
 </div>
 <div class="example dropdown admonition" id="exampler2">
 
-<p class="admonition-title"><span class="caption-number">example 26 </span></p>
+<p class="admonition-title"><span class="caption-number">example 19 </span></p>
 <section id="example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -741,7 +742,7 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown hint admonition" id="explanationr2">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Example 26</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Code Example 19</a></p>
 <section id="explanation-content">
 <p>words</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-5">

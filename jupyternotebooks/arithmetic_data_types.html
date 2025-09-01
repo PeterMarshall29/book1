@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/game.css" />
@@ -68,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\arithmetic_data_types.b401dccb-a13b-42cb-bf46-38d27a0a6d79.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\arithmetic_data_types.e221c759-990f-458a-a71c-b8a21732074c.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/arithmetic_data_types';</script>
@@ -563,13 +564,13 @@ document.write(`
 </section>
 <section id="scientific-notation">
 <h2>Scientific Notation<a class="headerlink" href="#scientific-notation" title="Permalink to this heading">#</a></h2>
+<p>Scientific notation is formated using a lower, or upper, case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the mantissa and the index <strong>no whitespace</strong> is permitted.</p>
 <aside class="sidebar">
 <div class="admonition-scientific-notation-example admonition">
 <p class="admonition-title">Scientific Notation Example</p>
 <p><span class="math notranslate nohighlight">\(2.99e8 = 2.99 \times 10^{8}\)</span></p>
 </div>
 </aside>
-<p>Scientific notation is formated using a lower, or upper, case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the mantissa and the index <strong>no whitespace</strong> is permitted.</p>
 <p>The syntax does not permit any whitespace in a floating point literal.</p>
 <p>For example, 2.998 e8 is not a floating-point literal, and would be intpreted as three separate lexical tokens and cause a syntax error at compile time.</p>
 </section>
@@ -580,7 +581,8 @@ document.write(`
 <p>A 64 bit architecture means that processors are able to load and store 64 bit floating point numbers.</p>
 <p>Integer values do not follow a
 On a 64 bits system: <code class="docutils literal notranslate"><span class="pre">int</span></code> uses 32 bits: <code class="docutils literal notranslate"><span class="pre">short</span></code> uses 16 bits, and <code class="docutils literal notranslate"><span class="pre">long</span></code> uses 64 bits.</p>
-<aside class="sidebar">
+<div class="margin note admonition">
+<p class="admonition-title">Size of Arithmetic Types</p>
 <div class="pst-scrollable-table-container"><table class="table" id="numeric-types-on-a-64-bit-architecture">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -609,16 +611,16 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </tbody>
 </table>
 </div>
-</aside>
+</div>
 </section>
 <section id="checking-the-size-limits-of-numeric-type-of-your-c-implemetation">
 <h2>Checking the Size Limits of Numeric Type of Your C++ Implemetation<a class="headerlink" href="#checking-the-size-limits-of-numeric-type-of-your-c-implemetation" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> returns the number of bytes used to store values of that type.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">Standard Library</span></a> has some useful function such as max(), lowest(), and min(), which will return the largest value that can be stored in that type.</p>
-<div class="example dropdown admonition" id="exampleh1">
+<div class="code_example dropdown admonition" id="exampleh1">
 
-<p class="admonition-title"><span class="caption-number">example 14 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 6 </span></p>
+<section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -638,10 +640,10 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 </div>
-<div class="explanation dropdown admonition" id="explanationh1">
+<div class="code_explanation dropdown admonition" id="explanationh1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleh1"> Example 14</a></p>
-<section id="explanation-content">
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleh1"> Code_Example 6</a></p>
+<section id="code_explanation-content">
 <p>Note: Min() is the smallest positive value. Lowest() is the most negative value, where applicable.</p>
 </section>
 </div>
@@ -657,10 +659,10 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 <h2>Calculations<a class="headerlink" href="#calculations" title="Permalink to this heading">#</a></h2>
 <p>It is often the case that a program will make a decision based on whether or not two values are identical.</p>
 <p>A little care must be taken when dealing with floating point numbers. In some languages alternaive methods to calculate the same number will yield differnt values.</p>
-<div class="example dropdown admonition" id="jupyternotebooks/arithmetic_data_types-example-2">
+<div class="code_example dropdown admonition" id="jupyternotebooks/arithmetic_data_types-code_example-2">
 
-<p class="admonition-title"><span class="caption-number">example 15 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 7 </span></p>
+<section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -689,10 +691,10 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 <section id="formating-octal-and-hexidecimal-outputs">
 <h3>Formating Octal and Hexidecimal Outputs<a class="headerlink" href="#formating-octal-and-hexidecimal-outputs" title="Permalink to this heading">#</a></h3>
 <p>Integer values can be output in octal or hexidecimal as follows:</p>
-<div class="example dropdown admonition" id="jupyternotebooks/arithmetic_data_types-example-3">
+<div class="code_example dropdown admonition" id="jupyternotebooks/arithmetic_data_types-code_example-3">
 
-<p class="admonition-title"><span class="caption-number">example 16 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 8 </span></p>
+<section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>

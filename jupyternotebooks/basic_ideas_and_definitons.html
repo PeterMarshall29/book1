@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/game.css" />
@@ -68,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.850100c0-baa9-4bfe-ad34-de2a1e8ea246.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.9377de0b-e89c-4786-93f6-7686fa5b827f.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
@@ -571,10 +572,10 @@ document.write(`
 <h2>Basic Arithmetic Operations<a class="headerlink" href="#basic-arithmetic-operations" title="Permalink to this heading">#</a></h2>
 <p>All programmeming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cout</span></code> can be used demonstrate the basic arithmetic operations.</p>
-<div class="example dropdown admonition" id="Exampleb1">
+<div class="code_example dropdown admonition" id="Exampleb1">
 
-<p class="admonition-title"><span class="caption-number">example 1 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 2 </span></p>
+<section id="code_example-content">
 <p>Type in the following and try the exercise.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;isotream&gt;</span>
 <span class="linenos">2</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -688,10 +689,10 @@ document.write(`
 <p>To get started we will look at creating two types of variable.</p>
 <p>To create a variable named ‘a’ that holds the integer value of 5, we can used the statement : <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code></p>
 <p>After this statement in the programme, the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> may be used anywhere that we want to use it’s value of <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
-<div class="example dropdown admonition" id="Exampleb2">
+<div class="code_example dropdown admonition" id="Exampleb2">
 
-<p class="admonition-title"><span class="caption-number">example 2 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 3 </span></p>
+<section id="code_example-content">
 <p>Type in the following code and try the Exercise.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;isotream&gt;</span>
 <span class="linenos">2</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -732,10 +733,10 @@ document.write(`
 <p>Another useful type of variable is the <code class="docutils literal notranslate"><span class="pre">string</span></code> type. A <a class="reference internal" href="glossary.html#term-String"><span class="xref std std-term">string</span></a> is a series of individual characters.</p>
 <p>To use string-type variables we need an additional component of the standard library, <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> to be included.</p>
 <p>The string literal must be enclosed in <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
-<div class="example dropdown admonition" id="Exampleb3">
+<div class="code_example dropdown admonition" id="Exampleb3">
 
-<p class="admonition-title"><span class="caption-number">example 3 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 4 </span></p>
+<section id="code_example-content">
 <p>Try the following Code and complete the exercise.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;isotream&gt;</span>
 <span class="linenos">2</span><span class="o">**!!</span><span class="w"> </span><span class="n">Insert</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="o">!!**</span>
@@ -771,10 +772,10 @@ document.write(`
 <section id="more-data-types">
 <h2>More Data Types<a class="headerlink" href="#more-data-types" title="Permalink to this heading">#</a></h2>
 <p>In addition to strings, and integers, we need variable from the <a class="reference internal" href="glossary.html#term-Floating-Point-Number-Types"><span class="xref std std-term">floating-point number types</span></a> and <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
-<div class="example dropdown admonition" id="Exampleb4">
+<div class="code_example dropdown admonition" id="Exampleb4">
 
-<p class="admonition-title"><span class="caption-number">example 4 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 5 </span></p>
+<section id="code_example-content">
 <p>Correct the following code and add a line to print out all the named variables, separated by tabs.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">

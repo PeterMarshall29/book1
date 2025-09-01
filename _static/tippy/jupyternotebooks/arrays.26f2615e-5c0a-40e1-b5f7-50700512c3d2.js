@@ -1,0 +1,22 @@
+selector_to_html = {"a[href=\"#multidimenstional-arrays\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Multidimenstional Arrays<a class=\"headerlink\" href=\"#multidimenstional-arrays\" title=\"Permalink to this heading\">#</a></h2><p>We can initialize a 2D array using an initializer list in two ways. Below is the first method of initializing a 2D array using an initializer list.</p><p>First Method: The below array has 2 rows and 4 columns. The elements are filled in a way that the first 4 elements are filled in the first row and the next 4 elements are filled in the second row.</p>", "a[href=\"#arrays-in-c\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">Arrays in C++<a class=\"headerlink\" href=\"#arrays-in-c\" title=\"Permalink to this heading\">#</a></h1><p>C++ uses simple built-in arrays, discussed on this page - and also a separate <code class=\"docutils literal notranslate\"><span class=\"pre\">&lt;array&gt;</span></code> library, not discussed.</p><p>The built-in have values and length fixed at initilisation, and they may not be copied.</p>", "a[href=\"#passing-arrays\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Passing Arrays<a class=\"headerlink\" href=\"#passing-arrays\" title=\"Permalink to this heading\">#</a></h2><p>Arrays cannot directly be passed by value. Instead, an array is passed as a pointer to its first element. For example:</p>"}
+skip_classes = ["headerlink", "sd-stretched-link"]
+
+window.onload = function () {
+    for (const [select, tip_html] of Object.entries(selector_to_html)) {
+        const links = document.querySelectorAll(` ${select}`);
+        for (const link of links) {
+            if (skip_classes.some(c => link.classList.contains(c))) {
+                continue;
+            }
+
+            tippy(link, {
+                content: tip_html,
+                allowHTML: true,
+                arrow: true,
+                placement: 'auto-start', maxWidth: 500, interactive: false, theme: 'material', duration: [200, 100], delay: [200, 0],
+
+            });
+        };
+    };
+    console.log("tippy tips loaded!");
+};
