@@ -13,7 +13,7 @@ kernelspec:
 # Exercise 2
 
 `````{exercise-start}
-:label: exerciseex21
+:label: exerciseex2_1
 :class: dropdown
 `````
 Write a program that asks user for a mass, and replies with the energy equivalent of that amount.

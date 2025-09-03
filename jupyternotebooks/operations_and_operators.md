@@ -217,6 +217,126 @@ std::max(7,8)
 std::abs(a)
 
 
+## Comparison Operators
+
+Comparison operators are used to form expressions which return a `bool`; i.e. the expression evaluates to either `true` or `false`.
+
+```{list-table}
+:header-rows: 1
+:name: example_table_3
+* - Operator Name
+  - Sytax
+  - Returned Boolean Value
+* - Is equal to 
+  - A == B
+  - True only for equality of A and B
+* - Not equal to
+  - A != B
+  - True only when A does not equal B
+* - Less than
+  - A < B
+  - True when A is lower than B
+* - Greater than
+  - A > B
+  - True when A is greater than B
+* - Less than or equal to
+  - A <= B
+  - True if A is either less than B or equal to B
+* - Greater than or equal to
+  - A >= B
+  - True is B is either less than or equal to A 
+```
+
+int main()
+{
+    static_assert(sizeof(unsigned char) < sizeof(int),
+        "Cannot compare signed and smaller unsigned properly");
+    int a = -1;
+    int b = 1;
+    unsigned int c = 1;
+    unsigned char d = 1;
+
+    std::cout << std::boolalpha
+        << "Comparing two signed values:\n"
+        " -1 == 1 ? " << (a == b) << "\n"
+        " -1 <  1 ? " << (a < b) << "\n"
+        " -1 >  1 ? " << (a > b) << "\n"
+        "Comparing signed and unsigned:\n"
+        // may issue different-signedness warning:
+        " -1 == 1 ? " << (a == c) << "\n"
+        // may issue different-signedness warning:
+        " -1 <  1 ? " << (a < c) << "\n"
+        // may issue different-signedness warning:
+        " -1 >  1 ? " << (a > c) << "\n"
+        "Comparing signed and smaller unsigned:\n"
+        " -1 == 1 ? " << (a == d) << "\n"
+        " -1 <  1 ? " << (a < d) << "\n"
+        " -1 >  1 ? " << (a > d) << '\n';
+}
+
+```{admonition} New Three-Way Comparison Operator
+:class: note dropdown
+
+The three-way comparison operator `<=>` (the spaceship operator) was only recently introduced into C++ to provide a single way of determining whether two objects are either less than, equal to, or greater than each other in a single operation.
+
+`<=>` returns a result that indicates whether the left-hand side is less than, equal to, or greater than the right-hand side. 
+
+For example: (A <=> B) < 0 means a < b. (a <=> b) == 0 means a == b. (a <=> b) > 0 means a > b.
+```
+
+## Logical Operators
+
+
+```{list-table}
+:header-rows: 1
+:name: example_table_4
+* - Operator Name
+  - Sytax Keyword
+  - Syntax Symbol
+  - Effect (y remains unchanged)
+* - Logical Negation
+  - `not A`
+  - `!A`
+  - Returns `true` only if `A` returned `false`.
+* - Logical And
+  - `A and B`
+  - `A && B`
+  - Returns `true`, only if both `A` and `B` are `true`.
+* - Logical Or (Inclusive)
+  - `A or B`
+  - `A || B`
+  - Returns `true`, if either one, or both, of `A` and `B` are `true`. i.e. only returns `false` if both were `false`.
+```
+
+
+
+## Short Circuiting
+
+Sometimes a logical expression can be correctly evaluated without evaluating all the individual expressions. 
+
+For example, if the condition being checked is: `A && B`.
+
+It is only necessary to check that `B` is true, if `A` is found to be true first. If `A == false`, it does not matter what `B` evaluates to because `A && B == false`.
+
+Similarly, if the condition is `A || B` then if `A` is true, there is not need to check `B` if p is true, then regardless of the status of `B`, `A || B == true` 
+
+These two situation are referred to as short-circuit evaluation, which is useful in computing for two main reasons:
+
+- Computer resources and time can be saved not completely evaluating some very complex expressions.
+- Additonal boolean expressions can be used to protect against unsafe conditions.
+
+For example to prevent a condtion throwing a 'division by zero' error, any time a condition involves division by a variable value, it can be logically protected by first checking that the variable is not zero, and short circuiting with logical `&&` or `||`
+
+`(A != 0) && (A + 1/A < 100) (a == 0) || (a + 1/a < 100)
+
+because if a is 0, the first expression (a == 0) is true and the second expression is not
+evaluated.
+
+
+
+
+
+
 ## Order of evaluation
 
 The order of evaluation of any part of any expression, including the order of evaluation of function arguments, is usually unspecified.
@@ -236,5 +356,3 @@ Unspecified behaviours are those which may vary between implementations, and whi
 There are several types of undefined behaviours. Some behaviour vary between implementations, and can be allowed for by checking the documentation for your implementation and conforming to the rules.
 
 The problem with unspecifed behaviours is that each possible behavour is valid, and it can be difficult to know what to expect.
-
-

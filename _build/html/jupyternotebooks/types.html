@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.6ee65ac5-80ef-4a66-9516-24eaf3c35320.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.483978c9-9432-4df1-b1ed-62419d517b6c.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b9de5988-7d2a-4cc5-bc14-1a28273a6c7e] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-e0989a98-cb33-4f4f-bdca-d9b376b42a5d] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -624,7 +624,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-b9de5988-7d2a-4cc5-bc14-1a28273a6c7e" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-e0989a98-cb33-4f4f-bdca-d9b376b42a5d" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
@@ -673,7 +673,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
 <section id="exercise-content">
 <p>Try the following:</p>
 <ul class="simple">
@@ -725,7 +725,7 @@ document.write(`
 <p>This produces more easily understood values for the primitive types.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
 <section id="exercise-content">
 <p>Use typid on a function.</p>
 <div class="admonition hint">

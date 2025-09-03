@@ -1,0 +1,22 @@
+selector_to_html = {"a[href=\"exercise2.html#exerciseex21\"]": "<div class=\"exercise dropdown admonition\" id=\"exerciseex21\">\n<p class=\"admonition-title\"><span class=\"caption-number\">Exercise 11 </span></p>\n<section id=\"exercise-content\">\n<p>Write a program that asks user for a mass, and replies with the energy equivalent of that amount.</p>\n</section>\n</div>", "a[href=\"#solutions-to-exercises\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">Solutions to Exercises<a class=\"headerlink\" href=\"#solutions-to-exercises\" title=\"Permalink to this heading\">#</a></h1>"}
+skip_classes = ["headerlink", "sd-stretched-link"]
+
+window.onload = function () {
+    for (const [select, tip_html] of Object.entries(selector_to_html)) {
+        const links = document.querySelectorAll(` ${select}`);
+        for (const link of links) {
+            if (skip_classes.some(c => link.classList.contains(c))) {
+                continue;
+            }
+
+            tippy(link, {
+                content: tip_html,
+                allowHTML: true,
+                arrow: true,
+                placement: 'auto-start', maxWidth: 500, interactive: false, theme: 'material', duration: [200, 100], delay: [200, 0],
+
+            });
+        };
+    };
+    console.log("tippy tips loaded!");
+};

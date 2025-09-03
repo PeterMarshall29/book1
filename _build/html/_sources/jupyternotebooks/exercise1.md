@@ -16,7 +16,7 @@ Add practice using comments
 
 
 `````{exercise-start}
-:label: exercisex1
+:label: exercisex1_1
 `````
 This code is incorrect. Alter the code so that it runs without error and prints your name.
 ````{code-cell} cpp
@@ -30,4 +30,103 @@ return "Peter";
 
 `````{exercise-end}
 `````
+
+
+`````{exercise-start}
+:label: exercisex1_2
+`````
+Write a program to calculate and print to screen the binomial coefficients
+By definition, the binomial coefficients are calculated as
+$$
+C(k,n)= \frac{n!}{k!(n-k)!} 
+$$
+You should know that 
+$$
+C(k,n)=C(n-k,n)\\
+C(0,n)=1\\
+C(1,n)=n\\
+C(2,n)=\frac{n(n-1)}{2}
+C(k+1,n)=C(k,n)\cdot\frac{n-k}{k+1}
+$$
+
+`````{exercise-end}
+`````
+
+
+`````{solution-start} exercisex1_2
+:label: solutionx1_2
+`````
+int main() {
+    const int n = 10;   // constant array size 
+    int bnm[n + 1];     // array of integers 
+    int k = 0;          //  loop control variable: 
+    bnm[0] = 1;         // The first element of array
+    std::cout << bnm[0]; 
+                        // While loop to fill array
+while(k<n){ 
+    bnm[k+1]=bnm[k]*(n-k)/(k+1); 
+    std::cout<<" "<<bnm[k+1]; 
+    k++; } 
+    std::cout << '\n'; 
+    return 0; 
+}
+
+
+`````{solution-end}
+`````
+
+
+`````{exercise-start} 
+:label: exercisex1_3
+`````
+Write a program to calculate and print the sum of the squares of the postive integrers from one to a user inputted value.
+
+`````{exercise-end} 
+`````
+
+
+`````{solution-start} exercisex1_3
+:label: solutionx1_3
+`````
+#include <iostream>
+int main() {
+    int number, sum = 0;
+    std::cout << "Give me a positive integer: ";
+    std::cin >> number;
+    for (int i = 1; i <= number; ++i) sum += i * i;
+    std::cout << "The sum of the squared numbers from 1 to " << number << " is " << sum << '\n';
+    return 0;
+}
+
+`````{solution-end}
+`````
+
+
+`````{exercise-start} 
+:label: exercisex1_4
+`````
+Rewrite the program to calculate and print the sum of the squares of the postive integrers from one to a user inputted value.
+But now use the for-statement arguments to make the code block unnecessary.
+
+`````{exercise-end} 
+`````
+
+
+`````{solution-start} exercisex1_4
+:label: solutionx1_4
+`````
+#include <iostream>
+int main() { 
+    int number, sum; 
+    std::cout << "Give me a positve integer: ";
+    std::cin >> number; 
+    for (int i = 1, sum = 0; i <= number ; sum += i * i,  ++i); 
+    std::cout << "The sum of the squares of the numbers from 1 to " << number << " is " << sum << `\n`; 
+    return 0; 
+}
+
+`````{solution-end}
+`````
+
+
 

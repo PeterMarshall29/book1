@@ -12,9 +12,9 @@ kernelspec:
 
 # Solutions to Exercises
 
-````{solution} exercisex1
+````{solution} exercisex1_1
 :class: hint dropdown
-:label: solutionx2
+:label: solutionx1_1
 ```{code} cpp
 #include <iostream>
 int main()
@@ -25,8 +25,8 @@ int main()
 ```
 ````
 
-`````{solution-start} exerciseex21
-:label: solutionex21
+`````{solution-start} exerciseex2_1
+:label: solutionex2_1
 :class: dropdown
 `````
 #include <iostream> 

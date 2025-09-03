@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.bd1256e9-8a53-4f05-a00a-c1c3c9c12269.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.5fe872ae-3945-4c48-a26a-305551d76ee1.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/operations_and_operators';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -521,6 +521,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operators">Assignment operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-operators">Ternary Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators">Logical Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-circuiting">Short Circuiting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-of-evaluation">Order of evaluation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unspecified-behaiours">Unspecified Behaiours</a></li>
 </ul>
@@ -573,7 +576,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/operations_and_operators-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
 <section id="exercise-content">
 <p>Try moving the declaration of name to after</p>
 </section>
@@ -683,7 +686,7 @@ value of (a &gt;= b) ? a : b is a if a &gt;= b and b otherwise.
 That is, if the condition is true, the ternary operator value a if true, otherwise value b.</p>
 <div class="exercise dropdown admonition" id="exercisek2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
 <section id="exercise-content">
 <p>Complete this code using the ternary operator to print out the name of the enemy that is closest.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -714,7 +717,7 @@ That is, if the condition is true, the ternary operator value a if true, otherwi
 </div>
 <div class="solution dropdown note admonition" id="solutionk2">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercisek2"> Exercise 15</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisek2"> Exercise 18</a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">		</span><span class="p">(</span><span class="n">dist2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dist1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 2 </span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 1 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
@@ -728,6 +731,124 @@ That is, if the condition is true, the ternary operator value a if true, otherwi
 <h2>Useful functions<a class="headerlink" href="#useful-functions" title="Permalink to this heading">#</a></h2>
 <p>std::max(7,8)
 std::abs(a)</p>
+</section>
+<section id="comparison-operators">
+<h2>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this heading">#</a></h2>
+<p>Comparison operators are used to form expressions which return a <code class="docutils literal notranslate"><span class="pre">bool</span></code>; i.e. the expression evaluates to either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="example-table-3">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator Name</p></th>
+<th class="head"><p>Sytax</p></th>
+<th class="head"><p>Returned Boolean Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Is equal to</p></td>
+<td><p>A == B</p></td>
+<td><p>True only for equality of A and B</p></td>
+</tr>
+<tr class="row-odd"><td><p>Not equal to</p></td>
+<td><p>A != B</p></td>
+<td><p>True only when A does not equal B</p></td>
+</tr>
+<tr class="row-even"><td><p>Less than</p></td>
+<td><p>A &lt; B</p></td>
+<td><p>True when A is lower than B</p></td>
+</tr>
+<tr class="row-odd"><td><p>Greater than</p></td>
+<td><p>A &gt; B</p></td>
+<td><p>True when A is greater than B</p></td>
+</tr>
+<tr class="row-even"><td><p>Less than or equal to</p></td>
+<td><p>A &lt;= B</p></td>
+<td><p>True if A is either less than B or equal to B</p></td>
+</tr>
+<tr class="row-odd"><td><p>Greater than or equal to</p></td>
+<td><p>A &gt;= B</p></td>
+<td><p>True is B is either less than or equal to A</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>int main()
+{
+static_assert(sizeof(unsigned char) &lt; sizeof(int),
+“Cannot compare signed and smaller unsigned properly”);
+int a = -1;
+int b = 1;
+unsigned int c = 1;
+unsigned char d = 1;</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>std::cout &lt;&lt; std::boolalpha
+    &lt;&lt; &quot;Comparing two signed values:\n&quot;
+    &quot; -1 == 1 ? &quot; &lt;&lt; (a == b) &lt;&lt; &quot;\n&quot;
+    &quot; -1 &lt;  1 ? &quot; &lt;&lt; (a &lt; b) &lt;&lt; &quot;\n&quot;
+    &quot; -1 &gt;  1 ? &quot; &lt;&lt; (a &gt; b) &lt;&lt; &quot;\n&quot;
+    &quot;Comparing signed and unsigned:\n&quot;
+    // may issue different-signedness warning:
+    &quot; -1 == 1 ? &quot; &lt;&lt; (a == c) &lt;&lt; &quot;\n&quot;
+    // may issue different-signedness warning:
+    &quot; -1 &lt;  1 ? &quot; &lt;&lt; (a &lt; c) &lt;&lt; &quot;\n&quot;
+    // may issue different-signedness warning:
+    &quot; -1 &gt;  1 ? &quot; &lt;&lt; (a &gt; c) &lt;&lt; &quot;\n&quot;
+    &quot;Comparing signed and smaller unsigned:\n&quot;
+    &quot; -1 == 1 ? &quot; &lt;&lt; (a == d) &lt;&lt; &quot;\n&quot;
+    &quot; -1 &lt;  1 ? &quot; &lt;&lt; (a &lt; d) &lt;&lt; &quot;\n&quot;
+    &quot; -1 &gt;  1 ? &quot; &lt;&lt; (a &gt; d) &lt;&lt; &#39;\n&#39;;
+</pre></div>
+</div>
+<p>}</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">New Three-Way Comparison Operator</p>
+<p>The three-way comparison operator <code class="docutils literal notranslate"><span class="pre">&lt;=&gt;</span></code> (the spaceship operator) was only recently introduced into C++ to provide a single way of determining whether two objects are either less than, equal to, or greater than each other in a single operation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;=&gt;</span></code> returns a result that indicates whether the left-hand side is less than, equal to, or greater than the right-hand side.</p>
+<p>For example: (A &lt;=&gt; B) &lt; 0 means a &lt; b. (a &lt;=&gt; b) == 0 means a == b. (a &lt;=&gt; b) &gt; 0 means a &gt; b.</p>
+</div>
+</section>
+<section id="logical-operators">
+<h2>Logical Operators<a class="headerlink" href="#logical-operators" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table" id="example-table-4">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator Name</p></th>
+<th class="head"><p>Sytax Keyword</p></th>
+<th class="head"><p>Syntax Symbol</p></th>
+<th class="head"><p>Effect (y remains unchanged)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Logical Negation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">A</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!A</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> only if <code class="docutils literal notranslate"><span class="pre">A</span></code> returned <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logical And</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">and</span> <span class="pre">B</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">B</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, only if both <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> are <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Logical Or (Inclusive)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">or</span> <span class="pre">B</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">||</span> <span class="pre">B</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, if either one, or both, of <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> are <code class="docutils literal notranslate"><span class="pre">true</span></code>. i.e. only returns <code class="docutils literal notranslate"><span class="pre">false</span></code> if both were <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="short-circuiting">
+<h2>Short Circuiting<a class="headerlink" href="#short-circuiting" title="Permalink to this heading">#</a></h2>
+<p>Sometimes a logical expression can be correctly evaluated without evaluating all the individual expressions.</p>
+<p>For example, if the condition being checked is: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">B</span></code>.</p>
+<p>It is only necessary to check that <code class="docutils literal notranslate"><span class="pre">B</span></code> is true, if <code class="docutils literal notranslate"><span class="pre">A</span></code> is found to be true first. If <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">==</span> <span class="pre">false</span></code>, it does not matter what <code class="docutils literal notranslate"><span class="pre">B</span></code> evaluates to because <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">B</span> <span class="pre">==</span> <span class="pre">false</span></code>.</p>
+<p>Similarly, if the condition is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">||</span> <span class="pre">B</span></code> then if <code class="docutils literal notranslate"><span class="pre">A</span></code> is true, there is not need to check <code class="docutils literal notranslate"><span class="pre">B</span></code> if p is true, then regardless of the status of <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">||</span> <span class="pre">B</span> <span class="pre">==</span> <span class="pre">true</span></code></p>
+<p>These two situation are referred to as short-circuit evaluation, which is useful in computing for two main reasons:</p>
+<ul class="simple">
+<li><p>Computer resources and time can be saved not completely evaluating some very complex expressions.</p></li>
+<li><p>Additonal boolean expressions can be used to protect against unsafe conditions.</p></li>
+</ul>
+<p>For example to prevent a condtion throwing a ‘division by zero’ error, any time a condition involves division by a variable value, it can be logically protected by first checking that the variable is not zero, and short circuiting with logical <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> or <code class="docutils literal notranslate"><span class="pre">||</span></code></p>
+<p>`(A != 0) &amp;&amp; (A + 1/A &lt; 100) (a == 0) || (a + 1/a &lt; 100)</p>
+<p>because if a is 0, the first expression (a == 0) is true and the second expression is not
+evaluated.</p>
 </section>
 <section id="order-of-evaluation">
 <h2>Order of evaluation<a class="headerlink" href="#order-of-evaluation" title="Permalink to this heading">#</a></h2>
@@ -814,6 +935,9 @@ std::abs(a)</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operators">Assignment operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-operators">Ternary Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators">Logical Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-circuiting">Short Circuiting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-of-evaluation">Order of evaluation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unspecified-behaiours">Unspecified Behaiours</a></li>
 </ul>
