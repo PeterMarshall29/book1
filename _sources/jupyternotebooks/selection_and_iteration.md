@@ -89,7 +89,7 @@ The first program ever to run on a stored-program computer (the EDSAC), included
 
 Written and David Wheeler in the run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:
 
-`````{example-start}
+`````{code_example-start}
 :label: examplep1
 :class: dropdown
 `````
@@ -106,11 +106,11 @@ int main() {
   return 0;
 }
 ````
-````{explanation} examplep1
+````{code_explanation} examplep1
 :label: explanationp1
 :class: dropdown note
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 ## Jump Statement
 

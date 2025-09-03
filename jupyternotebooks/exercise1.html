@@ -69,7 +69,9 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise1.f4765de0-8a68-4f17-9bf2-06d2fd3d20b3.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise1.c9006e0c-f336-4e92-a778-e3db7cd03cd0.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/exercise1';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -521,7 +523,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-1">
 <h1>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h1>
 <p>Add practice using comments</p>
-<div class="exercise admonition" id="exercisex1">
+<div class="exercise admonition" id="exercisex1_1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
 <section id="exercise-content">
@@ -537,6 +539,90 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+</div>
+<div class="exercise admonition" id="exercisex1_2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
+<section id="exercise-content">
+<p>Write a program to calculate and print to screen the binomial coefficients
+By definition, the binomial coefficients are calculated as
+$<span class="math notranslate nohighlight">\(
+C(k,n)= \frac{n!}{k!(n-k)!} 
+\)</span><span class="math notranslate nohighlight">\(
+You should know that 
+\)</span><span class="math notranslate nohighlight">\(
+C(k,n)=C(n-k,n)\\
+C(0,n)=1\\
+C(1,n)=n\\
+C(2,n)=\frac{n(n-1)}{2}
+C(k+1,n)=C(k,n)\cdot\frac{n-k}{k+1}
+\)</span>$</p>
+</section>
+</div>
+<div class="solution admonition" id="solutionx1_2">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisex1_2"> Exercise 8</a></p>
+<section id="solution-content">
+<p>int main() {
+const int n = 10;   // constant array size
+int bnm[n + 1];     // array of integers
+int k = 0;          //  loop control variable:
+bnm[0] = 1;         // The first element of array
+std::cout &lt;&lt; bnm[0];
+// While loop to fill array
+while(k&lt;n){
+bnm[k+1]=bnm[k]*(n-k)/(k+1);
+std::cout&lt;&lt;” “&lt;&lt;bnm[k+1];
+k++; }
+std::cout &lt;&lt; ‘\n’;
+return 0;
+}</p>
+</section>
+</div>
+<div class="exercise admonition" id="exercisex1_3">
+
+<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
+<section id="exercise-content">
+<p>Write a program to calculate and print the sum of the squares of the postive integrers from one to a user inputted value.</p>
+</section>
+</div>
+<div class="solution admonition" id="solutionx1_3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisex1_3"> Exercise 9</a></p>
+<section id="solution-content">
+<p>#include <iostream>
+int main() {
+int number, sum = 0;
+std::cout &lt;&lt; “Give me a positive integer: “;
+std::cin &gt;&gt; number;
+for (int i = 1; i &lt;= number; ++i) sum += i * i;
+std::cout &lt;&lt; “The sum of the squared numbers from 1 to ” &lt;&lt; number &lt;&lt; ” is ” &lt;&lt; sum &lt;&lt; ‘\n’;
+return 0;
+}</p>
+</section>
+</div>
+<div class="exercise admonition" id="exercisex1_4">
+
+<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
+<section id="exercise-content">
+<p>Rewrite the program to calculate and print the sum of the squares of the postive integrers from one to a user inputted value.
+But now use the for-statement arguments to make the code block unnecessary.</p>
+</section>
+</div>
+<div class="solution admonition" id="solutionx1_4">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisex1_4"> Exercise 10</a></p>
+<section id="solution-content">
+<p>#include <iostream>
+int main() {
+int number, sum;
+std::cout &lt;&lt; “Give me a positve integer: “;
+std::cin &gt;&gt; number;
+for (int i = 1, sum = 0; i &lt;= number ; sum += i * i,  ++i);
+std::cout &lt;&lt; “The sum of the squares of the numbers from 1 to ” &lt;&lt; number &lt;&lt; ” is ” &lt;&lt; sum &lt;&lt; <code class="docutils literal notranslate"><span class="pre">\n</span></code>;
+return 0;
+}</p>
 </section>
 </div>
 </section>

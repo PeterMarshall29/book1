@@ -173,6 +173,8 @@ Floating-Point Number Types
 Flow Control
   Control of the sequential flow of execution.
 
+Fpr-Statement
+  def
 For-loop
   Common name for the for-statement.
 
@@ -280,6 +282,9 @@ Literals
 
 Local Variables
   Definition
+
+Loop Variable
+  
 
 Machine Code
   Computer programs encoded and structured to run directly on a computers hardware. The different {term}`CPU` architectures, x86, ARM, Apple Silicon, have differnt programmable interfaces and require different machine code specified by an {term}`instruction set architecture`. 
