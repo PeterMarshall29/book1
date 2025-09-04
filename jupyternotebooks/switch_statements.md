@@ -21,7 +21,7 @@ A switch statement is generally easier to read than nested if statements.
 ```{code-block} c++
 
 switch (condition) {
-		case first_possible_value_of_ condtion :
+		case first_possible_value_of_condtion :
 			statements to execute go here....;
 			break;
 		case second_possible_value_of_condtion:

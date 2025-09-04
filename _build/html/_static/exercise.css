@@ -16,12 +16,12 @@ div.exercise {
 }
 
 div.exercise p.admonition-title {
-  background-color: var(--note-title-color);
+  background-color: #B284BE; /*var(--note-title-color);*/
 }
 
 /* Remove content box */
 div.exercise p.admonition-title::after {
-  content: "\f303";
+  content: "\f044";
 }
 
 /*********************************************

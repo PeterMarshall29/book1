@@ -1,91 +1,97 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 600">
-<defs>
-  <rect id="comnd" fill="none" stroke="black" stroke-width="3" x="-80" y="-60" width="160" height="120" rx="20"/>
-  <polygon id="condi" fill="none" stroke="black" stroke-width="3" stroke-linejoin="round" points="0,-70 90,0 0,70 -90,0"/>
-  <polyline id="arrdn" fill="none" stroke="black" stroke-width="3" stroke-linejoin="round" points="-10,-20 0,0 10,-20"/>
-</defs>
-<g id="translatable" font-family="Verdana" text-anchor="middle">
-  <switch transform="translate(200,50)" font-size="24">
-    <text systemLanguage="sv">PRE-EVALUERANDE SLINGA</text>
-    <text systemLanguage="en">PRE-TEST LOOP</text>
-    <text>PRE-TEST LOOP</text>
-  </switch>
-  <switch transform="translate(500,50)" font-size="24">
-    <text systemLanguage="sv">OÄNDLIG SLINGA</text>
-    <text systemLanguage="en">INFINITE LOOP</text>
-    <text>INFINITE LOOP</text>
-  </switch>
-  <switch transform="translate(800,50)" font-size="24">
-    <text systemLanguage="sv">POST-EVALUERANDE SLINGA</text>
-    <text systemLanguage="en">POST-TEST LOOP</text>
-    <text>POST-TEST LOOP</text>
-  </switch>
-  <switch transform="translate(200,250)" font-size="20">
-    <text systemLanguage="sv">löp-<tspan x="0" y="30">villkor</tspan></text>
-    <text systemLanguage="en">run<tspan x="0" y="30">condition</tspan></text>
-    <text>run<tspan x="0" y="30">condition</tspan></text>
-  </switch>
-  <switch transform="translate(800,430)" font-size="20">
-    <text systemLanguage="sv">löp-<tspan x="0" y="30">villkor</tspan></text>
-    <text systemLanguage="en">run<tspan x="0" y="30">condition</tspan></text>
-    <text>run<tspan x="0" y="30">condition</tspan></text>
-  </switch>
-  <switch transform="translate(200,430)" font-size="20">
-    <text systemLanguage="sv">gör<tspan x="0" y="30">jobbet</tspan></text>
-    <text systemLanguage="en">do the<tspan x="0" y="30">work</tspan></text>
-    <text>do the<tspan x="0" y="30">work</tspan></text>
-  </switch>
-  <switch transform="translate(500,240)" font-size="20">
-    <text systemLanguage="sv">gör<tspan x="0" y="30">jobbet</tspan></text>
-    <text systemLanguage="en">do the<tspan x="0" y="30">work</tspan></text>
-    <text>do the<tspan x="0" y="30">work</tspan></text>
-  </switch>
-  <switch transform="translate(800,240)" font-size="20">
-    <text systemLanguage="sv">gör<tspan x="0" y="30">jobbet</tspan></text>
-    <text systemLanguage="en">do the<tspan x="0" y="30">work</tspan></text>
-    <text>do the<tspan x="0" y="30">work</tspan></text>
-  </switch>
-</g>
-<g id="untranslated" font-family="Verdana" font-size="20">
-  <text x="105" y="240" text-anchor="end">false</text>
-  <text x="215" y="345">true</text>
-  <text x="705" y="470" text-anchor="end">true</text>
-  <text x="815" y="525">false</text>
-</g>
-<g id="lines" fill="none" stroke="black" stroke-width="3" stroke-linejoin="round">
-  <g id="pre">
-    <use x="200" y="90" xlink:href="#arrdn"/>
-    <polyline points="200,90 200,190"/>
-    <use x="200" y="190" xlink:href="#arrdn"/>
-    <use x="200" y="260" xlink:href="#condi"/>
-    <polyline points="200,330 200,380"/>
-    <use x="200" y="380" xlink:href="#arrdn"/>
-    <use x="200" y="440" xlink:href="#comnd"/>
-    <polyline points="110,260 80,260 80,560"/>
-    <use x="80" y="560" xlink:href="#arrdn"/>
-    <polyline points="200,500 200,540 320,540 320,130 200,130"/>
-    <g transform="translate(200,130)"><use transform="rotate(90)" xlink:href="#arrdn"/></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 600">
+  <!-- Generator: Adobe Illustrator 29.0.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 186)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #000;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+
+      .st1, .st2, .st3 {
+        isolation: isolate;
+      }
+
+      .st2 {
+        font-size: 24px;
+      }
+
+      .st2, .st3 {
+        font-family: Verdana, Verdana;
+      }
+
+      .st3 {
+        font-size: 20px;
+      }
+    </style>
+  </defs>
+  <g id="translatable">
+    <text class="st2" transform="translate(657.7 32.6)"><tspan x="0" y="0">do-while(condition){}</tspan><tspan x="73.1" y="28.8">PRE-TEST</tspan></text>
+    <text class="st2" transform="translate(418.1 38.9)"><tspan x="0" y="0">while(true){}</tspan><tspan x="28.2" y="28.8">for(;;){}</tspan><tspan x="-10.1" y="57.6">INFINITE LOOP</tspan></text>
+    <text class="st2" transform="translate(77.9 32.9)"><tspan x="0" y="0">while(condition){}</tspan><tspan x="43.8" y="28.8">POST-TEST</tspan></text>
+    <g class="st1">
+      <text class="st3" transform="translate(169.9 250)"><tspan x="0" y="0">Check</tspan></text>
+      <text class="st3" transform="translate(154.3 280)"><tspan x="0" y="0">Condition</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st3" transform="translate(769.5 430.3)"><tspan x="0" y="0">Check</tspan></text>
+      <text class="st3" transform="translate(754.3 460)"><tspan x="0" y="0">Condition</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st3" transform="translate(155.5 424.6)"><tspan x="0" y="0">Execute</tspan></text>
+      <text class="st3" transform="translate(146.3 465.5)"><tspan x="0" y="0">Code-Block</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st3" transform="translate(472.9 330)"><tspan x="0" y="0">Execute</tspan></text>
+      <text class="st3" transform="translate(458.5 370)"><tspan x="0" y="0">Code-block</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st3" transform="translate(761 234.8)"><tspan x="0" y="0">Execute</tspan></text>
+      <text class="st3" transform="translate(746.5 280)"><tspan x="0" y="0">Code-block</tspan></text>
+    </g>
   </g>
-  <g id="infi">
-    <use x="500" y="90" xlink:href="#arrdn"/>
-    <polyline points="500,90 500,190"/>
-    <use x="500" y="190" xlink:href="#arrdn"/>
-    <use x="500" y="250" xlink:href="#comnd"/>
-    <polyline points="500,310 500,350 380,350 380,130 500,130"/>
-    <g transform="translate(500,130)"><use transform="rotate(-90)" xlink:href="#arrdn"/></g>
+  <g id="untranslated">
+    <text class="st3" transform="translate(58.1 240)"><tspan x="0" y="0">false</tspan></text>
+    <text class="st3" transform="translate(215 345)"><tspan x="0" y="0">true</tspan></text>
+    <text class="st3" transform="translate(664 470)"><tspan x="0" y="0">true</tspan></text>
+    <text class="st3" transform="translate(815 525)"><tspan x="0" y="0">false</tspan></text>
   </g>
-  <g id="post">
-    <use x="800" y="90" xlink:href="#arrdn"/>
-    <polyline points="800,90 800,190"/>
-    <use x="800" y="190" xlink:href="#arrdn"/>
-    <use x="800" y="250" xlink:href="#comnd"/>
-    <polyline points="800,310 800,370"/>
-    <use x="800" y="370" xlink:href="#arrdn"/>
-    <use x="800" y="440" xlink:href="#condi"/>
-    <polyline points="710,440 680,440 680,130 800,130"/>
-    <g transform="translate(800,130)"><use transform="rotate(-90)" xlink:href="#arrdn"/></g>
-    <polyline points="800,510 800,560"/>
-    <use x="800" y="560" xlink:href="#arrdn"/>
+  <g id="lines">
+    <g id="pre">
+      <polyline id="arrdn" class="st0" points="190 70 200 90 210 70"/>
+      <line class="st0" x1="200" y1="90" x2="200" y2="190"/>
+      <polyline id="arrdn1" data-name="arrdn" class="st0" points="190 170 200 190 210 170"/>
+      <polygon id="condi" class="st0" points="200 190 290 260 200 330 110 260 200 190"/>
+      <line class="st0" x1="200" y1="330" x2="200" y2="380"/>
+      <polyline id="arrdn2" data-name="arrdn" class="st0" points="190 360 200 380 210 360"/>
+      <rect id="comnd" class="st0" x="120" y="380" width="160" height="120" rx="20" ry="20"/>
+      <polyline class="st0" points="110 260 80 260 80 560"/>
+      <polyline id="arrdn3" data-name="arrdn" class="st0" points="70 540 80 560 90 540"/>
+      <polyline class="st0" points="200 500 200 540 320 540 320 130 200 130"/>
+      <polyline id="arrdn4" data-name="arrdn" class="st0" points="220 120 200 130 220 140"/>
+    </g>
+    <g id="infi">
+      <polyline id="arrdn5" data-name="arrdn" class="st0" points="500 160 510 180 520 160"/>
+      <line class="st0" x1="510" y1="180" x2="510" y2="280"/>
+      <polyline id="arrdn6" data-name="arrdn" class="st0" points="500 260 510 280 520 260"/>
+      <rect id="comnd1" data-name="comnd" class="st0" x="430" y="280" width="160" height="120" rx="20" ry="20"/>
+      <polyline class="st0" points="510 400 510 444.8 380 444.8 380 220 510 220"/>
+      <polyline id="arrdn7" data-name="arrdn" class="st0" points="490 230 510 220 490 210"/>
+    </g>
+    <g id="post">
+      <polyline id="arrdn8" data-name="arrdn" class="st0" points="790 70 800 90 810 70"/>
+      <line class="st0" x1="800" y1="90" x2="800" y2="190"/>
+      <polyline id="arrdn9" data-name="arrdn" class="st0" points="790 170 800 190 810 170"/>
+      <rect id="comnd2" data-name="comnd" class="st0" x="720" y="190" width="160" height="120" rx="20" ry="20"/>
+      <line class="st0" x1="800" y1="310" x2="800" y2="370"/>
+      <polyline id="arrdn10" data-name="arrdn" class="st0" points="790 350 800 370 810 350"/>
+      <polygon id="condi1" data-name="condi" class="st0" points="800 370 890 440 800 510 710 440 800 370"/>
+      <polyline class="st0" points="710 440 680 440 680 130 800 130"/>
+      <polyline id="arrdn11" data-name="arrdn" class="st0" points="780 140 800 130 780 120"/>
+      <line class="st0" x1="800" y1="510" x2="800" y2="560"/>
+      <polyline id="arrdn12" data-name="arrdn" class="st0" points="790 540 800 560 810 540"/>
+    </g>
   </g>
-</g>
 </svg>

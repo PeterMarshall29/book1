@@ -14,9 +14,9 @@ kernelspec:
 
 {term}`Initialisation` is the setting of the intial value of a variable for the first time (at the time of {term}`construction`).
 
-Definiton is therefore decalaration plus initialisation.
+{term}`Definiton` is therefore {term}`decalaration` combined with initialisation.
 
-Initialisation is different from assignment because there is no previous value involved and initialization is done by {term}`constructors`.
+Initialisation is different from assignment - the object has no previous value AND initialization is done by a {term}`constructor`.
 
 Best practice is to always initialise your variables – the benefits include preventing you from accidentally tyring to use a variable that has been declared, but not defined.
 
@@ -24,28 +24,26 @@ Best practice is to always initialise your variables – the benefits include pr
 :class: margin
 Don't declare a variable until you have a value for it.
 ```
-The exceptions are `string` and `vector`. Both are initialised by default as empty - `""` for `string`, `v.capacity() = 0` for `vector`.
+The exceptions are the `string` and `vector` tyeps - both are initialised by 'default' as 'empty' i.e. `""` for a `string`, `v.capacity() = 0` for a `vector`.
 
-This is done by a ‘default constructor’.
+This is done by a 'default constructor'. We will learn about contructors when we study {term}`classes`.
 
-Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value.
+Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and '0' can be just as problematic as no value.
 
-The initial value may be provided in the initializer section of a declarator or a new expression. 
+The initial value may be provided in the initializer section of a declarator or by a new expression. 
 
 Initialisation also takes place during function calls: function parameters and the function return values are both initialized.
 
-
 ## Initialisers
-
 There a differnt ways to intialise an object.
 
 If an {term}`initialiser` is specified for an object, that initializer determines the initial value of an object.
 
-The initialiser is just 
+The initialiser is just the syntax and values used to initialise the object.
 
 An initialiser can use one of four syntactic styles:
 
-`````{example-start}
+`````{code_example-start}
 :label: examplem1
 :class: dropdown
 `````
@@ -62,7 +60,10 @@ int main() {
   return 0;
 }
 ````
-`````{example-end}
+If no initializer is specified for an object, the object is {term}`default-initialised`.
+
+
+`````{code_example-end}
 `````
 Initialization using `{}` is called {term}`list initialisation` - this is the best one to chose because it can be used in every context you will encounter.
 
@@ -79,8 +80,46 @@ List initialisation ensures that:
 * A floating-point values are not converted to an integer type.
 * An integer value cannot
 
-Informaiton on the sizes of the arithmetic types is [here](SizeOfNumericValues)
+`````{syntax-start} Initialisation
+:class: dropdown
+:nonumber:
+`````
+type myIdentifier = expression;           // copy initialisation
+type myIndentifier2 {value}               //
+type myIdentifier3 { initialiser list } ; // copy initialisation
+type myIndentifier4 = {initialiser list}
 
+`````{syntax-end}
+`````
+
+Information on the sizes of the arithmetic types is [here](SizeOfNumericValues)
+
+
+****
+https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/
+
+List-initialization disallows narrowing conversions
+
+One of the primary benefits of list-initialization for new C++ programmers is that “narrowing conversions” are disallowed. This means that if you try to list-initialize a variable using a value that the variable can not safely hold, the compiler is required to produce a diagnostic (compilation error or warning) to notify you. For example:
+
+int main()
+{
+    // An integer can only hold non-fractional values.
+    // Initializing an int with fractional value 4.5 requires the compiler to convert 4.5 to a value an int can hold.
+    // Such a conversion is a narrowing conversion, since the fractional part of the value will be lost.
+
+    int w1 { 4.5 }; // compile error: list-init does not allow narrowing conversion
+
+    int w2 = 4.5;   // compiles: w2 copy-initialized to value 4
+    int w3 (4.5);   // compiles: w3 direct-initialized to value 4
+
+    return 0;
+}
+On line 7 of the above program, we’re using a value (4.5) with a fractional component (.5) to list-initialize an integer variable (which can only hold non-fractional values). Because this is a narrowing conversion, the compiler is required to generate a diagnostic in such cases.
+
+Copy-initialization (line 9) and direct-initialization (line 10) both silently drop the .5 and initialize the variable with the value 4 (which probably isn’t what we want). Your compiler may warn you about this (since losing data is rarely desired), but it also may not.
+
+****
 
 The = form is traditional and dates back to C, but if in doubt, use the general {}-list form (§6.3.5.2).
 

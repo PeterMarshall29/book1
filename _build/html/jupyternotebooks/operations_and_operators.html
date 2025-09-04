@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -69,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.5fe872ae-3945-4c48-a26a-305551d76ee1.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.a9b264a7-e5bd-40e1-b0f0-4013ea491302.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/operations_and_operators';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -517,8 +518,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comma-operator">The Comma Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Operations and Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operators">Assignment operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscript-operator">Subscript Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-operators">Ternary Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
@@ -545,6 +548,35 @@ document.write(`
 <p>Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces the result 4) and may generate side-effects (e.g. evaluation of std::printf(“%d”, 4) prints the character ‘4’ on the standard output).</p>
 <p>Each C++ expression is characterized by two independent properties: A type and a value category.</p>
 </section>
+<section id="the-comma-operator">
+<h2>The Comma Operator<a class="headerlink" href="#the-comma-operator" title="Permalink to this heading">#</a></h2>
+<p>The most common use of a comma in C++ us as a separator. For example, to declare or define multiple values of the same type</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">firstInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">secondInt</span><span class="p">,</span><span class="w"> </span><span class="n">thirdInt</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Or to separate parameters is a function declaration or call:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">:</span><span class="n">string</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>The other use of the comma is the <span class="xref std std-term">comma operator</span>, which enables the evaluation of multiple expression at any point in the code where a single expression might be located.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The comma operators is particularly dangerous and should be used only if you have no other choice and with great care.</p>
+<p>In a comma expression <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">,</span> <span class="pre">B</span></code>, the expression A is evaluated, its result is discarded, and its side effects are completed before evaluation of the expression B begins.</p>
+<p>The type, value, and value category of the result of the comma expression are exactly the type, value, and value category of the second operand, B. (</p>
+<p>If B is a temporary expression, the result of the expression is that temporary expression. If B is a bit-field, the result is a bit-field.)</p>
+<p>If the comma operator is needed anywhere that it might be confused with the simple separator comma, then the expression must be parenthesised.</p>
+<p>int main() {
+int myInt = 10;
+std::cout &lt;&lt; “myInt = ” &lt;&lt; (++myInt, myInt *= 2 ) &lt;&lt; ‘\n’;
+return 0;
+}</p>
+<p><code class="docutils literal notranslate"><span class="pre">myInt</span></code> is incremented and then new value of is passed to the output stream.</p>
+<p>Try removing the parentheses.</p>
+<p>Without the parentheses, the second argument is discarded and the result is the first argument. To only achieve the increment, <code class="docutils literal notranslate"><span class="pre">++myInt</span></code> on its own suffices.</p>
+<p>The parenthesised expression could be replaced with <code class="docutils literal notranslate"><span class="pre">(myInt</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">*</span> <span class="pre">2</span></code>, which is safer.</p>
+</section>
 <section id="id1">
 <h2>Operations and Operators<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Each <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a> can be operated on by specific operators</p>
@@ -552,7 +584,7 @@ document.write(`
 <p>Programmers can also overload some operators.</p>
 <div class="example dropdown admonition" id="examplek1">
 
-<p class="admonition-title"><span class="caption-number">example 11 </span> (Example)</p>
+<p class="admonition-title"><span class="caption-number">example 7 </span> (Example)</p>
 <section id="example-content">
 <p>Complete and run the following code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
@@ -576,14 +608,14 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/operations_and_operators-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
 <section id="exercise-content">
 <p>Try moving the declaration of name to after</p>
 </section>
 </div>
 <div class="explanation dropdown tip admonition" id="explanationk1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#examplek1"> Code Example 11 (Example)</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#examplek1"> Code Example 7 (Example)</a></p>
 <section id="explanation-content">
 </section>
 </div>
@@ -676,6 +708,10 @@ Count = count + n can be written as count+=n</p>
 </table>
 </div>
 </section>
+<section id="subscript-operator">
+<h2>Subscript Operator<a class="headerlink" href="#subscript-operator" title="Permalink to this heading">#</a></h2>
+<p>[]</p>
+</section>
 <section id="ternary-operators">
 <h2>Ternary Operators<a class="headerlink" href="#ternary-operators" title="Permalink to this heading">#</a></h2>
 <p>Example:
@@ -686,7 +722,7 @@ value of (a &gt;= b) ? a : b is a if a &gt;= b and b otherwise.
 That is, if the condition is true, the ternary operator value a if true, otherwise value b.</p>
 <div class="exercise dropdown admonition" id="exercisek2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
 <section id="exercise-content">
 <p>Complete this code using the ternary operator to print out the name of the enemy that is closest.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -717,7 +753,7 @@ That is, if the condition is true, the ternary operator value a if true, otherwi
 </div>
 <div class="solution dropdown note admonition" id="solutionk2">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercisek2"> Exercise 18</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisek2"> Exercise 19</a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">		</span><span class="p">(</span><span class="n">dist2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dist1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 2 </span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 1 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
@@ -931,8 +967,10 @@ evaluated.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comma-operator">The Comma Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Operations and Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operators">Assignment operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscript-operator">Subscript Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-operators">Ternary Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>

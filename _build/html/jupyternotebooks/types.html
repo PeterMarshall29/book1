@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -69,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.483978c9-9432-4df1-b1ed-62419d517b6c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.3ddf3333-98bc-4da7-ae50-768649b0163f.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-e0989a98-cb33-4f4f-bdca-d9b376b42a5d] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-ccb81e42-ba90-495c-bda0-b58093e398b5] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -624,7 +625,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-e0989a98-cb33-4f4f-bdca-d9b376b42a5d" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-ccb81e42-ba90-495c-bda0-b58093e398b5" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
@@ -655,7 +656,7 @@ document.write(`
 <p>Type promotion occurs in arithmetic expressions, when the types are mismatched, but convertable, and in functions, if the passed in types is smaller than the expected type.</p>
 <div class="example dropdown admonition" id="examplef1">
 
-<p class="admonition-title"><span class="caption-number">example 5 </span></p>
+<p class="admonition-title"><span class="caption-number">example 2 </span></p>
 <section id="example-content">
 <p>In the following code, ‘a’ has been promoted to type <code class="docutils literal notranslate"><span class="pre">double</span></code> from type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
@@ -673,7 +674,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
 <section id="exercise-content">
 <p>Try the following:</p>
 <ul class="simple">
@@ -701,7 +702,7 @@ document.write(`
 <p>It is tremendously useful to be able to check the type of a variable.</p>
 <div class="example dropdown admonition" id="examplef2">
 
-<p class="admonition-title"><span class="caption-number">example 6 </span></p>
+<p class="admonition-title"><span class="caption-number">example 3 </span></p>
 <section id="example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -725,7 +726,7 @@ document.write(`
 <p>This produces more easily understood values for the primitive types.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
 <section id="exercise-content">
 <p>Use typid on a function.</p>
 <div class="admonition hint">

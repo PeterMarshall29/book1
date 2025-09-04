@@ -12,15 +12,15 @@ kernelspec:
 
 # Learing the Basics
 
-Once you have learned a few more basic parts of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out the new concepts.
+Once you have learned some basic components of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out each new concept.
 
-This page leads you through some basic exercies, much of the explanation is left until later chapters, this page is not intended to present fully decriptions and definitions.
+This page leads you through some basic exercies, much of the explanation is left until later chapters - this page is not intended to present the full syntax.
 
-In the Compuational Physics module, we are mainly concerned with writing code that will take user inputs, perform calculations, and then return 'answers' to the user. This requires us to learn only a subset of the C++ langugage and programming concepts.
+In the Compuational Physics module, we are mainly concerned with writing programmes that will take user inputs, perform calculations, and then return the 'answers' to the user; which requires us to learn only a subset of the C++ langugage and programming concepts.
 
 ## Expressions and Statements
 
-A computer programme is a sequences of statements, which are executed sequentially.
+A computer programme is a sequences of statements, which are executed sequentially when the programme runs.
 ````{admonition} Types of Statement
 :class: dropdown
 C++ includes the following types of statements:
@@ -31,19 +31,24 @@ C++ includes the following types of statements:
 * [Iteration](iteration) statements
 * [Jump statements]
 ````
-The simplest type of statement is an {term}`expression statement` - an expression followed by a terminator.
+The simplest type of statement is an {term}`expression statement` - an {term}`expression` followed by a {term}`terminator`.
 
-Expression are sequences of operators and their operands, that specifies a computation.
+Expressions are sequences of {term}`operators` and their {term}`operands`, which specify a computation.
 
-When the expression statement is executed, the expression is evaluated, producing a result which will have a {term}`value` and a {term}`type`.
+When the expression statement is executed, the expression is evaluated by the computer, producing a result, which will have a {term}`value` and a {term}`type`.
 
 Statements are always terminated by either a semicolon `;` or by a {term}`code block` {...some code here...}, which may be empty or contain statements.
-
-Forgetting to terminate a statement correctly will result in a compile-time error. 
+```{tip}
+:class: margin
+Only {term}`directives` do not require termination.
+For example: `#include <iostream>
+```
 ```{tip}
 :class: margin
 The Visual Studio IDE indicates a missing `;` by highlighting the start of the next line of code.
 ```
+Forgetting to terminate a statement, will result in a compile-time error. 
+
 A semicolon is a statement terminator, and by itself a statement, an {term}`empty statement` (null statement). 
 
 An expression statement without an expression is called a {term}`null statement`, which may be used to provide an empty body to a for or while loop, or to carry a label in the end of a compound statement.
@@ -52,7 +57,7 @@ An expression statement without an expression is called a {term}`null statement`
 
 All programmeming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
 
-`cout` can be used demonstrate the basic arithmetic operations. 
+`std::cout` can be used to demonstrate the basic arithmetic operations. 
 
 `````{code_example-start}
 :label: Exampleb1
@@ -89,10 +94,10 @@ The try using `-` as a prefix on a number, what effect does that have?
 `````
 ## Mathematical Functions
 
-To access additional mathematical functions we can include the <cmath> component of the standard library.
+To access additional mathematical functions we can include the `<cmath>` component of the standard library.
 
-````{admonition} <cmath> Functions
-:class: note dropdown
+````{syntax} <cmath> Functions
+:class: dropdown
 ```{list-table}
 :header-rows: 1
 :name: <cmath>
@@ -134,27 +139,29 @@ To access additional mathematical functions we can include the <cmath> component
   - Hyperbolic tangent of x
 ```
 ````
+There are more useful functions and constants in the `<numbers>` component - requires C++20.
 ## Variables
+A computer programme that can only perform arithmetic on {term}`literal` values written into the original programme code would not be very useful. 
 
-A computer programme that can only perform arithmetic on the values written into the original programme code would not be very useful.
-
-Instead programmes must be able ask for the numberic values that are to be used in the calculations. 
+Instead programmes must be able ask for the numeric values that are to be used in the calculations. 
 
 This requires the computer to store the number, and to be able to identify and manipulate it later.
 
-Computers use variables for this purpose. In simplest terms, like in maths, the variable is a name (single character or string of characters) that represent an unspecified value that can be used in some way.
+Computers use {term}`variables` for this purpose. 
+
+At its simplest: like in maths, the {term}`variable` is a {term}`name` that represents a value that will be stored by the computer.
 
 To get started we will look at creating two types of variable.
 
-To create a variable named 'a' that holds the integer value of 5, we can used the statement : `int a = 5;`
+To create a variable named `a` that holds the integer value of '5', we can used the statement : `int a = 5;`
 
-After this statement in the programme, the variable `a` may be used anywhere that we want to use it's value of `5`
+After this statement in the programme, the variable `a` may be used anywhere (see {term}`scope`) that we want to use it's value of `5`.
 
 `````{code_example-start}
 :label: Exampleb2
 :class: dropdown
 `````
-Type in the following code and try the Exercise.
+Type in the following code and try the exercise.
 
 ````{code-block} cpp
 :linenos: 
@@ -175,13 +182,20 @@ When the programme gets to `a` following the `<<` operator it sends the value of
 ````{exercise}
 :label: exerciseb1
 :class: dropdown
-What would happen if you now declaring a second variable `b` and intstruct the program to print out `a + b`?
+Using the live code editor above, find out what happens when:
+- You define a second integer variable `b`, with a value and intstruct the program to print out `a + b`? Try it in the live-code space above.
+- What would happen if you declare the second variable after the `std::cout` statement? Find out.
 
-Try it in the code space above.
+After a variable has been declared and given a value, the value can be changed.
+
+- Add `a = 10;` after the first `std::cout` and another output statement to print the value of `a` again.
+
 ```{solution} exerciseb1
 :label: solutionb1
 :class: dropdown note
-Now the program has evaluated the arithmetic sum of the values contained in `a` and `b` - and sent that single value to the character output stream.
+- Now the program has evaluated the arithmetic sum of the values contained in `a` and `b` - and sent that single value to the character output stream.
+- 
+
 ```
 ````
 `````{code_example-end}

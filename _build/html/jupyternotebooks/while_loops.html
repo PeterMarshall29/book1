@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -69,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.205c4775-741b-4c77-9523-cca0586d89f7.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.ab35f66a-9390-480b-95d4-3c868bc2e724.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-c8bfe945-3dcc-47fa-b50d-e02f1721b5e2] svg, .mermaid[data-zoom-id=id-630c265f-bc73-40f9-88e2-5f41dd1c80cf] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-273f5e08-0521-410a-a205-7e49d0ae4f50] svg, .mermaid[data-zoom-id=id-c171cd46-455f-42b5-af8b-e54444fc9100] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -596,7 +597,7 @@ Its generally better to use for loops in C++, but while loops exist too.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-c8bfe945-3dcc-47fa-b50d-e02f1721b5e2" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-273f5e08-0521-410a-a205-7e49d0ae4f50" class="mermaid align-center">
         flowchart TD
   A([&quot;Program Flow Approaches the While Loop&quot;]) --&gt; B[&quot;Set Loop Variable&quot;]
   B --&gt; C{&quot;Check Termination Condition&quot;}
@@ -620,7 +621,7 @@ Its generally better to use for loops in C++, but while loops exist too.</p>
   linkStyle 5 stroke:#AA00FF,fill:none
   linkStyle 6 stroke:#AA00FF,fill:none0FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-630c265f-bc73-40f9-88e2-5f41dd1c80cf" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-c171cd46-455f-42b5-af8b-e54444fc9100" class="mermaid align-center">
         flowchart TD
   A([&quot;Arrival&quot;]) --&gt; B[&quot;Set Loop Counter: Count = 1;&quot;]
   B --&gt; C{&quot;Check Counter &amp;lt; 100&quot;}
@@ -719,10 +720,7 @@ cout &lt;&lt; i &lt;&lt; ‘\t’ &lt;&lt; square(i) &lt;&lt; ‘\n’;
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>1</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
-</pre></div>
-</div>
+<p>1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19</p>
 </div>
 </div>
 </section>

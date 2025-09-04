@@ -18,10 +18,10 @@ kernelspec:
 ```
 The {term}`for-statement` conditionally executes a statement, or code block, repeatedly; also known as the {term}`for-loop`, and is the most frequently used and important iteration control structure in C++.
 ````{admonition} The Syntax of the For-Statement
-```{code-block} cpp
-for ( ...loop_variable_declaration_and_initialisation...         ; 
-                  ...condition_to_continue_the_loop...          ; 
-      ...end_of_iteration_expression…) { ...code_to_be_executed_every_loop...}
+```{code-block} c++
+for ( loop_variable_declaration_and_initialisation    ; 
+      condition_to_continue_the_loop                  ; 
+      end_of_iteration_expression ) { code_to_be_executed_every_loop }
 ```
 ````
 The three statements in parentheses are the arguments of the for-statement and collectively manage its behaviour.  
@@ -199,7 +199,9 @@ int main() {
 
 (forever)=
 ## Forever
-The for-statement parentheses may not be empty - the compiler will not permit it. The minimum content is `(;;)`.
+The for-statement parentheses may not be empty - the compiler will not permit it. 
+
+The minimum argument to the for-statement is `(;;)`.
 
 `for(;;){}` is a way to specify an infinite loop; sometimes called a for-ever statement..
 
@@ -287,10 +289,11 @@ int main() {
 ````
 `````{code_example-end}
 `````
-## For-Statements - Concept Extension
-``````{code_example-start} 
+## For-Statements - More on the Syntax
+``````{syntax-start}  For-Statements
 :label: examples11
-:class: dropdown
+:class: dropdown 
+:nonumber: 
 ``````
 Extending the syntax rules for the `for-statement`.
 ****
@@ -367,7 +370,7 @@ int main()
 ```
 ````
 Full information on [For-statements](https://en.cppreference.com/w/cpp/language/for.html) ca be found in the C++ reference.
-``````{code_example-end}
+``````{syntax-end}
 ``````
 ## Using `auto`
 

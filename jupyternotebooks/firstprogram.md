@@ -84,13 +84,13 @@ std :: cout << "Hello, World!\n";
 
 `std` identifes that `cout` is found in the standard library facilities.
 
-`::` is the 
+`::` is the {term}`scope resolution operator` - think of it as a way of describing the location or ownership of parts of the syntax.
 
-`<<` is the "write to" operator (or the "gets from" operator, which makes a little more sense when your are typing left to right!).
+`<<` is the "insertion" or "write to" operator (or the "gets from" operator, which makes a little more sense when your are typing left to right!).
 
-`"Hello, World!\n"` is a `string`. String literals are delimited (bracketed) by `""`; explained {doc}`here <../jupyternotebooks/types>`.
+`"Hello, World!\n"` is a `string`. String {term}`literals` are delimited (bracketed) by `""`; explained {doc}`here <../jupyternotebooks/types>`.
 
-`\n` is an escape character - this escape character tells the computer to print anything after it on a newline. 
+`\n` is an {term}`escape sequence` - this escape character tells the computer to print anything after it on a newline. 
 ```{code-block} cpp
 return 0;
 ```

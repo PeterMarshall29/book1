@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -69,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.b9a157d9-2c81-49dc-a78e-33d583de668c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.55caec21-1a8e-4769-a29d-5c8feb568cad.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/initialisation';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -536,28 +537,28 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="initialisation">
 <h1>Initialisation<a class="headerlink" href="#initialisation" title="Permalink to this heading">#</a></h1>
 <p><a class="reference internal" href="glossary.html#term-Initialisation"><span class="xref std std-term">Initialisation</span></a> is the setting of the intial value of a variable for the first time (at the time of <a class="reference internal" href="glossary.html#term-Construction"><span class="xref std std-term">construction</span></a>).</p>
-<p>Definiton is therefore decalaration plus initialisation.</p>
-<p>Initialisation is different from assignment because there is no previous value involved and initialization is done by <a class="reference internal" href="glossary.html#term-Constructors"><span class="xref std std-term">constructors</span></a>.</p>
+<p><span class="xref std std-term">Definiton</span> is therefore <span class="xref std std-term">decalaration</span> combined with initialisation.</p>
+<p>Initialisation is different from assignment - the object has no previous value AND initialization is done by a <a class="reference internal" href="glossary.html#term-Constructor"><span class="xref std std-term">constructor</span></a>.</p>
 <p>Best practice is to always initialise your variables – the benefits include preventing you from accidentally tyring to use a variable that has been declared, but not defined.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Don’t declare a variable until you have a value for it.</p>
 </div>
-<p>The exceptions are <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">vector</span></code>. Both are initialised by default as empty - <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">v.capacity()</span> <span class="pre">=</span> <span class="pre">0</span></code> for <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
-<p>This is done by a ‘default constructor’.</p>
-<p>Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and 0 is just as problematic as no value.</p>
-<p>The initial value may be provided in the initializer section of a declarator or a new expression.</p>
+<p>The exceptions are the <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">vector</span></code> tyeps - both are initialised by ‘default’ as ‘empty’ i.e. <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for a <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">v.capacity()</span> <span class="pre">=</span> <span class="pre">0</span></code> for a <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
+<p>This is done by a ‘default constructor’. We will learn about contructors when we study <span class="xref std std-term">classes</span>.</p>
+<p>Global built-in type variables are initialised with default of 0 – but you should not use global variables in the first place and ‘0’ can be just as problematic as no value.</p>
+<p>The initial value may be provided in the initializer section of a declarator or by a new expression.</p>
 <p>Initialisation also takes place during function calls: function parameters and the function return values are both initialized.</p>
 <section id="initialisers">
 <h2>Initialisers<a class="headerlink" href="#initialisers" title="Permalink to this heading">#</a></h2>
 <p>There a differnt ways to intialise an object.</p>
 <p>If an <a class="reference internal" href="glossary.html#term-Initialiser"><span class="xref std std-term">initialiser</span></a> is specified for an object, that initializer determines the initial value of an object.</p>
-<p>The initialiser is just</p>
+<p>The initialiser is just the syntax and values used to initialise the object.</p>
 <p>An initialiser can use one of four syntactic styles:</p>
-<div class="example dropdown admonition" id="examplem1">
+<div class="code_example dropdown admonition" id="examplem1">
 
-<p class="admonition-title"><span class="caption-number">example 10 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 15 </span></p>
+<section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -574,6 +575,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>If no initializer is specified for an object, the object is <span class="xref std std-term">default-initialised</span>.</p>
 </section>
 </div>
 <p>Initialization using <code class="docutils literal notranslate"><span class="pre">{}</span></code> is called <a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list initialisation</span></a> - this is the best one to chose because it can be used in every context you will encounter.</p>
@@ -587,7 +589,37 @@ document.write(`
 <li><p>A floating-point values are not converted to an integer type.</p></li>
 <li><p>An integer value cannot</p></li>
 </ul>
-<p>Informaiton on the sizes of the arithmetic types is <a class="reference internal" href="arithmetic_data_types.html#sizeofnumericvalues"><span class="std std-ref">here</span></a></p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/initialisation-syntax-1">
+
+<p class="admonition-title">Syntax Rules: Initialisation </p>
+<section id="syntax-content">
+<p>type myIdentifier = expression;           // copy initialisation
+type myIndentifier2 {value}               //
+type myIdentifier3 { initialiser list } ; // copy initialisation
+type myIndentifier4 = {initialiser list}</p>
+</section>
+</div><p>Information on the sizes of the arithmetic types is <a class="reference internal" href="arithmetic_data_types.html#sizeofnumericvalues"><span class="std std-ref">here</span></a></p>
+<hr class="docutils" />
+<p><a class="reference external" href="https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/">https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/</a></p>
+<p>List-initialization disallows narrowing conversions</p>
+<p>One of the primary benefits of list-initialization for new C++ programmers is that “narrowing conversions” are disallowed. This means that if you try to list-initialize a variable using a value that the variable can not safely hold, the compiler is required to produce a diagnostic (compilation error or warning) to notify you. For example:</p>
+<p>int main()
+{
+// An integer can only hold non-fractional values.
+// Initializing an int with fractional value 4.5 requires the compiler to convert 4.5 to a value an int can hold.
+// Such a conversion is a narrowing conversion, since the fractional part of the value will be lost.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int w1 { 4.5 }; // compile error: list-init does not allow narrowing conversion
+
+int w2 = 4.5;   // compiles: w2 copy-initialized to value 4
+int w3 (4.5);   // compiles: w3 direct-initialized to value 4
+
+return 0;
+</pre></div>
+</div>
+<p>}
+On line 7 of the above program, we’re using a value (4.5) with a fractional component (.5) to list-initialize an integer variable (which can only hold non-fractional values). Because this is a narrowing conversion, the compiler is required to generate a diagnostic in such cases.</p>
+<p>Copy-initialization (line 9) and direct-initialization (line 10) both silently drop the .5 and initialize the variable with the value 4 (which probably isn’t what we want). Your compiler may warn you about this (since losing data is rarely desired), but it also may not.</p>
+<hr class="docutils" />
 <p>The = form is traditional and dates back to C, but if in doubt, use the general {}-list form (§6.3.5.2).</p>
 <p>If nothing else, it saves you from conversions that lose information (narrowing conversions; §10.5): be converted to a floating-point type.</p>
 <p>If an initializer is specified for an object, that initializer determines the initial value of an object.
