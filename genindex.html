@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -486,10 +487,12 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Compiler"><strong>Compiler</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-Compound-Statement"><strong>Compound Statement</strong></a>
+      <li><a href="jupyternotebooks/glossary.html#term-Compound-assignment-replaces-the-contents-of-the-LHS-object-with-the-result-of-a-binary-operation-between-the-previous-value-of-LHS-and-the-value-of-RHS-e.g.-A-A-B."><strong>Compound assignment replaces the contents of the LHS object with the result of a binary operation between the previous value of LHS and the value of RHS e.g. A = A + B.</strong></a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Compound-Statement"><strong>Compound Statement</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Concatenation"><strong>Concatenation</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Const"><strong>Const</strong></a>
@@ -524,13 +527,17 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Declarations"><strong>Declarations</strong></a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Declarator"><strong>Declarator</strong></a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Definition"><strong>Definition</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Definitions"><strong>Definitions</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Directive"><strong>Directive</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Directives"><strong>Directives</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Dynamic-Memory"><strong>Dynamic Memory</strong></a>
 </li>
@@ -552,10 +559,12 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Enumerations"><strong>Enumerations</strong></a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Enumerator"><strong>Enumerator</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-Escape-Sequence"><strong>Escape Sequence</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Escape-Sequences"><strong>Escape Sequences</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Exception"><strong>Exception</strong></a>
@@ -564,9 +573,15 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Expression"><strong>Expression</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-Expression-assignment-replaces-the-LHS-object-with-the-result-of-the-evaluation-of-the-expression-stated-on-RHS."><strong>Expression assignment replaces the LHS object with the result of the evaluation of the expression stated on RHS.</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Expression-Statement"><strong>Expression Statement</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Expression-Statements"><strong>Expression Statements</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Extraction"><strong>Extraction</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Extraction-Operator"><strong>Extraction Operator</strong></a>
 </li>
   </ul></td>
 </tr></table>
@@ -584,7 +599,7 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-For-loop"><strong>For-loop</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-Fpr-Statement"><strong>Fpr-Statement</strong></a>
+      <li><a href="jupyternotebooks/glossary.html#term-For-Statement"><strong>For-Statement</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Free-store"><strong>Free store</strong></a>
 </li>
@@ -688,15 +703,17 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-List-Initialisation"><strong>List Initialisation</strong></a>
 </li>
+      <li><a href="jupyternotebooks/glossary.html#term-Literal"><strong>Literal</strong></a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="jupyternotebooks/glossary.html#term-Literal"><strong>Literal</strong></a>
+      <li><a href="jupyternotebooks/glossary.html#term-Literal-assignment-uses-a-literal-for-the-RHS.-Copy-assignment-replaces-the-contents-of-the-LHS-object-with-a-copy-of-the-contents-of-the-RHS-object-RHS-is-not-modified-.-Move-assignment-replaces-the-contents-of-the-LHS-object-a-with-the-contents-of-RHS-object-avoiding-copying-if-possible-b-may-be-modified-.-For-non-class-types-copy-and-move-assignment-are-indistinguishable-and-are-referred-to-as-direct-assignment."><strong>Literal assignment, uses a literal for the RHS. Copy assignment replaces the contents of the LHS object with a copy of the contents of the RHS object (RHS is not modified). Move assignment replaces the contents of the LHS object a with the contents of RHS object, avoiding copying if possible (b may be modified). For non-class types, copy and move assignment are indistinguishable and are referred to as direct assignment.</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Literals"><strong>Literals</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Local-Variables"><strong>Local Variables</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-Loop-Variable"><strong>Loop Variable</strong></a>
+      <li><a href="jupyternotebooks/glossary.html#term-Loop-Variable"><strong>Loop-Variable</strong></a>
 </li>
   </ul></td>
 </tr></table>
@@ -710,11 +727,13 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Memory"><strong>Memory</strong></a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Memory-Address"><strong>Memory Address</strong></a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Memory-Management"><strong>Memory Management</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Modification-of-the-current-value-of-an-object-using-an-assignment-operator."><strong>Modification of the current value of an object using an assignment operator.</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Modulo"><strong>Modulo</strong></a>
 </li>
@@ -756,11 +775,17 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Object-files"><strong>Object files</strong></a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Object-oriented-programming"><strong>Object-oriented programming</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Objects"><strong>Objects</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Operands"><strong>Operands</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Operator"><strong>Operator</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Operators"><strong>Operators</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Overloading"><strong>Overloading</strong></a>
 </li>
@@ -776,6 +801,8 @@ document.write(`
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Print-Debugging"><strong>Print Debugging</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Programming-Paradigm"><strong>Programming Paradigm</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Programming-Paradigms"><strong>Programming Paradigms</strong></a>
@@ -808,16 +835,23 @@ document.write(`
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Shadowing"><strong>Shadowing</strong></a>
 </li>
+      <li>
+    Simplest case is using the simple assignment operator =
+
+      <ul>
+        <li><a href="jupyternotebooks/glossary.html#term-Simplest-case-is-using-the-simple-assignment-operator-i.e.-LHS-RHS-."><strong>i.e. LHS = RHS;.</strong></a>
+</li>
+      </ul></li>
       <li><a href="jupyternotebooks/glossary.html#term-Stack"><strong>Stack</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Standard-Library"><strong>Standard Library</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Standard-Library-Facilities"><strong>Standard Library Facilities</strong></a>
 </li>
-      <li><a href="jupyternotebooks/glossary.html#term-Standard-Library-Facility"><strong>Standard Library Facility</strong></a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jupyternotebooks/glossary.html#term-Standard-Library-Facility"><strong>Standard Library Facility</strong></a>
+</li>
       <li><a href="jupyternotebooks/glossary.html#term-Statements"><strong>Statements</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Static"><strong>Static</strong></a>
@@ -841,6 +875,8 @@ document.write(`
       <li><a href="jupyternotebooks/glossary.html#term-Template"><strong>Template</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Templates"><strong>Templates</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Terminator"><strong>Terminator</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Translation-unit"><strong>Translation unit</strong></a>
 </li>
@@ -875,6 +911,8 @@ document.write(`
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jupyternotebooks/glossary.html#term-Variable"><strong>Variable</strong></a>
+</li>
+      <li><a href="jupyternotebooks/glossary.html#term-Variables"><strong>Variables</strong></a>
 </li>
       <li><a href="jupyternotebooks/glossary.html#term-Void"><strong>Void</strong></a>
 </li>

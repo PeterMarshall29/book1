@@ -40,8 +40,9 @@ Certain words in a C++ program have special meaning, and these are known as {ter
 
 Keywords may not be used as an identifier.
 
-Other words may beused as identifiers, unless they have already been used in the same {term}`scope`.
+Other words may be used as identifiers, unless they have already been used in the same {term}`scope`.
 
+A compilation error occurs if the compiler finds two identical identifiers - sometimes called a naming collision, or naming conflict (error).
 
 ````{admonition} Rules For Valid Identifiers
 :class: dropdown 

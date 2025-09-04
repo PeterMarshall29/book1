@@ -22,7 +22,7 @@ div.example2 p.admonition-title {
 
 /* Remove content box */
 div.example2 p.admonition-title::after {
-  content: "\f303";
+  content: "f121";/*"\f303";*/
 }
 
 /*********************************************

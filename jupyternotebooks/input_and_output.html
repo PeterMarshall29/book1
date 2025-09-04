@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -69,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.6d89fac5-487b-4c80-a3b1-46a9c3ddc26f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.e91440d5-f012-4887-a27f-cf0695657e57.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/input_and_output';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -516,8 +517,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-output-format-command-std-endl-vs-n">Newline Output Format Command -  <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting Output</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getline">getline()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-getline-function">The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with-vector">Using <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-debugging">Print debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf">printf()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-print-only-in-c-23">New Print() - only in  C++23</a></li>
 </ul>
             </nav>
         </div>
@@ -531,19 +537,27 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="input-and-output">
 <h1>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> allows users to interact with programmes, by providing additional commands for programming the computer to print information on the monitor/screen and accept input via the keyboard.</p>
-<p>Before learning to program these basic instructions it is difficult to make any progress learning a computing language, because we have no insight into what the program is doing.</p>
-<hr class="docutils" />
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> provides the tools used to interact with programmes, using the keyboard and computer display for input and output.</p>
+<p>These basic functions are vital to learning programming because they enable the programmer to follow the progress of a programme’s execution - without some output to the display you will have little insight into what the program is doing.</p>
+<div class="margin admonition seealso">
+<p class="admonition-title">See also</p>
+<blockquote>
+<div><p>Knock knock.\
+Race condition!\
+Who’s there?</p>
+<p class="attribution">—Programmer Humour…</p>
+</div></blockquote>
+</div>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Don’t forget to include <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> and to format the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function correctly.</p>
 </div>
-<div class="example dropdown admonition" id="Examplec1">
+<div class="code_example dropdown admonition" id="examplec1">
 
-<p class="admonition-title"><span class="caption-number">example 1 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 6 </span></p>
+<section id="code_example-content">
 <p>Type the following code into the empty code window below, add the missing programme statements, and run the completed code.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
 <span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
 <span class="linenos">4</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -557,27 +571,30 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/input_and_output-code_explanation-1">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec1"> Code_Example 6</a></p>
+<section id="code_explanation-content">
 <p><code class="docutils literal notranslate"><span class="pre">cin</span></code> is the character input stream, pronounced ‘see - in’; used to read input from the keyboard.</p>
-<p>The input stream waits for the return key, taking any characters types in before <kbd class="kbd docutils literal notranslate">return</kbd></p>
-<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> is the input stream operator, also called the “get from” or “extraction” operator - directs where the input goes to - a variable name usually.</p>
+<p>The input stream waits for the return key, taking any characters typed in before <kbd class="kbd docutils literal notranslate">return</kbd></p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> is the iostream input operator, also called the “extraction” operator - directs where the input goes to - a variable name usually.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="linenos">3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">4</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">    </span><span class="c1">//Declares a variable of type string.</span>
+<span class="linenos">4</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">    </span><span class="c1">//Declares a variable of type string.</span>
 <span class="linenos">5</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//This is a &#39;prompt&#39;; a message to the user with instructions.</span>
-<span class="linenos">6</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">		</span><span class="c1">//Character input stream, takes input from console when &#39;return&#39; (aka &#39;newline&#39;) is pressed. </span>
-<span class="linenos">7</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="linenos">8</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">6</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">    </span><span class="c1">//Character input stream, takes input from console when &#39;return&#39; (aka &#39;newline&#39;) is pressed. </span>
+<span class="linenos">7</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">8</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="linenos">9</span><span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">&quot;</span></code> is a string-literal. Surname is a named object of type <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">&quot;</span></code> is a string-literal. <code class="docutils literal notranslate"><span class="pre">Surname</span></code> is a named object of type <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+</section>
 </div>
 </section>
 </div>
-<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-1">
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
 <section id="exercise-content">
@@ -591,10 +608,10 @@ document.write(`
 <div class="dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
 <p><code class="docutils literal notranslate"><span class="pre">cin</span></code> stops recording the input when it encounters the first whitespace, following any character (initial whitespace is ignored). Code still waits for <kbd class="kbd docutils literal notranslate">return</kbd>.</p>
-<p>Any whitespace terminates the reading of the input string i.e. inlcuding space, tab, or newline (<code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
+<p>Any whitespace terminates the reading of the input string i.e. including ‘space’, ‘tab’, or ‘newline’ (i.e. <code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
 </div>
-<p>Unsurprisingly we do sometime need to be able to type in several words at the same time, separated by a <kbd class="kbd docutils literal notranslate">space</kbd>.</p>
-<p>There are several methods open to us; depending on whether we may want each word recorded as a separate string, or just a long string with spaces…</p>
+<p>Unsurprisingly we do sometimes need to be able to type in several words at the same time, separated by a <kbd class="kbd docutils literal notranslate">space</kbd>.</p>
+<p>There are several methods open to us; depending on whether we may want each word recorded as a separate string, or just a long string with many spaces.</p>
 <p>Try the following code.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
 <span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
@@ -611,48 +628,123 @@ document.write(`
 </div>
 </section>
 </div>
-<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-2">
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-3">
 
 <p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
 <section id="exercise-content">
 <p>Try the following code - which should work.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">58</span><span class="p">;</span>
-<span class="linenos">2</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Dr&quot;</span><span class="p">;</span>
+<span class="linenos">2</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">honorific</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Dr&quot;</span><span class="p">;</span>
 <span class="linenos">3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
 <span class="linenos">4</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="linenos">5</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span><span class="w">  </span>
-<span class="linenos">6</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">6</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">honorific</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Now change the code to ask the user to input a their salutation, followed by their first name, followed by their surname, followed by their age.</p></li>
-<li><p>Try responding with 4 words, rather than 3 words and a number</p></li>
+<li><p>Now change the code to ask the user to input their honorific, followed by their first name, followed by their surname, followed by their age.</p></li>
+<li><p>Try responding with 4 words, rather than 3 words and a number.</p></li>
 <li><p>Change the existing output line to print <code class="docutils literal notranslate"><span class="pre">surname</span> <span class="pre">*</span> <span class="pre">2</span></code> and then try <code class="docutils literal notranslate"><span class="pre">surname</span> <span class="pre">+</span> <span class="pre">age</span></code>.</p></li>
 </ul>
 <div class="note dropdown admonition">
 <p class="admonition-title">Code Solution and Explanation</p>
-<p>This changed and add code lines should be similar to this.</p>
+<p>The program, with the altered and added code lines, should be similar to this…</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type salutation, followed by your first name, followed by your surname, followed by your age</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">salutation</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type your honorific, followed by your first name, followed by your surname, followed by your age</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">honorific</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">honorific</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, you are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; years old!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Attempting to add or multiply a string and integer is not permitted by the <a class="reference internal" href="glossary.html#term-Type-System"><span class="xref std std-term">type system</span></a>.</p>
-<p>If a fourth string is input, when the program expects an integer, a null value is recorded, which unfortunately overwrote the existing value, if ther was one, and is why the program printed ‘0’.</p>
-<p>A professional program would need to be able to catch this input error. Older C++ version might give a random value such as -96738 .</p>
+<p>If a fourth string is input, when the program expects an integer, a null value is recorded, which unfortunately overwrote the existing value, if there was one, and is why the program printed ‘0’. A professional program would need to be able to catch this input error. Older C++ version might give a random value such as -96738 .</p>
 </div>
 </section>
 </div>
+<div class="syntax dropdown admonition" id="syntaxc1">
+
+<p class="admonition-title">Syntax Rules: std::cin </p>
+<section id="syntax-content">
+<p><code class="docutils literal notranslate"><span class="pre">std::cin</span></code> is the character input stream, pronounced ‘see - in’; used to read input from the keyboard.</p>
+<p>The input stream collects all the entered characters in sequence into an input buffer (temporary storage) until the user hits the <kbd class="kbd docutils literal notranslate">return</kbd> key.</p>
+<p>The data (characters) stored in the buffer are held until extracted.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> is the <a class="reference internal" href="glossary.html#term-Extraction-Operator"><span class="xref std std-term">extraction operator</span></a>, also called the iostream input operator.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> extracts the sequence of input characters from the input buffer before the next trailing whitespace character and transfers them to the indicated variable.</p>
+<p>Leading whitespace characters, including ‘\n’ and ‘\t’ are discarded from the input buffer.</p>
+<p><a class="reference internal" href="glossary.html#term-Extraction"><span class="xref std std-term">Extraction</span></a> succeeds if at least one character is extracted from the input buffer. Any unextracted input is left in the input buffer for future extractions.</p>
+<p>Any characters that are not extracted are left in the input buffer for a possible future extraction.</p>
+<p>Unwanted characters may be present in the input buffer.  (Any data already in the input buffer may also be extracted).</p>
+<div class="code_example dropdown admonition" id="examplec2">
+
+<p class="admonition-title"><span class="caption-number">Code Example 7 </span></p>
+<section id="code_example-content">
+<p>This code will work - try reversing the order of the extraction.</p>
+<div class="cell tag_remove-ouput tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">myChar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please enter a word followed by a number ..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">word</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/input_and_output-code_explanation-6">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec2"> Code_Example 7</a></p>
+<section id="code_explanation-content">
+<p>Extraction fails if the input data does not match the type of the variable being extracted.</p>
+<p>If you type in a string literal - <code class="docutils literal notranslate"><span class="pre">number</span></code> is reset to the value 0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">word</span></code> is unchanged, because an extraction had previously failed.</p>
+<p>Only numeric characters can be extracted to an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+</section>
+</div>
+</section>
+</div>
+<p>Extraction fails if the input data does not match the type of the variable being extracted.</p>
+<p>If a previous extraction has failed, <code class="docutils literal notranslate"><span class="pre">std::cin</span></code> will not be able to function until it is cleared.</p>
+<p>If there is no input because the extraction had previously failed extraction then indicated variables are left unmodified.</p>
+<p>However, a failed extraction due to invalid input will leave the variable indicated reset to null.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-7">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<section id="exercise-content">
+<p>Try adding the following code before <code class="docutils literal notranslate"> <span class="pre">std::cin</span> <span class="pre">&gt;&gt;</span> <span class="pre">word;</span></code></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">fail</span><span class="p">())</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="p">}</span><span class="w">   </span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">std::cin.clear()</span></code> resets the error flags on <code class="docutils literal notranslate"><span class="pre">std::cin</span></code>, and therefore the second extraction becomes possible.</p>
+</section>
+</div>
+<p>Sometimes, unwanted characters remain in the input buffer, causing issues with subsequent input operations.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">std::cin.ignore()</span></code> to clear the buffer</p>
+</section>
+</div><section id="newline-output-format-command-std-endl-vs-n">
+<h2>Newline Output Format Command -  <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code><a class="headerlink" href="#newline-output-format-command-std-endl-vs-n" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">std::endl</span></code> inserts a newline character into the output sequence and is therefore almost the same as <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
+<p>It is better to use <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> to output a newline.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> is often inefficient because <code class="docutils literal notranslate"><span class="pre">endl</span></code> additionally flushes the output stream - it forces the output to appear in real time; advanced issue.</p>
+<p>It is seldom necessary for a program to include additional commands for flushing the input buffer, which not be needed or useful, and which also slows down the execution of the program needlessly - buffer flushing is a slow process - that may be repeated many times.</p>
+</section>
 <section id="formatting-output">
 <h2>Formatting Output<a class="headerlink" href="#formatting-output" title="Permalink to this heading">#</a></h2>
-<p>The default output for a floating point number is 6 digits. The number is rounded to give the best approximation that can be printed with 6 digits.</p>
+<p>The default output for a floating-point number is 6 digits. The number is rounded to give the best approximation that can be printed with 6 digits.</p>
 <p>This may not be sufficient, if you want to spot a rounding or truncation error.</p>
 <p>The actual value stored by the computer will have more digits, so a comparison of one against another may fail.</p>
-<div class="example dropdown admonition" id="Examplec2">
+<div class="code_example dropdown admonition" id="Examplec4">
 
-<p class="admonition-title"><span class="caption-number">example 2 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 8 </span></p>
+<section id="code_example-content">
 <dl class="myst field-list simple">
 <dt class="field-odd">class<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dropdown
@@ -670,8 +762,8 @@ The format that is printed to the screen can be formatted as follows.</p>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">std::defaultfloat</span></code> is the what would happen if nothing was set, used when you want to return to the default.</p>
-<p><code class="docutils literal notranslate"><span class="pre">std::scientific</span></code> formats the number in to scientific notation, and to have 6 digits after the decimal point.</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::defaultfloat</span></code> is what would happen if nothing was set, used when you want to return to the default.</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::scientific</span></code> formats the number into scientific notation, and to have 6 digits after the decimal point.</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::fixed</span></code> keeps the number of digits after the decimal point to 6.</p>
 <p>The precision used for these options may also be set.</p>
 <p>After including the <code class="docutils literal notranslate"><span class="pre">&lt;iomanip&gt;</span></code> component of the Standard Library,  <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">std::setprecision()</span></code> controls the pecision of what follows.</p>
@@ -690,31 +782,102 @@ The format that is printed to the screen can be formatted as follows.</p>
 </section>
 </div>
 </section>
-<section id="getline">
-<h2>getline()<a class="headerlink" href="#getline" title="Permalink to this heading">#</a></h2>
-<p>An alternative to <code class="docutils literal notranslate"><span class="pre">cin</span></code> is to use getline(), which will ignore whitespace and collecte every character before <kbd class="kbd docutils literal notranslate">return</kbd> into a single string.</p>
+<section id="the-getline-function">
+<h2>The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function<a class="headerlink" href="#the-getline-function" title="Permalink to this heading">#</a></h2>
+<p>An alternative to <code class="docutils literal notranslate"><span class="pre">cin</span></code> is to use <code class="docutils literal notranslate"><span class="pre">getline()</span></code>, which will ignore whitespace and collect every character before <kbd class="kbd docutils literal notranslate">return</kbd> into a single string.</p>
 <p>The downside is that you may need to split up the string later. See <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_stringstream.html"><sstream></a> for further information on how to separate a string.</p>
-<div class="example dropdown admonition" id="Examplec3">
+<div class="code_example dropdown admonition" id="Examplec3">
 
-<p class="admonition-title"><span class="caption-number">example 3 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 9 </span></p>
+<section id="code_example-content">
 <div class="cell tag_remove-output tag_raises-exception tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">sentence</span><span class="p">;</span>
-<span class="w">	</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span><span class="w"> </span><span class="n">sentence</span><span class="p">);</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">sentence</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a sentence... </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span><span class="w"> </span><span class="n">sentence</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function takes two arguments. The name of input stream and the name of the string to write to.getline(std::cin, sentence);</p>
-<p><code class="docutils literal notranslate"><span class="pre">std::endl</span></code> inserts a newline character into the the output sequence and is therefore almost the same as <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">endl</span></code> additionally flushes the output stream, forces the output to appear in real time; advancd issue.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function takes two arguments - The name of the input stream and the name of the string to write to, i.e <code class="docutils literal notranslate"><span class="pre">getline(stream,</span> <span class="pre">variable);</span></code>.</p>
+</section>
+</div>
+</section>
+<section id="using-std-cout-with-vector">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code><a class="headerlink" href="#using-std-cout-with-vector" title="Permalink to this heading">#</a></h2>
+<p>If indexing into a vector is inconvenient, another option is to overload the insertion operator <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> using a template to accomodate the variety of types accepted by <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
+<p>This is most likely beyond the scope of this module, but to demonstrate the possibility…</p>
+<div class="code_example dropdown admonition" id="examplec6">
+
+<p class="admonition-title"><span class="caption-number">Code Example 10 </span></p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ostreamValue</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">myVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">myVector</span><span class="p">)</span>
+<span class="w">        </span><span class="n">ostreamValue</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ostreamValue</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="print-debugging">
+<h2>Print debugging<a class="headerlink" href="#print-debugging" title="Permalink to this heading">#</a></h2>
+<p>A good reason that <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> is taught before other IO methods is its simplicity - no, really! -
+<code class="docutils literal notranslate"><span class="pre">std::cout</span></code> automatically formats the printed text based on the variable’s type.</p>
+<p>It allows a quick and simple output immediately, when we need to get started or with <a class="reference internal" href="glossary.html#term-Print-Debugging"><span class="xref std std-term">print debugging</span></a>, by obviating any additional issues formatting different stings.</p>
+</section>
+<section id="printf">
+<h2>printf()<a class="headerlink" href="#printf" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="new-print-only-in-c-23">
+<h2>New Print() - only in  C++23<a class="headerlink" href="#new-print-only-in-c-23" title="Permalink to this heading">#</a></h2>
+<p>There are several alternatives to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> in C++.</p>
+<p>In C++23 (we will probably be using C++20) a new <code class="docutils literal notranslate"><span class="pre">print()</span></code> was introduced/</p>
+<div class="code_example dropdown admonition" id="examplec5">
+
+<p class="admonition-title"><span class="caption-number">Code Example 11 </span></p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;print&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;{2} {1}{0}!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C++&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationc5">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec5"> Code_Example 11</a></p>
+<section id="code_explanation-content">
+<p>The first argument is the string to be printed.</p>
+<p>The numbers in the curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> refer to the position of the subeseqent arguments in order, starting with the first argument after the string, which has index ‘0’.</p>
+<p>The printed string will have those arguments inserted in the indicated corresponding position; e.g. {1} is replaced by the second argument following the string.</p>
+<p>Arguments can be used repeatedly and in any order.</p>
+</section>
+</div>
+<p>Prints, <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">C++23!</span></code></p>
 </section>
 </div>
 </section>
@@ -786,8 +949,13 @@ The format that is printed to the screen can be formatted as follows.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-output-format-command-std-endl-vs-n">Newline Output Format Command -  <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting Output</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getline">getline()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-getline-function">The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with-vector">Using <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-debugging">Print debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf">printf()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-print-only-in-c-23">New Print() - only in  C++23</a></li>
 </ul>
   </nav></div>
 

@@ -21,9 +21,44 @@ Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces t
 
 Each C++ expression is characterized by two independent properties: A type and a value category.
 
+## The Comma Operator
 
+The most common use of a comma in C++ us as a separator. For example, to declare or define multiple values of the same type
+````{code-block} C++
+int firstInt = 3, secondInt, thirdInt {4};
+````
+Or to separate parameters is a function declaration or call:
+````{code-block} C++
+void myFunction (int a, std:string b, bool c) {}
+````
+The other use of the comma is the {term}`comma operator`, which enables the evaluation of multiple expression at any point in the code where a single expression might be located.
 
+````{code-block} C++
+(A , B);
+````
+The comma operators is particularly dangerous and should be used only if you have no other choice and with great care.
 
+In a comma expression `A , B`, the expression A is evaluated, its result is discarded, and its side effects are completed before evaluation of the expression B begins.
+
+The type, value, and value category of the result of the comma expression are exactly the type, value, and value category of the second operand, B. (
+
+If B is a temporary expression, the result of the expression is that temporary expression. If B is a bit-field, the result is a bit-field.)
+
+If the comma operator is needed anywhere that it might be confused with the simple separator comma, then the expression must be parenthesised.
+
+int main() {
+    int myInt = 10;
+    std::cout << "myInt = " << (++myInt, myInt *= 2 ) << '\n';
+    return 0;
+}
+
+`myInt` is incremented and then new value of is passed to the output stream.
+
+Try removing the parentheses.
+
+Without the parentheses, the second argument is discarded and the result is the first argument. To only achieve the increment, `++myInt` on its own suffices. 
+
+The parenthesised expression could be replaced with `(myInt + 1) * 2`, which is safer.
 
 ## Operations and Operators
 Each {term}`type` can be operated on by specific operators
@@ -155,8 +190,9 @@ int main() {
 ```
 
 
+## Subscript Operator
 
-
+[]
 
 ## Ternary Operators
 
