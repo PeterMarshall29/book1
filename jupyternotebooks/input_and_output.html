@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.e91440d5-f012-4887-a27f-cf0695657e57.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.40021a9c-8bd7-4021-9d58-da8df4e76a5c.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/input_and_output';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -517,7 +517,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-output-format-command-std-endl-vs-n">Newline Output Format Command -  <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-std-endl-vs-n">Newline - <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting Output</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-getline-function">The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with-vector">Using <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code></a></li>
@@ -542,11 +542,11 @@ document.write(`
 <div class="margin admonition seealso">
 <p class="admonition-title">See also</p>
 <blockquote>
-<div><p>Knock knock.\
-Race condition!\
-Who’s there?</p>
-<p class="attribution">—Programmer Humour…</p>
+<div><p>Knock, knock.</p>
+<p class="attribution">—Programmer Humour…?</p>
 </div></blockquote>
+<p>Race condition!</p>
+<p>Who’s there?</p>
 </div>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
@@ -729,8 +729,8 @@ Who’s there?</p>
 <p>Sometimes, unwanted characters remain in the input buffer, causing issues with subsequent input operations.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">std::cin.ignore()</span></code> to clear the buffer</p>
 </section>
-</div><section id="newline-output-format-command-std-endl-vs-n">
-<h2>Newline Output Format Command -  <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code><a class="headerlink" href="#newline-output-format-command-std-endl-vs-n" title="Permalink to this heading">#</a></h2>
+</div><section id="newline-std-endl-vs-n">
+<h2>Newline - <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code><a class="headerlink" href="#newline-std-endl-vs-n" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">std::endl</span></code> inserts a newline character into the output sequence and is therefore almost the same as <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
 <p>It is better to use <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> to output a newline.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> is often inefficient because <code class="docutils literal notranslate"><span class="pre">endl</span></code> additionally flushes the output stream - it forces the output to appear in real time; advanced issue.</p>
@@ -949,7 +949,7 @@ The format that is printed to the screen can be formatted as follows.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-output-format-command-std-endl-vs-n">Newline Output Format Command -  <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-std-endl-vs-n">Newline - <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-output">Formatting Output</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-getline-function">The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with-vector">Using <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code></a></li>

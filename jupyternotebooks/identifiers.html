@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.5b94822f-8bb8-4f94-945f-f5c651733466.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.98cb21a0-2e0e-49aa-872f-c504f6ff4fc4.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/identifiers';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -540,7 +540,7 @@ document.write(`
 <p>Most entities in the C++ language have an identifier (a name).</p>
 <p>Writing a program usually required additional instances of entities to be created by the programmer and each must be given unique identifier.</p>
 <div class="margin warning admonition">
-<p class="admonition-title">No Whitespace in Identfiers!</p>
+<p class="admonition-title">No Whitespace in Identifiers!</p>
 <p>Whitespace is not permitted in identifiers/names.
 Longer names are broken up using underscores or <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a>.
 Special symbols are not permitted.</p>
@@ -556,7 +556,7 @@ Special symbols are not permitted.</p>
 <p>Certain words in a C++ program have special meaning, and these are known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>.</p>
 <p>Keywords may not be used as an identifier.</p>
 <p>Other words may be used as identifiers, unless they have already been used in the same <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>.</p>
-<p>A compilation error occurs if the compiler finds two identical identifiers - sometimes called a naming collision, or naming conflict (error).</p>
+<p>A compilation error occurs if the compiler finds two identical identifiers - sometimes called a ‘naming collision’ or ‘naming conflict’ (error).</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Rules For Valid Identifiers</p>
 <p>The options for the first character are:</p>
@@ -574,16 +574,16 @@ Special symbols are not permitted.</p>
 <li><p>An underscore <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
 <li><p>Some Unicode characters</p></li>
 </ul>
-<p>Identifiers are case-sensitive. Any difference in the pattern of symols creates a new identifier.
-The variabless named <code class="docutils literal notranslate"><span class="pre">www</span></code> and <code class="docutils literal notranslate"><span class="pre">WWW</span></code> are not the same.</p>
+<p>Identifiers are case-sensitive. Any difference in the pattern of symbols creates a new identifier.
+The variables named <code class="docutils literal notranslate"><span class="pre">www</span></code> and <code class="docutils literal notranslate"><span class="pre">WWW</span></code> are not the same.</p>
 <div class="dropdown tip admonition">
 <p class="admonition-title">Convention for use of Identifiers</p>
-<p>It is considered best practive to use a consistant wrting format for indentifiers of the same type - this is called a naming convention.</p>
+<p>It is considered best practice to use a consistent writing format for identifiers of the same type - this is called a naming convention.</p>
 <p>In C++:</p>
 <ul class="simple">
 <li><p>An intial capital letter is only used for a <a class="reference internal" href="glossary.html#term-Class"><span class="xref std std-term">class</span></a>. This makes it easy to distinguish a class from a function etc.</p></li>
 <li><p>Names of functions and variables start with lower case</p></li>
-<li><p>Longer names are generally written in Camel Case, where the name is composed of a series of words, and later words start with captial letters.
+<li><p>Longer names are generally written in Camel Case, where the name is composed of a series of words, and later words start with capital letters.
 <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a></p></li>
 <li><p>Pointer variables should be prepended with ‘p’ and the asterisk ‘*’ should be position next to the variable name instead of the pointer type.</p></li>
 <li><p>Reference variables should be prepended with ‘r’. This helps to differentiate between the method returning a modifiable object and the same method returning a non-modifiable object</p></li>
@@ -636,11 +636,11 @@ Inside the <code class="docutils literal notranslate"><span class="pre">main()</
 </div>
 <section id="the-structure-of-declarations">
 <h3>The Structure of Declarations<a class="headerlink" href="#the-structure-of-declarations" title="Permalink to this heading">#</a></h3>
-<p>The structure of a declaration is defined by the C++ grammar, and has 5 basics part.</p>
+<p>The structure of a declaration is defined by the C++ grammar and has 5 basics part.</p>
 <ul class="simple">
 <li><p>Optional prefix specifiers (e.g., static or virtual)</p></li>
 <li><p>A base type (e.g., vector<double> or const int)</p></li>
-<li><p>A declarator optionally including a name (e.g., p[7], n, or ∗(∗)[])</p></li>
+<li><p>A declarator (optionally including a name) (e.g., p[7], n, or ∗(∗)[])</p></li>
 <li><p>Optional suffix function specifiers (e.g., const or noexcept)</p></li>
 <li><p>An optional initializer or function body (e.g., ={7,5,3} or {return x;})
 Except for function and namespace definitions, a declaration is terminated by a semicolon.</p></li>
@@ -649,12 +649,19 @@ Except for function and namespace definitions, a declaration is terminated by a 
 </section>
 <section id="declarators">
 <h2>Declarators<a class="headerlink" href="#declarators" title="Permalink to this heading">#</a></h2>
-<p>A declarator is just the name specficied for the new entity in the declaration.</p>
-<p>A declarator may be composed of both the ame and some optional declarator operators/modifiers.</p>
+<p>A declarator is the ‘name’ of the new object found in its declaration.</p>
+<p>The declarator is composed of the object’s identifier and any declarator operators/modifiers.</p>
+<p>The type, any type-modifiers are not part of the declarator.</p>
+<div class="highlight-c++ notranslate" id="examples-of-declarators"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w">                    </span><span class="c1">// myInt is the declarator</span>
+<span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">myDouble</span><span class="p">;</span><span class="w">             </span><span class="c1">//myDouble is the identifier, *myDouble is the declarator</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">myIntArray</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w">          </span><span class="c1">//myIntArray[256] is the declarator, myIntArray is the identifier</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w">  </span><span class="c1">//*sequence[5] is the declarator</span>
+</pre></div>
+</div>
 <p>The most common declarator operators are:</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">Declarator Operators</p>
-<div class="pst-scrollable-table-container"><table class="table" id="decalarator-operatorsvalue-of-an-object-containing-01110000">
+<div class="pst-scrollable-table-container"><table class="table" id="declarator-operators">
 <thead>
 <tr class="row-odd"><th class="head"><p>Position</p></th>
 <th class="head"><p>Symbol</p></th>
@@ -705,10 +712,11 @@ Except for function and namespace definitions, a declaration is terminated by a 
 </table>
 </div>
 </div>
-<p>Declarators are tricky because they are designed to mirror their use in expressions; for example ∗ is prefix and [] and () are postfix.</p>
+<p>Declarators are tricky because they are designed to mirror their use in expressions; for example <code class="docutils literal notranslate"><span class="pre">∗</span></code> is a ‘prefix’ and <code class="docutils literal notranslate"><span class="pre">[]</span></code> and <code class="docutils literal notranslate"><span class="pre">()</span></code> are both ‘postfix’.</p>
 <p>The postfix declarator operators bind tighter than the prefix ones.</p>
 <p>Consequently, char∗kings[] is an array of pointers to char, whereas char(∗kings)[] is a pointer to an array of char.</p>
-<p>We have to use parentheses to express types such as ‘‘pointer to array’’ and ‘‘pointer to function’</p>
+<p>It is necessary to use parentheses to express types such as ‘pointer to array’ and ‘pointer to function’.</p>
+<p><code class="docutils literal notranslate"><span class="pre">decl-specifier-seq</span></code> is the sequence of whitespace separated specifiers, found in a declaration before the declarator, and including the type-specifier and any modifiers.</p>
 </section>
 </section>
 

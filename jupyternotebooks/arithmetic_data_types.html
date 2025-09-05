@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\arithmetic_data_types.b6fd9b09-df12-47f2-89ed-21f6964a0c0c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\arithmetic_data_types.2bae1466-3e14-4115-930b-42e0077367f7.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/arithmetic_data_types';</script>
@@ -523,11 +523,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-literals">Floating-Point Literals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-notation">Scientific Notation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-size-of-numeric-values">Max Size of Numeric Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-size-limits-of-numeric-type-of-your-c-implemetation">Checking the Size Limits of Numeric Type of Your C++ Implemetation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-size-limits-of-numeric-type-of-your-c-implementation">Checking the Size Limits of Numeric Type of Your C++ Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-constants">Useful Constants</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculations">Calculations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-hexidecimal-octal-and-binary">Decimal, Hexidecimal, Octal, and Binary.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-octal-and-hexidecimal-outputs">Formating Octal and Hexidecimal Outputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-hexadecimal-octal-and-binary">Decimal, Hexadecimal, Octal, and Binary.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-octal-and-hexadecimal-outputs">Formatting Octal and Hexadecimal Outputs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void-type">Void Type</a></li>
@@ -559,29 +559,31 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">Float</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> are both used for <a class="reference internal" href="glossary.html#term-Floating-Point-Numbers"><span class="xref std std-term">floating-point numbers</span></a> - “double” denoting double precision (meaning twice as many bits are used to represent the double values in binary code).</p>
 <p>Examples of how floating-point literal may be typed: <code class="docutils literal notranslate"><span class="pre">3.14</span></code>, <code class="docutils literal notranslate"><span class="pre">.14</span></code>, <code class="docutils literal notranslate"><span class="pre">-3.</span></code>, <code class="docutils literal notranslate"><span class="pre">2.99e8</span></code>, <code class="docutils literal notranslate"><span class="pre">6.63e−34</span></code>.</p>
 <p>Floating point numbers are expressed to different levels of precision; <code class="docutils literal notranslate"><span class="pre">float</span></code> for single precision (32-bit), <code class="docutils literal notranslate"><span class="pre">double</span></code> for double precision(64-bit), and `long double for extended precision (80-bit).</p>
-<p>A floating-point literal is of interpreted to be of type <code class="docutils literal notranslate"><span class="pre">double</span></code> by default, but to reduce memory usuage using a <code class="docutils literal notranslate"><span class="pre">float</span></code> or when larger values are required using <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>, the suffix f, or l may be added.</p>
+<p>A floating-point literal is of interpreted to be of type <code class="docutils literal notranslate"><span class="pre">double</span></code> by default, but to reduce memory usage using a <code class="docutils literal notranslate"><span class="pre">float</span></code> or when larger values are required using <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>, the suffix f, or l may be added.</p>
 <p>A floating-point literal of type <code class="docutils literal notranslate"><span class="pre">float</span></code> is defined by adding the postfix ‘f’ (or ‘F’) to the number:  <code class="docutils literal notranslate"><span class="pre">2.997925F</span></code>.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code> is defined by adding the postfix ‘l’ (or ‘L’): <code class="docutils literal notranslate"><span class="pre">5.55e207L</span></code>.</p>
 </section>
 <section id="scientific-notation">
 <h2>Scientific Notation<a class="headerlink" href="#scientific-notation" title="Permalink to this heading">#</a></h2>
-<p>Scientific notation is formated using a lower, or upper, case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the mantissa and the index <strong>no whitespace</strong> is permitted.</p>
-<aside class="sidebar">
+<p>Scientific notation is formatted using a lower, or upper, case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the mantissa and the index <strong>no whitespace</strong> is permitted.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
 <div class="admonition-scientific-notation-example admonition">
 <p class="admonition-title">Scientific Notation Example</p>
-<p><span class="math notranslate nohighlight">\(2.99e8 = 2.99 \times 10^{8}\)</span></p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(2.99e8 = 2.99 \times 10^{8}\)</span></p>
 </div>
-</aside>
-<p>The syntax does not permit any whitespace in a floating point literal.</p>
-<p>For example, 2.998 e8 is not a floating-point literal, and would be intpreted as three separate lexical tokens and cause a syntax error at compile time.</p>
+</div>
+</div>
+<p>The syntax does not permit any whitespace in a floating-point literal.</p>
+<p>For example, 2.998 e8 is not a floating-point literal, and would be interpreted as three separate lexical tokens and cause a syntax error at compile time.</p>
 </section>
 <section id="max-size-of-numeric-values">
 <span id="sizeofnumericvalues"></span><h2>Max Size of Numeric Values<a class="headerlink" href="#max-size-of-numeric-values" title="Permalink to this heading">#</a></h2>
-<p>The maximum value that can be storde by each <a class="reference internal" href="glossary.html#term-Numeric-Data-Type"><span class="xref std std-term">numeric data type</span></a> depends on number of bits used by the computer architecture.</p>
+<p>The maximum value that can be stored by each <a class="reference internal" href="glossary.html#term-Numeric-Data-Type"><span class="xref std std-term">numeric data type</span></a> depends on number of bits used by the computer architecture.</p>
 <p>Most computers use 64 bits, meaning that 64 bits are used to represent addresses in memory, allowing larger numbers to be stored.</p>
-<p>A 64 bit architecture means that processors are able to load and store 64 bit floating point numbers.</p>
+<p>A 64-bit architecture means that processors can load and store 64-bit floating-point numbers.</p>
 <p>Integer values do not follow a
-On a 64 bits system: <code class="docutils literal notranslate"><span class="pre">int</span></code> uses 32 bits: <code class="docutils literal notranslate"><span class="pre">short</span></code> uses 16 bits, and <code class="docutils literal notranslate"><span class="pre">long</span></code> uses 64 bits.</p>
+On a 64-bit system: <code class="docutils literal notranslate"><span class="pre">int</span></code> uses 32 bits: <code class="docutils literal notranslate"><span class="pre">short</span></code> uses 16 bits, and <code class="docutils literal notranslate"><span class="pre">long</span></code> uses 64 bits.</p>
 <div class="margin note admonition">
 <p class="admonition-title">Size of Arithmetic Types</p>
 <div class="pst-scrollable-table-container"><table class="table" id="numeric-types-on-a-64-bit-architecture">
@@ -614,20 +616,20 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 </section>
-<section id="checking-the-size-limits-of-numeric-type-of-your-c-implemetation">
-<h2>Checking the Size Limits of Numeric Type of Your C++ Implemetation<a class="headerlink" href="#checking-the-size-limits-of-numeric-type-of-your-c-implemetation" title="Permalink to this heading">#</a></h2>
+<section id="checking-the-size-limits-of-numeric-type-of-your-c-implementation">
+<h2>Checking the Size Limits of Numeric Type of Your C++ Implementation<a class="headerlink" href="#checking-the-size-limits-of-numeric-type-of-your-c-implementation" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> returns the number of bytes used to store values of that type.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">Standard Library</span></a> has some useful function such as max(), lowest(), and min(), which will return the largest value that can be stored in that type.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code> component of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">Standard Library</span></a> has some useful function such as <code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">lowest()</span></code>, and <code class="docutils literal notranslate"><span class="pre">min()</span></code>, which will return the largest value that can be stored in that type.</p>
 <div class="code_example dropdown admonition" id="exampleh1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 20 </span></p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;size of long (int) &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; Bytes&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;size of long (int) &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; Bytes&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;size of long long &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; Bytes&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;size of long long &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="mf">1l</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; Bytes&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;largest int == &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
@@ -635,7 +637,7 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;largest double == &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;largest long double == &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;char is signed == &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">is_signed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -643,9 +645,9 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="code_explanation dropdown admonition" id="explanationh1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleh1"> Code_Example 12</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleh1"> Code_Example 20</a></p>
 <section id="code_explanation-content">
-<p>Note: Min() is the smallest positive value. Lowest() is the most negative value, where applicable.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">Min()</span></code> is the smallest positive value. <code class="docutils literal notranslate"><span class="pre">Lowest()</span></code> is the most negative value, where applicable.</p>
 </section>
 </div>
 </section>
@@ -658,22 +660,22 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </section>
 <section id="calculations">
 <h2>Calculations<a class="headerlink" href="#calculations" title="Permalink to this heading">#</a></h2>
-<p>It is often the case that a program will make a decision based on whether or not two values are identical.</p>
-<p>A little care must be taken when dealing with floating point numbers. In some languages alternaive methods to calculate the same number will yield differnt values.</p>
+<p>It is often the case that a program will make decisions based on whether two values are identical.</p>
+<p>A little care must be taken when dealing with floating point numbers. In some languages alternative methods to calculate the same number will yield different values.</p>
 <div class="code_example dropdown admonition" id="jupyternotebooks/arithmetic_data_types-code_example-2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 13 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 21 </span></p>
 <section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">acos</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">acos</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Good - Exactly equal!&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Aarghh - Only nearly equal!&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">acos</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">acos</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Good - Exactly equal!&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Aarghh - Only nearly equal!&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -682,32 +684,32 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 </section>
 </div>
 </section>
-<section id="decimal-hexidecimal-octal-and-binary">
-<h2>Decimal, Hexidecimal, Octal, and Binary.<a class="headerlink" href="#decimal-hexidecimal-octal-and-binary" title="Permalink to this heading">#</a></h2>
-<p>Integer literals may also represent numbers in octal or hexidecimal</p>
+<section id="decimal-hexadecimal-octal-and-binary">
+<h2>Decimal, Hexadecimal, Octal, and Binary.<a class="headerlink" href="#decimal-hexadecimal-octal-and-binary" title="Permalink to this heading">#</a></h2>
+<p>Integer literals may also represent numbers in octal or hexadecimal</p>
 <p>Octal literals start with a 0 followed by the digits of the octal number, so the octal number ‘55’ would be written <code class="docutils literal notranslate"><span class="pre">055</span></code>. Note that the octal ‘0’ remains just <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>Octal is base 8. the units run from 1-7. The value 21 in octal is 15 in decimal.</p>
-<p>Hexidecimal letters start 0x, so the hexideciamal value ‘3f’ woudl be <code class="docutils literal notranslate"><span class="pre">0x3f</span></code></p>
-<p>Hexidecimal is base 16, the units are 1,2,3,4,5,6,7,8,9,A,B,C,D,E,F. The value in decimal of the hexidecimal number 3f is 63.</p>
-<section id="formating-octal-and-hexidecimal-outputs">
-<h3>Formating Octal and Hexidecimal Outputs<a class="headerlink" href="#formating-octal-and-hexidecimal-outputs" title="Permalink to this heading">#</a></h3>
-<p>Integer values can be output in octal or hexidecimal as follows:</p>
+<p>Hexadecimal letters start 0x, so the hexadecimal value ‘3f’ would be <code class="docutils literal notranslate"><span class="pre">0x3f</span></code></p>
+<p>Hexadecimal is base 16, the units are 1,2,3,4,5,6,7,8,9,A,B,C,D,E,F. The value in decimal of the hexadecimal number 3f is 63.</p>
+<section id="formatting-octal-and-hexadecimal-outputs">
+<h3>Formatting Octal and Hexadecimal Outputs<a class="headerlink" href="#formatting-octal-and-hexadecimal-outputs" title="Permalink to this heading">#</a></h3>
+<p>Integer values can be output in octal, or hexadecimal as follows:</p>
 <div class="code_example dropdown admonition" id="jupyternotebooks/arithmetic_data_types-code_example-3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 22 </span></p>
 <section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">oct</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">dec</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">oct</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">dec</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">std::hex</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">std::oct</span></code> are instructions to the output stream to convert and display the next integer values in octal or hexidecimal.
-<code class="docutils literal notranslate"><span class="pre">std::dec</span></code> restores to decimal, the intruction affects all subsequent integers until changed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">std::hex</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span> <span class="pre">std::oct</span></code> are instructions to the output stream to convert and display the next integer values in octal or hexadecimal.
+<code class="docutils literal notranslate"><span class="pre">std::dec</span></code> restores to decimal, the instruction affects all subsequent integers until changed.</p>
 </section>
 </div>
 </section>
@@ -788,11 +790,11 @@ On a 64 bits system: <code class="docutils literal notranslate"><span class="pre
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-literals">Floating-Point Literals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-notation">Scientific Notation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#max-size-of-numeric-values">Max Size of Numeric Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-size-limits-of-numeric-type-of-your-c-implemetation">Checking the Size Limits of Numeric Type of Your C++ Implemetation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-size-limits-of-numeric-type-of-your-c-implementation">Checking the Size Limits of Numeric Type of Your C++ Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-constants">Useful Constants</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculations">Calculations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-hexidecimal-octal-and-binary">Decimal, Hexidecimal, Octal, and Binary.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-octal-and-hexidecimal-outputs">Formating Octal and Hexidecimal Outputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-hexadecimal-octal-and-binary">Decimal, Hexadecimal, Octal, and Binary.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-octal-and-hexadecimal-outputs">Formatting Octal and Hexadecimal Outputs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void-type">Void Type</a></li>

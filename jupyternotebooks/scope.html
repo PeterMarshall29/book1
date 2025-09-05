@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.0408233f-6cdc-4ea0-8760-bf52b450ea0f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\scope.3645372c-7fb4-4651-97ca-5ce45de9dc05.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/scope';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -522,7 +522,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-or-shadowed-names">Hidden or Shadowed Names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespace">Namespace</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-enities-in-a-namepace">Accessing Enities in a Namepace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-entities-in-a-namespace">Accessing Entities in a Namespace</a></li>
 </ul>
             </nav>
         </div>
@@ -552,17 +552,17 @@ document.write(`
 </div>
 <p>The main scopes are:</p>
 <ul class="simple">
-<li><p>Global: Names declared outside of all other scopes i.e. Outside of any function or class, sometimes called the global namespac</p></li>
+<li><p>Global: Names declared outside of all other scopes i.e. Outside of any function or class, sometimes called the global namespace</p></li>
 <li><p>Namespace: A named scope - creates a separate scope within the global scope or within another namespace</p></li>
 <li><p>Class: Everything with the class definition - may be subclasses with the area of text within a class</p></li>
-<li><p>Local scope: Accessible only with the block where they are declaredin a block i.e. between <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>, or in a function argument list</p></li>
+<li><p>Local scope: Accessible only within the block where they are declared i.e. between <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>, or in a function argument list</p></li>
 <li><p>Statement scopes: e.g., in a for-statement</p></li>
 </ul>
 <p>Specific scopes are often used as adjectives describing entities: e.g. global variable, local variable, statement (loop) variable.</p>
 <p>Function scopes:</p>
 <ul class="simple">
 <li><p>A function declared on its own, has global scope - a ‘global’ function.</p></li>
-<li><p>A (member) function declared inside a class only has class scope, and can only be accessed through an object of that class.</p></li>
+<li><p>A (member) function declared inside a class only has class scope and can only be accessed through an object of that class.</p></li>
 <li><p>Namespace functions are accessed using the namespace name e.g. <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>.</p></li>
 <li><p>Lamda function have local scope being anonymous functions declared inside other functions and only accessible to the function.</p></li>
 </ul>
@@ -571,10 +571,10 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">::</span></code> is the scope resolution operator.
 Used to access a named object in a particular namespace.</p>
 </div>
-<div class="example dropdown admonition" id="exampleg1">
+<div class="code_example dropdown admonition" id="exampleg1">
 
-<p class="admonition-title"><span class="caption-number">example 4 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 16 </span></p>
+<section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -582,9 +582,9 @@ Used to access a named object in a particular namespace.</p>
 <span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -596,7 +596,7 @@ Used to access a named object in a particular namespace.</p>
 </pre></div>
 </div>
 <p>Declares an object of integer type with <a class="reference internal" href="glossary.html#term-Global-Scope"><span class="xref std std-term">global scope</span></a>.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="o">**</span><span class="n">code</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="o">**</span>
 <span class="p">}</span>
 </pre></div>
@@ -610,8 +610,8 @@ Used to access a named object in a particular namespace.</p>
 <p>Global variables are accessible throughout the program, unless shadowed by a local variable with the same name.</p>
 <p>Global variables are best avoided unless necessary because they may result in unintended consequences in execution. Global variables need long descriptive names - adding the word ‘Global’ at the end of the name is good practice.</p>
 <p>Make global variable have long detailed names.</p>
-<p>Do not use global variables if possible, its hard to keep track of which functions may be altering their values.</p>
-<p>The quality of a program is often said to be inversely proportional to the number of global variables as the index of an exponential – keep it to one or two at mo</p>
+<p>Do not use global variables, if possible, it’s hard to keep track of which functions may be altering their values.</p>
+<p>The quality of a program is often said to be inversely proportional to the number of global variables as the index of an exponential – keep it to one or two at most.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Reasons to Avoid Global Variables</p>
 <p>Namespace Pollution: Risk of naming collisions, when your global variable’s identifier matches one used in a library you include.</p>
@@ -647,18 +647,18 @@ Used to access a named object in a particular namespace.</p>
 <h2>Hidden or Shadowed Names<a class="headerlink" href="#hidden-or-shadowed-names" title="Permalink to this heading">#</a></h2>
 <p>Scope allows the definition of multiple entities with the same name.</p>
 <p>The compiler associates each name with the version of the name in the current scope.</p>
-<p>A declaration of a name in a block shadows the same name declarated in an enclosing block or a global name.</p>
+<p>A declaration of a name in a block shadows the same name declared in an enclosing block or a global name.</p>
 <p>Shadowing hides the names in the higher scopes.</p>
 <p>A hidden global name can still be referred to using the scope resolution operator, <code class="docutils literal notranslate"><span class="pre">::</span></code> For example:</p>
-<div class="example dropdown admonition" id="exampleg2">
+<div class="code_example dropdown admonition" id="exampleg2">
 
-<p class="admonition-title"><span class="caption-number">example 5 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 17 </span></p>
+<section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Intialise local x</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Initialise local x</span>
 <span class="w">    </span><span class="o">::</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">   </span><span class="c1">// Initialise global x</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">     </span><span class="c1">// Assign to local x</span>
 
@@ -677,60 +677,67 @@ Used to access a named object in a particular namespace.</p>
 <h2>Namespace<a class="headerlink" href="#namespace" title="Permalink to this heading">#</a></h2>
 <p>Namespace is a language feature exclusively used to express scoping.</p>
 <p>A namespace is a named scope, which is a separate container for related entities (variables, functions, classes etc.).</p>
-<p>Creating a namespace allows the programmer to write a part of a longer program separatedly and not worry about repeating a variable name.
- 
-Entities decalared in a namespace can only be accessed by using the namespces’ identifier and the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">scope resolution operator</span></a>.</p>
+<p>Creating a namespace allows the programmer to write a part of a longer program separately and not worry about repeating a variable name.</p>
+<p>Entities declared in a namespace can only be accessed by using the namespace’s identifier and the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">scope resolution operator</span></a>.</p>
 <p>Namespaces can also be nested if needed.</p>
-<p>The standard library facilities are defined in namespace <code class="docutils literal notranslate"><span class="pre">std</span></code>, so to use entities from the stadard library we must use the explicit qualification <code class="docutils literal notranslate"><span class="pre">std::</span></code>.</p>
+<p>The <a class="reference internal" href="glossary.html#term-Standard-Library-Facilities"><span class="xref std std-term">standard library facilities</span></a> are defined in namespace <code class="docutils literal notranslate"><span class="pre">std</span></code>, so to use entities from the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> we must use the explicit qualification <code class="docutils literal notranslate"><span class="pre">std::</span></code>.</p>
 </section>
-<section id="accessing-enities-in-a-namepace">
-<h2>Accessing Enities in a Namepace<a class="headerlink" href="#accessing-enities-in-a-namepace" title="Permalink to this heading">#</a></h2>
+<section id="accessing-entities-in-a-namespace">
+<h2>Accessing Entities in a Namespace<a class="headerlink" href="#accessing-entities-in-a-namespace" title="Permalink to this heading">#</a></h2>
 <p>There are three ways to access the entities contained within a namespace</p>
 <ul class="simple">
 <li><p>By explicit qualification, e.g. <code class="docutils literal notranslate"><span class="pre">myNamespace::myEntity</span></code>.</p></li>
 <li><p>By a using declaration</p></li>
 <li><p>By a using directive:</p></li>
 </ul>
-<div class="example dropdown admonition" id="exampleg3">
+<div class="code_example dropdown admonition" id="exampleg3">
 
-<p class="admonition-title"><span class="caption-number">example 6 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 18 </span></p>
+<section id="code_example-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">// explicit qualification</span>
 
 <span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">;</span><span class="w"> </span><span class="c1">// using declaration</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">   </span><span class="c1">// instead of std::vector&lt;int&gt; myVector(10);</span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span><span class="c1">// using directive</span>
-<span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w">   </span><span class="c1">//insted of std::map</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w">   </span><span class="c1">//instead of std::map</span>
 </pre></div>
 </div>
 <div class="dropdown admonition tip">
 <p class="admonition-title">Tip</p>
-<p>It is bad pratice to use a ‘using directive’.</p>
-<p>The programmer can no longer resue any of the identifers in that namespace.</p>
-<p>It becomes difficult to keep track of where an identifer actually comes from</p>
+<p>It is bad practice to use a ‘using directive’.</p>
+<p>The programmer can no longer reuse any of the identifiers in that namespace.</p>
+<p>It becomes difficult to keep track of where an identifier actually comes from.</p>
 </div>
 </section>
 </div>
-<p>A member can be declared within a namespace definition and defined later using the notation:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">A member can be declared within a namespace definition and defined later using the notation:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">nameSpacename</span><span class="o">::</span><span class="n">memberName</span><span class="w"> </span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="code_example dropdown admonition" id="exampleg4">
+
+<p class="admonition-title"><span class="caption-number">Code Example 19 </span></p>
+<section id="code_example-content">
 <p>Members of a namespace must be introduced using this notation:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">namespace</span><span class="w"> </span><span class="nn">namespaceName</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 2</span><span class="w">	</span><span class="c1">// declaration and definitions</span>
+<span class="linenos"> 2</span><span class="w">  </span><span class="c1">// declaration and definitions</span>
 <span class="linenos"> 3</span><span class="p">}</span>
 <span class="linenos"> 4</span><span class="k">namespace</span><span class="w"> </span><span class="nn">Parser</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 5</span><span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="nf">expr</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span><span class="w"> </span><span class="c1">// declaration</span>
-<span class="linenos"> 6</span><span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="nf">term</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
-<span class="linenos"> 7</span><span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="nf">prim</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="nf">expr</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span><span class="w"> </span><span class="c1">// declaration</span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="nf">term</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="nf">prim</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
 <span class="linenos"> 8</span><span class="p">}</span>
 <span class="linenos"> 9</span><span class="kt">double</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parser</span><span class="o">::</span><span class="n">expr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// use</span>
 <span class="linenos">10</span><span class="kt">double</span><span class="w"> </span><span class="nf">Parser::expr</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="c1">// definition</span>
 <span class="linenos">11</span><span class="p">{</span>
-<span class="linenos">12</span><span class="w">	</span><span class="c1">// ...</span>
+<span class="linenos">12</span><span class="w">  </span><span class="c1">// ...</span>
 <span class="linenos">13</span><span class="p">}</span>
-<span class="linenos">14</span><span class="w"> </span>
+<span class="linenos">14</span><span class="w"> </span>
 <span class="linenos">15</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="linenos">16</span><span class="c1">//using std::vector;</span>
 <span class="linenos">17</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
@@ -743,6 +750,8 @@ Entities decalared in a namespace can only be accessed by using the namespces’
 <span class="linenos">24</span><span class="k">return</span><span class="w"> </span><span class="mf">4.0</span><span class="p">;</span>
 <span class="linenos">25</span><span class="p">}</span>
 </pre></div>
+</div>
+</section>
 </div>
 </section>
 </section>
@@ -816,7 +825,7 @@ Entities decalared in a namespace can only be accessed by using the namespces’
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaration-good-practice">Declaration Good Practice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-or-shadowed-names">Hidden or Shadowed Names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespace">Namespace</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-enities-in-a-namepace">Accessing Enities in a Namepace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-entities-in-a-namespace">Accessing Entities in a Namespace</a></li>
 </ul>
   </nav></div>
 
