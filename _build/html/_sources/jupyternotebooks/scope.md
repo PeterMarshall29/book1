@@ -35,17 +35,17 @@ A named object can only be used within its scope.
 
 The main scopes are:
 
-* Global: Names declared outside of all other scopes i.e. Outside of any function or class, sometimes called the global namespac
+* Global: Names declared outside of all other scopes i.e. Outside of any function or class, sometimes called the global namespace
 * Namespace: A named scope - creates a separate scope within the global scope or within another namespace
 * Class: Everything with the class definition - may be subclasses with the area of text within a class
-* Local scope: Accessible only with the block where they are declaredin a block i.e. between `{ }`, or in a function argument list
+* Local scope: Accessible only within the block where they are declared i.e. between `{ }`, or in a function argument list
 * Statement scopes: e.g., in a for-statement
 
 Specific scopes are often used as adjectives describing entities: e.g. global variable, local variable, statement (loop) variable.
 
 Function scopes:
 * A function declared on its own, has global scope - a 'global' function. 
-* A (member) function declared inside a class only has class scope, and can only be accessed through an object of that class.
+* A (member) function declared inside a class only has class scope and can only be accessed through an object of that class.
 * Namespace functions are accessed using the namespace name e.g. `std::cout`.
 * Lamda function have local scope being anonymous functions declared inside other functions and only accessible to the function. 
 
@@ -55,7 +55,7 @@ Function scopes:
 Used to access a named object in a particular namespace.
 ```
 
-`````{example-start}
+`````{code_example-start}
 :label: exampleg1
 :class: dropdown
 `````
@@ -66,9 +66,9 @@ Used to access a named object in a particular namespace.
 int x = 10;
 int main()
 {
-	std::string x = "hello";
+  std::string x = "hello";
     std :: cout << x;
-	return 0;
+  return 0;
 }
 ````
 ````{admonition} Code Explanation
@@ -77,13 +77,13 @@ int main()
 int x = 10;
 ```
 Declares an object of integer type with {term}`global scope`.
-```{code-block} cpp
+```{code-block} c++
 int main() {
 **code statements go here**
 }
 ```
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 ## Global Variables
 A variable with {term}`global scope` is declared outside of all functions and classes. 
@@ -94,9 +94,9 @@ Global variables are best avoided unless necessary because they may result in un
 
 Make global variable have long detailed names.
 
-Do not use global variables if possible, its hard to keep track of which functions may be altering their values.
+Do not use global variables, if possible, it’s hard to keep track of which functions may be altering their values.
 
-The quality of a program is often said to be inversely proportional to the number of global variables as the index of an exponential – keep it to one or two at mo
+The quality of a program is often said to be inversely proportional to the number of global variables as the index of an exponential – keep it to one or two at most.
 
 ```{admonition} Reasons to Avoid Global Variables
 :class: tip dropdown
@@ -122,9 +122,7 @@ Use a namespace object to group related global variables and avoid collisions.
 ```
 
 
-
 ## Shadowing
-
 It is usually possible to use the same name more than once, provided each declaration has different scope.
 
 An exception is the loop variable in a `for` loop. Another type with the s
@@ -140,19 +138,18 @@ Inside the `main()` function put:
 
 *Variable declarations
 
-
 ## Hidden or Shadowed Names
 Scope allows the definition of multiple entities with the same name.
 
 The compiler associates each name with the version of the name in the current scope.
 
-A declaration of a name in a block shadows the same name declarated in an enclosing block or a global name.
+A declaration of a name in a block shadows the same name declared in an enclosing block or a global name.
 
 Shadowing hides the names in the higher scopes.
 
 A hidden global name can still be referred to using the scope resolution operator, `::` For example:
 
-`````{example-start}
+`````{code_example-start}
 :label: exampleg2
 :class: dropdown
 `````
@@ -160,7 +157,7 @@ A hidden global name can still be referred to using the scope resolution operato
 :tags: [remove-output]
 int x;
 void main() {
-    int x = 3; // Intialise local x
+    int x = 3; // Initialise local x
     ::x = 5;   // Initialise global x
     x = 10;     // Assign to local x
 
@@ -168,33 +165,32 @@ void main() {
     std::cout << ::x;      // print global x
 }
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 An exception is the loop variable in a `for` loop. Another variable cannot use its identifier or shadow the loop variable.
-
 
 ## Namespace
 Namespace is a language feature exclusively used to express scoping. 
 
 A namespace is a named scope, which is a separate container for related entities (variables, functions, classes etc.).
 
-Creating a namespace allows the programmer to write a part of a longer program separatedly and not worry about repeating a variable name.
- 
-Entities decalared in a namespace can only be accessed by using the namespces' identifier and the {term}`scope resolution operator`. 
+Creating a namespace allows the programmer to write a part of a longer program separately and not worry about repeating a variable name.
+ 
+Entities declared in a namespace can only be accessed by using the namespace’s identifier and the {term}`scope resolution operator`. 
 
 Namespaces can also be nested if needed. 
 
-The standard library facilities are defined in namespace `std`, so to use entities from the stadard library we must use the explicit qualification `std::`.
+The {term}`standard library facilities` are defined in namespace `std`, so to use entities from the {term}`standard library` we must use the explicit qualification `std::`.
 
-## Accessing Enities in a Namepace
+## Accessing Entities in a Namespace
 There are three ways to access the entities contained within a namespace
 
 - By explicit qualification, e.g. `myNamespace::myEntity`.
 - By a using declaration
 - By a using directive:
 
-`````{example-start}
+`````{code_example-start}
 :label: exampleg3
 :class: dropdown
 `````
@@ -205,40 +201,47 @@ using std::vector; // using declaration
 vector<int> myVector(10);   // instead of std::vector<int> myVector(10);
 
 using namespace std; // using directive
-map<string, double> m;   //insted of std::map
+map<string, double> m;   //instead of std::map
 ```
 ```{tip}
 :class: dropdown
-It is bad pratice to use a 'using directive'.
+It is bad practice to use a 'using directive'.
 
-The programmer can no longer resue any of the identifers in that namespace.
+The programmer can no longer reuse any of the identifiers in that namespace.
 
-It becomes difficult to keep track of where an identifer actually comes from
+It becomes difficult to keep track of where an identifier actually comes from.
 ```
-`````{example-end}
+`````{code_example-end}
 `````
+````{card}
 A member can be declared within a namespace definition and defined later using the notation:
 ```{code-block} c++
 nameSpacename::memberName 
 ```
+````
+
+`````{code_example-start}
+:label: exampleg4
+:class: dropdown
+`````
 Members of a namespace must be introduced using this notation:
 ```{code-block} c++
 :linenos:
 
 namespace namespaceName {
-	// declaration and definitions
+  // declaration and definitions
 }
 namespace Parser {
-	double expr(bool); // declaration
-	double term(bool);
-	double prim(bool);
+  double expr(bool); // declaration
+  double term(bool);
+  double prim(bool);
 }
 double val = Parser::expr(1); // use
 double Parser::expr(bool b) // definition
 {
-	// ...
+  // ...
 }
- 
+ 
 std::string s;
 //using std::vector;
 using namespace std;
@@ -250,5 +253,7 @@ double pepper(bool) { return 5.0; }
 double Peter::piper(bool) {
 return 4.0;
 }
-
 ```
+
+`````{code_example-end}
+`````

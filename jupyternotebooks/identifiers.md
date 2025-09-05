@@ -16,7 +16,7 @@ Most entities in the C++ language have an identifier (a name).
 
 Writing a program usually required additional instances of entities to be created by the programmer and each must be given unique identifier.
 
-```{admonition} No Whitespace in Identfiers!
+```{admonition} No Whitespace in Identifiers!
 :class: margin warning
 Whitespace is not permitted in identifiers/names.
 Longer names are broken up using underscores or [Camel Case](https://en.wikipedia.org/wiki/Camel_case).
@@ -42,7 +42,7 @@ Keywords may not be used as an identifier.
 
 Other words may be used as identifiers, unless they have already been used in the same {term}`scope`.
 
-A compilation error occurs if the compiler finds two identical identifiers - sometimes called a naming collision, or naming conflict (error).
+A compilation error occurs if the compiler finds two identical identifiers - sometimes called a ‘naming collision’ or ‘naming conflict’ (error).
 
 ````{admonition} Rules For Valid Identifiers
 :class: dropdown 
@@ -61,19 +61,19 @@ After the initial character the options become:
 * An underscore `_`
 * Some Unicode characters
 
-Identifiers are case-sensitive. Any difference in the pattern of symols creates a new identifier.
-The variabless named `www` and `WWW` are not the same.
+Identifiers are case-sensitive. Any difference in the pattern of symbols creates a new identifier.
+The variables named `www` and `WWW` are not the same.
 
 ```{admonition} Convention for use of Identifiers
 :class: dropdown tip
 
-It is considered best practive to use a consistant wrting format for indentifiers of the same type - this is called a naming convention.
+It is considered best practice to use a consistent writing format for identifiers of the same type - this is called a naming convention.
 
 In C++:
 
 * An intial capital letter is only used for a {term}`class`. This makes it easy to distinguish a class from a function etc.
 * Names of functions and variables start with lower case
-* Longer names are generally written in Camel Case, where the name is composed of a series of words, and later words start with captial letters.
+* Longer names are generally written in Camel Case, where the name is composed of a series of words, and later words start with capital letters.
 [Camel Case](https://en.wikipedia.org/wiki/Camel_case)
 * Pointer variables should be prepended with 'p' and the asterisk '*' should be position next to the variable name instead of the pointer type.
 * Reference variables should be prepended with 'r'. This helps to differentiate between the method returning a modifiable object and the same method returning a non-modifiable object
@@ -129,28 +129,37 @@ constexpr int fac(int n) { return (n < 2) ? 1 : n * fac(n−1); }
 ````
 ### The Structure of Declarations
 
-The structure of a declaration is defined by the C++ grammar, and has 5 basics part.
+The structure of a declaration is defined by the C++ grammar and has 5 basics part.
 
 * Optional prefix specifiers (e.g., static or virtual)
 * A base type (e.g., vector<double> or const int)
-* A declarator optionally including a name (e.g., p[7], n, or ∗(∗)[])
+* A declarator (optionally including a name) (e.g., p[7], n, or ∗(∗)[])
 * Optional suffix function specifiers (e.g., const or noexcept)
 * An optional initializer or function body (e.g., ={7,5,3} or {return x;})
 Except for function and namespace definitions, a declaration is terminated by a semicolon.
 
 ## Declarators
 
-A declarator is just the name specficied for the new entity in the declaration.
+A declarator is the 'name' of the new object found in its declaration.
 
-A declarator may be composed of both the ame and some optional declarator operators/modifiers. 
+The declarator is composed of the object's identifier and any declarator operators/modifiers. 
 
+The type, any type-modifiers are not part of the declarator.
+
+```{code-block} c++
+:name: Examples of Declarators
+int myInt;                    // myInt is the declarator
+double *myDouble;             //myDouble is the identifier, *myDouble is the declarator
+int myIntArray[256];          //myIntArray[256] is the declarator, myIntArray is the identifier
+volatile int * sequence [5];  //*sequence[5] is the declarator
+```
 The most common declarator operators are:
 
 ````{admonition} Declarator Operators
 :class: note dropdown
 ```{list-table}
 :header-rows: 1
-:name: Decalarator OperatorsValue of an object containing `01110000`
+:name: Declarator Operators
 * - Position
   - Symbol
   - Name
@@ -183,13 +192,15 @@ The most common declarator operators are:
   - Returns from function
 ```
 ````
-Declarators are tricky because they are designed to mirror their use in expressions; for example ∗ is prefix and [] and () are postfix. 
+Declarators are tricky because they are designed to mirror their use in expressions; for example `∗` is a ‘prefix’ and `[]` and `()` are both ‘postfix’. 
 
 The postfix declarator operators bind tighter than the prefix ones. 
 
 Consequently, char∗kings[] is an array of pointers to char, whereas char(∗kings)[] is a pointer to an array of char. 
 
-We have to use parentheses to express types such as ‘‘pointer to array’’ and ‘‘pointer to function’
+It is necessary to use parentheses to express types such as ‘pointer to array’ and ‘pointer to function’.
+
+`decl-specifier-seq` is the sequence of whitespace separated specifiers, found in a declaration before the declarator, and including the type-specifier and any modifiers.
 
 
 

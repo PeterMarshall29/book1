@@ -17,9 +17,11 @@ The `<iostream>` component of the {term}`standard library` provides the tools us
 These basic functions are vital to learning programming because they enable the programmer to follow the progress of a programme's execution - without some output to the display you will have little insight into what the program is doing.
 ```{seealso}
 :class: margin
-{attribution="Programmer Humour..."}
-> Knock knock.\\
-Race condition!\\
+{attribution="Programmer Humour...?"}
+> Knock, knock.
+
+Race condition!
+
 Who's there?
 ```
 ```{tip}
@@ -219,7 +221,7 @@ Use `std::cin.ignore()` to clear the buffer
 `````{syntax-end}
 `````
 
-## Newline Output Format Command -  `std::endl` vs `'\n'`
+## Newline - `std::endl` vs `'\n'`
 `std::endl` inserts a newline character into the output sequence and is therefore almost the same as `'\n'`.
 
 It is better to use `'\n'` to output a newline.

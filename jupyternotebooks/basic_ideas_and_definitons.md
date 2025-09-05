@@ -139,7 +139,9 @@ To access additional mathematical functions we can include the `<cmath>` compone
   - Hyperbolic tangent of x
 ```
 ````
-There are more useful functions and constants in the `<numbers>` component - requires C++20.
+There are more useful functions and constants in the `<numbers>` component.
+
+For example `std::numbers::pi`. To access 'pi' – you need to include numbers and change "c++language standard" in Visual Studio under "project properties" to "c++20".
 ## Variables
 A computer programme that can only perform arithmetic on {term}`literal` values written into the original programme code would not be very useful. 
 

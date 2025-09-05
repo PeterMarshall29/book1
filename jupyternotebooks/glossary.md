@@ -15,11 +15,11 @@ kernelspec:
 ```{glossary}
 
 Assignment
-Modification of the current value of an object using an assignment operator. 
-Simplest case is using the simple assignment operator `=`; i.e. `LHS = RHS;`.
-Literal assignment, uses a literal for the RHS. Copy assignment replaces the contents of the LHS object with a copy of the contents of the RHS object (RHS is not modified). Move assignment replaces the contents of the LHS object a with the contents of RHS object, avoiding copying if possible (b may be modified). For non-class types, copy and move assignment are indistinguishable and are referred to as direct assignment.
-Compound assignment replaces the contents of the LHS object with the result of a binary operation between the previous value of LHS and the value of RHS e.g. `A = A + B`.
-Expression assignment replaces the LHS object with the result of the evaluation of the expression stated on RHS.
+  Modification of the current value of an object using an assignment operator. 
+  Simplest case is using the simple assignment operator `=`; i.e. `LHS = RHS;`.
+  Literal assignment, uses a literal for the RHS. Copy assignment replaces the contents of the LHS object with a copy of the contents of the RHS object (RHS is not modified). Move assignment replaces the contents of the LHS object a with the contents of RHS object, avoiding copying if possible (b may be modified). For non-class types, copy and move assignment are indistinguishable and are referred to as direct assignment.
+  Compound assignment replaces the contents of the LHS object with the result of a binary operation between the previous value of LHS and the value of RHS e.g. `A = A + B`.
+  Expression assignment replaces the LHS object with the result of the evaluation of the expression stated on RHS.
 
 Assignment Operator
   `=`. The simple assignment operator, there are others. Used to assign a value to a variable, by literal assignment, {term}`copy assignment`, or evaluation assignment, including as{term}`initialisation`.
@@ -60,6 +60,9 @@ Class Members
 Code Block
   Sequence of {term}`statements` enclosed by curly braces `{}`. Also called a {term}`compound statement`.
 
+Comma Operator
+  def
+
 Comments
   Comments are text in a computer program that is only intended as a note to the programmer. Comments are useful as in-code documentation. Also used by programmers to hide sections of a programme from the compiler temporarily - useful during development.
 
@@ -72,8 +75,14 @@ Compiled Language
 Compound Statement
   Sequence of {term}`statements` enclosed by curly braces `{}`. Also called a {term}`code block`.
 
+Compound Type
+  A type that isn't a {term}`scalar` type. Compound types include array types, function types, class (or struct) types, union types, enumerations, references, and pointers to non-static class members.
+
 Concatenation
   Joining of two strings together. Accomplished by the concatenation operator `+`or a built-in function.
+
+Containers
+  A Container is an object used to store other objects and to take care of the management of the memory used by the objects it contains.
 
 Control Flow
   The sequential flow of ***control*** through the program - the programmes statement that is being executed at each instant is said to have *control* of the processor. The order in which individual statements, instructions, or function calls of an imperative program are executed, or evaluated. 
@@ -115,7 +124,19 @@ Declarations
   Declarations introduce names into a C++ program. Each kind of entity is declared differently.
 
 Declarator
-  The part of a declaration that specifies the name of an entity, and may include modifiers
+  The part of a declaration that specifies the name of an entity - may include modifiers.
+
+Default-Constructor
+  Constructor that be called with not arguments - use to construct an object when no user initialisation is provided.
+
+Default-Initialised
+  Type of initialisation that occurs when there is no initialiser. Actual method of default-initialisation depends on the entity.
+
+Default-Initialisation
+  When an object of class type is constructed with no initialiser, a default constructer (if available) will initialise the object - often to empty - but possibly to some user-defined default value.
+
+Default Value
+  Value assigned when no other values are assigned. Often used to make an initialisation safe.
 
 Definition
   Definitions are declarations that are sufficient to use the entity identified by the name.
@@ -291,7 +312,7 @@ Linkage
 Linker
   The part of the C++ implementation that merges the code generated from separately compiled translation units into a program. or part of a program
 
-List Initialisation
+List-Initialisation
   Initialization using `{}`; e.g. int myInt {initial value or expression to produce the initial value}
 
 Literal
@@ -386,6 +407,9 @@ Passing by Constant Reference
 Passing by Reference
   If a function parameter type is declared to be a reference to a type, then a reference to a variable can be passed instead of the variable itself. This saves the memory overhead needed to create the local copy of the passed in value, and allows the function to operate on the original value instead. Also called call-by-reference, as opposed to call-by-value when the actual value is passed in.
 
+POD Type 
+  POD = "Plain Old Data". A class or a struct that do not include any constructor, destructor or virtual functions - they only have int, char, double, bool, etc. as data members.
+
 Print Debugging
   Using strategically position print statements to follow the control flow of a programme’s execution. The print statements may just include an index to identify which statement produced it, or more detailed error/exception outputs.
 
@@ -406,6 +430,10 @@ Reserved Characters
 
 Resource files
   Non code files, such as image files, required by the program.
+
+
+Scalar
+  A type that holds a single value of a defined range. Scalars include arithmetic types (integral or floating-point values), enumeration type members, pointer types, pointer-to-member types, and std::nullptr_t. Fundamental types are typically scalar types.
 
 Scope
   def
@@ -436,6 +464,9 @@ Static
   Keyword
   - Used to declare a class member static; specifies that member functions and variables belong to the class rather than an instance of the class (an object). Also means there is no pointer to a member function.
   - Specifies a local variable should be allocated to static memory
+
+Static Duration
+  Lifetime of the programme's execution - duration of static variables - all global variables.
 
 String
   def
