@@ -44,7 +44,7 @@ parts:
         - file: jupyternotebooks/exercise4  
     - file: jupyternotebooks/introduction_to_functions     #U
       sections:
-        - file: jupyternotebooks/exercise5
+        - file: jupyternotebooks/exercise5  #ex5
     - file: jupyternotebooks/introduction_to_pointers     #V
       sections:
         - file: jupyternotebooks/exercise6

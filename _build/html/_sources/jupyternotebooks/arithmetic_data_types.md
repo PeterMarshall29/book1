@@ -43,11 +43,10 @@ A `long double` is defined by adding the postfix 'l' (or 'L'): `5.55e207L`.
 
 ## Scientific Notation
 Scientific notation is formatted using a lower, or upper, case `e` between the mantissa and the index **no whitespace** is permitted.
-`````{card}
 ````{admonition} Scientific Notation Example
+:class: margin
 $2.99e8 = 2.99 \times 10^{8}$
 ````
-`````
 The syntax does not permit any whitespace in a floating-point literal. 
 
 For example, 2.998 e8 is not a floating-point literal, and would be interpreted as three separate lexical tokens and cause a syntax error at compile time.

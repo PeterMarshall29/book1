@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.d8ff96df-11ca-4414-a7ad-bc0f81a6b07c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.872da041-9456-44e7-ba61-c17ea1299c8d.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-f9f5f21c-70fb-4c8a-a899-414348840046] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-5748fc88-8876-48e6-830e-31096e72c008] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -625,7 +625,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-f9f5f21c-70fb-4c8a-a899-414348840046" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-5748fc88-8876-48e6-830e-31096e72c008" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]

@@ -44,8 +44,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['int myFunction(int); // is a declaration', '', 'int myFunction(int x) {', '\tstd::cout << "Hello Class!";', '\treturn x;']
+['#include <iostream>', '#include <string>', 'std::string myBirthdayGreeting(std::string name, int age) {', '    return "Happy Birthday " + name + "! \\n You are " + std::to_string(age) + " years old today.";', '}']
 ...
-['int myFunction(int) {', '\tstd::cout << "Hello Class!";', '\treturn 0;', '}', 'But then the integer that must be passed in cannot be accessed or used…']
+['    std::cout << "Please type in your first name and age.. \\n";', '    std::cin >> nameTemp >> ageTemp ;', "    std::cout << myBirthdayGreeting(nameTemp, ageTemp) << '\\n';", '    return 0;', '}']
 -------------------
 

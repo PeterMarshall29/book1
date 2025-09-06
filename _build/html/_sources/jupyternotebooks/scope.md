@@ -194,7 +194,7 @@ There are three ways to access the entities contained within a namespace
 :label: exampleg3
 :class: dropdown
 `````
-```{code-block} c++
+````{code-block} c++
 std::string s; // explicit qualification
 
 using std::vector; // using declaration
@@ -202,15 +202,15 @@ vector<int> myVector(10);   // instead of std::vector<int> myVector(10);
 
 using namespace std; // using directive
 map<string, double> m;   //instead of std::map
-```
-```{tip}
+````
+````{tip}
 :class: dropdown
 It is bad practice to use a 'using directive'.
 
 The programmer can no longer reuse any of the identifiers in that namespace.
 
 It becomes difficult to keep track of where an identifier actually comes from.
-```
+````
 `````{code_example-end}
 `````
 ````{card}

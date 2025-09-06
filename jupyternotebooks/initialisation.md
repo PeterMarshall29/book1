@@ -176,6 +176,7 @@ std::string myString{}; // myString initialised as ""
 std::cout << myInt << '\t' << myDouble << '\t' << "12"+myString+"34" << '\t' << myVector.capacity() << '\t' << &myPointerToChar  << '\n';
 ````
 ```{exercise}
+:label: exercisem4
 :class: dropdown
 Try removing the empty initialiser for each variable type and rerunning the code - start in reverse order.
 
@@ -266,7 +267,7 @@ Useful during programme development - similar to {term}`print debugging`.
 
 ````{exercise} 
 :class: dropdown
-:label: exercisem1
+:label: exercisem3
 Try removing the list-initialiser `{}` from the two `int` and two `string` type variables one at a time.
 ```{admonition} Code Explanation
 :class: dropdown
