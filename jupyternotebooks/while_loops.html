@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.046a9198-14e3-4e5f-836f-f5762ba929bb.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.d1855b47-629d-4140-a7b5-f7d90a0edc98.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-34da4cf7-be90-445f-bbbf-e62c34a80b12] svg, .mermaid[data-zoom-id=id-e7a9f051-3d7d-4efc-81cb-ab95f7457980] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-63d5d129-223c-49a9-b795-b558b50c3e9e] svg, .mermaid[data-zoom-id=id-a2ddd492-3d9d-4d90-b853-1da92fddc6e7] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -597,7 +597,7 @@ Its generally better to use for loops in C++, but while loops exist too.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-34da4cf7-be90-445f-bbbf-e62c34a80b12" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-63d5d129-223c-49a9-b795-b558b50c3e9e" class="mermaid align-center">
         flowchart TD
   A([&quot;Program Flow Approaches the While Loop&quot;]) --&gt; B[&quot;Set Loop Variable&quot;]
   B --&gt; C{&quot;Check Termination Condition&quot;}
@@ -621,7 +621,7 @@ Its generally better to use for loops in C++, but while loops exist too.</p>
   linkStyle 5 stroke:#AA00FF,fill:none
   linkStyle 6 stroke:#AA00FF,fill:none0FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-e7a9f051-3d7d-4efc-81cb-ab95f7457980" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-a2ddd492-3d9d-4d90-b853-1da92fddc6e7" class="mermaid align-center">
         flowchart TD
   A([&quot;Arrival&quot;]) --&gt; B[&quot;Set Loop Counter: Count = 1;&quot;]
   B --&gt; C{&quot;Check Counter &amp;lt; 100&quot;}
@@ -720,7 +720,10 @@ cout &lt;&lt; i &lt;&lt; ‘\t’ &lt;&lt; square(i) &lt;&lt; ‘\n’;
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19</p>
+<p>1</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
+</pre></div>
+</div>
 </div>
 </div>
 </section>

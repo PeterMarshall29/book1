@@ -114,7 +114,7 @@ It is recommended that list initialisation is used for anything more complicated
 
 List-initialisation ensures that:
 
-* An `integer` cannot be converted to a `char`, but `char` to `int is permitted.
+* An `integer` cannot be converted to a `char`, but `char` to `int` is permitted.
 * a `double` cannot be converted to a `float`, but the reverse is permitted 
 * A floating-point value cannot be converted to an integer type.
 * An integer value cannot
@@ -139,7 +139,7 @@ int main()
 }
 ````
 ````{solution} exercisem1
-:class: dropdown
+:class: dropdown note
 :label: solutionm1
 Using `static_cast` forces an explicit conversion, which can be used to bypass the blocked narrowing conversion.
 
@@ -176,6 +176,7 @@ std::string myString{}; // myString initialised as ""
 std::cout << myInt << '\t' << myDouble << '\t' << "12"+myString+"34" << '\t' << myVector.capacity() << '\t' << &myPointerToChar  << '\n';
 ````
 ```{exercise}
+:label: exercisem4
 :class: dropdown
 Try removing the empty initialiser for each variable type and rerunning the code - start in reverse order.
 
@@ -264,8 +265,9 @@ int main()
 
 Useful during programme development - similar to {term}`print debugging`. 
 
-````{exercise} exercisem1
+````{exercise} 
 :class: dropdown
+:label: exercisem3
 Try removing the list-initialiser `{}` from the two `int` and two `string` type variables one at a time.
 ```{admonition} Code Explanation
 :class: dropdown

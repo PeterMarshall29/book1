@@ -296,8 +296,8 @@ return 0;
 }
 ````
 ````{solution} exerciseb3
-:class: note dropdown
 :label: solutionb3
+:class: note dropdown
 
 ```{code-block} cpp
 #include <iostream>
@@ -313,6 +313,7 @@ return 0;
 
 `int`, `float`, `double`, and `char` are all part of the {term}`core language`, and should not have `std::` attached.
 ````
+***
 `````{exercise-end}
 `````
 
@@ -323,28 +324,38 @@ return 0;
 
 Waka poetry consists of five lines, with a syllable count of 5-7-5-7-7. The form is similar to haiku but with two additional lines.
 
-A poll conducted among INFOCUS readers had established "waka" as the
-proper pronunciation for the angle-bracket characters <,
+A poll conducted among INFOCUS readers established "waka" as the
+proper pronunciation for the angle-bracket characters `<` and `>`.
 
 The Waka Waka Poem " by Fred Bremmer and Steve Kroeze. 
 ```{card}
 <>!*''#
+
 ^"`$$-
+
 !*=@$_
+
 %*<>~#4
+
 &[]../
+
 |{,,SYSTEM HALTED
 ```
 Translation:
 ```{card}
 Waka waka bang splat tick tick hash,
+
 Caret quote back-tick dollar dollar dash,
-Bang splat equal at dollar underscore,
+
+Bang splat equals at dollar underscore,
+
 Percent splat waka waka tilde number four,
+
 Ampersand bracket bracket dot dot slash,
+
 Vertical-bar curly-bracket comma comma CRASH .
 
-From https://ascii.co.uk/art/poem
+From: https://ascii.co.uk/art/poem
 ```
 ````
 

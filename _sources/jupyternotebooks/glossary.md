@@ -57,7 +57,7 @@ Class
 Class Members
   Functions that belong to a class.
 
-Code Block
+Code-Block
   Sequence of {term}`statements` enclosed by curly braces `{}`. Also called a {term}`compound statement`.
 
 Comma Operator
@@ -110,6 +110,9 @@ Core Language
 
 Copy Assignment
   Replacement of the contents of one object with the contents of a second object; the second object is unaffected by the operation. Can also initialise an object.
+
+Copy-initialisation
+  def
 
 CPU
   [Central Processing Unit](https://en.wikipedia.org/wiki/Central_processing_unit) is the electronic circuitry inside a computer that executes the machine code version of computer programmes.
@@ -228,14 +231,17 @@ Function
 Functions
   A named sequence of statements that can be invoked/called by a program, optionally using arguments supplied by the function call, to optional return a value to the program. The type of the function includes the number and types of argument and the type of the value returned. Functions are useful because they are reusable, making code more efficient to write and execute.
 
-Function Argument
+Function-Argument
   The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
 
-Function Arguments
+Function-Arguments
   The values passed into a function. The function declaration specifies the number and type of the required arguments, which must match when the function is called.
 
-Function Body
+Function-Body
   Sequence of statement to be executed when the function is called.
+
+Function-Call
+  A function is 'called' or 'invoked' by a statement of the function name followed by the values to be passed to the function in parenthesis. Any value returned by the function can be used by {term}`copy assignment`.
 
 Function Call
   A function is 'called' or 'invoked' by a statement of the function name followed by the values to be passed to the function in parenthesis. Any value returned by the function can be used by {term}`copy assignment`.
@@ -243,14 +249,26 @@ Function Call
 Function Declaration
   Statement of the name, types of any arguments and the return type of a function.
 
-Function Definition
+Function-Declaration
+  Statement of the name, types of any arguments and the return type of a function.
+
+Function-Definition
   Function declaration that include the {term}`function body`.
 
-Function Parameter
+Function-Identifier
+  Identifier of a function - may be user-defined.
+
+Function-Parameter
   Placeholders in the function declaration for the arguments that will be passed in. The parameter is the local variable name within the function associated with its argument value.
 
 Functional Programming
   Programming paradigm that constructed programs using functions. A declarative model of programming emphasizing "what to do" rather than "how to do it."
+
+Function Prototype
+  Function Declaration
+
+Function-type
+  Combination of the return type and arguments' types. e.g. `int(double, string, int)`.
 
 Fundamental Types
   Types provide by the core language.
@@ -468,14 +486,17 @@ Static
 Static Duration
   Lifetime of the programme's execution - duration of static variables - all global variables.
 
+Static Memory
+  Memory allocated by the {term}`linker`
+
 String
   def
 
 String Data Type
   Data consisting of a sequence of characters, bracketed by `""`.
 
-Static Memory
-  Memory allocated by the {term}`linker`
+Structured Binding
+  Structured bindings allow you to decompose structured objects like tuples, arrays, or maps into individual variables for cleaner and more readable code.
 
 Switch Statement
   Def
@@ -497,6 +518,9 @@ Translation unit
 
 Translation units
   Part of a program that can be separately compiled. Individual source, or header, files.
+
+Tuple
+  A container that allows grouping of multiple values of potentially different types into a single object.
 
 Type
  A type defines the proper use of a name or an expression.
