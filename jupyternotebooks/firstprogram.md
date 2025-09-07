@@ -121,7 +121,7 @@ Try making the following changes to the above code - run the code after each cha
 
 
 ````{solution} exercisea1 
-:class: hint dropdown
+:class: dropdown
 :label: solutiona1
 
 - A semicolon is required need at the end of each statement – exceptions `include`, `includes` and after `{` or `}`. 
@@ -150,7 +150,7 @@ return "Peter";
 }
 `````
 `````{solution} exercisea2
-:class: note dropdown
+:class: dropdown
 :label: solutiona2
 pre comment
 ```{code-block} cpp

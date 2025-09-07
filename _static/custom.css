@@ -63,6 +63,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   --pst-icon-admonition-tip: "\f0a1";
   --pst-icon-admonition-solution: "\f46c";
   --pst-icon-admonition-exercise: "\f518";
+  --pst-icon-admonition-code_example: "\f121";
   
   --pst-icon-admonition-note: "\f044";  
   --pst-icon-admonition-attention: "\f46c";
