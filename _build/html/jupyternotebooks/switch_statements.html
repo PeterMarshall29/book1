@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.126ea77f-37da-4b27-a114-8356d6e03c7b.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.afbb7fec-ab98-481f-85ae-daabe07bc586.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-33c54af5-b943-48bc-9ee5-8d97b860b496] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-4551b109-72a9-4845-8da6-2e2b6a3123f3] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -243,7 +243,7 @@ window.addEventListener("load", load);
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -579,17 +579,17 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<p>The switch statement test the value of its condition againt a series of possible alternative values.</p>
-<p>The condition may be either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition.</p>
-<p>The cases are the possible values that will trigger a decision to swith control flow.</p>
+<p>The switch statement tests the value of its condition against a series of possible alternative values.</p>
+<p>The condition may either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition.</p>
+<p>The cases are the possible values that will trigger a decision to switch control flow.</p>
 <p>The program checks each case from the top down.</p>
-<p>If the case label constant value does not match the value of the condition then the program ignores the corresponding code block, and moves onto the next case.</p>
-<p>If a value matches, the corresponding statements are exectuted, followed by the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement, which causes the program to exit the switch-statement and move onto the next statement after the switch-block.</p>
+<p>If the case label constant value does not match the value of the condition, then the program ignores the corresponding code block and moves onto the next case.</p>
+<p>If a value matches, the corresponding statements are executed, followed by the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement, which causes the program to exit the switch-statement and move onto the next statement after the switch-block.</p>
 <p>If no statement match, then either the optional default block is executed, or control passes back.</p>
 <p>The break-statements prevent more than one case being triggered
 The break statements are not optional.</p>
 <p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-33c54af5-b943-48bc-9ee5-8d97b860b496" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-4551b109-72a9-4845-8da6-2e2b6a3123f3" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
@@ -629,18 +629,18 @@ The break statements are not optional.</p>
 <ul class="simple">
 <li><p>Switch variables must be constant expressions i.e. there must be literal value typed at the case line.</p></li>
 <li><p>Switch variables may only be of the types: integral (including <code class="docutils literal notranslate"><span class="pre">char</span></code>), enumeration, or class.</p></li>
-<li><p>The swtich case You cannot switch on a string value – selection based on a <code class="docutils literal notranslate"><span class="pre">string</span></code> requires an if-statement or a ‘map’.</p></li>
+<li><p>You cannot switch on a string value – selection based on a <code class="docutils literal notranslate"><span class="pre">string</span></code> requires an if-statement or a ‘map’.</p></li>
 <li><p>A single case can be executed for several case labels. But case labels cannot be used for two cases.</p></li>
 </ul>
 <p>i.e. use multiple labels for the same case: e.g. case ‘0’: case ‘2’: case ‘4’: case ‘6’: case ‘8’: …then case statements…</p>
 <ul class="simple">
 <li><p>Most compilers do not warn if you forget break – it is required – try it.</p></li>
-<li><p>Without the breaks -  all the code blocks below the first detected case will also be executed.</p></li>
+<li><p>Without the breaks - all the code blocks below the first detected case will also be executed.</p></li>
 </ul>
 </div>
 <div class="example dropdown admonition" id="exampler1">
 
-<p class="admonition-title"><span class="caption-number">example 8 </span></p>
+<p class="admonition-title"><span class="caption-number">example 6 </span></p>
 <section id="example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -671,15 +671,15 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown note admonition" id="explanationr1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Code Example 8</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Code Example 6</a></p>
 <section id="explanation-content">
 <p>In this example, the while loop is just to keep the program running – we are only interested in the switch loop.</p>
 <p>constexpr double cm_per_inch = 2.54 - the conversion factor.</p>
 <p>Every time the while loop runs, the user is asked to input a value for ‘unit’, and then the switch statement runs, using unit as its condition.</p>
-<p>There are two cases - switching to their code block if the condtion yield a value of ‘i’ or ‘c’.</p>
+<p>There are two cases - switching to their code block if the condition yield a value of ‘i’ or ‘c’.</p>
 <p>The break statements cause the program to exit the switch-statement after completing the successful switch.</p>
-<p>If neither ‘i’ nor ‘c’ is typed in then the default case is executed.</p>
-<p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute The syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
+<p>If neither ‘i’ nor ‘c’ is typed in, then the default case is executed.</p>
+<p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute the syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 24 </span></p>
@@ -698,7 +698,7 @@ The break statements are not optional.</p>
 </div>
 <div class="example dropdown admonition" id="exampler2">
 
-<p class="admonition-title"><span class="caption-number">example 9 </span></p>
+<p class="admonition-title"><span class="caption-number">example 7 </span></p>
 <section id="example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -715,7 +715,7 @@ The break statements are not optional.</p>
 <span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">operation</span><span class="p">;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">operation</span><span class="p">;)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//keeps reading cin until it gets an operator</span>
 <span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">operation</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;x&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span>
 <span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;no second operand&quot;</span><span class="p">);</span>
-<span class="w"> </span>
+<span class="w"> </span>
 <span class="w">		</span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">:</span>
 <span class="w">			</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span>
@@ -743,7 +743,7 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown hint admonition" id="explanationr2">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Code Example 9</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Code Example 7</a></p>
 <section id="explanation-content">
 <p>words</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-5">

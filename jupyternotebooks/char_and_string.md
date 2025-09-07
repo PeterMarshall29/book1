@@ -16,7 +16,7 @@ kernelspec:
 
 In C++ there are a range of character sets and character set encodings available. Char variables are represented by 8 bits, which puts a limit on the character set of 256 items.
 
-The basic, and default character type is `char`. There will be no immediate need to look into any others.
+The basic, and default character type is `char`. There will be no immediate need to investigate any others.
 
 A char-type variable can hold a character of the implementation’s character set. 
 
@@ -24,12 +24,12 @@ Char type is created using single quotes `' '` around a character literal. For e
 ```{code-block} cpp
 char myCharacter = 'Z';
 ```
-The character set we are using is called ASCII,  (American Standard Code for Information Interchange) that represents 128 characters chosen to match the characters appearing on your keyboard.
+The character set we are using is called ASCII, (American Standard Code for Information Interchange) that represents 128 characters chosen to match the characters appearing on your keyboard.
 
 `0` is also used as a null pointer constant, and as the {term}`null character`. 
 
 Different countries with different symbol requirements for their keyboards (e.g., æ, þ, and ß) will use different character sets and you must never rely on char values for the execution of a published program.
-```{admonition} Additonal Character Types
+```{admonition} Additional Character Types
 :class: dropdown
 * char: Default character type - used for program text - usually 8 bits.
 * signed char: Like char, but for signed character representation - able of holding both positive and negative values.
@@ -57,7 +57,7 @@ return 0;
 Type code here!
 ````
 Find out what happens when you:
-- Captialize the two letters and run the code again.
+- Capitalise the two letters and run the code again.
 - Make more changes to try to make senses of the output.
 - Try numbers instead - what is the sum of '1' and '1' anyway?
 - Check that at least its half as much as '2' and '2' still, right?
@@ -67,7 +67,7 @@ Find out what happens when you:
 
 `char` is an integral type - all characters have a corresponding integer value, and arithmetic operations can be applied.
 
-For 8 bit representations like `char`, the integer value run from 0 to 255.
+For 8-bit representations like `char`, the integer value run from 0 to 255.
 
 The character '1' has the integer value of 49.
 
@@ -75,7 +75,7 @@ Being next in sequence, the character '2' has the integer value 50.
 
 The values of all `char` characters can be found [here](https://en.cppreference.com/w/cpp/language/ascii.html).
 
-The captials letters have different integer values to their lower case version. This is why names are case sensitive.
+The capital letters have different integer values to their lower-case version. This is why names are case sensitive.
 ````
 `````{exercise-end}
 `````

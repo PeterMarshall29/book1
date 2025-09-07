@@ -16,14 +16,14 @@ kernelspec:
 {attribution="Yogi Berra" }
 > When you get to a fork in the road, take it.
 ```
-The if-statement is used to chose between two possible paths.
+The if-statement is used to choose between two possible paths.
 
 At its simplest, an if block can change something depending on a condition
 
 The syntax of the if-statement is:
 
 ```{code-block} c++
-if (condition) { Code block to execute if condtion is true } 
+if (condition) { Code-block to execute if condition is true } 
 ```
 
 
@@ -34,7 +34,7 @@ if (condition) { Code block to execute if condtion is true }
 If statements are found in most programming languages.
 The C++ patter is if..elif..else.
 
-Some languages have an 'elseif' or similar, but c++ nest if-else statements. 
+Some languages have an 'elseif' or similar - C++ uses nested `if-else` statements. 
 
 ````{tab} C++
 ```{code-block} c++
@@ -157,14 +157,14 @@ int main() {
 :label: explanationq1
 :class: dropdown note
 ```{code-block} c++
-(answer == '42') 
+if (answer == "42") {}
 ```
-`answer==42` is the condition. The condition must be put in parentheses - if is a function.
+`answer==42` is the condition. The condition must be put in parentheses - `if` is a function.
 is the condition that is to be checked. The code blo
 `{ std::cout << "You are trully wise";}`
-More correctly, the condition is evaluated. It it evaluates to the boolean value `1` then teh code blokIt the conditon is found to be true, then the code block is ecex
+More correctly, the condition is evaluated. If it evaluates to the Boolean value `1`, or `true`, then the code block is executed.
 
-The progam works - ied does basically work.
+The program does basically work.
 ````
 `````{example-end}
 `````
@@ -194,11 +194,11 @@ int main() {
 ````{explanation} exampleq2
 :label: explanationq2
 :class: dropdown
-The progammed does basically work.
+The programme does basically work.
 
 
 
-s except does not  return the value if two identical values are entered – also behaves oddly if first number is a double – takes part before the decimal point then reports having received the second part as 0 without pause. If second is a double, it rounds or ignores what is after the decimal point. 
+s except does not return the value if two identical values are entered – also behaves oddly if first number is a double – takes part before the decimal point then reports having received the second part as 0 without pause. If second is a double, it rounds or ignores what is after the decimal point. 
 This fixes part of the issue – other issues left as an exercise
 
 

@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.f2fa6da5-b9e0-4940-8dd5-9a976393512e.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.f57e9131-fb7c-4709-8dea-f912779bae64.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-63e8143c-3043-4516-8cf1-38ffc689692f] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-92321e0d-105d-4f5f-828b-0da4df733bad] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -243,7 +243,7 @@ window.addEventListener("load", load);
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -570,7 +570,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="the-c-language">
 <span id="cpplanguage"></span><h1>The C++ Language<a class="headerlink" href="#the-c-language" title="Permalink to this heading">#</a></h1>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> language is one of the most powerful programming languages available today. It was created by Danish computer scientist <a class="reference external" href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne_Stroustrup</a> and first released in 1985.</p>
-<p>C++ is widely used, high level, general purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).</p>
+<p>C++ is widely used, high-level, general-purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).</p>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
 <blockquote>
@@ -619,7 +619,7 @@ document.write(`
 </div>
 </div>
 <p>Languages like Julia, have a more modern syntax, and great for writing scripts for scientific computing or machine learning.</p>
-<p>C++ is a more versatile general purpose language, that is platform independent, allows for precise control of hardware and memory.</p>
+<p>C++ is a more versatile general-purpose language, that is platform independent, allows for precise control of hardware and memory.</p>
 <p>If you had to pick one language to learn - the one that provides more career options and a stronger foundation for picking up other languages is best.</p>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
@@ -628,7 +628,7 @@ document.write(`
 <p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
 </div></blockquote>
 </div>
-<p>All the C++ language syntax is detailed the official C++ Standard Reference Documentation <a class="reference external" href="https://en.cppreference.com/w/">here</a>, although it may look daunting, this reference does have some useful information for beginnerss, and will become more accessible as you work through the basic concepts covered in this module.</p>
+<p>All the C++ language syntax is detailed the official C++ Standard Reference Documentation <a class="reference external" href="https://en.cppreference.com/w/">here</a>, although it may look daunting, this reference does have some useful information for beginners and will become more accessible as you work through the basic concepts covered in this module.</p>
 <div class="note margin admonition">
 <p class="admonition-title">Note</p>
 <p>Computational A will be using <code class="docutils literal notranslate"><span class="pre">C++20</span></code></p>
@@ -638,9 +638,9 @@ document.write(`
 <p>The evolution of the C++ language is detailed in: <a class="reference external" href="https://en.cppreference.com/w/cpp/language/history.html">Evolution of the C++ language</a></p>
 </div>
 <hr class="docutils" />
-<p>The live code editor on the following pages, uses a C++ Kernel that runs in Jupyter Notebook. This is not the usual way to work and has signifiant limits.</p>
+<p>The live code editor on the following pages, uses a C++ Kernel that runs in Jupyter-Notebook. This is not the usual way to work and has significant limits.</p>
 <p>In later weeks we will move to Visual Studio and start writing complete computer programs that can be compiled into executables - the following notes apply then.</p>
-<p>You might want to down load the Community Edition (free) of Visual Studio in advance.</p>
+<p>You might want to download the Community Edition (free) of Visual Studio in advance.</p>
 <section id="structure-of-the-c-language">
 <h2>Structure of the C++ Language<a class="headerlink" href="#structure-of-the-c-language" title="Permalink to this heading">#</a></h2>
 <p>In the <code class="docutils literal notranslate"><span class="pre">C++</span></code> programming language, consist of two parts: the <strong><a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a></strong> and the <strong><a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a></strong>.</p>
@@ -652,13 +652,13 @@ document.write(`
 </section>
 <section id="structure-of-c-programmes">
 <h2>Structure of C++ Programmes<a class="headerlink" href="#structure-of-c-programmes" title="Permalink to this heading">#</a></h2>
-<p>A C++ program is a sequence of text files written in the human-readble C++ language, with file endings such as <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> for source files and <code class="docutils literal notranslate"><span class="pre">.h</span></code> for header files.</p>
-<p>Each c++ language file is called a <a class="reference internal" href="glossary.html#term-Translation-unit"><span class="xref std std-term">translation unit</span></a>, contains a series of declarations. Each <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a> is a statement written in the C++ language, which together form a program.</p>
-<p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a <a class="reference internal" href="glossary.html#term-Compiled-Language"><span class="xref std std-term">compiled language</span></a>. The <a class="reference internal" href="glossary.html#term-Compiler"><span class="xref std std-term">compiler</span></a> converts the (basically) <strong>human-readable</strong> <code class="docutils literal notranslate"><span class="pre">C++</span></code> translation units into machine language files, called <a class="reference internal" href="glossary.html#term-Object-files"><span class="xref std std-term">object files</span></a> that have endings <code class="docutils literal notranslate"><span class="pre">.obj</span> <span class="pre">in</span> <span class="pre">Windows</span> <span class="pre">and</span> </code>.o` in Linux.</p>
-<p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
+<p>A C++ program is a sequence of text files written in the human-readable C++ language, with file endings such as <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> for source files and <code class="docutils literal notranslate"><span class="pre">.h</span></code> for header files.</p>
+<p>Each C++ language file is called a <a class="reference internal" href="glossary.html#term-Translation-unit"><span class="xref std std-term">translation unit</span></a>, contains a series of declarations. Each <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a> is a statement written in the C++ language, which together form a program.</p>
+<p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a <a class="reference internal" href="glossary.html#term-Compiled-Language"><span class="xref std std-term">compiled language</span></a>. The <a class="reference internal" href="glossary.html#term-Compiler"><span class="xref std std-term">compiler</span></a> converts the (basically) <strong>human-readable</strong> <code class="docutils literal notranslate"><span class="pre">C++</span></code> translation units into machine language files, called <a class="reference internal" href="glossary.html#term-Object-files"><span class="xref std std-term">object files</span></a> that have endings <code class="docutils literal notranslate"><span class="pre">.obj</span></code> in Windows and <code class="docutils literal notranslate"><span class="pre">.o</span></code> in Linux.</p>
+<p>The collection of object files is then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
-<pre align="center" data-zoom-id="id-63e8143c-3043-4516-8cf1-38ffc689692f" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-92321e0d-105d-4f5f-828b-0da4df733bad" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]
@@ -691,16 +691,16 @@ document.write(`
 <p>A hosted implementation includes all the standard-library facilities.</p>
 <p>Freestanding implementations are used when your code require the most minimal operating system support.</p>
 <p>A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library:  <code class="docutils literal notranslate"><span class="pre">&lt;cstddef&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cfloat&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;climits&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdint&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdlib&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;new&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;typeinfo&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;exception&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;initializer_list&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdalign&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdarg&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;cstdbool&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;type_traits&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;atomic&gt;</span></code>.</p>
-<p>Some implementations provide a non-standard option that does not use exceptions for really minimal, bare metal programming (directly implemented on hardware).</p>
+<p>Some implementations provide a non-standard option that does not use exceptions for minimal, bare metal programming (directly implemented on hardware).</p>
 <p>The C++ standard leaves some important features and rules to be implementation-defined. There is therefore much scope for unexpected behaviours between implementations.</p>
 <p>Programs often rely upon on implementation-defined behaviours.</p>
-<p>To enable portability the programmed should always understand be clear about which features , it is wise to be explicit about what implementation-defined features are being used and to try to isolate implementation specific features to specific parts of the program - in separate files, functions etc. - then only these sections need be changed.</p>
+<p>To enable portability the programmer should always understand be clear about what implementation-defined features are being used and to try to isolate implementation specific features to specific parts of the program - in separate files, functions etc. - then only these sections need be changed.</p>
 </div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Memory Management</p>
 <p>Historically, computer memory was much smaller and more expensive. It was necessary to plan how even small programs would manage memory.</p>
 <p>Today computers have relatively large and cheap memory, and memory management need only be considered for more demanding applications, or for embedded devices.</p>
-<p>Assigning objects to the computer’s memory (RAM) is called allocating e.g. allocatd on the stack, allocated on the free store</p>
+<p>Assigning objects to the computer’s memory (RAM) is called allocating e.g. allocated on the stack, allocated on the free store</p>
 <p>In C++, methods are available for allocation and freeing memory during the execution of a program.</p>
 <p>Memory is divided into:</p>
 <ul class="simple">
@@ -708,16 +708,16 @@ document.write(`
 <li><p>Automatic local variable memory - region called the <a class="reference internal" href="glossary.html#term-Stack"><span class="xref std std-term">stack</span></a> - controlled by logical execution of the program.</p></li>
 <li><p><a class="reference internal" href="glossary.html#term-Dynamic-Memory"><span class="xref std std-term">Dynamic memory</span></a> - called the <a class="reference internal" href="glossary.html#term-Free-store"><span class="xref std std-term">free store</span></a> - managed by the programmer (region of memory sometimes called the <a class="reference internal" href="glossary.html#term-Heap"><span class="xref std std-term">heap</span></a>).</p></li>
 </ul>
-<p>Objects are allocated to the free store using <code class="docutils literal notranslate"><span class="pre">new</span></code> and persist until specicially deleted. Failing to deallocate memory in the free store, during execution causes memory resource issues, <code class="docutils literal notranslate"><span class="pre">delete</span></code> must be use to deallocate to prevent a memory leak.</p>
+<p>Objects are allocated to the free store using <code class="docutils literal notranslate"><span class="pre">new</span></code> and persist until specifically deleted. Failing to deallocate memory in the free store, during execution causes memory resource issues, <code class="docutils literal notranslate"><span class="pre">delete</span></code> must be used to deallocate to prevent a memory leak.</p>
 <p>The stack is memory allocated at run time to hold local variables and arguments for any function call including the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function. The stack is automatically freed when the function execution ends.</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">Out-of-Memory Errors</p>
-<p>Memory is a finite resource and programmers often need to consider how objects are allocated into different types of memory in order to make it possible to run a program on a given device.</p>
+<p>Memory is a finite resource, and programmers often need to consider how objects are allocated into different types of memory to make it possible to run a program on a given device.</p>
 <p>Each type of memory has a different impact on memory resources.</p>
 <p>The amount of static memory required is determined by the static data structures that are required to exist in the computer’s RAM during execution.</p>
-<p>The amount of stack memory required depends on the size of the local variables be and the interaction of the functions that are called. A function that uses a large array and calles itself repeatedly will use up a lot of the available stack. Programs can usuall by rewritten to minimise stack requirement - sometimes by increased static memory.</p>
-<p>In C++, the most likely cause of unexpected “out of memory errors” is running out of memory on the heap as a result of not deallocating objects properly.
-Memory leaks occur when memory remains allocated after it is no longer needed, due to the failure of the program to release memory back to the heap with delete when the object is no longer required (after a function has been executed). Leak in the sense that the program has a decreasig amount of memory available to it. Some lanaguages handle this issue using a process called automatic garbage collection.</p>
+<p>The amount of stack memory required depends on the size of the local variables be and the interaction of the functions that are called. A function that uses a large array and calls itself repeatedly will use up a lot of the available stack. Programs can usually by rewritten to minimise stack requirement - sometimes by increased static memory.</p>
+<p>In C++, the most likely cause of unexpected “out of memory errors” is running out of memory on the heap because of not deallocating objects properly.
+Memory leaks occur when memory remains allocated after it is no longer needed, due to the failure of the program to release memory back to the heap with delete when the object is no longer required (after a function has been executed). Leak in the sense that the program has a decreasing amount of memory available to it. Some languages handle this issue using a process called automatic garbage collection.</p>
 </div>
 </div>
 </section>

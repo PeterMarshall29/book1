@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.b5371741-5844-4709-97f9-cba31f1a0dd8.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.483ccad2-2c5e-4e8d-b619-5e41d59739ee.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/vector';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -206,7 +206,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -534,7 +534,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vectors">
 <span id="id1"></span><h1>Vectors<a class="headerlink" href="#vectors" title="Permalink to this heading">#</a></h1>
-<p>There are several way to store multiple values in a single variable. <vector>, <array>, and built-in arrays.</p>
+<p>There are several ways to store multiple values in a single variable. <vector>, <array>, and built-in arrays.</p>
 <p>The <vector> library provides the most flexible method.</p>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
@@ -559,53 +559,52 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="example dropdown admonition" id="examplen1">
+<div class="code_example dropdown admonition" id="examplen1">
 
-<p class="admonition-title"><span class="caption-number">example 3 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 28 </span></p>
+<section id="code_example-content">
 <p>Try this code - construct the supporting program.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span>std::vector&lt;int&gt; myFirstVector = {1,2,3,4,5 };
-std::cout &lt;&lt; myFirstVector;
-````` 
-`````{explanation}
-:class: dropdown hint
-This code will not work - the character output stream `cout` cannot print a whole vector.
-
-To print one element of the vector, we can use its index.
-
-````{admonition} Indexing into a Vector
-:class: dropdown
-To access or modify an indiviudal element of a vector we use the elements index:
-```{code-block} c++
-vectorName[..element_index_here]
-```
-```{important}
-In computing, most index values start from 0!
-```
-````
-Try changing the ouptut line to:
-
-```{code-block} c++
-std::cout &lt;&lt; myFirstVector[0];
-```
-What happens if you replace 0, with 5? Find out!
-
-To output all of the values of a vector we need to use an iteration statement
-
-Try this code
-```{code-block} c++
-for (int i = 0; i &lt; myFirstVector.capacity(); ++i) std::cout &lt;&lt; myFirstVector[i] &lt;&lt; &quot;\n&quot;; 
-```
-Or:
-```{code-block} c++
-for (int i = 0; i &lt; myFirstVector.size(); ++i) std::cout &lt;&lt; myFirstVector[i] &lt;&lt; &quot;\n&quot;;
-```
-`capacity()` is a member function of the class `vector` and therefore must be addressed using the `.` notation on an instance of `vector`.
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="code_explanation dropdown hint admonition" id="jupyternotebooks/vector-code_explanation-1">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen1"> Code_Example 28</a></p>
+<section id="code_explanation-content">
+<p>This code will not work - the character output stream <code class="docutils literal notranslate"><span class="pre">cout</span></code> cannot print a whole vector.</p>
+<p>To print one element of the vector, we can use its index.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Indexing into a Vector</p>
+<p>To access or modify an individual element of a vector we use the elements index:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">vectorName</span><span class="p">[..</span><span class="n">element_index_here</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In computing, most index values start from 0!</p>
+</div>
+</div>
+<p>Try changing the ouptut line to:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>What happens if you replace 0, with 5? Find out!</p>
+<p>To output all the values of a vector we need to use an iteration statement</p>
+<p>Try this code</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Or:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">capacity()</span></code> is a member function of the class <code class="docutils literal notranslate"><span class="pre">vector</span></code> and therefore must be addressed using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation on an instance of <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
+</section>
 </div>
 </section>
 </div>
@@ -614,37 +613,37 @@ for (int i = 0; i &lt; myFirstVector.size(); ++i) std::cout &lt;&lt; myFirstVect
 <p>A non-existent element cannot be accessed or assigned to in any type of vector or array.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Assigning a value to a non-exitant element will throw an error.
-In some languages the new element would be created and intermediate values filled with zeros - not in c++!</p>
+<p>Assigning a value to a non-existent element will throw an error.
+In some languages the new element would be created and intermediate values filled with zeros - not in C++!</p>
 </div>
-<p>New elements my only be added immediataly after the last existing element of a vector.</p>
+<p>New elements my only be added immediately after the last existing element of a vector.</p>
 <p>To append an extra element, at the end, the <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> function is used.</p>
-<div class="example dropdown admonition" id="examplen2">
+<div class="code_example dropdown admonition" id="examplen2">
 
-<p class="admonition-title"><span class="caption-number">example 4 </span></p>
-<section id="example-content">
+<p class="admonition-title"><span class="caption-number">Code Example 29 </span></p>
+<section id="code_example-content">
 <p>Try this code - construct the supporting program.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span>std::vector&lt;int&gt; mySecondVector = { 1, 2, 3, 4, 5 };
-mySecondVector.push_back(17);
-for (int i : mySecondVector ) std::cout &lt;&lt; i &lt;&lt;&quot;\n&quot;;
-```` 
-````{explanation}
-
-`push_back()` is another member function – it belongs to std::vector and must be called using the `.` notation.
-
-Line 3 is a range-for-statement, explained [here](range-for).
-
-More than element may be added by `push_back()` by using a list.
-
-Try adding:
-```{code-block} c++
-mySecondVector.push_back({6, 7, 8, 9 , 10}); 
-```
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mySecondVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
+<span class="n">mySecondVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mySecondVector</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="code_explanation admonition" id="jupyternotebooks/vector-code_explanation-3">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen2"> Code_Example 29</a></p>
+<section id="code_explanation-content">
+<p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code> is another member function – it belongs to std::vector and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation.</p>
+<p>Line 3 is a range-for-statement, explained <a class="reference internal" href="for_loops.html#range-for"><span class="std std-ref">here</span></a>.</p>
+<p>More than element may be added by <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> by using a list.</p>
+<p>Try adding:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">mySecondVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">});</span><span class="w"> </span>
+</pre></div>
+</div>
+</section>
 </div>
 </section>
 </div>
@@ -688,7 +687,7 @@ mySecondVector.push_back({6, 7, 8, 9 , 10});
 <p>To access or modify a vector’s elements we use the index notation, or the at() function.</p>
 <div class="example dropdown admonition" id="examplen3">
 
-<p class="admonition-title"><span class="caption-number">example 5 </span></p>
+<p class="admonition-title"><span class="caption-number">example 3 </span></p>
 <section id="example-content">
 <p>Create a vector in the code box - and the supporting code to print the vector elements to the screen.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">

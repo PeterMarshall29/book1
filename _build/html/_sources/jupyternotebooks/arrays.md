@@ -12,9 +12,9 @@ kernelspec:
 
 # Arrays in C++
 
-C++ uses simple built-in arrays, discussed on this page - and also a separate `<array>` library, not discussed. 
+C++ uses simple built-in arrays, discussed on this page - and a separate `<array>` library, not discussed. 
 
-The built-in have values and length fixed at initilisation, and they may not be copied.
+The built-in arrays have values and length fixed at initialisation, and they may not be copied.
 
 An array is the C++ fundamental method for representing a sequence of objects in memory. 
 
@@ -48,11 +48,11 @@ void f()
 {
 int aa[10];
 aa[6] = 9;   // assign to aa’s 7th element
-int x = aa[99]; // undefined behavior
+int x = aa[99]; // undefined behaviour
 }
 ```
-Access out of the range of an array is undefined and usually disastrous. In particular, run-time range checking is neither guaranteed nor common. 
-The number of elements of the array, the array bound, must be a constant expression. If you need variable bounds, use a vector . For example:
+Access out of the range of an array is undefined and usually disastrous. Run-time range checking is neither guaranteed nor common. 
+The number of elements of the array, the array bound, must be a constant expression. If you need variable bounds, use a vector. For example:
 
 ```{code-block} c++
 void f(int n)
@@ -82,14 +82,14 @@ int v5[8] = { 1, 2, 3, 4 };
 // equivalent to
 int v5[] = { 1, 2, 3, 4 , 0, 0, 0, 0 };
 ```
-There is no built-in copy operation for arrays. You cannot initialize one array with another (not even of exactly the same type), and there is no array assignment:
+There is no built-in copy operation for arrays. You cannot initialize one array with another (not even of the same type), and there is no array assignment:
 
 ```{code-block} c++
 int v6[8] = v5; // error : can’t copy an array (cannot assign an int* to an array)
 v6 = v5; // error : no array assignment
 ```
 
-Similarly, you can’t pass arrays by value. When you need assignment to a collection of objects, use a vector, an array, or valarray  instead.
+Similarly, you can’t pass arrays by value. When you need assignment to a collection of objects, use a `vector`, an `array`, or a `valarray` instead.
 An array of characters can be conveniently initialized by a string literal.
 
 The C++ built-in array is an inherently low-level facility that should primarily be used inside the implementation of higher-level, better-behaved, data structures, such as the standard-library vector or array. 
@@ -128,7 +128,7 @@ void comp(double* arg)
 ```
 Now the insanity is (hopefully) obvious. When used as a function argument, the first dimension of an array is simply treated as a pointer. Any array bound specified is simply ignored. This implies that if you want to pass a sequence of elements without losing size information, you should not pass a built-in array. Instead, you can place the array inside a class as a member (as is done for `std::array`) or define a class that acts as a handle (as in `std::string` or `std::vector`).
 
-## Multidimenstional Arrays
+## Multidimensional Arrays
 
 ```{code-block} c++
 int main() {
@@ -150,7 +150,7 @@ int main() {
 
 We can initialize a 2D array using an initializer list in two ways. Below is the first method of initializing a 2D array using an initializer list.
 
-First Method: The below array has 2 rows and 4 columns. The elements are filled in a way that the first 4 elements are filled in the first row and the next 4 elements are filled in the second row.
+First Method: The below array has 2 rows and 4 columns. The elements are filled in a way that the first 4 elements are placed in the first row, and the next 4 elements in the second row.
 ```{code-block} c++
 int myArray[2][4] = { 0, 1, 2, 3, 4, 5, 6, 7 };
 ```
@@ -159,7 +159,7 @@ Second Method: The below way is the cleaner way to initialize a 2D array the nes
 int myArray2[2][4] = { {0, 1, 2, 3}, {4, 5, 6, 7} };
 ```
 2. Initialization of 2D array using Loops
-We can also initialize 2D array using loops. To initialize 2D array we have to use two nested loops and nested loops are equal to the dimension. For example, to initialize a 3D array we have to use three nested loops. Let’s see an example.
+We can also initialize 2D array using loops. To initialize a 2D array we must use two nested loops, and the number of nested loops are equal to the dimension. For example, to initialize a 3D array we must use three nested loops. Let’s see an example.
 
 Example: In the below example we have initializes the 2D array with 1. The outer loop is used to track rows `i=0` means the first row because of 0 indexing similarly `j=0` means the first column and combining this `x [0][0]` represents the first cell of the 2D array.
 ```{code-block} c++
@@ -170,6 +170,7 @@ int myArray3[2][4];
      }
  }
 ```
+
 
 
 

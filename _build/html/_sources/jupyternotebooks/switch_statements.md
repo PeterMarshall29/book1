@@ -37,17 +37,17 @@ switch (condition) {
 
 ```
 ````
-The switch statement test the value of its condition againt a series of possible alternative values.
+The switch statement tests the value of its condition against a series of possible alternative values.
 
-The condition may be either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition. 
+The condition may either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition. 
 
-The cases are the possible values that will trigger a decision to swith control flow.
+The cases are the possible values that will trigger a decision to switch control flow.
 
 The program checks each case from the top down.
 
-If the case label constant value does not match the value of the condition then the program ignores the corresponding code block, and moves onto the next case. 
+If the case label constant value does not match the value of the condition, then the program ignores the corresponding code block and moves onto the next case. 
 
-If a value matches, the corresponding statements are exectuted, followed by the `break` statement, which causes the program to exit the switch-statement and move onto the next statement after the switch-block.
+If a value matches, the corresponding statements are executed, followed by the `break` statement, which causes the program to exit the switch-statement and move onto the next statement after the switch-block.
 
 If no statement match, then either the optional default block is executed, or control passes back. 
 
@@ -100,7 +100,7 @@ flowchart LR
 
 - Switch variables may only be of the types: integral (including `char`), enumeration, or class.
 
-- The swtich case You cannot switch on a string value – selection based on a `string` requires an if-statement or a 'map'.
+- You cannot switch on a string value – selection based on a `string` requires an if-statement or a 'map'.
 
 - A single case can be executed for several case labels. But case labels cannot be used for two cases.
 
@@ -108,7 +108,7 @@ i.e. use multiple labels for the same case: e.g. case '0': case '2': case '4': c
 
 - Most compilers do not warn if you forget break – it is required – try it.
 
-- Without the breaks -  all the code blocks below the first detected case will also be executed.
+- Without the breaks - all the code blocks below the first detected case will also be executed.
 ```
 
 
@@ -149,13 +149,13 @@ constexpr double cm_per_inch = 2.54 - the conversion factor.
 
 Every time the while loop runs, the user is asked to input a value for 'unit', and then the switch statement runs, using unit as its condition.
 
-There are two cases - switching to their code block if the condtion yield a value of 'i' or 'c'.
+There are two cases - switching to their code block if the condition yield a value of 'i' or 'c'.
 
 The break statements cause the program to exit the switch-statement after completing the successful switch.
 
-If neither 'i' nor 'c' is typed in then the default case is executed.
+If neither 'i' nor 'c' is typed in, then the default case is executed.
 
-The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute The syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed. 
+The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute the syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed. 
 
 ```{exercise}
 :class: dropdown
@@ -188,7 +188,7 @@ if (!std::cin) throw std::runtime_error("no first operand");
 	for (char operation; std::cin >> operation;) { //keeps reading cin until it gets an operator
 		if (operation != 'x') std::cin >> rhs;
 		if (!std::cin) throw std::runtime_error("no second operand");
- 
+ 
 		switch (operation) {
 		case '+':
 			result = lhs + rhs;

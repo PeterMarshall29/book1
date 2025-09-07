@@ -11,7 +11,7 @@ kernelspec:
 ---
 (vectors)=
 # Vectors
-There are several way to store multiple values in a single variable. <vector>, <array>, and built-in arrays.
+There are several ways to store multiple values in a single variable. <vector>, <array>, and built-in arrays.
 
 The <vector> library provides the most flexible method.
 
@@ -39,7 +39,7 @@ std::vector<...elements_type...> myVectorName(...number_of_elements..., ...value
 ```
 ````
 
-``````{example-start}
+``````{code_example-start}
 :label: examplen1
 :class: dropdown
 ``````
@@ -48,8 +48,8 @@ Try this code - construct the supporting program.
 :tags: [remove-output, skip-execution]
 std::vector<int> myFirstVector = {1,2,3,4,5 };
 std::cout << myFirstVector;
-````` 
-`````{explanation}
+````` 
+`````{code_explanation} examplen1
 :class: dropdown hint
 This code will not work - the character output stream `cout` cannot print a whole vector.
 
@@ -57,7 +57,7 @@ To print one element of the vector, we can use its index.
 
 ````{admonition} Indexing into a Vector
 :class: dropdown
-To access or modify an indiviudal element of a vector we use the elements index:
+To access or modify an individual element of a vector we use the elements index:
 ```{code-block} c++
 vectorName[..element_index_here]
 ```
@@ -72,7 +72,7 @@ std::cout << myFirstVector[0];
 ```
 What happens if you replace 0, with 5? Find out!
 
-To output all of the values of a vector we need to use an iteration statement
+To output all the values of a vector we need to use an iteration statement
 
 Try this code
 ```{code-block} c++
@@ -84,7 +84,7 @@ for (int i = 0; i < myFirstVector.size(); ++i) std::cout << myFirstVector[i] << 
 ```
 `capacity()` is a member function of the class `vector` and therefore must be addressed using the `.` notation on an instance of `vector`.
 `````
-``````{example-end}
+``````{code_example-end}
 ``````
 
 ## Adding to a Vector
@@ -93,14 +93,14 @@ A non-existent element cannot be accessed or assigned to in any type of vector o
 
 ```{tip}
 :class: margin
-Assigning a value to a non-exitant element will throw an error.
-In some languages the new element would be created and intermediate values filled with zeros - not in c++!
+Assigning a value to a non-existent element will throw an error.
+In some languages the new element would be created and intermediate values filled with zeros - not in C++!
 ```
-New elements my only be added immediataly after the last existing element of a vector.
+New elements my only be added immediately after the last existing element of a vector.
 
 To append an extra element, at the end, the `push_back()` function is used.
 
-`````{example-start}
+`````{code_example-start}
 :label: examplen2
 :class: dropdown
 `````
@@ -112,8 +112,8 @@ Try this code - construct the supporting program.
 std::vector<int> mySecondVector = { 1, 2, 3, 4, 5 };
 mySecondVector.push_back(17);
 for (int i : mySecondVector ) std::cout << i <<"\n";
-```` 
-````{explanation}
+```` 
+````{code_explanation} examplen2
 
 `push_back()` is another member function – it belongs to std::vector and must be called using the `.` notation.
 
@@ -126,7 +126,7 @@ Try adding:
 mySecondVector.push_back({6, 7, 8, 9 , 10}); 
 ```
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 `````{exercise-start}

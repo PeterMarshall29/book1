@@ -138,12 +138,12 @@ Incrementing by 1 can be achieved several ways.
 
 Count = count + 1 can be written as ++count
 Count = count + n can be written as count+=n
-
+(assingment operators)=
 ## Assignment operators
 
 {term}`Assignment` operators modify the value of an object.
 
-{term}`Copy Assignment` replace the contents of an object (often a value) with the contents of a second object.
+{term}`Copy-Assignment` replace the contents of an object (often a value) with the contents of a second object.
 
 I or a new value. The second object is unaffected
 
@@ -353,7 +353,7 @@ These two situations are referred to as short-circuit evaluation, which is usefu
 - Additional Boolean expressions can be used to protect against unsafe conditions.
 
 For example, to prevent a condition throwing a 'division by zero' error, any time a condition involves division by a variable value, it can be logically protected by first checking that the variable is not zero, and short circuiting with logical `&&` or `||`, for example:
-```{code-block) c++
+```{code-block} c++
 (A != 0) && (A + 1/A < 100) (a == 0) || (a + 1/a < 100)
 ```
 If `a` is ‘0’, the first expression `(a == 0)` is true and the second expression is not

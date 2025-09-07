@@ -15,22 +15,21 @@ kernelspec:
 The `<iostream>` component of the {term}`standard library` provides the tools used to interact with programmes, using the keyboard and computer display for input and output.
 
 These basic functions are vital to learning programming because they enable the programmer to follow the progress of a programme's execution - without some output to the display you will have little insight into what the program is doing.
-```{seealso}
+```{danger}
 :class: margin
 {attribution="Programmer Humour...?"}
 > Knock, knock.
-
-Race condition!
-
-Who's there?
+ Race condition!
+ Who's there?
 ```
 ```{tip}
 :class: margin
 Don't forget to include `<iostream>` and `<string>` and to format the `main()` function correctly.
 ```
-`````{code_example-start}
+`````{code_example-start} Basic IOStream Statements
 :label: examplec1
 :class: dropdown
+:nonumber:
 `````
 Type the following code into the empty code window below, add the missing programme statements, and run the completed code.
 ````{code-block} c++
@@ -135,7 +134,7 @@ std::cout << "Hello, " << honorific << " " << firstName << " " << surname << ", 
 ```
 Attempting to add or multiply a string and integer is not permitted by the {term}`type system`.
 
-If a fourth string is input, when the program expects an integer, a null value is recorded, which unfortunately overwrote the existing value, if there was one, and is why the program printed '0'. A professional program would need to be able to catch this input error. Older C++ version might give a random value such as -96738 . 
+If a fourth string is input, when the program expects an integer, a null value is recorded, which unfortunately overwrote the existing value, if there was one, and is why the program printed '0'. A professional program would need to be able to catch this input error. Older C++ version might give a random value such as ‘-96738’ . 
 ````
 `````
 `````{syntax-start} std::cin
@@ -200,7 +199,7 @@ Extraction fails if the input data does not match the type of the variable being
 
 If a previous extraction has failed, `std::cin` will not be able to function until it is cleared.
 
-If there is no input because the extraction had previously failed extraction then indicated variables are left unmodified.
+If there is no input because the extraction had previously failed extraction, then indicated variables are left unmodified.
 
 However, a failed extraction due to invalid input will leave the variable indicated reset to null.
 ````{exercise}
@@ -260,7 +259,7 @@ return 0;
 
 The precision used for these options may also be set.
 
-After including the `<iomanip>` component of the Standard Library,  `<< std::setprecision()` controls the pecision of what follows.
+After including the `<iomanip>` component of the Standard Library,  `<< std::setprecision()` controls the precision of what follows.
 
 ````{code-cell} cpp
 :tags: [remove-output]
@@ -297,13 +296,13 @@ int main() {
     return 0;
 }
 ````
-The `getline()` function takes two arguments - The name of the input stream and the name of the string to write to, i.e `getline(stream, variable);`. 
+The `getline()` function takes two arguments - The name of the input stream and the name of the string to write to, i.e. `getline(stream, variable);`. 
 `````{code_example-end}
 `````
 
 ## Using `std::cout` with `<vector>`
 
-If indexing into a vector is inconvenient, another option is to overload the insertion operator `<<` using a template to accomodate the variety of types accepted by `vector`.
+If indexing into a vector is inconvenient, another option is to overload the insertion operator `<<` using a template to accommodate the variety of types accepted by `vector`.
 
 This is most likely beyond the scope of this module, but to demonstrate the possibility....
 

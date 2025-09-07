@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.d1855b47-629d-4140-a7b5-f7d90a0edc98.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.7605e73d-5c8a-4ef1-9602-3426685aa077.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-63d5d129-223c-49a9-b795-b558b50c3e9e] svg, .mermaid[data-zoom-id=id-a2ddd492-3d9d-4d90-b853-1da92fddc6e7] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-f675dddf-b7c9-4eb9-9e56-307fdde7a8a7] svg, .mermaid[data-zoom-id=id-7ff83a57-ba39-4be0-9b19-fe682e59db7f] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -243,7 +243,7 @@ window.addEventListener("load", load);
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -589,7 +589,7 @@ document.write(`
 stored-program computer (the EDSAC). It was written and run by David Wheeler
 in the computer laboratory in Cambridge University, England, on May 6, 1949,
 to calculate and print a simple list of squares like this:
-Its generally better to use for loops in C++, but while loops exist too.</p>
+It’s generally better to use for-loops in C++, but while-loops exist too.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-4">
 <thead>
 <tr class="row-odd"><th class="head"><p>Generic While Loop</p></th>
@@ -597,7 +597,7 @@ Its generally better to use for loops in C++, but while loops exist too.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-63d5d129-223c-49a9-b795-b558b50c3e9e" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-f675dddf-b7c9-4eb9-9e56-307fdde7a8a7" class="mermaid align-center">
         flowchart TD
   A([&quot;Program Flow Approaches the While Loop&quot;]) --&gt; B[&quot;Set Loop Variable&quot;]
   B --&gt; C{&quot;Check Termination Condition&quot;}
@@ -621,7 +621,7 @@ Its generally better to use for loops in C++, but while loops exist too.</p>
   linkStyle 5 stroke:#AA00FF,fill:none
   linkStyle 6 stroke:#AA00FF,fill:none0FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-a2ddd492-3d9d-4d90-b853-1da92fddc6e7" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-7ff83a57-ba39-4be0-9b19-fe682e59db7f" class="mermaid align-center">
         flowchart TD
   A([&quot;Arrival&quot;]) --&gt; B[&quot;Set Loop Counter: Count = 1;&quot;]
   B --&gt; C{&quot;Check Counter &amp;lt; 100&quot;}
@@ -659,7 +659,7 @@ previous = current;
 Notice that the conditional statement for both while and if are in parens.
 In this case – the loop condition is the receipt of a valid input.
 Try again but make the variable int’s. What happens if you type letters?
-Use Crtl+Z to end a loop. Ctrl+D in linux.</p>
+Use <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">Z</kbd></kbd> to end a loop. <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">D</kbd></kbd> in Linux.</p>
 <p>int main()
 {
 int i = 0; // start from 0
@@ -671,11 +671,11 @@ cout &lt;&lt; i &lt;&lt; ‘\t’ &lt;&lt; square(i) &lt;&lt; ‘\n’;
 <section id="loop-exit">
 <h2>Loop Exit<a class="headerlink" href="#loop-exit" title="Permalink to this heading">#</a></h2>
 <p>If the condition of an iteration statement is forgotten the loop will run until the program crashes - this can tie up a computer for a very long time.</p>
-<p>The iteration condition may also be intentially omitted, provided there is an alternaive method provided to end the loop.</p>
-<p>The program can exit an interation statemnet by arriving at the keywords, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">goto</span></code>, or <code class="docutils literal notranslate"><span class="pre">throw</span></code>.</p>
+<p>The iteration condition may also be intentionally omitted, provided there is an alternative method provided to end the loop.</p>
+<p>The program can exit an iteration statement by arriving at the keywords, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">goto</span></code>, or <code class="docutils literal notranslate"><span class="pre">throw</span></code>.</p>
 <section id="break">
 <h3><code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">break</span></code> - cause the program to break out of the nearest enclosing <a class="reference internal" href="glossary.html#term-Switch-Statement"><span class="xref std std-term">switch statement</span></a> or <a class="reference internal" href="glossary.html#term-Iteration-Statement"><span class="xref std std-term">iteration statement</span></a> . <code class="docutils literal notranslate"><span class="pre">break</span></code> is used if the logical flow may require the program to leave the loop in the middle.</p>
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code> - cause the program to break out of the nearest enclosing <a class="reference internal" href="glossary.html#term-Switch-Statement"><span class="xref std std-term">switch statement</span></a> or <a class="reference internal" href="glossary.html#term-Iteration-Statement"><span class="xref std std-term">iteration statement</span></a>. <code class="docutils literal notranslate"><span class="pre">break</span></code> is used if the logical flow may require the program to leave the loop in the middle.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> is usually found as an option in a selection-statement within the loop.</p>
 <p>It is usually better to exit loops via the loop exit condition unless the logic requires extra variables an complexity.</p>
 <div class="cell docutils container">
@@ -720,10 +720,7 @@ cout &lt;&lt; i &lt;&lt; ‘\t’ &lt;&lt; square(i) &lt;&lt; ‘\n’;
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>1</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2	3	4	6	7	8	9	11	12	13	14	16	17	18	19	
-</pre></div>
-</div>
+<p>1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19</p>
 </div>
 </div>
 </section>

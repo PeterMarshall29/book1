@@ -183,8 +183,8 @@ The programmer should always ensure there is a `return`, or an `error`, for ever
 ````
 1. Correct the code so that incrementing by two in each loop is controlled solely by the for-statement argument.
 2. Instead of using the returned value directly in the `std::out`, assign it to a variable and use that variable in the output stream statement. 
-2.  * Try moving the definition of squareOf() to below the main function. 
-    * Try moving the definition of squareOf() to inside the main function.
+2.  * Try moving the definition of `squareOf()` to below the main function. 
+    * Try moving the definition of `squareOf()` to inside the main function.
 4. Try changing the function declaration so that it expects a parameter of type `double`.
 
 ```{solution} exerciseu2
@@ -215,7 +215,7 @@ A result can also be returned.
 ```{admonition} Using Return Values
 :class: dropdown note
 
-Where the function call is encountered in the execution of a program, the program calls the function, and then substitutes the returned value at that point in the code.
+Where the function call is encountered in the execution of a program, the program calls the function and then substitutes the returned value at that point in the code.
 
 The `return` statement initialises a variable of the return type. This is identical to copy initialisation, but the variable is unnamed, and its value lost if not used immediately.
 
@@ -410,7 +410,7 @@ int numberOfFoxes(int day);
 ## Function Declarations and Definitions
 Every entity, including functions, must be declared before they may be used. 
 
-A {term}`function declaration` has the same form as the {term}`function definition` up to the closing parenthesis, but then the declaration is terminated by a semicolon, not by the function body.
+A {term}`function declaration` has the same form as the {term}`function-definition` up to the closing parenthesis, but then the declaration is terminated by a semicolon, not by the function body.
 
 Function declarations dictate the attributes of a function, before it is defined, so function calls found by the compiler before the definition can be checked to ensure their argument-types and return-types match requirements.
 
@@ -420,7 +420,7 @@ A function definition requires the code body also - 'Declarations are not defini
 `````
 ```{code-block} c++
 int myFunction(int); // is a declaration
-//This is the corresponding defintion.
+//This is the corresponding definition.
 int myFunction(int x) {
     std::cout << "Hello Class!";
     return x;
@@ -544,136 +544,170 @@ There are several ways to programme a function for multiple returns.
 2. Using a {term}`tuple`- see `<tuple>` and `std::tuple`. Can be extended by also using a {term}`structured binding`.
 3. Using pass be reference - defining parameters to use pass-by-reference so that the function can modify or initialize the values of objects that the caller provides.
 
-## Pass by Reference and Passing by Constant Reference
+## Pass-by-Reference and Pass-by-Constant-Reference
 
-Sometimes it is better not to pass a value directly into a function. 
+Calling a function using by including variable as arguments to populate a functions parameter list, is called pass-by-value.
+
+It is often better not to pass a value directly into a function.  
 
 When a value is passed into a function, a new copy of that value is created in the memory - a local copy for the use of the function.
 
-Passing in a long array of large numbers, or a very large image, will use up both resources and time unnecessarilty. 
+Passing in a long array of large numbers, or a very large image, will use up both resources and time unnecessarily. 
 
-The alternative approach is to only pass in a reference to the location of the variable. This is called {term}`passing by reference`.
+The alternative approach is to only pass in a reference to the variable - called {term}`pass-by-reference`.
 
 A {term}`reference` is the {term}`memory address` of a named object. 
 
 Programs run faster when function parameters are {term}`passed by reference`.
 
+````{syntax-start} Finding the Address of a Variable.
+:label: syntaxu3
+:class: dropdown
+:nonumber:
+````
+We can view the memory address of any variable by prefixing an ampersand `&` to its identifier.
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+int main() {
+    int number;
+    std::cout << &number;
+    return 0;
+}
+```
+````{syntax-end}
+````
 ***
-To declare that a parameter will by passed by reference, its type is declared with an ampersand attached to the end.
+To declare that a parameter will by passed by reference, its type is declared with a postfixed ampersand `&`.
 
 Passing by reference poses one risk - the original object is not affected by a function call when {term}`passed by value`, because a local copy is generated.
 
-To prevent the function altering the name object that is referenced the parameter must be listed as {term}`constant`, by putting the `const` keyword before, space separated.
+Passing a reference to a variable gives the function direct access to the variable, which the function can then modify.
+
+To prevent the function altering the named object that is referenced, the parameter must be listed as {term}`constant`, by adding the modifier `const` keyword before, the type, space separated.
 
 This is called {term}`passing by constant reference`.
-
-````{admonition} Passing by Constant Reference Example
-:class: note dropdown
-
-```{code-block} c++
-:linenos:
-:dedent:
-void myPrinter(const std::vector<double>& v)
+`````{code_example-start} Passing By Constant Reference
+:label: exampleu8
+:class: dropdown
+:nonumber:
+`````
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+#inlcude <vector>
+void myPrinter(const std::vector<double>& vectorLocal)
 {
     std::cout << "{";
-    for (int i = 0; i < v.size(); ++i) {
-        std::cout << v[i];
-        if (i != v.size() - 1) std::cout << ",";
+    for (int i = 0; i < vectorLocal.size(); ++i) {
+        std::cout << vectorLocal[i];
+        if (i != vectorLocal.size() - 1) std::cout << ",";
     }
     std::cout << "}\n";
 }
 int main() {
-    std::vector<double> a = { 5.9,8,1.1,2.3,4.5,5.6 };
-    myPrinter(a);   
+    std::vector<double> myVector = { 5.9,8,1.1,2.3,4.5,5.6 };
+    myPrinter(myVector);
     return 0;
 }
 ````
-`````{admonition} Passing by Reference Examples
-:class: note dropdown
+`````{code_example-end}
+`````
+
+`````{code_example-start} Passing by Reference
+:label: exampleu9
+:class: dropdown
+:nonumber:
+`````
 Pass by reference allows us to modify the original values.
 
-Example: two ways for a program to modify some named variable
+Method 2 - Modifying a local variable – which is a reference to the external value.
 
-To be accessible by a function the variable must be global, which means declaring it before the main function, otherwise the `myPrint()` functions could not alter it, only its copy.
-
-````{admonition} Method 1 – Alter a Global Variable
-:class: note dropdown
-```{code-block} c++
-:linenos:
-std::vector<double> a = { 5.9,8,1.1,2.3,4.5,5.6 };
-void myPrinter(std::vector<double> v)
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+#include <vector>
+void myPrinter(std::vector<double>& localVector)
 {
     std::cout << "{";
-    for (int i = 0; i < v.size(); ++i) {
-        std::cout << v[i];
-        if (i != v.size() - 1) std::cout << ",";
+    for (int i = 0; i < localVector.size(); ++i) {
+        std::cout << localVector[i];
+        if (i != localVector.size() - 1) std::cout << ",";
     }
     std::cout << "}\n";
 }
 
-void myPrinter2(std::vector<double> v)
+void myPrinter2(std::vector<double>& localVector)
 {
     std::cout << "{";
-    for (int i = 0; i < v.size(); ++i) {
-        a[i] = a[i] + 1;
-        std::cout << v[i];
-        
-        if (i != v.size() - 1) std::cout << ",";
+    for (int i = 0; i < localVector.size(); ++i) {
+        localVector[i] = localVector[i] + 1;
+        std::cout << localVector[i];
+        if (i != localVector.size() - 1) std::cout << ",";
     }
     std::cout << "}\n";
 }
- int main() {
-    myPrinter(a);
-    myPrinter2(a);  
-    myPrinter(a);
+
+int main() {
+    std::vector<double> myVector = { 5.9,8,1.1,2.3,4.5,5.6 };
+    myPrinter(myVector);
+    myPrinter2(myVector);
+    myPrinter(myVector);
     return 0;
 }
-```
 ````
-Notice that it does not matter whether the a[i] = a[i] + 1;
+Notice that the programme modifies the local variable (called `localVector`) - that because this is reference, not a copy, the variable referred to is being modified.
+***
 
-Line is before or after the print, since a copy of the original is being printed. This method still works if you pass by reference, but not the order matters since you are accessing the original for each output.
+Otherwise, the original variable would only be accessible by a function if the variable is global, which means declaring it before the main function, otherwise the `myPrint()` functions could not alter it, only its copy. If a variable is global there is no real reason to pass it into a function.
+
+Method 2 – Modifying a Global Variable
+
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+#include <vector>
+std::vector<double> myVector = { 5.9,8,1.1,2.3,4.5,5.6 };
+void myPrinter(std::vector<double> vectorLocal)
+{
+    std::cout << "{";
+    for (int i = 0; i < vectorLocal.size(); ++i) {
+        std::cout << vectorLocal[i];
+        if (i != vectorLocal.size() - 1) std::cout << ",";
+    }
+    std::cout << "}\n";
+}
+
+void myPrinter2(std::vector<double> vectorLocal)
+{
+    std::cout << "{";
+    for (int i = 0; i < vectorLocal.size(); ++i) {
+        myVector[i] = myVector[i] + 1;
+        std::cout << vectorLocal[i];
+
+        if (i != vectorLocal.size() - 1) std::cout << ",";
+    }
+    std::cout << "}\n";
+}
+int main() {
+    myPrinter(myVector);
+    myPrinter2(myVector);
+    myPrinter(myVector);
+    return 0;
+}
+````
+`myPrinter()` prints out the elements of a vector.
+
+`myPrinter2()` adds one to each element of the global vector but prints the terms of a local copy of the original vector.
+
+* It does not matter whether `myVector[i] = myVector[i] + 1;` is before or after the print statement, because it is not used for printing, but usually the position of an increment matters!
+
+The second call to the `myPrinter()` prints the modified Global vector.
 
 This is not helpful, because now you have a global variable.
 
-Method 2 - Change the local parameter – which is a reference to the external value.
 
-````{admonition} Method 2 - Change the local parameter
-:class: note dropdown
-```{code-block} c++
-:linenos:
-
-void myPrinter(std::vector<double>& v)
-{
-    std::cout << "{";
-    for (int i = 0; i < v.size(); ++i) {
-        std::cout << v[i];
-        if (i != v.size() - 1) std::cout << ",";
-    }
-    std::cout << "}\n";
-}
-
-void myPrinter2(std::vector<double>& v)
-{
-    std::cout << "{";
-    for (int i = 0; i < v.size(); ++i) {
-        v[i] = v[i] + 1;
-        std::cout << v[i];
-        if (i != v.size() - 1) std::cout << ",";
-    }
-    std::cout << "}\n";
-}
- 
-int main() {
-    std::vector<double> a = { 5.9,8,1.1,2.3,4.5,5.6 };
-    myPrinter(a);
-    myPrinter2(a);
-    myPrinter(a);
-        return 0;
-}
-
-```
-````
+`````{code_example-end}
 `````
 
 ## `constexpr` Functions
@@ -685,19 +719,33 @@ The signature also contains the enclosing namespace, unless it is a member funct
 
 ## Return Type Deduction
 If the `decl-specifier-seq` of the function declaration contains the keyword `auto` the return type will be deduced by the compiler from the type of the variable used in the return statement. 
+
+`````{code_example-start} Return Type Deduction
+:label: exampleu10
+:class: dropdown
+:nonumber:
+`````
+
 ````{code-block} c++
 int x = 1;
 auto f() { return x; }        // return type is int
 const auto& f() { return x; } // return type is const int&
 ````
 
+`````{code_example-end}
+````` 
 ## Function Templates
 
 A function template is similar to a class template; it generates concrete functions based on the template arguments. 
 
 In many cases, the template can infer the type arguments and therefore it isn't necessary to explicitly specify them.
+`````{code_example-start} Function Templates
+:label: exampleu11
+:class: dropdown
+:nonumber:
 
-```` c++
+`````
+````{code-block} c++
 template<typename Lhs, typename Rhs>
 auto Add2(const Lhs& lhs, const Rhs& rhs)
 {
@@ -706,6 +754,10 @@ auto Add2(const Lhs& lhs, const Rhs& rhs)
 auto a = Add2(3.13, 2.895); // a is a double
 auto b = Add2(string{ "Hello" }, string{ " World" }); // b is a std::string
 ````
+
+`````{code_example-end} 
+`````
+
 
 
 
