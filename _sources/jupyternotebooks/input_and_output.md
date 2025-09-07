@@ -70,6 +70,7 @@ int main() {
 
 ````{exercise}
 :class: dropdown
+:label: exercisec1
 Try the following code. Use the above code box.
 ```{code-block} c++
 :linenos:
@@ -78,7 +79,7 @@ std::cout << "Please type in your full name!\n";
 std::cin >> fullName;
 std::cout << "Hello, " << fullName << "!\n";
 ```
-```{admonition} Code Explanation
+```{solution} exercisec1
 :class: dropdown
 `cin` stops recording the input when it encounters the first whitespace, following any character (initial whitespace is ignored). Code still waits for {kbd}`return`.
 

@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.b78d2311-cca9-4bb2-ba3c-cca8dc8a03e9.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.eb67033d-a9b1-4c00-866d-6012763f86f3.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/input_and_output';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -554,7 +554,7 @@ Who’s there?</p>
 </div>
 <div class="code_example dropdown admonition" id="examplec1">
 
-<p class="admonition-title">Code_Example: Basic IOStream Statements </p>
+<p class="admonition-title">Code Example: Basic IOStream Statements </p>
 <section id="code_example-content">
 <p>Type the following code into the empty code window below, add the missing programme statements, and run the completed code.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Please type your surname!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -573,7 +573,7 @@ Who’s there?</p>
 </div>
 <div class="code_explanation dropdown admonition" id="jupyternotebooks/input_and_output-code_explanation-1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec1"> Code_Example: Basic IOStream Statements </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec1"> Code Example: Basic IOStream Statements </a></p>
 <section id="code_explanation-content">
 <p><code class="docutils literal notranslate"><span class="pre">cin</span></code> is the character input stream, pronounced ‘see - in’; used to read input from the keyboard.</p>
 <p>The input stream waits for the return key, taking any characters typed in before <kbd class="kbd docutils literal notranslate">return</kbd></p>
@@ -593,7 +593,7 @@ Who’s there?</p>
 </section>
 </div>
 </section>
-</div><div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-2">
+</div><div class="exercise dropdown admonition" id="exercisec1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
 <section id="exercise-content">
@@ -604,10 +604,13 @@ Who’s there?</p>
 <span class="linenos">4</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fullName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<div class="solution dropdown admonition" id="jupyternotebooks/input_and_output-solution-3">
+
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisec1"> Exercise 11</a></p>
+<section id="solution-content">
 <p><code class="docutils literal notranslate"><span class="pre">cin</span></code> stops recording the input when it encounters the first whitespace, following any character (initial whitespace is ignored). Code still waits for <kbd class="kbd docutils literal notranslate">return</kbd>.</p>
 <p>Any whitespace terminates the reading of the input string i.e. including ‘space’, ‘tab’, or ‘newline’ (i.e. <code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
+</section>
 </div>
 <p>Unsurprisingly we do sometimes need to be able to type in several words at the same time, separated by a <kbd class="kbd docutils literal notranslate">space</kbd>.</p>
 <p>There are several methods open to us; depending on whether we may want each word recorded as a separate string, or just a long string with many spaces.</p>
@@ -627,7 +630,7 @@ Who’s there?</p>
 </div>
 </section>
 </div>
-<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-3">
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-4">
 
 <p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
 <section id="exercise-content">
@@ -695,9 +698,9 @@ Who’s there?</p>
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="jupyternotebooks/input_and_output-code_explanation-6">
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/input_and_output-code_explanation-7">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec2"> Code_Example 6</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec2"> Code Example 6</a></p>
 <section id="code_explanation-content">
 <p>Extraction fails if the input data does not match the type of the variable being extracted.</p>
 <p>If you type in a string literal - <code class="docutils literal notranslate"><span class="pre">number</span></code> is reset to the value 0.</p>
@@ -711,7 +714,7 @@ Who’s there?</p>
 <p>If a previous extraction has failed, <code class="docutils literal notranslate"><span class="pre">std::cin</span></code> will not be able to function until it is cleared.</p>
 <p>If there is no input because the extraction had previously failed extraction, then indicated variables are left unmodified.</p>
 <p>However, a failed extraction due to invalid input will leave the variable indicated reset to null.</p>
-<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-7">
+<div class="exercise dropdown admonition" id="jupyternotebooks/input_and_output-exercise-8">
 
 <p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
 <section id="exercise-content">
@@ -868,7 +871,7 @@ The format that is printed to the screen can be formatted as follows.</p>
 </div>
 <div class="code_explanation dropdown admonition" id="explanationc5">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec5"> Code_Example 10</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplec5"> Code Example 10</a></p>
 <section id="code_explanation-content">
 <p>The first argument is the string to be printed.</p>
 <p>The numbers in the curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> refer to the position of the subeseqent arguments in order, starting with the first argument after the string, which has index ‘0’.</p>
