@@ -10,21 +10,21 @@ kernelspec:
   name: cpp20
 ---
 
-# Learing the Basics
+# Learning the Basics
 
 Once you have learned some basic components of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out each new concept.
 
-This page leads you through some basic exercies, much of the explanation is left until later chapters - this page is not intended to present the full syntax.
+This page leads you through some basic exercises, much of the explanation is left until later chapters - this page is not intended to present the full syntax.
 
-In the Compuational Physics module, we are mainly concerned with writing programmes that will take user inputs, perform calculations, and then return the 'answers' to the user; which requires us to learn only a subset of the C++ langugage and programming concepts.
+In the Computational Physics module, we are mainly concerned with writing programmes that will take user inputs, perform calculations, and then return the 'answers' to the user, which requires us to learn only a subset of the C++ language and programming concepts.
 
 ## Expressions and Statements
 
-A computer programme is a sequences of statements, which are executed sequentially when the programme runs.
+A computer programme is a sequence of statements, which are executed sequentially when the programme runs.
 ````{admonition} Types of Statement
 :class: dropdown
 C++ includes the following types of statements:
-* Labeled statements - adds a label to another type of statement, to allow control of the flow.
+* Labelled statements - adds a label to another type of statement, to allow control of the flow.
 * Expression statements
 * Compound statements
 * [Selection](selection) statements
@@ -37,7 +37,7 @@ Expressions are sequences of {term}`operators` and their {term}`operands`, which
 
 When the expression statement is executed, the expression is evaluated by the computer, producing a result, which will have a {term}`value` and a {term}`type`.
 
-Statements are always terminated by either a semicolon `;` or by a {term}`code block` {...some code here...}, which may be empty or contain statements.
+Statements are always terminated by either a semicolon `;` or by a {term}`code-block` {...some code here...}, which may be empty or contain statements.
 ```{tip}
 :class: margin
 Only {term}`directives` do not require termination.
@@ -55,7 +55,7 @@ An expression statement without an expression is called a {term}`null statement`
 
 ## Basic Arithmetic Operations
 
-All programmeming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
+All programming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
 
 `std::cout` can be used to demonstrate the basic arithmetic operations. 
 
@@ -94,7 +94,7 @@ The try using `-` as a prefix on a number, what effect does that have?
 `````
 ## Mathematical Functions
 
-To access additional mathematical functions we can include the `<cmath>` component of the standard library.
+To access additional mathematical functions, we can include the `<cmath>` component of the standard library.
 
 ````{syntax} <cmath> Functions
 :class: dropdown
@@ -145,7 +145,7 @@ For example `std::numbers::pi`. To access 'pi' – you need to include numbers a
 ## Variables
 A computer programme that can only perform arithmetic on {term}`literal` values written into the original programme code would not be very useful. 
 
-Instead programmes must be able ask for the numeric values that are to be used in the calculations. 
+Instead, programmes must be able ask for the numeric values that are to be used in the calculations. 
 
 This requires the computer to store the number, and to be able to identify and manipulate it later.
 
@@ -153,11 +153,11 @@ Computers use {term}`variables` for this purpose.
 
 At its simplest: like in maths, the {term}`variable` is a {term}`name` that represents a value that will be stored by the computer.
 
-To get started we will look at creating two types of variable.
+To get started we will look at creating two types of variables.
 
-To create a variable named `a` that holds the integer value of '5', we can used the statement : `int a = 5;`
+To create a variable named `a` that holds the integer value of '5', we can used the statement `int a = 5;`.
 
-After this statement in the programme, the variable `a` may be used anywhere (see {term}`scope`) that we want to use it's value of `5`.
+After this statement in the programme, the variable `a` may be used anywhere (see {term}`scope`) that we want to use its value of `5`.
 
 `````{code_example-start}
 :label: Exampleb2
@@ -185,8 +185,8 @@ When the programme gets to `a` following the `<<` operator it sends the value of
 :label: exerciseb1
 :class: dropdown
 Using the live code editor above, find out what happens when:
-- You define a second integer variable `b`, with a value and intstruct the program to print out `a + b`? Try it in the live-code space above.
-- What would happen if you declare the second variable after the `std::cout` statement? Find out.
+- You define a second integer variable `b`, with a value and instruct the program to print out `a + b`? Try it in the live-code space above.
+- What would happen if you declared the second variable after the `std::cout` statement? Find out.
 
 After a variable has been declared and given a value, the value can be changed.
 
@@ -233,7 +233,7 @@ Try adding a second variable, b, with a value of "-fingers", and then try printi
 
 ```{admonition} Code Explanation
 :class: dropdown
-If done correctly, you will have demonstrated that `+` operator behaves differently when used with differnt data types. 
+If done correctly, you will have demonstrated that `+` operator behaves differently when used with different data types. 
 
 For a {term}`numeric data type` it performs 'addition', but for the {term}`string data type` it performs {term}`concatenation`.
 ```
@@ -268,9 +268,9 @@ return 0;
 :class: note dropdown
 Single quotes denote a {term}`char type`. 
 
-`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits equired for their reprentation in binary).
+`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits required for their representation in binary).
 
-Scientific notation is formated using a lower or upper case `e` between the significant and the index WITHOUT ANY SPACES!!   
+Scientific notation is formatted using a lower or upper case `e` between the significant and the index WITHOUT ANY SPACES!!   
 
 `int` is the keyword for the {term}`integer type`. 
 
@@ -309,9 +309,9 @@ int main(){
 return 0;
 }
 ```
-`string` type variables are part of the standard library, and must be referenced by prefixing with `std::`.
+`string` type variables are part of the standard library and must be referenced by prefixing with `std::`.
 
-`int`, `float`, `double`, and `char` are all part of the {term}`core language`, and should not have `std::` attached.
+`int`, `float`, `double`, and `char` are all part of the {term}`core language` and should not have `std::` attached.
 ````
 ***
 `````{exercise-end}
@@ -322,7 +322,7 @@ return 0;
 ````{note}
 :class: margin
 
-Waka poetry consists of five lines, with a syllable count of 5-7-5-7-7. The form is similar to haiku but with two additional lines.
+Waka poetry consists of five lines, with a syllable count of 5-7-5-7-7; similar to a Haiku, but with two additional lines.
 
 A poll conducted among INFOCUS readers established "waka" as the
 proper pronunciation for the angle-bracket characters `<` and `>`.
@@ -361,11 +361,11 @@ From: https://ascii.co.uk/art/poem
 
 {term}`Escape sequences`, or 'escape characters', are used to represent special characters within a string or character literal.
 
-Certain characters in the program have to be represented with {term}`escape sequences` because the are {term}`reserved characters` that have specific meaning to the compiler.
+Certain characters in the program must be represented with {term}`escape sequences` because they are {term}`reserved characters` that have specific meaning to the compiler.
 
-Each escape character is identifed to the program by prefixing `\` to the character.
+Each escape character is identified to the program by prefixing `\` to the character.
 
-These are mostly used in formating output. A full list of escape characters in c++ can be found [here](https://en.cppreference.com/w/cpp/language/escape.html).
+These are mostly used in formatting output. A full list of escape characters in C++ can be found [here](https://en.cppreference.com/w/cpp/language/escape.html).
 
 ```{list-table}
 :header-rows: 1
@@ -384,8 +384,8 @@ These are mostly used in formating output. A full list of escape characters in c
   - Instructs the computer to put a vertical tab before any further output to the screen or file. 
 * - `\\`
   - Backslash
-  - Indentifies intention of a literal backslash
+  - Identifies intention of a literal backslash
 * - `'`, `"`
   - Single and double quote marks
-  - Indentifies intention of a literal quote marks
+  - Identifies intention of a literal quote mark
 ```

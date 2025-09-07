@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\arrays.245d4181-e25a-4593-9c28-ba1f8081c224.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\arrays.8d1c6967-6deb-4ec0-9b90-e3825a9f7b52.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/arrays';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -206,7 +206,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -518,7 +518,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arrays">Passing Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimenstional-arrays">Multidimenstional Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimensional-arrays">Multidimensional Arrays</a></li>
 </ul>
             </nav>
         </div>
@@ -532,8 +532,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="arrays-in-c">
 <h1>Arrays in C++<a class="headerlink" href="#arrays-in-c" title="Permalink to this heading">#</a></h1>
-<p>C++ uses simple built-in arrays, discussed on this page - and also a separate <code class="docutils literal notranslate"><span class="pre">&lt;array&gt;</span></code> library, not discussed.</p>
-<p>The built-in have values and length fixed at initilisation, and they may not be copied.</p>
+<p>C++ uses simple built-in arrays, discussed on this page - and a separate <code class="docutils literal notranslate"><span class="pre">&lt;array&gt;</span></code> library, not discussed.</p>
+<p>The built-in arrays have values and length fixed at initialisation, and they may not be copied.</p>
 <p>An array is the C++ fundamental method for representing a sequence of objects in memory.</p>
 <p>If what you want is a simple fixed-length sequence of objects of a given type in memory, an array is the ideal solution.</p>
 <p>For every other need, an array has serious problems.</p>
@@ -563,12 +563,12 @@ document.write(`
 <span class="p">{</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">aa</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 <span class="n">aa</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w">   </span><span class="c1">// assign to aa’s 7th element</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aa</span><span class="p">[</span><span class="mi">99</span><span class="p">];</span><span class="w"> </span><span class="c1">// undefined behavior</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aa</span><span class="p">[</span><span class="mi">99</span><span class="p">];</span><span class="w"> </span><span class="c1">// undefined behaviour</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Access out of the range of an array is undefined and usually disastrous. In particular, run-time range checking is neither guaranteed nor common.
-The number of elements of the array, the array bound, must be a constant expression. If you need variable bounds, use a vector . For example:</p>
+<p>Access out of the range of an array is undefined and usually disastrous. Run-time range checking is neither guaranteed nor common.
+The number of elements of the array, the array bound, must be a constant expression. If you need variable bounds, use a vector. For example:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w">     </span><span class="c1">// error: array size not a constant expression</span>
@@ -592,12 +592,12 @@ The number of elements of the array, the array bound, must be a constant express
 <span class="kt">int</span><span class="w"> </span><span class="n">v5</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
-<p>There is no built-in copy operation for arrays. You cannot initialize one array with another (not even of exactly the same type), and there is no array assignment:</p>
+<p>There is no built-in copy operation for arrays. You cannot initialize one array with another (not even of the same type), and there is no array assignment:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">v6</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v5</span><span class="p">;</span><span class="w"> </span><span class="c1">// error : can’t copy an array (cannot assign an int* to an array)</span>
 <span class="n">v6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v5</span><span class="p">;</span><span class="w"> </span><span class="c1">// error : no array assignment</span>
 </pre></div>
 </div>
-<p>Similarly, you can’t pass arrays by value. When you need assignment to a collection of objects, use a vector, an array, or valarray  instead.
+<p>Similarly, you can’t pass arrays by value. When you need assignment to a collection of objects, use a <code class="docutils literal notranslate"><span class="pre">vector</span></code>, an <code class="docutils literal notranslate"><span class="pre">array</span></code>, or a <code class="docutils literal notranslate"><span class="pre">valarray</span></code> instead.
 An array of characters can be conveniently initialized by a string literal.</p>
 <p>The C++ built-in array is an inherently low-level facility that should primarily be used inside the implementation of higher-level, better-behaved, data structures, such as the standard-library vector or array.
 There is no array assignment, and the name of an array implicitly converts to a pointer to its first element at the slightest provocation.
@@ -634,8 +634,8 @@ The function could equivalently have been written as</p>
 </div>
 <p>Now the insanity is (hopefully) obvious. When used as a function argument, the first dimension of an array is simply treated as a pointer. Any array bound specified is simply ignored. This implies that if you want to pass a sequence of elements without losing size information, you should not pass a built-in array. Instead, you can place the array inside a class as a member (as is done for <code class="docutils literal notranslate"><span class="pre">std::array</span></code>) or define a class that acts as a handle (as in <code class="docutils literal notranslate"><span class="pre">std::string</span></code> or <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>).</p>
 </section>
-<section id="multidimenstional-arrays">
-<h2>Multidimenstional Arrays<a class="headerlink" href="#multidimenstional-arrays" title="Permalink to this heading">#</a></h2>
+<section id="multidimensional-arrays">
+<h2>Multidimensional Arrays<a class="headerlink" href="#multidimensional-arrays" title="Permalink to this heading">#</a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// creating 2d and 3d array</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span>
@@ -656,7 +656,7 @@ The function could equivalently have been written as</p>
 <li><p>Initialize 2D array using the Initializer list</p></li>
 </ol>
 <p>We can initialize a 2D array using an initializer list in two ways. Below is the first method of initializing a 2D array using an initializer list.</p>
-<p>First Method: The below array has 2 rows and 4 columns. The elements are filled in a way that the first 4 elements are filled in the first row and the next 4 elements are filled in the second row.</p>
+<p>First Method: The below array has 2 rows and 4 columns. The elements are filled in a way that the first 4 elements are placed in the first row, and the next 4 elements in the second row.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
@@ -666,7 +666,7 @@ The function could equivalently have been written as</p>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Initialization of 2D array using Loops
-We can also initialize 2D array using loops. To initialize 2D array we have to use two nested loops and nested loops are equal to the dimension. For example, to initialize a 3D array we have to use three nested loops. Let’s see an example.</p></li>
+We can also initialize 2D array using loops. To initialize a 2D array we must use two nested loops, and the number of nested loops are equal to the dimension. For example, to initialize a 3D array we must use three nested loops. Let’s see an example.</p></li>
 </ol>
 <p>Example: In the below example we have initializes the 2D array with 1. The outer loop is used to track rows <code class="docutils literal notranslate"><span class="pre">i=0</span></code> means the first row because of 0 indexing similarly <code class="docutils literal notranslate"><span class="pre">j=0</span></code> means the first column and combining this <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">[0][0]</span></code> represents the first cell of the 2D array.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myArray3</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span>
@@ -745,7 +745,7 @@ We can also initialize 2D array using loops. To initialize 2D array we have to u
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arrays">Passing Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimenstional-arrays">Multidimenstional Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimensional-arrays">Multidimensional Arrays</a></li>
 </ul>
   </nav></div>
 

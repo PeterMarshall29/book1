@@ -19,7 +19,7 @@ See the [Hello, World! program](https://en.wikipedia.org/wiki/"Hello,_World!"_pr
 ```
 ```{tip}
 :class: margin
-To run a code block that has been edited, select the block (mouse click inside it), then simulaneously press {kbd}`Shift` + {kbd}`Enter`. 
+To run a code block that has been edited, select the block (mouse click inside it), then simultaneously press {kbd}`Shift` + {kbd}`Enter`. 
 ```
 `````{code_example-start}
 `````
@@ -56,17 +56,17 @@ C++ programs rely upon libraries - you will not get far without at least one of 
 
 ```{tip}
 :class: dropdown
-Use `#include <..faciltiy_name_here..>` to include {term}`standard library facilities` and `#include "<header_file_name.h"` for user defined {term}`header files`
+Use `#include <..facility_name_here..>` to include {term}`standard library facilities` and `#include "<header_file_name.h"` for user defined {term}`header files`
 ```
 `<iostream>` is the {term}`standard library facility` containing the functions needed for input and output (writing to the computer screen and accepting input from the keyboard etc..)
 
-```{code-block} cpp
+```{code-block} c++
 int main() {
 **code statements go here**
 }
 ```
 `main()` is a {term}`function`.
-All c++ programs require a `main()` function (or an equivalent).
+All C++ programs require a `main()` function (or an equivalent).
 
 For longer programs that have many functions - the `main()` function is the starting point for the logical implementation of the code.
 
@@ -82,11 +82,11 @@ std :: cout << "Hello, World!\n";
 ```
 `cout` is the code used for writing to screen; pronounced '" - out", and called the character output stream.
 
-`std` identifes that `cout` is found in the standard library facilities.
+`std` identifies that `cout` is found in the standard library facilities.
 
 `::` is the {term}`scope resolution operator` - think of it as a way of describing the location or ownership of parts of the syntax.
 
-`<<` is the "insertion" or "write to" operator (or the "gets from" operator, which makes a little more sense when your are typing left to right!).
+`<<` is the {term}`insertion operator`; often called the ‘write to’ operator.
 
 `"Hello, World!\n"` is a `string`. String {term}`literals` are delimited (bracketed) by `""`; explained {doc}`here <../jupyternotebooks/types>`.
 
@@ -96,7 +96,7 @@ return 0;
 ```
 The `return` {term}`keyword` specifies what the function produces (returns).
 
-If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the reurn keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
+If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the `return` keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
 
 ````
 `````{code_example-end}
@@ -112,7 +112,7 @@ Try making the following changes to the above code - run the code after each cha
 
 - Remove the semicolon in line 3 or 4. 
 - Remove `std::` from line 3.
-- Replace the angle brackets `<>` in the first line with speechmarks `""`.
+- Replace the angle brackets `<>` in the first line with speech marks `""`.
 - Change the returned value from 0 to 1, and then to a letter.
 - Remove the return line.
 - Add some whitespace (spaces) to the code.
@@ -125,12 +125,12 @@ Try making the following changes to the above code - run the code after each cha
 :label: solutiona1
 
 - A semicolon is required need at the end of each statement – exceptions `include`, `includes` and after `{` or `}`. 
-- `cout` is not part of the **c++ core language** and comes instead from the **Standard Library**. 
+- `cout` is not part of the **C++ core language** and comes instead from the **Standard Library**. 
 
-`std::` denotes the namespace that `cout` belongs to (similar to a folder designation, provided you have included it). 
-- To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speechmarks `""`, i.e. `#include "myheaderfile.h"`.
+`std::` denotes the namespace that `cout` belongs to (like a folder designation, provided you have ‘included’ the required library component). 
+- To include components of the standard library angle brackets `<>` are used, but we can also include additional code written by the programmer in {doc}`**header files** <../jupyternotebooks/header_files>`, which are included using speech marks `""`, i.e. `#include "myheaderfile.h"`.
 - Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure. 
-The returned value is reported to whoever called the function, in the case of main() the system is the caller. In linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
+The returned value is reported to whoever called the function, in the case of main() the system is the caller. In Linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
 - This is usually only possible in the main function, but not on every platform.
 - Whitespace is ignored in C++ - not true in other languages!
 - C++ is {term}`case sensitive`.
@@ -170,11 +170,11 @@ int main()
 
 Comments are used are notes and reminders for people who are trying to understand and use the code.
 
-When developing a program it is useful to be able to termporarily hide sections of the code from the compiler by 'commenting them out`.
+When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by 'commenting them out`.
 
-Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and definitely easier for others to use.
+Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and easier for others to use.
 
-Since the comments are ignore, there are no special rules for them, except that they must be identidied as {term}`comments`.
+Since the comments are ignore, there are no special rules for them, except that they must be identified as {term}`comments`.
 
 ````{admonition} How to Insert Comments
 :class: note dropdown
@@ -185,12 +185,12 @@ C++ style comments have `//` at the start of the comment.
 
 Multiline comments can be created by surround any text with `/*` and `*/`. These may not be nested!
 
-Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse accross it and then simulaneously pressing {kbd}`Ctrl` + {kbd}`/`.
+Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse across it and then simultaneously pressing {kbd}`Ctrl` + {kbd}`/`.
 
 ```{code-block} ruby
 // A C++ style single line comment
 // Another one
-include <iostream> // This comments does not affect anything before it on the same line
+include <iostream> // This comment does not affect anything before it on the same line!
 
 /* C-style codes are also used 
 */

@@ -38,8 +38,8 @@ The three statements in parentheses are the arguments of the for-statement and c
       A(["Start"]) --> B[/"Input/output"/]
       B --> C["Process"]
       C --> D{"Decision"}
-      D -- Conditon 1 --> E["Process"]
-      D -- Conditon 2 --> F[/"Input/output"/]
+      D -- Condition 1 --> E["Process"]
+      D -- Condition 2 --> F[/"Input/output"/]
       F --> G["Process"]
       G --> D
       E --> H[/"output"/]
@@ -82,7 +82,7 @@ The three statements in parentheses are the arguments of the for-statement and c
           3. Input from User`"/]
       F --> G["Format Input"]
       G --> D
-      E --> H[/"Ouput Result"/]
+      E --> H[/"Output Result"/]
       H --> I(["End"])
       A:::Class_01
       B:::Class_01
@@ -179,9 +179,9 @@ It is bad practice, and a common mistake, to increment the loop-variable within 
 
 In programming it is always better to separate concerns. In this case it is better to leave control to the loop arguments.
 
-When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instruction are implemented in each loop.
+When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instructions are implemented in each loop.
 
-The instructions are also implemented in sequence, and can result in two different values being used for the loop-variable in a single iteration.
+The instructions are also implemented in sequence and can result in two different values being used for the loop-variable in a single iteration.
 
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -201,9 +201,9 @@ int main() {
 ## Forever
 The for-statement parentheses may not be empty - the compiler will not permit it. 
 
-The minimum argument to the for-statement is `(;;)`.
+The minimum argument to a for-statement is `(;;)`.
 
-`for(;;){}` is a way to specify an infinite loop; sometimes called a for-ever statement..
+`for(;;){}` is a way to specify an infinite loop; sometimes called a ‘for-ever statement’..
 
 ````{code_example-start} 
 :label: examples3
@@ -223,7 +223,7 @@ int main()
 ````
 This code behaves identically to `while(true){}`.
 ## Single Commands
-If there is only a single statement i.e. not a whole code block of statements, then the statement can simply be placed after for-statement, and closed with;
+If there is only a single statement i.e. not a whole code block of statements, then the statement can simply be placed after for-statement, and closed with `;`.
 ````{code_example-start} 
 :label: examples4
 :class: dropdown
@@ -268,7 +268,7 @@ Run the following code - showing a for-statement, a while-statement, and a recur
 #include <iostream>
 
 void loopFunction(int loopVariable, int exitValue) {
-    if (loopVariable <= exitValue) {    //checks loop condtion
+    if (loopVariable <= exitValue) {    //checks loop condition
         std::cout << loopVariable << '\t';
         loopFunction(++loopVariable, exitValue); //function calls itself
     }
@@ -300,7 +300,7 @@ Extending the syntax rules for the `for-statement`.
 ````{card} Initialisation Statement
 The initialisation statement creates a new variable and initialises its value – this variable is used to control the loop and later the execution of the code in the code block, and is called the `loop-variable`, or loop-counter, and similar terms.
 The initialisation statement is only executed once, before the iterations, if any, begin.
-More than one loop-variable can be initialised in the initialisation statement, and if no initialisation is required it may left as a null statement, i.e. just the `;`. 
+More than one loop-variable can be initialised in the initialisation statement, and if no initialisation is required it may be left as a null statement, i.e. just the `;`. 
 ````
 ````{card} The Loop-Variable
 The loop variable is local to the for-statement, can be used in the code-block, but cannot be shadowed (you may not declare another variable called `i` inside the code-block).
@@ -323,7 +323,7 @@ The condition is not optional but may be empty, i.e. just the second `;`.
 An `empty condition` evaluates to `true`; causing the code- block to repeat forever, unless there is a `break` statement.
 ````
 ````{card} Increment Expression
-The third argument is usually an expression that increment/decrements the loop-variable, however it can be any statement that is required to run once after the code block in each iteration. 
+The third argument is usually an expression that increment/decrements the loop-variable; however it can be any statement that is required to run once after the code block in each iteration. 
 The increment statement controls change to the loop-variable that is implemented following each execution of the code-block.
 Without the increment, the loop could run forever; however, the condition can also be changed from within the code-block.
 ````
@@ -336,7 +336,7 @@ Inside the code-block:
 •	`break` causes the programme to exit the for-statement and continue with the next statement following it.
 •	`continue` causes the loop to skip to the next iteration
 Both would normally be placed inside a selection statement nested inside the loop.
-An empty statement evaluates to true. Therefore the code block repeats forever, unless there is a `break` statement.
+An empty statement evaluates to true. Therefore, the code block repeats forever, unless there is a `break` statement.
 ````
 ````{card} Additional Options
 The initialisation statement can also be any other statement that will only be executed once.
@@ -354,14 +354,14 @@ return 0;
 }
 ```
 In the above code, the initialisation statement only outputs "begin loop".
-The condition is a declaration, if `std::cout << "Iteration"` succeeds, it return true, and the loop continues.
+The condition is a declaration, if `std::cout << "Iteration"` succeeds, it returns `true`, and the loop continues.
 The final statement includes an increment expression inside an output steam statement.
 
 The third statement can be any statement that is required to run once after the code block in each iteration. For example:
 ```{code-block} c++
 int main()
 {
-    for (int i = 0; i < 1; std::cout << "Loop goes back to check condtion") {
+    for (int i = 0; i < 1; std::cout << "Loop goes back to check condition") {
         std::cout << "Loop ran once \n";
         ++i;
     }

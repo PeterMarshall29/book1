@@ -26,7 +26,7 @@ As an example of iteration, consider the first program ever to run on a
 stored-program computer (the EDSAC). It was written and run by David Wheeler
 in the computer laboratory in Cambridge University, England, on May 6, 1949,
 to calculate and print a simple list of squares like this:
-Its generally better to use for loops in C++, but while loops exist too.
+It’s generally better to use for-loops in C++, but while-loops exist too.
 
 
 ```{list-table}
@@ -100,7 +100,7 @@ while (std::cin >> current) {
 Notice that the conditional statement for both while and if are in parens.
 In this case – the loop condition is the receipt of a valid input. 
 Try again but make the variable int’s. What happens if you type letters?
-Use Crtl+Z to end a loop. Ctrl+D in linux.
+Use {kbd}`Crtl+Z` to end a loop. {kbd}`Ctrl+D` in Linux.
 
 int main()
 {
@@ -117,13 +117,13 @@ cout << i << '\t' << square(i) << '\n';
 
 If the condition of an iteration statement is forgotten the loop will run until the program crashes - this can tie up a computer for a very long time.
 
-The iteration condition may also be intentially omitted, provided there is an alternaive method provided to end the loop.
+The iteration condition may also be intentionally omitted, provided there is an alternative method provided to end the loop.
 
-The program can exit an interation statemnet by arriving at the keywords, `break`, `return`, `goto`, or `throw`.
+The program can exit an iteration statement by arriving at the keywords, `break`, `return`, `goto`, or `throw`.
 
 ### `break`
 
-`break` - cause the program to break out of the nearest enclosing {term}`switch statement` or {term}`iteration statement` . `break` is used if the logical flow may require the program to leave the loop in the middle.
+`break` - cause the program to break out of the nearest enclosing {term}`switch statement` or {term}`iteration statement`. `break` is used if the logical flow may require the program to leave the loop in the middle.
 
 The `break` is usually found as an option in a selection-statement within the loop.
 
@@ -161,4 +161,4 @@ int main() {
 }
 ```
 ### Goto
-`goto` statements are best avoided in most programming languages. Code has a simpler structure, and is more easily obtained without the use of `goto`. 
+`goto` statements are best avoided in most programming languages. Code has a simpler structure, and is more easily obtained without the use of `goto`.

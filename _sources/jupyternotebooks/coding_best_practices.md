@@ -37,15 +37,15 @@ Badly written code is:
 ```
 It is tempting to create identifiers using short, even single letter, names - this is a mistake.
 Using longer identifiers which make the purpose of identified entity clear to anyone reading your code
-Modern editors will autocomplete long identifer names - you will not need to keep retying your chosen expressive name.
+Modern editors will autocomplete long identifier names - you will not need to keep retying your chosen expressive name.
 
 ## DRY 
 
-DRY  - Don't repeat yourself! is a fundamental pratice in writing efficient code.
+DRY  - Don't repeat yourself! is a fundamental practice in writing efficient code.
 
 Any lines of code that you know you are going to need more than once, should be encapsulated into a class or a function, which can be called repeatedly.
 
-This save you retyping the code, and makes repairing and maintaining longer programmes much simpler; e.g. you do not have to find the same mistake in 100 places, just in one function.
+This saves you retyping the code, and makes repairing and maintaining longer programmes much simpler, e.g. you do not have to find the same mistake in 100 places, just in one function.
 
 Dry coding includes {term}`functional programming` and {term}`object-oriented programming` paradigms.
 
@@ -61,7 +61,7 @@ Planning is worth the time and effort. Break the problem down into smaller secti
 
 Lay out your code so that it is easy to read:
 * Whitespace is your friend - completely ignore by the compiler.
-* Use longer expressive names - modern editors autofill previously used names, you only have to type them out once!
+* Use longer expressive names - modern editors autofill previously used names, you must type them out only once!
 * Use systematic indenting - even when the language does not require it.
 * Use comments - early and often
 
@@ -89,20 +89,20 @@ Article on [Coding_best_practices](https://en.wikipedia.org/wiki/Coding_best_pra
 > Test early and often.
 ```
 It is a common mistake to type in a lot of code at once without checking your work.
-### Sytax Errors
+### Syntax Errors
 
 In the early stages of learning coding, the simplest way to test your code is to try to compile it. The compiler will show you all your syntax errors. 
 
 Understanding what has gone wrong is much simpler if you only have a few errors. In the beginning you should recompile every time you have finished a statement, or function.
 
-Otherwise you will face hours unpicking an accumulation of syntax errors that individually would have taken seconds to fix.
+Otherwise, you will face hours unpicking an accumulation of syntax errors that individually would have taken seconds to fix.
 ### Logic errors
 
 These are not caught by the compiler, so you must test for them yourself.
 
 When the program is only part finished, you can add extra print statement, at different points in your code, so that you can follow the path of the programmes logic as it executes. 
 
-Were the print statements executed in the expecte order? Where any or all of them missing?
+Were the print statements executed in the expected order? Where any or all of them missing?
 
 
 

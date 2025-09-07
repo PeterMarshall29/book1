@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.21f68ce5-a8b6-4845-ad46-cb9ad440fdb0.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.cd236921-286a-4ec6-a5ef-8831d2ee0030.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/if_statements';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -206,7 +206,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -528,17 +528,17 @@ document.write(`
 <p class="attribution">—Yogi Berra</p>
 </div></blockquote>
 </div>
-<p>The if-statement is used to chose between two possible paths.</p>
+<p>The if-statement is used to choose between two possible paths.</p>
 <p>At its simplest, an if block can change something depending on a condition</p>
 <p>The syntax of the if-statement is:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Code</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">condtion</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Code</span><span class="o">-</span><span class="n">block</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
 </pre></div>
 </div>
 <div class="note dropdown admonition">
 <p class="admonition-title">If-Statements in Other Languages</p>
 <p>If statements are found in most programming languages.
 The C++ patter is if…elif…else.</p>
-<p>Some languages have an ‘elseif’ or similar, but c++ nest if-else statements.</p>
+<p>Some languages have an ‘elseif’ or similar - C++ uses nested <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">C++</label><div class="tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -638,7 +638,7 @@ The C++ patter is if…elif…else.</p>
 </div>
 <div class="example dropdown admonition" id="exampleq1">
 
-<p class="admonition-title"><span class="caption-number">example 6 </span></p>
+<p class="admonition-title"><span class="caption-number">example 4 </span></p>
 <section id="example-content">
 <p>Try this code:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -660,23 +660,23 @@ The C++ patter is if…elif…else.</p>
 </div>
 <div class="explanation dropdown note admonition" id="explanationq1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleq1"> Code Example 6</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleq1"> Code Example 4</a></p>
 <section id="explanation-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>(answer == &#39;42&#39;) 
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;42&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">answer==42</span></code> is the condition. The condition must be put in parentheses - if is a function.
+<p><code class="docutils literal notranslate"><span class="pre">answer==42</span></code> is the condition. The condition must be put in parentheses - <code class="docutils literal notranslate"><span class="pre">if</span></code> is a function.
 is the condition that is to be checked. The code blo
 <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">std::cout</span> <span class="pre">&lt;&lt;</span> <span class="pre">&quot;You</span> <span class="pre">are</span> <span class="pre">trully</span> <span class="pre">wise&quot;;}</span></code>
-More correctly, the condition is evaluated. It it evaluates to the boolean value <code class="docutils literal notranslate"><span class="pre">1</span></code> then teh code blokIt the conditon is found to be true, then the code block is ecex</p>
-<p>The progam works - ied does basically work.</p>
+More correctly, the condition is evaluated. If it evaluates to the Boolean value <code class="docutils literal notranslate"><span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the code block is executed.</p>
+<p>The program does basically work.</p>
 </section>
 </div>
 </section>
 </div>
 <div class="example dropdown note admonition" id="exampleq2">
 
-<p class="admonition-title"><span class="caption-number">example 7 </span></p>
+<p class="admonition-title"><span class="caption-number">example 5 </span></p>
 <section id="example-content">
 <p>Try this code:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -700,10 +700,10 @@ More correctly, the condition is evaluated. It it evaluates to the boolean value
 </div>
 <div class="explanation dropdown admonition" id="explanationq2">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleq2"> Code Example 7</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampleq2"> Code Example 5</a></p>
 <section id="explanation-content">
-<p>The progammed does basically work.</p>
-<p>s except does not  return the value if two identical values are entered – also behaves oddly if first number is a double – takes part before the decimal point then reports having received the second part as 0 without pause. If second is a double, it rounds or ignores what is after the decimal point.
+<p>The programme does basically work.</p>
+<p>s except does not return the value if two identical values are entered – also behaves oddly if first number is a double – takes part before the decimal point then reports having received the second part as 0 without pause. If second is a double, it rounds or ignores what is after the decimal point.
 This fixes part of the issue – other issues left as an exercise</p>
 </section>
 </div>

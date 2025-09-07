@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.e50922ed-f49b-450b-a5ee-2533887e5652.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.56465641-1e99-4125-a939-760d6a6e9175.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/glossary';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -206,7 +206,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -522,13 +522,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h1>
 <dl class="simple glossary">
-<dt id="term-Assignment">Assignment<a class="headerlink" href="#term-Assignment" title="Permalink to this term">#</a></dt><dd><p>Modification of the current value of an object using an assignment operator.
-Simplest case is using the simple assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>; i.e. <code class="docutils literal notranslate"><span class="pre">LHS</span> <span class="pre">=</span> <span class="pre">RHS;</span></code>.
-Literal assignment, uses a literal for the RHS. Copy assignment replaces the contents of the LHS object with a copy of the contents of the RHS object (RHS is not modified). Move assignment replaces the contents of the LHS object a with the contents of RHS object, avoiding copying if possible (b may be modified). For non-class types, copy and move assignment are indistinguishable and are referred to as direct assignment.
-Compound assignment replaces the contents of the LHS object with the result of a binary operation between the previous value of LHS and the value of RHS e.g. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">+</span> <span class="pre">B</span></code>.
-Expression assignment replaces the LHS object with the result of the evaluation of the expression stated on RHS.</p>
+<dt id="term-Assignment">Assignment<a class="headerlink" href="#term-Assignment" title="Permalink to this term">#</a></dt><dd><p>Modification of the current value of an object using an assignment operator. Simplest case is using the simple assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>; i.e. <code class="docutils literal notranslate"><span class="pre">LHS</span> <span class="pre">=</span> <span class="pre">RHS;</span></code>.</p>
 </dd>
-<dt id="term-Assignment-Operator">Assignment Operator<a class="headerlink" href="#term-Assignment-Operator" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">=</span></code>. The simple assignment operator, there are others. Used to assign a value to a variable, by literal assignment, <a class="reference internal" href="#term-Copy-Assignment"><span class="xref std std-term">copy assignment</span></a>, or evaluation assignment, including as<a class="reference internal" href="#term-Initialisation"><span class="xref std std-term">initialisation</span></a>.</p>
+<dt id="term-Assignment-Operator">Assignment Operator<a class="headerlink" href="#term-Assignment-Operator" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">=</span></code>. The simple assignment operator. Used to assign a value to a variable, by <a class="reference internal" href="#term-Literal-assignment"><span class="xref std std-term">literal-assignment</span></a>, <a class="reference internal" href="#term-Copy-Assignment"><span class="xref std std-term">copy-assignment</span></a>, or evaluation assignment, and for <a class="reference internal" href="#term-Initialisation"><span class="xref std std-term">initialisation</span></a>. [compound-assignment operators](assigment operators).</p>
 </dd>
 <dt id="term-Algorithm">Algorithm<a class="headerlink" href="#term-Algorithm" title="Permalink to this term">#</a></dt><dd><p>Algorithm: A sequence of steps or rules to solve a problem, often implemented using STL (Standard Template Library).</p>
 </dd>
@@ -554,7 +550,7 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Code-Block">Code-Block<a class="headerlink" href="#term-Code-Block" title="Permalink to this term">#</a></dt><dd><p>Sequence of <a class="reference internal" href="#term-Statements"><span class="xref std std-term">statements</span></a> enclosed by curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Also called a <a class="reference internal" href="#term-Compound-Statement"><span class="xref std std-term">compound statement</span></a>.</p>
 </dd>
-<dt id="term-Comma-Operator">Comma Operator<a class="headerlink" href="#term-Comma-Operator" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Comma-Operator">Comma Operator<a class="headerlink" href="#term-Comma-Operator" title="Permalink to this term">#</a></dt><dd><p>The comma operator allows multiple expressions to be evaluated sequentially, returning the value of the last expression. Used when a single expression is required but multiple operations need to be performed.</p>
 </dd>
 <dt id="term-Comments">Comments<a class="headerlink" href="#term-Comments" title="Permalink to this term">#</a></dt><dd><p>Comments are text in a computer program that is only intended as a note to the programmer. Comments are useful as in-code documentation. Also used by programmers to hide sections of a programme from the compiler temporarily - useful during development.</p>
 </dd>
@@ -562,7 +558,9 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Compiled-Language">Compiled Language<a class="headerlink" href="#term-Compiled-Language" title="Permalink to this term">#</a></dt><dd><p>Programming languages that are converted directly into machine code, creating programmes that can be executed by the computer processor. Alternative is an interpreted language, where the source code is interpreted a line at a time by the interpreter at run time – these programmes run inside larger programmes written in a compiled language including C, JAVA, and C++.</p>
 </dd>
-<dt id="term-Compound-Statement">Compound Statement<a class="headerlink" href="#term-Compound-Statement" title="Permalink to this term">#</a></dt><dd><p>Sequence of <a class="reference internal" href="#term-Statements"><span class="xref std std-term">statements</span></a> enclosed by curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Also called a <span class="xref std std-term">code block</span>.</p>
+<dt id="term-Compound-Assignment">Compound-Assignment<a class="headerlink" href="#term-Compound-Assignment" title="Permalink to this term">#</a></dt><dd><p>Replaces the contents of the LHS object with the result of a binary operation between the previous value of LHS and the value of RHS e.g. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">+</span> <span class="pre">B</span></code>.</p>
+</dd>
+<dt id="term-Compound-Statement">Compound Statement<a class="headerlink" href="#term-Compound-Statement" title="Permalink to this term">#</a></dt><dd><p>Sequence of <a class="reference internal" href="#term-Statements"><span class="xref std std-term">statements</span></a> enclosed by curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Also called a <a class="reference internal" href="#term-Code-Block"><span class="xref std std-term">code-block</span></a>.</p>
 </dd>
 <dt id="term-Compound-Type">Compound Type<a class="headerlink" href="#term-Compound-Type" title="Permalink to this term">#</a></dt><dd><p>A type that isn’t a <a class="reference internal" href="#term-Scalar"><span class="xref std std-term">scalar</span></a> type. Compound types include array types, function types, class (or struct) types, union types, enumerations, references, and pointers to non-static class members.</p>
 </dd>
@@ -586,9 +584,11 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Core-Language">Core Language<a class="headerlink" href="#term-Core-Language" title="Permalink to this term">#</a></dt><dd><p>The fundamental components of the C++ language not found in the Standard Library. The libraries are constructed from the core language.</p>
 </dd>
-<dt id="term-Copy-Assignment">Copy Assignment<a class="headerlink" href="#term-Copy-Assignment" title="Permalink to this term">#</a></dt><dd><p>Replacement of the contents of one object with the contents of a second object; the second object is unaffected by the operation. Can also initialise an object.</p>
+<dt id="term-Copy-Assignment">Copy-Assignment<a class="headerlink" href="#term-Copy-Assignment" title="Permalink to this term">#</a></dt><dd><p>Replacement of the contents of one object with the contents of a second object; the second object is unaffected by the operation. Can also initialise an object.</p>
 </dd>
-<dt id="term-Copy-initialisation">Copy-initialisation<a class="headerlink" href="#term-Copy-initialisation" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-0">Copy Assignment<a class="headerlink" href="#term-0" title="Permalink to this term">#</a></dt><dd><p>Replacement of the contents of one object with the contents of a second object; the second object is unaffected by the operation. Can also initialise an object.</p>
+</dd>
+<dt id="term-Copy-initialisation">Copy-initialisation<a class="headerlink" href="#term-Copy-initialisation" title="Permalink to this term">#</a></dt><dd><p>Initialising an object from another object using the assignment operator.</p>
 </dd>
 <dt id="term-CPU">CPU<a class="headerlink" href="#term-CPU" title="Permalink to this term">#</a></dt><dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Central_processing_unit">Central Processing Unit</a> is the electronic circuitry inside a computer that executes the machine code version of computer programmes.</p>
 </dd>
@@ -612,9 +612,9 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Definitions">Definitions<a class="headerlink" href="#term-Definitions" title="Permalink to this term">#</a></dt><dd><p>Definitions are declarations that are sufficient to use the entity identified by the name.</p>
 </dd>
-<dt id="term-Directive">Directive<a class="headerlink" href="#term-Directive" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Directive">Directive<a class="headerlink" href="#term-Directive" title="Permalink to this term">#</a></dt><dd><p>Also known as preprocessor directives - instructions that are processed before compilation of the C++ code begins. Directives start with <code class="docutils literal notranslate"><span class="pre">#</span></code> and must lie at the top of the document. Used for including files, such as libraries, and defining <a class="reference internal" href="#term-Macros"><span class="xref std std-term">macros</span></a>, and conditional compilation.</p>
 </dd>
-<dt id="term-Directives">Directives<a class="headerlink" href="#term-Directives" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Directives">Directives<a class="headerlink" href="#term-Directives" title="Permalink to this term">#</a></dt><dd><p>Also known as preprocessor directives - instructions that are processed before compilation of the C++ code begins. Directives start with <code class="docutils literal notranslate"><span class="pre">#</span></code> and must lie at the top of the document. Used for including files (<code class="docutils literal notranslate"><span class="pre">#include</span></code>), such as libraries, and defining <a class="reference internal" href="#term-Macros"><span class="xref std std-term">macros</span></a>(<code class="docutils literal notranslate"><span class="pre">#define</span></code>), and conditional compilation (<code class="docutils literal notranslate"><span class="pre">#if</span></code>, <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code>, <code class="docutils literal notranslate"><span class="pre">#ifndef</span></code>).</p>
 </dd>
 <dt id="term-Dynamic-Memory">Dynamic Memory<a class="headerlink" href="#term-Dynamic-Memory" title="Permalink to this term">#</a></dt><dd><p>Memory that is allocated during runtime using <code class="docutils literal notranslate"><span class="pre">new</span></code>; and deallocated using <code class="docutils literal notranslate"><span class="pre">delete</span></code>.</p>
 </dd>
@@ -636,17 +636,19 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Escape-Sequences">Escape Sequences<a class="headerlink" href="#term-Escape-Sequences" title="Permalink to this term">#</a></dt><dd><p>Used in programming languages to represent special characters within a string or character literal. They are identified by the prefix backslash <code class="docutils literal notranslate"><span class="pre">\</span></code>. Examples are <code class="docutils literal notranslate"><span class="pre">\n</span></code>, <code class="docutils literal notranslate"><span class="pre">\t</span></code>, and <code class="docutils literal notranslate"><span class="pre">\\</span></code> to represent ‘newline’, ‘tab’ - and to identify that a backslash is just a back slash literal.</p>
 </dd>
-<dt id="term-Exception">Exception<a class="headerlink" href="#term-Exception" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Exception">Exception<a class="headerlink" href="#term-Exception" title="Permalink to this term">#</a></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">std::exception</span></code> class provides methods for dealing with errors throw <code class="docutils literal notranslate"><span class="pre">throw</span></code> expressions. Includes <code class="docutils literal notranslate"><span class="pre">std::bad_alloc</span></code> thrown when memory allocation fails, <code class="docutils literal notranslate"><span class="pre">std::bad_cast</span></code> thrown when a dynamic_cast fails during runtime, <code class="docutils literal notranslate"><span class="pre">std::bad_typeid</span></code> thrown when attempting to use typeid on a null pointer to a polymorphic type, <code class="docutils literal notranslate"><span class="pre">std::bad_exception</span></code> used to handle unexpected exceptions in a program, <code class="docutils literal notranslate"><span class="pre">std::logic_error</span></code> represents errors that can be detected before runtime, <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code> thrown when an invalid argument is passed to a function, <code class="docutils literal notranslate"><span class="pre">std::domain_error</span></code> thrown when a mathematically invalid domain is used, <code class="docutils literal notranslate"><span class="pre">std::length_error</span></code> thrown when an operation exceeds the maximum allowable size, <code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code>thrown when an argument is outside the expected range.</p>
 </dd>
-<dt id="term-Executable-File">Executable File<a class="headerlink" href="#term-Executable-File" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Executable-File">Executable File<a class="headerlink" href="#term-Executable-File" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">.exe</span></code> or other file types that contain machine code computer programmes that run directly on the computers processor.</p>
 </dd>
-<dt id="term-Expression">Expression<a class="headerlink" href="#term-Expression" title="Permalink to this term">#</a></dt><dd><p>A series of operators and names the produce a value or may designate objects or functions. Simplest example would be an arithmetic statement.</p>
+<dt id="term-Expression">Expression<a class="headerlink" href="#term-Expression" title="Permalink to this term">#</a></dt><dd><p>A combination of literals or variables with operators that produce a value or may designate objects or functions. Simplest example would be an arithmetic statement.</p>
+</dd>
+<dt id="term-Expression-assignment">Expression-assignment<a class="headerlink" href="#term-Expression-assignment" title="Permalink to this term">#</a></dt><dd><p>Replaces the LHS object with the result of the evaluation of the expression stated on RHS.</p>
 </dd>
 <dt id="term-Expression-Statement">Expression Statement<a class="headerlink" href="#term-Expression-Statement" title="Permalink to this term">#</a></dt><dd><p>An expression followed by a semicolon.</p>
 </dd>
 <dt id="term-Expression-Statements">Expression Statements<a class="headerlink" href="#term-Expression-Statements" title="Permalink to this term">#</a></dt><dd><p>An expression followed by a semicolon.</p>
 </dd>
-<dt id="term-Extraction">Extraction<a class="headerlink" href="#term-Extraction" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Extraction">Extraction<a class="headerlink" href="#term-Extraction" title="Permalink to this term">#</a></dt><dd><p>Transfer of data out of a stream into a variable.</p>
 </dd>
 <dt id="term-Extraction-Operator">Extraction Operator<a class="headerlink" href="#term-Extraction-Operator" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p>
 </dd>
@@ -658,7 +660,7 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Flow-Control">Flow Control<a class="headerlink" href="#term-Flow-Control" title="Permalink to this term">#</a></dt><dd><p>Control of the sequential flow of execution.</p>
 </dd>
-<dt id="term-For-Statement">For-Statement<a class="headerlink" href="#term-For-Statement" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-For-Statement">For-Statement<a class="headerlink" href="#term-For-Statement" title="Permalink to this term">#</a></dt><dd><p>Iteration statement - controls the repeated execution of code block while a condition is true. May use a loop variable and can run a final statement that may increment the loop variable.</p>
 </dd>
 <dt id="term-For-loop">For-loop<a class="headerlink" href="#term-For-loop" title="Permalink to this term">#</a></dt><dd><p>Common name for the for-statement.</p>
 </dd>
@@ -674,15 +676,15 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Function-Body">Function-Body<a class="headerlink" href="#term-Function-Body" title="Permalink to this term">#</a></dt><dd><p>Sequence of statement to be executed when the function is called.</p>
 </dd>
-<dt id="term-Function-Call">Function-Call<a class="headerlink" href="#term-Function-Call" title="Permalink to this term">#</a></dt><dd><p>A function is ‘called’ or ‘invoked’ by a statement of the function name followed by the values to be passed to the function in parenthesis. Any value returned by the function can be used by <a class="reference internal" href="#term-Copy-Assignment"><span class="xref std std-term">copy assignment</span></a>.</p>
+<dt id="term-Function-Call">Function-Call<a class="headerlink" href="#term-Function-Call" title="Permalink to this term">#</a></dt><dd><p>A function is ‘called’ or ‘invoked’ by a statement of the function name followed by the values to be passed to the function in parenthesis. Any value returned by the function can be used by <a class="reference internal" href="#term-Copy-Assignment"><span class="xref std std-term">copy-assignment</span></a>.</p>
 </dd>
-<dt id="term-0">Function Call<a class="headerlink" href="#term-0" title="Permalink to this term">#</a></dt><dd><p>A function is ‘called’ or ‘invoked’ by a statement of the function name followed by the values to be passed to the function in parenthesis. Any value returned by the function can be used by <a class="reference internal" href="#term-Copy-Assignment"><span class="xref std std-term">copy assignment</span></a>.</p>
+<dt id="term-1">Function Call<a class="headerlink" href="#term-1" title="Permalink to this term">#</a></dt><dd><p>A function is ‘called’ or ‘invoked’ by a statement of the function name followed by the values to be passed to the function in parenthesis. Any value returned by the function can be used by <a class="reference internal" href="#term-Copy-Assignment"><span class="xref std std-term">copy-assignment</span></a>.</p>
 </dd>
 <dt id="term-Function-Declaration">Function Declaration<a class="headerlink" href="#term-Function-Declaration" title="Permalink to this term">#</a></dt><dd><p>Statement of the name, types of any arguments and the return type of a function.</p>
 </dd>
-<dt id="term-1">Function-Declaration<a class="headerlink" href="#term-1" title="Permalink to this term">#</a></dt><dd><p>Statement of the name, types of any arguments and the return type of a function.</p>
+<dt id="term-2">Function-Declaration<a class="headerlink" href="#term-2" title="Permalink to this term">#</a></dt><dd><p>Statement of the name, types of any arguments and the return type of a function.</p>
 </dd>
-<dt id="term-Function-Definition">Function-Definition<a class="headerlink" href="#term-Function-Definition" title="Permalink to this term">#</a></dt><dd><p>Function declaration that include the <span class="xref std std-term">function body</span>.</p>
+<dt id="term-Function-Definition">Function-Definition<a class="headerlink" href="#term-Function-Definition" title="Permalink to this term">#</a></dt><dd><p>Function declaration that include the <a class="reference internal" href="#term-Function-Body"><span class="xref std std-term">function-body</span></a>.</p>
 </dd>
 <dt id="term-Function-Identifier">Function-Identifier<a class="headerlink" href="#term-Function-Identifier" title="Permalink to this term">#</a></dt><dd><p>Identifier of a function - may be user-defined.</p>
 </dd>
@@ -698,9 +700,9 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Global-Scope">Global Scope<a class="headerlink" href="#term-Global-Scope" title="Permalink to this term">#</a></dt><dd><p>Variables declared outside of all functions or classes have global scope. Global variables are accessible throughout the program, unless shadowed by a local variable with the same name. Global variables are best avoided unless necessary because they may result in unintended consequences in execution.</p>
 </dd>
-<dt id="term-Header-Files">Header Files<a class="headerlink" href="#term-Header-Files" title="Permalink to this term">#</a></dt><dd><p>DEF</p>
+<dt id="term-Header-Files">Header Files<a class="headerlink" href="#term-Header-Files" title="Permalink to this term">#</a></dt><dd><p>Header files in C++ are essential for organizing and managing code in large projects. They contain declarations of functions, classes, variables, and other identifiers, that inform the compiler about the existence and type of these elements without providing their actual implementation. This separation allows multiple source files to share the same declarations, ensuring consistency and reducing errors, and include them wherever needed, reducing redundancy and improving code maintainability.</p>
 </dd>
-<dt id="term-Heap">Heap<a class="headerlink" href="#term-Heap" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Heap">Heap<a class="headerlink" href="#term-Heap" title="Permalink to this term">#</a></dt><dd><p>(the-) is a region of memory used for dynamic memory allocation. Unlike the stack, the heap is managed manually by the programmer or automatically by a garbage collector.</p>
 </dd>
 <dt id="term-Identifier">Identifier<a class="headerlink" href="#term-Identifier" title="Permalink to this term">#</a></dt><dd><p>The <a class="reference internal" href="#term-Name"><span class="xref std std-term">name</span></a> given to any <a class="reference internal" href="#term-Entity"><span class="xref std std-term">entity</span></a> that may have a used defined name.</p>
 </dd>
@@ -708,13 +710,15 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Infix-Operator">Infix Operator<a class="headerlink" href="#term-Infix-Operator" title="Permalink to this term">#</a></dt><dd><p>Operator that sits between two variables, denoting an operation using both. As opposed to unary, prefix and postfix operators that act on one variable position before or after it.</p>
 </dd>
+<dt id="term-Insertion-Operator">Insertion Operator<a class="headerlink" href="#term-Insertion-Operator" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> - used with input streams to assign data to variables.</p>
+</dd>
 <dt id="term-Instruction-Set-Architecture">Instruction Set Architecture<a class="headerlink" href="#term-Instruction-Set-Architecture" title="Permalink to this term">#</a></dt><dd><p>Specifies the format of machine code used by the programmable interface of a <a class="reference internal" href="#term-CPU"><span class="xref std std-term">CPU</span></a>. The ‘instructions’ are patterns of bits, each of which is unique to a specific task.</p>
 </dd>
 <dt id="term-int">int<a class="headerlink" href="#term-int" title="Permalink to this term">#</a></dt><dd><p>Keyword for the Integer type.</p>
 </dd>
 <dt id="term-Initialisation">Initialisation<a class="headerlink" href="#term-Initialisation" title="Permalink to this term">#</a></dt><dd><p>Setting the initial value of an object. Definition results when initialisation is added to a declaration. Initialization is different from assignment because the object had no previous value and initialization is done by <a class="reference internal" href="#term-Constructors"><span class="xref std std-term">constructors</span></a>.</p>
 </dd>
-<dt id="term-Initialiser">Initialiser<a class="headerlink" href="#term-Initialiser" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Initialiser">Initialiser<a class="headerlink" href="#term-Initialiser" title="Permalink to this term">#</a></dt><dd><p>The syntax used to initialise a new variable.</p>
 </dd>
 <dt id="term-initialiser-List">initialiser List<a class="headerlink" href="#term-initialiser-List" title="Permalink to this term">#</a></dt><dd><p>A comma-delimited list of expressions enclosed in curly braces; used to initialize a struct or an array.</p>
 </dd>
@@ -740,17 +744,23 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Literals">Literals<a class="headerlink" href="#term-Literals" title="Permalink to this term">#</a></dt><dd><p>Literals are the tokens of a C++ program that represent constant values embedded in the source code.</p>
 </dd>
-<dt id="term-Local-Variables">Local Variables<a class="headerlink" href="#term-Local-Variables" title="Permalink to this term">#</a></dt><dd><p>Definition</p>
+<dt id="term-Literal-assignment">Literal-assignment<a class="headerlink" href="#term-Literal-assignment" title="Permalink to this term">#</a></dt><dd><p>Uses a literal for the RHS in assigment expression.</p>
 </dd>
-<dt id="term-Loop-Variable">Loop-Variable<a class="headerlink" href="#term-Loop-Variable" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Local-Variables">Local Variables<a class="headerlink" href="#term-Local-Variables" title="Permalink to this term">#</a></dt><dd><p>Variable declared within the current scope.</p>
+</dd>
+<dt id="term-Loop-Variable">Loop-Variable<a class="headerlink" href="#term-Loop-Variable" title="Permalink to this term">#</a></dt><dd><p>Variable declared within the for-statement argument. May be used as a local variable and cannot be shadowed.</p>
 </dd>
 <dt id="term-Machine-Code">Machine Code<a class="headerlink" href="#term-Machine-Code" title="Permalink to this term">#</a></dt><dd><p>Computer programs encoded and structured to run directly on a computer’s hardware. The different <a class="reference internal" href="#term-CPU"><span class="xref std std-term">CPU</span></a> architectures, x86, ARM, Apple Silicon, have different programmable interfaces and require different machine code specified by an <a class="reference internal" href="#term-Instruction-Set-Architecture"><span class="xref std std-term">instruction set architecture</span></a>.</p>
 </dd>
+<dt id="term-Macro">Macro<a class="headerlink" href="#term-Macro" title="Permalink to this term">#</a></dt><dd><p>A macro is a fragment of code which has been given a name. Whenever the name is used, it is replaced by the contents of the macro. There are two kinds of macros. They differ mostly in what they look like when they are used. Object-like macros resemble data objects when used, function-like macros resemble function calls.</p>
+</dd>
+<dt id="term-Macros">Macros<a class="headerlink" href="#term-Macros" title="Permalink to this term">#</a></dt><dd><p>Macros are preprocessor directives used for code substitution. A macro is a fragment of code which has been given a name. Whenever the name is used, it is replaced by the contents of the macro. There are two kinds of macros. They differ mostly in what they look like when they are used. Object-like macros resemble data objects when used, function-like macros resemble function calls.</p>
+</dd>
 <dt id="term-Member">Member<a class="headerlink" href="#term-Member" title="Permalink to this term">#</a></dt><dd><p>Types, variables and constants, and functions declared within the scope of, and therefore belonging to, a class.</p>
 </dd>
-<dt id="term-Memory-Address">Memory Address<a class="headerlink" href="#term-Memory-Address" title="Permalink to this term">#</a></dt><dd><p>A reference to a specific location in the computer’s memory.</p>
+<dt id="term-Memory-Address">Memory Address<a class="headerlink" href="#term-Memory-Address" title="Permalink to this term">#</a></dt><dd><p>A computer memory address is a unique identifier assigned to a specific location in a computer’s memory, allowing the CPU and other hardware components to access and manipulate stored data efficiently. Memory addresses are typically represented as an array of hexadecimal values of a fixed length.</p>
 </dd>
-<dt id="term-Memory">Memory<a class="headerlink" href="#term-Memory" title="Permalink to this term">#</a></dt><dd><p>Definition needed</p>
+<dt id="term-Memory">Memory<a class="headerlink" href="#term-Memory" title="Permalink to this term">#</a></dt><dd><p>Computer memory stores information, such as data and programs, for immediate use in the computer. The term memory is often synonymous with RAM (Random Access Memory), or primary storage.</p>
 </dd>
 <dt id="term-Memory-Management">Memory Management<a class="headerlink" href="#term-Memory-Management" title="Permalink to this term">#</a></dt><dd><p>Methods of allocating and freeing memory. In C++ memory is either static, allocated on the stack, or allocated on the free store. When people talk about memory management, they usually think of free store or even specifically about garbage collection. Memory can often be effectively managed through standard library containers, such as vector or string, or through general resource management techniques.</p>
 </dd>
@@ -758,13 +768,15 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Modulo-Operator">Modulo Operator<a class="headerlink" href="#term-Modulo-Operator" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">%</span></code> Infix operator for modulo operations that returns the remainder after dividing the LHS number by the RHS number. In C++ this operation only applies to <code class="docutils literal notranslate"><span class="pre">int</span></code> type and is truncating, meaning the quotient, whether positive or negative, is rounded towards before the remainder is determined. Other languages used ‘floored’ or ‘rounded’, and for every new language you will need to determine which is applied, because different results are produced.</p>
 </dd>
+<dt id="term-Move-assignment">Move-assignment<a class="headerlink" href="#term-Move-assignment" title="Permalink to this term">#</a></dt><dd><p>Replaces the contents of the LHS object a with the contents of RHS object, avoiding copying if possible (RHS may be modified). For non-class types, copy and move assignment are indistinguishable and are referred to as direct assignment.</p>
+</dd>
 <dt id="term-Name">Name<a class="headerlink" href="#term-Name" title="Permalink to this term">#</a></dt><dd><p>An identifier. (A minority of names are not identifiers - advanced).</p>
 </dd>
-<dt id="term-Named-Object">Named Object<a class="headerlink" href="#term-Named-Object" title="Permalink to this term">#</a></dt><dd><p>A variable</p>
+<dt id="term-Named-Object">Named Object<a class="headerlink" href="#term-Named-Object" title="Permalink to this term">#</a></dt><dd><p>A variable.</p>
 </dd>
-<dt id="term-Namespace">Namespace<a class="headerlink" href="#term-Namespace" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Namespace">Namespace<a class="headerlink" href="#term-Namespace" title="Permalink to this term">#</a></dt><dd><p>Entities declared inside a namespace block are placed in a namespace scope, which prevents them from being mistaken for identically-named entities in other scopes. Entities declared outside a namespace are in the global namespace. Users may define namespaces.</p>
 </dd>
-<dt id="term-Namespaces">Namespaces<a class="headerlink" href="#term-Namespaces" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Namespaces">Namespaces<a class="headerlink" href="#term-Namespaces" title="Permalink to this term">#</a></dt><dd><p>Namespaces are used to organise programs in more manageable sections by providing a method for preventing name conflicts in large projects.</p>
 </dd>
 <dt id="term-Narrowing">Narrowing<a class="headerlink" href="#term-Narrowing" title="Permalink to this term">#</a></dt><dd><p>A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type; leading to data loss or undefined behaviours.</p>
 </dd>
@@ -788,15 +800,23 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Object-oriented-programming">Object-oriented programming<a class="headerlink" href="#term-Object-oriented-programming" title="Permalink to this term">#</a></dt><dd><p>Programming paradigm that encapsulates related data and functions into objects. An imperative model, focusing on “how to do” tasks step-by-step.</p>
 </dd>
-<dt id="term-Operator">Operator<a class="headerlink" href="#term-Operator" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Operator">Operator<a class="headerlink" href="#term-Operator" title="Permalink to this term">#</a></dt><dd><p>Symbol used to denote an arithmetic, or logical operaton/computation on one or more values or variables, and to instruct the program to perform that operation. Used as part of an expression.</p>
 </dd>
-<dt id="term-Operators">Operators<a class="headerlink" href="#term-Operators" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Operators">Operators<a class="headerlink" href="#term-Operators" title="Permalink to this term">#</a></dt><dd><p>Symbols used to denote an arithmetic, or logical operaton/computation on one or more values or variables, and to instruct the program to perform that operation. Used as part of an expression.</p>
 </dd>
-<dt id="term-Operands">Operands<a class="headerlink" href="#term-Operands" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Operands">Operands<a class="headerlink" href="#term-Operands" title="Permalink to this term">#</a></dt><dd><p>Literals or variables operated on by operators in an expression.</p>
 </dd>
 <dt id="term-Overloading">Overloading<a class="headerlink" href="#term-Overloading" title="Permalink to this term">#</a></dt><dd><p>Adding multiple definitions to a single operator (or function name). The different definitions apply to different types. For functions the type pattern of its parameters must be unique.</p>
 </dd>
-<dt id="term-Passing-by-Constant-Reference">Passing by Constant Reference<a class="headerlink" href="#term-Passing-by-Constant-Reference" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Pass-by-Reference">Pass-by-Reference<a class="headerlink" href="#term-Pass-by-Reference" title="Permalink to this term">#</a></dt><dd><p>Passing a reference to a variable as the argument of a function call. Allows the modification of that variable by the function.</p>
+</dd>
+<dt id="term-Pass-by-Value">Pass-by-Value<a class="headerlink" href="#term-Pass-by-Value" title="Permalink to this term">#</a></dt><dd><p>Passing a variable name into a function, which results in a local copy of the variable being created for the used of the function, preserving the original.</p>
+</dd>
+<dt id="term-Passing-by-Constant-Reference">Passing by Constant Reference<a class="headerlink" href="#term-Passing-by-Constant-Reference" title="Permalink to this term">#</a></dt><dd><p>Passing by reference by declaring the function parameter <code class="docutils literal notranslate"><span class="pre">const</span></code> to prevent modification of the variable by the functions execution.</p>
+</dd>
+<dt id="term-Passed-by-reference">Passed by reference<a class="headerlink" href="#term-Passed-by-reference" title="Permalink to this term">#</a></dt><dd><p>Passing a reference to a variable as the argument of a function call. Allows the modification of that variable by the function.</p>
+</dd>
+<dt id="term-Passed-by-Value">Passed by Value<a class="headerlink" href="#term-Passed-by-Value" title="Permalink to this term">#</a></dt><dd><p>Passing a variable name into a function, which results in a local copy of the variable being created for the used of the function, preserving the original.</p>
 </dd>
 <dt id="term-Passing-by-Reference">Passing by Reference<a class="headerlink" href="#term-Passing-by-Reference" title="Permalink to this term">#</a></dt><dd><p>If a function parameter type is declared to be a reference to a type, then a reference to a variable can be passed instead of the variable itself. This saves the memory overhead needed to create the local copy of the passed in value, and allows the function to operate on the original value instead. Also called call-by-reference, as opposed to call-by-value when the actual value is passed in.</p>
 </dd>
@@ -808,17 +828,19 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Programming-Paradigms">Programming Paradigms<a class="headerlink" href="#term-Programming-Paradigms" title="Permalink to this term">#</a></dt><dd><p>Different approaches to writing computer programs. The most common paradigms are: Procedural, Functional, and Object-oriented programming.</p>
 </dd>
-<dt id="term-Reference">Reference<a class="headerlink" href="#term-Reference" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Reference">Reference<a class="headerlink" href="#term-Reference" title="Permalink to this term">#</a></dt><dd><p>The memory address of an object.</p>
 </dd>
-<dt id="term-References">References<a class="headerlink" href="#term-References" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-References">References<a class="headerlink" href="#term-References" title="Permalink to this term">#</a></dt><dd><p>The memory address of an object.</p>
 </dd>
 <dt id="term-Reserved-Characters">Reserved Characters<a class="headerlink" href="#term-Reserved-Characters" title="Permalink to this term">#</a></dt><dd><p>Some characters cannot be freely used because they have special meaning in the syntax. Some may be overloaded. Examples: <code class="docutils literal notranslate"><span class="pre">#</span></code>, <code class="docutils literal notranslate"><span class="pre">\</span></code>, arithmetic operators, comparison operators, punctuation symbols.</p>
 </dd>
 <dt id="term-Resource-files">Resource files<a class="headerlink" href="#term-Resource-files" title="Permalink to this term">#</a></dt><dd><p>Non code files, such as image files, required by the program.</p>
 </dd>
+<dt id="term-Return-statement">Return-statement<a class="headerlink" href="#term-Return-statement" title="Permalink to this term">#</a></dt><dd><p>Statement that causes a function call to end, returning control to the program that made the call, possibly sending a value back to the caller.</p>
+</dd>
 <dt id="term-Scalar">Scalar<a class="headerlink" href="#term-Scalar" title="Permalink to this term">#</a></dt><dd><p>A type that holds a single value of a defined range. Scalars include arithmetic types (integral or floating-point values), enumeration type members, pointer types, pointer-to-member types, and std::nullptr_t. Fundamental types are typically scalar types.</p>
 </dd>
-<dt id="term-Scope">Scope<a class="headerlink" href="#term-Scope" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Scope">Scope<a class="headerlink" href="#term-Scope" title="Permalink to this term">#</a></dt><dd><p>The context in which a variable, function, or class is defined. May be global, namespace, class, function, block/local.</p>
 </dd>
 <dt id="term-Scope-Resolution-Operator">Scope Resolution Operator<a class="headerlink" href="#term-Scope-Resolution-Operator" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">::</span></code> -  links an entity to its container; like a folder reference. The container defines the scope of the entity.</p>
 </dd>
@@ -847,13 +869,13 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Static-Memory">Static Memory<a class="headerlink" href="#term-Static-Memory" title="Permalink to this term">#</a></dt><dd><p>Memory allocated by the <a class="reference internal" href="#term-Linker"><span class="xref std std-term">linker</span></a></p>
 </dd>
-<dt id="term-String">String<a class="headerlink" href="#term-String" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-String">String<a class="headerlink" href="#term-String" title="Permalink to this term">#</a></dt><dd><p>Sequence of characters collected into a single variable. <code class="docutils literal notranslate"><span class="pre">string</span></code> is one of the <code class="docutils literal notranslate"><span class="pre">container</span></code> types in C++.</p>
 </dd>
 <dt id="term-String-Data-Type">String Data Type<a class="headerlink" href="#term-String-Data-Type" title="Permalink to this term">#</a></dt><dd><p>Data consisting of a sequence of characters, bracketed by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
 </dd>
 <dt id="term-Structured-Binding">Structured Binding<a class="headerlink" href="#term-Structured-Binding" title="Permalink to this term">#</a></dt><dd><p>Structured bindings allow you to decompose structured objects like tuples, arrays, or maps into individual variables for cleaner and more readable code.</p>
 </dd>
-<dt id="term-Switch-Statement">Switch Statement<a class="headerlink" href="#term-Switch-Statement" title="Permalink to this term">#</a></dt><dd><p>Def</p>
+<dt id="term-Switch-Statement">Switch Statement<a class="headerlink" href="#term-Switch-Statement" title="Permalink to this term">#</a></dt><dd><p>A selection control structure. Executes one of several possible code-blocks by checking an expression against a list of possible cases. Hierarchical, <code class="docutils literal notranslate"><span class="pre">if-else-if</span></code> ladder, lower cases are only checked if higher cases do not match. Default code-block optionally executed if no cases match.</p>
 </dd>
 <dt id="term-Syntax">Syntax<a class="headerlink" href="#term-Syntax" title="Permalink to this term">#</a></dt><dd><p>The set of grammatical rules specifying how the text of a program must be composed. For example, specifying the form of a declaration or the form of a for-statement.</p>
 </dd>
@@ -887,11 +909,15 @@ Expression assignment replaces the LHS object with the result of the evaluation 
 </dd>
 <dt id="term-Variables">Variables<a class="headerlink" href="#term-Variables" title="Permalink to this term">#</a></dt><dd><p>A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration - a named object in a scope.</p>
 </dd>
-<dt id="term-Value">Value<a class="headerlink" href="#term-Value" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Value">Value<a class="headerlink" href="#term-Value" title="Permalink to this term">#</a></dt><dd><p>The literal stored in a variable. Other usages, see <a class="reference internal" href="#term-Value-Categories"><span class="xref std std-term">Value Categories</span></a>.</p>
 </dd>
-<dt id="term-Values">Values<a class="headerlink" href="#term-Values" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Values">Values<a class="headerlink" href="#term-Values" title="Permalink to this term">#</a></dt><dd><p>Literals stored in a variable. Other usages, see <a class="reference internal" href="#term-Value-Categories"><span class="xref std std-term">Value Categories</span></a>.</p>
 </dd>
-<dt id="term-Void">Void<a class="headerlink" href="#term-Void" title="Permalink to this term">#</a></dt><dd><p>def</p>
+<dt id="term-Value-Categories">Value Categories<a class="headerlink" href="#term-Value-Categories" title="Permalink to this term">#</a></dt><dd><p>Each C++ expression (an operator with its operands, a literal, a variable name, etc.) is characterized by two independent properties: a type and a <a class="reference external" href="https://en.cppreference.com/w/cpp/language/value_category.html">value category</a>. The include lvalues and rvalues.</p>
+</dd>
+<dt id="term-Void">Void<a class="headerlink" href="#term-Void" title="Permalink to this term">#</a></dt><dd><p>Used to declare a function returns nothing. Cannot be used to declare a variable as having no type. Used to declare a pointer is of universal type i.e. void* pointer to a name thats type is not defined yet.def</p>
+</dd>
+<dt id="term-3">Void*<a class="headerlink" href="#term-3" title="Permalink to this term">#</a></dt><dd><p>A pointer’s type - if void*, the pointer can point to any variable that’s not declared with the const or volatile keyword. A void* pointer can’t be dereferenced unless it’s cast to another type. A void* pointer can be converted into any other type of data pointer. Avoid pointer can point to a free function (a function that’s not a member of a class), or to a static member function, but not to a non-static member function.</p>
 </dd>
 </dl>
 </section>

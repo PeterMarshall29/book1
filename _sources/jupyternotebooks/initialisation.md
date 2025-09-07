@@ -66,7 +66,7 @@ typeName identifier = { value or expression };          // copy-list-initialisat
 `````
 
 ## Initialisers
-There a different ways to initialise an object.
+There are different ways to initialise an object.
 
 If an {term}`initialiser` is specified for an object, that initializer determines the initial value of an object.
 
@@ -110,7 +110,7 @@ Initialization using `{}` is called {term}`list-initialisation` - usually the be
 
 It is recommended that list initialisation is used for anything more complicated that a simple variable - even though not having the {term}`assignment operator` `=` may be a little disconcerting at first.
 
-{term}`list-initialisation` does not permit {term}`narrowing` conversion. A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type; leading to data loss or undefined behaviours.
+{term}`list-initialisation` does not permit {term}`narrowing` conversion. A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type: leading to data loss or undefined behaviours.
 
 List-initialisation ensures that:
 
@@ -217,7 +217,7 @@ Default-initialisation refers to the way C++ handles initialisation when no init
 
 The manner of default-initialisation depends on the entity. Objects can be default-initialized, but if no initializer is specified for a reference, the program is ill-formed.
 
-The {term}`scalar` variables are simply left uninitialised - uninitialised primitive types have indeterminate values (unpredictable value that may depend on implementation).
+The {term}`scalar` variables are simply left uninitialized - uninitialized primitive types have indeterminate values (unpredictable value that may depend on implementation).
 
 However, when no initializer is specified, `global`, `namespace`, `local static`, or `static member` (static objects) are initialized using `{}` of the appropriate type. 
 
@@ -225,7 +225,7 @@ Classes will be initialised by their {term}`default-constructor` if they have on
 
 Global built-in type variables are default initialised to 0 – but you should not use global variables in the first place and '0' can be just as problematic as no value.
 
-Class members would be iinitialised using any specified default values.
+Class members would be initialised using any specified default values.
 
 For example:
 
@@ -271,7 +271,7 @@ Useful during programme development - similar to {term}`print debugging`.
 Try removing the list-initialiser `{}` from the two `int` and two `string` type variables one at a time.
 ```{admonition} Code Explanation
 :class: dropdown
-The global `int` is default initialised, but the local one is left uninitialised because it has no default constructor.
+The global `int` is default initialised, but the local one is left uninitialized because it has no default constructor.
 
 The string does have a default constructor.
 ```
@@ -283,8 +283,8 @@ Constant variables must be declared together with an initializer. If they're sca
 :class: dropdown
 Global and Static Variables
 ```{code-block} c++
-`int eRest;` is equivalent to `int eRest{};`, and `eRest` is initialised to '0'.
-`double U;` is equialent to `double U{};` so that `U` becomes '0.0'.
+int eRest; // is equivalent to 'int eRest{};', and 'eRest' is initialised to '0'.
+double U;  // is equialent to 'double U{};' so that 'U' becomes '0.0'.
 ```
 Local variables and objects created on the {term}`free store` are not initialised by unless they are of user-defined types with a default constructor. For example:
 ```{code-block} c++
@@ -329,9 +329,9 @@ int main()
 ```
 In some cases, function-style argument lists can also be used. For example:
 ```{code-block} c++
-std::vector<double> myVectrov(10, 3.3); // use constructor : v gets 10 elements initialized to 3.3
+std::vector<double> myVectrov(10, 3.3); // use constructor: v gets 10 elements initialized to 3.3
 ```
-In a declaration, an empty pair of parentheses, (), always means "function". Therefore, if you want to be explicitly require "default initialization" you must use`{}`. 
+In a declaration, an empty pair of parentheses, (), always means "function". Therefore, if you want to explicitly require "default initialization" you must use`{}`. 
 ```{code-block} c++
 std::complex<double> z1(1, 2); // function-style initializer (initialization by constructor)
 std::complex<double> f1(); // function declaration
@@ -363,7 +363,7 @@ auto e = sqrt(f); // e has the type of whatever sqrt(f) returns
 ```{danger}
 Be careful!! It is always wise to specify type and initialise immediately!
 
-The type system is there for good reason.
+The {term}`type system` is there for good reason.
 ```
 When using `auto`, {term}`copy-initialisation` is acceptable because there can be no type conversion to cause unexpected issues; and in the case of initialiser-lists using `{}` list-initialization is actually problematic. 
 

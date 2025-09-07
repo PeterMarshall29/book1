@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.872da041-9456-44e7-ba61-c17ea1299c8d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.1fa10844-5406-46b0-b6a9-4f54d1ccd67e.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-5748fc88-8876-48e6-830e-31096e72c008] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-f693e4b4-fd62-42cc-9146-c87a607733cd] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -243,7 +243,7 @@ window.addEventListener("load", load);
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -625,7 +625,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-5748fc88-8876-48e6-830e-31096e72c008" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-f693e4b4-fd62-42cc-9146-c87a607733cd" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
@@ -656,7 +656,7 @@ document.write(`
 <p>Type promotion occurs in arithmetic expressions, when the types are mismatched, but convertible, and in functions, if the passed in types is smaller than the expected type.</p>
 <div class="code_example dropdown admonition" id="examplef1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 11 </span></p>
 <section id="code_example-content">
 <p>In the following code, ‘a’ has been promoted to type <code class="docutils literal notranslate"><span class="pre">double</span></code> from type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
@@ -702,7 +702,7 @@ document.write(`
 <p>It is tremendously useful to be able to check the type of a variable.</p>
 <div class="code_example dropdown admonition" id="examplef2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 13 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 12 </span></p>
 <section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -759,7 +759,7 @@ document.write(`
 <p>For types that are more difficult to write and therefore harder to know, auto is much more useful.</p>
 <div class="code_example dropdown admonition" id="examplef3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 13 </span></p>
 <section id="code_example-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
@@ -822,7 +822,7 @@ document.write(`
 </ul>
 <div class="code_example dropdown admonition" id="examplef4">
 
-<p class="admonition-title"><span class="caption-number">Code Example 15 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 14 </span></p>
 <section id="code_example-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pchar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointer to character</span>
 <span class="k">using</span><span class="w"> </span><span class="n">PF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">double</span><span class="p">);</span><span class="w"> </span><span class="c1">// pointer to function taking a double and returning an int</span>

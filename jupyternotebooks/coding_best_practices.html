@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\coding_best_practices.b4a3af1a-eefc-4206-b73f-51900146a6a2.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\coding_best_practices.61288938-7766-438f-95a8-3479c51cc322.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/coding_best_practices';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -206,7 +206,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learing the Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
 </ul>
@@ -522,7 +522,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiss">KISS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commenting">Commenting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sytax-errors">Sytax Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-errors">Syntax Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-errors">Logic errors</a></li>
 </ul>
 </li>
@@ -567,13 +567,13 @@ document.write(`
 </div>
 <p>It is tempting to create identifiers using short, even single letter, names - this is a mistake.
 Using longer identifiers which make the purpose of identified entity clear to anyone reading your code
-Modern editors will autocomplete long identifer names - you will not need to keep retying your chosen expressive name.</p>
+Modern editors will autocomplete long identifier names - you will not need to keep retying your chosen expressive name.</p>
 </section>
 <section id="dry">
 <h2>DRY<a class="headerlink" href="#dry" title="Permalink to this heading">#</a></h2>
-<p>DRY  - Don’t repeat yourself! is a fundamental pratice in writing efficient code.</p>
+<p>DRY  - Don’t repeat yourself! is a fundamental practice in writing efficient code.</p>
 <p>Any lines of code that you know you are going to need more than once, should be encapsulated into a class or a function, which can be called repeatedly.</p>
-<p>This save you retyping the code, and makes repairing and maintaining longer programmes much simpler; e.g. you do not have to find the same mistake in 100 places, just in one function.</p>
+<p>This saves you retyping the code, and makes repairing and maintaining longer programmes much simpler, e.g. you do not have to find the same mistake in 100 places, just in one function.</p>
 <p>Dry coding includes <a class="reference internal" href="glossary.html#term-Functional-Programming"><span class="xref std std-term">functional programming</span></a> and <a class="reference internal" href="glossary.html#term-Object-oriented-programming"><span class="xref std std-term">object-oriented programming</span></a> paradigms.</p>
 <p>C++ is a multi-paradigm language.</p>
 </section>
@@ -585,7 +585,7 @@ Modern editors will autocomplete long identifer names - you will not need to kee
 <p>Lay out your code so that it is easy to read:</p>
 <ul class="simple">
 <li><p>Whitespace is your friend - completely ignore by the compiler.</p></li>
-<li><p>Use longer expressive names - modern editors autofill previously used names, you only have to type them out once!</p></li>
+<li><p>Use longer expressive names - modern editors autofill previously used names, you must type them out only once!</p></li>
 <li><p>Use systematic indenting - even when the language does not require it.</p></li>
 <li><p>Use comments - early and often</p></li>
 </ul>
@@ -620,17 +620,17 @@ Redundant comments are just places to collect lies and misinformation.</p>
 </div></blockquote>
 </div>
 <p>It is a common mistake to type in a lot of code at once without checking your work.</p>
-<section id="sytax-errors">
-<h3>Sytax Errors<a class="headerlink" href="#sytax-errors" title="Permalink to this heading">#</a></h3>
+<section id="syntax-errors">
+<h3>Syntax Errors<a class="headerlink" href="#syntax-errors" title="Permalink to this heading">#</a></h3>
 <p>In the early stages of learning coding, the simplest way to test your code is to try to compile it. The compiler will show you all your syntax errors.</p>
 <p>Understanding what has gone wrong is much simpler if you only have a few errors. In the beginning you should recompile every time you have finished a statement, or function.</p>
-<p>Otherwise you will face hours unpicking an accumulation of syntax errors that individually would have taken seconds to fix.</p>
+<p>Otherwise, you will face hours unpicking an accumulation of syntax errors that individually would have taken seconds to fix.</p>
 </section>
 <section id="logic-errors">
 <h3>Logic errors<a class="headerlink" href="#logic-errors" title="Permalink to this heading">#</a></h3>
 <p>These are not caught by the compiler, so you must test for them yourself.</p>
 <p>When the program is only part finished, you can add extra print statement, at different points in your code, so that you can follow the path of the programmes logic as it executes.</p>
-<p>Were the print statements executed in the expecte order? Where any or all of them missing?</p>
+<p>Were the print statements executed in the expected order? Where any or all of them missing?</p>
 </section>
 </section>
 </section>
@@ -704,7 +704,7 @@ Redundant comments are just places to collect lies and misinformation.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiss">KISS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commenting">Commenting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sytax-errors">Sytax Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-errors">Syntax Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logic-errors">Logic errors</a></li>
 </ul>
 </li>

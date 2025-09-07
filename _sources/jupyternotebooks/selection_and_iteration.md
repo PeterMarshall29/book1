@@ -44,7 +44,7 @@ Expression are sequences of operators and their operands, that specifies a compu
 
 When the expression statement is executed, the expression is evaluated, producing a result which will have a {term}`value` and a {term}`type`.
 
-Statements are always terminated by either a semicolon `;` or by a {term}`code block` {...some code here...}, which may be empty or contain statements.
+Statements are always terminated by either a semicolon `;` or by a {term}`code-block` {...some code here...}, which may be empty or contain statements.
 
 Forgetting to terminate a statement correctly will result in a compile-time error. 
 
