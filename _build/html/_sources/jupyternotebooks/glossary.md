@@ -131,6 +131,12 @@ Declarations
 Declarator
   The part of a declaration that specifies the name of an entity - may include modifiers.
 
+Declarator-operator
+  Operators used to modify the type of a variable, function, or object being declared. e.g. `*` and `&` for pointers, and `[]` for arrays.
+
+Declarator-operators
+  Operators used to modify the type of a variable, function, or object being declared. e.g. `*` and `&` for pointers, and `[]` for arrays.
+
 Default-Constructor
   Constructor that be called with not arguments - use to construct an object when no user initialisation is provided.
 
@@ -149,6 +155,9 @@ Definition
 Definitions
   Definitions are declarations that are sufficient to use the entity identified by the name.
 
+Dereferencing
+  Returning the value of the object associated with a pointer - accomplished by prefixing `*` to the pointer's identifier in an expression.
+
 Directive
   Also known as preprocessor directives - instructions that are processed before compilation of the C++ code begins. Directives start with `#` and must lie at the top of the document. Used for including files, such as libraries, and defining {term}`macros`, and conditional compilation.
 
@@ -156,7 +165,7 @@ Directives
   Also known as preprocessor directives - instructions that are processed before compilation of the C++ code begins. Directives start with `#` and must lie at the top of the document. Used for including files (`#include`), such as libraries, and defining {term}`macros`(`#define`), and conditional compilation (`#if`, `#ifdef`, `#ifndef`).
 
 Dynamic Memory
-  Memory that is allocated during runtime using `new`; and deallocated using `delete`.
+  Memory that is allocated during runtime using `new`; and deallocated using `delete`. A computer's RAM must be large enough to accomodate all the objects created during run-time.
 
 Embedded Programs
   Programs written on computers and then transferred onto an embedded microprocessor in a device to control its function - also called firmware. The embedded program is an integrated part of the device and not directly accessible by the user. 
@@ -228,7 +237,7 @@ For-loop
   Common name for the for-statement.
 
 Free store
-  {term}`memory` allocated by `new`; also called dynamic memory. Often standard library facilities, such as `vector`, can be used to avoid explicit use of free store.
+  {term}`memory` allocated by `new`; also called {term}`dynamic memory`. Dynamic memory is an amount of memory of indeterminate size used up during execution of a program as new objects are created. Often standard library facilities, such as `vector`, can be used to avoid explicit use of free store.
 
 Function
   A named sequence of statements that can be invoked/called by a program, optionally using arguments supplied by the function call, to optional return a value to the program. The type of the function includes the number and types of argument and the type of the value returned. Functions are useful because they are reusable, making code more efficient to write and execute.
@@ -290,11 +299,14 @@ Heap
 Identifier
   The {term}`name` given to any {term}`entity` that may have a used defined name.
 
+Indirection
+  Returning the value of the object associated with a pointer - accomplished by prefixing `*` to the pointer's identifier in an expression.
+
 Immutable
   Fixed, constant, not permitted to change after initialisation.
 
 Infix Operator
-  Operator that sits between two variables, denoting an operation using both. As opposed to unary, prefix and postfix operators that act on one variable position before or after it.
+  Operator that sits between two variables, denoting an operation using both. As opposed to unary, prefix and postfix, operators that act on one variable positioned before or after it.
 
 Insertion Operator
   `>>` - used with input streams to assign data to variables.
@@ -356,6 +368,9 @@ Local Variables
 Loop-Variable
   Variable declared within the for-statement argument. May be used as a local variable and cannot be shadowed.
 
+lvalue
+  An expression whose evaluation determines the identity of an object or function. The name of the object or function - basically, the left hand side of an assignment operation or the name before the {}.
+
 Machine Code
   Computer programs encoded and structured to run directly on a computer’s hardware. The different {term}`CPU` architectures, x86, ARM, Apple Silicon, have different programmable interfaces and require different machine code specified by an {term}`instruction set architecture`. 
 
@@ -401,6 +416,9 @@ Namespaces
 Narrowing
   A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type; leading to data loss or undefined behaviours.
 
+New
+  Keyword in C++ used to dynamically allocate memory on the heap for objects or variables during runtime. `new` allocates the required amount of memory on the heap; and calls a constructor (if there is one) to initialise the newly allocated object/memory.
+
 Numeric Data Type
   The data types for numeric values - each represents a different type of number to different levels of precision. Includes `int`, `float`, `double`. Some data types require additional specifiers, see the [C++ Reference – Data Types](https://en.cppreference.com/w/cpp/language/types.html)
 
@@ -412,6 +430,11 @@ Null Character
 
 Null Statement
   The {term}`Empty statement`: valid in C++ and can be used in certain scenarios where a statement is syntactically required but no action is needed.
+
+Object
+  - A contiguous region of memory holding a value of some type. Objects can be allocated in {term}`static memory`, on the {term}`stack`, on the {term}`free store`. 
+  - A named or unnamed variable of some type; an object of a type with a constructor is not considered an object before the constructor has completed and is no longer considered an object once a destructor has started executing for it. 
+  - An instance of a class containing data (variable and constants) and methods (functions). 
 
 Objects
   - A contiguous region of memory holding a value of some type. Objects can be allocated in {term}`static memory`, on the {term}`stack`, on the {term}`free store`. 
@@ -460,6 +483,9 @@ Passing by Reference
 POD Type 
   POD = "Plain Old Data". A class or a struct that do not include any constructor, destructor or virtual functions - they only have int, char, double, bool, etc. as data members.
 
+Pointer
+  A named object (variable) that stores the memory address of another object.
+
 Print Debugging
   Using strategically position print statements to follow the control flow of a programme’s execution. The print statements may just include an index to identify which statement produced it, or more detailed error/exception outputs.
 
@@ -483,6 +509,9 @@ Resource files
 
 Return-statement
   Statement that causes a function call to end, returning control to the program that made the call, possibly sending a value back to the caller.
+
+rvalue
+  The expression appearing on the right hand side of an assignment operator or in the {} for list initialisaiton. rvalues are not always on the LHS, but if the same expression could be used on LHS, its probably an rvalue.
 
 Scalar
   A type that holds a single value of a defined range. Scalars include arithmetic types (integral or floating-point values), enumeration type members, pointer types, pointer-to-member types, and std::nullptr_t. Fundamental types are typically scalar types.
@@ -576,6 +605,9 @@ Type Safety
 
 Type System
   The set of rules prescribing how each object may be used according to their types.
+
+Unary
+  Describing an operator that operates on a single operand, such as the negation operator. Unary operators are further classified as prefix and postfix. The alternative is an {term}`infix operator`.
 
 Variable
   A variable is an object or a reference that is not a non-static data member, that is introduced by a declaration - a named object in a scope.

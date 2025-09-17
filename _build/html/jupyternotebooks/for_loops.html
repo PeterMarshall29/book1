@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.54e2f799-0b38-4cfd-8463-b05002f3d888.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.73f3f218-9cca-4730-98ca-0385e28767e8.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b9bcc263-2595-46fa-a5b0-6c206fcb56fe] svg, .mermaid[data-zoom-id=id-9431ad5a-854e-4c42-a6b3-70a2b048ada3] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b6e3a838-4168-48e3-ab30-500bbb439284] svg, .mermaid[data-zoom-id=id-f9574576-f2ac-4702-b669-32f1a4a56262] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -599,7 +599,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-b9bcc263-2595-46fa-a5b0-6c206fcb56fe" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-b6e3a838-4168-48e3-ab30-500bbb439284" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -630,7 +630,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-9431ad5a-854e-4c42-a6b3-70a2b048ada3" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-f9574576-f2ac-4702-b669-32f1a4a56262" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -814,10 +814,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1	2	3	4	5	6	7	8	9	
-</pre></div>
-</div>
+<p>0	1	2	3	4	5	6	7	8	9</p>
 </div>
 </div>
 </section>
@@ -1041,8 +1038,7 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0</p>
-<p>0	01	52	03	04	05</p>
+<p>00	01	52	03	04	05</p>
 </div>
 </div>
 </section>
@@ -1064,7 +1060,8 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>, 0	, 1	, 2	, 3	, 4	, 5</p>
+<p>,</p>
+<p>0	, 1	, 2	, 3	, 4	, 5</p>
 </div>
 </div>
 </section>
