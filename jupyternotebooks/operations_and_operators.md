@@ -20,45 +20,6 @@ Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces t
 
 Each C++ expression is characterized by two independent properties: A type and a value category.
 
-## The Comma Operator
-
-The most common use of a comma in C++ us as a separator. For example, to declare or define multiple values of the same type
-````{code-block} C++
-int firstInt = 3, secondInt, thirdInt {4};
-````
-Or to separate parameters is a function declaration or call:
-````{code-block} C++
-void myFunction (int a, std:string b, bool c) {}
-````
-The other use of the comma is the {term}`comma operator`, which enables the evaluation of multiple expression at any point in the code where a single expression might be located.
-
-````{code-block} C++
-(A , B);
-````
-The comma operator is particularly dangerous and should be used only if you have no other choice and with great care.
-
-In a comma expression `A , B`, the expression A is evaluated, its result is discarded, and its side effects are completed before evaluation of the expression B begins.
-
-The type, value, and value category of the result of the comma expression are exactly the type, value, and value category of the second operand, B. (
-
-If B is a temporary expression, the result of the expression is that temporary expression. If B is a bit-field, the result is a bit-field.)
-
-If the comma operator is needed anywhere that it might be confused with the simple separator comma, then the expression must be parenthesised.
-
-int main() {
-    int myInt = 10;
-    std::cout << "myInt = " << (++myInt, myInt *= 2 ) << '\n';
-    return 0;
-}
-
-`myInt` is incremented and then new value of is passed to the output stream.
-
-Try removing the parentheses.
-
-Without the parentheses, the second argument is discarded, and the result is the first argument. To only achieve the increment, `++myInt` on its own suffices. 
-
-The parenthesised expression could be replaced with `(myInt + 1) * 2`, which is safer.
-
 ## Operations and Operators
 Each {term}`type` can be operated on by specific operators
 
@@ -66,7 +27,7 @@ Some operators are overloaded - `+` is the addition operator for arithmetic type
 
 Programmers can also overload some operators.
 
-`````{example-start} Example
+`````{code_example-start}
 :label: examplek1
 :class: dropdown
 `````
@@ -88,15 +49,15 @@ return 0;
 Write code here..
 ````
 ```{exercise}
-:class: dropdown
+:class: dropdown exercise
 Try moving the declaration of name to after 
 ```
-````{explanation} examplek1
+````{code_explanation} examplek1
 :label: explanationk1
-:class: dropdown tip
+:class: dropdown
 
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 Try this code
@@ -189,6 +150,87 @@ int main() {
 ## Subscript Operator
 
 []
+
+## The Comma Operator
+
+The most common use of a comma in C++ us as a separator. For example, to declare or define multiple values of the same type
+````{code-block} C++
+int firstInt = 3, secondInt, thirdInt {4};
+````
+Or to separate parameters is a function declaration or call:
+````{code-block} C++
+void myFunction (int a, std:string b, bool c) {}
+````
+The other use of the comma is the {term}`comma operator`, which enables the evaluation of multiple expression at any point in the code where a single expression might normally be located.
+
+`````{syntax-start} Comma Operator
+:class: dropdown
+:nonumber:
+`````
+The syntax of the comma operator.
+````{code-block} C++
+Expression1 , Expression2;
+//equivalently
+(Expression1 , Expression2);
+````
+In a comma expression `Expression1 , Expression2;`, `Expression1` is evaluated, its result is discarded and its side effects are completed, before evaluation of `Expression2` begins.
+
+The type, value, and value category of the result of the comma expression are exactly the type, value, and value category of the second operand, `Expression2`; If `Expression2` is a temporary expression, the result of the expression is that temporary expression.
+
+The parentheses are only required when there might be confusion with the comma seperator.
+`````{syntax-end}
+`````
+The comma operator is particularly dangerous and should be used only if you have no other choice and with great care.
+
+`````{code_example-start} Comma Operator
+:label: examplek8
+:class: dropdown
+:nonumber:
+`````
+In this case the parentheses are clearly required.
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+int main() {
+    int myInt = 10;
+    std::cout << "myInt = " << (++myInt, myInt *= 2) << '\n';
+    return 0;
+}
+````
+`myInt` is incremented and then new value of is passed to the output stream.
+````{exercise} exercisek8
+:class: dropdown
+:nonumber:
+Try removing the parentheses.
+
+Try moving the comma expression without parentheses to another position to show parentheses are not always required.
+```{admonition} Explanation
+:class: dropdown
+Without the parentheses, the second argument is discarded, and the result is the first argument. To only achieve the increment, `++myInt` on its own suffices. 
+
+The parenthesised expression could be replaced with `(myInt + 1) * 2`, which is safer.
+
+The comma expression can by moved to a separate line, `++myInt, myInt *= 2;`, and then only `myInt` need be sent to `std::cout`.
+
+```
+````
+Comma operators can be chained; the result of the last (rightmost) expression is the result of the whole chain.
+
+Complete and run this code - predict what will happen.
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+int main() {
+    int n = 1;
+    int m = (++n, std::cout << "n = " << n << '\n', ++n, 2 * n);
+    std::cout << "m = " << m;
+    return 0;
+}
+````
+What is the value of m at the end - check. 
+`````{code_example-end}
+`````
+
 
 ## Ternary Operators
 Example:
@@ -313,7 +355,7 @@ The three-way comparison operator `<=>` (the spaceship operator) was only recent
 For example: (A <=> B) < 0 means a < b. (a <=> b) == 0 means a == b. (a <=> b) > 0 means a > b.
 ```
 
-## Logical Operators
+## Boolean (Logical) Operators
 
 ```{list-table}
 :header-rows: 1
@@ -335,7 +377,6 @@ For example: (A <=> B) < 0 means a < b. (a <=> b) == 0 means a == b. (a <=> b) >
   - `A || B`
   - Returns `true`, if either one, or both, of `A` and `B` are `true`. i.e. only returns `false` if both were `false`.
 ```
-
 
 ## Short Circuiting
 

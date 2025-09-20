@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.ba07cf75-6bcb-41da-ae37-1988a1c95565.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.a41c16b3-4249-4b0a-b657-9150668f7ce4.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-3b7426e6-2932-4cbb-84d3-d84e5f34b903] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-16559412-34a6-4032-b195-e7f3694bbe89] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -589,7 +589,7 @@ document.write(`
 <p>The break-statements prevent more than one case being triggered
 The break statements are not optional.</p>
 <p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-3b7426e6-2932-4cbb-84d3-d84e5f34b903" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-16559412-34a6-4032-b195-e7f3694bbe89" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
@@ -640,7 +640,7 @@ The break statements are not optional.</p>
 </div>
 <div class="example dropdown admonition" id="exampler1">
 
-<p class="admonition-title"><span class="caption-number">example 6 </span></p>
+<p class="admonition-title"><span class="caption-number">example 5 </span></p>
 <section id="example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -671,7 +671,7 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown note admonition" id="explanationr1">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Code Example 6</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler1"> Code Example 5</a></p>
 <section id="explanation-content">
 <p>In this example, the while loop is just to keep the program running – we are only interested in the switch loop.</p>
 <p>constexpr double cm_per_inch = 2.54 - the conversion factor.</p>
@@ -682,7 +682,7 @@ The break statements are not optional.</p>
 <p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute the syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 24 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
 <section id="exercise-content">
 <ul class="simple">
 <li><p>Try removing the break statement from the default case.</p></li>
@@ -698,7 +698,7 @@ The break statements are not optional.</p>
 </div>
 <div class="example dropdown admonition" id="exampler2">
 
-<p class="admonition-title"><span class="caption-number">example 7 </span></p>
+<p class="admonition-title"><span class="caption-number">example 6 </span></p>
 <section id="example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -743,12 +743,12 @@ The break statements are not optional.</p>
 </div>
 <div class="explanation dropdown hint admonition" id="explanationr2">
 
-<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Code Example 7</a></p>
+<p class="admonition-title">Explanation of<a class="reference internal" href="#exampler2"> Code Example 6</a></p>
 <section id="explanation-content">
 <p>words</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 25 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 55 </span></p>
 <section id="exercise-content">
 <p>wrds</p>
 </section>
