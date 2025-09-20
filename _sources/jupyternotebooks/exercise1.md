@@ -128,5 +128,228 @@ int main() {
 `````{solution-end}
 `````
 
+````{exercise-start} 
+:label: exerciseex11
+:class: dropdown
+````
 
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex11
+:label: solutionex11
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+````{exercise-start} 
+:label: exerciseex12
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex12
+:label: solutionex12
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+````{exercise-start} 
+:label: exerciseex13
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex13
+:label: solutionex13
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+
+````{exercise-start} 
+:label: exerciseex14
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex14
+:label: solutionex14
+:class: dropdown
+````
+```{code-block} c++
+#include <iostream>
+
+```
+````{solution-end}
+````
+
+
+````{exercise-start} 
+:label: exerciseex15
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex15
+:label: solutionex15
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+
+````{exercise-start} 
+:label: exerciseex16
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex16
+:label: solutionex16
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+
+````{exercise-start} 
+:label: exerciseex17
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex17
+:label: solutionex17
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+````{exercise-start} 
+:label: exerciseex18
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex18
+:label: solutionex18
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+````{exercise-start} 
+:label: exerciseex19
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex19
+:label: solutionex19
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
+
+````{exercise-start} 
+:label: exerciseex110
+:class: dropdown
+````
+
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex110
+:label: solutionex110
+:class: dropdown
+````
+```{code-block} c++
+
+```
+````{solution-end}
+````
 

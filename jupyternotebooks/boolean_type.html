@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.4f29873c-cade-414b-ba29-840b5739d259.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.323fea83-a4de-4247-826a-d09c90d18d52.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/boolean_type';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -517,7 +517,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-converting-to-booleans">Pointers Converting to Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-booleans">Pointers and Booleans</a></li>
 </ul>
             </nav>
         </div>
@@ -531,74 +531,179 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="boolean-data-type">
 <h1>Boolean Data Type<a class="headerlink" href="#boolean-data-type" title="Permalink to this heading">#</a></h1>
-<p>Generally, you will only need to use bool for logical values, char for characters, int for integer values, and double for floating-point values.</p>
-<p>Unless you are pushing the computer to its limits, you don’t need to worry about optimisation quite so much these days, and especially when just starting out.</p>
-<p>In c++ the integral and floating-point types are available in a variety of sizes to allow you to optimise the amount of memory storage utilised and therefore the precision and the range available in computation.</p>
-<p>Computers usually use bytes characters, words integer values, some entity most suitable for floating-point computation, and addresses for referring to those entities.</p>
-<p>The C++ fundamental types together with pointers and arrays present these machine-level notions to the programmer in a reasonably implementation-independent manner.</p>
-<p>A Boolean, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, can have one of the two values true or false.</p>
-<p>A Boolean is used to express the results of logical operations. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">};</span>
-<span class="c1">// ...</span>
+<div class="margin admonition">
+<p class="admonition-title">George Boole</p>
+<p>George Boole defined an algebraic system of logic in 1847 in “The Mathematical Analysis of Logic”.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Boolean Algebra</p>
+<p>A branch of algebra used to describe logical operations - with the following distinguishing features.</p>
+<p>Boolean variables may only have the value <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> - called truth values - which are generally represented by <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Boolean variables are operands for Boolean operators (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, and others) - normal algebraic rules do not apply.</p>
+<p>In 1937 Shannon proved that the behaviour of certain types of electrical circuit was logically equivalent to Boolean algebra.</p>
+</div>
+<p>Computers operate using Boolean logic, i.e. the electronic circuits are a physical manifestation of two-value Boolean logic.</p>
+<p>Boolean operations required that the computer circuits can be in one of two distinct states, representing <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is achieved in various ways, the simplest being that the voltage in a wire is either 0 or a positive value.</p>
+<p>Two-state Boolean logic is not the only possibility, but it is the simplest to implement. Using 4 states would offer some advantages, but currently it’s simpler to use 2 wires to get 4 possible states.</p>
+<p>In programming a Boolean, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, is a fundamental integer data type.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">bool</span></code> may hold only the integer values <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>, which represent <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> respectively.</p>
+<p>Booleans are used in conditional statements to determine the control flow depending on whether a conditional expression evaluates to true or false.</p>
+<div class="code_example dropdown admonition" id="examplel1">
+
+<p class="admonition-title">Code Example: The Boolean Type </p>
+<section id="code_example-content">
+<p>A simple demonstration of a Boolean is:</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+</div>
+</div>
+<p>A common use of <code class="docutils literal notranslate"><span class="pre">bool</span></code> is as the type of the result of a function that tests some condition (a predicate).</p>
+<p>We should also add more user interaction - useful even in short codes because it helps you keep track of your logic.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please input two numbers </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> have the same value, <code class="docutils literal notranslate"><span class="pre">myBoolean</span></code> becomes <code class="docutils literal notranslate"><span class="pre">true</span></code>; otherwise, <code class="docutils literal notranslate"><span class="pre">myBoolean</span></code> becomes <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p>A common use of <code class="docutils literal notranslate"><span class="pre">bool</span></code> is as the type of the result of a function that tests some condition (a predicate). For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_open</span><span class="p">(</span><span class="n">myFile</span><span class="p">);</span>
-<span class="kt">bool</span><span class="w"> </span><span class="nf">greater</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-<p>By definition, true has the value 1 when converted to an integer and false has the value 0.</p>
-<p>Conversely, integers can be implicitly converted to bool values: nonzero integers convert to <code class="docutils literal notranslate"><span class="pre">true</span></code> and ‘0’ converts to <code class="docutils literal notranslate"><span class="pre">false</span></code>. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">  </span><span class="c1">// 7!=0, so b becomes true</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">b2</span><span class="p">{</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// error: narrowing </span>
-<span class="kt">int</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// i1 becomes 1</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">i2</span><span class="p">{</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// i2 becomes 1z</span>
-</pre></div>
-</div>
-<p>If you prefer to use the {}-initializer syntax to prevent narrowing, yet still want to convert an <code class="docutils literal notranslate"><span class="pre">int</span></code> to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, you can be explicit:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunnction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">{</span><span class="n">i</span><span class="o">!=</span><span class="mi">0</span><span class="p">};</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<p>In arithmetic and logical expressions, bools are converted to ints; integer arithmetic and logical operations are performed on the converted values.</p>
-<p>If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a+b is 2, so x becomes true</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a||b is 1, so y becomes true (&quot;||&quot; means &quot;or&quot;)</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// a-b is 0, so z becomes false</span>
-</pre></div>
-</div>
-<section id="pointers-converting-to-booleans">
-<h2>Pointers Converting to Booleans<a class="headerlink" href="#pointers-converting-to-booleans" title="Permalink to this heading">#</a></h2>
-<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. A non-null pointer converts to <code class="docutils literal notranslate"><span class="pre">true</span></code>; pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myPointer</span><span class="p">;</span><span class="w">  </span><span class="c1">// narrows to true or false - not a copy!</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean2</span><span class="p">{</span><span class="w"> </span><span class="n">myPointer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// explicit test against nullptr</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myPointer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// identical to p!=nullptr</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;not pointing to Null&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
+<p>‘1’ or ‘0’ is printed to the terminal.</p>
+<p>We can add some more formatting to the output.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">myBoolean</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
-<span class="w">	</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// or set to temp</span>
-<span class="w">	</span><span class="n">myFunction</span><span class="p">(</span><span class="n">myPointerToTemp</span><span class="p">);</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please input two numbers </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myFunction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The numbers match!&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The numbers are different!&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>I prefer <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(p)</span></code> over <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(p!=nullptr)</span></code> because it more directly expresses the notion “if p is valid” and also because it is shorter.</p>
-<p>The shorter form leaves fewer opportunities for mistakes.</p>
+</div>
+</div>
+<p>It is often not necessary to create a Boolean variable.</p>
+<p>The evaluation of any comparison expression returns a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> etc., all generate temporary Booleans.</p>
+<p>The last code can therefore have the function simplified by replacing the entire function body with only:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Check that works.</p>
 </section>
+</div><div class="code_example dropdown admonition" id="examplel2">
+
+<p class="admonition-title">Code Example: More About the Boolean Type </p>
+<section id="code_example-content">
+<p><code class="docutils literal notranslate"><span class="pre">true</span></code> has the value <code class="docutils literal notranslate"><span class="pre">1</span></code> when converted to an integer and <code class="docutils literal notranslate"><span class="pre">false</span></code> has the value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Conversely, integers can be implicitly converted to bool values: nonzero integers convert to <code class="docutils literal notranslate"><span class="pre">true</span></code> and ‘0’ converts to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>Try this code in a live editor.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos">2</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">  </span>
+<span class="linenos">4</span><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool2</span><span class="p">{</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">};</span><span class="w">  </span>
+<span class="linenos">5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myInt1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">  </span>
+<span class="linenos">6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myInt2</span><span class="p">{</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">};</span><span class="w">  </span>
+<span class="linenos">7</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myInt1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myInt2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">8</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">9</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>This code will not compile until you comment out line 4. Conversion of an integer to a Boolean is an example of narrowing, which is barred when using an initialiser list <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<p>At line 3: 7 != 0 , myBool1 becomes true.</p>
+<p>The conversion from Boolean to integer is not a narrowing conversion, integers are bigger than Booleans, so this is permitted using <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<hr class="docutils" />
+<p>In arithmetic and logical expressions, <code class="docutils literal notranslate"><span class="pre">bool</span></code>s are converted to <code class="docutils literal notranslate"><span class="pre">int</span></code>s; integer arithmetic and logical operations are performed on the converted values.</p>
+<p>If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myBool2</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">myBool2</span><span class="p">;</span><span class="w"> </span><span class="c1">// a||b is 1, so y becomes true (&quot;||&quot; means &quot;or&quot;)</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">myBool2</span><span class="p">;</span><span class="w"> </span><span class="c1">// a-b is 0, so z becomes false</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool4</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool5</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Line 5: <code class="docutils literal notranslate"><span class="pre">true</span></code> + <code class="docutils literal notranslate"><span class="pre">true</span></code> = <code class="docutils literal notranslate"><span class="pre">2</span></code>, conversion to integers before addition, then ‘&gt;0’ converts to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>Line 6: If either or both are true, the logical <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>Line 7: Arithmetic evaluation to integer ‘0’, converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</section>
+</div><section id="pointers-and-booleans">
+<h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Permalink to this heading">#</a></h2>
+<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. A non-null pointer converts to true; pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span> </code>convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="code_example dropdown admonition" id="examplel6">
+
+<p class="admonition-title">Code Example: Pointers and Booleans </p>
+<section id="code_example-content">
+<p>Examples of Pointers used as Booleans</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myPointer</span><span class="p">;</span><span class="w">            </span><span class="c1">// Narrowing conversion to a Boolean - not a copy!</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBoolean2</span><span class="w"> </span><span class="p">{</span><span class="n">myPointer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">};</span><span class="w"> </span><span class="c1">// Initialised with the Boolean result of a comparison expression</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBoolean1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myPointer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointing to an Object&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointing to the nullptr&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tempInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToTempInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tempInt</span><span class="p">;</span><span class="w">     </span>
+<span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">myPointerToTempInt</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">myPointerToTempInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">myPointerToTempInt</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationl6">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplel6"> Code Example: Pointers and Booleans </a></p>
+<section id="code_explanation-content">
+<p>Note that <code class="docutils literal notranslate"><span class="pre">==</span></code> compares addresses (pointer values) when applied to pointers, and not the values pointed to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer</span> <span class="pre">!=</span> <span class="pre">nullptr)</span></code>. The compiler knows a Boolean is required and implicitly converts the pointer obviating the comparison expression.</p>
+<p>It is usually better to use shorter code - less chance of a mistake - and in this case we have a clear expression of testing whether the pointer is valid, i.e. it points at an actual object.</p>
+</section>
+</div>
+</section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -665,7 +770,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-converting-to-booleans">Pointers Converting to Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-booleans">Pointers and Booleans</a></li>
 </ul>
   </nav></div>
 

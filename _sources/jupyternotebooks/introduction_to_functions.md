@@ -125,12 +125,12 @@ These values become {term}`local variables` that can be used within the function
 
 Functions would be less useful if they variables used in their execution could not be modified. Global variables could be used, but these are generally to be avoided.
 
-`````{code_example-start}
+``````{code_example-start}
 :label: exampleu2
 :class: dropdown
-`````
+``````
 Run this code. 
-````{code-cell} c++
+`````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -146,10 +146,10 @@ int main()
     }
     return 0;
 }
-````
-````{code_explanation} exampleu2
+`````
+`````{code_explanation} exampleu2
 :label: explanationu2
-:class: note dropdown
+:class: dropdown
 The definition of `squareOf()` declares a single parameter called 'x' of type `int`. 
 
 * The type of `squareOf()` is `int (int)`.
@@ -164,7 +164,7 @@ To call `squareOf()` its name must be included in a code-statement followed by `
 
 * If a return value is not used, it is better practice to declare return type as `void`. It is also common practice to put `return;` at the end of a void function - though not strictly necessary. 
 
-```{admonition} Ways to exit a function
+```{admonition} Ways to Exit a Function
 :class: note dropdown
 There are 4 ways for the program to exit a function.
 
@@ -175,11 +175,11 @@ There are 4 ways for the program to exit a function.
 
 The programmer should always ensure there is a `return`, or an `error`, for every logically possible way out of a function.
 ```
-
-````
+`````
 ````{exercise-start}
 :label: exerciseu2
-:class: dropdown
+:class: dropdown admonition
+:nonumber:
 ````
 1. Correct the code so that incrementing by two in each loop is controlled solely by the for-statement argument.
 2. Instead of using the returned value directly in the `std::out`, assign it to a variable and use that variable in the output stream statement. 
@@ -188,7 +188,7 @@ The programmer should always ensure there is a `return`, or an `error`, for ever
 4. Try changing the function declaration so that it expects a parameter of type `double`.
 
 ```{solution} exerciseu2
-:class: note dropdown
+:class: dropdown
 :label: solutionu2
 1. Put `i += 2` as the increment argument and delete `++i` in the function-body.
 2.  * Adding a new integer declaration before the for-loop, `int temp;`.
@@ -200,8 +200,8 @@ The programmer should always ensure there is a `return`, or an `error`, for ever
 ```
 ````{exercise-end}
 ````
-`````{code_example-end}
-`````
+``````{code_example-end}
+``````
 
 ```{tip}
 :class: margin
@@ -541,7 +541,7 @@ More than one value of more than one type can be returned from a function.
 There are several ways to programme a function for multiple returns.
 
 1. Using classes or structs - the values are encapsulated into a single object to be returned - the class or struct definition to be visible to the caller.
-2. Using a {term}`tuple`- see `<tuple>` and `std::tuple`. Can be extended by also using a {term}`structured binding`.
+2. Using a {term}`tuple` - see `<tuple>` and `std::tuple`. Can be extended by also using a {term}`structured binding`.
 3. Using pass be reference - defining parameters to use pass-by-reference so that the function can modify or initialize the values of objects that the caller provides.
 
 ## Pass-by-Reference and Pass-by-Constant-Reference
@@ -710,7 +710,7 @@ This is not helpful, because now you have a global variable.
 `````{code_example-end}
 `````
 
-## `constexpr` Functions
+<!-- ## constexpr Functions -->
 
 ## Function Signature
 Every function has a signature, which consists of its name and its parameter-type-list. 
@@ -725,7 +725,7 @@ If the `decl-specifier-seq` of the function declaration contains the keyword `au
 :class: dropdown
 :nonumber:
 `````
-
+Return type deducion:
 ````{code-block} c++
 int x = 1;
 auto f() { return x; }        // return type is int
@@ -743,18 +743,17 @@ In many cases, the template can infer the type arguments and therefore it isn't 
 :label: exampleu11
 :class: dropdown
 :nonumber:
-
 `````
+Example of using a Function Template.
 ````{code-block} c++
 template<typename Lhs, typename Rhs>
-auto Add2(const Lhs& lhs, const Rhs& rhs)
+auto addEntities(const Lhs& lhs, const Rhs& rhs)
 {
     return lhs + rhs;
 }
-auto a = Add2(3.13, 2.895); // a is a double
-auto b = Add2(string{ "Hello" }, string{ " World" }); // b is a std::string
+auto a = addEntities(3.13, 2.895); // a is a double
+auto b = addEntities(string{ "Hello" }, string{ " World" }); // b is a std::string
 ````
-
 `````{code_example-end} 
 `````
 

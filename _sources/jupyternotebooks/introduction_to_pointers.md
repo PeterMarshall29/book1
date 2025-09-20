@@ -13,14 +13,11 @@ kernelspec:
 # Pointers
 An {term}`object` in C++ is a region of memory holding a value. Each region of memory can also be identified by its {term}`memory address`.
 
-Access to a memory address is useful for memory management, and reference to an object's address instead of its value can make a program more efficient.
-
-The value of an object can be accessed by either its identifier, or by its address.
+The value of an object can be accessed using either its identifier, or its address. Reference to an object's address, instead of its value, can make a program more efficient, and access to memory addresses is useful for memory management.
 
 A {term}`pointer stores only the memory address of another object - the value of a pointer is the memory address of the (first byte of the) object that the pointer is associated with, not the value of the object pointed at.
 
-A pointer is itself an {term}`object`, that has a `type` and must be declared before use. 
-
+A pointer is itself an {term}`object` and therefore has a `type` and must be declared before use. 
 
 `````{code_example-start} Pointers 
 :label: examplev0
@@ -49,18 +46,22 @@ This is the declaraton of a pointer.
 ```{code-block} c++
 int* myPointerTo_myInt;
 ```
-A pointer only contains a memory address of another object.
+The `*` modifies the declaration to indicate that `myPointerTo_myInt` is a pointer to an integer variable.
 
-`&myInt` The prefix unary ampersand creates an expression that returns the hexadecimal code for the memory address of `myInt` - i.e. `&myInt` = address of `myInt`.
+A pointer **only** contains the memory address of another object.
 
 ```{code-block} c++
 myPointerTo_myInt = &myInt;
 ```
-Initialises the value of `myPointerTo_myInt` by copy assignment - the pointer now contains the memory address of `myInt`.
+This line initialises the value of `myPointerTo_myInt` by copy assignment - the pointer now contains the memory address of `myInt`.
+
+`&myInt` - the prefix `&` creates an expression that returns the hexadecimal code for the memory address of `myInt` - i.e. `&myInt` = 'address of `myInt`'.
 ```{code-block} c++
 std::cout << "The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is " << *myPointerTo_myInt << '\n';
 ```
 `*myPointerTo_myInt` is the value of the object that the pointer points at, in this case the value of `myInt` - this is called dereferencing.
+
+Note that the use of the `*` is quite different when attached to an existing pointer, compared with in the declaration.
 ````
 `````{code_example-end}
 `````
@@ -83,19 +84,19 @@ type secondObjectIdentifier = *pointerToIdentifier;  // assignment of the value 
 
 Line 2: Attached postfix/suffix to a type in a pointer declaration, `*` is a {term}`unary` {term}`declarator-operator`, used to introduce the identifier of a pointer.
 
-It is important to note that the declaration specifies that the pointer is only to an object of the stated `type`.
+It is important to note that the declaration specifies that the pointer is to an object of the stated `type` - this type may not be changed, and the pointer may not be associated with any other type.
 
 Line 4: Attached prefix to an existing pointer's identifier, `*` is the {term}`dereferencing` operator or {term}`indirection` operator. 
 
 The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer. 
 
-{term}`Dereferencing` or {term}`indirection` usually means returning the value of the object that the pointer points at. The prefix unary operator `*` before a pointer's identifier means "contents of" - i.e. the value of the object associated with the pointer. 
+{term}`Dereferencing` or {term}`indirection` usually means returning the value of the object associated with the pointer. The prefix unary operator `*` before a pointer's identifier means "contents of" - i.e. the value of the object associated with the pointer. 
 
-[More correctly - the indirection operator returns the identifier of the object pointed at, but since the identifier is immediately evaluated (the value is used) in most instances the above explanation is sufficient. The exception being in creating a reference]
+[More correctly - the indirection operator returns the identifier of the object pointed at, but since the identifier is immediately evaluated (the value is used) in most instances the above explanation is sufficient; the exception being in creating a reference.]
 
 Line 3: A prefix `&` is the `address-of` operator, which returns the hexadecimal literal representing the memory address of an object - specifically the address of first byte of the object. 
 
-The prefix `&` operator is then used to initialise the value of a pointer. [An address literal could be used instead]
+The prefix `&` operator with an operand (a variable name) is then used to create an expression which initialises the value of the pointer. [An address literal could be used instead]
 
 ```{note}
 * A pointer's value is the address of the first byte of the memory location of the object pointed at.
@@ -118,9 +119,9 @@ int main() {
     return 0;
 }
 ```
-Its best to attach the `*` postfix to the type in the declaration - and keep the prefix `*` for {term}`dereferencing` the pointer.
+Its best to attach the `*` postfix to the type in the declaration - and keep the prefix `*` for {term}`dereferencing` the pointer - except for pointers to functions, see below.
 
-Note that the value of a pointer can be copy assigned - `int* test3 =  test2;`
+Note that the value of a pointer can be copy assigned - e.g. `int* test3 =  test2;`
 
 When used in declarations `*`, `&`, and `[]` are "declarator operators".
 
@@ -128,9 +129,9 @@ When used in declarations `*`, `&`, and `[]` are "declarator operators".
 `````
 ## Pointers and Type
 
-Each pointer points to an object of a specific type, so the `type` of the pointer is said to have type `pointer to 'type'` e.g. a pointer to an `int` has the type `pointer to int`.
+Each pointer points to an object of a specified `type`, so the pointer is said to be of type `pointer to 'type'`, e.g. a pointer to an `int` has the type `pointer to int`.
 
-Although the pointer value is only a memory location - it is not permitted to assign a declared pointer a value of a different type.
+Although the pointer value is only a memory location - it is not permitted to assign a declared pointer a value of a different type; to ensure security in the type-system.
 
 `````{code_example-start} Introduction to Pointers 
 :label: examplev1
@@ -155,56 +156,56 @@ int main() {
 ````{code_explanation} examplev1
 :label: explanationv1
 :class: dropdown
-For a type `T`, `T*` is of type 'pointer to object of type T', which is usually shortened to 'pointer to T' e.g. 'pointer to int', or 'pointer to double' etc.. 
+For a type `T`, `T*` is of type 'pointer to object of type T', which is usually shortened to 'pointer to T' e.g. 'pointer to int', or 'pointer to double' etc. 
 
 That is, a variable of type `T*` can hold the address of an object of type `T`. 
 ````
 `````{code_example-end}
 `````
 
-
 ````{syntax-start} Advanced Pointer Syntax
 :class: dropdown
 :nonumber:
 ````
-Some more examples of Pointer Syntax
+Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
 ```{code-block} c++
-int main() {
-    int* ptrToInt;                  // Declares a pointer to (an) int
-    char** ptrToPtrToChar;          // Declares a pointer to a pointer to char
-    int* arrayOfPtrs[9];            // Declares an array of 9 pointers to int’s
-    int (*ptrToMyFunction)(char*);  // Declares a pointer to a function that takes a pointer to a char as its argument and returns an int
-    int* myFunction2(char*);        // Declares a function that takes a pointer to a char as its argument and returns a pointer to int.
-}
+:linenos:
+ int* ptrToInt;                     // Declares a pointer to (an) int
+ char** ptrToPtrToChar;             // Declares a pointer to a pointer to a char
+ int* arrayOfPtrs[9];               // Declares an array of 9 pointers to int's
+ int (*ptrToArray)[2] = &myArray;    // Declare a pointer to an array of int's
+ int (*ptrToMyFunction)(char*);     // Declares a pointer to a function that takes a pointer to a char as its argument and returns an int
+ int* myFunction2(char*);           // Declares a function that takes a pointer to a char as its argument and returns a pointer to int.
 ``` 
+Note the requirement for parentheses around the array and function identifiers in lines 4 and 5 - required to identify ownership of the `*` declarator.
+
+***
+
 Note that `==` compares addresses (pointer values) when applied to pointers, and not the values pointed to.
 
-The `*`, meaning "pointer to", is used as a suffix for a `type` name. 
-
-Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
-
+***
 Every value of pointer type is one of the following:
 * A pointer to an object or function (in which case the pointer is said to point to the object or function)
 * A pointer past the end of an object
 * The null pointer value for that type
 * An invalid pointer value
 
+***
 A pointer that points to an object represents the address of the first byte in memory occupied by the object. 
 
 A pointer past the end of an object represents the address of the first byte in memory after the end of the storage occupied by the object.
 
-Note that two pointers that represent the same address may nonetheless have different values.
-
+Note that two pointers that represent the same address may nonetheless have different values.???
 
 ````{syntax-end}
 ````
 ## References
 
-A reference is an alias for an already existing object or function i.e. a reference cannot be initialised until the referred to entity exists.
+A reference is an alias for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.
 
-Reference are not objects - therefore there cannot be arrays of references or pointers to a reference.
+References are not objects - therefore there cannot be arrays of references or pointers to references.
 
-The reference aliases an existing object so it is not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy is unconnected after initialisation.
+The reference aliases an existing object so it is not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy knows nothing of the copied object after initialisation.
 
 References cannot be redirected; they may only refer to one object, i.e. once initialized, a reference cannot be reseated (changed) to refer to another object.
 
@@ -224,16 +225,16 @@ References are initialized in the following situations:
 ```{code-cell} c++
 #include <iostream>
 int main() {
-	double myDouble = 10.0;
-	double& myReferenceTo_myDouble = myDouble;  // an alias/reference
-	std::cout << "myDouble = " << myDouble << '\n';
-	std::cout << "myReferenceTo_myDouble = " << myReferenceTo_myDouble << '\n';
-	double* pointerTo_myDouble = &myDouble;
-	double* pointerTo_myReferenceTo_myDouble = &myReferenceTo_myDouble;
-	myReferenceTo_myDouble = 6.0;
-	std::cout << "The contents of the object pointed to by pointerTo_myDouble = " << *pointerTo_myDouble << '\n';
-	std::cout << "The contents of the object pointed to by pointerTo_myReferenceTo_myDouble = " << *pointerTo_myReferenceTo_myDouble << '\n';
-	return 1;
+    double myDouble = 10.0;
+    double& myReferenceTo_myDouble = myDouble;  // an alias/reference
+    std::cout << "myDouble = " << myDouble << '\n';
+    std::cout << "myReferenceTo_myDouble = " << myReferenceTo_myDouble << '\n';
+    double* pointerTo_myDouble = &myDouble;
+    double* pointerTo_myReferenceTo_myDouble = &myReferenceTo_myDouble;
+    myReferenceTo_myDouble = 6.0;
+    std::cout << "The contents of the object pointed to by pointerTo_myDouble = " << *pointerTo_myDouble << '\n';
+    std::cout << "The contents of the object pointed to by pointerTo_myReferenceTo_myDouble = " << *pointerTo_myReferenceTo_myDouble << '\n';
+    return 1;
 }
 ```
 Notice that changing the alias changes the original.
@@ -277,7 +278,7 @@ int main()
     reference1 += " Christmas";         
     reference2 += " FizzyCists!";               
     std::cout << reference1 << '\n'; 
-	return 0;
+    return 0;
 }
 ```
 Note: changing either reference changed the original object - in this case both caused concatenation of their strings.
@@ -310,7 +311,7 @@ Note: the rvalue reference was not updated.
 ````{code_example-end}
 ````
 
-
+(Pointers and Arrays)=
 ## Pointer Arithmetic and Arrays
 
 In C++, pointers and arrays are closely related. 
@@ -339,7 +340,7 @@ Adding an integer 'n' to a pointer produces a new pointer which points to the ar
 :class: dropdown
 :nonumber:
 `````
-Take the following code snippet:
+Examine the following code that demonstrates Pointer Arithmetic.
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -364,11 +365,11 @@ int main()
     return 0;
 }
 ````
-`````{code_example-end}
-`````
 Pointer arithmetic can be risky:
 * Pointing to a non-existent object will crash a program.
 * It is possible to point to an unrelated object that happens to be adjacent in memory.
+`````{code_example-end}
+`````
 
 ### Pointer Expressions and Arithmetic
 
@@ -383,68 +384,214 @@ A limited set of arithmetic operations can be performed on pointers. Pointers ma
 :class: dropdown
 :nonumber:
 `````
+Run this code:
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+int main() {
+    int myArray[] = { 1, 2, 3, 4 };
+    int* ptrTo_myArray = myArray; // pointer to initial element (implicit conversion)
+    int* ptrTo_myArray2 = &myArray[0]; // pointer to initial element
+    int* ptrTo_myArray3 = myArray + 4; // pointer to one-beyond-last element
+    int* ptrTo_myArray4 = myArray + 2; // pointer to other elements
+    std::cout << myArray << '\n';
+    std::cout << ptrTo_myArray << '\n';
+    std::cout << *ptrTo_myArray << '\n';
+    std::cout << ptrTo_myArray2 << '\n';
+    std::cout << *ptrTo_myArray2 << '\n';
+    std::cout << ptrTo_myArray3 << '\n';
+    std::cout << *ptrTo_myArray3 << '\n';
+    std::cout << ptrTo_myArray4 << '\n';
+    std::cout << *ptrTo_myArray4 << '\n';
+}
+````
 
-```{code-block} c++
-int v[] = { 1, 2, 3, 4 };
-int* p1 = v; // pointer to initial element (implicit conversion)
-int* p2 = &v[0]; // pointer to initial element
-int* p3 = v + 4; // pointer to one-beyond-last element
-int* p4 = v + 2; // pointer to other elements
-std::cout << v << '\n';
-std::cout << p1 << '\n';
-std::cout << *p1 << '\n';
-std::cout << p3 << '\n';
-std::cout << *p3 << '\n';
-std::cout << p4 << '\n';
-std::cout << *p4 << '\n'; 
-```
-Taking a pointer to the element one beyond the end of an array is guaranteed to work. 
+````{code_explanation} examplev7
+:label: explanationv7
+:class: dropdown
+Try to print an array to the output stream results in printing only the address of the first element.
 
-This is important for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. 
+Note how similar the memory addresses are - this is to be expected but is not guaranteed and easily missed. Check the furthest right digits first when comparing memory addresses, the other initial digits are likely to be very similar across elements of an array.
 
-The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided. For example:
-
-```{code-block} c++
-int* p4 = v - 1; // before the beginning, undefined: don't do it
-int* p5 = v + 7; // beyond the end, undefined: don't do it
-```
-The implicit conversion of an array name to a pointer to the initial element of the array is extensively used in function calls in `C-style` code. For example:
-// extern "C" int strlen(const char*);   // from <string.h>
-
-```{code-block} c++
-void f() {
-	char v[] = "Annemarie";
-	char* p = v;  // implicit conversion of char[] to char*
-	std::cout <<strlen(p) << '\n';
-	std::cout << strlen(v) << '\n';   // implicit conversion of char[] to char*
-	//v = p;     // error: cannot assign to array
-	 }
-int main() { f(); }
-```
-The same value is passed to the standard-library function `strlen()` in both calls. 
-
-The snag is that it is impossible to avoid the implicit conversion. 
-
-In other words, there is no way of declaring a function so that the array v is copied when the function is called. 
-
-Fortunately, there is no implicit or explicit conversion from a pointer to an array. 
-
-The implicit conversion of the array argument to a pointer means that the size of the array is lost to the called function. 
-
-However, the called function must somehow determine the size to perform a meaningful operation. 
-
-Like other C standard-library functions taking pointers to characters, `strlen()` relies on zero to indicate end-of-string; `strlen(p)` returns the number of characters up to and not including the terminating '0'. This is all low-level. 
-
-The standard-library `vector`, `array`, and `string` don’t suffer from this problem. These library types give their number of elements as their `size()` without having to count elements each time.
+Taking a pointer to the element one beyond the end of an array is guaranteed to work, and is necessary for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided.
+````
 `````{code_example-end}
 `````
 
+## Nullptr
 
-## Void
+A pointer should always point at an object, otherwise dereferencing is not valid. 
 
-In low-level code, we occasionally need to store or pass along an address of a memory location without knowing what type of object is stored there. 
+If there is no object to point at, or if it is useful to represent the idea that no object is available (e.g., for the end of a list), the pointer may be given the value `nullptr` (the null pointer). 
 
-A `void∗` is used for that purpose; you can read `void∗` as "pointer to an object of unknown type".
+The literal `nullptr` represents the null pointer. The memory address of the `nullptr` is the all-zeros hexadecimal code or bit pattern.
+
+The literal `nullptr` represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types; there is only one `nullptr` shared by all pointer types, and therefore `Nullptr` is of type `pointer`.
+
+`nullptr` can only be assigned to pointers - a syntax error occurs otherwise.
+
+`````{code_example-start} The Null Pointer
+:label: examplev5
+:class: dropdown
+:nonumber:
+`````
+Using `nullptr`:
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+#include <string>
+int main() {
+    int* ptrToInt = 0;  
+    double* ptrToDouble = nullptr; 
+    std::string* ptrToString = nullptr;
+    int* ptrToInt2 = NULL; 
+    std::cout << ptrToInt << '\t' << ptrToDouble << '\t' << ptrToString << '\t' << ptrToInt2 << '\n';
+    return 0;
+}
+````
+````{code_explanation} examplev5
+:label: explanationv5
+:class: dropdown
+There is just one `nullptr`, which can be used for every pointer type, rather than a null pointer for each pointer type. `Nullptr` is of type `pointer`. 
+
+Before `nullptr` was introduced, zero (0) was used as a notation for the null pointer; now assignment to integer literal zero gives a pointer the value `nullptr`.
+
+No object is allocated with at memory address '0000000000000000', which is the most common representation of 'nullptr'. 
+
+Zero (0) is an `int`. However, the standard conversions allow '0' to be used as a constant of 'pointer' or 'pointer-to-member' type.
+
+It is best not to use `NULL` because it is an {term}`implementation` defined {term}`macro` and there may be difference in implementation, e.g. NULL might be 0 or 0L. 
+
+Using `nullptr` makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.
+````
+`````{code_example-end}
+`````
+## Pointers and Booleans
+
+A pointer can be implicitly converted to a `bool`. A non-null pointer converts to true; pointers with the value `nullptr `convert to `false`. 
+
+`````{code_example-start} Pointers and Booleans
+:label: examplev6
+:class: dropdown
+:nonumber:
+`````
+Examples of Pointers used as Booleans
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+void myFunction(int* myPointer) {
+    bool myBoolean1 = myPointer;            // Narrowing conversion to a Boolean - not a copy!
+    std::cout << myBoolean1 << '\n';
+    bool myBoolean2 {myPointer != nullptr}; // Initialised with the Boolean result of a comparison expression
+    std::cout << myBoolean1 << '\n';
+    if (myPointer) {
+        std::cout << "Pointing to an Object" << '\n';
+    } else { std::cout << "Pointing to the nullptr" << '\n'; }
+}
+int main() {
+    int tempInt = 17;
+    int* myPointerToTempInt = &tempInt;     
+    myFunction(myPointerToTempInt);
+    
+    myPointerToTempInt = nullptr; 
+    myFunction(myPointerToTempInt);
+    return 0;
+}
+````
+````{code_explanation} examplev6
+:label: explanationv6
+:class: dropdown
+Note that `==` compares addresses (pointer values) when applied to pointers, and not the values pointed to.
+
+`if (myPointer)` is equivalent to `if (myPointer != nullptr)`. The compiler knows a Boolean is required and implicitly converts the pointer obviating the comparison expression. 
+
+It is usually better to use shorter code - less chance of a mistake - and in this case we have a clear expression of testing whether the pointer is valid, i.e. it points at an actual object.
+````
+`````{code_example-end}
+`````
+
+## Pointers to Functions
+
+Functions are also stored in memory and therefore have a unique address allowing us to define a pointer to a function in a similar manner to a pointer to an object. 
+
+A pointer to function can be initialized with an address of a non-member function or a static member function. 
+
+The pointer obtained by taking the address of a function can be used to call the function. 
+
+Unlike functions or references to functions, pointers to functions are objects and thus can be stored in arrays, copied, assigned, etc.
+
+`````{syntax-start} Pointers to Functions
+:nonumber:
+:class: dropdown
+`````
+Declaring and Initialising a pointer to a function
+```{code-block} c++
+// Declaration:
+returnType (*ptrToFunctionIdentifier)(List of type and name of parameters);
+// Initialisation:
+ptrToFunction = &exitingFunction;
+//or equivalently,
+ptrToFunction = exitingFunction;
+```
+Calling a function using a pointer:
+```{code-block} c++
+(*ptrToFunction)(arguments);
+// or equivalently,
+ptrToFunction(arguments);
+```
+`````{syntax-end}
+`````
+`````{code_example-start} Pointers to Functions
+:label: examplev8
+:class: dropdown
+:nonumber:
+`````
+This code uses a pointer to a function to call the function.
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+void messagePrinter(std::string s) {
+    std::cout << s;
+}
+void (*ptrToMessagePrinter)(std::string); 
+
+int main() {
+    ptrToMessagePrinter = &messagePrinter;
+    ptrToMessagePrinter("Warning!");
+    return 0;
+}
+````
+When a pointer is used in a function call, the compiler works out that it is a pointer, so dereferencing a pointer to function using `∗` is optional, i.e. `ptrToMessagePrinter("Warning!");` is the same as `(*ptrToMessagePrinter)("Warning!");`. 
+
+Using `&` to get the address of a function is also optional; i.e. `ptrToMessagePrinter = messagePrinter;` would also work.
+
+Pointers to functions have argument types declared just like the functions themselves. 
+
+In pointer assignments, the complete function type must match exactly. 
+`````{code_example-end}
+`````
+## New and Delete
+
+The {term}`new` operator is used to allocate memory space on the {term}`free store`.
+`````{code_example-start} New and Delete
+:label: examplev9
+:class: dropdown
+:nonumber:
+`````
+Examples of using the `new` and `delete` keywords:
+```{code-block} c++
+int* pointerToInt = new int; // allocates dynamic memory for a single int - int determines size of memory
+int* pointerToArrayOfInts = new int[5]; // Allocates an array of 5 `int` types
+double* pointerToDouble = new double; // allocate one double
+double* pointerToArrayOfDoubles = new double[number]; // allocates an array of 'number' of doubles
+```
+`````{code_example-end} 
+`````
+
+## Void* - Advanced Topic
+
+In low-level code, it is sometimes necessary to store or pass along an address of a memory location without knowing the type of the object stored. 
+
+`void*` is used for that purpose. `void*` is a 'pointer to an object of unknown type'.
 
 Functions using `void*` pointers typically exist at the very lowest level of the system, where real hardware resources are manipulated. 
 `````{code_example-start} Void
@@ -454,185 +601,28 @@ Functions using `void*` pointers typically exist at the very lowest level of the
 `````
 For example:
 ```{code-block} c++
-void* my_alloc(size_t n);   // allocate n bytes from my special heap
+void* myAlloc(size_t number);    // Allocate 'number' of bytes on the heap
 ```
-`````{code_example-end}
-`````
-Occurrences of `void*` at higher levels of the system should be viewed with great suspicion because they are likely indicators of design errors. 
+Occurrences of `void*` at higher levels are likely to be design errors that need investigation. 
 
-Where used for optimization, `void*` can be hidden behind a type-safe interface.
+`void*` can be hidden behind a type-safe interface, when used for optimisation.
 
 Pointers to functions and pointers to members cannot be assigned to `void*`.
-
-## `nullptr`
-
-A pointer should always point at an object, so that dereferencing it is valid. 
-
-If there is no object to point at to or when it is useful to represent the idea that no object is available (e.g., for an end of a list), the pointer may be given the value `nullptr` (the null pointer). 
-
-There is only one `nullptr` shared by all pointer types.
- 
-`Nullptr` is of type `pointer`.
- 
-We covered references already - A reference is similar to a pointer, but instead, we put the suffix `&` after the type in the declaration, and do not need the `*` to access the value.
-
-References cannot be redirected; they may only refer to one object.
-
-The literal `nullptr` represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types:
-
-`````{code_example-start} Null Pointer
-:label: examplev5
-:class: dropdown
-:nonumber:
-`````
-
-```{code-block} c++
-int* pi = nullptr;  double* pd = nullptr;     int i = nullptr;      // error: 'I' is not a pointer
-int* p = NULL; // using the macro 'NULL'
-```
-There is just one `nullptr`, which can be used for every pointer type, rather than a null pointer for each pointer type.
-
-Before `nullptr` was introduced, zero (0) was used as a notation for the null pointer. For example:
-```{code-block} c++
-int* x= 0; // x gets the value 'nullptr'
-```
-No object is allocated with the address '0', and '0' (the all-zeros bit pattern) is the most common representation of 'nullptr'. 
-
-Zero (0) is an `int`. However, the standard conversions allow '0' to be used as a constant of 'pointer' or 'pointer-to-member' type.
-
-It has been popular to define a macro `NULL` to represent the 'null pointer'. For example:
-However, there are differences in the definition of NULL in different implementations, for example,
-NULL might be 0 or 0L. 
-
-In C, `NULL` is typically `(void*)0`, which makes it illegal in C++:
-```{code-block} c++
-int* p = NULL; // error: can't assign a void* to an int*
-```
-Using `nullptr` makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.
-
-**copied form referecne
-```{code-block} c++
-//std::nullptr_t
-//Defined in header <cstddef>
-typedef decltype(nullptr) nullptr_t;
-// since C++11)
-//`std::nullptr_t` is the type of the null pointer literal, `nullptr`. It is a distinct type that is not itself a pointer type or a pointer to member type. All its `prvalues` are null pointer constants.
-
-//`sizeof(std::nullptr_t)` is equal to `sizeof(void*)`.
-```
-`````{code_example-end}
-`````
-## Pointers and Booleans
-
-Note that `==` compares addresses (pointer values) when applied to pointers, and not the values pointed to.
-
- A pointer can be implicitly converted to a `bool`. A non-null pointer converts to true; pointers with the value `nullptr `convert to `false`. 
-
-`````{code_example-start} Pointers and Booleans
-:label: examplev6
-:class: dropdown
-:nonumber:
-`````
-```{code-block} c++
-void myFunction(int* myPointer)
-{
-	bool myBoolean1 = myPointer;       // narrows to true or false - not a copy!
-	std::cout << myBoolean1 << '\n';
-	bool myBoolean2{ myPointer != nullptr };  // explicit test against nullptr
-	std::cout << myBoolean1 << '\n';
-	if (myPointer) {
-		// identical to p!=nullptr
-		std::cout << "not pointing to Null" << '\n';
-	}
-}
-int main() {
-	int temp = 17;
-	int* myPointerToTemp = nullptr; // or set to temp
-	myFunction(myPointerToTemp);
- 
-return 0;
-}
-```
-I prefer `if (p)` over `if (p != nullptr)` because it more directly expresses the notion ‘if p is valid’ and because it is shorter. The shorter form leaves fewer opportunities for mistakes.
 `````{code_example-end}
 `````
 
+## This - Advanced Topic
 
-## Pointers to Functions
-Like a (data) object, the code generated for a function body is placed in memory somewhere and therefore has a unique address associated with it and therefore we can also define a pointer to a function in a similar manner to a pointer to an object.  There are some differences however:
+`this` is only useful when dealing with classes, when it becomes a shorthand way of referring to the innermost enclosing class. 
 
-A pointer to function does not allow the code to be modified. 
+The keyword `this` is used as an expression, being a built-in pointer, and the associated value can be accessed using `*this`.
 
-The pointer obtained by taking the address of a function can be used to call the function. 
-`````{code_example-start} Introduction to Pointer and References
-:label: examplev8
-:class: dropdown
-:nonumber:
-`````
-```{code-block} c++
-void error(std::string s) { std::cout << s; }
-void (*efct)(std::string); // pointer to
- function taking a string argument and returning nothing
-void f();
-void f()
-{
-    efct = &error; // efct points to error
-    efct("error"); // call error through efct
-}
-void error(std::string s) {
-std::cout << s;
-}
-void (*ptrToError)(std::string);
+The expression `this` is a {term}`prvalue` expression whose value is the address of the implicit object parameter (object on which the implicit object member function is being called).
 
-void main() {
-ptrToError = &error;
-ptrToError("Warning!");
-}
-```
-The compiler will discover that `efct` is a pointer and call the function pointed to. 
+This may only be used within:
+* The body of an implicit object member function - a member initializer list, and lambda expression body.
+* The declaration of an implicit object member function.
+* A default member-initializer.
+* The capture list of a lambda expression.
 
-That is, dereferencing a pointer to function using ∗ is optional. 
 
-Similarly, using `&` to get the address of a function is optional:
-
-```{code-block} c++
-void error(std::string s) { std::cout << s; }
-void (*f1)(std::string) = &error; // OK: same as = error
-void (*f2)(std::string) = error; // OK: same as = &error
-void g()
-{
-    f1("Nasa"); //OK: same as (*f1)("Nasa")
-    (*f1)("Apollo"); // OK: as f1("Apollo")
-}
-```
-Pointers to functions have argument types declared just like the functions themselves. 
-
-In pointer assignments, the complete function type must match exactly. 
-
-For example: 
-```{code-block} c++
-void (*pf) (std::string); // pointer to void(std::string)
-void f1 (std::string); // void(string)
-int f2 (std::string); // int(string)
-void f3 (int*); //void(int*)
-void f()
-{
-pf = &f1; // OK
-pf = &f2; // error : bad return type
-pf = &f3; // error : bad argument type
-pf("Hera"); // OK
-pf(1); //error : bad argument type
-int i = pf("Zeus"); // error : void assigned to int
-}
-```
-`````{code_example-end}
-`````
-## `new`
-
-The {term}`new` operator is used to allocate memory space on the {term}`free store`.
-```{code-block} c++
-int* pointerToInt = new int; // allocates dynamic memory for a single int - int determines size of memory
-int* pointerToArrayOfInts = new int[5]; // Allocates an array of 5 `int` types
-double* pointerToDouble = new double; // allocate one double
-double* pointerToArrayOfDoubles = new double[number]; // allocates an array of 'number' of doubles
-```

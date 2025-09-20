@@ -305,6 +305,9 @@ Indirection
 Immutable
   Fixed, constant, not permitted to change after initialisation.
 
+Implementation
+  Different versions of C++, produced by different organisations. Some behaviours are defined by the ISO C++ Standard, others depend on the implementation.
+
 Infix Operator
   Operator that sits between two variables, denoting an operation using both. As opposed to unary, prefix and postfix, operators that act on one variable positioned before or after it.
 
@@ -495,6 +498,9 @@ Programming Paradigm
 Programming Paradigms
   Different approaches to writing computer programs. The most common paradigms are: Procedural, Functional, and Object-oriented programming.
 
+prvalue
+  'pure {term}`rvalue`' expressions including literals, function calls, arithmetic and logical evaluations and comparisons, whose evaluation computes the value of an operand of a built-in operator (no result object), or initializes an object (a result object is created). The result object may be a variable, an object created by new-expression, or a temporary created by temporary materialization.
+
 Reference
   The memory address of an object.
 
@@ -511,7 +517,8 @@ Return-statement
   Statement that causes a function call to end, returning control to the program that made the call, possibly sending a value back to the caller.
 
 rvalue
-  The expression appearing on the right hand side of an assignment operator or in the {} for list initialisaiton. rvalues are not always on the LHS, but if the same expression could be used on LHS, its probably an rvalue.
+  The expression appearing on the right hand side of an assignment operator or in the {} for list initialisaiton. rvalues are not always on the LHS, but if the same expression could be used on LHS, its probably an rvalue. rvalue expressions including literals, function calls, arithmetic and logical evaluations and comparisons, whose evaluation computes the value of an operand of a built-in operator (no result object), or initializes an object (a result object is created). The result object may be a variable, an object created by new-expression, or a temporary created by temporary materialization. An rvalue expression is either prvalue or xvalue - see cppreference.
+
 
 Scalar
   A type that holds a single value of a defined range. Scalars include arithmetic types (integral or floating-point values), enumeration type members, pointer types, pointer-to-member types, and std::nullptr_t. Fundamental types are typically scalar types.
