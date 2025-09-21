@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# Learning the Basics
+# Extending the Introductory Concepts
 
 Once you have learned some basic components of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out each new concept.
 
@@ -31,9 +31,9 @@ C++ includes the following types of statements:
 * [Iteration](iteration) statements
 * [Jump statements]
 ````
-The simplest type of statement is an {term}`expression statement` - an {term}`expression` followed by a {term}`terminator`.
+The simplest type of statement is an {term}`expression statement` - i.e. an {term}`expression` followed by a {term}`terminator`.
 
-Expressions are sequences of {term}`operators` and their {term}`operands`, which specify a computation.
+Expressions are sequences of {term}`operators` and their {term}`operands`, which specify a computation e.g. `a+b` is an expression, `a` and `b` are operands and `+` is an operator.
 
 When the expression statement is executed, the expression is evaluated by the computer, producing a result, which will have a {term}`value` and a {term}`type`.
 

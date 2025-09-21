@@ -49,7 +49,7 @@ Try the following code.
 char a = 'x';
 char b = 'y';
 int c = a + b;
-std::cout << a << b << c;
+std::cout << a << b << c << '\a';
 return 0;
 ````
 ````{code-cell} c++
@@ -63,7 +63,7 @@ Find out what happens when you:
 - Check that at least its half as much as '2' and '2' still, right?
 
 ````{admonition} Code Explanation
-:class: dropdown note
+:class: dropdown solution
 
 `char` is an integral type - all characters have a corresponding integer value, and arithmetic operations can be applied.
 
@@ -86,62 +86,51 @@ A `string` is variable of type 'string' which is composed of a series of charact
 
 The standard library component `<string>` define strings and the operations and functions that work with string-type variables.
 
+`""` denotes an empty string, which has the type `const char[1]`. The single character of the empty string is the terminating '\0'.
 
-
-`""` denotes an empty string. Still a string, and distinct from null????
-
-
+The empty string therefore holds a value and is not the same as null.
 
 ## Formating the Ouput
 
-
-
-
 ## Converting `int` to `string`
 
-4 Ways to convert an integer to a string: 3 more to discuss later.
-Add this to header file.
+Strings and integers can be printed to the character outputs stream, using separate insertion operations, but integers cannot be concatenated with strings to create a single string.
+
+`````{code_example-start} Conversion to String
+:class: dropdown
+:nonumber:
+`````
+This code will not work.
+```{code-block} c++
+int main() {
+    int a = 10;
+    std::cout << "Peter " + a;
+	return 0;
+}
+```
+There are a few ways to convert an integer to a string - a template can be used. Templates are discussed later.
+
+If the following code is placed at the beginning of the program (after the #include directives) or in a {term}`header file`, then .
 
 ```{code-block} c++
-template<class T> std::string to_string(const T& t)
+template<class T> std::string to_string(const T& input)
 {
-std::ostringstream os;
-os << t;
-return os.str();
+	std::ostringstream outputStream;
+    outputStream << input;
+	return outputStream.str();
 }
+
 ```
 This code creates a generic template for conversion to a string - we will circle back to how it works.
 
-Then replace cout line in the previous code with:
-
+Then replace the std::cout line in the previous code with:
+```{code-block} c++
+std::cout << "Peter " + to_string(a);
+```
+Or in the code further up this page
 ```{code-block} c++
 std::cout << "Study " + to_string(c2) + " times harder " + motivator + "!\n";
-Try typing two names in a row again. Why does the code fail?
 ```
-
-
-
-
-Char type is created using single quotes.
-Try the following code.
-
-char a = 'x';
-char b = 'y';
-int c = a + b;
-std::cout << a << b << c;
-return 0;
-
-Change the letter to try to make senses of the output.
-Try numbers instead – what is the sum of 1 and 1 anyway?
-But a least its half as much as 2 and 2 still, right?
-
-Try this code
-int x = 5;
-int y;
-if (x == 5);
-{ y = 3; }
-std::cout << y;
-{ …code here…} identifies a code block, or an in initialiser.
-Prints 3 – now change x to 4. The semicolon after the if is a mistake, its like putting {} instead. 
-{} is called the empty block – sometimes used into code to register that nothing should be done, like when it’s the else loop that is really wanted – instead of using NOT logic.
-The second {} does nothing special.
+Try typing two names in a row again. Why does the code fail?
+`````{code_example-end}
+`````

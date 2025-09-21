@@ -21,9 +21,11 @@ Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces t
 Each C++ expression is characterized by two independent properties: A type and a value category.
 
 ## Operations and Operators
-Each {term}`type` can be operated on by specific operators
+Each {term}`type` can only be operated on by specific operators - it would not make sense for every operator to work on all types or in the same way on different types. For example, multiplication using `*` on two strings would make no sense.
 
-Some operators are overloaded - `+` is the addition operator for arithmetic types, but the {term}`concatenation` operator for `string` and `char` types.
+Some operators are ***overloaded*** - meaning they do work on different types, but not necessarily in the same manner.
+
+For example: `+` is the addition operator for arithmetic types, but the {term}`concatenation` operator for `string` and `char` types.
 
 Programmers can also overload some operators.
 
@@ -50,64 +52,61 @@ Write code here..
 ````
 ```{exercise}
 :class: dropdown exercise
-Try moving the declaration of name to after 
+Try moving the declaration of name to after `std::cin >> name;`.
 ```
-````{code_explanation} examplek1
-:label: explanationk1
-:class: dropdown
-
-````
-`````{code_example-end}
-`````
-
-Try this code
-
-
-
-int count;
-std::cout << "Please enter a number followed by your surname.\n";
-std::cin >> count;
-std::string name;
-std::cin >> name;
-int c2 = count + 2;
-std::string motivator = "Dr." + name;
-std::cout << "Study " << c2 << " times harder " << motivator << "!\n";
-return 0; 
-
 We can use concatenation instead of repeating << . However, that requires us to use a string conversion.
 
 Try the following code.
+```{code-block} c++
 std::cout << "Please enter a floating-point number : \n";
 double n;
 std::cin >> n;
 std::cout << "n == " << n
 << "\nn + 1 == " << n + 1
-<< "\nthree time n == " << n * 3
+<< "\nthree times n == " << n * 3
 << "\ntwice n == " << n + n
 << "\nhalf of n == " << n / 2
 << "\nsquareroot of n == "
 << sqrt(n)
 << "\n";
-
+```
 Note:  The definitions of integer *, /, and % guarantee that for two positive integers `a` and `b` we have `a/b * b + a%b == a`.
+
+````{exercise-start}
+:class: dropdown exercise
+:nonumber:
+:label: exercisek5
+````
 Is the modulus truncating or flooring in c++?
+```{solution} exercisek5
 It is truncating i.e – always rounds towards zero. Flooring is always rounded downwards. Swift is truncated – python is floored.
+```
+````{exercise-end}
+````
+`````{code_example-end}
+`````
 
 Check the list of operators on the Learn page.
 
-Incrementing by 1 can be achieved several ways.
+````{admonition} Incrementing and Decrementing Arithmetic Types
+:class: dropdown tip
+Incrementing or decrementing can be programmed in several ways.
 
-Count = count + 1 can be written as ++count
-Count = count + n can be written as count+=n
-(assingment operators)=
+`++count` is identical to `count = count + 1`. `--count` is identical to `count = count - 1`.
+````
+
+(assignment operators)=
 ## Assignment operators
 
-{term}`Assignment` operators modify the value of an object.
+{term}`Assignment`-operators modify the value of an object.
 
-{term}`Copy-Assignment` replace the contents of an object (often a value) with the contents of a second object.
+{term}`Copy-Assignment` replaces the contents of an object (often a value) with the contents of a second object. The copied object is unaffected by copy-assignment.
 
-I or a new value. The second object is unaffected
-
+`````{code_example-start} Copy Assignment
+:label: examplek4
+:class: dropdown
+`````
+Demonstration of copy-assignement.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution] 
 #include <iostream>
@@ -120,13 +119,18 @@ int main() {
   return 0;
 }
 ```
-
+`````{code_example-end}
+`````
+`````{syntax-start} Assignment Operators
+:nonumber:
+:class: dropdown
+`````
 ```{list-table}
 :header-rows: 1
 :name: example_table_2
 * - Operator Name
   - Syntax
-  - Effect (y remains unchanged)
+  - Effect ( y not mutated )
 * - Assignment
   - x = y;
   - Contents of object x now the same as contents of object y
@@ -146,10 +150,11 @@ int main() {
   - x %= y;
   - Value of object x is now the remainder resulting from dividing x by y
 ```
-
+`````{syntax-end}
+`````
 ## Subscript Operator
 
-[]
+`[]` is the subscript operator, which is used to index into arrays and others containers. See chapter on arrays or vector.
 
 ## The Comma Operator
 
@@ -275,7 +280,7 @@ int main() {
 ````{solution} exercisek2
 :label: solutionk2
 :class: dropdown note
-
+Try variations on this code:
 ```{code-block} c++
     (dist2 < dist1) ? std::cout << "City 2 \n" : std::cout << "City 1 \n";
 ```
@@ -290,8 +295,12 @@ std::abs(a)
 
 ## Comparison Operators
 
-Comparison operators are used to form expressions which return a `bool`; i.e. the expression evaluates to either `true` or `false`.
-
+Comparison operators are used to form expressions which return a `bool` i.e. the expression evaluates to either `true` or `false`.
+`````{syntax-start} Comparison Operators
+:nonumber:
+:class: dropdown
+`````
+Comparison expressions and operators.
 ```{list-table}
 :header-rows: 1
 :name: example_table_3
@@ -317,11 +326,19 @@ Comparison operators are used to form expressions which return a `bool`; i.e. th
   - A >= B
   - True is B is either less than or equal to A 
 ```
-
+`````{syntax-end}
+`````
+`````{code_example-start} Comparison Operators
+:nonumber:
+:class: dropdown
+`````
+Example of using Comparison Operators and the Ternary Operator
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
 int main()
 {
-    static_assert(sizeof(unsigned char) < sizeof(int),
-        "Cannot compare signed and smaller unsigned properly");
+    static_assert(sizeof(unsigned char) < sizeof(int), "Cannot compare signed and smaller unsigned properly");
     int a = -1;
     int b = 1;
     unsigned int c = 1;
@@ -344,19 +361,25 @@ int main()
         " -1 <  1 ? " << (a < d) << "\n"
         " -1 >  1 ? " << (a > d) << '\n';
 }
-
+````
+`````{code_example-end}
+`````
 ```{admonition} New Three-Way Comparison Operator
 :class: note dropdown
 
 The three-way comparison operator `<=>` (the spaceship operator) was only recently introduced into C++ to provide a single way of determining whether two objects are either less than, equal to, or greater than each other in a single operation.
 
-`<=>` returns a result that indicates whether the left-hand side is less than, equal to, or greater than the right-hand side. 
-
-For example: (A <=> B) < 0 means a < b. (a <=> b) == 0 means a == b. (a <=> b) > 0 means a > b.
+`<=>` returns a result that indicates whether the left-hand side is less than, equal to, or greater than the right-hand side. For example: 
+`(A <=> B) < 0` means `a < b`, `(a <=> b) == 0` means `a == b`, and `(a <=> b) > 0` means `a > b`.
 ```
 
 ## Boolean (Logical) Operators
 
+`````{syntax-start} Boolean Operators
+:nonumber:
+:class: dropdown
+`````
+Operators used in Boolean (Logical) expressions.
 ```{list-table}
 :header-rows: 1
 :name: example_table_4
@@ -377,29 +400,34 @@ For example: (A <=> B) < 0 means a < b. (a <=> b) == 0 means a == b. (a <=> b) >
   - `A || B`
   - Returns `true`, if either one, or both, of `A` and `B` are `true`. i.e. only returns `false` if both were `false`.
 ```
-
+`````{syntax-end}
+`````
 ## Short Circuiting
 
-Sometimes a logical expression can be correctly evaluated without evaluating all the individual expressions. 
+It may be possible to correctly evaluate a compound logical expression without evaluating all the individual expressions. 
 
 For example, if the condition being checked is: `A && B`.
 
-It is only necessary to check that `B` is true, if `A` is found to be true first. If `A == false`, it does not matter what `B` evaluates to because `A && B == false`.
+It is only necessary to check that `B` is true when `A` has first been found to be true. If `A == false`, it does not matter what `B` evaluates to because `A && B == false`.
 
-Similarly, if the condition is `A || B` then if `A` is true, there is no need to check `B` if p is true, then regardless of the status of `B`, `A || B == true` 
+Similarly, if the condition is `A || B` then when `A` has evaluated as true, there is no need to check `B`. When `A` is true, then regardless of the status of `B`, `A || B == true`. 
 
 These two situations are referred to as short-circuit evaluation, which is useful in computing for two main reasons:
 
 - Computer resources and time can be saved not completely evaluating some very complex expressions.
 - Additional Boolean expressions can be used to protect against unsafe conditions.
 
+`````{code_example-start} Short Circuit Evaluation
+:nonumber:
+:class: dropdown
+`````
 For example, to prevent a condition throwing a 'division by zero' error, any time a condition involves division by a variable value, it can be logically protected by first checking that the variable is not zero, and short circuiting with logical `&&` or `||`, for example:
 ```{code-block} c++
 (A != 0) && (A + 1/A < 100) (a == 0) || (a + 1/a < 100)
 ```
-If `a` is ‘0’, the first expression `(a == 0)` is true and the second expression is not
-evaluated.
-
+If `a` is 0, the first expression `(a == 0)` is `true` and the second expression is not evaluated.
+`````{code_example-end}
+`````
 ## Order of evaluation
 
 The order of evaluation of any part of any expression, including the order of evaluation of function arguments, is usually unspecified.
@@ -408,7 +436,9 @@ The {term}`compiler` can evaluate operands and other subexpressions in any order
 
 There is no concept of left-to-right or right-to-left evaluation in C++. 
 
-This is not to be confused with left-to-right and right-to-left associativity of operators: the expression `a() + b() + c()` is parsed as `(a() + b()) + c()` due to left-to-right associativity of operator `+`, but `c()` may be evaluated first, last, or between `a()` or `b()` at runtime.
+This is not to be confused with left-to-right and right-to-left associativity of operators: 
+
+the expression `a() + b() + c()` is parsed as `(a() + b()) + c()` due to left-to-right associativity of operator `+`, but `c()` may be evaluated first, last, or between `a()` or `b()` at runtime.
 
 ## Unspecified Behaviours
 

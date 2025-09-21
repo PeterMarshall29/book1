@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.ed7d5858-3cdc-4e2c-b416-f9027ea104f4.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.4afd01ee-c078-414e-8147-4d5a87f9e10c.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-00f4562b-70e6-4778-9875-e1975ae84175] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-2de1cd7c-4c96-4a97-81eb-ddfb98359276] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -242,29 +242,26 @@ window.addEventListener("load", load);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Extending the Introductory Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -272,15 +269,15 @@ window.addEventListener("load", load);
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises 6</a></li>
 </ul>
 </details></li>
 </ul>
@@ -658,7 +655,7 @@ document.write(`
 <p>The collection of object files is then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
 <p>The collection of object files are then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>;  <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in windows or <code class="docutils literal notranslate"><span class="pre">.app</span></code> etc…</p>
-<pre align="center" data-zoom-id="id-00f4562b-70e6-4778-9875-e1975ae84175" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-2de1cd7c-4c96-4a97-81eb-ddfb98359276" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]

@@ -10,18 +10,20 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercise 5
-
+# Exercises 5
 
 ````{exercise-start} 
 :label: exerciseex51
 :class: dropdown
 ````
-Write a function that takes an integer value and returns one more than that value.
-Write a program that calls your function and prints both values to the display.
+Correct the following function and add the rest of a program needed to demonstrate a call to the function. 
+
+The function should return the squared value of two integers.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
-Code goes here....
+int squed(inta) {
+	a * a;
+}
 ```
 ````{exercise-end}
 ````
@@ -32,15 +34,15 @@ Code goes here....
 ````
 ```{code-block} c++
 #include <iostream>
-int incrementFunction(int number) {
-	return ++number;
+int squaredValueOf(int a) {
+    return a * a;
 }
-int main () {
-  int number;
-  std::cout << "Please type in a number.. \n";
-  std::cin >> number;
-  std::cout << " Your number was: " << number << " and one more is: " << numberincrementFunction(number) << '\n';
-  return 0;
+int main() {
+    int userInt;
+    std::cout << "Please type in an interger value ..\n";
+    std::cin >> userInt;
+    std::cout << "The square of " << userInt << " is " << squaredValueOf(userInt)<< "!";
+    return 0;
 }
 ```
 ````{solution-end}
@@ -50,8 +52,8 @@ int main () {
 :label: exerciseex52
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+Write a function that takes an integer value and returns one more than that value.
+Write a program that calls your function and prints both values to the display.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -65,14 +67,14 @@ Code goes here....
 ````
 ```{code-block} c++
 #include <iostream>
-bool sumIsLessThan100(int A, int B) {
-	return (A + B < 100) ?  true : false;
+int incrementFunction(int number) {
+	return ++number;
 }
 int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
+  int number;
+  std::cout << "Please type in a number.. \n";
+  std::cin >> number;
+  std::cout << " Your number was: " << number << " and one more is: " << numberincrementFunction(number) << '\n';
   return 0;
 }
 ```
@@ -98,51 +100,6 @@ Code goes here....
 ````
 ```{code-block} c++
 #include <iostream>
-bool isFactorial(const int& val)
-{
-	int tmp = 1, i = 1;
-	while (tmp < val) tmp*=++i;
-	return tmp == val;
-}
-std::vector<int> filterFactorials(std::vector<int> numbers) {
-	for (int i = 0; i < numbers.size(); ++i)
-	{
-		if (!isFactorial(numbers[i]))
-			numbers.erase(numbers.begin() + i--);
-	}
-	return numbers;
-}
-int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
-  return 0;
-}
-```
-````{solution-end}
-````
-
-
-````{exercise-start} 
-:label: exerciseex54
-:class: dropdown
-````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-Code goes here....
-```
-````{exercise-end}
-````
-
-````{solution-start} exerciseex54
-:label: solutionex54
-:class: dropdown
-````
-```{code-block} c++
-#include <iostream>
 bool sumIsLessThan100(int A, int B) {
 	return (A + B < 100) ?  true : false;
 }
@@ -158,12 +115,60 @@ int main () {
 ````
 
 
+
+
+````{exercise-start} 
+:label: exerciseex54
+:class: dropdown
+````
+Write a function that takes in two integers, hours and minutes, and then converts them to a total number of seconds.
+Complete the program needed to do this, and include a loop, so that the user can repeat the conversion without restarting the program.
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+int convertToSeconds(int hours, int minutes) {
+	function_body Code goes here....
+}
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex54
+:label: solutionex54
+:class: dropdown
+````
+```{code-block} c++
+#include <iostream>
+int convertToSeconds(int hours, int minutes) {
+    return 3600 * hours + 60 * minutes;
+}
+int main() {
+    int hoursInt;
+    int minutesInt;
+    for (;;) {
+        std::cout << "Please type in a time as a number of hours followed by a number of minutes, or type x to exit.\n";
+        if (std::cin >> hoursInt >> minutesInt) {
+            std::cout << "The number of seconds in " << hoursInt << " hours and " << minutesInt << " minutes is " << convertToSeconds(hoursInt, minutesInt) << " seconds!";
+        }
+        else {
+            break;
+        }
+    }
+    return 0;
+}
+```
+````{solution-end}
+````
+
+
 ````{exercise-start} 
 :label: exerciseex55
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+Write functions for the following:
+a.	Calculation of a factorial using recursion.
+b.	Calculation of arctan using the Taylor series expansion.
+c.	Estimation of pi using the Wallis product.
+
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -176,17 +181,7 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-#include <iostream>
-bool sumIsLessThan100(int A, int B) {
-	return (A + B < 100) ?  true : false;
-}
-int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
-  return 0;
-}
+
 ```
 ````{solution-end}
 ````
@@ -196,8 +191,7 @@ int main () {
 :label: exerciseex56
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -210,17 +204,7 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-#include <iostream>
-bool sumIsLessThan100(int A, int B) {
-	return (A + B < 100) ?  true : false;
-}
-int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
-  return 0;
-}
+
 ```
 ````{solution-end}
 ````
@@ -230,8 +214,7 @@ int main () {
 :label: exerciseex57
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -244,17 +227,7 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-#include <iostream>
-bool sumIsLessThan100(int A, int B) {
-	return (A + B < 100) ?  true : false;
-}
-int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
-  return 0;
-}
+
 ```
 ````{solution-end}
 ````
@@ -263,8 +236,7 @@ int main () {
 :label: exerciseex58
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -277,17 +249,7 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-#include <iostream>
-bool sumIsLessThan100(int A, int B) {
-	return (A + B < 100) ?  true : false;
-}
-int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
-  return 0;
-}
+
 ```
 ````{solution-end}
 ````
@@ -296,8 +258,7 @@ int main () {
 :label: exerciseex59
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -310,17 +271,7 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-#include <iostream>
-bool sumIsLessThan100(int A, int B) {
-	return (A + B < 100) ?  true : false;
-}
-int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
-  return 0;
-}
+
 ```
 ````{solution-end}
 ````
@@ -329,8 +280,7 @@ int main () {
 :label: exerciseex510
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -343,17 +293,7 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-#include <iostream>
-bool sumIsLessThan100(int A, int B) {
-	return (A + B < 100) ?  true : false;
-}
-int main () {
-  int A , B;
-  std::cout << "Please type in two numbers number, both less than 100.. \n";
-  std::cin >> A >> B;
-  std::cout << " It is " << sumIsLessThan100(A , B) << " that the sum of " << A << " and " << B << " is less than 100! <<'\n';
-  return 0;
-}
+
 ```
 ````{solution-end}
 ````
