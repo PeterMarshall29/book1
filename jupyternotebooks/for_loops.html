@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.6931f5c3-a302-4e17-9d4c-7d237432a8f6.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.7511a44c-c11b-404a-9920-7a6a630390db.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-1c7e9e7b-370f-430f-81df-713ae37868a5] svg, .mermaid[data-zoom-id=id-e4cdf627-4a5f-46e1-9e63-9b0f415c2ab6] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-06a8500e-c64d-45c4-919a-74ce139aaaec] svg, .mermaid[data-zoom-id=id-1b0a21b1-f92b-4db3-bcb3-71999ec30008] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -242,29 +242,26 @@ window.addEventListener("load", load);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Extending the Introductory Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -272,15 +269,15 @@ window.addEventListener("load", load);
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises 6</a></li>
 </ul>
 </details></li>
 </ul>
@@ -599,7 +596,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-1c7e9e7b-370f-430f-81df-713ae37868a5" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-06a8500e-c64d-45c4-919a-74ce139aaaec" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -630,7 +627,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-e4cdf627-4a5f-46e1-9e63-9b0f415c2ab6" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-1b0a21b1-f92b-4db3-bcb3-71999ec30008" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -674,7 +671,7 @@ document.write(`
 </div>
 <div class="code_example dropdown admonition" id="examples1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 32 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 33 </span></p>
 <section id="code_example-content">
 <p>Start the live code editor, complete the program, and run this code.</p>
 <div class="literal-block-wrapper docutils container" id="codes1">
@@ -696,7 +693,7 @@ document.write(`
 <p>Because the for-statement <a class="reference internal" href="glossary.html#term-Loop-Variable"><span class="xref std std-term">loop-variable</span></a> has been included in this statement, the value printed to the output stream will be different in every iteration.</p>
 <div class="code_explanation dropdown note admonition" id="explanations1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examples1"> Code Example 32</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examples1"> Code Example 33</a></p>
 <section id="code_explanation-content">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -745,7 +742,7 @@ document.write(`
 </div>
 <div class="code_example dropdown admonition" id="examples2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 33 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 34 </span></p>
 <section id="code_example-content">
 <p>It is bad practice, and a common mistake, to increment the loop-variable within the execution block; this should only be done for a good reason.</p>
 <p>In programming it is always better to separate concerns. In this case it is better to leave control to the loop arguments.</p>
@@ -773,7 +770,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">for(;;){}</span></code> is a way to specify an infinite loop; sometimes called a ‘for-ever statement’…</p>
 <div class="code_example dropdown admonition" id="examples3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 34 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 35 </span></p>
 <section id="code_example-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -801,7 +798,7 @@ document.write(`
 <p>If there is only a single statement i.e. not a whole code block of statements, then the statement can simply be placed after for-statement, and closed with <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
 <div class="code_example dropdown admonition" id="examples4">
 
-<p class="admonition-title"><span class="caption-number">Code Example 35 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 36 </span></p>
 <section id="code_example-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -814,7 +811,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0	1	2	3	4	5	6	7	8	9</p>
+<p>0</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1	2	3	4	5	6	7	8	9	
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -825,7 +825,7 @@ document.write(`
 <p>The for-statement can only initialise more than one loop-variable, the final expression can affect both, and the condition can take account of both values. For example:</p>
 <div class="code_example dropdown admonition" id="examples5">
 
-<p class="admonition-title"><span class="caption-number">Code Example 36 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 37 </span></p>
 <section id="code_example-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,7 +838,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0	10</p>
+<p>0</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
 <p>1	9</p>
 <p>2	8</p>
 <p>3	7</p>
@@ -853,7 +856,7 @@ document.write(`
 <h2>Comparison to While Loops and Functions<a class="headerlink" href="#comparison-to-while-loops-and-functions" title="Permalink to this heading">#</a></h2>
 <div class="code_example dropdown admonition" id="examples6">
 
-<p class="admonition-title"><span class="caption-number">Code Example 37 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 38 </span></p>
 <section id="code_example-content">
 <p>Run the following code - showing a for-statement, a while-statement, and a recursive function doing the same thing.</p>
 <div class="cell tag_remove-output docutils container">
@@ -1001,7 +1004,7 @@ The final statement includes an increment expression inside an output steam stat
 <p>It is not always obvious what is the right type to use for a controlled variable in a for-statement, so <code class="docutils literal notranslate"><span class="pre">auto</span></code> often comes in handy:</p>
 <div class="code_example dropdown admonition" id="examples7">
 
-<p class="admonition-title"><span class="caption-number">Code Example 38 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 39 </span></p>
 <section id="code_example-content">
 <p>for (auto p = begin©; c!=end©; ++p) {
 // … use iterator p for elements in container c …
@@ -1017,7 +1020,7 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 <div class="code_example dropdown admonition" id="examples8">
 
-<p class="admonition-title"><span class="caption-number">Code Example 39 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 40 </span></p>
 <section id="code_example-content">
 <p>TRY to create and change a vector of zeros.</p>
 <div class="cell docutils container">
@@ -1035,14 +1038,15 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>00	01	52	03	04	05</p>
+<p>0</p>
+<p>0	01	52	03	04	05</p>
 </div>
 </div>
 </section>
 </div>
 <div class="code_example dropdown admonition" id="examples9">
 
-<p class="admonition-title"><span class="caption-number">Code Example 40 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 41 </span></p>
 <section id="code_example-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1057,8 +1061,7 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>,</p>
-<p>0	, 1	, 2	, 3	, 4	, 5</p>
+<p>, 0	, 1	, 2	, 3	, 4	, 5</p>
 </div>
 </div>
 </section>
@@ -1070,7 +1073,7 @@ The final statement includes an increment expression inside an output steam stat
 <p>A <code class="docutils literal notranslate"><span class="pre">range-for</span></code> loop uses this half-open sequence.</p>
 <div class="code_example dropdown admonition" id="examples10">
 
-<p class="admonition-title"><span class="caption-number">Code Example 41 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 42 </span></p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">

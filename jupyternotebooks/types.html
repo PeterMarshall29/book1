@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.3846657f-cf61-4ac3-b657-7ebcd9feb862.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.ea804689-44ce-46da-b7a2-a6b7071d01f7.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-73cfd712-b04c-4239-ba32-f4fd66aba6ab] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-877aed6c-f45e-45ed-8131-e47ccd32564e] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -114,7 +114,7 @@ window.addEventListener("load", load);
     <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Scope" href="scope.html" />
+    <link rel="next" title="Arithmetic Data Types" href="arithmetic_data_types.html" />
     <link rel="prev" title="Identifiers and Declarations" href="identifiers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -242,29 +242,26 @@ window.addEventListener("load", load);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="firstprogram.html">First C++ Program</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_ideas_and_definitons.html">Learning the Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercise 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quiz1.html">Quizzes</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Extending the Introductory Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercise 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Types in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercise 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -272,15 +269,15 @@ window.addEventListener("load", load);
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercise 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercise 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercise 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises 6</a></li>
 </ul>
 </details></li>
 </ul>
@@ -625,7 +622,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-73cfd712-b04c-4239-ba32-f4fd66aba6ab" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-877aed6c-f45e-45ed-8131-e47ccd32564e" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
@@ -674,7 +671,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 35 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 24 </span></p>
 <section id="exercise-content">
 <p>Try the following:</p>
 <ul class="simple">
@@ -726,7 +723,7 @@ document.write(`
 <p>This produces more easily understood values for the primitive types.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 36 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 25 </span></p>
 <section id="exercise-content">
 <p>Use <code class="docutils literal notranslate"><span class="pre">typeid</span></code> on a function.</p>
 <div class="admonition hint">
@@ -873,11 +870,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="scope.html"
+       href="arithmetic_data_types.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Scope</p>
+        <p class="prev-next-title">Arithmetic Data Types</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
