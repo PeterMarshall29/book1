@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.6f53b2cc-7f2e-41d8-a3f0-55351cb0951e.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.b99fe190-0585-4a23-89fa-9d1b77f811fc.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/while_loops';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -515,8 +515,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-exit">Loop Exit</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break"><code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue"><code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">Break</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">Continue</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goto">Goto</a></li>
 </ul>
 </li>
@@ -571,15 +571,15 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><figure class="align-default" id="id1">
+<tr class="row-even"><td><figure class="align-default" id="my-fig-ref-t2">
 <img alt="../_images/WhileLoopGeneral.svg" src="../_images/WhileLoopGeneral.svg" /><figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Iteration Methods</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Iteration Methods</span><a class="headerlink" href="#my-fig-ref-t2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-default" id="id2">
+<td><figure class="align-default" id="my-fig-ref-t3">
 <img alt="../_images/WhileLoopExample.svg" src="../_images/WhileLoopExample.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Iteration Methods</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Iteration Methods</span><a class="headerlink" href="#my-fig-ref-t3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </td>
@@ -637,7 +637,7 @@ document.write(`
 <p>The iteration condition may also be intentionally omitted, but an alternative method to end the loop is required.</p>
 <p>The program can exit an iteration statement by arriving at the keywords, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">goto</span></code>, or <code class="docutils literal notranslate"><span class="pre">throw</span></code>.</p>
 <section id="break">
-<h3><code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
+<h3>Break<a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> - causes the program to break out of the nearest enclosing <a class="reference internal" href="glossary.html#term-Switch-Statement"><span class="xref std std-term">switch statement</span></a> or <a class="reference internal" href="glossary.html#term-Iteration-Statement"><span class="xref std std-term">iteration statement</span></a>. <code class="docutils literal notranslate"><span class="pre">break</span></code> is used if the logical flow may require the program to leave the loop in the middle.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> is usually found as an option in a selection-statement within the loop.</p>
 <p>It is usually better to exit loops via the loop exit condition unless the logic requires extra variables an complexity.</p>
@@ -671,10 +671,10 @@ document.write(`
 </div>
 </div>
 </section>
-</div><p>An alternative is to use <code class="docutils literal notranslate"><span class="pre">continue</span></code> which result in the next iteration starting immediately jumping over any remaining code statements in the current loop.</p>
-</section>
+</div></section>
 <section id="continue">
-<h3><code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#continue" title="Permalink to this heading">#</a></h3>
+<h3>Continue<a class="headerlink" href="#continue" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> cause the program to skip directly to the next iteration jumping over any remaining code statements in the current loop.</p>
 <div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-3">
 
 <p class="admonition-title">Code Example: Continue </p>
@@ -774,8 +774,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-exit">Loop Exit</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break"><code class="docutils literal notranslate"><span class="pre">break</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue"><code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">Break</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">Continue</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goto">Goto</a></li>
 </ul>
 </li>

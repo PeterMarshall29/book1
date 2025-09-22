@@ -54,11 +54,11 @@ Programmers must ensure there is a logical way for the program to exit every whi
 * - Generic While Loop
   - Example While Loop
 * - ```{figure} ../images/WhileLoopGeneral.svg
-    :name: my-fig-ref-t1
+    :name: my-fig-ref-t2
     Iteration Methods
     ```
   - ```{figure} ../images/WhileLoopExample.svg
-    :name: my-fig-ref-t1
+    :name: my-fig-ref-t3
     Iteration Methods
     ```
 ```

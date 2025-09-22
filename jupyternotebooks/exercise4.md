@@ -16,6 +16,80 @@ kernelspec:
 :label: exerciseex41
 :class: dropdown
 ````
+Write a program that asks for an integer and tells the user if the number is odd or even.
+
+Write a second program that works for double inputs - this is more complicated, modulo will not work, and you must handle inputs that are not whole numbers.
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex41
+:label: solutionex41
+:class: dropdown
+````
+For Intergers.
+```{code-block} c++
+#include <iostream> 
+int main() {
+    int number;
+    std::cout << "Please input an integer number to check, even or odd? \n";
+    std::cin >> number;
+    if (number % 2 == 0) std::cout << "Number is Even!";
+    else std:: cout << "Number is Odd!";
+    return 0;
+}
+```
+Partial solution for doubles.
+```{code-block} c++
+#include <iostream> 
+int main() {
+    double number;
+    std::cout << "Please input an integer number to check, even or odd? \n";
+    std::cin >> number;
+    if (std::remainder(number, 2) == 0) std::cout << "Number is Even!";
+    else if (std::remainder(number, 2) == 1.0) std::cout << "Number is Odd!";
+    else std::cout << "mmmm, you did not enter a whole numeber...its complicated!";
+    return 0;
+}
+```
+````{solution-end}
+````
+
+`````{exercise-start} 
+:label: exercisex42
+:class: dropdown
+`````
+Write a program to calculate and print the sum of the squares of the postive integrers from one to a user inputed value.
+`````{exercise-end} 
+`````
+
+`````{solution-start} exercisex42
+:label: solutionx42
+:class: dropdown
+`````
+Try changing this to a while-loop, or to a for-loop - whichever you did not use.
+```{code-block} c++
+#include <iostream>
+int main() {
+    int number, sum = 0;
+    std::cout << "Give me a positive integer: ";
+    std::cin >> number;
+    for (int i = 1; i <= number; ++i) sum += i * i;
+    std::cout << "The sum of the squared numbers from 1 to " << number << " is " << sum << '\n';
+    return 0;
+}
+```
+`````{solution-end}
+`````
+
+
+````{exercise-start} 
+:label: exerciseex43
+:class: dropdown
+````
 Write code that produces the following outputs to the terminal. You should use a for-loop. Each consecutive line should display the next value in a:
 * count from 0 to 10, in steps of 1.
 *	a countdown from 20 to 0 in steps of 0.5.
@@ -30,8 +104,8 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex41
-:label: solutionex41
+````{solution-start} exerciseex43
+:label: solutionex43
 :class: dropdown
 ````
 ```{code-block} c++
@@ -41,13 +115,13 @@ Code goes here....
 ````
 
 ````{exercise-start} 
-:label: exerciseex42
+:label: exerciseex44
 :class: dropdown
 ````
 Use a for-statement to evaluate the equation:
-$$
-S_3=\sum_(i=0)^\infty \frac{(-1)^(i+1)}{i^2}
-$$
+```{math}
+S_3=\sum_{i=0}^\infty \frac{(-1)^{i+1}}{i^2}
+```
 
 Hint: You cannot actually use infinity...
 ```{code-cell} c++
@@ -57,8 +131,8 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex42
-:label: solutionex42
+````{solution-start} exerciseex44
+:label: solutionex44
 :class: dropdown
 ````
 Check the solution works.
@@ -84,14 +158,14 @@ int main() {
 ````
 
 ````{exercise-start} 
-:label: exerciseex43
+:label: exerciseex45
 :class: dropdown
 ````
 Evaluate:
 
-$$
-P_3=\prod_(i=1)^\infty \left(1+(x^(2^i)\right )\ ;\ |x|<1
-$$
+```{math}
+P_3=\prod_{i=1}^\infty \left(1+x^{2^i}\right )\ ;\ |x|<1
+```
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -100,8 +174,8 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex43
-:label: solutionex43
+````{solution-start} exerciseex45
+:label: solutionex45
 :class: dropdown
 ````
 Suggested Solution - try to improve the code.
@@ -131,7 +205,7 @@ int main() {
 
 
 ````{exercise-start} 
-:label: exerciseex44
+:label: exerciseex46
 :class: dropdown
 ````
 a.	Write a program that asks the user for a number and then classifies the number as being either: less than 10, between 10 and 100, between 100 and 1000, or greater than 1000.
@@ -145,8 +219,8 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex44
-:label: solutionex44
+````{solution-start} exerciseex46
+:label: solutionex46
 :class: dropdown
 ````
 Solutions to parts a and b only.
@@ -182,7 +256,7 @@ int main() {
 
 
 ````{exercise-start} 
-:label: exerciseex45
+:label: exerciseex47
 :class: dropdown
 ````
 Write a program that will take the coefficients for a quadratic equation from the user, and return the number, and type of solutions, and the solutions. 
@@ -193,8 +267,8 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex45
-:label: solutionex45
+````{solution-start} exerciseex47
+:label: solutionex47
 :class: dropdown
 ````
 ```{code-block} c++
@@ -234,11 +308,57 @@ int main() {
 ````{solution-end}
 ````
 
+`````{exercise-start}
+:label: exercisex48
+:class: dropdown
+`````
+Write a program to calculate and print to screen the binomial coefficients for the nth power - i.e. the nth line of Pascal's triangle.
+By definition, the binomial coefficients are calculated as
+```{math}
+C(k,n)= \frac{n!}{k!(n-k)!} 
+```
+You should know that 
+\begin{align}
+C(k,n)=C(n-k,n)\\
+C(0,n)=1\\
+C(1,n)=n\\
+C(2,n)=\frac{n(n-1)}{2}\\
+C(k+1,n)=C(k,n)\cdot\frac{n-k}{k+1}
+\end{align}
+
+`````{exercise-end}
+`````
+
+
+`````{solution-start} exercisex48
+:label: solutionx48
+:class: dropdown
+`````
+```{code-block} c++
+#include <iostream>
+int main() {
+    const int n = 10;   // Power - line of Pascal's triangle
+    int binomialCoeffs[n + 1];     // array for coefficients
+    binomialCoeffs[0] = 1;         // first element of array must be set
+    std::cout << binomialCoeffs[0];
+    for (int i = 0; i < n; ++i) {   //loop to fill aray
+        binomialCoeffs[i + 1] = binomialCoeffs[i] * (n - i) / (i + 1);
+        std::cout << " " << binomialCoeffs[i + 1];
+    }
+    std::cout << '\n';
+    return 0;
+}
+```
+`````{solution-end}
+`````
+
 
 ````{exercise-start} 
-:label: exerciseex46
+:label: exerciseex49
 :class: dropdown
 ````
+Write a program that checks a sequence of user input positive integers and reports if three identical consecutive values are entered.
+
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -247,19 +367,165 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex46
-:label: solutionex46
+````{solution-start} exerciseex49
+:label: solutionex49
 :class: dropdown
 ````
-
-
+Try using an array or a vector instead of this method - what are the advantages of the other methods?
 ```{code-block} c++
+int main()
+{
+    int firstNumber , secondNumber , thirdNumber;
+    firstNumber = secondNumber = thirdNumber = 0;
+    std::cout << "Please input an integer. \n";
+    for (;;) {
+        if (secondNumber == 0) {
+            if (firstNumber == 0) {
+                std::cin >> firstNumber;
+                std::cout << "first number is " << firstNumber << '\n';
+                } else {
+                    std::cin >> secondNumber;
+                    std::cout << "second number is " << secondNumber << '\n';
+                    if (secondNumber != firstNumber) {
+                        firstNumber = secondNumber = 0;
+                        std::cout << "2 numbers reset \n";
+                    }
+                }
+            } else {
+            std::cin >> thirdNumber;
+            if (thirdNumber != secondNumber) {
+                firstNumber = secondNumber = thirdNumber = 0;
+                std::cout << "3 numbers reset \n";
+            } else {
+                std::cout << " You have entered the number " << thirdNumber << " three times in a row!";
+                break;
+            }
+        }
+    }
+    return 0;
+}
+```
+````{solution-end}
+````
 
+````{exercise-start} 
+:label: exerciseex410
+:class: dropdown
+````
+Physicists often need to convert quanitites in one unit into another.
+Write a program that asks the user to input, a temperature, the current unit, and the desired unit, and then provides the converted value.
+Your program should include the Celsius, Kelvin, Fahrenheit, and Rankine temperature scales.
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex410
+:label: solutionex410
+:class: dropdown
+````
+```{code-block} c++
+#include <iostream> 
+int main() {
+    double originalTemp;
+    char originalUnit;
+    char conversionUnit;
+    while (true) {
+        std::cout << "Please input the original temperature followed by it unit, and the unit for the the temperature conversion. \n";
+        std::cout << " Please use the symbols K, C, F, and R for the temperature scales\n";
+        std::cin >> originalTemp >> originalUnit >> conversionUnit;
+        switch (originalUnit) {
+        case 'K': case 'k':
+            switch (conversionUnit) {
+            case 'K': case 'k':
+                std::cout << " The value is unchanged. You entered the same unit.";
+                break;
+            case 'C': case 'c':
+                std::cout << " The converted temperature is " << (originalTemp - 273.15) << " Celsius.\n";
+                break;
+            case 'F': case 'f':
+                std::cout << "The converted temperature is " << (((9.0 / 5) * originalTemp) - 459.67) << " Fahrenheit.\n";
+                break;
+            case 'R': case 'r':
+                std::cout << "The converted temperature is " << ((9.0 / 5) * originalTemp) << " Rankine.\n";
+                break;
+            default:
+                std::cout << " I don't recognise that unit, please try again.\n";
+                break;
+            }
+            break;
+        case 'C': case 'c':
+            switch (conversionUnit) {
+            case 'K': case 'k':
+                std::cout << "The converted temperature is " << (originalTemp + 273.15) << " Kelvin.\n";
+                break;
+            case 'C': case 'c':
+                std::cout << " The value is unchanged. You entered the same unit.\n";
+                break;
+            case 'F': case 'f':
+                std::cout << "The converted temperature is " << (((9.0 / 5) * (originalTemp + 273.15)) - 459.67) << " Fahrenheit.\n";
+                break;
+            case 'R': case 'r':
+                std::cout << "The converted temperature is " << ((9.0 / 5) * (originalTemp + 273.15)) << " Rankine.\n";
+                break;
+            default:
+                std::cout << " I don't recognise that unit, please try again.\n";
+                break;
+            }
+            break;
+        case 'F': case 'f':
+            switch (conversionUnit) {
+            case 'K': case 'k':
+                std::cout << "The converted temperature is " << ((5.0 / 9) * (originalTemp + 459.67)) << " Kelvin.\n";
+                break;
+            case 'C': case 'c':
+                std::cout << " The converted temperature is " << (((5.0 / 9) * (originalTemp + 459.67)) - 273.15) << " Celsius.\n";
+                break;
+            case 'F': case 'f':
+                std::cout << " The value is unchanged. You entered the same unit.\n";
+                break;
+            case 'R': case 'r':
+                std::cout << "The converted temperature is " << (originalTemp + 459.67) << " Rankine.\n";
+                break;
+            default:
+                std::cout << " I don't recognise that unit, please try again.\n";
+                break;
+            }
+            break;
+        case 'R': case 'r':
+            switch (conversionUnit) {
+            case 'K': case 'k':
+                std::cout << "The converted temperature is " << ((5.0 / 9) * originalTemp) << " Kelvin.\n";
+                break;
+            case 'C': case 'c':
+                std::cout << " The converted temperature is " << (((5.0 / 9) * originalTemp) + 273.15) << " Celsius.\n";
+                break;
+            case 'F': case 'f':
+                std::cout << "The converted temperature is " << (originalTemp - 459.67) << " Fahrenheit.\n";
+                break;
+            case 'R': case 'r':
+                std::cout << " The value is unchanged. You entered the same unit.\n";
+                break;
+            default:
+                std::cout << " I don't recognise that unit, please try again.\n";
+                break;
+            }
+            break;
+        default:
+            std::cout << " I don't recognise that unit, please try again.\n";
+            break;
+        }
+    }
+    return 0;
+}
 ```
 ````{solution-end}
 ````
 
 
+<!-- 
 ````{exercise-start} 
 :label: exerciseex47
 :class: dropdown
@@ -346,6 +612,6 @@ Code goes here....
 
 ```
 ````{solution-end}
-````
+```` -->
 
 

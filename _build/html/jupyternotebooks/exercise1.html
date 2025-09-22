@@ -70,9 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise1.3f44eda0-0f89-4d68-8ba6-ea80355e1954.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise1.bfa95c40-12ac-40b9-9d7b-9e19edf0efdf.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/exercise1';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -521,134 +519,43 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="exercises-1">
 <h1>Exercises 1<a class="headerlink" href="#exercises-1" title="Permalink to this heading">#</a></h1>
 <p>Add practice using comments</p>
-<div class="exercise admonition" id="exercisex1_1">
+<div class="exercise dropdown admonition" id="exercisex11">
 
 <p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
 <section id="exercise-content">
-<p>This code is incorrect. Alter the code so that it runs without error and prints your name.</p>
+<p>Write a program to print the following message in the terminal.</p>
+<p>Welcome to Loughborough!<br />
+//———————————————-<br />
+This is Compuational Physics - Part A.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="w"> </span><span class="s">&quot;iostreams&quot;</span>
-<span class="n">main</span><span class="p">(){</span>
-<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;my name is, </span><span class="se">\n</span><span class="s">&quot;</span>
-<span class="k">return</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">...</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </div>
-<div class="exercise admonition" id="exercisex1_2">
+<div class="solution dropdown admonition" id="solutionx11">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
-<section id="exercise-content">
-<p>Write a program to calculate and print to screen the binomial coefficients
-By definition, the binomial coefficients are calculated as
-$<span class="math notranslate nohighlight">\(
-C(k,n)= \frac{n!}{k!(n-k)!} 
-\)</span><span class="math notranslate nohighlight">\(
-You should know that 
-\)</span><span class="math notranslate nohighlight">\(
-C(k,n)=C(n-k,n)\\
-C(0,n)=1\\
-C(1,n)=n\\
-C(2,n)=\frac{n(n-1)}{2}
-C(k+1,n)=C(k,n)\cdot\frac{n-k}{k+1}
-\)</span>$</p>
-</section>
-</div>
-<div class="solution admonition" id="solutionx1_2">
-
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisex1_2"> Exercise 11</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisex11"> Exercise 10</a></p>
 <section id="solution-content">
-<p>int main() {
-const int n = 10;   // constant array size
-int bnm[n + 1];     // array of integers
-int k = 0;          //  loop control variable:
-bnm[0] = 1;         // The first element of array
-std::cout &lt;&lt; bnm[0];
-// While loop to fill array
-while(k&lt;n){
-bnm[k+1]=bnm[k]*(n-k)/(k+1);
-std::cout&lt;&lt;” “&lt;&lt;bnm[k+1];
-k++; }
-std::cout &lt;&lt; ‘\n’;
-return 0;
-}</p>
-</section>
-</div>
-<div class="exercise admonition" id="exercisex1_3">
-
-<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
-<section id="exercise-content">
-<p>Write a program to calculate and print the sum of the squares of the postive integrers from one to a user inputted value.</p>
-</section>
-</div>
-<div class="solution admonition" id="solutionx1_3">
-
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisex1_3"> Exercise 12</a></p>
-<section id="solution-content">
-<p>#include <iostream>
-int main() {
-int number, sum = 0;
-std::cout &lt;&lt; “Give me a positive integer: “;
-std::cin &gt;&gt; number;
-for (int i = 1; i &lt;= number; ++i) sum += i * i;
-std::cout &lt;&lt; “The sum of the squared numbers from 1 to ” &lt;&lt; number &lt;&lt; ” is ” &lt;&lt; sum &lt;&lt; ‘\n’;
-return 0;
-}</p>
-</section>
-</div>
-<div class="exercise admonition" id="exercisex1_4">
-
-<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
-<section id="exercise-content">
-<p>Rewrite the program to calculate and print the sum of the squares of the postive integrers from one to a user inputted value.
-But now use the for-statement arguments to make the code block unnecessary.</p>
-</section>
-</div>
-<div class="solution admonition" id="solutionx1_4">
-
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisex1_4"> Exercise 13</a></p>
-<section id="solution-content">
-<p>#include <iostream>
-int main() {
-int number, sum;
-std::cout &lt;&lt; “Give me a positve integer: “;
-std::cin &gt;&gt; number;
-for (int i = 1, sum = 0; i &lt;= number ; sum += i * i,  ++i);
-std::cout &lt;&lt; “The sum of the squares of the numbers from 1 to ” &lt;&lt; number &lt;&lt; ” is ” &lt;&lt; sum &lt;&lt; <code class="docutils literal notranslate"><span class="pre">\n</span></code>;
-return 0;
-}</p>
-</section>
-</div>
-<div class="exercise dropdown admonition" id="exerciseex11">
-
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
-<section id="exercise-content">
-<div class="cell tag_remove-output tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</div>
-<div class="solution dropdown admonition" id="solutionex11">
-
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex11"> Exercise 14</a></p>
-<section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;iostream&gt;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Welcome to Loughborough!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> 
+	<span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;----------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> 
+  <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;This is Compuational Physics - Part A. &quot;</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span> 
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex12">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
 <section id="exercise-content">
+<p>Write a program that ask for 4 double precision floating point numbers and returns their total and average.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -660,17 +567,31 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex12">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex12"> Exercise 15</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<p>Try changing this code to calculate the average using:</p>
+<p><code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">=</span> <span class="pre">firstNumber</span> <span class="pre">+</span> <span class="pre">secondNumber</span> <span class="pre">+</span> <span class="pre">thirdNumber</span> <span class="pre">+</span> <span class="pre">fourthNumber</span> <span class="pre">/</span> <span class="pre">4;</span></code></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">firstNumber</span><span class="p">,</span><span class="w"> </span><span class="n">secondNumber</span><span class="p">,</span><span class="w"> </span><span class="n">thirdNumber</span><span class="p">,</span><span class="w"> </span><span class="n">fourthNumber</span><span class="p">,</span><span class="w"> </span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">average</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please enter four numbers...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstNumber</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">secondNumber</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">thirdNumber</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">fourthNumber</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">firstNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">secondNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">thirdNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fourthNumber</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The total of your four numbers is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and their average is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">average</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex13">
 
-<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
 <section id="exercise-content">
+<p>Write a program to demonstrate the effect of combining interger and double type numbers in a single arithemetic expression.
+Try all 5 arithmetic operators and include negative values.
+Use <iomanip> to control the precision of the outputs to 3 decimal places.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -682,17 +603,32 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex13">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex13"> Exercise 16</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iomanip&gt;</span><span class="c1">  </span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9.99</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mySecondInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// and all the others .......</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex14">
 
-<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
 <section id="exercise-content">
+<p>A common computing task is to swap the values of two variables.
+Write a program that asks the user for two variables, and then swaps their values.
+Print out the variables’ values, before and after the swap, in the same order to show the changed values.
+DO NOT just print the variable in reverse order - misses the learning point of this exercise.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -704,17 +640,30 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex14">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex14"> Exercise 17</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myFirstInt</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondInt</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in two integer values... </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">mySecondInt</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Your two values were &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myFirstInt</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mySecondInt</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mySecondInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Your swapped values are &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex15">
 
-<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
 <section id="exercise-content">
+<p>Write a program that asks the user for the lengths of the sides of a triangle and returns the area.</p>
+<p>Hint: Use Heron’s Formula. Check your answer with a right angled triangle. Include <cmath>.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -726,17 +675,28 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex15">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex15"> Exercise 18</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">firstSide</span><span class="p">,</span><span class="w"> </span><span class="n">secondSide</span><span class="p">,</span><span class="w"> </span><span class="n">thirdSide</span><span class="p">,</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span><span class="n">semiPerimeter</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in the lengths of the sides of the triangle. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstSide</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">secondSide</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">thirdSide</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">semiPerimeter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">firstSide</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">secondSide</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">thirdSide</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">semiPerimeter</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">semiPerimeter</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">firstSide</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">semiPerimeter</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">secondSide</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">semiPerimeter</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">thirdSide</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The area of the triangle equals &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex16">
 
-<p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
 <section id="exercise-content">
+<p>Write a program that asks for two characters to be input by the user, and returns their ASCII code value and the character with the ASCII code that is the sum of the two character.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -748,17 +708,45 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex16">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex16"> Exercise 19</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">firstChar</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">secondChar</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter two characters, space separated. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstChar</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">secondChar</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The ASCII values of &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstChar</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">secondChar</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; are: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">firstChar</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">secondChar</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The character with the ASCII value of &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">firstChar</span><span class="o">+</span><span class="n">secondChar</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">char</span><span class="p">(</span><span class="n">firstChar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">secondChar</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">firstChar</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">secondChar</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter two characters, space separated. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">firstChar</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">secondChar</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The ASCII values of &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstChar</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">secondChar</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; are: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">+</span><span class="n">firstChar</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">+</span><span class="n">secondChar</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The character with the ASCII value of &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">firstChar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">secondChar</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">char</span><span class="p">(</span><span class="n">firstChar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">secondChar</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex17">
 
-<p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 16 </span> ( Difficult )</p>
 <section id="exercise-content">
+<p>Write a program to extract and use the first and last digit of an integer number (needs to have at least 2 digits).</p>
+<p>There is more than one way to do this.</p>
+<p>Hint: think about the effect of the modulo operation using 10 as the divisor. This can help you get to both the first and last digit.</p>
+<p>For the first digit you will also need to think about the order of the number. Use the int(), and you will need to include <cmath> to use pow(), and log10() functions.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -770,17 +758,37 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex17">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex17"> Exercise 20</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="c1">  </span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">userNumber</span><span class="p">,</span><span class="w"> </span><span class="n">firstDigit</span><span class="p">,</span><span class="w"> </span><span class="n">lastDigit</span><span class="p">,</span><span class="w">  </span><span class="n">numberOfDigits</span><span class="p">,</span><span class="w"> </span><span class="n">swappedDigitsNumber</span><span class="p">,</span><span class="w"> </span><span class="n">temp1</span><span class="p">,</span><span class="w"> </span><span class="n">temp2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please enter an integer with at least 3 digits. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">   </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">userNumber</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">lastDigit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userNumber</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">numberOfDigits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">userNumber</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">firstDigit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userNumber</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">numberOfDigits</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// Swap digits and rebuilt number</span>
+<span class="w">    </span><span class="n">temp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">firstDigit</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">numberOfDigits</span><span class="p">));</span><span class="w"> </span>
+<span class="w">    </span><span class="n">temp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userNumber</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">temp1</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">userNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="n">swappedDigitsNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lastDigit</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">numberOfDigits</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">userNumber</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstDigit</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The first digit is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">firstDigit</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and the last digit is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">lastDigit</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The number with the first and last digts swapped is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">swappedDigitsNumber</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex18">
 
-<p class="admonition-title"><span class="caption-number">Exercise 21 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 17 </span> ( Advanced )</p>
 <section id="exercise-content">
+<p>Write a program to display the current time on the terminal.</p>
+<p>You will need to include <ctime>, which will not be covered in this module - see <a class="reference external" href="https://en.cppreference.com/w/cpp/chrono/c/ctime">https://en.cppreference.com/w/cpp/chrono/c/ctime</a> for details.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -792,17 +800,35 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex18">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex18"> Exercise 21</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#define _CRT_SECURE_NO_WARNINGS</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cassert&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctime&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">time_t</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* also try</span>
+<span class="cm">    char buffer[32];</span>
+<span class="cm">    std::strncpy(buffer, std::ctime(&amp;result), 26);</span>
+<span class="cm">    assert(&#39;\n&#39; == buffer[std::strlen(buffer) - 1]);</span>
+<span class="cm">    std::cout &lt;&lt; buffer;</span>
+<span class="cm">    */</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex19">
 
-<p class="admonition-title"><span class="caption-number">Exercise 22 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
 <section id="exercise-content">
+<p>Write a programme demonstrating the use of the erase(), insert(), and replace() member functions on a string supplied by the user.</p>
+<p>Information on these functions can be found here <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string.html">https://en.cppreference.com/w/cpp/string/basic_string.html</a> under the section ‘modifiers’…</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -814,17 +840,29 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex19">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex19"> Exercise 22</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<p>For example - erase():</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">userString</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter a word .. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">userString</span><span class="p">;</span>
+<span class="w">    </span><span class="n">userString</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">userString</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex110">
 
-<p class="admonition-title"><span class="caption-number">Exercise 23 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
 <section id="exercise-content">
+<p>The <code class="docutils literal notranslate"><span class="pre">std::max()</span></code> function returns the largest of the two values it is given. i.e. if <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are arithmetic variables then <code class="docutils literal notranslate"><span class="pre">max(a,b)</span></code> equals <code class="docutils literal notranslate"><span class="pre">a</span></code> if <code class="docutils literal notranslate"><span class="pre">a&gt;b</span></code>.</p>
+<p>Write the shortest possible program that prints the higherst of 4 user chosen double precision floating point numbers.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -836,11 +874,20 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutionex110">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex110"> Exercise 23</a></p>
+<p class="admonition-title">Solution to </p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="n">three</span><span class="p">,</span><span class="w"> </span><span class="n">four</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter 4 doubles please. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">four</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The maximum value entered was &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">one</span><span class="p">,</span><span class="n">two</span><span class="p">),</span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">three</span><span class="p">,</span><span class="n">four</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span>
+<span class="p">}</span>
 </pre></div>
 </div>
+<p>Was my choice of variable names helpful?</p>
+<p>Does max work for integers?</p>
 </section>
 </div>
 </section>
