@@ -54,11 +54,11 @@ Programmers must ensure there is a logical way for the program to exit every whi
 * - Generic While Loop
   - Example While Loop
 * - ```{figure} ../images/WhileLoopGeneral.svg
-    :name: my-fig-ref-t1
+    :name: my-fig-ref-t2
     Iteration Methods
     ```
   - ```{figure} ../images/WhileLoopExample.svg
-    :name: my-fig-ref-t1
+    :name: my-fig-ref-t3
     Iteration Methods
     ```
 ```
@@ -117,7 +117,7 @@ The iteration condition may also be intentionally omitted, but an alternative me
 
 The program can exit an iteration statement by arriving at the keywords, `break`, `return`, `goto`, or `throw`.
 
-### `break`
+### Break
 
 `break` - causes the program to break out of the nearest enclosing {term}`switch statement` or {term}`iteration statement`. `break` is used if the logical flow may require the program to leave the loop in the middle.
 
@@ -148,9 +148,10 @@ int main() {
 ```
 `````{code_example-end} 
 `````
-An alternative is to use `continue` which result in the next iteration starting immediately jumping over any remaining code statements in the current loop.
+### Continue
 
-### `continue`
+`continue` cause the program to skip directly to the next iteration jumping over any remaining code statements in the current loop.
+
 `````{code_example-start} Continue
 :class: dropdown
 :nonumber:
