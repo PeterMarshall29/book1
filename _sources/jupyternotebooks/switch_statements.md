@@ -112,7 +112,7 @@ i.e. use multiple labels for the same case: e.g. case '0': case '2': case '4': c
 ```
 
 
-`````{example-start}
+`````{code_example-start}
 :label: exampler1
 :class: dropdown
 `````
@@ -140,7 +140,7 @@ int main() {
 	}
 }
 ````
-````{explanation} exampler1
+````{code_explanation} exampler1
 :label: explanationr1
 :class: dropdown note
 In this example, the while loop is just to keep the program running – we are only interested in the switch loop.
@@ -166,10 +166,10 @@ The value in parentheses after the switch keyword is compared to the case values
 
 ```
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
-`````{example-start}
+`````{code_example-start}
 :label: exampler2
 :class: dropdown
 `````
@@ -212,7 +212,7 @@ if (!std::cin) throw std::runtime_error("no first operand");
 	throw std::runtime_error("bad expression");
 
 ````
-````{explanation} exampler2
+````{code_explanation} exampler2
 :label: explanationr2
 :class: dropdown hint
 words
@@ -221,5 +221,5 @@ words
 wrds
 ```
 ````
-`````{example-end}
+`````{code_example-end}
 `````

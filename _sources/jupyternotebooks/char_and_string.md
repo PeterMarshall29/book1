@@ -26,11 +26,11 @@ char myCharacter = 'Z';
 ```
 The character set we are using is called ASCII, (American Standard Code for Information Interchange) that represents 128 characters chosen to match the characters appearing on your keyboard.
 
-`0` is also used as a null pointer constant, and as the {term}`null character`. 
+`0` is used as a null pointer constant, and as the {term}`null character`. 
 
 Different countries with different symbol requirements for their keyboards (e.g., æ, þ, and ß) will use different character sets and you must never rely on char values for the execution of a published program.
 ```{admonition} Additional Character Types
-:class: dropdown
+:class: dropdown note
 * char: Default character type - used for program text - usually 8 bits.
 * signed char: Like char, but for signed character representation - able of holding both positive and negative values.
 * wchar_t: Provided to hold characters of a larger character set such as Unicode. The size of wchar_t is implementation-defined and large enough to hold the largest character set supported by the implementation’s locale.

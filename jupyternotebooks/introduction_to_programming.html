@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.1dc791a0-d56b-4813-be9f-7f7551889d04.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.bb9eea6c-cf18-47ac-95ed-d86e366d78db.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-83228731-08fd-4ad2-843a-e4867f96f64b] svg, .mermaid[data-zoom-id=id-f7419f10-9975-4096-a6ac-b413a29f0c04] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-6adbceda-2c5b-4b5c-a27a-d5467a2e26e8] svg, .mermaid[data-zoom-id=id-9288bf52-b811-4f05-ad7f-90e6e3acb008] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -259,9 +259,6 @@ window.addEventListener("load", load);
 <li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -269,6 +266,9 @@ window.addEventListener("load", load);
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
@@ -551,8 +551,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programs">Computer Programs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-of-computer-programmes">Execution of Computer Programmes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programmes">Computer Programmes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-sematics-of-a-programming-language">Syntax and Sematics of a Programming Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
@@ -573,36 +572,31 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-computer-programming">
 <h1>Introduction to Computer Programming<a class="headerlink" href="#introduction-to-computer-programming" title="Permalink to this heading">#</a></h1>
-<section id="computer-programs">
-<h2>Computer Programs<a class="headerlink" href="#computer-programs" title="Permalink to this heading">#</a></h2>
-<p>Computer programs are everywhere - not just inside computers.
-Your digital watch (if you are still wearing a watch!), calculator, smart speaker, and car are running <a class="reference internal" href="glossary.html#term-Embedded-Programs"><span class="xref std std-term">embedded programs</span></a>.</p>
-<p>A computer programme is a set of instructions that tells a computer (and other devices) what to do.</p>
-<p>Software is the collection of programs running on a computer. Once a device is programmed, the computer code is invisible.</p>
+<section id="computer-programmes">
+<h2>Computer Programmes<a class="headerlink" href="#computer-programmes" title="Permalink to this heading">#</a></h2>
+<p>Computer programmes are everywhere - not just inside computers.
+Your digital watch (if you are still wearing a watch…), calculator, smart speaker, and car are running <a class="reference internal" href="glossary.html#term-Embedded-Programmes"><span class="xref std std-term">embedded programmes</span></a>.</p>
+<p>A computer program is a sequence of instructions that tell a computer (and other devices) what to do. When the program runs, the computer’s processor interprets and acts on each instruction, and then moves on to the next instruction until the program completes execution.</p>
+<p>Software is the collection of programmes running on a computer. Once a device is programmed, the computer programmes are invisible.</p>
 <p>Hardware is the device that the software runs on - software controls hardware.</p>
-<p>The object of learning computer programming is to become able to write computer programmes that correctly instruct a device to perform a series of tasks; for example calculate some numbers, based on input from the keyboard, and display the results on the screen.</p>
+<p>The object of learning computer programming is to become able to write computer programmes that correctly instruct a device to perform a series of tasks; for example, to calculate some numbers, based on input from the keyboard, and to display the results on the screen.</p>
 <p>The final result of programming is usually an executable program, which is a <a class="reference internal" href="glossary.html#term-Binary-File"><span class="xref std std-term">binary file</span></a> capable of running directly on the machine’s hardware.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Executable files are identified by the file extension <code class="docutils literal notranslate"><span class="pre">.exe</span></code> (Windows only).</p>
 </div>
-<p>It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a programme written in a <strong>human readable</strong> language, such as C++, into a an executable programme that can actually run on the hardware.</p>
-<p>The computer code in an executable file is written in <a class="reference internal" href="glossary.html#term-Machine-Code"><span class="xref std std-term">machine code</span></a>, which is <a class="reference internal" href="glossary.html#term-Binary"><span class="xref std std-term">binary</span></a>.</p>
-<p>We could write computer programs in binary, but it would be extremely difficult. The programs we write are built on components written in binary.</p>
+<p>It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a program written in a <strong>human readable</strong> language, such as C++, into an executable program that can actually run on the hardware.</p>
+<p>The computer code in an executable file is written in <a class="reference internal" href="glossary.html#term-Machine-Code"><span class="xref std std-term">machine code</span></a>, which is <a class="reference internal" href="glossary.html#term-Binary"><span class="xref std std-term">binary</span></a>. We could write computer programmes in binary, but it would be extremely difficult. The programmes we write are built on components written in binary.</p>
 <p>Binary files are not necessarily executable; Library files may be written in binary, which are then used by an executable, providing extra functionality or data.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Wiki on <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">Machine_code</a></p>
 </div>
 </section>
-<section id="execution-of-computer-programmes">
-<h2>Execution of Computer Programmes<a class="headerlink" href="#execution-of-computer-programmes" title="Permalink to this heading">#</a></h2>
-<p>When a computer program runs - is executed -</p>
-</section>
 <section id="syntax-and-sematics-of-a-programming-language">
 <h2>Syntax and Sematics of a Programming Language<a class="headerlink" href="#syntax-and-sematics-of-a-programming-language" title="Permalink to this heading">#</a></h2>
 <p>Computer code must be <strong>machine-readable</strong>.</p>
-<p>For a computer programme to run correctly on a computer, the programme must be:</p>
+<p>For a computer program to run correctly on a computer, the program must be:</p>
 <ul class="simple">
 <li><p>In exactly the format required by the computer - computers have no flexibility to interpret code that is even slightly incorrect.</p></li>
 <li><p>Logically correct - when the computer follows the correctly formatted instructions - the expected outcome results.</p></li>
@@ -610,8 +604,8 @@ Your digital watch (if you are still wearing a watch!), calculator, smart speake
 <p>The two fundamental concepts that define how a programming language is defined, written, and understood are the <strong>syntax</strong> and <strong>semantics</strong> of the language</p>
 <p>Computer language <a class="reference internal" href="glossary.html#term-Syntax"><span class="xref std std-term">Syntax</span></a> is the prescription for the sequence of symbols required for any given instruction, and for the overall structure of the program.
 Syntax is unique to each language - each language requires a different set of syntactical rules.</p>
-<p>Creating a programme with the correct syntax means it can be correctly compiled, interpreted, and executed by the computer. But it does not mean the programme will do what you wanted it to do!</p>
-<p>The semantics of a computer programme are the meaning and behaviour of the program. The logical flow of the programme must result in it completing the desired task correctly.</p>
+<p>Creating a program with the correct syntax means it can be correctly compiled, interpreted, and executed by the computer. But it does not mean the program will do what you wanted it to do!</p>
+<p>The semantics of a computer program are the meaning and behaviour of the program. The logical flow of the program must result in it completing the desired task correctly.</p>
 <p>By analogy with ordinary writing:</p>
 <ul class="simple">
 <li><p>The syntax would be the spelling and grammer.</p></li>
@@ -619,7 +613,7 @@ Syntax is unique to each language - each language requires a different set of sy
 </ul>
 <p>A syntax errors occurs when the syntax is incorrect. For example, forgetting the <code class="docutils literal notranslate"><span class="pre">;</span></code> at the end of a statement in C++.
 Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.</p>
-<p>Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable programme that does not work correctly.</p>
+<p>Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable program that does not work correctly.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Learn more about computer language <a class="reference external" href="https://en.wikipedia.org/wiki/Syntax_(programming_languages)">Syntax_(programming_languages)</a>.</p>
@@ -643,8 +637,8 @@ Syntax errors are easily found at compile time - the compiler will not let you h
 </section>
 <section id="algorithms">
 <h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading">#</a></h2>
-<p>The first step in writing a computer programme is understand the task that we want the computer to perform.</p>
-<p>If you are not able to deconstruct the task into a series of instructions that can be followed then you cannot write a programme to accomplish that task.</p>
+<p>The first step in writing a computer program is understand the task that we want the computer to perform.</p>
+<p>If you are not able to deconstruct the task into a series of instructions that can be followed then you cannot write a program to accomplish that task.</p>
 <p>An <a class="reference internal" href="glossary.html#term-Algorithm"><span class="xref std std-term">algorithm</span></a> is a sequence of steps that, when followed exactly, always lead to the task being completely correctly.</p>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
@@ -653,11 +647,11 @@ Syntax errors are easily found at compile time - the compiler will not let you h
 <p class="attribution">—Bjarne Stroustrup - Creator of C++</p>
 </div></blockquote>
 </div>
-<p>The process of writing a programme can be reduced to four stages</p>
+<p>The process of writing a program can be reduced to four stages</p>
 <ul class="simple">
 <li><p>Analysis of the problem:</p>
 <ul>
-<li><p>What does the programme need to do?</p></li>
+<li><p>What does the program need to do?</p></li>
 <li><p>Are there any constaints on how this can be done? e.g. a particular operating system is required, a limition on resouces (e.g. memory, or time)</p></li>
 </ul>
 </li>
@@ -667,7 +661,7 @@ Syntax errors are easily found at compile time - the compiler will not let you h
 <li><p>Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandabiliy).</p></li>
 </ul>
 </li>
-<li><p>Testing: Make sure the programme works correctly <strong>under all circumstances</strong>.</p>
+<li><p>Testing: Make sure the program works correctly <strong>under all circumstances</strong>.</p>
 <ul>
 <li><p>Ensure that all possible scenarios are tried e.g. when a user input is required, what happens in the case of all possible entries.</p></li>
 </ul>
@@ -676,10 +670,13 @@ Syntax errors are easily found at compile time - the compiler will not let you h
 </section>
 <section id="flowcharts">
 <h2>FlowCharts<a class="headerlink" href="#flowcharts" title="Permalink to this heading">#</a></h2>
-<p>Flowcharts are very useful diagrams that assist in design of new programs, and are often used to represent algorithms for a programme or a subroutine (methods/functions).
+<p>Flowcharts are very useful diagrams that assist in design of new programmes, and are often used to represent algorithms for a program or a subroutine (methods/functions).
 Each flowchart diagram shows the flow of information, from start to end of the process, through decisions points, loops, and I/O using specific symbols for different parts of the algorithm.</p>
 <p>This visual representation of the logical flow of your algortihm may help you to understand if your algorithm is correct before try to write the code to implement it. Flowcharts are particularly useful for identifying missing processes and faulty logic.</p>
 <p>Examples of flow charts. Some of these steps could/should be broken into multiple steps.</p>
+<div class="dropdown note admonition">
+<p class="admonition-title">Examples of flow charts.</p>
+<p>Some of these steps could/should be broken into multiple steps.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-2">
 <thead>
 <tr class="row-odd"><th class="head"><p>Generic Flowchart</p></th>
@@ -687,7 +684,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-83228731-08fd-4ad2-843a-e4867f96f64b" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-6adbceda-2c5b-4b5c-a27a-d5467a2e26e8" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -718,7 +715,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-f7419f10-9975-4096-a6ac-b413a29f0c04" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-9288bf52-b811-4f05-ad7f-90e6e3acb008" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -760,7 +757,8 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tbody>
 </table>
 </div>
-<div class="dropdown admonition">
+</div>
+<div class="dropdown note admonition">
 <p class="admonition-title">Flow Chart Symbols</p>
 <p>These are the basic symbols used to build flow charts.
 There is an ISO standard for the symbols used in flow charts, but unless you are producing charts for publication you are free to use other shapes.
@@ -792,7 +790,7 @@ The shape used is less important when the labels are clear.</p>
     A{&quot;Diamond&quot;}
     </pre></td>
 <td><p>Decision</p></td>
-<td><p>The operation of a programme often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows</p></td>
+<td><p>The operation of a program often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows</p></td>
 </tr>
 <tr class="row-odd"><td><pre  class="mermaid">
           flowchart TD
@@ -816,27 +814,26 @@ The shape used is less important when the labels are clear.</p>
 </section>
 <section id="programming-environments">
 <h2>Programming Environments<a class="headerlink" href="#programming-environments" title="Permalink to this heading">#</a></h2>
-<p>C++ programmes are written in plain text, so a simple text editor like “Notepad” on windows, or “Edit” in the Windows Terminal.</p>
-<p>Some of your teacher learned to write computer programmes in plain text because there were no alternatives.</p>
-<p>Today programmes are usuall written in an IDE - Integrated Development Environment.</p>
+<p>C++ programmes are written in plain text - i.e. the source code can be written in a simple text editor like “Notepad” on windows, or “Edit” in the Windows Terminal.</p>
+<p>Some of your teachers learned to write computer programmes in plain text because there were no alternatives. Today programmes are usuall written in an IDE - Integrated Development Environment.</p>
 <p>We will be using [Visual Studio](Visual Studio) for this module.</p>
 </section>
 <section id="error-types">
 <h2>Error Types<a class="headerlink" href="#error-types" title="Permalink to this heading">#</a></h2>
-<p>There are many types of error, but three classifications to understand at this point are:</p>
+<p>There are many types of error in computing - three important classes of error are:</p>
 <ul class="simple">
-<li><p>Compile time errors: found by compiler and easily fixed.</p></li>
-<li><p>Link-time errors: found by linker - more difficult.</p></li>
-<li><p>Run-time, or logic, errors, or logic errors, occur after successful creation of the .exe file. Too late to fix - people may have died!</p></li>
+<li><p>Compile time errors: found by the compiler - easily fixed.</p></li>
+<li><p>Link-time errors: found by linker - more difficult to fix.</p></li>
+<li><p>Run-time, or logic, errors, or logic errors: occur after successful creation of the .exe file - Too late to fix, people may have died!</p></li>
 </ul>
-<p>An ill-formed C++ program is one that violates the rules of the C++ language, either in terms of syntax or semantics, as defined by the C++ standard.</p>
+<p>An ill-formed C++ program is one that violates the rules of the C++ language, either in terms of the syntax or semantics, as defined by the C++ standard.</p>
 <p>Ill-formed programmes contain errors that prevent it from being valid or correctly interpreted by the compiler.</p>
 </section>
 <section id="errors-in-calculations">
 <h2>Errors In Calculations<a class="headerlink" href="#errors-in-calculations" title="Permalink to this heading">#</a></h2>
-<p>Rounding (or round-off) error: The precision of arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.</p>
-<p>For example <code class="docutils literal notranslate"><span class="pre">sin(acos(-1)/4)</span></code> will not be identically equalt to <code class="docutils literal notranslate"><span class="pre">sqrt(2)/2</span></code>, provided sufficient decimaly place are used and testing their equality would produce an unexpected resutl</p>
-<p><code class="docutils literal notranslate"><span class="pre">acos(-1)</span></code> is a simple way to obtain the value of <code class="docutils literal notranslate"><span class="pre">pi</span></code> in C++</p>
+<p>Rounding (or round-off) errors - The precision of the arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.</p>
+<p>For example <code class="docutils literal notranslate"><span class="pre">sin(acos(-1)/4)</span></code> will not be identically equal to <code class="docutils literal notranslate"><span class="pre">sqrt(2)/2</span></code> provided sufficient decimal places are used, and testing their equality would produce an unexpected result.</p>
+<p><code class="docutils literal notranslate"><span class="pre">acos(-1)</span></code> is a simple way to obtain the value of <code class="docutils literal notranslate"><span class="pre">pi</span></code> in C++.</p>
 <p>Truncation errors: Result from the use of an approximation. For example using numerical integration techniques, or Euler’s method.</p>
 </section>
 </section>
@@ -905,8 +902,7 @@ The shape used is less important when the labels are clear.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programs">Computer Programs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-of-computer-programmes">Execution of Computer Programmes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-programmes">Computer Programmes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-sematics-of-a-programming-language">Syntax and Sematics of a Programming Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>

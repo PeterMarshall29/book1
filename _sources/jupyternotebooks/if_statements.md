@@ -134,7 +134,7 @@ end if;
 
 
 
-`````{example-start}
+`````{code_example-start}
 :label: exampleq1
 :class: dropdown
 `````
@@ -153,7 +153,7 @@ int main() {
     return 0;
 }
 ````
-````{explanation} exampleq1
+````{code_explanation} exampleq1
 :label: explanationq1
 :class: dropdown note
 ```{code-block} c++
@@ -166,11 +166,11 @@ More correctly, the condition is evaluated. If it evaluates to the Boolean value
 
 The program does basically work.
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 
-`````{example-start}
+`````{code_example-start}
 :label: exampleq2
 :class: dropdown note
 `````
@@ -191,7 +191,7 @@ int main() {
     return 0;
 }
 ````
-````{explanation} exampleq2
+````{code_explanation} exampleq2
 :label: explanationq2
 :class: dropdown
 The programme does basically work.
@@ -204,7 +204,7 @@ This fixes part of the issue – other issues left as an exercise
 
 
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 ```{tip}

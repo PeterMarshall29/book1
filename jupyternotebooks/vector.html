@@ -70,14 +70,14 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.edd9570c-0404-4482-a0b9-1b66f14ec162.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.b3b81270-1d46-4963-8313-2c999bbdebcf.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/vector';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
     <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercises 3" href="exercise3.html" />
+    <link rel="next" title="Exercises 4" href="exercise4.html" />
     <link rel="prev" title="Arrays in C++" href="arrays.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -212,7 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
@@ -222,16 +222,16 @@
 <li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
@@ -558,7 +558,7 @@ document.write(`
 </div>
 <div class="code_example dropdown admonition" id="examplen1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 30 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 45 </span></p>
 <section id="code_example-content">
 <p>Try this code - construct the supporting program.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -571,7 +571,7 @@ document.write(`
 </div>
 <div class="code_explanation dropdown hint admonition" id="jupyternotebooks/vector-code_explanation-1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen1"> Code Example 30</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen1"> Code Example 45</a></p>
 <section id="code_explanation-content">
 <p>This code will not work - the character output stream <code class="docutils literal notranslate"><span class="pre">cout</span></code> cannot print a whole vector.</p>
 <p>To print one element of the vector, we can use its index.</p>
@@ -617,7 +617,7 @@ In some languages the new element would be created and intermediate values fille
 <p>To append an extra element, at the end, the <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> function is used.</p>
 <div class="code_example dropdown admonition" id="examplen2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 31 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 46 </span></p>
 <section id="code_example-content">
 <p>Try this code - construct the supporting program.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -631,7 +631,7 @@ In some languages the new element would be created and intermediate values fille
 </div>
 <div class="code_explanation admonition" id="jupyternotebooks/vector-code_explanation-3">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen2"> Code Example 31</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen2"> Code Example 46</a></p>
 <section id="code_explanation-content">
 <p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code> is another member function – it belongs to std::vector and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation.</p>
 <p>Line 3 is a range-for-statement, explained <a class="reference internal" href="for_loops.html#range-for"><span class="std std-ref">here</span></a>.</p>
@@ -646,7 +646,7 @@ In some languages the new element would be created and intermediate values fille
 </div>
 <div class="exercise dropdown admonition" id="exercisen1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 39 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 50 </span></p>
 <section id="exercise-content">
 <p>TRY to read in a possibly large unknown number of data points…</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -774,11 +774,11 @@ In some languages the new element would be created and intermediate values fille
       </div>
     </a>
     <a class="right-next"
-       href="exercise3.html"
+       href="exercise4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercises 3</p>
+        <p class="prev-next-title">Exercises 4</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
