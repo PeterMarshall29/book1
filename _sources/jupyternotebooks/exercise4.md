@@ -27,7 +27,9 @@ Write a program that asks user for a mass, and replies with the energy equivalen
 :label: exerciseex41
 :class: dropdown
 ````
+Write a program that demonstrates the use of a range for loop to print the elements of a vector.
 
+Use `i` as the loop variable, and compare printing `i` to printing `yourVector[i]` in each iteration.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -40,7 +42,14 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-
+#include <iostream>
+int main() {
+    std::vector<int> myVector{ 5, 7, 4, 2, 8, 6, 1, 9, 0, 3 };
+    for (int i : myVector) {
+        std::cout << i << '\t' << myVector[i] << '\n';
+    }
+    return 0;
+}
 ```
 ````{solution-end}
 ````
@@ -141,7 +150,7 @@ int main() {
 :label: exerciseex44
 :class: dropdown
 ````
-
+Write a program that creates an array of integer elements that are either ones or zeros and then rearranges the array so that all the zeroes come first.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -154,7 +163,22 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-
+#include <iostream>
+int main() {
+    int myArray[] = { 0, 1, 1, 0 , 0, 1, 0, 1, 1, 0 }; 
+    int numberOfElements = sizeof(myArray) / sizeof(myArray[0]); // Method to determine number of elements using byte size of array comparaed to byte size of type.
+    std::cout << "The array is: ";
+    for (int i = 0; i < numberOfElements; i++) std::cout << myArray[i] << " "; 
+    int numberOfZeros = 0; 
+    for (int i = 0; i < numberOfElements; i++) {
+        if (myArray[i] == 0)   ++numberOfZeros;
+    }
+    for (int i = 0; i < numberOfZeros; i++) myArray[i] = 0;
+    for (int i = numberOfZeros; i < numberOfElements; i++) myArray[i] = 1;
+    std::cout << "\nThe rearranged array is: ";
+    for (int i = 0; i < numberOfElements; i++) std::cout << myArray[i] << " ";
+    return 0;
+}
 ```
 ````{solution-end}
 ````
@@ -164,7 +188,10 @@ Code goes here....
 :label: exerciseex45
 :class: dropdown
 ````
-
+Write a program that:
+* Asks the user to input a series of integer values to be inserted into a new vector
+* Stops accepting input when a letter is typed
+* Tells the user which values have been repeated an odd number of times. 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -176,9 +203,39 @@ Code goes here....
 :label: solutionex45
 :class: dropdown
 ````
+Try to improve the solution.. perhaps identifying even occurrences and telling the user if there are no duplicates etc.
 ```{code-block} c++
 #include <iostream>
-
+#include <vector>
+int main() {
+    std::vector<int> myVector;
+    std::vector<int> myTracker{0};
+    bool checkAlreadyPrinted = false;
+    std::cout << "Please enter a sequence of integer values, ensuring that some numbers are duplicated an even or an odd number of times followed by a letter then you are finished. \n";
+    int temp;
+    while (std::cin >> temp) {
+        myVector.push_back(temp);
+    }
+    std::cout << "Your vector is : ";
+    for (int i = 0; i < myVector.size(); i++) std::cout << myVector[i] << " ";
+    for (int i = 0; i < myVector.size(); i++) {
+        int countDuplicates = 0;
+        for (int j = 0; j < myVector.size(); j++) {
+            if (myVector[i] == myVector[j]) countDuplicates++;
+        }
+        if (countDuplicates % 2 != 0) {
+            checkAlreadyPrinted = false;
+            for (int k = 0; k < myTracker.size(); ++k) {
+                if (myVector[i] == myTracker[k]) checkAlreadyPrinted = true;
+            }
+            if (checkAlreadyPrinted == false) {
+                std::cout << "\nThe mumber " << myVector[i] << " ocurs an odd number of times \n";
+                myTracker.push_back(myVector[i]);
+            }
+        }
+    }
+    return 0; 
+}
 ```
 ````{solution-end}
 ````
@@ -276,10 +333,18 @@ Code goes here....
 ````{solution-end}
 ````
 
+
 ````{exercise-start} 
 :label: exerciseex410
 :class: dropdown
 ````
+The algorithms library provides functions for a variety of purposes.
+
+https://en.cppreference.com/w/cpp/algorithm.html
+
+Investigate the 'sort' function `std::sort()` and write a program that will sort the elements of a vector into order of increasing or decreasing size.
+
+Hint: The `begin()` and `end()` functions from `std::vector` might be useful.
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -293,29 +358,36 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-
-```
-````{solution-end}
-````
-
-````{exercise-start} 
-:label: exerciseex411
-:class: dropdown
-````
-
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-Code goes here....
-```
-````{exercise-end}
-````
-
-````{solution-start} exerciseex411
-:label: solutionex411
-:class: dropdown
-````
-```{code-block} c++
-
+#include <algorithm>    
+#include <iostream>     
+#include <vector> 
+int main() {
+    std::vector<int> myVector{ 5, 7, 4, 2, 8, 6, 1, 9, 0, 3 };
+    for (int i : myVector) {
+        std::cout << i << '\t';
+    }
+    std::cout << '\n';
+    std::sort(myVector.begin(), myVector.end());
+    for (int i : myVector) {
+        std::cout << i << '\t';
+    }
+    std::cout << '\n';
+    myVector = { 5, 7, 4, 2, 8, 6, 1, 9, 0, 3 };
+    std::sort(myVector.begin(), myVector.end(), std::greater<int>());
+    for (int i : myVector) {
+        std::cout << i << '\t';
+    }
+    std::cout << '\n';
+    myVector = { 5, 7, 4, 2, 8, 6, 1, 9, 0, 3 };
+    std::sort(myVector.begin(), myVector.end(), [](int a, int b)
+        {
+            return a > b;
+        });
+    for (int i : myVector) {
+        std::cout << i << '\t';
+    }
+    return 0;
+}
 ```
 ````{solution-end}
 ````

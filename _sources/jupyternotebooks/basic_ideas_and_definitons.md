@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 
-# Extending the Introductory Concepts
+# Basic Concepts
 
 Once you have learned some basic components of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out each new concept.
 
