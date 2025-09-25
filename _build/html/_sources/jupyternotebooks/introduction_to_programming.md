@@ -12,18 +12,18 @@ kernelspec:
 
 #  Introduction to Computer Programming
 
-## Computer Programs
+## Computer Programmes
 
-Computer programs are everywhere - not just inside computers. 
-Your digital watch (if you are still wearing a watch!), calculator, smart speaker, and car are running {term}`embedded programs`.
+Computer programmes are everywhere - not just inside computers. 
+Your digital watch (if you are still wearing a watch...), calculator, smart speaker, and car are running {term}`embedded programmes`.
 
-A computer programme is a set of instructions that tells a computer (and other devices) what to do. 
+A computer program is a sequence of instructions that tell a computer (and other devices) what to do. When the program runs, the computer's processor interprets and acts on each instruction, and then moves on to the next instruction until the program completes execution. 
 
-Software is the collection of programs running on a computer. Once a device is programmed, the computer code is invisible.
+Software is the collection of programmes running on a computer. Once a device is programmed, the computer programmes are invisible.
 
 Hardware is the device that the software runs on - software controls hardware.
 
-The object of learning computer programming is to become able to write computer programmes that correctly instruct a device to perform a series of tasks; for example calculate some numbers, based on input from the keyboard, and display the results on the screen.
+The object of learning computer programming is to become able to write computer programmes that correctly instruct a device to perform a series of tasks; for example, to calculate some numbers, based on input from the keyboard, and to display the results on the screen.
 
 The final result of programming is usually an executable program, which is a {term}`binary file` capable of running directly on the machine's hardware.
 
@@ -31,11 +31,9 @@ The final result of programming is usually an executable program, which is a {te
 :class: margin
 Executable files are identified by the file extension `.exe` (Windows only).
 ```
-It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a programme written in a **human readable** language, such as C++, into a an executable programme that can actually run on the hardware.
+It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a program written in a **human readable** language, such as C++, into an executable program that can actually run on the hardware.
 
-The computer code in an executable file is written in {term}`machine code`, which is {term}`binary`. 
-
-We could write computer programs in binary, but it would be extremely difficult. The programs we write are built on components written in binary.
+The computer code in an executable file is written in {term}`machine code`, which is {term}`binary`. We could write computer programmes in binary, but it would be extremely difficult. The programmes we write are built on components written in binary.
 
 Binary files are not necessarily executable; Library files may be written in binary, which are then used by an executable, providing extra functionality or data.
 
@@ -43,16 +41,12 @@ Binary files are not necessarily executable; Library files may be written in bin
 :class: margin
 Wiki on [Machine_code](https://en.wikipedia.org/wiki/Machine_code)
 ```
-## Execution of Computer Programmes
-
-When a computer program runs - is executed - 
-
 
 ## Syntax and Sematics of a Programming Language
 
 Computer code must be **machine-readable**. 
 
-For a computer programme to run correctly on a computer, the programme must be:
+For a computer program to run correctly on a computer, the program must be:
 * In exactly the format required by the computer - computers have no flexibility to interpret code that is even slightly incorrect.
 * Logically correct - when the computer follows the correctly formatted instructions - the expected outcome results.
 
@@ -61,9 +55,9 @@ The two fundamental concepts that define how a programming language is defined, 
 Computer language {term}`Syntax` is the prescription for the sequence of symbols required for any given instruction, and for the overall structure of the program.
 Syntax is unique to each language - each language requires a different set of syntactical rules.
 
-Creating a programme with the correct syntax means it can be correctly compiled, interpreted, and executed by the computer. But it does not mean the programme will do what you wanted it to do! 
+Creating a program with the correct syntax means it can be correctly compiled, interpreted, and executed by the computer. But it does not mean the program will do what you wanted it to do! 
 
-The semantics of a computer programme are the meaning and behaviour of the program. The logical flow of the programme must result in it completing the desired task correctly.
+The semantics of a computer program are the meaning and behaviour of the program. The logical flow of the program must result in it completing the desired task correctly.
 
 By analogy with ordinary writing: 
 * The syntax would be the spelling and grammer.
@@ -72,7 +66,7 @@ By analogy with ordinary writing:
 A syntax errors occurs when the syntax is incorrect. For example, forgetting the `;` at the end of a statement in C++.
 Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.
 
-Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable programme that does not work correctly.
+Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable program that does not work correctly.
 
 ```{tip}
 :class: margin
@@ -98,9 +92,9 @@ Coding may also refer to writing complete files in languages such as HTML, CSS, 
 
 ## Algorithms
 
-The first step in writing a computer programme is understand the task that we want the computer to perform.
+The first step in writing a computer program is understand the task that we want the computer to perform.
 
-If you are not able to deconstruct the task into a series of instructions that can be followed then you cannot write a programme to accomplish that task.
+If you are not able to deconstruct the task into a series of instructions that can be followed then you cannot write a program to accomplish that task.
 
 An {term}`algorithm` is a sequence of steps that, when followed exactly, always lead to the task being completely correctly.
 
@@ -109,25 +103,29 @@ An {term}`algorithm` is a sequence of steps that, when followed exactly, always 
 {attribution="Bjarne Stroustrup - Creator of C++"}
 > Programming is understanding
 ````
-The process of writing a programme can be reduced to four stages 
+The process of writing a program can be reduced to four stages 
 
 - Analysis of the problem: 
-  * What does the programme need to do? 
+  * What does the program need to do? 
   * Are there any constaints on how this can be done? e.g. a particular operating system is required, a limition on resouces (e.g. memory, or time)
 - Design: How do we solve the problem? What should be the overall structure of the system? Which parts does it consist of? How do those parts communicate with each other? How does the system communicate with its users?
 - Programming: Convert your solution to the problem into computer code. 
   * Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandabiliy).
-- Testing: Make sure the programme works correctly **under all circumstances**.
+- Testing: Make sure the program works correctly **under all circumstances**.
   * Ensure that all possible scenarios are tried e.g. when a user input is required, what happens in the case of all possible entries.
 
 ## FlowCharts
 
-Flowcharts are very useful diagrams that assist in design of new programs, and are often used to represent algorithms for a programme or a subroutine (methods/functions). 
+Flowcharts are very useful diagrams that assist in design of new programmes, and are often used to represent algorithms for a program or a subroutine (methods/functions). 
 Each flowchart diagram shows the flow of information, from start to end of the process, through decisions points, loops, and I/O using specific symbols for different parts of the algorithm.
 
 This visual representation of the logical flow of your algortihm may help you to understand if your algorithm is correct before try to write the code to implement it. Flowcharts are particularly useful for identifying missing processes and faulty logic.
 
 Examples of flow charts. Some of these steps could/should be broken into multiple steps.
+
+````{admonition} Examples of flow charts. 
+:class: dropdown note
+Some of these steps could/should be broken into multiple steps.
 
 ```{list-table}
 :header-rows: 1
@@ -208,8 +206,9 @@ Examples of flow charts. Some of these steps could/should be broken into multipl
       linkStyle 8 stroke:#AA00FF
     ```
 ```
+````
 ````{admonition} Flow Chart Symbols
-:class: dropdown
+:class: dropdown note
 These are the basic symbols used to build flow charts. 
 There is an ISO standard for the symbols used in flow charts, but unless you are producing charts for publication you are free to use other shapes.
 The shape used is less important when the labels are clear.
@@ -237,7 +236,7 @@ The shape used is less important when the labels are clear.
         A{"Diamond"}
     ```
   - Decision
-  - The operation of a programme often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows
+  - The operation of a program often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows
 * - ```{mermaid}
       flowchart TD
         A[\"Parallelogram"\]
@@ -257,32 +256,30 @@ There are many free tools for designing flow charts. One used recently can cound
 
 ## Programming Environments
 
-C++ programmes are written in plain text, so a simple text editor like "Notepad" on windows, or "Edit" in the Windows Terminal.
+C++ programmes are written in plain text - i.e. the source code can be written in a simple text editor like "Notepad" on windows, or "Edit" in the Windows Terminal.
 
-Some of your teacher learned to write computer programmes in plain text because there were no alternatives.
-
-Today programmes are usuall written in an IDE - Integrated Development Environment. 
+Some of your teachers learned to write computer programmes in plain text because there were no alternatives. Today programmes are usuall written in an IDE - Integrated Development Environment. 
 
 We will be using [Visual Studio](Visual Studio) for this module.
 
 
 ## Error Types
 
-There are many types of error, but three classifications to understand at this point are:
-- Compile time errors: found by compiler and easily fixed.
-- Link-time errors: found by linker - more difficult. 
-- Run-time, or logic, errors, or logic errors, occur after successful creation of the .exe file. Too late to fix - people may have died!
+There are many types of error in computing - three important classes of error are:
+- Compile time errors: found by the compiler - easily fixed.
+- Link-time errors: found by linker - more difficult to fix. 
+- Run-time, or logic, errors, or logic errors: occur after successful creation of the .exe file - Too late to fix, people may have died!
 
-An ill-formed C++ program is one that violates the rules of the C++ language, either in terms of syntax or semantics, as defined by the C++ standard. 
+An ill-formed C++ program is one that violates the rules of the C++ language, either in terms of the syntax or semantics, as defined by the C++ standard. 
 
 Ill-formed programmes contain errors that prevent it from being valid or correctly interpreted by the compiler.
 
 ## Errors In Calculations 
 
-Rounding (or round-off) error: The precision of arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.
+Rounding (or round-off) errors - The precision of the arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.
 
-For example `sin(acos(-1)/4)` will not be identically equalt to `sqrt(2)/2`, provided sufficient decimaly place are used and testing their equality would produce an unexpected resutl
+For example `sin(acos(-1)/4)` will not be identically equal to `sqrt(2)/2` provided sufficient decimal places are used, and testing their equality would produce an unexpected result.
 
-`acos(-1)` is a simple way to obtain the value of `pi` in C++
+`acos(-1)` is a simple way to obtain the value of `pi` in C++.
 
 Truncation errors: Result from the use of an approximation. For example using numerical integration techniques, or Euler's method.

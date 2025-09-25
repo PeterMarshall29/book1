@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.f8e43fa6-376b-476b-81d3-7a6de9a6a9ae.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.453584e0-ffc3-4b96-98ad-a92cc078d7c6.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-21bb712f-d065-44f9-8020-a1a059c3d9af] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-7fc8dd44-5a2f-4584-91e8-06649e68a3be] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -259,9 +259,6 @@ window.addEventListener("load", load);
 <li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -269,6 +266,9 @@ window.addEventListener("load", load);
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
@@ -622,7 +622,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-21bb712f-d065-44f9-8020-a1a059c3d9af" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-7fc8dd44-5a2f-4584-91e8-06649e68a3be" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]

@@ -12,14 +12,6 @@ kernelspec:
 
 # Exercises 2
 
-`````{exercise-start}
-:label: exerciseex2_1
-:class: dropdown
-`````
-Write a program that asks user for a mass, and replies with the energy equivalent of that amount.
-
-`````{exercise-end}
-`````
 ````{exercise-start} 
 :label: exerciseex21
 :class: dropdown
@@ -68,10 +60,11 @@ Code goes here....
 :label: exerciseex23
 :class: dropdown
 ````
-
+Write a program and function to calculate the sum of only the even values in a matrix.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
-Code goes here....
+int sumOfEvenValuesInMatrix(std::vector<std::vector<int>> matrix) {
+}
 ```
 ````{exercise-end}
 ````
@@ -80,6 +73,7 @@ Code goes here....
 :label: solutionex23
 :class: dropdown
 ````
+
 ```{code-block} c++
 
 ```
@@ -244,4 +238,5 @@ Code goes here....
 ```
 ````{solution-end}
 ````
+
 

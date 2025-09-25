@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.d7a3bed4-0bf6-4dd3-afbb-4f940c29264a.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.6beb4528-ecdc-47bf-b736-ce92675f4b5f.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -222,9 +222,6 @@
 <li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -232,6 +229,9 @@
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
@@ -540,7 +540,7 @@ document.write(`
 <section id="expressions-and-statements">
 <h2>Expressions and Statements<a class="headerlink" href="#expressions-and-statements" title="Permalink to this heading">#</a></h2>
 <p>A computer programme is a sequence of statements, which are executed sequentially when the programme runs.</p>
-<div class="dropdown admonition">
+<div class="dropdown note admonition">
 <p class="admonition-title">Types of Statement</p>
 <p>C++ includes the following types of statements:</p>
 <ul class="simple">
@@ -573,7 +573,7 @@ For example: `#include <iostream></p>
 <h2>Basic Arithmetic Operations<a class="headerlink" href="#basic-arithmetic-operations" title="Permalink to this heading">#</a></h2>
 <p>All programming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::cout</span></code> can be used to demonstrate the basic arithmetic operations.</p>
-<div class="code_example dropdown admonition" id="Exampleb1">
+<div class="code_example dropdown admonition" id="exampleb1">
 
 <p class="admonition-title"><span class="caption-number">Code Example 2 </span></p>
 <section id="code_example-content">
@@ -602,11 +602,14 @@ For example: `#include <iostream></p>
 <li><p>What does the % operator do?</p></li>
 <li><p>Why might that be useful?</p></li>
 </ul>
-<div class="dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/basic_ideas_and_definitons-code_explanation-2">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleb1"> Code Example 2</a></p>
+<section id="code_explanation-content">
 <p>The <a class="reference internal" href="glossary.html#term-Modulo-Operator"><span class="xref std std-term">Modulo operator</span></a> may be new to you. See Wiki for more information:</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Modulo">Modulo</a> : See Wiki for more information:</p>
 <p>The try using <code class="docutils literal notranslate"><span class="pre">-</span></code> as a prefix on a number, what effect does that have?</p>
+</section>
 </div>
 </section>
 </div>
@@ -616,9 +619,9 @@ For example: `#include <iostream></p>
 <section id="mathematical-functions">
 <h2>Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Permalink to this heading">#</a></h2>
 <p>To access additional mathematical functions, we can include the <code class="docutils literal notranslate"><span class="pre">&lt;cmath&gt;</span></code> component of the standard library.</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/basic_ideas_and_definitons-syntax-2">
+<div class="syntax dropdown admonition" id="jupyternotebooks/basic_ideas_and_definitons-syntax-3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 1 </span> Rules: <cmath> Functions </p>
+<p class="admonition-title">Syntax Rules: <cmath> Functions </p>
 <section id="syntax-content">
 <div class="pst-scrollable-table-container"><table class="table" id="cmath">
 <thead>
@@ -682,8 +685,7 @@ For example: `#include <iostream></p>
 </table>
 </div>
 </section>
-</div>
-<p>There are more useful functions and constants in the <code class="docutils literal notranslate"><span class="pre">&lt;numbers&gt;</span></code> component.</p>
+</div><p>There are more useful functions and constants in the <code class="docutils literal notranslate"><span class="pre">&lt;numbers&gt;</span></code> component.</p>
 <p>For example <code class="docutils literal notranslate"><span class="pre">std::numbers::pi</span></code>. To access ‘pi’ – you need to include numbers and change “c++language standard” in Visual Studio under “project properties” to “c++20”.</p>
 </section>
 <section id="variables">
@@ -730,7 +732,7 @@ For example: `#include <iostream></p>
 <ul class="simple">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">10;</span></code> after the first <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> and another output statement to print the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> again.</p></li>
 </ul>
-<div class="solution dropdown note admonition" id="solutionb1">
+<div class="solution dropdown admonition" id="solutionb1">
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseb1"> Exercise 4</a></p>
 <section id="solution-content">
@@ -750,7 +752,7 @@ For example: `#include <iostream></p>
 <p>Another useful type of variable is the <code class="docutils literal notranslate"><span class="pre">string</span></code> type. A <a class="reference internal" href="glossary.html#term-String"><span class="xref std std-term">string</span></a> is a series of individual characters.</p>
 <p>To use string-type variables we need an additional component of the standard library, <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> to be included.</p>
 <p>The string literal must be enclosed in <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
-<div class="code_example dropdown admonition" id="Exampleb3">
+<div class="code_example dropdown admonition" id="exampleb3">
 
 <p class="admonition-title"><span class="caption-number">Code Example 4 </span></p>
 <section id="code_example-content">
@@ -771,15 +773,18 @@ For example: `#include <iostream></p>
 </div>
 </div>
 </div>
-<div class="exercise admonition" id="jupyternotebooks/basic_ideas_and_definitons-exercise-7">
+<div class="exercise admonition" id="jupyternotebooks/basic_ideas_and_definitons-exercise-8">
 
 <p class="admonition-title"><span class="caption-number">Exercise 5 </span></p>
 <section id="exercise-content">
 <p>Try adding a second variable, b, with a value of “-fingers”, and then try printing out the value of <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> again.</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/basic_ideas_and_definitons-code_explanation-9">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleb3"> Code Example 4</a></p>
+<section id="code_explanation-content">
 <p>If done correctly, you will have demonstrated that <code class="docutils literal notranslate"><span class="pre">+</span></code> operator behaves differently when used with different data types.</p>
 <p>For a <a class="reference internal" href="glossary.html#term-Numeric-Data-Type"><span class="xref std std-term">numeric data type</span></a> it performs ‘addition’, but for the <a class="reference internal" href="glossary.html#term-String-Data-Type"><span class="xref std std-term">string data type</span></a> it performs <a class="reference internal" href="glossary.html#term-Concatenation"><span class="xref std std-term">concatenation</span></a>.</p>
+</section>
 </div>
 </section>
 </div>
@@ -789,7 +794,7 @@ For example: `#include <iostream></p>
 <section id="more-data-types">
 <h2>More Data Types<a class="headerlink" href="#more-data-types" title="Permalink to this heading">#</a></h2>
 <p>In addition to strings, and integers, we need variable from the <a class="reference internal" href="glossary.html#term-Floating-Point-Number-Types"><span class="xref std std-term">floating-point number types</span></a> and <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
-<div class="code_example dropdown admonition" id="Exampleb4">
+<div class="code_example dropdown admonition" id="exampleb4">
 
 <p class="admonition-title"><span class="caption-number">Code Example 5 </span></p>
 <section id="code_example-content">
@@ -808,13 +813,16 @@ For example: `#include <iostream></p>
 </div>
 </div>
 </div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<div class="code_explanation note dropdown admonition" id="jupyternotebooks/basic_ideas_and_definitons-code_explanation-11">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleb4"> Code Example 5</a></p>
+<section id="code_explanation-content">
 <p>Single quotes denote a <a class="reference internal" href="glossary.html#term-Char-Type"><span class="xref std std-term">char type</span></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Float</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> are both used for <a class="reference internal" href="glossary.html#term-Floating-Point-Numbers"><span class="xref std std-term">floating-point numbers</span></a> - “double” denoting double precision (twice as many bits required for their representation in binary).</p>
 <p>Scientific notation is formatted using a lower or upper case <code class="docutils literal notranslate"><span class="pre">e</span></code> between the significant and the index WITHOUT ANY SPACES!!</p>
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> is the keyword for the <a class="reference internal" href="glossary.html#term-Integer-type"><span class="xref std std-term">integer type</span></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> may be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long,</span> </code>long long<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">The</span> <span class="pre">modifiers</span> <span class="pre">may</span> <span class="pre">be</span> <span class="pre">used</span> <span class="pre">on</span> <span class="pre">their</span> <span class="pre">own,</span> <span class="pre">and</span> </code>int<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">implied;</span> <span class="pre">but</span></code>signed<code class="docutils literal notranslate"><span class="pre">and</span></code>unsigned<code class="docutils literal notranslate"><span class="pre">may</span> <span class="pre">also</span> <span class="pre">precede</span></code>char, and <code class="docutils literal notranslate"><span class="pre">long</span></code> may precede <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
+</section>
 </div>
 </section>
 </div>
@@ -836,10 +844,11 @@ For example: `#include <iostream></p>
 </div>
 </div>
 </div>
-<div class="solution note dropdown admonition" id="solutionb3">
+<div class="solution dropdown admonition" id="solutionb3">
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseb3"> Exercise 6</a></p>
 <section id="solution-content">
+<p><code class="docutils literal notranslate"><span class="pre">string</span></code> type variables are part of the standard library and must be referenced by prefixing with <code class="docutils literal notranslate"><span class="pre">std::</span></code></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -850,14 +859,12 @@ For example: `#include <iostream></p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">string</span></code> type variables are part of the standard library and must be referenced by prefixing with <code class="docutils literal notranslate"><span class="pre">std::</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">char</span></code> are all part of the <a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a> and should not have <code class="docutils literal notranslate"><span class="pre">std::</span></code> attached.</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">char</span></code> are all part of the <a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a>  - do not use <code class="docutils literal notranslate"><span class="pre">std::</span></code></p>
 </section>
 </div>
 </section>
 </div>
 </section>
-<hr class="docutils" />
 <section id="escape-characters">
 <h2>Escape Characters<a class="headerlink" href="#escape-characters" title="Permalink to this heading">#</a></h2>
 <div class="margin admonition note">
@@ -888,10 +895,14 @@ proper pronunciation for the angle-bracket characters <code class="docutils lite
 </div>
 </div>
 </div>
-<p><a class="reference internal" href="glossary.html#term-Escape-Sequences"><span class="xref std std-term">Escape sequences</span></a>, or ‘escape characters’, are used to represent special characters within a string or character literal.</p>
+<p><a class="reference internal" href="glossary.html#term-Escape-Sequences"><span class="xref std std-term">Escape sequences</span></a>, or ‘escaped characters’, are used to represent special characters within a string or character literal.</p>
 <p>Certain characters in the program must be represented with <a class="reference internal" href="glossary.html#term-Escape-Sequences"><span class="xref std std-term">escape sequences</span></a> because they are <a class="reference internal" href="glossary.html#term-Reserved-Characters"><span class="xref std std-term">reserved characters</span></a> that have specific meaning to the compiler.</p>
-<p>Each escape character is identified to the program by prefixing <code class="docutils literal notranslate"><span class="pre">\</span></code> to the character.</p>
+<p>Each escape sequence is identified to the program by prefixing <code class="docutils literal notranslate"><span class="pre">\</span></code> to the escaped character.</p>
 <p>These are mostly used in formatting output. A full list of escape characters in C++ can be found <a class="reference external" href="https://en.cppreference.com/w/cpp/language/escape.html">here</a>.</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/basic_ideas_and_definitons-syntax-14">
+
+<p class="admonition-title">Syntax Rules: Escape Sequences </p>
+<section id="syntax-content">
 <div class="pst-scrollable-table-container"><table class="table" id="escape-sequence">
 <thead>
 <tr class="row-odd"><th class="head"><p>Character</p></th>
@@ -912,6 +923,14 @@ proper pronunciation for the angle-bracket characters <code class="docutils lite
 <td><p>Vertical Tab.</p></td>
 <td><p>Instructs the computer to put a vertical tab before any further output to the screen or file.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\a</span></code></p></td>
+<td><p>Alert.</p></td>
+<td><p>Instructs the computer to produce an ‘Beep’ alert sound - will not always work - depends on environment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\r</span></code></p></td>
+<td><p>Carriage Return.</p></td>
+<td><p>Instructs the computer to move the cursor to the beginning of the current line - used to overwrite a line.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\\</span></code></p></td>
 <td><p>Backslash</p></td>
 <td><p>Identifies intention of a literal backslash</p></td>
@@ -924,6 +943,7 @@ proper pronunciation for the angle-bracket characters <code class="docutils lite
 </table>
 </div>
 </section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">

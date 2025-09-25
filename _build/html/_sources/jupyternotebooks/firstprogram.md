@@ -176,17 +176,11 @@ Some suggest that good code does not require comments, but this is unlikely to b
 
 Since the comments are ignore, there are no special rules for them, except that they must be identified as {term}`comments`.
 
-````{admonition} How to Insert Comments
-:class: note dropdown
-
+````{syntax-start} Comments
+:class: dropdown
+:nonumber:
+`````
 Comments may be added to code in two ways:
-
-C++ style comments have `//` at the start of the comment.
-
-Multiline comments can be created by surround any text with `/*` and `*/`. These may not be nested!
-
-Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse across it and then simultaneously pressing {kbd}`Ctrl` + {kbd}`/`.
-
 ```{code-block} ruby
 // A C++ style single line comment
 // Another one
@@ -202,4 +196,10 @@ multi-line comment is needed
 */
 
 ```
-````
+C++ style comments have `//` at the start of the comment.
+
+Multiline comments can be created by surround any text with `/*` and `*/`. These may not be nested!
+
+Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse across it and then simultaneously pressing {kbd}`Ctrl` + {kbd}`/`.
+````{syntax-end}
+`````

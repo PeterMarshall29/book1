@@ -30,17 +30,17 @@ parts:
         - file: jupyternotebooks/initialisation         #M   
         - file: jupyternotebooks/scope  #G  
         - file: jupyternotebooks/operations_and_operators   #K
-        - file: jupyternotebooks/exercise2  #ex2
-        - file: jupyternotebooks/arrays            #O  
-        - file: jupyternotebooks/vector              #N
-        - file: jupyternotebooks/exercise3     #ex3      
+        - file: jupyternotebooks/exercise2     #ex2      
     - file: jupyternotebooks/selection_and_iteration      #P
       sections:
         - file: jupyternotebooks/if_statements        #Q
         - file: jupyternotebooks/switch_statements    #R
         - file: jupyternotebooks/for_loops           #S
         - file: jupyternotebooks/while_loops        #T
-        - file: jupyternotebooks/exercise4  
+        - file: jupyternotebooks/exercise3    #ex3
+        - file: jupyternotebooks/arrays            #O  
+        - file: jupyternotebooks/vector              #N
+        - file: jupyternotebooks/exercise4  #ex4
     - file: jupyternotebooks/introduction_to_functions     #U
       sections:
         - file: jupyternotebooks/exercise5  #ex5

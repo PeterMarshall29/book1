@@ -1,0 +1,57 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Programming Concepts
+    chapters:
+    - file: jupyternotebooks/introduction_to_programming
+    - file: jupyternotebooks/the_cpp_language
+    - file: jupyternotebooks/coding_best_practices
+    - file: jupyternotebooks/approachs_to_learning    
+  - caption: Introduction to C++ Programming
+    chapters:
+    - file: jupyternotebooks/firstprogram #A
+    - file: jupyternotebooks/basic_ideas_and_definitons  #B
+    - file: jupyternotebooks/input_and_output  #C  
+      sections:
+        - file: jupyternotebooks/printing_to_file  #D
+        - file: jupyternotebooks/exercise1  #ex1
+        #- file: jupyternotebooks/quiz1
+    - file: jupyternotebooks/objects_values_variables_and_constants  #E
+      sections:
+        - file: jupyternotebooks/identifiers #W
+        #- file: jupyternotebooks/variables_and_constants    #J
+        - file: jupyternotebooks/types   #F
+        - file: jupyternotebooks/arithmetic_data_types   #H
+        - file: jupyternotebooks/char_and_string       #I
+        - file: jupyternotebooks/boolean_type             #L
+        - file: jupyternotebooks/initialisation         #M   
+        - file: jupyternotebooks/scope  #G  
+        - file: jupyternotebooks/operations_and_operators   #K
+        - file: jupyternotebooks/exercise2  #ex2
+        - file: jupyternotebooks/arrays            #O  
+        - file: jupyternotebooks/vector              #N
+        - file: jupyternotebooks/exercise3     #ex3      
+    - file: jupyternotebooks/selection_and_iteration      #P
+      sections:
+        - file: jupyternotebooks/if_statements        #Q
+        - file: jupyternotebooks/switch_statements    #R
+        - file: jupyternotebooks/for_loops           #S
+        - file: jupyternotebooks/while_loops        #T
+        - file: jupyternotebooks/exercise4  
+    - file: jupyternotebooks/introduction_to_functions     #U
+      sections:
+        - file: jupyternotebooks/exercise5  #ex5
+    - file: jupyternotebooks/introduction_to_pointers     #V
+      sections:
+        - file: jupyternotebooks/exercise6
+  - caption: C++ Programming in Visual Studio
+    chapters:
+    - file: jupyternotebooks/introduction_to_cpp_in_vscode
+    - file: jupyternotebooks/header_files
+  - caption: Additional Information
+    chapters:
+    - file: jupyternotebooks/glossary
+    - file: jupyternotebooks/solutions_to_exercises

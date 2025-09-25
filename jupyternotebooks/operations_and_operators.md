@@ -89,7 +89,7 @@ It is truncating i.e – always rounds towards zero. Flooring is always rounded 
 Check the list of operators on the Learn page.
 
 ````{admonition} Incrementing and Decrementing Arithmetic Types
-:class: dropdown tip
+:class: dropdown note
 Incrementing or decrementing can be programmed in several ways.
 
 `++count` is identical to `count = count + 1`. `--count` is identical to `count = count - 1`.

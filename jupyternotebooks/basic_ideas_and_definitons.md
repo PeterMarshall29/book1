@@ -22,7 +22,7 @@ In the Computational Physics module, we are mainly concerned with writing progra
 
 A computer programme is a sequence of statements, which are executed sequentially when the programme runs.
 ````{admonition} Types of Statement
-:class: dropdown
+:class: dropdown note
 C++ includes the following types of statements:
 * Labelled statements - adds a label to another type of statement, to allow control of the flow.
 * Expression statements
@@ -60,7 +60,7 @@ All programming languages carry out basic arithmetic operations. Normally we do 
 `std::cout` can be used to demonstrate the basic arithmetic operations. 
 
 `````{code_example-start}
-:label: Exampleb1
+:label: exampleb1
 :class: dropdown
 `````
 Type in the following and try the exercise.
@@ -77,18 +77,21 @@ int main() {
 Type code here!
 ````
 The programme evaluates the expression `4 + 7` before sending the result to the character output stream (the screen).
-````{exercise}
+````{exercise-start}
 :class: dropdown
+````
 - Try the operators -,*,/ and %. 
 - What does the % operator do? 
 - Why might that be useful?
-```{admonition} Code Explanation
+```{code_explanation} exampleb1
 :class: dropdown
 The {term}`Modulo operator` may be new to you. See Wiki for more information:
 
 [Modulo](https://en.wikipedia.org/wiki/Modulo) : See Wiki for more information:
 
 The try using `-` as a prefix on a number, what effect does that have?
+```
+````{exercise-end}
 ````
 `````{code_example-end}
 `````
@@ -96,8 +99,10 @@ The try using `-` as a prefix on a number, what effect does that have?
 
 To access additional mathematical functions, we can include the `<cmath>` component of the standard library.
 
-````{syntax} <cmath> Functions
+````{syntax-start} <cmath> Functions
 :class: dropdown
+:nonumber:
+````
 ```{list-table}
 :header-rows: 1
 :name: <cmath>
@@ -138,10 +143,12 @@ To access additional mathematical functions, we can include the `<cmath>` compon
 * - tanh(x)
   - Hyperbolic tangent of x
 ```
+````{syntax-end}
 ````
 There are more useful functions and constants in the `<numbers>` component.
 
 For example `std::numbers::pi`. To access 'pi' – you need to include numbers and change "c++language standard" in Visual Studio under "project properties" to "c++20".
+
 ## Variables
 A computer programme that can only perform arithmetic on {term}`literal` values written into the original programme code would not be very useful. 
 
@@ -194,7 +201,7 @@ After a variable has been declared and given a value, the value can be changed.
 
 ```{solution} exerciseb1
 :label: solutionb1
-:class: dropdown note
+:class: dropdown 
 - Now the program has evaluated the arithmetic sum of the values contained in `a` and `b` - and sent that single value to the character output stream.
 - 
 
@@ -210,7 +217,7 @@ To use string-type variables we need an additional component of the standard lib
 The string literal must be enclosed in `""`. 
 
 `````{code_example-start}
-:label: Exampleb3
+:label: exampleb3
 :class: dropdown
 `````
 Try the following Code and complete the exercise.
@@ -231,7 +238,7 @@ Type code here!
 ````{exercise}
 Try adding a second variable, b, with a value of "-fingers", and then try printing out the value of `a + b` again.
 
-```{admonition} Code Explanation
+```{code_explanation} exampleb3
 :class: dropdown
 If done correctly, you will have demonstrated that `+` operator behaves differently when used with different data types. 
 
@@ -241,15 +248,12 @@ For a {term}`numeric data type` it performs 'addition', but for the {term}`strin
 `````{code_example-end}
 `````
 
-
-
-
 ## More Data Types
 
 In addition to strings, and integers, we need variable from the {term}`floating-point number types` and {term}`char type`.
 
 `````{code_example-start}
-:label: Exampleb4
+:label: exampleb4
 :class: dropdown
 `````
 Correct the following code and add a line to print out all the named variables, separated by tabs.
@@ -264,7 +268,7 @@ char middleInitial = 'J';
 return 0;
 }
 ````
-````{admonition} Code Explanation
+````{code_explanation} exampleb4
 :class: note dropdown
 Single quotes denote a {term}`char type`. 
 
@@ -297,8 +301,8 @@ return 0;
 ````
 ````{solution} exerciseb3
 :label: solutionb3
-:class: note dropdown
-
+:class: dropdown
+`string` type variables are part of the standard library and must be referenced by prefixing with `std::`
 ```{code-block} cpp
 #include <iostream>
 #include <string>
@@ -309,11 +313,8 @@ int main(){
 return 0;
 }
 ```
-`string` type variables are part of the standard library and must be referenced by prefixing with `std::`.
-
-`int`, `float`, `double`, and `char` are all part of the {term}`core language` and should not have `std::` attached.
+`int`, `float`, `double`, and `char` are all part of the {term}`core language`  - do not use `std::`
 ````
-***
 `````{exercise-end}
 `````
 
@@ -359,14 +360,18 @@ From: https://ascii.co.uk/art/poem
 ```
 ````
 
-{term}`Escape sequences`, or 'escape characters', are used to represent special characters within a string or character literal.
+{term}`Escape sequences`, or 'escaped characters', are used to represent special characters within a string or character literal.
 
 Certain characters in the program must be represented with {term}`escape sequences` because they are {term}`reserved characters` that have specific meaning to the compiler.
 
-Each escape character is identified to the program by prefixing `\` to the character.
+Each escape sequence is identified to the program by prefixing `\` to the escaped character.
 
 These are mostly used in formatting output. A full list of escape characters in C++ can be found [here](https://en.cppreference.com/w/cpp/language/escape.html).
 
+`````{syntax-start} Escape Sequences
+:nonumber:
+:class: dropdown
+`````
 ```{list-table}
 :header-rows: 1
 :name: Escape Sequence
@@ -382,6 +387,12 @@ These are mostly used in formatting output. A full list of escape characters in 
 * - `\v`
   - Vertical Tab. 
   - Instructs the computer to put a vertical tab before any further output to the screen or file. 
+* - `\a`
+  - Alert. 
+  - Instructs the computer to produce an 'Beep' alert sound - will not always work - depends on environment. 
+* - `\r`
+  - Carriage Return. 
+  - Instructs the computer to move the cursor to the beginning of the current line - used to overwrite a line. 
 * - `\\`
   - Backslash
   - Identifies intention of a literal backslash
@@ -389,3 +400,5 @@ These are mostly used in formatting output. A full list of escape characters in 
   - Single and double quote marks
   - Identifies intention of a literal quote mark
 ```
+`````{syntax-end}
+`````

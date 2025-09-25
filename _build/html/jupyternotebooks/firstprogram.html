@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.afd20a58-3f38-4199-8ab0-e4b0b6ead623.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.29088813-954a-4f74-86ed-a719cf6616c3.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/firstprogram';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -222,9 +222,6 @@
 <li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -232,6 +229,9 @@
 <li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
@@ -684,12 +684,11 @@ The returned value is reported to whoever called the function, in the case of ma
 <p>When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by ‘commenting them out`.</p>
 <p>Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and easier for others to use.</p>
 <p>Since the comments are ignore, there are no special rules for them, except that they must be identified as <a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">comments</span></a>.</p>
-<div class="note dropdown admonition">
-<p class="admonition-title">How to Insert Comments</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/firstprogram-syntax-5">
+
+<p class="admonition-title">Syntax Rules: Comments </p>
+<section id="syntax-content">
 <p>Comments may be added to code in two ways:</p>
-<p>C++ style comments have <code class="docutils literal notranslate"><span class="pre">//</span></code> at the start of the comment.</p>
-<p>Multiline comments can be created by surround any text with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>. These may not be nested!</p>
-<p>Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse across it and then simultaneously pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">/</kbd>.</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="sr">//</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">C</span><span class="o">++</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">comment</span>
 <span class="sr">//</span><span class="w"> </span><span class="no">Another</span><span class="w"> </span><span class="n">one</span>
 <span class="kp">include</span><span class="w"> </span><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span> <span class="sr">//</span><span class="w"> </span><span class="no">This</span><span class="w"> </span><span class="n">comment</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">affect</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">line!</span>
@@ -704,8 +703,11 @@ The returned value is reported to whoever called the function, in the case of ma
 <span class="sr">*/</span>
 </pre></div>
 </div>
-</div>
+<p>C++ style comments have <code class="docutils literal notranslate"><span class="pre">//</span></code> at the start of the comment.</p>
+<p>Multiline comments can be created by surround any text with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>. These may not be nested!</p>
+<p>Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse across it and then simultaneously pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">/</kbd>.</p>
 </section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">

@@ -39,7 +39,7 @@ int squaredValueOf(int a) {
 }
 int main() {
     int userInt;
-    std::cout << "Please type in an interger value ..\n";
+    std::cout << "Please type in an integer value ..\n";
     std::cin >> userInt;
     std::cout << "The square of " << userInt << " is " << squaredValueOf(userInt)<< "!";
     return 0;
@@ -181,7 +181,10 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-
+int factorial(int number) {
+  if (number == 0 || number == 1) return 1;
+  return number * factorial(number - 1);
+}
 ```
 ````{solution-end}
 ````
