@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.9f7110e6-5f28-4d25-81b7-e571d92da67f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.ce18dd0f-a862-4178-b35e-ec4d3cc58bfd.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-cb345854-dd7f-4a6d-a8ef-21893f35a760] svg, .mermaid[data-zoom-id=id-5b0fa11a-c3d5-4048-8e13-37263a033ec1] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-1aec0557-7b81-4203-a89c-8b6b1da853d0] svg, .mermaid[data-zoom-id=id-45d45ed6-0b68-4c61-a01f-a5a7cb85a854] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -240,38 +240,45 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Programming</span></p>
-<ul class="current nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 1</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Extending the Introductory Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
-<li class="toctree-l2"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise2.html">Exercises 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">For loops</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="if_statements.html">If Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">For loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="while_loops.html">While Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
 </ul>
 </details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
 </ul>
@@ -596,7 +603,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-cb345854-dd7f-4a6d-a8ef-21893f35a760" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-1aec0557-7b81-4203-a89c-8b6b1da853d0" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -627,7 +634,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-5b0fa11a-c3d5-4048-8e13-37263a033ec1" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-45d45ed6-0b68-4c61-a01f-a5a7cb85a854" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -838,10 +845,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
-</pre></div>
-</div>
+<p>0	10</p>
 <p>1	9</p>
 <p>2	8</p>
 <p>3	7</p>
@@ -1060,7 +1064,8 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>, 0	, 1	, 2	, 3	, 4	, 5</p>
+<p>,</p>
+<p>0	, 1	, 2	, 3	, 4	, 5</p>
 </div>
 </div>
 </section>

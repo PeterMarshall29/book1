@@ -168,6 +168,7 @@ Write functions for the following:
 a.	Calculation of a factorial using recursion.
 b.	Calculation of arctan using the Taylor series expansion.
 c.	Estimation of pi using the Wallis product.
+d.  Generate the Fibonacci sequence to a given number of terms.
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -186,6 +187,31 @@ int factorial(int number) {
   return number * factorial(number - 1);
 }
 ```
+
+
+
+
+
+//Fibonacci
+```{code-block} c++
+#include <iostream>
+int main() {
+    int numberOfTerms, firstTerm = 0, secondTerm = 1, nextTerm = 0;
+    std::cout << "Please enter the number of terms to print the Fibonacci sequence: \n";
+    std::cin >> numberOfTerms;
+    std::cout << "The Fibonacci Sequence to " << numberOfTerms << " is : [" << firstTerm << "\t " << secondTerm;
+
+    for (int i = 1; i <= numberOfTerms - 2; ++i) {
+        nextTerm = firstTerm + secondTerm;
+        std::cout << '\t' << nextTerm;
+        firstTerm = secondTerm;
+        secondTerm = nextTerm;
+    }
+    std::cout << " ]";
+    return 0;
+}
+```
+
 ````{solution-end}
 ````
 

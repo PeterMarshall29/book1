@@ -16,7 +16,7 @@ kernelspec:
 :label: exerciseex21
 :class: dropdown
 ````
-
+Write a program that returns the ASCII value of an input character
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -29,6 +29,14 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
+#include <iostream>
+int main() {
+    char myChar;
+    std::cout << "Please enter a character: ";
+    std::cin >> myChar;
+    std::cout << "ASCII Value of " << myChar << " is " << int(myChar);
+    return 0;
+}
 
 ```
 ````{solution-end}

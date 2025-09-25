@@ -527,12 +527,12 @@ int main() {
 ````
 
 
-<!-- 
+ 
 ````{exercise-start} 
-:label: exerciseex47
+:label: exerciseex311
 :class: dropdown
 ````
-
+Write a program that checks if a user entered number is a prime number and reports the answer.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -540,17 +540,33 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex47
-:label: solutionex47
+````{solution-start} exerciseex311
+:label: solutionex311
 :class: dropdown
 ````
 ```{code-block} c++
+#include <iostream> 
 
+int main() {
+    int userNumber;
+    bool isPrime = true; 
+    std::cout << "Please enter a number. \n"; 
+    std::cin >> userNumber;
+    for (int i = 2; i <= userNumber - 1; i++) {
+        if (userNumber % i == 0) {
+            std::cout << "The number " << userNumber << " is not a prime number! \n";
+            isPrime = false;
+            break;
+        }
+    }
+    if (isPrime == true) std::cout << "The number " << userNumber << " is a prime number! \n";
+    
+}
 ```
 ````{solution-end}
 ````
 
-````{exercise-start} 
+<!-- ````{exercise-start} 
 :label: exerciseex48
 :class: dropdown
 ````
