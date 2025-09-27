@@ -85,8 +85,7 @@ int main () {
 :label: exerciseex53
 :class: dropdown
 ````
-Write a function that takes two integer values and returns a true is their sum is less than 100..
-Write a program that calls your function and prints a statement telling the user if their sum is less than 100 or not.
+Write a function that takes two integer values and returns `true` if their sum is less than 100. Then use the function to write a program that request the integers and prints a statement telling the user if their sum is less than 100 or not.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -113,9 +112,6 @@ int main () {
 ```
 ````{solution-end}
 ````
-
-
-
 
 ````{exercise-start} 
 :label: exerciseex54
@@ -166,9 +162,8 @@ int main() {
 ````
 Write functions for the following:
 a.	Calculation of a factorial using recursion.
-b.	Calculation of arctan using the Taylor series expansion.
-c.	Estimation of pi using the Wallis product.
-d.  Generate the Fibonacci sequence to a given number of terms.
+b.	Estimation of pi using the Wallis product.
+c.  Generate the Fibonacci sequence to a given number of terms.
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -182,6 +177,8 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
+
+//factorial
 int factorial(int number) {
   if (number == 0 || number == 1) return 1;
   return number * factorial(number - 1);
@@ -189,6 +186,29 @@ int factorial(int number) {
 ```
 
 
+// wallis product
+#include <iostream>
+#include<string>
+#include <cmath>
+#include <iomanip> 
+
+double wallisProductPi(int terms) {
+    double wallisProduct = 1.0;
+    for (int i = 1; i <= terms; ++i) {
+        double currentTerm = (4.0 * i * i) / (4.0 * i * i - 1);
+        wallisProduct *= currentTerm;
+    }
+    return wallisProduct * 2;
+}
+int main() {
+    int steps;
+    std::cout << "Please enter the number of terms in the Wallis Product estimation: ";
+    std::cin >> steps;
+    double pi = wallisProductPi(steps);
+    std::cout << std::fixed << std::setprecision(30);
+    std::cout << "Estimated value of π using " << steps << " terms: " << pi << '\n';
+    return 0;
+}
 
 
 
@@ -214,16 +234,15 @@ int main() {
 
 ````{solution-end}
 ````
-
-
 ````{exercise-start} 
 :label: exerciseex56
 :class: dropdown
 ````
-
+Write a program and function to calculate the sum of only the even values in a matrix.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
-Code goes here....
+//Suggestion...
+int sumOfEvenValuesInMatrix(std::vector<std::vector<int>> matrix);
 ```
 ````{exercise-end}
 ````
@@ -232,18 +251,40 @@ Code goes here....
 :label: solutionex56
 :class: dropdown
 ````
+The `.size()` member function returns the number of vectors in a 2D vector and the number of elements when used on a single subscripted 2D vector.
 ```{code-block} c++
-
+#include <iostream>
+int sumOfEvenValuesInMatrix(std::vector<std::vector<int>> matrix) {
+    int sumOfEvenValues = 0;
+    for (int i = 0; i < matrix.size(); ++i) {
+        for (int j = 0; j < matrix[i].size(); ++j) { 
+            if (matrix[i][j] % 2 == 0) sumOfEvenValues += matrix[i][j];
+        }
+    }
+    return sumOfEvenValues;
+}
+int main() {
+    std::vector<std::vector<int>> matrix = {{0,0,0},{0,0,0},{0,0,0}};
+    std::cout << "Please input 9 values for a 3x3 matrix, starting from top left value, working left to right for each row, top row down. \n";
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            std::cin >> matrix[i][j];
+        }
+    }
+    std::cout << "\nThe sum of the even values is " << sumOfEvenValuesInMatrix(matrix) << "!";
+    return 0;
+}
 ```
 ````{solution-end}
 ````
+
 
 
 ````{exercise-start} 
 :label: exerciseex57
 :class: dropdown
 ````
-
+Write a program that takes an integer, the radius of a circle, and calls a function that returns the difference in area between two squares. The larger square being the smallest square that can contain the circle, and the smaller square being the largest square that will fit inside the circle.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -256,7 +297,21 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-
+#include <iostream>
+int differenceInAreaOfSquaresAroundCircle(int radius) {
+    int innerArea, outerArea, difference;
+    innerArea = 2 * radius * radius;
+    outerArea = 4 * radius * radius;
+    difference = outerArea - innerArea;
+    return difference;
+}
+int main() {
+    int radius;
+    std::cout << "Please enter the radius of the circle: \n";
+    std::cin >> radius;
+    std::cout << "The difference between the squares that just touch the circle inside and outside is " << differenceInAreaOfSquaresAroundCircle(radius);
+    return 0;
+}
 ```
 ````{solution-end}
 ````
@@ -265,7 +320,7 @@ Code goes here....
 :label: exerciseex58
 :class: dropdown
 ````
-
+Write a program that uses a function call to the type of triangle given the lengths of its sides i.e. Scalene, Isosceles, Equilateral, or 'Not a triangle'.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -278,7 +333,25 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-
+#include <iostream>
+#include <vector>
+std::string identifyTypeOfTriangle(std::vector<int> myVector) {
+	if (myVector.size() == 3)
+	{
+		if (myVector[0] == myVector[1] && myVector[1] == myVector[2]) return "Equilateral";
+		else if (myVector[0] != myVector[1] && myVector[0] != myVector[2] && myVector[1] != myVector[2]) return "Scalene";
+		else return "Isosceles";
+	}
+	return "Not a triangle!";
+}
+int main() {
+	std::vector<int> myVector;
+	int temp;
+    std::cout << "Please enter the lengths of the sides of your triangle followed by a letter to end the input: \n";
+    while (std::cin >> temp) myVector.push_back(temp);
+    std::cout << "You have entered lengths that correspond to: " << identifyTypeOfTriangle(myVector);
+    return 0;
+}
 ```
 ````{solution-end}
 ````
@@ -287,7 +360,7 @@ Code goes here....
 :label: exerciseex59
 :class: dropdown
 ````
-
+Write a program that calls a function to calculate the arctangent of an appropriately sized number using a Taylor series expansion.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -300,7 +373,43 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
+// arctan
+#include <iostream>
+#include<string>
+#include <cmath>
+double arctan(double number, int steps) {
+    double result = 0.0;
+    double term = number; 
+    for (int i = 0; i < steps; ++i) {
+        if (i % 2 == 0) {
+            result += term;
+        }
+        else {
+            result -= term;
+        }
+        term *= (number * number * (2 * number + 1)) / (2 * number + 3);
+    }
+    return result;
+}
 
+int main() {
+    double number;
+    int steps;
+    std::cout << "Please enter a number in the range [-1...1]. ";
+    std::cin >> number;
+    if (number < -1 || number > 1) {
+        std::cerr << "Number must be in the range [-1, 1] for convergence.\n";
+        return 1;
+    }
+
+    std::cout << "Enter the number of terms in the Taylor series: ";
+    std::cin >> steps;
+
+    double result = arctan(number, steps);
+    std::cout << "Arctan (" << number << ") ~ " << result << ", including " << steps << " terms.\n";
+
+    return 0;
+}
 ```
 ````{solution-end}
 ````
@@ -309,7 +418,11 @@ Code goes here....
 :label: exerciseex510
 :class: dropdown
 ````
-
+`<regex>``std::regex` is a library in C++ that provides useful tools for working with {term}`regular expressions`. 
+`std::regex` represents a regular expression.
+You can find information about `<regex>` here.
+Write a program that calls a function that uses `std::regex_match` and `std::regex` to check that an input string is a valid colour 'Hex Code'.
+Colur Hex codes are a string composed of `#` followed by a 6 digit hexadecimal codes that represent colours.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -322,7 +435,26 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
-
+#include <iostream>
+#include <regex>
+bool checkIsAValidHexCode(std::string myString) {
+	std::regex myRegularExpression("#[0-9a-fA-F]{6}");
+	return std::regex_match(myString, myRegularExpression);
+}
+int main() {
+	std::string myString;
+	bool checkIsValid;
+	for (;;) {
+		std::cout << "Please input a string and I will tell you if it is a valid Hex-Code: \n ";
+		std::cin >> myString;
+		if (myString.size() == 7) {
+			if (checkIsAValidHexCode(myString)) std::cout << "You entered a valid Hex-Code! \n";
+			else std::cout << "That was not a valid Hex-Code! \n";
+		}
+		else std::cout << "A Hex Code for a colour must have 6 digits - please try again. \n";
+	}
+    return 0;
+}
 ```
 ````{solution-end}
 ````

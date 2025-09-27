@@ -13,16 +13,16 @@ kernelspec:
 (cpplanguage)=
 #  The C++ Language
 
-The [C++](https://en.wikipedia.org/wiki/C%2B%2B) language is one of the most powerful programming languages available today. It was created by Danish computer scientist [Bjarne_Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) and first released in 1985. 
-
-C++ is widely used, high-level, general-purpose language that can write code to runs from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).
+The [C++](https://en.wikipedia.org/wiki/C%2B%2B) language is one of the most powerful and widely used programming languages available today. It was created by Danish computer scientist [Bjarne_Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroustrup) and first released in 1985. C++ is a high-level, general-purpose language that can write code to run from the glass (building apps with graphical user interfaces) down to the metal (direct control of hardware and manipulation of memory).
 
 ```{note}
 :class: margin
 {attribution="Bjarne Stroustrup - Creator of C++"}
-> A programmer is a machine for turning caffeine into code.
+> A programmer is a machine for turning caffeine into code!
 ```
-There are simpler programming languages to learn; but once have learned to code in C++ subsequent programming languages are much easier to pick up.
+There are simpler programming languages to learn than C++ - Languages like Julia have a more modern syntax, and are great for writing scripts for scientific computing or machine learning. 
+
+However, C++ is a more versatile general-purpose language, that is platform independent, and allows for precise control of hardware and memory. And once you have mastered C++ - picking up another programming language will be much easier, than if you had started with a simpler language. If you have to pick one language to learn - the language that provides more career options and a stronger foundation for picking up other languages is the best choice.
 
 ````{tab} C++
 ```{code-block} c++
@@ -62,11 +62,7 @@ print("Hello, World!")
 ```
 ````
 
-Languages like Julia, have a more modern syntax, and great for writing scripts for scientific computing or machine learning.
 
-C++ is a more versatile general-purpose language, that is platform independent, allows for precise control of hardware and memory.
-
-If you had to pick one language to learn - the one that provides more career options and a stronger foundation for picking up other languages is best.
 
 ```{note}
 :class: margin
@@ -93,32 +89,26 @@ You might want to download the Community Edition (free) of Visual Studio in adva
 
 ## Structure of the C++ Language
 
-In the `C++` programming language, consist of two parts: the **{term}`core language`** and the **{term}`standard library`**.
+In the `C++` programming language, consists of two parts: the **{term}`core language`** and the **{term}`standard library`**.
 
 The **C++ Standard Library** is a collection of classes and functions, which are written in the **core language**.
 
-The entire `Cc++` language is defined by the **C++ ISO Standard**. 
+The entire `Cc++` language is defined by the **C++ ISO Standard**. The standard is regularly updated and improved, so you must check which version of the language your code is written in - there may be compatibility issues between versions.
 
-The standard is regularly updated and improved, so you must check which version of the language your code is written in - there may be compatibility issues between versions.
-
-A large part of the **C++ Standard Library** is based on the **Standard Template Library (STL)**. 
-
-Useful tools provided by the STL include containers as the collections of objects (such as vectors and lists), iterators that provide array-like access to containers, and algorithms that perform operations such as searching and sorting.
+A large part of the **C++ Standard Library** is based on the **Standard Template Library (STL)**. Useful tools provided by the STL include containers as the collections of objects (such as vectors and lists), iterators that provide array-like access to containers, and algorithms that perform operations such as searching and sorting.
 
 
 ## Structure of C++ Programmes
 
 A C++ program is a sequence of text files written in the human-readable C++ language, with file endings such as `.cpp` for source files and `.h` for header files. 
 
-Each C++ language file is called a {term}`translation unit`, contains a series of declarations. Each {term}`declaration` is a statement written in the C++ language, which together form a program.
+Each C++ language file is called a {term}`translation unit` and contains a series of declarations. Each {term}`declaration` is a statement written in the C++ language, which together form the program.
 
 `C++` is a {term}`compiled language`. The {term}`compiler` converts the (basically) **human-readable** `C++` translation units into machine language files, called {term}`object files` that have endings `.obj` in Windows and `.o` in Linux.
 
 The collection of object files is then linked together by the {term}`linker` into an {term}`executable file`; ending `.exe` in Windows. 
 
 The `.cpp` source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, ... .
-
-The collection of object files are then linked together by the {term}`linker` into an {term}`executable file`;  `.exe` in windows or `.app` etc.. 
 
 ```{mermaid}
 :align: center
@@ -144,14 +134,9 @@ flowchart LR
     linkStyle 4 stroke:#00C853
 
 ```
+Source files may include header files, which are substituted in place for the #include statement and other directives by the preprocessor, resulting in a single "file" which is then fed to the compiler. Header files with `.h`, `.hpp`, or `.hxx` extensions are sources files that containing entity declarations and/or definitions that need to be visible to multiple {term}`translation units`.
 
-Header files with a `.h`, `.hpp`, or `.hxx` extension,  are sources files that containing entity declarations and/or definitions that need to be visible to multiple {term}`translation units`.
-
-The C and C++ compilers only compile a single file at a time. 
-
-Source files may include header files, which are substituted in place for the #include statement and other directives by the preprocessor, resulting in a single "file" which is then fed to the compiler. 
-
-The source file must contain all type and all object declarations that are referenced, which is the meaning of the undeclared reference compiler error. 
+The source file must contain all `type` and all `object` declarations that are referenced, which is the meaning of the undeclared reference compiler error. 
 
 Compilation only requires complete {term}`declarations` to succeed; {term}`definitions` are handled at a later stage in the build process.
 
@@ -165,9 +150,7 @@ C++ implementations are either "hosted" or "free-standing".
 
 A hosted implementation includes all the standard-library facilities.
 
-Freestanding implementations are used when your code require the most minimal operating system support. 
-
-A freestanding implementations generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library:  `<cstddef>`, `<cfloat>`, `<limits>`, `<climits>`, `<cstdint>`, `<cstdlib>`, `<new>`, `<typeinfo>`, `<exception>`, `<initializer_list>`, `<cstdalign>`, `<cstdarg>`, `<cstdbool>`, `<type_traits>`, and `<atomic>`.
+Freestanding implementations are used when your code require the most minimal operating system support; generally provide fewer standard-library facilities, but must include certain basic requirements, provided by this minimal list of headers from the standard library:  `<cstddef>`, `<cfloat>`, `<limits>`, `<climits>`, `<cstdint>`, `<cstdlib>`, `<new>`, `<typeinfo>`, `<exception>`, `<initializer_list>`, `<cstdalign>`, `<cstdarg>`, `<cstdbool>`, `<type_traits>`, and `<atomic>`.
 
 Some implementations provide a non-standard option that does not use exceptions for minimal, bare metal programming (directly implemented on hardware).
 
@@ -188,7 +171,7 @@ Historically, computer memory was much smaller and more expensive. It was necess
 
 Today computers have relatively large and cheap memory, and memory management need only be considered for more demanding applications, or for embedded devices.
 
-Assigning objects to the computer's memory (RAM) is called allocating e.g. allocated on the stack, allocated on the free store
+Assigning objects to the computer's memory (RAM) is called allocating e.g. allocated on the stack, allocated on the free store etc.
 
 In C++, methods are available for allocation and freeing memory during the execution of a program.
 

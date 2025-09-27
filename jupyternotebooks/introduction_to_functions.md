@@ -12,6 +12,11 @@ kernelspec:
 
 # Functions 
 
+The `return` {term}`keyword` specifies what the function returns.
+If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the `return` keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
+
+
+
 Programmers often want to use the same {term}`code-block` repeatedly - in the same program, or across many programmes. 
 
 A code-block can be made reusable by encapsulating it into a function.

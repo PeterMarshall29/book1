@@ -12,17 +12,6 @@ kernelspec:
 
 # Exercises 4
 
-Arrays and Vectors - there is little you can do with either of these without using loops.
-
-
-`````{exercise-start}
-:label: exerciseex41a
-:class: dropdown
-`````
-Write a program that asks user for a mass, and replies with the energy equivalent of that amount.
-
-`````{exercise-end}
-`````
 ````{exercise-start} 
 :label: exerciseex41
 :class: dropdown
@@ -107,11 +96,10 @@ There is no way to make the actual number of elements of an array variable - the
 :label: exerciseex43
 :class: dropdown
 ````
-Write a program and function to calculate the sum of only the even values in a matrix.
+Write a program to merge two 5 element arrays into a single 10 element array, and neatly print out the answer.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
-int sumOfEvenValuesInMatrix(std::vector<std::vector<int>> matrix) {
-}
+Code goes here..
 ```
 ````{exercise-end}
 ````
@@ -120,34 +108,69 @@ int sumOfEvenValuesInMatrix(std::vector<std::vector<int>> matrix) {
 :label: solutionex43
 :class: dropdown
 ````
-The `.size()` member function returns the number of vectors in a 2D vector and the number of elements when used on a single subscripted 2D vector.
 ```{code-block} c++
 #include <iostream>
-int sumOfEvenValuesInMatrix(std::vector<std::vector<int>> matrix) {
-    int sumOfEvenValues = 0;
-    for (int i = 0; i < matrix.size(); ++i) {
-        for (int j = 0; j < matrix[i].size(); ++j) { 
-            if (matrix[i][j] % 2 == 0) sumOfEvenValues += matrix[i][j];
-        }
-    }
-    return sumOfEvenValues;
-}
 int main() {
-    std::vector<std::vector<int>> matrix = {{0,0,0},{0,0,0},{0,0,0}};
-    std::cout << "Please input 9 values for a 3x3 matrix, starting from top left value, working left to right for each row, top row down. \n";
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            std::cin >> matrix[i][j];
+int myFirstArray[5] = { 1, 2, 3, 4, 5};
+int mySecondArray[5] = { 6, 7, 8, 9, 10 };
+int myMergedArray[10];
+for (int i = 0; i < 5; i++) myMergedArray[i] = myFirstArray[i];
+for (int i = 5; i < 10; i++) myMergedArray[i] = mySecondArray[i-5];
+std::cout << "{ ";
+for (int i = 0; i < 10; i++) {
+    std::cout << myMergedArray[i] << " ";
+}
+std::cout << "} ";
+return 0;
+}
+```
+````{solution-end}
+````
+
+````{exercise-start} 
+:label: exerciseex44
+:class: dropdown
+````
+Write a program that asks the user for the number of elements in their array, then the input of those elements.
+And then searches that array for a number of the users chosing and tells them the position in the array etc. if the number is found.
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
+````{exercise-end}
+````
+
+````{solution-start} exerciseex44
+:label: solutionex44
+:class: dropdown
+````
+```{code-block} c++
+#include<iostream>
+int main() {
+    int userArray[10], numberOfElements, searchNumber, searchCounter = 0;
+    std::cout << "Please enter the number of elements in your array - maximum is 10: \n";
+    std::cin >> numberOfElements;
+    std::cout << "Please enter the elements of your array: \n";
+    for (int i = 0; i < numberOfElements; i++)  std::cin >> userArray[i];
+    std::cout << "Which number for you want to search your array for? \n";
+    std::cin >> searchNumber;
+    for (int i = 0; i < numberOfElements; i++) {
+        if (userArray[i] == searchNumber) {
+            std::cout << "The number " << searchNumber << " is element " << i << " of your array. \n";
+            searchCounter += 1;
         }
     }
-    std::cout << "\nThe sum of the even values is " << sumOfEvenValuesInMatrix(matrix) << "!";
+        if (searchCounter == 0) std::cout << "The number " << searchNumber << " was not in your array!\n";
     return 0;
 }
 ```
 ````{solution-end}
 ````
+
+
+
 ````{exercise-start} 
-:label: exerciseex44
+:label: exerciseex45
 :class: dropdown
 ````
 Write a program that creates an array of integer elements that are either ones or zeros and then rearranges the array so that all the zeroes come first.
@@ -158,8 +181,8 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex44
-:label: solutionex44
+````{solution-start} exerciseex45
+:label: solutionex45
 :class: dropdown
 ````
 ```{code-block} c++
@@ -185,7 +208,7 @@ int main() {
 
 
 ````{exercise-start} 
-:label: exerciseex45
+:label: exerciseex46
 :class: dropdown
 ````
 Write a program that:
@@ -199,8 +222,8 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex45
-:label: solutionex45
+````{solution-start} exerciseex46
+:label: solutionex46
 :class: dropdown
 ````
 Try to improve the solution.. perhaps identifying even occurrences and telling the user if there are no duplicates etc.
@@ -242,34 +265,14 @@ int main() {
 
 
 ````{exercise-start} 
-:label: exerciseex46
-:class: dropdown
-````
-Write a program that creates:
-* A global array of 100 integers.
-* A local array 
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-Code goes here....
-```
-````{exercise-end}
-````
-
-````{solution-start} exerciseex46
-:label: solutionex46
-:class: dropdown
-````
-```{code-block} c++
-
-```
-````{solution-end}
-````
-
-
-````{exercise-start} 
 :label: exerciseex47
 :class: dropdown
 ````
+Write a program that creates a string vector and then removes any strings that contains a numeric digit.
+
+Hint: Use the `std::isdigit()` function, which works on `char` type and comes from the `<cctype>` library.
+
+Hint: Look into the use of `std::erase` - could this be helpful? Think about what happens to the vector - how can you make it work.
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -283,55 +286,35 @@ Code goes here....
 :class: dropdown
 ````
 ```{code-block} c++
+#include <iostream>   
+#include <vector> 
+#include <string>
+#include <cctype>
+bool testForNumeric(std::string userNextString) {
+    for (int i = 0; i < userNextString.size(); ++i) {
+        if (std::isdigit(userNextString[i])) return true;
+        else continue; 
+    }
+    return false;
+}
+int main() {
+    std::vector<std::string> userStrings;
+    std::cout << "Please type in a series of strings, some that contain numbers, space separated and then a '0' to signal the end of your input. \n";
+    std::string temp;
+    while (std::cin >> temp && temp != "0") userStrings.push_back(temp);
 
+    for (int i = userStrings.size()-1; i >= 0; --i) {
+       if (testForNumeric(userStrings[i])) userStrings[i].erase() ;
+    }
+    std::cout << "The non numeric strings are: \n";
+    for (int i = 0; i < userStrings.size(); ++i) std::cout << userStrings[i]<< '\n';
+    return 0;
+}
 ```
 ````{solution-end}
 ````
 
 
-````{exercise-start} 
-:label: exerciseex48
-:class: dropdown
-````
-
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-Code goes here....
-```
-````{exercise-end}
-````
-
-````{solution-start} exerciseex48
-:label: solutionex48
-:class: dropdown
-````
-```{code-block} c++
-
-```
-````{solution-end}
-````
-
-````{exercise-start} 
-:label: exerciseex49
-:class: dropdown
-````
-
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-Code goes here....
-```
-````{exercise-end}
-````
-
-````{solution-start} exerciseex49
-:label: solutionex49
-:class: dropdown
-````
-```{code-block} c++
-
-```
-````{solution-end}
-````
 
 
 ````{exercise-start} 

@@ -10,24 +10,21 @@ kernelspec:
   name: cpp20
 ---
 
-# Printing to File
+# Printing to File (Week 7)
 
-For printing to and reading from a file, the standard library provides `<fstream>`. 
-
-To only read or only write - there are also `<ifstream>` and `<ofstream>` - both in `<fstream>`
+For printing to and reading from a file, the standard library provides `<fstream>`. To only read or only write - there are also `<ifstream>` and `<ofstream>` - both parts of `<fstream>`
 
 Try the following code: make sure you can find the file created and check its contents.
 
-The location of the file can be set by the programmer.
-
-Using Visual Studio, without specifying more than the file name, the file will be found in 
+The location of the file can be set by the programmer. Using Visual Studio, without specifying more than the file name, the file will be found in:
 
 ```{code-block} rust 
 C://users/YourUserName/source/repos/nameOfYourProject/nameOfYourProject/newFileName.txt
 ```
-`````{example-start}
-:label: Exampled1
+`````{code_example-start} Writing to File
+:label: exampled1
 :class: dropdown
+:nonumber:
 `````
 ````{code-block} cpp
 :linenos:
@@ -57,20 +54,21 @@ int main() {
     return 0;
 }
 ````
-````{admonition} Code Explanation
-:class: note dropdown
+````{code_explanation} exampled1
+:class: dropdown
+:label: explanationd1
 
 `std::fstream streamName("fileName.txt", std::ios::out);` is equivalent to `std::ofstream streamName ("fileName.txt");`
 
 Both create a file-stream named `streamName` and create and open a new file called "fileName.txt" associated with the stream.
 
-`<<` operator inserts formatted information into the file.
+`<<` the insertion operator inserts formatted information into the file.
 
 `is_open()` is a member function that checks the stream has an associate file.
 
 The `close()` is good practice; ensure the stream is closed and the file is ready. 
 
-If the file stream fails to open, the stream is in the `bad()` state, which may be a result of using a non standard operating system. IOStreams can be in one of 4 states, which can be checked by the program; good(), eof(), and fail(). More details can be found in the [C++ Reference](https://en.cppreference.com/w/cpp/io/basic_fstream.html)
+IOStreams can be in one of 4 states, which can be checked by the program; good(), eof(), and fail(). If the file stream fails to open, the stream is in the `bad()` state, which may be a result of using a non-standard operating system. More details can be found in the [C++ Reference](https://en.cppreference.com/w/cpp/io/basic_fstream.html)
 
 `std::ios::out` is a **stream mode parameter**. There is also an equivalent `std::fstream::out`; since `fstream` inherits from `ios`, and using the parent is preferable because it is used elsewhere too.
 
@@ -91,7 +89,7 @@ If the file stream fails to open, the stream is in the `bad()` state, which may 
   - Truncates the file to 0 length  
 ```
 ````
-`````{example-end}
+`````{code_example-end}
 `````
 
 ## Adding Data to a File

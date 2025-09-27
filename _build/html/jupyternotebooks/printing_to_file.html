@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Printing to File &#8212; Introduction to C++ Programming</title>
+    <title>Printing to File (Week 7) &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\printing_to_file.bec3f5b4-0556-4968-bd2b-55bd1b8dd95a.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\printing_to_file.3e7c75b6-e35e-41c7-8ee9-8ebe5db3e01d.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/printing_to_file';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -208,21 +208,21 @@
 <li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Printing to File</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Printing to File (Week 7)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types in C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise1.html">Exercises Week 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
 <ul class="nav bd-sidenav">
@@ -511,7 +511,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Printing to File</h1>
+    <h1>Printing to File (Week 7)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -534,20 +534,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="printing-to-file">
-<h1>Printing to File<a class="headerlink" href="#printing-to-file" title="Permalink to this heading">#</a></h1>
-<p>For printing to and reading from a file, the standard library provides <code class="docutils literal notranslate"><span class="pre">&lt;fstream&gt;</span></code>.</p>
-<p>To only read or only write - there are also <code class="docutils literal notranslate"><span class="pre">&lt;ifstream&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;ofstream&gt;</span></code> - both in <code class="docutils literal notranslate"><span class="pre">&lt;fstream&gt;</span></code></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="printing-to-file-week-7">
+<h1>Printing to File (Week 7)<a class="headerlink" href="#printing-to-file-week-7" title="Permalink to this heading">#</a></h1>
+<p>For printing to and reading from a file, the standard library provides <code class="docutils literal notranslate"><span class="pre">&lt;fstream&gt;</span></code>. To only read or only write - there are also <code class="docutils literal notranslate"><span class="pre">&lt;ifstream&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;ofstream&gt;</span></code> - both parts of <code class="docutils literal notranslate"><span class="pre">&lt;fstream&gt;</span></code></p>
 <p>Try the following code: make sure you can find the file created and check its contents.</p>
-<p>The location of the file can be set by the programmer.</p>
-<p>Using Visual Studio, without specifying more than the file name, the file will be found in</p>
+<p>The location of the file can be set by the programmer. Using Visual Studio, without specifying more than the file name, the file will be found in:</p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span><span class="c1">//users/YourUserName/source/repos/nameOfYourProject/nameOfYourProject/newFileName.txt</span>
 </pre></div>
 </div>
-<div class="example dropdown admonition" id="Exampled1">
+<div class="code_example dropdown admonition" id="exampled1">
 
-<p class="admonition-title"><span class="caption-number">example 1 </span></p>
-<section id="example-content">
+<p class="admonition-title">Code Example: Writing to File </p>
+<section id="code_example-content">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span><span class="c1"> </span>
@@ -574,14 +572,16 @@ document.write(`
 <span class="linenos">24</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<div class="code_explanation dropdown admonition" id="explanationd1">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampled1"> Code Example: Writing to File </a></p>
+<section id="code_explanation-content">
 <p><code class="docutils literal notranslate"><span class="pre">std::fstream</span> <span class="pre">streamName(&quot;fileName.txt&quot;,</span> <span class="pre">std::ios::out);</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">std::ofstream</span> <span class="pre">streamName</span> <span class="pre">(&quot;fileName.txt&quot;);</span></code></p>
 <p>Both create a file-stream named <code class="docutils literal notranslate"><span class="pre">streamName</span></code> and create and open a new file called “fileName.txt” associated with the stream.</p>
-<p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator inserts formatted information into the file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> the insertion operator inserts formatted information into the file.</p>
 <p><code class="docutils literal notranslate"><span class="pre">is_open()</span></code> is a member function that checks the stream has an associate file.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">close()</span></code> is good practice; ensure the stream is closed and the file is ready.</p>
-<p>If the file stream fails to open, the stream is in the <code class="docutils literal notranslate"><span class="pre">bad()</span></code> state, which may be a result of using a non standard operating system. IOStreams can be in one of 4 states, which can be checked by the program; good(), eof(), and fail(). More details can be found in the <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_fstream.html">C++ Reference</a></p>
+<p>IOStreams can be in one of 4 states, which can be checked by the program; good(), eof(), and fail(). If the file stream fails to open, the stream is in the <code class="docutils literal notranslate"><span class="pre">bad()</span></code> state, which may be a result of using a non-standard operating system. More details can be found in the <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_fstream.html">C++ Reference</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">std::ios::out</span></code> is a <strong>stream mode parameter</strong>. There is also an equivalent <code class="docutils literal notranslate"><span class="pre">std::fstream::out</span></code>; since <code class="docutils literal notranslate"><span class="pre">fstream</span></code> inherits from <code class="docutils literal notranslate"><span class="pre">ios</span></code>, and using the parent is preferable because it is used elsewhere too.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="stream-modes">
 <thead>
@@ -608,10 +608,10 @@ document.write(`
 </tbody>
 </table>
 </div>
-</div>
 </section>
 </div>
-<section id="adding-data-to-a-file">
+</section>
+</div><section id="adding-data-to-a-file">
 <h2>Adding Data to a File<a class="headerlink" href="#adding-data-to-a-file" title="Permalink to this heading">#</a></h2>
 <p>Try changing what was written to the file and running the program again. You should find that the contents of the file have been overwritten.</p>
 <p>You will most like want to add information to a file, rather than replace its contents, for that we use a different <strong>stream mode parameters</strong> which control the operation <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>.</p>

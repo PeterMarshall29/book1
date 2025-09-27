@@ -12,17 +12,18 @@ kernelspec:
 
 # Basic Concepts
 
-Once you have learned some basic components of the C++ language, understanding the language becomes much easier, because you will be able to write simple programmes to try out each new concept.
+Once you have mastered some basic components of the C++ language, learning the language becomes much easier, because you will be able to write simple programmes to try out each new concept.
 
 This page leads you through some basic exercises, much of the explanation is left until later chapters - this page is not intended to present the full syntax.
 
-In the Computational Physics module, we are mainly concerned with writing programmes that will take user inputs, perform calculations, and then return the 'answers' to the user, which requires us to learn only a subset of the C++ language and programming concepts.
+In the Computational Physics module, we are mainly concerned with writing programmes that will take user inputs, perform calculations, and then return the 'answers' to the user, which requires us to learn only a subset of the C++ language.
 
 ## Expressions and Statements
 
-A computer programme is a sequence of statements, which are executed sequentially when the programme runs.
-````{admonition} Types of Statement
-:class: dropdown note
+A computer program is a sequence of statements, which are executed sequentially when the program runs.
+````{syntax} Types of Statement
+:class: dropdown
+:nonumber: 
 C++ includes the following types of statements:
 * Labelled statements - adds a label to another type of statement, to allow control of the flow.
 * Expression statements
@@ -37,17 +38,22 @@ Expressions are sequences of {term}`operators` and their {term}`operands`, which
 
 When the expression statement is executed, the expression is evaluated by the computer, producing a result, which will have a {term}`value` and a {term}`type`.
 
-Statements are always terminated by either a semicolon `;` or by a {term}`code-block` {...some code here...}, which may be empty or contain statements.
+Statements are always terminated by either a semicolon `;` or by `{}` which represents a {term}`code-block` i.e. {...some code here...}, which may be empty or contain statements.
 ```{tip}
 :class: margin
 Only {term}`directives` do not require termination.
-For example: `#include <iostream>
+
+For example: `#include <iostream>`.
 ```
 ```{tip}
 :class: margin
 The Visual Studio IDE indicates a missing `;` by highlighting the start of the next line of code.
 ```
+
+```{warning}
+:class: margin
 Forgetting to terminate a statement, will result in a compile-time error. 
+```
 
 A semicolon is a statement terminator, and by itself a statement, an {term}`empty statement` (null statement). 
 
@@ -57,16 +63,18 @@ An expression statement without an expression is called a {term}`null statement`
 
 All programming languages carry out basic arithmetic operations. Normally we do not use a computer as a simple calculator, but most programmes carry out some arithmetic operations as part of their execution.
 
-`std::cout` can be used to demonstrate the basic arithmetic operations. 
 
-`````{code_example-start}
+`````{code_example-start} Arithmetic Operations
 :label: exampleb1
 :class: dropdown
+:nonumber:
 `````
+`std::cout` can be used to demonstrate the basic arithmetic operations. 
+
 Type in the following and try the exercise.
 ````{code-block} cpp
 :linenos: 
-#include <isotream>
+#include <iostream>
 int main() {
     std::cout << 4 + 7;
     return 0;
@@ -76,7 +84,7 @@ int main() {
 :tags: [remove-output]
 Type code here!
 ````
-The programme evaluates the expression `4 + 7` before sending the result to the character output stream (the screen).
+The program evaluates the expression `4 + 7` before sending the result to the character output stream (to display on the screen).
 ````{exercise-start}
 :class: dropdown
 ````
@@ -85,12 +93,18 @@ The programme evaluates the expression `4 + 7` before sending the result to the 
 - Why might that be useful?
 ```{code_explanation} exampleb1
 :class: dropdown
-The {term}`Modulo operator` may be new to you. See Wiki for more information:
+The `%` operator is called the {term}`Modulo operator` or the remainder operator.
 
-[Modulo](https://en.wikipedia.org/wiki/Modulo) : See Wiki for more information:
+If Modulo os new to you, the Wiki has a good description - [Modulo](https://en.wikipedia.org/wiki/Modulo).
 
-The try using `-` as a prefix on a number, what effect does that have?
+The `%` operator only works with integers - there are also functions available for floating-point number.
+
+Modulo is very useful in computing - it is used to determine whether a number is even, or a multiple of 10 etc. by checking if the corresponding remainder value is zero.
+
 ```
+- Add `#include <cmath>` and replace `4+7` with `pow(4,7)` and rerun. See next section for details.
+- Try using `-` as a prefix on a number, what effect does that have?
+
 ````{exercise-end}
 ````
 `````{code_example-end}
@@ -99,7 +113,9 @@ The try using `-` as a prefix on a number, what effect does that have?
 
 To access additional mathematical functions, we can include the `<cmath>` component of the standard library.
 
-````{syntax-start} <cmath> Functions
+It may be necessary to use `std::` to access these functions in some compilers - but not in 'Live Code' or in Visual Studio.
+
+````{syntax-start} std::cmath - Mathematical Functions
 :class: dropdown
 :nonumber:
 ````
@@ -145,85 +161,110 @@ To access additional mathematical functions, we can include the `<cmath>` compon
 ```
 ````{syntax-end}
 ````
-There are more useful functions and constants in the `<numbers>` component.
+More useful functions and constants are provided by `<numbers>`, e.g. `std::numbers::pi`. 
 
-For example `std::numbers::pi`. To access 'pi' – you need to include numbers and change "c++language standard" in Visual Studio under "project properties" to "c++20".
+Note: In Visual Studio you will need to change the 'c++language standard' under 'project properties' to 'c++20'.
 
 ## Variables
-A computer programme that can only perform arithmetic on {term}`literal` values written into the original programme code would not be very useful. 
+A computer program that can only perform arithmetic on {term}`literal` values written into the original program code would not be very useful. Instead, programmes must be able ask the user for the numeric values that are to be used in the calculations, or read values in from files, which requires the program to store this information and to be able to access and manipulate it later.
 
-Instead, programmes must be able ask for the numeric values that are to be used in the calculations. 
+Computers use {term}`variables` to store the values needed by a program. At its simplest: like in maths, a {term}`variable` is a {term}`name` that represents a value. The difference is that in maths the variable 'x' represents an unknown value, but in computing the variable called 'x' represents a specific value of a particular {term}`type` that is stored in the computer's memory.
 
-This requires the computer to store the number, and to be able to identify and manipulate it later.
+The {term}`name` allows the {term}`value` to be identified when needed, and the value of 'x' may be accessed (read or copied) or changed (not always permitted). 
 
-Computers use {term}`variables` for this purpose. 
+When a computer program is running: each time a variable name occurs - it is an instruction to the computer to fetch and use the value that is stored under that name at the time when that that line of code is executed.
 
-At its simplest: like in maths, the {term}`variable` is a {term}`name` that represents a value that will be stored by the computer.
-
-To get started we will look at creating two types of variables.
-
-To create a variable named `a` that holds the integer value of '5', we can used the statement `int a = 5;`.
-
-After this statement in the programme, the variable `a` may be used anywhere (see {term}`scope`) that we want to use its value of `5`.
-
-`````{code_example-start}
+``````{code_example-start} Working with Variables
 :label: Exampleb2
 :class: dropdown
-`````
-Type in the following code and try the exercise.
+:nonumber:
+``````
+Lets look at creating two types of variables in C++:
 
-````{code-block} cpp
+To create a variable named `a` that holds the integer value of '5', use the statement `int a = 5;`.
+
+`int` specifies that the type of the variable named 'a' is going to be an integer.
+
+After this statement in the program, the variable `a` may be used anywhere (see {term}`scope`) that we want to use its value of `5`.
+
+Type in following program into the 'Live Code' editor and hit {kbd}`run`.
+
+````{code-block} c++
 :linenos: 
-#include <isotream>
+#include <iostream>
 int main() {
     int a = 5;
-    std::cout << a;
+    std::cout << a << '\n';
     return 0;
 }
 ````
-````{code-cell} c++
+`````{code-cell} c++
 :tags: [remove-output]
 Type code here!
-````
+`````
 
-When the programme gets to `a` following the `<<` operator it sends the value of `a` to the screen, not the letter 'a'.
+When the program gets to the instance of the variable `a` following the `<<` operator it sends the value of `a` to the screen, not the letter 'a'.
 
-````{exercise}
+`````{exercise} Working with Variables
 :label: exerciseb1
 :class: dropdown
-Using the live code editor above, find out what happens when:
-- You define a second integer variable `b`, with a value and instruct the program to print out `a + b`? Try it in the live-code space above.
-- What would happen if you declared the second variable after the `std::cout` statement? Find out.
-
+:nonumber:
 After a variable has been declared and given a value, the value can be changed.
 
-- Add `a = 10;` after the first `std::cout` and another output statement to print the value of `a` again.
+1. After line 4 - `std::cout`: 
+- Add `a = 10;`
+- Add a second output statement to print the value of `a` again.
+- Find out what happens if you put the statements in a different order?
 
-```{solution} exerciseb1
+2. Define a second variable of integer type called `b` and give it a value.
+- Instruct the program to print out `a + b`.
+- What would happen if you declared the second variable after the `std::cout` statement? Find out.
+
+The value of a variable can be changed by using another variable.
+
+3. Add the statement `a = b;` and repeat the outputs.
+
+````{solution} exerciseb1
 :label: solutionb1
 :class: dropdown 
-- Now the program has evaluated the arithmetic sum of the values contained in `a` and `b` - and sent that single value to the character output stream.
-- 
 
+1.  The program executes statements sequentially, starting at the top. If the second output statement precedes the change of value, the number 5 is printed twice. If both output statements come after the change in value, then the number 10 is printed twice.
+
+2. Your program should now look like this:
+```{code-block} c++
+#include <iostream>
+int main() {
+    int a = 5;
+    int b = 10;
+    std::cout << a + b << '\n';
+    return 0;
+}
 ```
+The program now evaluates the arithmetic sum of the values contained in `a` and `b` - and sends the result to the character output stream.
+
+3. The value of variable `b` has been copied into the variable `a`. `b` is not affected by this operation.
+
 ````
-`````{code_example-end}
 `````
+``````{code_example-end}
+``````
 ## Strings
-Another useful type of variable is the `string` type. A {term}`string` is a series of individual characters. 
 
-To use string-type variables we need an additional component of the standard library, `<string>` to be included.
+A {term}`string` is a sequence of characters. In C++ strings are represented by the type `std::string`.
 
-The string literal must be enclosed in `""`. 
+`std::` indicates that a standard library facility is needed - in this case `<string>`.
 
-`````{code_example-start}
+A string {term}`literal` must be enclosed in `""`.
+
+`````{code_example-start} Strings
 :label: exampleb3
 :class: dropdown
+:nonumber:
 `````
 Try the following Code and complete the exercise.
-````{code-block} cpp
+````{code-block} c++
 :linenos: 
-#include <isotream>
+#include <iostream>
 **!! Insert code to add string library here !!**
 int main() {
     std::string a = "Fish";
@@ -236,7 +277,10 @@ int main() {
 Type code here!
 ````
 ````{exercise}
-Try adding a second variable, b, with a value of "-fingers", and then try printing out the value of `a + b` again.
+:class: dropdown
+:nonumber:
+- Add a second variable, `b`, of value "-fingers".
+- Output the value of `a + b` again.
 
 ```{code_explanation} exampleb3
 :class: dropdown
@@ -250,11 +294,12 @@ For a {term}`numeric data type` it performs 'addition', but for the {term}`strin
 
 ## More Data Types
 
-In addition to strings, and integers, we need variable from the {term}`floating-point number types` and {term}`char type`.
+In addition to strings, and integers, we need variables from the {term}`floating-point number types` and the {term}`char type`.
 
-`````{code_example-start}
+`````{code_example-start} Other Types
 :label: exampleb4
 :class: dropdown
+:nonumber:
 `````
 Correct the following code and add a line to print out all the named variables, separated by tabs.
 ````{code-cell} c++
@@ -269,22 +314,20 @@ return 0;
 }
 ````
 ````{code_explanation} exampleb4
-:class: note dropdown
-Single quotes denote a {term}`char type`. 
+:class: dropdown
+Single quotes denote a {term}`char` type, which may only hold a single character.
 
-`Float` and `double` are both used for {term}`floating-point numbers` - "double" denoting double precision (twice as many bits required for their representation in binary).
+`Float` and `double` are both used for {term}`floating-point numbers` - 'double' means double-precision (using twice as many bits to represent the number in binary). You will only need to use `double`
 
-Scientific notation is formatted using a lower or upper case `e` between the significant and the index WITHOUT ANY SPACES!!   
+Scientific notation is formatted using a lower case `e` (or upper case `E`) between the mantissa and the exponent WITHOUT ANY SPACES!!   
 
-`int` is the keyword for the {term}`integer type`. 
-
-`int` may be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long, `long long`. The modifiers may be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char, and `long` may precede `double`.
 ````
 `````{code_example-end}
 `````
-`````{exercise-start}
+`````{exercise-start} Data Types
 :label: exerciseb3
 :class: dropdown
+:nonumber:
 `````
 Try to fix this code:
 
@@ -303,7 +346,7 @@ return 0;
 :label: solutionb3
 :class: dropdown
 `string` type variables are part of the standard library and must be referenced by prefixing with `std::`
-```{code-block} cpp
+```{code-block} c++
 #include <iostream>
 #include <string>
 int main(){
@@ -313,7 +356,7 @@ int main(){
 return 0;
 }
 ```
-`int`, `float`, `double`, and `char` are all part of the {term}`core language`  - do not use `std::`
+`int`, `float`, `double`, and `char` are all part of the {term}`core language` - do not use `std::`
 ````
 `````{exercise-end}
 `````
@@ -360,13 +403,9 @@ From: https://ascii.co.uk/art/poem
 ```
 ````
 
-{term}`Escape sequences`, or 'escaped characters', are used to represent special characters within a string or character literal.
+{term}`Escape sequences`, or 'escaped characters', are used to represent special characters within a string or character literal. Certain characters in the program must be represented with {term}`escape sequences` because they are {term}`reserved characters` that have specific meaning to the compiler. These are mostly used in formatting output. A full list of escape characters in C++ can be found [here](https://en.cppreference.com/w/cpp/language/escape.html).
 
-Certain characters in the program must be represented with {term}`escape sequences` because they are {term}`reserved characters` that have specific meaning to the compiler.
-
-Each escape sequence is identified to the program by prefixing `\` to the escaped character.
-
-These are mostly used in formatting output. A full list of escape characters in C++ can be found [here](https://en.cppreference.com/w/cpp/language/escape.html).
+Each escape sequence is identified to the program by prefixing `\` to the escaped character. 
 
 `````{syntax-start} Escape Sequences
 :nonumber:
@@ -389,7 +428,7 @@ These are mostly used in formatting output. A full list of escape characters in 
   - Instructs the computer to put a vertical tab before any further output to the screen or file. 
 * - `\a`
   - Alert. 
-  - Instructs the computer to produce an 'Beep' alert sound - will not always work - depends on environment. 
+  - Instructs the computer to produce a 'Beep' alert sound - will not always work - depends on environment. 
 * - `\r`
   - Carriage Return. 
   - Instructs the computer to move the cursor to the beginning of the current line - used to overwrite a line. 
@@ -402,3 +441,4 @@ These are mostly used in formatting output. A full list of escape characters in 
 ```
 `````{syntax-end}
 `````
+

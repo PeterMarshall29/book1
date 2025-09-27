@@ -20,14 +20,14 @@ parts:
     - file: jupyternotebooks/objects_values_variables_and_constants  #E
     - file: jupyternotebooks/identifiers #W
     - file: jupyternotebooks/types   #F
-    - file: jupyternotebooks/arithmetic_data_types   #H
-    - file: jupyternotebooks/char_and_string       #I
-    - file: jupyternotebooks/boolean_type             #L
+      sections:
+        - file: jupyternotebooks/arithmetic_data_types   #H
+        - file: jupyternotebooks/char_and_string       #I
+        - file: jupyternotebooks/boolean_type             #L
     - file: jupyternotebooks/initialisation         #M   
     - file: jupyternotebooks/scope  #G  
     - file: jupyternotebooks/operations_and_operators   #K
-      sections:
-        - file: jupyternotebooks/exercise1  #ex1 
+    - file: jupyternotebooks/exercise1  #ex1 
         #- file: jupyternotebooks/quiz1 
   - caption: Introduction to C++ Week 2      
     chapters:
