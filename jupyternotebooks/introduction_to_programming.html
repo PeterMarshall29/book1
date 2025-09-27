@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.340f3983-df8f-44bc-9727-7f01008dbb38.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.b6266b4d-a1ab-432a-bca0-8a1bff9983d4.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-200a9b99-1b8e-41f3-847d-e59c0b915c40] svg, .mermaid[data-zoom-id=id-832de73b-0dbb-4238-8495-3d045b60c739] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-2c7d37b4-7405-4abb-be7f-d52444e3e1eb] svg, .mermaid[data-zoom-id=id-39b81791-bee0-4f4d-ad4f-2a5f5fe7be02] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -245,21 +245,21 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File (Week 7)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types in C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise1.html">Exercises Week 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
 <ul class="nav bd-sidenav">
@@ -581,20 +581,18 @@ document.write(`
 <h1>Introduction to Computer Programming<a class="headerlink" href="#introduction-to-computer-programming" title="Permalink to this heading">#</a></h1>
 <section id="computer-programmes">
 <h2>Computer Programmes<a class="headerlink" href="#computer-programmes" title="Permalink to this heading">#</a></h2>
-<p>Computer programmes are everywhere - not just inside computers.
-Your digital watch (if you are still wearing a watch…), calculator, smart speaker, and car are running <a class="reference internal" href="glossary.html#term-Embedded-Programmes"><span class="xref std std-term">embedded programmes</span></a>.</p>
-<p>A computer program is a sequence of instructions that tell a computer (and other devices) what to do. When the program runs, the computer’s processor interprets and acts on each instruction, and then moves on to the next instruction until the program completes execution.</p>
-<p>Software is the collection of programmes running on a computer. Once a device is programmed, the computer programmes are invisible.</p>
-<p>Hardware is the device that the software runs on - software controls hardware.</p>
-<p>The object of learning computer programming is to become able to write computer programmes that correctly instruct a device to perform a series of tasks; for example, to calculate some numbers, based on input from the keyboard, and to display the results on the screen.</p>
+<p>Computer programmes are everywhere - not just inside computers. Your digital watch (if you are still wearing a watch…), calculator, smart speaker, and car are running <a class="reference internal" href="glossary.html#term-Embedded-Programmes"><span class="xref std std-term">embedded programmes</span></a>.</p>
+<p>A computer program is a sequence of instructions that tell a computer (and other devices) what to do. When the program runs, the computer’s processor interprets and acts on each instruction and then moves on to the next instruction until the program completes execution.</p>
+<p>Computers are indispensable in many aspects of modern life - and particularly useful for physics research. Computers perform complex calculations with greater speed than any human without making any mistakes. Physicists learn programming to harness the capabilities of computers to numerically solve problems in physics that may not have analytical solutions or have data sets that are too complex for a human to analyse.</p>
 <p>The final result of programming is usually an executable program, which is a <a class="reference internal" href="glossary.html#term-Binary-File"><span class="xref std std-term">binary file</span></a> capable of running directly on the machine’s hardware.</p>
+<p>Software is the collection of programmes running on a computer. Hardware is the device that the software runs on - software controls hardware.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Executable files are identified by the file extension <code class="docutils literal notranslate"><span class="pre">.exe</span></code> (Windows only).</p>
 </div>
-<p>It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a program written in a <strong>human readable</strong> language, such as C++, into an executable program that can actually run on the hardware.</p>
+<p>It is not necessary to understand how the computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a program written in a <strong>human readable</strong> language, such as C++, into an executable program that can actually run on the hardware.</p>
 <p>The computer code in an executable file is written in <a class="reference internal" href="glossary.html#term-Machine-Code"><span class="xref std std-term">machine code</span></a>, which is <a class="reference internal" href="glossary.html#term-Binary"><span class="xref std std-term">binary</span></a>. We could write computer programmes in binary, but it would be extremely difficult. The programmes we write are built on components written in binary.</p>
-<p>Binary files are not necessarily executable; Library files may be written in binary, which are then used by an executable, providing extra functionality or data.</p>
+<p>Binary files are not necessarily executable; library files may be written in binary, which are then used by an executable, providing extra functionality or data.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Wiki on <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">Machine_code</a></p>
@@ -618,8 +616,7 @@ Syntax is unique to each language - each language requires a different set of sy
 <li><p>The syntax would be the spelling and grammer.</p></li>
 <li><p>The sematics would be the syntactially correct sentences making sense to the reader, both individually and when read together.</p></li>
 </ul>
-<p>A syntax errors occurs when the syntax is incorrect. For example, forgetting the <code class="docutils literal notranslate"><span class="pre">;</span></code> at the end of a statement in C++.
-Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.</p>
+<p>A syntax errors occurs when the syntax is incorrect. For example, forgetting the <code class="docutils literal notranslate"><span class="pre">;</span></code> at the end of a statement in C++. Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.</p>
 <p>Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable program that does not work correctly.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
@@ -691,7 +688,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-200a9b99-1b8e-41f3-847d-e59c0b915c40" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-2c7d37b4-7405-4abb-be7f-d52444e3e1eb" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -722,7 +719,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-832de73b-0dbb-4238-8495-3d045b60c739" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-39b81791-bee0-4f4d-ad4f-2a5f5fe7be02" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input

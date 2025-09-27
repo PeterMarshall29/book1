@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.8233df97-df16-4421-93db-a929f8f6ffe3.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.bc7c8a85-6413-4890-8f4d-d69e03f51758.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/firstprogram';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -208,21 +208,21 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">First C++ Program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File (Week 7)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types in C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise1.html">Exercises Week 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
 <ul class="nav bd-sidenav">
@@ -535,32 +535,32 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="first-c-program">
 <h1>First C++ Program<a class="headerlink" href="#first-c-program" title="Permalink to this heading">#</a></h1>
-<p>The first program that most people ever write prints “Hello, World!” the first program that most people ever write, because it is traditionally the first one taught - printing words to screen is as simple as it gets, but proves the software is correctly installed.</p>
+<p>The first program that most people ever write simply prints “Hello, World!” to a display device, mainly because it has become a tradition to teach this first. Printing words to screen is also the simplest way to confirm that your software is correctly installed on your system.</p>
 <div class="seealso margin admonition">
 <p class="admonition-title">History of the Hello World Program</p>
 <p>See the <a class="reference external" href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello, World! program</a> page for the history of the “Hello, world!” program.</p>
 </div>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To run a code block that has been edited, select the block (mouse click inside it), then simultaneously press <kbd class="kbd docutils literal notranslate">Shift</kbd> + <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<p>When you move to a new page on this website - click on the rocket icon at the top to start the Live Code Editors - this can take a few minutes to start, but when its ready, hitting ‘run’ should be very quick.</p>
 </div>
-<div class="code_example admonition" id="jupyternotebooks/firstprogram-code_example-0">
+<div class="code_example admonition" id="examplea1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 1 </span></p>
+<p class="admonition-title">Code Example: First Program </p>
 <section id="code_example-content">
 <div class="literal-block-wrapper docutils container" id="codea1">
 <div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Hello World program</span><a class="headerlink" href="#codea1" title="Permalink to this code">#</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="linenos">2</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="linenos">3</span><span class="w">	</span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-</span><span class="linenos">4</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="hll"><span class="linenos">3</span><span class="w">  </span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span class="linenos">4</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="linenos">5</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <p>Type the above code into the empty code window below. Turn on the Live Code editor using the Rocket Icon at the top of the page.</p>
-<p>Please type the code exactly as shown - the code will fail if there are any mistakes in the syntax.</p>
-<p>In <a class="reference internal" href="#codea1"><span class="std std-ref">Code 1</span></a> the highlighted statement is the code that the programmer actually wanted implemented - everything else is require for all C++ programmes just to work.</p>
+<p>Please type the code exactly as shown - the program will fail if there are any mistakes in the ‘syntax’.</p>
+<p>In <a class="reference internal" href="#codea1"><span class="std std-ref">Listing 1</span></a> - the highlighted statement is the instruction that the programmer actually wanted to implement - everything else is required to create a working C++ program.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="o">!</span>
@@ -568,92 +568,104 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Code Explanation</p>
+<div class="code_explanation dropdown admonition" id="explanationa1">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplea1"> Code Example: First Program </a></p>
+<section id="code_explanation-content">
+<p>The parts of the “Hello, World!” program:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </pre></div>
 </div>
-<p>C++ programs rely upon libraries - you will not get far without at least one of these, because they include basic ‘facilities’ needed such as the code required to allow you to print out a value to the computer.</p>
-<p><code class="docutils literal notranslate"><span class="pre">#include</span></code> provide access to the libraries required by your code. It is an instruction that the contents of a header file are copied into the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file when the code is compiled.</p>
-<div class="dropdown admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;..facility_name_here..&gt;</span></code> to include <a class="reference internal" href="glossary.html#term-Standard-Library-Facilities"><span class="xref std std-term">standard library facilities</span></a> and <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;&lt;header_file_name.h&quot;</span></code> for user defined <a class="reference internal" href="glossary.html#term-Header-Files"><span class="xref std std-term">header files</span></a></p>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> is the <a class="reference internal" href="glossary.html#term-Standard-Library-Facility"><span class="xref std std-term">standard library facility</span></a> containing the functions needed for input and output (writing to the computer screen and accepting input from the keyboard etc…)</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="o">**</span><span class="n">code</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="o">**</span>
-<span class="p">}</span>
+<p>C++ programs rely upon libraries - you will not get far without at least one of these, because the additional libraries include basic ‘facilities’ that your program is going to need, such as the code for the commands required to allow you to print out a value to the computer’s display.</p>
+<p><code class="docutils literal notranslate"><span class="pre">#include</span></code> instructs the computer to provide access to the library named in the angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>.</p>
+<p>```{syntax} <code class="docutils literal notranslate"><span class="pre">#include</span></code></p>
+<dl class="myst field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dropdown
+<code class="docutils literal notranslate"><span class="pre">#include</span></code> is a <a class="reference internal" href="glossary.html#term-Directive"><span class="xref std std-term">directive</span></a> instructing the <a class="reference internal" href="glossary.html#term-Preprocessor"><span class="xref std std-term">preprocessor</span></a> to copy the contents of the named library or header file into the source file.</p>
+</dd>
+</dl>
+<p>Use <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;facility_name_here&gt;</span></code> to include <a class="reference internal" href="glossary.html#term-Standard-Library-Facilities"><span class="xref std std-term">standard library facilities</span></a> and <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;header_file_name.h&quot;</span></code> for user-defined <a class="reference internal" href="glossary.html#term-Header-Files"><span class="xref std std-term">header files</span></a>.</p>
+<p><a class="reference internal" href="glossary.html#term-Standard-Library-Facilities"><span class="xref std std-term">standard library facilities</span></a> are components of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`&lt;iostream&gt;` is the part of the {term}`standard library` that contains specific functions for {term}`input` and {term}`output` i.e. writing to the computer&#39;s display and accepting inputs from the keyboard etc.
+
+```{code-block} c++
+int main() {
+**code statements go here**
+return 0;
+}
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">main()</span></code> is a <a class="reference internal" href="glossary.html#term-Function"><span class="xref std std-term">function</span></a>.
-All C++ programs require a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function (or an equivalent).</p>
-<p>For longer programs that have many functions - the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is the starting point for the logical implementation of the code.</p>
-<p>Functions are explained <a class="reference internal" href="introduction_to_functions.html"><span class="doc">here</span></a>, but you can safely leave this topic until week 2. we will cover functions properly next week.</p>
+<p><code class="docutils literal notranslate"><span class="pre">main()</span></code> is a <a class="reference internal" href="glossary.html#term-Function"><span class="xref std std-term">function</span></a>. Functions are explained <a class="reference internal" href="introduction_to_functions.html"><span class="doc">here</span></a>, but you can safely leave this topic until week 3.</p>
+<p>All C++ programs require a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function (or an equivalent). Longer programs may have many functions - but the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is always the starting point for the logical implementation of every program.</p>
 <p>Briefly:</p>
 <ul class="simple">
 <li><p>“main” is the name of the function.</p></li>
-<li><p>The empty parentheses (parens) `main()’ indicates that the main function takes no inputs.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">main()</span></code> returns an integer value <code class="docutils literal notranslate"><span class="pre">int</span></code>, and (usually) the code must make that true.</p></li>
+<li><p>The empty parentheses (parens) `main()’ indicate that the main function takes no inputs.</p></li>
+<li><p>The leading <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> <code class="docutils literal notranslate"><span class="pre">int</span></code> indicates that when the rest of the instructions in the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function have been executed, the program will be end by sending (returning) an integer value.</p></li>
 </ul>
+<p>To get started - just add <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code> to the bottom of all your <code class="docutils literal notranslate"><span class="pre">main()</span></code> functions.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is the code used for writing to screen; pronounced ‘” - out”, and called the character output stream.</p>
-<p><code class="docutils literal notranslate"><span class="pre">std</span></code> identifies that <code class="docutils literal notranslate"><span class="pre">cout</span></code> is found in the standard library facilities.</p>
-<p><code class="docutils literal notranslate"><span class="pre">::</span></code> is the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">scope resolution operator</span></a> - think of it as a way of describing the location or ownership of parts of the syntax.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is called the <strong>character output stream</strong>, pronounced “see-out” - this is the command used to instruct the program to write to the screen.</p>
+<p><code class="docutils literal notranslate"><span class="pre">std</span></code> identifies that <code class="docutils literal notranslate"><span class="pre">cout</span></code> is found in the standard library facilities - there is no need to specify which facility.</p>
+<p><code class="docutils literal notranslate"><span class="pre">::</span></code> is the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">scope resolution operator</span></a> - think of it as a way of describing the location or ownership of parts of the syntax in order to access them.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> is the <a class="reference internal" href="glossary.html#term-Insertion-Operator"><span class="xref std std-term">insertion operator</span></a>; often called the ‘write to’ operator.</p>
-<p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">World!\n&quot;</span></code> is a <code class="docutils literal notranslate"><span class="pre">string</span></code>. String <a class="reference internal" href="glossary.html#term-Literals"><span class="xref std std-term">literals</span></a> are delimited (bracketed) by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>; explained <a class="reference internal" href="types.html"><span class="doc">here</span></a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">\n</span></code> is an <a class="reference internal" href="glossary.html#term-Escape-Sequence"><span class="xref std std-term">escape sequence</span></a> - this escape character tells the computer to print anything after it on a newline.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> specifies what the function produces (returns).</p>
-<p>If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.</p>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">World!\n&quot;</span></code> is a <code class="docutils literal notranslate"><span class="pre">string</span></code>. String <a class="reference internal" href="glossary.html#term-Literals"><span class="xref std std-term">literals</span></a> are delimited (bracketed) by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>; explained <a class="reference internal" href="char_and_string.html"><span class="doc">here</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">\n</span></code> is an <a class="reference internal" href="glossary.html#term-Escape-Sequence"><span class="xref std std-term">escape sequence</span></a> - the escaped character <code class="docutils literal notranslate"><span class="pre">n</span></code> instructs the computer to print anything after it on a new line.</p>
 </section>
 </div>
-<div class="margin admonition seealso">
+</section>
+</div><div class="margin admonition seealso">
 <p class="admonition-title">See also</p>
 <p>More information about the structure of the <a class="reference internal" href="the_cpp_language.html"><span class="doc std std-doc">C++ language</span></a>.</p>
 </div>
 <div class="exercise dropdown admonition" id="exercisea1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
+<p class="admonition-title">Exercise  First Program - Syntax Rules  </p>
 <section id="exercise-content">
 <p>Try making the following changes to the above code - run the code after each change and note what happens.</p>
 <ul class="simple">
 <li><p>Remove the semicolon in line 3 or 4.</p></li>
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">std::</span></code> from line 3.</p></li>
 <li><p>Replace the angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> in the first line with speech marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p></li>
-<li><p>Change the returned value from 0 to 1, and then to a letter.</p></li>
 <li><p>Remove the return line.</p></li>
 <li><p>Add some whitespace (spaces) to the code.</p></li>
 <li><p>Change some letters to capitals</p></li>
+<li><p>Change the returned value from 0 to 1, then to 2.0, and then to a letter.</p></li>
+<li><p>Change the return value to <code class="docutils literal notranslate"><span class="pre">'r'</span></code> and then to <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>.</p></li>
+<li><p>Change the return value to <code class="docutils literal notranslate"><span class="pre">'0'</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> - note the code number stated in the terminal output.</p></li>
 </ul>
 <div class="solution dropdown admonition" id="solutiona1">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisea1"> Exercise 1</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisea1"> Exercise  First Program - Syntax Rules  </a></p>
 <section id="solution-content">
 <ul class="simple">
-<li><p>A semicolon is required need at the end of each statement – exceptions <code class="docutils literal notranslate"><span class="pre">include</span></code>, <code class="docutils literal notranslate"><span class="pre">includes</span></code> and after <code class="docutils literal notranslate"><span class="pre">{</span></code> or <code class="docutils literal notranslate"><span class="pre">}</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is not part of the <strong>C++ core language</strong> and comes instead from the <strong>Standard Library</strong>.</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">std::</span></code> denotes the namespace that <code class="docutils literal notranslate"><span class="pre">cout</span></code> belongs to (like a folder designation, provided you have ‘included’ the required library component).</p>
-<ul class="simple">
-<li><p>To include components of the standard library angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> are used, but we can also include additional code written by the programmer in <a class="reference internal" href="header_files.html"><span class="doc">**header files**</span></a>, which are included using speech marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;myheaderfile.h&quot;</span></code>.</p></li>
-<li><p>Any number you return is converted to an integer, so a float is fine, but a string literal will cause failure.
-The returned value is reported to whoever called the function, in the case of main() the system is the caller. In Linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.</p></li>
+<li><p>A semicolon is required at the end of each statement – exceptions after directive such as <code class="docutils literal notranslate"><span class="pre">#include</span></code> and after <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is not part of the <strong>C++ core language</strong> and comes instead from the <strong>Standard Library</strong>. Only parts of the core languages do not require <code class="docutils literal notranslate"><span class="pre">std::</span></code>. <code class="docutils literal notranslate"><span class="pre">std::</span></code> denotes the <a class="reference internal" href="glossary.html#term-Namespace"><span class="xref std std-term">namespace</span></a> that <code class="docutils literal notranslate"><span class="pre">cout</span></code> belongs to (like a folder designation but only works if you ‘included’ the required library component).</p></li>
+<li><p>To include components of the standard library angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> are used, but we can also include additional code written by the programmer in <a class="reference internal" href="header_files.html"><span class="doc">**header files**</span></a>, which are included using speech marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> instead i.e. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;myheaderfile.h&quot;</span></code>.</p></li>
 <li><p>This is usually only possible in the main function, but not on every platform.</p></li>
 <li><p>Whitespace is ignored in C++ - not true in other languages!</p></li>
 <li><p>C++ is <a class="reference internal" href="glossary.html#term-Case-Sensitive"><span class="xref std std-term">case sensitive</span></a>.</p></li>
 </ul>
+<p>Note: The following works differently in the ‘Live Code’ editor.</p>
+<ul class="simple">
+<li><p>Only <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">0.0</span></code> working in <code class="docutils literal notranslate"><span class="pre">Live</span> <span class="pre">Code</span></code>.</p></li>
+</ul>
+<p>In Visual Studio, or Xcode, you would find the following:</p>
+<ul class="simple">
+<li><p>Any number you return is converted to an integer, so a <a class="reference internal" href="glossary.html#term-Floating-Point-Number"><span class="xref std std-term">floating-point number</span></a> will work, but a non-numeric character cause failure because it will be interpreted as a variable name.</p></li>
+<li><p>Single quotes denote the ‘char’ type which is used for single characters only. ‘char’ converts to <code class="docutils literal notranslate"><span class="pre">int</span></code>, so is acceptable. Double quotes denote the <code class="docutils literal notranslate"><span class="pre">string</span></code> type or an array of <code class="docutils literal notranslate"><span class="pre">char</span></code> type, which do not convert to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'0'</span></code> has code 48 and <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> does not work. Again not in live editor.</p></li>
+<li><p>The returned value is reported to whoever called the function, in the case of main() the system is the caller. In Linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.</p></li>
+</ul>
 </section>
 </div>
 </section>
-</div>
-<div class="exercise dropdown admonition" id="exercisea2">
+</div><div class="exercise dropdown admonition" id="exercisea2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
+<p class="admonition-title">Exercise  Practice Fixing Syntax Errors  </p>
 <section id="exercise-content">
 <p>This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.</p>
 <div class="cell tag_remove-output docutils container">
@@ -669,38 +681,37 @@ The returned value is reported to whoever called the function, in the case of ma
 </div>
 <div class="solution dropdown admonition" id="solutiona2">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisea2"> Exercise 2</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisea2"> Exercise  Practice Fixing Syntax Errors  </a></p>
 <section id="solution-content">
-<p>pre comment</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<p>Try not to look at the solutions until you have attempted the exercise… you will find that both your understanding and retention are improved compared to just looking at a solution.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Put your name here!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Put your name here!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 </section>
-</div>
-<section id="c-comments">
+</div><section id="c-comments">
 <h2>C++ Comments<a class="headerlink" href="#c-comments" title="Permalink to this heading">#</a></h2>
-<p><a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">Comments</span></a> are plain text added to a C++ source or header file that will be ignored by the compiler.</p>
-<p>Comments are used are notes and reminders for people who are trying to understand and use the code.</p>
+<p><a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">Comments</span></a> are plain text added to a C++ source file that will be not part of the program - they are removed before the source code is compiled.</p>
+<p>Comments are used as notes for anyone trying to understand the program, and reminders to the authors of what they meant when they wrote the code.</p>
 <p>When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by ‘commenting them out`.</p>
-<p>Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable and easier for others to use.</p>
-<p>Since the comments are ignore, there are no special rules for them, except that they must be identified as <a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">comments</span></a>.</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/firstprogram-syntax-5">
+<p>Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable, and easier for others to use.</p>
+<p>Since the comments are ignored, there are no special rules for them, except that they must be identified as <a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">comments</span></a>.</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/firstprogram-syntax-6">
 
 <p class="admonition-title">Syntax Rules: Comments </p>
 <section id="syntax-content">
-<p>Comments may be added to code in two ways:</p>
+<p>Comments may be added to a C++ program in two ways:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="sr">//</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">C</span><span class="o">++</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">comment</span>
 <span class="sr">//</span><span class="w"> </span><span class="no">Another</span><span class="w"> </span><span class="n">one</span>
 <span class="kp">include</span><span class="w"> </span><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span> <span class="sr">//</span><span class="w"> </span><span class="no">This</span><span class="w"> </span><span class="n">comment</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">affect</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">line!</span>
 
-<span class="sr">/* C-style codes are also used </span>
+<span class="sr">/* C-style comments are also used </span>
 <span class="sr">*/</span>
 
 <span class="sr">/* Best </span>
@@ -710,9 +721,13 @@ The returned value is reported to whoever called the function, in the case of ma
 <span class="sr">*/</span>
 </pre></div>
 </div>
-<p>C++ style comments have <code class="docutils literal notranslate"><span class="pre">//</span></code> at the start of the comment.</p>
-<p>Multiline comments can be created by surround any text with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>. These may not be nested!</p>
-<p>Most editors will create a multiline comment if you highlight the code by dragging clicking and dragging the mouse across it and then simultaneously pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">/</kbd>.</p>
+<p>For a single line comment just put <code class="docutils literal notranslate"><span class="pre">//</span></code> at the start of the comment - this can be after a line of code, even after an opening curly brace <code class="docutils literal notranslate"><span class="pre">{</span></code>.</p>
+<p>Multiline comments can be created by surrounding any text with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Multiline comments may not be nested!</p>
+</div>
+<p>Most editors will create a multiline comment for you - highlight the code by clicking and dragging the mouse across it and then simultaneously pressing <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">/</kbd>.</p>
 </section>
 </div></section>
 </section>

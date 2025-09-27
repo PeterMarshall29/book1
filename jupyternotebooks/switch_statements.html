@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.a5de80c7-ef66-4c48-b63d-56c288255c01.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.d77a3242-d584-4c03-a18e-3088ae5e9c73.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-98316c71-f850-4bf7-a8c4-7e8f0d610376] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-bd42c34d-23b6-49f5-9949-27044b13e95a] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -245,21 +245,21 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File (Week 7)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types in C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise1.html">Exercises Week 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
 <ul class="current nav bd-sidenav">
@@ -593,7 +593,7 @@ document.write(`
 <p>The break-statements prevent more than one case being triggered
 The break statements are not optional.</p>
 <p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-98316c71-f850-4bf7-a8c4-7e8f0d610376" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-bd42c34d-23b6-49f5-9949-27044b13e95a" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
@@ -644,7 +644,7 @@ The break statements are not optional.</p>
 </div>
 <div class="code_example dropdown admonition" id="exampler1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 33 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 23 </span></p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -675,7 +675,7 @@ The break statements are not optional.</p>
 </div>
 <div class="code_explanation dropdown note admonition" id="explanationr1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampler1"> Code Example 33</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampler1"> Code Example 23</a></p>
 <section id="code_explanation-content">
 <p>In this example, the while loop is just to keep the program running – we are only interested in the switch loop.</p>
 <p>constexpr double cm_per_inch = 2.54 - the conversion factor.</p>
@@ -686,7 +686,7 @@ The break statements are not optional.</p>
 <p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute the syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 28 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
 <section id="exercise-content">
 <ul class="simple">
 <li><p>Try removing the break statement from the default case.</p></li>
@@ -702,7 +702,7 @@ The break statements are not optional.</p>
 </div>
 <div class="code_example dropdown admonition" id="exampler2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 34 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 24 </span></p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -747,12 +747,12 @@ The break statements are not optional.</p>
 </div>
 <div class="code_explanation dropdown hint admonition" id="explanationr2">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampler2"> Code Example 34</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampler2"> Code Example 24</a></p>
 <section id="code_explanation-content">
 <p>words</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 29 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
 <section id="exercise-content">
 <p>wrds</p>
 </section>

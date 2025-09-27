@@ -13,20 +13,37 @@ kernelspec:
 
 There is no big secret to learning C++.
 
-Computer languages are just complicated sets of instructions. It can be difficult at first to work out what the references and textbooks are telling you because of new vocabulary and lack of experience - but with a little time and effort eventually it all becomes clear, and actually a lot simpler than it seemed at first glance!
+Computer languages are just complicated sets of instructions. It can be difficult at first to work out what the cppreference website or textbooks are telling you because of the large amount of new vocabulary.
+
+As your experience of programming builds you will find that these resources do start to appear a lot simpler to understand than your initial impressions might lead you to believe. 
+
+Only time and perseverence can improve your ability to learn new programming languages and concepts.
 
 
 ## The Secret to Becoming Really Good at C++ Programming
 
 ````{admonition} TOP SECRET INFORMATION
 :class: dropdown warning
-```{admonition} DONT LOOK AT THIS!
-:class: dropdown danger
-The 2 secrets to becoming a skilled programmer............... 
+
+The only way to develop strong programming skills.............. 
 
 Practice, practice, and yep....., more PRACTICE!
 
-And learning how to follow the instructions! 
+Not a secret!
+
+```{admonition} DONT LOOK AT THIS!
+:class: dropdown danger```{admonition} DONT LOOK AT THIS!
+:class: dropdown danger
+
+A computer would not have clicked the button! 
+
+Computers can only follow instuctions. 
+
+If a program will not compile your program - your instructions are not in the correct form. 
+
+If a program does 'run', but does not work correctly - the computer is doing exactly what you told it to do!
+
+Remeber **GIGO** - Garbage in, Garbage out!
 ```
 ````
 ```{note}
@@ -35,11 +52,11 @@ And learning how to follow the instructions!
 > "If you never fail, your aren't trying hard enough"
 ```
 
-## Growth Mindset
+## Growth Mindsets
 
 Pschologist Carol Dweck developed the theory of the growth and fixed mindsets. People with a growth mindset believe that their abilities, intelligence, and talents can be developed through effort, learning, and persistence. They understand that their brain is akin to a muscled that is strengthened by practice and struggling with new ideas and acivities.
 
 A fixed mindset believes that you are either good at something or not - this is usually wrong and always self defeating. 
 
-Most students will not just know more when they leave university - they will be smarter - as a result of the work they have done. WORK is the key.
+Most students will not just know more when they leave university - they will be smarter - as a result of the work they have done. **WORK** is the important part of the sentence - if you coast through your studies you will not improve.
 

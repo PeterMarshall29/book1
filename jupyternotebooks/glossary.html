@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.a9c6ae9c-edd7-4214-b6e8-e9977721bc0f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.5f73e620-51d9-449b-bfdb-122ed59c85fd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/glossary';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -208,21 +208,21 @@
 <li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File (Week 7)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types in C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise1.html">Exercises Week 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
 <ul class="nav bd-sidenav">
@@ -540,6 +540,8 @@ document.write(`
 </dd>
 <dt id="term-Binary-File">Binary File<a class="headerlink" href="#term-Binary-File" title="Permalink to this term">#</a></dt><dd><p>File containing only binary code.</p>
 </dd>
+<dt id="term-Buffer">Buffer<a class="headerlink" href="#term-Buffer" title="Permalink to this term">#</a></dt><dd><p>A memory space used for temporarily storing data before processing (e.g. assigning to a variable), or writing to a file. Buffers are necessary because of the vast differences in speed between data producers and consumers.</p>
+</dd>
 <dt id="term-Camel-Case">Camel Case<a class="headerlink" href="#term-Camel-Case" title="Permalink to this term">#</a></dt><dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a> is one of the naming conventions used to improve the readability of code, whilst avoiding the use of the ‘underscore’ character.</p>
 </dd>
 <dt id="term-Case-Sensitive">Case Sensitive<a class="headerlink" href="#term-Case-Sensitive" title="Permalink to this term">#</a></dt><dd><p>Upper and lower case letters are interpreted as different symbols and different values. If a keyword is all lower case, you MUST use all lower case. The name <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> is distinct from the name <code class="docutils literal notranslate"><span class="pre">myfunction</span></code>. Adopting a strict convention for naming, such as <a class="reference internal" href="#term-Camel-Case"><span class="xref std std-term">camel case</span></a> makes it easier to avoid this mistake.</p>
@@ -664,6 +666,8 @@ document.write(`
 </dd>
 <dt id="term-Falling-Through">Falling Through<a class="headerlink" href="#term-Falling-Through" title="Permalink to this term">#</a></dt><dd><p>When a program reaches the end of code-block and just continues onto the next statements. Causes an error for a function if a return is expected but permitted for <code class="docutils literal notranslate"><span class="pre">void</span></code>.</p>
 </dd>
+<dt id="term-Floating-Point-Number">Floating-Point Number<a class="headerlink" href="#term-Floating-Point-Number" title="Permalink to this term">#</a></dt><dd><p>Number with a decimal point. Represented in code by the addition of <code class="docutils literal notranslate"><span class="pre">.0</span></code> to whole numbers.</p>
+</dd>
 <dt id="term-Floating-Point-Numbers">Floating-Point Numbers<a class="headerlink" href="#term-Floating-Point-Numbers" title="Permalink to this term">#</a></dt><dd><p>Numbers with a decimal point. Represented in code by the addition of <code class="docutils literal notranslate"><span class="pre">.0</span></code> to whole numbers.</p>
 </dd>
 <dt id="term-Floating-Point-Number-Types">Floating-Point Number Types<a class="headerlink" href="#term-Floating-Point-Number-Types" title="Permalink to this term">#</a></dt><dd><p>Float, Double, and Long Double. Floating-point literals are interpreted as <code class="docutils literal notranslate"><span class="pre">double</span></code> type unless the letter ‘f’ or ‘l’ is added as a suffix.</p>
@@ -710,6 +714,8 @@ document.write(`
 </dd>
 <dt id="term-Global-Scope">Global Scope<a class="headerlink" href="#term-Global-Scope" title="Permalink to this term">#</a></dt><dd><p>Variables declared outside of all functions and classes have global scope. Global variables are accessible throughout the program, unless ‘shadowed’ by a local variable with the same name. Global variables are best avoided unless necessary because they may result in unintended consequences in execution.</p>
 </dd>
+<dt id="term-Header-File">Header File<a class="headerlink" href="#term-Header-File" title="Permalink to this term">#</a></dt><dd><p>Header files in C++ are essential for organizing and managing code in large projects. They contain declarations of functions, classes, variables, and other identifiers, that inform the compiler about the existence and type of these elements without providing their actual implementation. This separation allows multiple source files to share the same declarations, ensuring consistency and reducing errors, and include them wherever needed, reducing redundancy and improving code maintainability.</p>
+</dd>
 <dt id="term-Header-Files">Header Files<a class="headerlink" href="#term-Header-Files" title="Permalink to this term">#</a></dt><dd><p>Header files in C++ are essential for organizing and managing code in large projects. They contain declarations of functions, classes, variables, and other identifiers, that inform the compiler about the existence and type of these elements without providing their actual implementation. This separation allows multiple source files to share the same declarations, ensuring consistency and reducing errors, and include them wherever needed, reducing redundancy and improving code maintainability.</p>
 </dd>
 <dt id="term-Heap">Heap<a class="headerlink" href="#term-Heap" title="Permalink to this term">#</a></dt><dd><p>The heap is a region of memory used for dynamic memory allocation. Unlike the stack, the heap is managed manually by the programr or automatically by a garbage collector.</p>
@@ -736,6 +742,8 @@ document.write(`
 </dd>
 <dt id="term-initialiser-List">initialiser List<a class="headerlink" href="#term-initialiser-List" title="Permalink to this term">#</a></dt><dd><p>A comma-delimited list of expressions enclosed in curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>; used to initialize a <code class="docutils literal notranslate"><span class="pre">struct</span></code> or an array.</p>
 </dd>
+<dt id="term-Input">Input<a class="headerlink" href="#term-Input" title="Permalink to this term">#</a></dt><dd><p>The process of sending data or instructions to a computer system for processing. The data comes from input devices. The computer’s CPU processes the input to generate meaningful <a class="reference internal" href="#term-Output"><span class="xref std std-term">output</span></a>.</p>
+</dd>
 <dt id="term-Integer-type">Integer type<a class="headerlink" href="#term-Integer-type" title="Permalink to this term">#</a></dt><dd><p>Type for integer values (whole numbers - positive and negative and zero). May be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>. The modifiers may be used on their own, and <code class="docutils literal notranslate"><span class="pre">int</span></code> is implied; but <code class="docutils literal notranslate"><span class="pre">signed</span></code> and <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> may also precede <code class="docutils literal notranslate"><span class="pre">char</span></code>.</p>
 </dd>
 <dt id="term-Iteration">Iteration<a class="headerlink" href="#term-Iteration" title="Permalink to this term">#</a></dt><dd><p>Iteration means repetition. In computing the same set of instructions, possibly with variations in values, often need to be repeated. Iteration statements are used to instruct the program to repeat a sequence of statements a variable number of times.</p>
@@ -754,7 +762,7 @@ document.write(`
 </dd>
 <dt id="term-List-Initialisation">List-Initialisation<a class="headerlink" href="#term-List-Initialisation" title="Permalink to this term">#</a></dt><dd><p>Initialization using <code class="docutils literal notranslate"><span class="pre">{}</span></code> e.g. <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">myInt</span> <span class="pre">{initial</span> <span class="pre">value</span> <span class="pre">or</span> <span class="pre">expression</span> <span class="pre">to</span> <span class="pre">produce</span> <span class="pre">the</span> <span class="pre">initial</span> <span class="pre">value};</span></code></p>
 </dd>
-<dt id="term-Literal">Literal<a class="headerlink" href="#term-Literal" title="Permalink to this term">#</a></dt><dd><p>A fixed value written directly into a program. e.g. the number ‘1’, generally found on the RHS of assignment operations. The notation used for Boolean types, character types, string types, numeric types etc., e.g. the work <code class="docutils literal notranslate"><span class="pre">true</span></code> is a Boolean literal when used appropriately.</p>
+<dt id="term-Literal">Literal<a class="headerlink" href="#term-Literal" title="Permalink to this term">#</a></dt><dd><p>A fixed value written directly into a program. e.g. the number ‘1’, generally found on the RHS of assignment operations. The notation used for Boolean types, character types, string types, numeric types etc., e.g. the word <code class="docutils literal notranslate"><span class="pre">true</span></code> is a Boolean literal when used appropriately.</p>
 </dd>
 <dt id="term-Literals">Literals<a class="headerlink" href="#term-Literals" title="Permalink to this term">#</a></dt><dd><p>Literals are the tokens of a C++ program that represent constant values embedded in the source code.</p>
 </dd>
@@ -830,6 +838,8 @@ document.write(`
 </dd>
 <dt id="term-Operands">Operands<a class="headerlink" href="#term-Operands" title="Permalink to this term">#</a></dt><dd><p>Literals or variables operated on by operators in an expression.</p>
 </dd>
+<dt id="term-Output">Output<a class="headerlink" href="#term-Output" title="Permalink to this term">#</a></dt><dd><p>Output refers to data sent from a computer or electronic device, such as audio, graphics, text, and video. Output devices convert the data processed by a computer into a human-understandable form.</p>
+</dd>
 <dt id="term-Overloading">Overloading<a class="headerlink" href="#term-Overloading" title="Permalink to this term">#</a></dt><dd><p>Adding multiple definitions to a single operator (or function name). The different definitions apply to different types. For functions the type-pattern of its parameters must be unique.</p>
 </dd>
 <dt id="term-Pass-by-Reference">Pass-by-Reference<a class="headerlink" href="#term-Pass-by-Reference" title="Permalink to this term">#</a></dt><dd><p>Passing a reference to a variable as the argument of a function call. Allows the modification of that variable by the function.</p>
@@ -847,6 +857,8 @@ document.write(`
 <dt id="term-POD-Type">POD Type <a class="headerlink" href="#term-POD-Type" title="Permalink to this term">#</a></dt><dd><p>POD = “Plain Old Data”. A class or a struct that do not include any constructor, destructor or virtual functions - they only have int, char, double, bool, etc. as data members.</p>
 </dd>
 <dt id="term-Pointer">Pointer<a class="headerlink" href="#term-Pointer" title="Permalink to this term">#</a></dt><dd><p>A named object (variable) that stores the memory address of another object.</p>
+</dd>
+<dt id="term-Preprocessor">Preprocessor<a class="headerlink" href="#term-Preprocessor" title="Permalink to this term">#</a></dt><dd><p>Before the source code is passed to the compiler, the preprocessor handles directives (#include, #define, and #ifdef), replacing macros and copying the contents of libraries and header files into the source file, and removing any comments - to create a modified/preprocessed source file that is ready to be compiled.</p>
 </dd>
 <dt id="term-Print-Debugging">Print Debugging<a class="headerlink" href="#term-Print-Debugging" title="Permalink to this term">#</a></dt><dd><p>Using strategically positioned print statements to follow the control flow of a program’s execution. The print statements may just include an index to identify which statement produced it, or more detailed error/exception outputs.</p>
 </dd>
@@ -899,7 +911,7 @@ document.write(`
 </dd>
 <dt id="term-Static-Memory">Static Memory<a class="headerlink" href="#term-Static-Memory" title="Permalink to this term">#</a></dt><dd><p>Memory allocated by the <a class="reference internal" href="#term-Linker"><span class="xref std std-term">linker</span></a></p>
 </dd>
-<dt id="term-String">String<a class="headerlink" href="#term-String" title="Permalink to this term">#</a></dt><dd><p>Sequence of characters collected into a single variable. <code class="docutils literal notranslate"><span class="pre">string</span></code> is one of the <code class="docutils literal notranslate"><span class="pre">container</span></code> types in C++.</p>
+<dt id="term-String">String<a class="headerlink" href="#term-String" title="Permalink to this term">#</a></dt><dd><p>Sequence of characters collected into a single variable - a <code class="docutils literal notranslate"><span class="pre">char</span></code> array - denoted by a literal enclosed in double quote marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>. <code class="docutils literal notranslate"><span class="pre">std::string</span></code> provides a methods for manipulating strings. <code class="docutils literal notranslate"><span class="pre">std::string</span></code> behaves like a containter but is not part of the C++ <container> library.</p>
 </dd>
 <dt id="term-String-Data-Type">String Data Type<a class="headerlink" href="#term-String-Data-Type" title="Permalink to this term">#</a></dt><dd><p>Data consisting of a sequence of characters, bracketed by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>. Requires inclusion of <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> and access via <code class="docutils literal notranslate"><span class="pre">std::</span></code> namespace scope.</p>
 </dd>

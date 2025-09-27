@@ -10,13 +10,13 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercises 1
+# Exercises Week 1
 
-Add practice using comments
 
-`````{exercise-start}
-:label: exercisex11
+`````{exercise-start} 1A
+:label: exerciseex11
 :class: dropdown
+:nonumber:
 `````
 Write a program to print the following message in the terminal.
 
@@ -29,15 +29,16 @@ Code goes here...
 ````
 `````{exercise-end}
 `````
-`````{solution-start} exercisex11
-:label: solutionx11
+`````{solution-start} exerciseex11
+:label: solutionex11
 :class: dropdown
 `````
+This is one possible solution - try to improve on it.
 ````{code-block}
 #include <iostream>
 int main() {
-  std::cout << "\nWelcome to Loughborough!\n"; 
-	std::cout << "----------------------------------------------\n"; 
+  std::cout << "\nWelcome to Loughborough!\n";
+  std::cout << "----------------------------------------------\n"; 
   std::cout << "This is Compuational Physics - Part A. "<< std::endl; 
   return 0;
 } 
@@ -45,9 +46,10 @@ int main() {
 `````{solution-end}
 `````
 
-````{exercise-start} 
+````{exercise-start} 1B
 :label: exerciseex12
 :class: dropdown
+:nonumber:
 ````
 Write a program that ask for 4 double precision floating point numbers and returns their total and average.
 ```{code-cell} c++
@@ -57,7 +59,7 @@ Code goes here....
 ````{exercise-end}
 ````
 
-````{solution-start} exerciseex1
+````{solution-start} exerciseex12
 :label: solutionex12
 :class: dropdown
 ````
@@ -79,14 +81,14 @@ int main() {
 ````{solution-end}
 ````
 
-
-````{exercise-start} 
+````{exercise-start} 1C
 :label: exerciseex13
 :class: dropdown
+:nonumber:
 ````
 Write a program to demonstrate the effect of combining interger and double type numbers in a single arithemetic expression.
 Try all 5 arithmetic operators and include negative values.
-Use <iomanip> to control the precision of the outputs to 3 decimal places.
+Use `<iomanip>` to control the precision of the outputs to 3 decimal places.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -98,6 +100,7 @@ Code goes here....
 :label: solutionex13
 :class: dropdown
 ````
+This is one possible solution - how can it be improved?
 ```{code-block} c++
 #include <iostream>
 #include <iomanip>  
@@ -115,9 +118,10 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 1D
 :label: exerciseex14
 :class: dropdown
+:nonumber:
 ````
 A common computing task is to swap the values of two variables.
 Write a program that asks the user for two variables, and then swaps their values.
@@ -134,6 +138,7 @@ Code goes here....
 :label: solutionex14
 :class: dropdown
 ````
+This is one possible solution - how can it be improved?
 ```{code-block} c++
 #include <iostream>
 int main() {
@@ -152,9 +157,10 @@ int main() {
 ````
 
 
-````{exercise-start} 
+````{exercise-start} 1E
 :label: exerciseex15
 :class: dropdown
+:nonumber:
 ````
 Write a program that asks the user for the lengths of the sides of a triangle and returns the area.
 
@@ -170,6 +176,7 @@ Code goes here....
 :label: solutionex15
 :class: dropdown
 ````
+This is one possible solution - how can it be improved?
 ```{code-block} c++
 #include <iostream>
 #include <cmath>
@@ -187,9 +194,10 @@ int main() {
 ````
 
 
-````{exercise-start} 
+````{exercise-start} 1F
 :label: exerciseex16
 :class: dropdown
+:nonumber:
 ````
 Write a program that asks for two characters to be input by the user, and returns their ASCII code value and the character with the ASCII code that is the sum of the two character.
 ```{code-cell} c++
@@ -203,6 +211,7 @@ Code goes here....
 :label: solutionex16
 :class: dropdown
 ````
+These are possible solutions - how can the be improved?
 ```{code-block} c++
 #include <iostream>
 int main()
@@ -232,9 +241,10 @@ int main()
 ```
 ````{solution-end}
 ````
-````{exercise-start} Difficult
+````{exercise-start} 1G - Difficult
 :label: exerciseex17
 :class: dropdown
+:nonumber:
 ````
 Write a program to extract and use the first and last digit of an integer number (needs to have at least 2 digits).
 
@@ -254,7 +264,8 @@ Code goes here....
 :label: solutionex17
 :class: dropdown
 ````
-```{code-block} c++
+This is one possible solution - how can it be improved?
+````{code-block} c++
 #include <iostream> 
 #include <cmath>  
 int main() { 
@@ -274,13 +285,14 @@ int main() {
     std::cout << "The number with the first and last digts swapped is " << swappedDigitsNumber;
     return 0;
 }
-```
+````
 ````{solution-end}
 ````
 
-````{exercise-start} Advanced
+````{exercise-start} 1H - Advanced
 :label: exerciseex18
 :class: dropdown
+:nonumber:
 ````
 Write a program to display the current time on the terminal.
 
@@ -297,6 +309,7 @@ Code goes here....
 :label: solutionex18
 :class: dropdown
 ````
+This one requires an addition directive to run in Visual Studio.
 ```{code-block} c++
 #define _CRT_SECURE_NO_WARNINGS
 #include <cassert>
@@ -319,13 +332,14 @@ int main()
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 1I
 :label: exerciseex19
 :class: dropdown
+:nonumber:
 ````
-Write a programme demonstrating the use of the erase(), insert(), and replace() member functions on a string supplied by the user.
+Write a program demonstrating the use of the erase(), insert(), and replace() member functions on a string supplied by the user.
 
-Information on these functions can be found here https://en.cppreference.com/w/cpp/string/basic_string.html under the section 'modifiers'..
+Information on these functions can be found, under the section 'modifiers', at https://en.cppreference.com/w/cpp/string/basic_string.html 
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -338,7 +352,7 @@ Code goes here....
 :label: solutionex19
 :class: dropdown
 ````
-For example - erase():
+This is one possible solution, which uses `.erase()`
 ```{code-block} c++
 #include <iostream>
 #include <iostream>
@@ -354,9 +368,10 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 1J
 :label: exerciseex110
 :class: dropdown
+:nonumber:
 ````
 The `std::max()` function returns the largest of the two values it is given. i.e. if `a` and `b` are arithmetic variables then `max(a,b)` equals `a` if `a>b`.
 
@@ -372,7 +387,9 @@ Code goes here....
 :label: solutionex110
 :class: dropdown
 ````
+This is one possible solution - how can it be improved?
 ```{code-block} c++
+
 #include <iostream>
 int main() {
     double one, two, three, four;
@@ -384,7 +401,7 @@ int main() {
 ```
 Was my choice of variable names helpful?
 
-Does max work for integers?
+Does `max()` work for integers?
 ````{solution-end}
 ````
 

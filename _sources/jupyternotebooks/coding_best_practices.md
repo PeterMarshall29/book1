@@ -15,9 +15,9 @@ kernelspec:
 The aim of any programmer should be to write programs with code that is easy to maintain and easy for other programmers to reuse.
 
 Badly written code is:
-* Difficult for others to understand
-* Unlikely to be reusable
-* Expensive to maintain
+* Difficult for others to understand.
+* Unlikely to be reusable.
+* Expensive to maintain.
 
 
 ```{note}
@@ -36,16 +36,14 @@ Badly written code is:
 > A long descriptive name is better than a short enigmatic name.
 ```
 It is tempting to create identifiers using short, even single letter, names - this is a mistake.
-Using longer identifiers which make the purpose of identified entity clear to anyone reading your code
-Modern editors will autocomplete long identifier names - you will not need to keep retying your chosen expressive name.
+Using longer identifiers which make the purpose of the identified entity clear to anyone reading your code makes your code simpler to use, debug, and maintain.
+Modern editors will auto-complete long identifier names - you will not need to keep retying your chosen expressive name.
 
 ## DRY 
 
 DRY  - Don't repeat yourself! is a fundamental practice in writing efficient code.
 
-Any lines of code that you know you are going to need more than once, should be encapsulated into a class or a function, which can be called repeatedly.
-
-This saves you retyping the code, and makes repairing and maintaining longer programmes much simpler, e.g. you do not have to find the same mistake in 100 places, just in one function.
+Any lines of code that you know you are going to need more than once, should be encapsulated into a class or a function, which can be called repeatedly. This saves you retyping the code, and makes repairing and maintaining longer programmes much simpler, e.g. you do not have to find the same mistake in 100 places, just in one function.
 
 Dry coding includes {term}`functional programming` and {term}`object-oriented programming` paradigms.
 
@@ -57,13 +55,13 @@ Keep it Super Simple!
 
 Avoid the temptation to start coding from the beginning of the problem and working one step at time to the end - this usually produces overly complex programs that are difficult to maintain.
 
-Planning is worth the time and effort. Break the problem down into smaller sections and code each individually.
+Planning is worth the time and effort. Break the problem down into smaller sections and code each part individually.
 
 Lay out your code so that it is easy to read:
-* Whitespace is your friend - completely ignore by the compiler.
+* Whitespace is your friend - completely ignored by the compiler.
 * Use longer expressive names - modern editors autofill previously used names, you must type them out only once!
 * Use systematic indenting - even when the language does not require it.
-* Use comments - early and often
+* Use comments - early and often.
 
 ## Commenting
 

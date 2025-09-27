@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\coding_best_practices.db691ca9-d435-4082-8285-31db246b3bde.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\coding_best_practices.795ae163-22e2-4a0e-ab1c-91c06d2014bd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/coding_best_practices';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -208,21 +208,21 @@
 <li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File (Week 7)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Types in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise1.html">Exercises 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types in C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise1.html">Exercises Week 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
 <ul class="nav bd-sidenav">
@@ -546,9 +546,9 @@ document.write(`
 <p>The aim of any programmer should be to write programs with code that is easy to maintain and easy for other programmers to reuse.</p>
 <p>Badly written code is:</p>
 <ul class="simple">
-<li><p>Difficult for others to understand</p></li>
-<li><p>Unlikely to be reusable</p></li>
-<li><p>Expensive to maintain</p></li>
+<li><p>Difficult for others to understand.</p></li>
+<li><p>Unlikely to be reusable.</p></li>
+<li><p>Expensive to maintain.</p></li>
 </ul>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
@@ -570,14 +570,13 @@ document.write(`
 </div></blockquote>
 </div>
 <p>It is tempting to create identifiers using short, even single letter, names - this is a mistake.
-Using longer identifiers which make the purpose of identified entity clear to anyone reading your code
-Modern editors will autocomplete long identifier names - you will not need to keep retying your chosen expressive name.</p>
+Using longer identifiers which make the purpose of the identified entity clear to anyone reading your code makes your code simpler to use, debug, and maintain.
+Modern editors will auto-complete long identifier names - you will not need to keep retying your chosen expressive name.</p>
 </section>
 <section id="dry">
 <h2>DRY<a class="headerlink" href="#dry" title="Permalink to this heading">#</a></h2>
 <p>DRY  - Don’t repeat yourself! is a fundamental practice in writing efficient code.</p>
-<p>Any lines of code that you know you are going to need more than once, should be encapsulated into a class or a function, which can be called repeatedly.</p>
-<p>This saves you retyping the code, and makes repairing and maintaining longer programmes much simpler, e.g. you do not have to find the same mistake in 100 places, just in one function.</p>
+<p>Any lines of code that you know you are going to need more than once, should be encapsulated into a class or a function, which can be called repeatedly. This saves you retyping the code, and makes repairing and maintaining longer programmes much simpler, e.g. you do not have to find the same mistake in 100 places, just in one function.</p>
 <p>Dry coding includes <a class="reference internal" href="glossary.html#term-Functional-Programming"><span class="xref std std-term">functional programming</span></a> and <a class="reference internal" href="glossary.html#term-Object-oriented-programming"><span class="xref std std-term">object-oriented programming</span></a> paradigms.</p>
 <p>C++ is a multi-paradigm language.</p>
 </section>
@@ -585,13 +584,13 @@ Modern editors will autocomplete long identifier names - you will not need to ke
 <h2>KISS<a class="headerlink" href="#kiss" title="Permalink to this heading">#</a></h2>
 <p>Keep it Super Simple!</p>
 <p>Avoid the temptation to start coding from the beginning of the problem and working one step at time to the end - this usually produces overly complex programs that are difficult to maintain.</p>
-<p>Planning is worth the time and effort. Break the problem down into smaller sections and code each individually.</p>
+<p>Planning is worth the time and effort. Break the problem down into smaller sections and code each part individually.</p>
 <p>Lay out your code so that it is easy to read:</p>
 <ul class="simple">
-<li><p>Whitespace is your friend - completely ignore by the compiler.</p></li>
+<li><p>Whitespace is your friend - completely ignored by the compiler.</p></li>
 <li><p>Use longer expressive names - modern editors autofill previously used names, you must type them out only once!</p></li>
 <li><p>Use systematic indenting - even when the language does not require it.</p></li>
-<li><p>Use comments - early and often</p></li>
+<li><p>Use comments - early and often.</p></li>
 </ul>
 </section>
 <section id="commenting">

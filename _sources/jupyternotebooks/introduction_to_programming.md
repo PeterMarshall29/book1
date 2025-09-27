@@ -14,28 +14,25 @@ kernelspec:
 
 ## Computer Programmes
 
-Computer programmes are everywhere - not just inside computers. 
-Your digital watch (if you are still wearing a watch...), calculator, smart speaker, and car are running {term}`embedded programmes`.
+Computer programmes are everywhere - not just inside computers. Your digital watch (if you are still wearing a watch...), calculator, smart speaker, and car are running {term}`embedded programmes`.
 
-A computer program is a sequence of instructions that tell a computer (and other devices) what to do. When the program runs, the computer's processor interprets and acts on each instruction, and then moves on to the next instruction until the program completes execution. 
+A computer program is a sequence of instructions that tell a computer (and other devices) what to do. When the program runs, the computer's processor interprets and acts on each instruction and then moves on to the next instruction until the program completes execution. 
 
-Software is the collection of programmes running on a computer. Once a device is programmed, the computer programmes are invisible.
+Computers are indispensable in many aspects of modern life - and particularly useful for physics research. Computers perform complex calculations with greater speed than any human without making any mistakes. Physicists learn programming to harness the capabilities of computers to numerically solve problems in physics that may not have analytical solutions or have data sets that are too complex for a human to analyse.
 
-Hardware is the device that the software runs on - software controls hardware.
+The final result of programming is usually an executable program, which is a {term}`binary file` capable of running directly on the machine's hardware. 
 
-The object of learning computer programming is to become able to write computer programmes that correctly instruct a device to perform a series of tasks; for example, to calculate some numbers, based on input from the keyboard, and to display the results on the screen.
-
-The final result of programming is usually an executable program, which is a {term}`binary file` capable of running directly on the machine's hardware.
+Software is the collection of programmes running on a computer. Hardware is the device that the software runs on - software controls hardware.
 
 ```{tip}
 :class: margin
 Executable files are identified by the file extension `.exe` (Windows only).
 ```
-It is not necessary to understand how a computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a program written in a **human readable** language, such as C++, into an executable program that can actually run on the hardware.
+It is not necessary to understand how the computer is controlled by a computer program, unless you are designing the hardware, or the software that converts a program written in a **human readable** language, such as C++, into an executable program that can actually run on the hardware.
 
 The computer code in an executable file is written in {term}`machine code`, which is {term}`binary`. We could write computer programmes in binary, but it would be extremely difficult. The programmes we write are built on components written in binary.
 
-Binary files are not necessarily executable; Library files may be written in binary, which are then used by an executable, providing extra functionality or data.
+Binary files are not necessarily executable; library files may be written in binary, which are then used by an executable, providing extra functionality or data.
 
 ```{tip}
 :class: margin
@@ -63,8 +60,7 @@ By analogy with ordinary writing:
 * The syntax would be the spelling and grammer.
 * The sematics would be the syntactially correct sentences making sense to the reader, both individually and when read together.
 
-A syntax errors occurs when the syntax is incorrect. For example, forgetting the `;` at the end of a statement in C++.
-Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.
+A syntax errors occurs when the syntax is incorrect. For example, forgetting the `;` at the end of a statement in C++. Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.
 
 Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable program that does not work correctly.
 

@@ -35,6 +35,9 @@ Binary
 Binary File
   File containing only binary code.
 
+Buffer
+  A memory space used for temporarily storing data before processing (e.g. assigning to a variable), or writing to a file. Buffers are necessary because of the vast differences in speed between data producers and consumers.
+
 Camel Case
   [Camel Case](https://en.wikipedia.org/wiki/Camel_case) is one of the naming conventions used to improve the readability of code, whilst avoiding the use of the ‘underscore’ character. 
 
@@ -160,6 +163,7 @@ Dereferencing
 
 Directive
   Also known as preprocessor directives - instructions that are processed before compilation of the C++ code begins. Directives start with `#` and must lie at the top of the document. Used for including files, such as libraries, and defining {term}`macros`, and conditional compilation (`#if`, `#ifdef`, `#ifndef`).
+
 Directives
   Also known as preprocessor directives - instructions that are processed before compilation of the C++ code begins. Directives start with `#` and must lie at the top of the document. Used for including files (`#include`), such as libraries, and defining {term}`macros`(`#define`), and conditional compilation (`#if`, `#ifdef`, `#ifndef`).
 
@@ -219,6 +223,9 @@ Extraction Operator
 
 Falling Through
   When a program reaches the end of code-block and just continues onto the next statements. Causes an error for a function if a return is expected but permitted for `void`.
+
+Floating-Point Number
+  Number with a decimal point. Represented in code by the addition of `.0` to whole numbers.
 
 Floating-Point Numbers
   Numbers with a decimal point. Represented in code by the addition of `.0` to whole numbers.
@@ -289,6 +296,9 @@ Fundamental Types
 Global Scope
   Variables declared outside of all functions and classes have global scope. Global variables are accessible throughout the program, unless ‘shadowed’ by a local variable with the same name. Global variables are best avoided unless necessary because they may result in unintended consequences in execution.
 
+Header File
+  Header files in C++ are essential for organizing and managing code in large projects. They contain declarations of functions, classes, variables, and other identifiers, that inform the compiler about the existence and type of these elements without providing their actual implementation. This separation allows multiple source files to share the same declarations, ensuring consistency and reducing errors, and include them wherever needed, reducing redundancy and improving code maintainability.
+
 Header Files
   Header files in C++ are essential for organizing and managing code in large projects. They contain declarations of functions, classes, variables, and other identifiers, that inform the compiler about the existence and type of these elements without providing their actual implementation. This separation allows multiple source files to share the same declarations, ensuring consistency and reducing errors, and include them wherever needed, reducing redundancy and improving code maintainability.
 
@@ -328,6 +338,9 @@ Initialiser
 initialiser List
   A comma-delimited list of expressions enclosed in curly braces `{}`; used to initialize a `struct` or an array.
 
+Input
+  The process of sending data or instructions to a computer system for processing. The data comes from input devices. The computer's CPU processes the input to generate meaningful {term}`output`.
+
 Integer type
   Type for integer values (whole numbers - positive and negative and zero). May be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long`, `long long`. The modifiers may be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char`.
 
@@ -356,7 +369,7 @@ List-Initialisation
   Initialization using `{}` e.g. `int myInt {initial value or expression to produce the initial value};`
 
 Literal
-  A fixed value written directly into a program. e.g. the number '1', generally found on the RHS of assignment operations. The notation used for Boolean types, character types, string types, numeric types etc., e.g. the work `true` is a Boolean literal when used appropriately.
+  A fixed value written directly into a program. e.g. the number '1', generally found on the RHS of assignment operations. The notation used for Boolean types, character types, string types, numeric types etc., e.g. the word `true` is a Boolean literal when used appropriately.
 
 Literals
   Literals are the tokens of a C++ program that represent constant values embedded in the source code.
@@ -461,6 +474,9 @@ Operators
 Operands
   Literals or variables operated on by operators in an expression.
 
+Output
+  Output refers to data sent from a computer or electronic device, such as audio, graphics, text, and video. Output devices convert the data processed by a computer into a human-understandable form.
+
 Overloading
   Adding multiple definitions to a single operator (or function name). The different definitions apply to different types. For functions the type-pattern of its parameters must be unique.
 
@@ -487,6 +503,9 @@ POD Type
 
 Pointer
   A named object (variable) that stores the memory address of another object.
+
+Preprocessor
+  Before the source code is passed to the compiler, the preprocessor handles directives (#include, #define, and #ifdef), replacing macros and copying the contents of libraries and header files into the source file, and removing any comments - to create a modified/preprocessed source file that is ready to be compiled.
 
 Print Debugging
   Using strategically positioned print statements to follow the control flow of a program’s execution. The print statements may just include an index to identify which statement produced it, or more detailed error/exception outputs.
@@ -558,7 +577,7 @@ Static Memory
   Memory allocated by the {term}`linker`
 
 String
-  Sequence of characters collected into a single variable. `string` is one of the `container` types in C++.
+  Sequence of characters collected into a single variable - a `char` array - denoted by a literal enclosed in double quote marks `""`. `std::string` provides a methods for manipulating strings. `std::string` behaves like a containter but is not part of the C++ <container> library.
 
 String Data Type
   Data consisting of a sequence of characters, bracketed by `""`. Requires inclusion of `<string>` and access via `std::` namespace scope.

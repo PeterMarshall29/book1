@@ -17,9 +17,9 @@ myst:
 
 # Introducton to the C++ Programming Language
 
-This book covers the introductory weeks of Computational Physics A - C++ programming basics at Loughbourough University. 
+This jupyter-book is intended to introduce the C++ language during the preliminary weeks of the Computational Physics (Part A) module at Loughbourough University. 
 
-NOTE - We will transition to Visual Studio in week 3.
+The module will transition to working in Visual Studio in week 4.
 
 ```{tableofcontents}
 ```
