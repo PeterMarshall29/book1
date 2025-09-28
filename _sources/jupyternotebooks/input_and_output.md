@@ -363,8 +363,9 @@ A good reason that `std::cout` is taught before other IO methods is its simplici
 :class: dropdown
 :nonumber:
 `````
-Try the examples...
-````{code-block} c++
+Try these examples...
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
 #include <cstdio>
 int main() {
 char ch = 'A';
@@ -422,7 +423,7 @@ The full sequence is :
 
 There are several alternatives to `std::cout` in C++. In C++23 a new `print()` was introduced.
 
-Note we are using C++20.
+Note: we are using C++20.
 
 `````{code_example-start} print()
 :label: examplec5
@@ -430,8 +431,7 @@ Note we are using C++20.
 :nonumber:
 `````
 Try this code in Visual Studio - the Live Code editor does not have C++23.
-````{code-cell} c++
-:tags: [remove-output, skip-execution]
+````{code-block} c++
 #include <print>
 int main() {
     std::print("{2} {1}{0}!\n", 23, "C++", "Hello");  

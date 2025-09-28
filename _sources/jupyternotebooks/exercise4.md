@@ -10,11 +10,14 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercises 4
+# Exercises Week 2 Part 2
 
-````{exercise-start} 
+Using arrays and vectors.
+
+````{exercise-start} 3A
 :label: exerciseex41
 :class: dropdown
+:nonumber:
 ````
 Write a program that demonstrates the use of a range for loop to print the elements of a vector.
 
@@ -30,6 +33,7 @@ Code goes here....
 :label: solutionex41
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int main() {
@@ -43,11 +47,12 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 3B
 :label: exerciseex42
 :class: dropdown
+:nonumber:
 ````
-Write a program that ask the user for 5 integers, initialises a 5 element array with those values and then prints out the value.
+Write a program that ask the user for 5 integers, initialises a 5-element array with those values and then prints out the value.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -59,7 +64,7 @@ Code goes here....
 :label: solutionex42
 :class: dropdown
 ````
-Simple Solution
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int main() {
@@ -70,7 +75,7 @@ int main() {
     return 0;
 }
 ```
-This code works, but it would be very annoying for a larger number of elements. It is also inflexible, ideally we would want the user to define the number of elements.
+This code works, but it would be very annoying for a larger number of elements. It is also inflexible; ideally, we would want the user to define the number of elements.
 
 The following code requires the use of for-loops - come back to it later.
 
@@ -92,11 +97,12 @@ int main() {
 There is no way to make the actual number of elements of an array variable - they must be initialised with a constant expression. But using a larger mostly empty array is occasionally acceptable.
 ````{solution-end}
 ````
-````{exercise-start} 
+````{exercise-start} 3C
 :label: exerciseex43
 :class: dropdown
+:nonumber:
 ````
-Write a program to merge two 5 element arrays into a single 10 element array, and neatly print out the answer.
+Write a program to merge two 5 element arrays into a single 10 element array and neatly print out the answer.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here..
@@ -108,6 +114,7 @@ Code goes here..
 :label: solutionex43
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int main() {
@@ -127,12 +134,13 @@ return 0;
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 3D
 :label: exerciseex44
 :class: dropdown
+:nonumber:
 ````
 Write a program that asks the user for the number of elements in their array, then the input of those elements.
-And then searches that array for a number of the users chosing and tells them the position in the array etc. if the number is found.
+And then searches that array for a specific number of the users choosing and, if the number is found, reports its position in the array etc.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -144,6 +152,7 @@ Code goes here....
 :label: solutionex44
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include<iostream>
 int main() {
@@ -169,9 +178,10 @@ int main() {
 
 
 
-````{exercise-start} 
+````{exercise-start} 3E
 :label: exerciseex45
 :class: dropdown
+:nonumber:
 ````
 Write a program that creates an array of integer elements that are either ones or zeros and then rearranges the array so that all the zeroes come first.
 ```{code-cell} c++
@@ -185,11 +195,12 @@ Code goes here....
 :label: solutionex45
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int main() {
     int myArray[] = { 0, 1, 1, 0 , 0, 1, 0, 1, 1, 0 }; 
-    int numberOfElements = sizeof(myArray) / sizeof(myArray[0]); // Method to determine number of elements using byte size of array comparaed to byte size of type.
+    int numberOfElements = sizeof(myArray) / sizeof(myArray[0]); // Method to determine number of elements by comparing the byte size of the array to the byte size of the type.
     std::cout << "The array is: ";
     for (int i = 0; i < numberOfElements; i++) std::cout << myArray[i] << " "; 
     int numberOfZeros = 0; 
@@ -207,9 +218,10 @@ int main() {
 ````
 
 
-````{exercise-start} 
+````{exercise-start} 3F
 :label: exerciseex46
 :class: dropdown
+:nonumber:
 ````
 Write a program that:
 * Asks the user to input a series of integer values to be inserted into a new vector
@@ -226,7 +238,7 @@ Code goes here....
 :label: solutionex46
 :class: dropdown
 ````
-Try to improve the solution.. perhaps identifying even occurrences and telling the user if there are no duplicates etc.
+Try to improve the solution... perhaps identifying even occurrences and telling the user if there are no duplicates etc.
 ```{code-block} c++
 #include <iostream>
 #include <vector>
@@ -252,7 +264,7 @@ int main() {
                 if (myVector[i] == myTracker[k]) checkAlreadyPrinted = true;
             }
             if (checkAlreadyPrinted == false) {
-                std::cout << "\nThe mumber " << myVector[i] << " ocurs an odd number of times \n";
+                std::cout << "\nThe mumber " << myVector[i] << " occurs an odd number of times \n";
                 myTracker.push_back(myVector[i]);
             }
         }
@@ -264,9 +276,10 @@ int main() {
 ````
 
 
-````{exercise-start} 
+````{exercise-start} 3G
 :label: exerciseex47
 :class: dropdown
+:nonumber:
 ````
 Write a program that creates a string vector and then removes any strings that contains a numeric digit.
 
@@ -285,6 +298,7 @@ Code goes here....
 :label: solutionex47
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>   
 #include <vector> 
@@ -314,12 +328,10 @@ int main() {
 ````{solution-end}
 ````
 
-
-
-
-````{exercise-start} 
+````{exercise-start} 3H
 :label: exerciseex410
 :class: dropdown
+:nonumber:
 ````
 The algorithms library provides functions for a variety of purposes.
 
@@ -340,6 +352,7 @@ Code goes here....
 :label: solutionex410
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <algorithm>    
 #include <iostream>     

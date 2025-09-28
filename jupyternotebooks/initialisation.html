@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.cd47d1fa-fb5a-4d89-9a44-30911fd8f814.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.c06ed6f4-11ab-4ea4-835b-86b0b50a592c.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/initialisation';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -523,7 +523,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-initialisation">List-Initialisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation">Empty Initialiser List - Value-Initialisation and Zero-Initialisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation">Empty Initialiser List, Value-Initialisation and Zero-Initialisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-initialization">Zero-initialization</a></li>
 </ul>
 </li>
@@ -544,16 +544,16 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="initialisation">
 <h1>Initialisation<a class="headerlink" href="#initialisation" title="Permalink to this heading">#</a></h1>
 <p><a class="reference internal" href="glossary.html#term-Initialisation"><span class="xref std std-term">Initialisation</span></a> is the setting of the initial value of a variable at the time of <a class="reference internal" href="glossary.html#term-Construction"><span class="xref std std-term">construction</span></a>.</p>
-<p><a class="reference internal" href="glossary.html#term-Definition"><span class="xref std std-term">Definition</span></a> is therefore <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a> combined with initialisation.</p>
-<p>Initialisation is different from assignment - the object has no previous value and a <a class="reference internal" href="glossary.html#term-Constructor"><span class="xref std std-term">constructor</span></a> are only involved in initialisation.</p>
-<p>Best practice is to always initialise your variables – the benefits include preventing you from accidentally tyring to use a variable that has been declared but not defined.</p>
+<p><a class="reference internal" href="glossary.html#term-Definition"><span class="xref std std-term">Definition</span></a> is <a class="reference internal" href="glossary.html#term-Declaration"><span class="xref std std-term">declaration</span></a> combined with initialisation.</p>
+<p>Initialisation is different from <a class="reference internal" href="glossary.html#term-Assignment"><span class="xref std std-term">assignment</span></a> - the object has no previous value and <a class="reference internal" href="glossary.html#term-Constructors"><span class="xref std std-term">constructors</span></a> are only involved in initialisation.</p>
+<p>Best practice is to always initialise your variables – the benefits include preventing you from accidentally trying to use a variable that has been declared but not defined.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Don’t declare a variable until you have a value to assign to it.</p>
 </div>
 <div class="code_example dropdown admonition" id="examplem3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 8 </span></p>
+<p class="admonition-title">Code Example: Methods of Initialisation </p>
 <section id="code_example-content">
 <p>Complete and run this program.</p>
 <div class="cell tag_remove-output docutils container">
@@ -573,15 +573,15 @@ document.write(`
 </div>
 <p>Of these, only the first method of initialisation can be used in every context.</p>
 </section>
-</div>
-<p>Some objects are initialised by default, but this is not always helpful - Global variables are default-initialised to 0 – but you should not use global variables in the first place and ‘0’ can be just as problematic as no value. <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">vector</span></code> are initialised as empty.</p>
-<p>The initial value may be provided in the initialiser section of a declarator or by a new expression.</p>
+</div><p>Some objects are initialised by default, but this is not always helpful; for example, Global variables are default-initialised to 0 – but you should not use global variables in the first place and ‘0’ can be just as problematic as no value.</p>
+<p><code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">vector</span></code> are initialised as empty, which is often helpful.</p>
 <p>Initialisation also takes place during function calls: function parameters and the function return values are both initialized.</p>
 <p>N.B. These rules apply to objects, not references.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/initialisation-syntax-1">
 
 <p class="admonition-title">Syntax Rules: Initialisation </p>
 <section id="syntax-content">
+<p>4 methods of initialisation:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">typeName</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expression</span><span class="p">;</span><span class="w">                       </span><span class="c1">// copy-initialisation</span>
 <span class="n">typeName</span><span class="w"> </span><span class="nf">identifier</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">);</span><span class="w">            </span><span class="c1">// direct-initialisation </span>
 <span class="n">typeName</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">expression</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p">};</span><span class="w">   </span><span class="c1">// direct-list-initialisation</span>
@@ -596,8 +596,10 @@ document.write(`
 <p>An initialiser is just the syntax used to initialise the object. There are four syntactic styles for initialisers:</p>
 <div class="code_example dropdown admonition" id="examplem1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 9 </span></p>
+<p class="admonition-title">Code Example: Initialisers </p>
 <section id="code_example-content">
+<p>The initialisers in the following example are <code class="docutils literal notranslate"><span class="pre">{5}</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">{</span> <span class="pre">55.0</span> <span class="pre">}</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">555</span></code>, and <code class="docutils literal notranslate"><span class="pre">(5555)</span></code>.</p>
+<p>These simple definitions have the form: <code class="docutils literal notranslate"><span class="pre">[type][declarator][initialiser];</span></code></p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -620,18 +622,19 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Some of these terms are used very loosely and synonymously - care is required, particularly around the use of direct and copy.</p>
+<p>Some of these terms are used loosely and synonymously - care is required.</p>
+<p>List-initialisation without an <code class="docutils literal notranslate"><span class="pre">=</span></code> is the best choice - narrowing is prohibited.</p>
 <p>In list-initialisation, ‘direct’ and ‘copy’ refer to the use of direct-initialisation and copy-initialisation type methods.</p>
-<p>For most purposes the two list-initialisation methods will produce the same result. used in each case, being direct</p>
+<p>For most purposes the two list-initialisation methods will produce the same result. used in each case.</p>
 <p>Initialisation using a literal value is often called ‘direct’ initialisation too.</p>
 </section>
-</div>
-</section>
+</div></section>
 <section id="list-initialisation">
 <h2>List-Initialisation<a class="headerlink" href="#list-initialisation" title="Permalink to this heading">#</a></h2>
-<p>Initialization using <code class="docutils literal notranslate"><span class="pre">{}</span></code> is called <a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list-initialisation</span></a> - usually the best choice because it can be used in every context you will encounter.</p>
-<p>It is recommended that list initialisation is used for anything more complicated that a simple variable - even though not having the <a class="reference internal" href="glossary.html#term-Assignment-Operator"><span class="xref std std-term">assignment operator</span></a> <code class="docutils literal notranslate"><span class="pre">=</span></code> may be a little disconcerting at first.</p>
-<p><a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list-initialisation</span></a> does not permit <a class="reference internal" href="glossary.html#term-Narrowing"><span class="xref std std-term">narrowing</span></a> conversion. A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type: leading to data loss or undefined behaviours.</p>
+<p>Initialization using only <code class="docutils literal notranslate"><span class="pre">{}</span></code> is called <a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list-initialisation</span></a> and is usually the best choice because it can be used in every context you will encounter.</p>
+<p>It is recommended that list initialisation is used for anything more complicated that a simple variable - even though not having the <a class="reference internal" href="glossary.html#term-Assignment-Operator"><span class="xref std std-term">assignment operator</span></a>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, may be a little disconcerting at first.</p>
+<p><a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list-initialisation</span></a> does not permit <a class="reference internal" href="glossary.html#term-Narrowing"><span class="xref std std-term">narrowing</span></a> conversion.</p>
+<p>A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type: leading to data loss or undefined behaviours.</p>
 <p>List-initialisation ensures that:</p>
 <ul class="simple">
 <li><p>An <code class="docutils literal notranslate"><span class="pre">integer</span></code> cannot be converted to a <code class="docutils literal notranslate"><span class="pre">char</span></code>, but <code class="docutils literal notranslate"><span class="pre">char</span></code> to <code class="docutils literal notranslate"><span class="pre">int</span></code> is permitted.</p></li>
@@ -641,9 +644,9 @@ document.write(`
 </ul>
 <div class="exercise dropdown admonition" id="exercisem1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 5 </span></p>
+<p class="admonition-title">Exercise  Initialisation  </p>
 <section id="exercise-content">
-<p>The following code will not run as written. Look at the error messages and try to correct the problem.</p>
+<p>The following code should not run as written. Look at the error messages and try to correct the problem.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -662,67 +665,64 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="solution dropdown note admonition" id="solutionm1">
+<div class="solution dropdown admonition" id="solutionm1">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisem1"> Exercise 5</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisem1"> Exercise  Initialisation  </a></p>
 <section id="solution-content">
-<p>Using <code class="docutils literal notranslate"><span class="pre">static_cast</span></code> forces an explicit conversion, which can be used to bypass the blocked narrowing conversion.</p>
-<p>Try replacing <code class="docutils literal notranslate"><span class="pre">b</span></code> with:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<p>Removing the tow uses of list-initialisation will allow the code to run - the problem is that the double values may be ‘implicitly’ converted to integers, but this costs some of the information - narrowing - which is not allowed for <code class="docutils literal notranslate"><span class="pre">{}</span></code></p>
+<p>The code can be made to work using <code class="docutils literal notranslate"><span class="pre">static_cast</span></code> to forces an explicit conversion.</p>
+<p>Try replacing <code class="docutils literal notranslate"><span class="pre">b</span></code> with <code class="docutils literal notranslate"> <span class="pre">static_cast&lt;int&gt;(b)</span></code> inside the two <code class="docutils literal notranslate"><span class="pre">{}</span></code></p>
 </section>
 </div>
 </section>
-</div>
-</section>
+</div></section>
 <section id="empty-initialiser-list-value-initialisation-and-zero-initialisation">
-<h2>Empty Initialiser List - Value-Initialisation and Zero-Initialisation<a class="headerlink" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation" title="Permalink to this heading">#</a></h2>
+<h2>Empty Initialiser List, Value-Initialisation and Zero-Initialisation<a class="headerlink" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation" title="Permalink to this heading">#</a></h2>
 <p>If an object is initialised with an empty initialiser list <code class="docutils literal notranslate"><span class="pre">{}</span></code> it is first zero-initialised, and then value-initialised, if possible.</p>
 <p>If the variable is a <a class="reference internal" href="glossary.html#term-Scalar"><span class="xref std std-term">scalar</span></a> (arithmetic, pointer, or enum type) they are only zero-initialised.</p>
-<p>Value-initialisation is initialisation to a default value, which is only possible for types that have a default-constructor. (Confusingly not the same as default-initialisation)</p>
+<p>Value-initialisation is initialisation to a default value, which is only possible for types that have a default-constructor, which is confusingly not the same as default-initialisation!</p>
 <div class="code_example dropdown admonition" id="examplem4">
 
-<p class="admonition-title"><span class="caption-number">Code Example 10 </span></p>
+<p class="admonition-title">Code Example: Empty Initialisers </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">{};</span><span class="w"> </span><span class="c1">// myInt initialised to 0</span>
 <span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="p">{};</span><span class="w"> </span><span class="c1">// myDouble initialised as 0.0</span>
-<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToChar</span><span class="p">{};</span><span class="w"> </span><span class="c1">// myPointerToChar initialised as `nullptr`</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">{};</span><span class="w"> </span><span class="c1">// myVector initialised as an empty vector</span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myString</span><span class="p">{};</span><span class="w"> </span><span class="c1">// myString initialised as &quot;&quot;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;12&quot;</span><span class="o">+</span><span class="n">myString</span><span class="o">+</span><span class="s">&quot;34&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myPointerToChar</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">{};</span><span class="w"> </span><span class="c1">// myVector initialised as an empty vector</span>
+<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToChar</span><span class="p">{};</span><span class="w"> </span><span class="c1">// myPointerToChar initialised as `nullptr`</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;12&quot;</span><span class="o">+</span><span class="n">myString</span><span class="o">+</span><span class="s">&quot;34&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myPointerToChar</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="exercise dropdown admonition" id="exercisem4">
 
-<p class="admonition-title"><span class="caption-number">Exercise 6 </span></p>
+<p class="admonition-title">Exercise  Empty Initialisers  </p>
 <section id="exercise-content">
-<p>Try removing the empty initialiser for each variable type and rerunning the code - start in reverse order.</p>
-<p>Explanation - most containers including vector and string have a default</p>
+<ul class="simple">
+<li><p>Try removing the empty initialiser for each variable type and rerunning the code - start in reverse order.</p></li>
+<li><p>Explanation - most containers including vector and string have a default; pointers are initialised to <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p></li>
+</ul>
+<p>In visual studio the code would not work - the compiler will not let you proceed if an <code class="docutils literal notranslate"><span class="pre">int</span></code> and a <code class="docutils literal notranslate"><span class="pre">double</span></code> are uninitialised.</p>
 </section>
-</div>
-</section>
-</div>
-<p>Most types have a default value:</p>
+</div></section>
+</div><p>Most types have a default value:</p>
 <ul class="simple">
 <li><p>For integral types, the default value is a suitable representation of zero.</p></li>
 <li><p>For pointers, the default value is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p></li>
 <li><p>For user-defined types, the default value (if any) is determined by the type’s constructors.</p></li>
 </ul>
 <p>For user-defined types, there can be a distinction between direct initialization (where implicit conversions are allowed) and copy initialization (where they are not).</p>
-<p>The syntax <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">objectIdentifier()</span></code>; does not initialise an object; it declares a function that takes no arguments and returns <code class="docutils literal notranslate"><span class="pre">Type</span></code>.</p>
+<div class="dropdown admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The syntax <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">objectIdentifier();</span></code> does not initialise an object - it declares a function that takes no arguments and returns <code class="docutils literal notranslate"><span class="pre">Type</span></code>.</p>
+</div>
 <p>References cannot be value-initialised. If the initializer specified for an object is () the object is value-initialized. If the initializer specified for a reference is (), the program is ill-formed.</p>
 <section id="zero-initialization">
 <h3>Zero-initialization<a class="headerlink" href="#zero-initialization" title="Permalink to this heading">#</a></h3>
-<p>Initialisation of variable to the zero value of its type:</p>
+<p>Initialisation of a variable to the zero value of its type:</p>
 <ul class="simple">
 <li><p>Arithmetic variables: 0 (or 0.0, or 0.0000000000, etc.)</p></li>
 <li><p>Char variables: ‘\0’</p></li>
@@ -732,7 +732,7 @@ document.write(`
 <p>Zero-initialisation is:</p>
 <ul class="simple">
 <li><p>The first step in value-initialisation.</p></li>
-<li><p>Performed at the start of the execution of every programme for all named variables that have <a class="reference internal" href="glossary.html#term-Static-Duration"><span class="xref std std-term">static duration</span></a>.</p></li>
+<li><p>Performed at the start of the execution of every program for all named variables that have <a class="reference internal" href="glossary.html#term-Static-Duration"><span class="xref std std-term">static duration</span></a>.</p></li>
 <li><p>Used for arrays that have only a subset of their members initialized.</p></li>
 </ul>
 </section>
@@ -746,10 +746,9 @@ document.write(`
 <p>Classes will be initialised by their <a class="reference internal" href="glossary.html#term-Default-Constructor"><span class="xref std std-term">default-constructor</span></a> if they have one. Containers such as <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">vector</span></code> are classes, have default-constructors, and are <a class="reference internal" href="glossary.html#term-Default-Initialised"><span class="xref std std-term">default-initialised</span></a> as ‘empty’ i.e. <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for a <code class="docutils literal notranslate"><span class="pre">string</span></code>, and <code class="docutils literal notranslate"><span class="pre">v.capacity()</span> <span class="pre">=</span> <span class="pre">0</span></code> for a <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
 <p>Global built-in type variables are default initialised to 0 – but you should not use global variables in the first place and ‘0’ can be just as problematic as no value.</p>
 <p>Class members would be initialised using any specified default values.</p>
-<p>For example:</p>
 <div class="code_example dropdown admonition" id="examplem5">
 
-<p class="admonition-title"><span class="caption-number">Code Example 11 </span></p>
+<p class="admonition-title">Code Example: Missing Initialisers </p>
 <section id="code_example-content">
 <p>When no initializer is specified, a <code class="docutils literal notranslate"><span class="pre">global</span></code>, <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">static</span></code>, or <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">member</span></code> (static objects) is initialized to <code class="docutils literal notranslate"><span class="pre">{}</span></code> of the appropriate type. For example:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -782,30 +781,30 @@ document.write(`
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">assert</span></code> aborts the programmes execution and offers a message in the terminal if its user defined condition does not evaluate to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
-<p>Useful during programme development - similar to <a class="reference internal" href="glossary.html#term-Print-Debugging"><span class="xref std std-term">print debugging</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">assert</span></code> aborts the programmes execution and offers a message in the terminal if its user defined condition does not evaluate to <code class="docutils literal notranslate"><span class="pre">true</span></code>; requires <code class="docutils literal notranslate"><span class="pre">&lt;cassert&gt;</span></code> - useful during program development, similar to <a class="reference internal" href="glossary.html#term-Print-Debugging"><span class="xref std std-term">print debugging</span></a>.</p>
 <div class="exercise dropdown admonition" id="exercisem3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
+<p class="admonition-title">Exercise  Missing Initialisers  </p>
 <section id="exercise-content">
 <p>Try removing the list-initialiser <code class="docutils literal notranslate"><span class="pre">{}</span></code> from the two <code class="docutils literal notranslate"><span class="pre">int</span></code> and two <code class="docutils literal notranslate"><span class="pre">string</span></code> type variables one at a time.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
-<p>The global <code class="docutils literal notranslate"><span class="pre">int</span></code> is default initialised, but the local one is left uninitialized because it has no default constructor.</p>
-<p>The string does have a default constructor.</p>
+<ul class="simple">
+<li><p>The global <code class="docutils literal notranslate"><span class="pre">int</span></code> is default initialised, but the local one is left uninitialized because it has no default constructor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> does have a default constructor.</p></li>
+</ul>
 </div>
 </section>
-</div>
-<p>Constant variables must be declared together with an initializer. If they’re scalar types they cause a compiler error, and if they’re class types that have a default-constructor they cause a warning:</p>
+</div><p>Constant variables must be declared together with an initializer. If they’re scalar types they cause a compiler error, and if they’re class types that have a default-constructor they cause a warning:</p>
 <div class="dropdown admonition">
-<p class="admonition-title">Effect of Missing Initialiser - Examples</p>
-<p>Global and Static Variables</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">eRest</span><span class="p">;</span><span class="w"> </span><span class="c1">// is equivalent to &#39;int eRest{};&#39;, and &#39;eRest&#39; is initialised to &#39;0&#39;.</span>
-<span class="kt">double</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w">  </span><span class="c1">// is equialent to &#39;double U{};&#39; so that &#39;U&#39; becomes &#39;0.0&#39;.</span>
+<p class="admonition-title">Effect of Missing Initialiser - More examples</p>
+<p>Global and Static Variables:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"> </span><span class="c1">// is equivalent to &#39;int myInt{};&#39;, and &#39;myInt&#39; is initialised to &#39;0&#39;.</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="p">;</span><span class="w">  </span><span class="c1">// is equialent to &#39;double myDouble{};&#39; so that &#39;myDouble&#39; becomes &#39;0.0&#39;.</span>
 </pre></div>
 </div>
-<p>Local variables and objects created on the <a class="reference internal" href="glossary.html#term-Free-store"><span class="xref std std-term">free store</span></a> are not initialised by unless they are of user-defined types with a default constructor. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"> </span><span class="c1">// myIntx does not have a well-defined value</span>
+<p>Local variables and objects created on the <a class="reference internal" href="glossary.html#term-Free-store"><span class="xref std std-term">free store</span></a> are not initialised unless they are of user-defined types with a default constructor. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"> </span><span class="c1">// myInt does not have a well-defined value</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">myBuffer</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"> </span><span class="c1">// myBuffer[i] does not have a well-defined value</span>
 <span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// myPointer does not have a well-defined value</span>
 <span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">myOtherPointer</span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// myOtherPointer[i] does not have a well-defined value</span>
@@ -816,17 +815,16 @@ document.write(`
 <span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>If you want initialization of local variables of built-in type or objects of built-in type created with <code class="docutils literal notranslate"><span class="pre">new</span></code>, use <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<p>For initialization of local variables of built-in type or objects of built-in type created with <code class="docutils literal notranslate"><span class="pre">new</span></code>, use <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
 </div>
 </section>
-</div>
-</section>
+</div></section>
 <section id="initialiser-lists">
 <h2>Initialiser Lists<a class="headerlink" href="#initialiser-lists" title="Permalink to this heading">#</a></h2>
 <p>More complicated objects can require more than one value as an initializer. This is primarily handled by initializer lists delimited by <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>. For example:</p>
 <div class="code_example dropdown admonition" id="examplem6">
 
-<p class="admonition-title"><span class="caption-number">Code Example 12 </span></p>
+<p class="admonition-title">Code Example: Initaliser Lists </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -850,26 +848,25 @@ document.write(`
 </pre></div>
 </div>
 <p>In some cases, function-style argument lists can also be used. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectrov</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">);</span><span class="w"> </span><span class="c1">// use constructor: v gets 10 elements initialized to 3.3</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">);</span><span class="w"> </span><span class="c1">// use constructor: myVector gets 10 elements initialized to 3.3</span>
 </pre></div>
 </div>
-<p>In a declaration, an empty pair of parentheses, (), always means “function”. Therefore, if you want to explicitly require “default initialization” you must use<code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">z1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// function-style initializer (initialization by constructor)</span>
-<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f1</span><span class="p">();</span><span class="w"> </span><span class="c1">// function declaration</span>
-<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">z2</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// initialization by constructor to {1,2}</span>
-<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f2</span><span class="p">{};</span><span class="w"> </span><span class="c1">// initialization by constructor to the default value {0,0}</span>
+<p>In a declaration, an empty pair of parentheses, (), always means “function”. Therefore, if you want to explicitly require “default initialisation” you must use<code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mYComplexNumber1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// function-style initializer (initialization by constructor)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myFunction1</span><span class="p">();</span><span class="w"> </span><span class="c1">// function declaration</span>
+<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mYComplexNumber2</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// initialization by constructor to {1,2}</span>
+<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myComplexNumber3</span><span class="p">{};</span><span class="w"> </span><span class="c1">// initialization by constructor to the default value {0,0}</span>
 </pre></div>
 </div>
 </section>
-</div>
-</section>
+</div></section>
 <section id="auto">
 <h2>Auto<a class="headerlink" href="#auto" title="Permalink to this heading">#</a></h2>
 <p>When defining a variable, it is not always necessary to explicitly state its type - although it is almost always better to do so.</p>
-<p>In some cases, the ‘type’ might not be known ahead of time - the type can be deduced from the initializer using <code class="docutils literal notranslate"><span class="pre">auto</span></code>.</p>
+<p>In some cases, the ‘type’ might not be known ahead of time - the type can be deduced from the initialiser using <code class="docutils literal notranslate"><span class="pre">auto</span></code>.</p>
 <div class="code_example dropdown admonition" id="examplem7">
 
-<p class="admonition-title"><span class="caption-number">Code Example 13 </span></p>
+<p class="admonition-title">Code Example: Auto Examples </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -885,20 +882,19 @@ document.write(`
 <span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"> </span><span class="c1">// e has the type of whatever sqrt(f) returns</span>
 </pre></div>
 </div>
-<div class="admonition danger">
+<div class="dropdown admonition danger">
 <p class="admonition-title">Danger</p>
-<p>Be careful!! It is always wise to specify type and initialise immediately!</p>
+<p>Be careful!! It is always better to specify type, and to initialise immediately!</p>
 <p>The <a class="reference internal" href="glossary.html#term-Type-System"><span class="xref std std-term">type system</span></a> is there for good reason.</p>
 </div>
-<p>When using <code class="docutils literal notranslate"><span class="pre">auto</span></code>, <a class="reference internal" href="glossary.html#term-Copy-initialisation"><span class="xref std std-term">copy-initialisation</span></a> is acceptable because there can be no type conversion to cause unexpected issues; and in the case of initialiser-lists using <code class="docutils literal notranslate"><span class="pre">{}</span></code> list-initialization is actually problematic.</p>
-<p>The problem is trap is that if the initializer is a {}-list, we may not want its type deduced. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">z1</span><span class="p">{</span><span class="w"> </span><span class="mi">99</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// z1 is an initialiser_list&lt;int&gt; </span>
-<span class="k">auto</span><span class="w"> </span><span class="n">z2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span><span class="w"> </span><span class="c1">// z2 is an int</span>
+<p>When using <code class="docutils literal notranslate"><span class="pre">auto</span></code>, <a class="reference internal" href="glossary.html#term-Copy-initialisation"><span class="xref std std-term">copy-initialisation</span></a> is acceptable because there can be no type conversion to cause unexpected issues; and in the case of initialiser-lists using <code class="docutils literal notranslate"><span class="pre">{}</span></code> list-initialization may be problematic.</p>
+<p>A significant danger when using <code class="docutils literal notranslate"><span class="pre">auto</span></code> is that if the initializer is a {}-list, we may not want its type deduced. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">myExample1</span><span class="p">{</span><span class="w"> </span><span class="mi">99</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// myExample1 has type `initialiser_list&lt;int&gt;` </span>
+<span class="k">auto</span><span class="w"> </span><span class="n">myExample2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span><span class="w"> </span><span class="c1">// myExample2 has type `int`</span>
 </pre></div>
 </div>
 </section>
-</div>
-</section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -967,7 +963,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-initialisation">List-Initialisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation">Empty Initialiser List - Value-Initialisation and Zero-Initialisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation">Empty Initialiser List, Value-Initialisation and Zero-Initialisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-initialization">Zero-initialization</a></li>
 </ul>
 </li>

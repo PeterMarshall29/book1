@@ -18,30 +18,31 @@ In C++ there are a range of character sets and character set encodings available
 
 The basic, and default character type is `char`. There will be no immediate need to investigate any others.
 
-A char-type variable can hold a character of the implementation’s character set. 
+A char-type variable can hold a character of the implementation's character set. 
 
 Char type is created using single quotes `' '` around a character literal. For example: 
-```{code-block} cpp
+```{code-block} c++
 char myCharacter = 'Z';
 ```
-The character set we are using is called ASCII, (American Standard Code for Information Interchange) that represents 128 characters chosen to match the characters appearing on your keyboard.
+The character set we are using is called ASCII - American Standard Code for Information Interchange; represents 128 characters chosen to match the characters appearing on your keyboard.
 
 `0` is used as a null pointer constant, and as the {term}`null character`. 
 
-Different countries with different symbol requirements for their keyboards (e.g., æ, þ, and ß) will use different character sets and you must never rely on char values for the execution of a published program.
+Different countries with different symbol requirements for their keyboards (e.g., æ, þ, and ß) will use different character sets and you must never rely on `char` values for the execution of a published program.
 ```{admonition} Additional Character Types
-:class: dropdown note
-* char: Default character type - used for program text - usually 8 bits.
-* signed char: Like char, but for signed character representation - able of holding both positive and negative values.
-* wchar_t: Provided to hold characters of a larger character set such as Unicode. The size of wchar_t is implementation-defined and large enough to hold the largest character set supported by the implementation’s locale.
-* char16_t: A type for holding 16-bit character sets, such as UTF-16.
-* char32_t: A type for holding 32-bit character sets, such as UTF-32.
+:class: dropdown 
+* char - the default character type - used for program text - usually 8 bits.
+* signed char - like char, but for signed character representation - able of holding both positive and negative values.
+* wchar_t - provided to hold characters of a larger character set such as Unicode. The size of wchar_t is implementation-defined and large enough to hold the largest character set supported by the implementation's locale.
+* char16_t - a type for holding 16-bit character sets, such as UTF-16.
+* char32_t - a type for holding 32-bit character sets, such as UTF-32.
 
 For more information see the C++ reference [here](https://en.cppreference.com/w/cpp/language/types.html).
 ```
 
-`````{exercise-start}
+`````{exercise-start} Character Type
 :class: dropdown
+:nonumber:
 `````
 
 Try the following code.
@@ -67,11 +68,9 @@ Find out what happens when you:
 
 `char` is an integral type - all characters have a corresponding integer value, and arithmetic operations can be applied.
 
-For 8-bit representations like `char`, the integer value run from 0 to 255.
+For 8-bit representations like `char`, the integer values run from 0 to 255.
 
-The character '1' has the integer value of 49.
-
-Being next in sequence, the character '2' has the integer value 50.
+The character '1' has the integer value of 49, and being next in sequence, the character '2' has the integer value 50.
 
 The values of all `char` characters can be found [here](https://en.cppreference.com/w/cpp/language/ascii.html).
 
@@ -82,15 +81,13 @@ The capital letters have different integer values to their lower-case version. T
 
 ## String Type
 
-A `string` is variable of type 'string' which is composed of a series of character literals bracketed by a pair of double quote marks `" "`.
+A string is a variable of type `string` which is composed of a sequence of character literals bracketed by a pair of double quote marks `" "`.
 
-The standard library component `<string>` define strings and the operations and functions that work with string-type variables.
+The standard library component `<string>` defines strings and the operations and functions that work with string-type variables.
 
-`""` denotes an empty string, which has the type `const char[1]`. The single character of the empty string is the terminating '\0'.
+`""` denotes an empty string, which has the type `const char[1]` - the single character of the empty string is the terminating '\0'.
 
 The empty string therefore holds a value and is not the same as null.
-
-## Formating the Ouput
 
 ## Converting `int` to `string`
 
@@ -108,9 +105,9 @@ int main() {
 	return 0;
 }
 ```
-There are a few ways to convert an integer to a string - a template can be used. Templates are discussed later.
+There are a few ways to convert an integer to a string - a template can be used.
 
-If the following code is placed at the beginning of the program (after the #include directives) or in a {term}`header file`, then .
+This code creates a generic template for conversion to a string - we will circle back to how it works - for now, without explanation, if the following code is placed at the beginning of the program (after the #include directives) or in a {term}`header file`, then we gain access to a `to_sting()` function as shown.
 
 ```{code-block} c++
 template<class T> std::string to_string(const T& input)
@@ -121,16 +118,14 @@ template<class T> std::string to_string(const T& input)
 }
 
 ```
-This code creates a generic template for conversion to a string - we will circle back to how it works.
-
-Then replace the std::cout line in the previous code with:
+If the `std::cout` line in the previous code is replaced with:
 ```{code-block} c++
 std::cout << "Peter " + to_string(a);
 ```
-Or in the code further up this page
+Or in the code further up this page, the following replacement is made:
 ```{code-block} c++
 std::cout << "Study " + to_string(c2) + " times harder " + motivator + "!\n";
 ```
-Try typing two names in a row again. Why does the code fail?
+Try typing two names in a row again. Why does the code fail now?
 `````{code_example-end}
 `````

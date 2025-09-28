@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\char_and_string.7888ad3f-8b8c-4b91-98e4-55a61fbedaca.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\char_and_string.6ab80b41-c362-4568-99a4-b51f9b9412ff.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/char_and_string';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -523,7 +523,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#character-data-types">Character Data Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-type">String Type</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-the-ouput">Formating the Ouput</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-int-to-string">Converting <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">string</span></code></a></li>
 </ul>
             </nav>
@@ -544,26 +543,26 @@ document.write(`
 <p>The basic, and default character type is <code class="docutils literal notranslate"><span class="pre">char</span></code>. There will be no immediate need to investigate any others.</p>
 <p>A char-type variable can hold a character of the implementation’s character set.</p>
 <p>Char type is created using single quotes <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code> around a character literal. For example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">myCharacter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">myCharacter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;Z&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>The character set we are using is called ASCII, (American Standard Code for Information Interchange) that represents 128 characters chosen to match the characters appearing on your keyboard.</p>
+<p>The character set we are using is called ASCII - American Standard Code for Information Interchange; represents 128 characters chosen to match the characters appearing on your keyboard.</p>
 <p><code class="docutils literal notranslate"><span class="pre">0</span></code> is used as a null pointer constant, and as the <a class="reference internal" href="glossary.html#term-Null-Character"><span class="xref std std-term">null character</span></a>.</p>
-<p>Different countries with different symbol requirements for their keyboards (e.g., æ, þ, and ß) will use different character sets and you must never rely on char values for the execution of a published program.</p>
-<div class="dropdown note admonition">
+<p>Different countries with different symbol requirements for their keyboards (e.g., æ, þ, and ß) will use different character sets and you must never rely on <code class="docutils literal notranslate"><span class="pre">char</span></code> values for the execution of a published program.</p>
+<div class="dropdown admonition">
 <p class="admonition-title">Additional Character Types</p>
 <ul class="simple">
-<li><p>char: Default character type - used for program text - usually 8 bits.</p></li>
-<li><p>signed char: Like char, but for signed character representation - able of holding both positive and negative values.</p></li>
-<li><p>wchar_t: Provided to hold characters of a larger character set such as Unicode. The size of wchar_t is implementation-defined and large enough to hold the largest character set supported by the implementation’s locale.</p></li>
-<li><p>char16_t: A type for holding 16-bit character sets, such as UTF-16.</p></li>
-<li><p>char32_t: A type for holding 32-bit character sets, such as UTF-32.</p></li>
+<li><p>char - the default character type - used for program text - usually 8 bits.</p></li>
+<li><p>signed char - like char, but for signed character representation - able of holding both positive and negative values.</p></li>
+<li><p>wchar_t - provided to hold characters of a larger character set such as Unicode. The size of wchar_t is implementation-defined and large enough to hold the largest character set supported by the implementation’s locale.</p></li>
+<li><p>char16_t - a type for holding 16-bit character sets, such as UTF-16.</p></li>
+<li><p>char32_t - a type for holding 32-bit character sets, such as UTF-32.</p></li>
 </ul>
 <p>For more information see the C++ reference <a class="reference external" href="https://en.cppreference.com/w/cpp/language/types.html">here</a>.</p>
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/char_and_string-exercise-0">
 
-<p class="admonition-title"><span class="caption-number">Exercise 4 </span></p>
+<p class="admonition-title">Exercise  Character Type  </p>
 <section id="exercise-content">
 <p>Try the following code.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;x&#39;</span><span class="p">;</span>
@@ -590,24 +589,19 @@ document.write(`
 <div class="dropdown solution admonition">
 <p class="admonition-title">Code Explanation</p>
 <p><code class="docutils literal notranslate"><span class="pre">char</span></code> is an integral type - all characters have a corresponding integer value, and arithmetic operations can be applied.</p>
-<p>For 8-bit representations like <code class="docutils literal notranslate"><span class="pre">char</span></code>, the integer value run from 0 to 255.</p>
-<p>The character ‘1’ has the integer value of 49.</p>
-<p>Being next in sequence, the character ‘2’ has the integer value 50.</p>
+<p>For 8-bit representations like <code class="docutils literal notranslate"><span class="pre">char</span></code>, the integer values run from 0 to 255.</p>
+<p>The character ‘1’ has the integer value of 49, and being next in sequence, the character ‘2’ has the integer value 50.</p>
 <p>The values of all <code class="docutils literal notranslate"><span class="pre">char</span></code> characters can be found <a class="reference external" href="https://en.cppreference.com/w/cpp/language/ascii.html">here</a>.</p>
 <p>The capital letters have different integer values to their lower-case version. This is why names are case sensitive.</p>
 </div>
 </section>
-</div>
-</section>
+</div></section>
 <section id="string-type">
 <h2>String Type<a class="headerlink" href="#string-type" title="Permalink to this heading">#</a></h2>
-<p>A <code class="docutils literal notranslate"><span class="pre">string</span></code> is variable of type ‘string’ which is composed of a series of character literals bracketed by a pair of double quote marks <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code>.</p>
-<p>The standard library component <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> define strings and the operations and functions that work with string-type variables.</p>
-<p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> denotes an empty string, which has the type <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char[1]</span></code>. The single character of the empty string is the terminating ‘\0’.</p>
+<p>A string is a variable of type <code class="docutils literal notranslate"><span class="pre">string</span></code> which is composed of a sequence of character literals bracketed by a pair of double quote marks <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code>.</p>
+<p>The standard library component <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> defines strings and the operations and functions that work with string-type variables.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> denotes an empty string, which has the type <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char[1]</span></code> - the single character of the empty string is the terminating ‘\0’.</p>
 <p>The empty string therefore holds a value and is not the same as null.</p>
-</section>
-<section id="formating-the-ouput">
-<h2>Formating the Ouput<a class="headerlink" href="#formating-the-ouput" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="converting-int-to-string">
 <h2>Converting <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">string</span></code><a class="headerlink" href="#converting-int-to-string" title="Permalink to this heading">#</a></h2>
@@ -624,8 +618,8 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>There are a few ways to convert an integer to a string - a template can be used. Templates are discussed later.</p>
-<p>If the following code is placed at the beginning of the program (after the #include directives) or in a <a class="reference internal" href="glossary.html#term-Header-File"><span class="xref std std-term">header file</span></a>, then .</p>
+<p>There are a few ways to convert an integer to a string - a template can be used.</p>
+<p>This code creates a generic template for conversion to a string - we will circle back to how it works - for now, without explanation, if the following code is placed at the beginning of the program (after the #include directives) or in a <a class="reference internal" href="glossary.html#term-Header-File"><span class="xref std std-term">header file</span></a>, then we gain access to a <code class="docutils literal notranslate"><span class="pre">to_sting()</span></code> function as shown.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">input</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">outputStream</span><span class="p">;</span>
@@ -634,16 +628,15 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This code creates a generic template for conversion to a string - we will circle back to how it works.</p>
-<p>Then replace the std::cout line in the previous code with:</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> line in the previous code is replaced with:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Peter &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Or in the code further up this page</p>
+<p>Or in the code further up this page, the following replacement is made:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Study &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; times harder &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">motivator</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Try typing two names in a row again. Why does the code fail?</p>
+<p>Try typing two names in a row again. Why does the code fail now?</p>
 </section>
 </div></section>
 </section>
@@ -714,7 +707,6 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#character-data-types">Character Data Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-type">String Type</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formating-the-ouput">Formating the Ouput</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-int-to-string">Converting <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">string</span></code></a></li>
 </ul>
   </nav></div>

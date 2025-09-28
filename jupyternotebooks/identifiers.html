@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.01d17cf9-ede5-4299-ad13-24f6f00f05aa.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\identifiers.b0052169-003f-4aed-af02-695a0e95bd80.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/identifiers';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -541,29 +541,32 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="identifiers-and-declarations">
 <h1>Identifiers and Declarations<a class="headerlink" href="#identifiers-and-declarations" title="Permalink to this heading">#</a></h1>
-<p>Most entities in the C++ language have an identifier (a name).</p>
-<p>Writing a program usually required additional instances of entities to be created by the programmer and each must be given unique identifier.</p>
+<p>Most entities in the C++ language, such as variables, functions, and classes, have an identifier (a name).</p>
+<p>Writing a program usually requires multiple instances of different entities to be created - each must be given a unique identifier, which is then used within the program text to represent the entity, or its value.</p>
 <div class="margin warning admonition">
 <p class="admonition-title">No Whitespace in Identifiers!</p>
-<p>Whitespace is not permitted in identifiers/names.
-Longer names are broken up using underscores or <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a>.
-Special symbols are not permitted.</p>
+<p>Whitespace is not permitted in identifiers/names.</p>
+<p>Longer names are broken up using underscores (bad) or <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a> (good).</p>
+<p>Special symbols are not permitted.</p>
 </div>
-<p>Identifiers are then used to identify entities in the program text, such as variables, functions and classes.</p>
-<p>An identifier is an arbitrarily long sequence of digits, underscores, lowercase and uppercase Latin letters, and most Unicode characters.</p>
-<p>Identifiers encountered in a program are associated with the declarations that introduced them using a name lookup.</p>
-<p>“Name” is generally synonymous with “identifier” - the exceptions are beyond the scope of this book.</p>
-<p>Each name is only valid within a part of the program called its <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>.</p>
-<p>Some names have linkage which makes them refer to the same entities when they appear in different scopes or translation units.</p>
+<p>Identifiers are arbitrarily long sequences of characters - including the digits, underscores, lowercase and uppercase Latin letters, and most Unicode characters.</p>
+<p>Identifiers encountered in a program are associated with the declarations that introduced them using a ‘name lookup’.</p>
+<p>“Name” is generally synonymous with “identifier” - but also encompasses keywords, operators, literals, and other things which are not entities.</p>
+<p>Each name is normally valid within a part of the program called its <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>; unless its use has been extended by <a class="reference internal" href="glossary.html#term-Linkage"><span class="xref std std-term">linkage</span></a>, which enables an identifier to refer to the same entities when they appear in different scopes or translation units.</p>
 <section id="user-defined-identifiers">
 <h2>User-defined Identifiers<a class="headerlink" href="#user-defined-identifiers" title="Permalink to this heading">#</a></h2>
-<p>Certain words in a C++ program have special meaning, and these are known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>.</p>
-<p>Keywords may not be used as an identifier.</p>
-<p>Other words may be used as identifiers, unless they have already been used in the same <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>.</p>
-<p>A compilation error occurs if the compiler finds two identical identifiers - sometimes called a ‘naming collision’ or ‘naming conflict’ (error).</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Rules For Valid Identifiers</p>
-<p>The options for the first character are:</p>
+<p>Certain words in a C++ program have special meaning and are ‘reserved’ - meaning they cannot be used as identifiers - these are called <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>.</p>
+<p>Any other words may be used as identifiers, unless they have already been used in the same <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>.</p>
+<p>A compilation error occurs if the compiler finds two identical identifiers - sometimes called a ‘naming collision’ or a ‘naming conflict’ (error).</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>An identifier cannot start with a number!</p>
+</div>
+<div class="syntax dropdown admonition" id="jupyternotebooks/identifiers-syntax-0">
+
+<p class="admonition-title">Syntax Rules: Rules For Valid Identifiers </p>
+<section id="syntax-content">
+<p>The options for the first character of a valid identifier are:</p>
 <ul class="simple">
 <li><p>Any uppercase Latin letter, i.e. <code class="docutils literal notranslate"><span class="pre">A-Z</span></code></p></li>
 <li><p>Any lowercase Latin letters, i.e <code class="docutils literal notranslate"><span class="pre">a-z</span></code></p></li>
@@ -580,29 +583,29 @@ Special symbols are not permitted.</p>
 </ul>
 <p>Identifiers are case-sensitive. Any difference in the pattern of symbols creates a new identifier.
 The variables named <code class="docutils literal notranslate"><span class="pre">www</span></code> and <code class="docutils literal notranslate"><span class="pre">WWW</span></code> are not the same.</p>
-<div class="dropdown tip admonition">
-<p class="admonition-title">Convention for use of Identifiers</p>
+<div class="dropdown note admonition">
+<p class="admonition-title">Naming Conventions for Creating Identifiers</p>
 <p>It is considered best practice to use a consistent writing format for identifiers of the same type - this is called a naming convention.</p>
-<p>In C++:</p>
+<p>In C++, common practices are:</p>
 <ul class="simple">
-<li><p>An intial capital letter is only used for a <a class="reference internal" href="glossary.html#term-Class"><span class="xref std std-term">class</span></a>. This makes it easy to distinguish a class from a function etc.</p></li>
-<li><p>Names of functions and variables start with lower case</p></li>
+<li><p>An initial capital letter is only used for a <a class="reference internal" href="glossary.html#term-Class"><span class="xref std std-term">class</span></a>. This makes it easy to distinguish a class from a function etc.</p></li>
+<li><p>Names of functions and variables start with a lower-case letter.</p></li>
 <li><p>Longer names are generally written in Camel Case, where the name is composed of a series of words, and later words start with capital letters.
 <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a></p></li>
-<li><p>Pointer variables should be prepended with ‘p’ and the asterisk ‘*’ should be position next to the variable name instead of the pointer type.</p></li>
-<li><p>Reference variables should be prepended with ‘r’. This helps to differentiate between the method returning a modifiable object and the same method returning a non-modifiable object</p></li>
-<li><p>Static variables should be prepended with ‘s’</p></li>
-<li><p>Global constants should be all capital letters separated with ‘_’</p></li>
+<li><p>Pointer variables should be prepended with ‘p’ or ‘ptr’ and the asterisk ‘*’ should be positioned consistently - either next to the pointer type or next to the variable name.</p></li>
+<li><p>Reference variables should be prepended with ‘r’, or ‘ref’. This helps to differentiate between the method returning a modifiable object and the same method returning a non-modifiable object</p></li>
+<li><p>Static variables should be prepended with ‘s’, or ‘static’.</p></li>
+<li><p>Global constants should be all capital letters separated with ‘_’.</p></li>
 </ul>
 </div>
-</div>
-<p>Note: Support of Unicode identifiers is limited in most implementations, e.g. gcc (until 10).</p>
+</section>
+</div><p>Note: Support of Unicode identifiers is limited in most implementations, e.g. gcc (until 10.x).</p>
 </section>
 <section id="keywords">
 <h2>Keywords<a class="headerlink" href="#keywords" title="Permalink to this heading">#</a></h2>
-<p>Certain words in a C++ program have special meaning, known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>, which are reserved</p>
+<p>Certain words in C++ have special meaning, known as <a class="reference internal" href="glossary.html#term-Keywords"><span class="xref std std-term">keywords</span></a>, which are reserved for the use of the Language Standard.</p>
 <p>The reserved keywords may not be used as object names.</p>
-<p>Here is a list of reserved <a class="reference external" href="https://en.cppreference.com/w/cpp/keyword.html">keywords</a>in the C++ language from the CPP reference.</p>
+<p>Here is a list of reserved <a class="reference external" href="https://en.cppreference.com/w/cpp/keyword.html">keywords</a> in the C++ language from the CPP reference.</p>
 </section>
 <section id="declaration">
 <h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
@@ -610,53 +613,65 @@ The variables named <code class="docutils literal notranslate"><span class="pre"
 <p class="admonition-title">Tip</p>
 <p>Before the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:</p>
 <ul class="simple">
-<li><p>Constant declarations</p></li>
-<li><p>Function prototype declarations
-Inside the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:
-*Variable declarations</p></li>
+<li><p>Constant declarations.</p></li>
+<li><p>Function prototype declarations.</p></li>
 </ul>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function put:
+*Variable declarations.</p>
 </div>
-<p>Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of entity the name refers to.</p>
-<div class="dropdown note admonition">
-<p class="admonition-title">Examples of Declarations</p>
+<p>Before an identifier (name) can be used in a C++ program, it must be declared.</p>
+<p>Declaration informs the compiler of the existence of an instance of a specified type of entity and establishes its identifier.</p>
+<div class="code_example dropdown admonition" id="jupyternotebooks/identifiers-code_example-1">
+
+<p class="admonition-title">Code Example: Examples of Declarations </p>
+<section id="code_example-content">
+<p>These are only declarations - most of them cannot be used yet.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>#include &lt;iostream&gt;
 <span class="linenos"> 2</span>#include &lt;vector&gt;
 <span class="linenos"> 3</span>#include &lt;cmath&gt;
 <span class="linenos"> 4</span>#include &lt;string&gt;
-<span class="linenos"> 5</span>char myChar;
-<span class="linenos"> 6</span>std::string myString;
-<span class="linenos"> 7</span>auto count = 1;
-<span class="linenos"> 8</span>const double pi{ 3.1415926535897 };
-<span class="linenos"> 9</span>const char* myPlace = &quot;lboro&quot;;
-<span class="linenos">10</span>const char* season[] = { &quot;spring&quot;, &quot;summer&quot;, &quot;fall&quot;, &quot;winter&quot; };
-<span class="linenos">11</span>std::vector&lt;std::string&gt; ourPeople{ &quot;Kelly&quot;, &quot;Sasha&quot;, &quot;Mark&quot;, &quot;Anna&quot;, &quot;Steve&quot;, &quot;Sarah&quot;, &quot;Peter&quot; };
-<span class="linenos">12</span>double std::sqrt(double);  //function declaration - parameter name optional
-<span class="linenos">13</span>struct Date { int d = 3, m, y; };    //struct declaration
-<span class="linenos">14</span>int day(Date* p) { return p−&gt;d; }
-<span class="linenos">15</span>template&lt;class T&gt; T abs(T a) { return a &lt; 0 ? -a : a; };
-<span class="linenos">16</span>constexpr int fac(int n) { return (n &lt; 2) ? 1 : n * fac(n−1); }
+<span class="linenos"> 5</span>double std::sqrt(double);  //function declaration - parameter name optional
+<span class="linenos"> 6</span>struct Date { int d , m, y; };    //struct declaration
+<span class="linenos"> 7</span>template&lt;class T&gt; T abs(T a) { return a &lt; 0 ? -a : a; }
+<span class="linenos"> 8</span>int fac(int n) ;
+<span class="linenos"> 9</span>int main() {
+<span class="linenos">10</span>    char myChar;
+<span class="linenos">11</span>    std::string myString;
+<span class="linenos">12</span>    auto count = 1;
+<span class="linenos">13</span>    const double pi{ 3.1415926535897 };
+<span class="linenos">14</span>    const char* myPlace;
+<span class="linenos">15</span>    const char* season[4];
+<span class="linenos">16</span>    std::vector&lt;std::string&gt; ourPeople;
+<span class="linenos">17</span>    return 0;
+<span class="linenos">18</span>}
 </pre></div>
 </div>
-</div>
-<section id="the-structure-of-declarations">
+<p>Most declarations do not include any values, but some cannot be completed without them.</p>
+<p>If the type is <code class="docutils literal notranslate"><span class="pre">auto</span></code> or declared as <code class="docutils literal notranslate"><span class="pre">const</span></code> then the declaration must include initialisation (a value).</p>
+</section>
+</div><section id="the-structure-of-declarations">
 <h3>The Structure of Declarations<a class="headerlink" href="#the-structure-of-declarations" title="Permalink to this heading">#</a></h3>
 <p>The structure of a declaration is defined by the C++ grammar and has 5 basics part.</p>
 <ul class="simple">
-<li><p>Optional prefix specifiers (e.g., static or virtual)</p></li>
-<li><p>A base type (e.g., vector<double> or const int)</p></li>
-<li><p>A declarator (optionally including a name) (e.g., p[7], n, or ∗(∗)[])</p></li>
-<li><p>Optional suffix function specifiers (e.g., const or noexcept)</p></li>
-<li><p>An optional initializer or function body (e.g., ={7,5,3} or {return x;})
-Except for function and namespace definitions, a declaration is terminated by a semicolon.</p></li>
+<li><p>Optional prefix specifiers e.g. <code class="docutils literal notranslate"><span class="pre">static</span></code> or <code class="docutils literal notranslate"><span class="pre">virtual</span></code>.</p></li>
+<li><p>A base type e.g. <code class="docutils literal notranslate"><span class="pre">vector&lt;double&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int</span></code>.</p></li>
+<li><p>A declarator a name and optionally some declarator operators e.g. <code class="docutils literal notranslate"><span class="pre">p[7]</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>Optional suffix function specifiers e.g. <code class="docutils literal notranslate"><span class="pre">const</span></code> or <code class="docutils literal notranslate"><span class="pre">noexcept</span></code>.</p></li>
+<li><p>An optional initializer or function body e.g. <code class="docutils literal notranslate"><span class="pre">={7,5,3}</span></code> or <code class="docutils literal notranslate"><span class="pre">{return</span> <span class="pre">x;}</span></code>.</p></li>
 </ul>
+<p>Except for functions and namespace definitions, a declaration is terminated by a semicolon.</p>
 </section>
 </section>
 <section id="declarators">
 <h2>Declarators<a class="headerlink" href="#declarators" title="Permalink to this heading">#</a></h2>
-<p>A declarator is the ‘name’ of the new object found in its declaration.</p>
-<p>The declarator is composed of the object’s identifier and any declarator operators/modifiers.</p>
-<p>The type, any type-modifiers are not part of the declarator.</p>
-<div class="highlight-c++ notranslate" id="examples-of-declarators"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w">                    </span><span class="c1">// myInt is the declarator</span>
+<p>A declarator is the ‘name’ of the new object found in its declaration, combined with any declarator operators/modifiers.</p>
+<p>The type and any type-modifiers are not part of the declarator.</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/identifiers-syntax-2">
+
+<p class="admonition-title">Syntax Rules: Declarators </p>
+<section id="syntax-content">
+<p>Examples of Declarators vs Identifiers</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w">                    </span><span class="c1">// myInt is the declarator</span>
 <span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">myDouble</span><span class="p">;</span><span class="w">             </span><span class="c1">//myDouble is the identifier, *myDouble is the declarator</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">myIntArray</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w">          </span><span class="c1">//myIntArray[256] is the declarator, myIntArray is the identifier</span>
 <span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w">  </span><span class="c1">//*sequence[5] is the declarator</span>
@@ -716,12 +731,13 @@ Except for function and namespace definitions, a declaration is terminated by a 
 </table>
 </div>
 </div>
-<p>Declarators are tricky because they are designed to mirror their use in expressions; for example <code class="docutils literal notranslate"><span class="pre">∗</span></code> is a ‘prefix’ and <code class="docutils literal notranslate"><span class="pre">[]</span></code> and <code class="docutils literal notranslate"><span class="pre">()</span></code> are both ‘postfix’.</p>
+<p>Declarators are tricky because they are designed to mirror their use in expressions; for example, <code class="docutils literal notranslate"><span class="pre">∗</span></code> is a ‘prefix’ and <code class="docutils literal notranslate"><span class="pre">[]</span></code> and <code class="docutils literal notranslate"><span class="pre">()</span></code> are both are ‘postfix’ operators.</p>
 <p>The postfix declarator operators bind tighter than the prefix ones.</p>
-<p>Consequently, char∗kings[] is an array of pointers to char, whereas char(∗kings)[] is a pointer to an array of char.</p>
+<p>Consequently, <code class="docutils literal notranslate"><span class="pre">char∗kings[]</span></code> is an array of pointers to <code class="docutils literal notranslate"><span class="pre">char</span></code>, whereas <code class="docutils literal notranslate"><span class="pre">char(∗kings)[]</span></code> is a pointer to an array of <code class="docutils literal notranslate"><span class="pre">char</span></code>.</p>
 <p>It is necessary to use parentheses to express types such as ‘pointer to array’ and ‘pointer to function’.</p>
 <p><code class="docutils literal notranslate"><span class="pre">decl-specifier-seq</span></code> is the sequence of whitespace separated specifiers, found in a declaration before the declarator, and including the type-specifier and any modifiers.</p>
 </section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">

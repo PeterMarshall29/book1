@@ -10,13 +10,14 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercises 3
+# Exercises Week 2 Part 1
 
-Selection and Iteration
+Selection and Iteration Methods
 
-````{exercise-start} 
+````{exercise-start} 2A
 :label: exerciseex31
 :class: dropdown
+:nonumber:
 ````
 Write a program that asks for an integer and tells the user if the number is odd or even.
 
@@ -32,7 +33,7 @@ Code goes here....
 :label: solutionex31
 :class: dropdown
 ````
-For Intergers.
+Possible solution for integers - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream> 
 int main() {
@@ -53,18 +54,19 @@ int main() {
     std::cin >> number;
     if (std::remainder(number, 2) == 0) std::cout << "Number is Even!";
     else if (std::remainder(number, 2) == 1.0) std::cout << "Number is Odd!";
-    else std::cout << "mmmm, you did not enter a whole numeber...its complicated!";
+    else std::cout << "mmmm, you did not enter a whole number...its complicated!";
     return 0;
 }
 ```
 ````{solution-end}
 ````
 
-`````{exercise-start} 
+`````{exercise-start} 2B
 :label: exercisex32
 :class: dropdown
+:nonumber:
 `````
-Write a program to calculate and print the sum of the squares of the postive integrers from one to a user inputed value.
+Write a program to calculate and print the sum of the squares of the positive integers from one to a user inputted value.
 `````{exercise-end} 
 `````
 
@@ -88,16 +90,17 @@ int main() {
 `````
 
 
-````{exercise-start} 
+````{exercise-start} 2C
 :label: exerciseex33
 :class: dropdown
+:nonumber:
 ````
 Write code that produces the following outputs to the terminal. You should use a for-loop. Each consecutive line should display the next value in a:
-* count from 0 to 10, in steps of 1.
-*	a countdown from 20 to 0 in steps of 0.5.
-*	a count up, in steps of 3, from 100 to 121.
-*	the multiplication table for 7x.
-*	adapt the previous part so that it can produce any multiplication table, for a given number of terms i.e. the 11 times table for 15 terms, so up to 11×15 at the users request.
+* Count from 0 to 10, in steps of 1.
+* A countdown from 20 to 0 in steps of 0.5.
+* A count up, in steps of 3, from 100 to 121.
+* The multiplication table for 7x.
+* Adapt the previous part so that it can produce any multiplication table, for a given number of terms i.e. the 11 times table for 15 terms, so up to 11×15 at the user’s request.
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -110,15 +113,17 @@ Code goes here....
 :label: solutionex33
 :class: dropdown
 ````
+Solution not provided.....
 ```{code-block} c++
 
 ```
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 2D
 :label: exerciseex34
 :class: dropdown
+:nonumber:
 ````
 Use a for-statement to evaluate the equation:
 ```{math}
@@ -137,7 +142,7 @@ Code goes here....
 :label: solutionex34
 :class: dropdown
 ````
-Check the solution works.
+Check this solution works.
 
 What happens if you change n?
 ```{code-block} c++
@@ -159,9 +164,10 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 2E
 :label: exerciseex35
 :class: dropdown
+:nonumber:
 ````
 Evaluate:
 
@@ -180,7 +186,7 @@ Code goes here....
 :label: solutionex35
 :class: dropdown
 ````
-Suggested Solution - try to improve the code.
+Suggested Solution - try to improve this code.
 ```{code-block} c++
 #include <iostream>
 #include <numbers> //requires C++ 2020 or better
@@ -206,9 +212,10 @@ int main() {
 ````
 
 
-````{exercise-start} 
+````{exercise-start} 2F
 :label: exerciseex36
 :class: dropdown
+:nonumber:
 ````
 a.	Write a program that asks the user for a number and then classifies the number as being either: less than 10, between 10 and 100, between 100 and 1000, or greater than 1000.
 b.	Modify the last program, to also identify if the number is an integer or not.
@@ -257,9 +264,10 @@ int main() {
 ````
 
 
-````{exercise-start} 
+````{exercise-start} 2G
 :label: exerciseex37
 :class: dropdown
+:nonumber:
 ````
 Write a program that will take the coefficients for a quadratic equation from the user, and return the number, and type of solutions, and the solutions. 
 ```{code-cell} c++
@@ -273,6 +281,7 @@ Code goes here....
 :label: solutionex37
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 #include <numbers> //requires C++ 2020 or better
@@ -310,12 +319,13 @@ int main() {
 ````{solution-end}
 ````
 
-`````{exercise-start}
+`````{exercise-start} 2H
 :label: exercisex38
 :class: dropdown
+:nonumber:
 `````
 Write a program to calculate and print to screen the binomial coefficients for the nth power - i.e. the nth line of Pascal's triangle.
-By definition, the binomial coefficients are calculated as
+The binomial coefficients are calculated as:
 ```{math}
 C(k,n)= \frac{n!}{k!(n-k)!} 
 ```
@@ -336,6 +346,7 @@ C(k+1,n)=C(k,n)\cdot\frac{n-k}{k+1}
 :label: solutionx38
 :class: dropdown
 `````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int main() {
@@ -355,9 +366,10 @@ int main() {
 `````
 
 
-````{exercise-start} 
+````{exercise-start} 2I
 :label: exerciseex39
 :class: dropdown
+:nonumber:
 ````
 Write a program that checks a sequence of user input positive integers and reports if three identical consecutive values are entered.
 
@@ -410,11 +422,12 @@ int main()
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 2J
 :label: exerciseex310
 :class: dropdown
+:nonumber:
 ````
-Physicists often need to convert quanitites in one unit into another.
+Physicists often need to convert quantities in one unit into another.
 Write a program that asks the user to input, a temperature, the current unit, and the desired unit, and then provides the converted value.
 Your program should include the Celsius, Kelvin, Fahrenheit, and Rankine temperature scales.
 ```{code-cell} c++
@@ -428,6 +441,9 @@ Code goes here....
 :label: solutionex310
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
+
+Try nested if-else-if statements - what are the benefits?
 ```{code-block} c++
 #include <iostream> 
 int main() {
@@ -528,9 +544,10 @@ int main() {
 
 
  
-````{exercise-start} 
+````{exercise-start} 2K
 :label: exerciseex311
 :class: dropdown
+:nonumber:
 ````
 Write a program that checks if a user entered number is a prime number and reports the answer.
 ```{code-cell} c++
@@ -544,6 +561,7 @@ Code goes here....
 :label: solutionex311
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream> 
 

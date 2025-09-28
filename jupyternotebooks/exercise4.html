@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercises 4 &#8212; Introduction to C++ Programming</title>
+    <title>Exercises Week 2 Part 2 &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise4.6dde7d1c-269a-4a85-9f1d-095f0a2cb5d8.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise4.95daa33e-a175-4429-8ba1-c821ad3be557.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/exercise4';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="vector.html">Vectors</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises 4</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -509,7 +509,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercises 4</h1>
+    <h1>Exercises Week 2 Part 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -523,11 +523,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercises-4">
-<h1>Exercises 4<a class="headerlink" href="#exercises-4" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises-week-2-part-2">
+<h1>Exercises Week 2 Part 2<a class="headerlink" href="#exercises-week-2-part-2" title="Permalink to this heading">#</a></h1>
+<p>Using arrays and vectors.</p>
 <div class="exercise dropdown admonition" id="exerciseex41">
 
-<p class="admonition-title"><span class="caption-number">Exercise 24 </span></p>
+<p class="admonition-title">Exercise  3A  </p>
 <section id="exercise-content">
 <p>Write a program that demonstrates the use of a range for loop to print the elements of a vector.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">i</span></code> as the loop variable, and compare printing <code class="docutils literal notranslate"><span class="pre">i</span></code> to printing <code class="docutils literal notranslate"><span class="pre">yourVector[i]</span></code> in each iteration.</p>
@@ -539,11 +540,11 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex41">
+</div><div class="solution dropdown admonition" id="solutionex41">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex41"> Exercise 24</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex41"> Exercise  3A  </a></p>
 <section id="solution-content">
+<p>Possible solution - can you make it more useful or more efficient?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">{</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
@@ -558,9 +559,9 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex42">
 
-<p class="admonition-title"><span class="caption-number">Exercise 25 </span></p>
+<p class="admonition-title">Exercise  3B  </p>
 <section id="exercise-content">
-<p>Write a program that ask the user for 5 integers, initialises a 5 element array with those values and then prints out the value.</p>
+<p>Write a program that ask the user for 5 integers, initialises a 5-element array with those values and then prints out the value.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -569,12 +570,11 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex42">
+</div><div class="solution dropdown admonition" id="solutionex42">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex42"> Exercise 25</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex42"> Exercise  3B  </a></p>
 <section id="solution-content">
-<p>Simple Solution</p>
+<p>Possible solution - can you make it more useful or more efficient?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
@@ -585,7 +585,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This code works, but it would be very annoying for a larger number of elements. It is also inflexible, ideally we would want the user to define the number of elements.</p>
+<p>This code works, but it would be very annoying for a larger number of elements. It is also inflexible; ideally, we would want the user to define the number of elements.</p>
 <p>The following code requires the use of for-loops - come back to it later.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -606,9 +606,9 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex43">
 
-<p class="admonition-title"><span class="caption-number">Exercise 26 </span></p>
+<p class="admonition-title">Exercise  3C  </p>
 <section id="exercise-content">
-<p>Write a program to merge two 5 element arrays into a single 10 element array, and neatly print out the answer.</p>
+<p>Write a program to merge two 5 element arrays into a single 10 element array and neatly print out the answer.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">..</span>
@@ -617,11 +617,11 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex43">
+</div><div class="solution dropdown admonition" id="solutionex43">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex43"> Exercise 26</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex43"> Exercise  3C  </a></p>
 <section id="solution-content">
+<p>Possible solution - can you make it more useful or more efficient?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">myFirstArray</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
@@ -642,10 +642,10 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex44">
 
-<p class="admonition-title"><span class="caption-number">Exercise 27 </span></p>
+<p class="admonition-title">Exercise  3D  </p>
 <section id="exercise-content">
 <p>Write a program that asks the user for the number of elements in their array, then the input of those elements.
-And then searches that array for a number of the users chosing and tells them the position in the array etc. if the number is found.</p>
+And then searches that array for a specific number of the users choosing and, if the number is found, reports its position in the array etc.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -654,11 +654,11 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex44">
+</div><div class="solution dropdown admonition" id="solutionex44">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex44"> Exercise 27</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex44"> Exercise  3D  </a></p>
 <section id="solution-content">
+<p>Possible solution - can you make it more useful or more efficient?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">userArray</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="n">numberOfElements</span><span class="p">,</span><span class="w"> </span><span class="n">searchNumber</span><span class="p">,</span><span class="w"> </span><span class="n">searchCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -683,7 +683,7 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 <div class="exercise dropdown admonition" id="exerciseex45">
 
-<p class="admonition-title"><span class="caption-number">Exercise 28 </span></p>
+<p class="admonition-title">Exercise  3E  </p>
 <section id="exercise-content">
 <p>Write a program that creates an array of integer elements that are either ones or zeros and then rearranges the array so that all the zeroes come first.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -694,15 +694,15 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex45">
+</div><div class="solution dropdown admonition" id="solutionex45">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex45"> Exercise 28</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex45"> Exercise  3E  </a></p>
 <section id="solution-content">
+<p>Possible solution - can you make it more useful or more efficient?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Method to determine number of elements using byte size of array comparaed to byte size of type.</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Method to determine number of elements by comparing the byte size of the array to the byte size of the type.</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The array is: &quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numberOfElements</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span><span class="w"> </span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfZeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
@@ -721,7 +721,7 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 <div class="exercise dropdown admonition" id="exerciseex46">
 
-<p class="admonition-title"><span class="caption-number">Exercise 29 </span></p>
+<p class="admonition-title">Exercise  3F  </p>
 <section id="exercise-content">
 <p>Write a program that:</p>
 <ul class="simple">
@@ -737,10 +737,9 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex46">
+</div><div class="solution dropdown admonition" id="solutionex46">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex46"> Exercise 29</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex46"> Exercise  3F  </a></p>
 <section id="solution-content">
 <p>Try to improve the solution… perhaps identifying even occurrences and telling the user if there are no duplicates etc.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -767,7 +766,7 @@ And then searches that array for a number of the users chosing and tells them th
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">myTracker</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="w"> </span><span class="n">checkAlreadyPrinted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">checkAlreadyPrinted</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The mumber &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; ocurs an odd number of times </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The mumber &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; occurs an odd number of times </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="w">                </span><span class="n">myTracker</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">myVector</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
@@ -780,7 +779,7 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 <div class="exercise dropdown admonition" id="exerciseex47">
 
-<p class="admonition-title"><span class="caption-number">Exercise 30 </span></p>
+<p class="admonition-title">Exercise  3G  </p>
 <section id="exercise-content">
 <p>Write a program that creates a string vector and then removes any strings that contains a numeric digit.</p>
 <p>Hint: Use the <code class="docutils literal notranslate"><span class="pre">std::isdigit()</span></code> function, which works on <code class="docutils literal notranslate"><span class="pre">char</span></code> type and comes from the <code class="docutils literal notranslate"><span class="pre">&lt;cctype&gt;</span></code> library.</p>
@@ -793,11 +792,11 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex47">
+</div><div class="solution dropdown admonition" id="solutionex47">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex47"> Exercise 30</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex47"> Exercise  3G  </a></p>
 <section id="solution-content">
+<p>Possible solution - can you make it more useful or more efficient?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">   </span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="c1"> </span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
@@ -828,7 +827,7 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 <div class="exercise dropdown admonition" id="exerciseex410">
 
-<p class="admonition-title"><span class="caption-number">Exercise 31 </span></p>
+<p class="admonition-title">Exercise  3H  </p>
 <section id="exercise-content">
 <p>The algorithms library provides functions for a variety of purposes.</p>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm.html">https://en.cppreference.com/w/cpp/algorithm.html</a></p>
@@ -842,11 +841,11 @@ And then searches that array for a number of the users chosing and tells them th
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex410">
+</div><div class="solution dropdown admonition" id="solutionex410">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex410"> Exercise 31</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex410"> Exercise  3H  </a></p>
 <section id="solution-content">
+<p>Possible solution - can you make it more useful or more efficient?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span><span class="c1">    </span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">     </span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="c1"> </span>

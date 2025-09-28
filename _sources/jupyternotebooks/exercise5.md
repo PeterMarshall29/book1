@@ -10,11 +10,12 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercises 5
+# Exercises Week 3 Functions
 
-````{exercise-start} 
+````{exercise-start} 4A
 :label: exerciseex51
 :class: dropdown
+:nonumber:
 ````
 Correct the following function and add the rest of a program needed to demonstrate a call to the function. 
 
@@ -32,6 +33,7 @@ int squed(inta) {
 :label: solutionex51
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int squaredValueOf(int a) {
@@ -48,9 +50,10 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 4B
 :label: exerciseex52
 :class: dropdown
+:nonumber:
 ````
 Write a function that takes an integer value and returns one more than that value.
 Write a program that calls your function and prints both values to the display.
@@ -65,6 +68,7 @@ Code goes here....
 :label: solutionex52
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int incrementFunction(int number) {
@@ -81,9 +85,10 @@ int main () {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 4C
 :label: exerciseex53
 :class: dropdown
+:nonumber:
 ````
 Write a function that takes two integer values and returns `true` if their sum is less than 100. Then use the function to write a program that request the integers and prints a statement telling the user if their sum is less than 100 or not.
 ```{code-cell} c++
@@ -97,6 +102,7 @@ Code goes here....
 :label: solutionex53
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 bool sumIsLessThan100(int A, int B) {
@@ -113,9 +119,10 @@ int main () {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 4D
 :label: exerciseex54
 :class: dropdown
+:nonumber:
 ````
 Write a function that takes in two integers, hours and minutes, and then converts them to a total number of seconds.
 Complete the program needed to do this, and include a loop, so that the user can repeat the conversion without restarting the program.
@@ -132,6 +139,7 @@ int convertToSeconds(int hours, int minutes) {
 :label: solutionex54
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int convertToSeconds(int hours, int minutes) {
@@ -156,9 +164,10 @@ int main() {
 ````
 
 
-````{exercise-start} 
+````{exercise-start} 4E
 :label: exerciseex55
 :class: dropdown
+:nonumber:
 ````
 Write functions for the following:
 a.	Calculation of a factorial using recursion.
@@ -176,6 +185,7 @@ Code goes here....
 :label: solutionex55
 :class: dropdown
 ````
+Possible solutions - can you make them more useful or more efficient?
 ```{code-block} c++
 
 //factorial
@@ -234,9 +244,10 @@ int main() {
 
 ````{solution-end}
 ````
-````{exercise-start} 
+````{exercise-start} 4F
 :label: exerciseex56
 :class: dropdown
+:nonumber:
 ````
 Write a program and function to calculate the sum of only the even values in a matrix.
 ```{code-cell} c++
@@ -280,9 +291,10 @@ int main() {
 
 
 
-````{exercise-start} 
+````{exercise-start} 4G
 :label: exerciseex57
 :class: dropdown
+:nonumber:
 ````
 Write a program that takes an integer, the radius of a circle, and calls a function that returns the difference in area between two squares. The larger square being the smallest square that can contain the circle, and the smaller square being the largest square that will fit inside the circle.
 ```{code-cell} c++
@@ -296,6 +308,7 @@ Code goes here....
 :label: solutionex57
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 int differenceInAreaOfSquaresAroundCircle(int radius) {
@@ -316,9 +329,10 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 4H
 :label: exerciseex58
 :class: dropdown
+:nonumber:
 ````
 Write a program that uses a function call to the type of triangle given the lengths of its sides i.e. Scalene, Isosceles, Equilateral, or 'Not a triangle'.
 ```{code-cell} c++
@@ -332,6 +346,7 @@ Code goes here....
 :label: solutionex58
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 #include <vector>
@@ -356,9 +371,10 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 4I
 :label: exerciseex59
 :class: dropdown
+:nonumber:
 ````
 Write a program that calls a function to calculate the arctangent of an appropriately sized number using a Taylor series expansion.
 ```{code-cell} c++
@@ -372,6 +388,7 @@ Code goes here....
 :label: solutionex59
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 // arctan
 #include <iostream>
@@ -414,15 +431,16 @@ int main() {
 ````{solution-end}
 ````
 
-````{exercise-start} 
+````{exercise-start} 4J
 :label: exerciseex510
 :class: dropdown
+:nonumber:
 ````
 `<regex>``std::regex` is a library in C++ that provides useful tools for working with {term}`regular expressions`. 
 `std::regex` represents a regular expression.
 You can find information about `<regex>` here.
 Write a program that calls a function that uses `std::regex_match` and `std::regex` to check that an input string is a valid colour 'Hex Code'.
-Colur Hex codes are a string composed of `#` followed by a 6 digit hexadecimal codes that represent colours.
+Colour Hex Codes are a string composed of `#` followed by a 6-digit hexadecimal number that represent an individual colour.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -434,6 +452,7 @@ Code goes here....
 :label: solutionex510
 :class: dropdown
 ````
+Possible solution - can you make it more useful or more efficient?
 ```{code-block} c++
 #include <iostream>
 #include <regex>

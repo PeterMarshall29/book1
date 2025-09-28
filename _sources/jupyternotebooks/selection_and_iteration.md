@@ -19,7 +19,7 @@ Flow control, just refers to controlling the sequential flow of execution.
 
 Both refer to the mechanisms that dictate the order in which statements are executed in a program. 
 ```
-Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a programme. 
+Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a program. 
 
 The {term}`control flow` refers to the order in which all its statements are executed. 
 
@@ -33,10 +33,10 @@ Without iteration statement a program has to end - your phone's program is const
 
 ````{admonition} Statements and Expressions
 :class: dropdown
-A computer programme is a sequences of statements, which are executed sequentially.
+A computer program is a sequences of statements, which are executed sequentially.
 
 The order of the execution, is determined by the {term}`control flow`
-A computer programme is a sequences of statements, which are executed sequentially.
+A computer program is a sequences of statements, which are executed sequentially.
 
 The simplest type of statement is an {term}`expression statement` - an expression followed by a terminator.
 
@@ -93,7 +93,7 @@ Written and David Wheeler in the run in the computer laboratory at Cambridge Uni
 :label: examplep1
 :class: dropdown
 `````
-This is the c++ equivalent of  Wheeler's programme.
+This is the c++ equivalent of  Wheeler's program.
 ````{code-cell} c++
 :tags: [remove-output]
 #include <iostream>
@@ -114,7 +114,7 @@ int main() {
 `````
 ## Jump Statement
 
-Jump Statements unconditionally transfers control to another part of the programme.
+Jump Statements unconditionally transfers control to another part of the program.
 
 The available Jump Statements in C++ are.
 

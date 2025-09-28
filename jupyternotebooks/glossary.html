@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.5f73e620-51d9-449b-bfdb-122ed59c85fd.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.148c46ea-0e8b-41e8-85db-88f5b3c6e5f3.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/glossary';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -548,6 +548,8 @@ document.write(`
 </dd>
 <dt id="term-Casting-to-Type">Casting to Type<a class="headerlink" href="#term-Casting-to-Type" title="Permalink to this term">#</a></dt><dd><p>Conversion of one type of data safely to another. A variable cannot change its type, so type casting occurs on assignment to a variable of the correct type.</p>
 </dd>
+<dt id="term-char">char<a class="headerlink" href="#term-char" title="Permalink to this term">#</a></dt><dd><p>Type for representing individual characters. Character literals are enclosed by <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>. <code class="docutils literal notranslate"><span class="pre">char</span></code>is an integer type - each character has an associated integer value.</p>
+</dd>
 <dt id="term-Char-Type">Char Type<a class="headerlink" href="#term-Char-Type" title="Permalink to this term">#</a></dt><dd><p>Type for representing individual characters. Character literals are enclosed by <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>. <code class="docutils literal notranslate"><span class="pre">char</span></code>is an integer type - each character has an associated integer value.</p>
 </dd>
 <dt id="term-Class">Class<a class="headerlink" href="#term-Class" title="Permalink to this term">#</a></dt><dd><p>A user-defined data type - a blueprint for creating objects, encapsulating data (attributes) and functions (methods).</p>
@@ -756,7 +758,8 @@ document.write(`
 </dd>
 <dt id="term-Keywords">Keywords<a class="headerlink" href="#term-Keywords" title="Permalink to this term">#</a></dt><dd><p>An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programr. <a class="reference external" href="https://en.cppreference.com/w/cpp/keywords.html">Keywords in the C++ language</a>.</p>
 </dd>
-<dt id="term-Linkage">Linkage<a class="headerlink" href="#term-Linkage" title="Permalink to this term">#</a></dt><dd><p>The process of merging code from separately compiled translation units into a program, or part of a program.</p>
+<dt id="term-Linkage">Linkage<a class="headerlink" href="#term-Linkage" title="Permalink to this term">#</a></dt><dd><p>linkage refers to how names can refer to the same entities across different scopes or translation units. Internal Linkage - Identifiers can only be seen within a translation unit. External Linkage - Identifiers can be seen in other translation units. No Linkage - Identifiers can only be seen in the scope where they are defined. Linkage is determined by how identifiers are declared, and it affects how names can refer to the same object, function, or other entity throughout the program.
+Sometimes used in connection with the linker.</p>
 </dd>
 <dt id="term-Linker">Linker<a class="headerlink" href="#term-Linker" title="Permalink to this term">#</a></dt><dd><p>The part of the C++ implementation that merges the code generated from separately compiled translation units into a program, or part of a program</p>
 </dd>
@@ -872,6 +875,8 @@ document.write(`
 </dd>
 <dt id="term-References">References<a class="headerlink" href="#term-References" title="Permalink to this term">#</a></dt><dd><p>The memory address of an object.</p>
 </dd>
+<dt id="term-Regular-Expression">Regular Expression<a class="headerlink" href="#term-Regular-Expression" title="Permalink to this term">#</a></dt><dd><p>Regular expressions are used for pattern matching within strings. They are part of the <code class="docutils literal notranslate"><span class="pre">&lt;regex&gt;</span></code> library that provides tools to define, search, and manipulate patterns in text.</p>
+</dd>
 <dt id="term-Reserved-Characters">Reserved Characters<a class="headerlink" href="#term-Reserved-Characters" title="Permalink to this term">#</a></dt><dd><p>Some characters cannot be freely used because they have special meaning in the syntax. Some may be overloaded. Examples: <code class="docutils literal notranslate"><span class="pre">#</span></code>, <code class="docutils literal notranslate"><span class="pre">\</span></code>, arithmetic operators, comparison operators, punctuation symbols.</p>
 </dd>
 <dt id="term-Resource-files">Resource files<a class="headerlink" href="#term-Resource-files" title="Permalink to this term">#</a></dt><dd><p>Files that do not contain computer code, such as image files, required by the program.</p>
@@ -883,6 +888,8 @@ document.write(`
 <dt id="term-Scalar">Scalar<a class="headerlink" href="#term-Scalar" title="Permalink to this term">#</a></dt><dd><p>A type that holds a single value of a defined range. Scalars include arithmetic types (integral or floating-point values), enumeration type members, pointer types, pointer-to-member types, and <code class="docutils literal notranslate"><span class="pre">std::nullptr_t</span></code>. Fundamental types are typically scalar types.</p>
 </dd>
 <dt id="term-Scope">Scope<a class="headerlink" href="#term-Scope" title="Permalink to this term">#</a></dt><dd><p>The context in which a variable, function, or class is defined. May be global, namespace, class, function, block/local.</p>
+</dd>
+<dt id="term-Scopes">Scopes<a class="headerlink" href="#term-Scopes" title="Permalink to this term">#</a></dt><dd><p>The context in which a variable, function, or class is defined. May be global, namespace, class, function, block/local.</p>
 </dd>
 <dt id="term-Scope-Resolution-Operator">Scope Resolution Operator<a class="headerlink" href="#term-Scope-Resolution-Operator" title="Permalink to this term">#</a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">::</span></code> - links an entity to its container; like a folder reference. The container defines the scope of the entity.</p>
 </dd>
@@ -956,6 +963,8 @@ document.write(`
 <dt id="term-Value">Value<a class="headerlink" href="#term-Value" title="Permalink to this term">#</a></dt><dd><p>The literal stored in a variable. Other usages - see <a class="reference internal" href="#term-Value-Categories"><span class="xref std std-term">Value Categories</span></a>.</p>
 </dd>
 <dt id="term-Values">Values<a class="headerlink" href="#term-Values" title="Permalink to this term">#</a></dt><dd><p>Literals stored in a variable. Other usages -  see <a class="reference internal" href="#term-Value-Categories"><span class="xref std std-term">Value Categories</span></a>.</p>
+</dd>
+<dt id="term-Value-Category">Value Category<a class="headerlink" href="#term-Value-Category" title="Permalink to this term">#</a></dt><dd><p>Each C++ expression (an operator with its operands, literals, variables, etc.) is characterized by two independent properties: a type and a <a class="reference external" href="https://en.cppreference.com/w/cpp/language/value_category.html">value category</a>. The include lvalues and rvalues.</p>
 </dd>
 <dt id="term-Value-Categories">Value Categories<a class="headerlink" href="#term-Value-Categories" title="Permalink to this term">#</a></dt><dd><p>Each C++ expression (an operator with its operands, literals, variables, etc.) is characterized by two independent properties: a type and a <a class="reference external" href="https://en.cppreference.com/w/cpp/language/value_category.html">value category</a>. The include lvalues and rvalues.</p>
 </dd>

@@ -331,7 +331,7 @@ Pointer arithmetic is meaningless unless performed on an array.
 
 ### Pointer Arithmetic
 
-Pointer arithmetic is used to move execution of the programme to different elements of an array using subtraction and addition of integers on pointers. 
+Pointer arithmetic is used to move execution of the program to different elements of an array using subtraction and addition of integers on pointers. 
 
 Adding an integer 'n' to a pointer produces a new pointer which points to the array element that is 'n' positions further along in memory.
 
