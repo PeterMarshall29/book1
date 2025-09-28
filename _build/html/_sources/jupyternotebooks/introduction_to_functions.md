@@ -12,11 +12,6 @@ kernelspec:
 
 # Functions 
 
-The `return` {term}`keyword` specifies what the function returns.
-If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the `return` keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.
-
-
-
 Programmers often want to use the same {term}`code-block` repeatedly - in the same program, or across many programmes. 
 
 A code-block can be made reusable by encapsulating it into a function.
@@ -39,7 +34,7 @@ C++ is a multiparadigm language - we will use a combination of functional progra
 Functions offer many benefits to the programmer, and we should consider defining a function when we want a separate computation/task with a name because doing so:
 
 * Make programming more efficient by enabling the reuse of code-blocks.
-* Reduce the complexity of the overall programme by separating concerns.
+* Reduce the complexity of the overall program by separating concerns.
 * Make the program easier to understand because individual parts are separated and identified by a name.
 * Make it easier to test the program - testing reduces to testing functions and their interactions.
 
@@ -89,6 +84,12 @@ The {term}`keyword` before the identifier, specifies the type of the value that 
 The type of this function is `void()`. 
 
 * `int` indicates that `main()` returns an integer, hence we require a {term}`return-statement` i.e. `return 0;`, and the type of `main()` is `int()`.
+The `return` {term}`keyword` specifies what the function returns at the end of its execution.
+
+In the example above, `myFirstFunction()` is effectively replaced by the returned value if there is one, after all the actions of the function have been completed.
+
+If a function definition has declared that a particular type of data (an integer value in case of `main()`) will be returned, then whatever comes after the `return` keyword must equate to that type or be a literal of that type.
+
 ````
 ````{card}
 This is the function-body - the code that will be executed every time the function is ***called***.
@@ -543,7 +544,7 @@ Auto acts as placeholder when used in conjunction with a trailing return type (l
 
 More than one value of more than one type can be returned from a function. 
 
-There are several ways to programme a function for multiple returns.
+There are several ways to program a function for multiple returns.
 
 1. Using classes or structs - the values are encapsulated into a single object to be returned - the class or struct definition to be visible to the caller.
 2. Using a {term}`tuple` - see `<tuple>` and `std::tuple`. Can be extended by also using a {term}`structured binding`.
@@ -661,7 +662,7 @@ int main() {
     return 0;
 }
 ````
-Notice that the programme modifies the local variable (called `localVector`) - that because this is reference, not a copy, the variable referred to is being modified.
+Notice that the program modifies the local variable (called `localVector`) - that because this is reference, not a copy, the variable referred to is being modified.
 ***
 
 Otherwise, the original variable would only be accessible by a function if the variable is global, which means declaring it before the main function, otherwise the `myPrint()` functions could not alter it, only its copy. If a variable is global there is no real reason to pass it into a function.

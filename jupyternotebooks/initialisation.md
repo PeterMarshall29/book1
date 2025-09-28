@@ -14,19 +14,20 @@ kernelspec:
 
 {term}`Initialisation` is the setting of the initial value of a variable at the time of {term}`construction`.
 
-{term}`Definition` is therefore {term}`declaration` combined with initialisation.
+{term}`Definition` is {term}`declaration` combined with initialisation.
 
-Initialisation is different from assignment - the object has no previous value and a {term}`constructor` are only involved in initialisation.
+Initialisation is different from {term}`assignment` - the object has no previous value and {term}`constructors` are only involved in initialisation.
 
-Best practice is to always initialise your variables – the benefits include preventing you from accidentally tyring to use a variable that has been declared but not defined.
+Best practice is to always initialise your variables – the benefits include preventing you from accidentally trying to use a variable that has been declared but not defined.
 
 ```{tip}
 :class: margin
 Don't declare a variable until you have a value to assign to it.
 ```
-`````{code_example-start}
+`````{code_example-start} Methods of Initialisation
 :label: examplem3
 :class: dropdown
+:nonumber:
 `````
 Complete and run this program.
 ````{code-cell} c++
@@ -44,9 +45,9 @@ int main()
 Of these, only the first method of initialisation can be used in every context. 
 `````{code_example-end}
 `````
-Some objects are initialised by default, but this is not always helpful - Global variables are default-initialised to 0 – but you should not use global variables in the first place and '0' can be just as problematic as no value. `string` and `vector` are initialised as empty.
+Some objects are initialised by default, but this is not always helpful; for example, Global variables are default-initialised to 0 – but you should not use global variables in the first place and '0' can be just as problematic as no value. 
 
-The initial value may be provided in the initialiser section of a declarator or by a new expression. 
+`string` and `vector` are initialised as empty, which is often helpful.
 
 Initialisation also takes place during function calls: function parameters and the function return values are both initialized.
 
@@ -56,6 +57,7 @@ N.B. These rules apply to objects, not references.
 :class: dropdown
 :nonumber:
 `````
+4 methods of initialisation:
 ````{code-block} c++
 typeName identifier = expression;                       // copy-initialisation
 typeName identifier ( value or expression );            // direct-initialisation 
@@ -72,10 +74,15 @@ If an {term}`initialiser` is specified for an object, that initializer determine
 
 An initialiser is just the syntax used to initialise the object. There are four syntactic styles for initialisers:
 
-`````{code_example-start}
+`````{code_example-start} Initialisers
 :label: examplem1
 :class: dropdown
+:nonumber:
 `````
+The initialisers in the following example are `{5}`, `= { 55.0 }`, `= 555`, and `(5555)`.
+
+These simple definitions have the form: `[type][declarator][initialiser];`
+
 ````{code-cell} c++
 :tags: [remove-output]
 #include <iostream>
@@ -95,22 +102,26 @@ int main() {
     return 0;
 }
 ````
-Some of these terms are used very loosely and synonymously - care is required, particularly around the use of direct and copy.
+Some of these terms are used loosely and synonymously - care is required.
+
+List-initialisation without an `=` is the best choice - narrowing is prohibited.
 
 In list-initialisation, 'direct' and 'copy' refer to the use of direct-initialisation and copy-initialisation type methods.
 
-For most purposes the two list-initialisation methods will produce the same result. used in each case, being direct
+For most purposes the two list-initialisation methods will produce the same result. used in each case.
 
 Initialisation using a literal value is often called 'direct' initialisation too.
 `````{code_example-end}
 `````
 ## List-Initialisation
 
-Initialization using `{}` is called {term}`list-initialisation` - usually the best choice because it can be used in every context you will encounter.
+Initialization using only `{}` is called {term}`list-initialisation` and is usually the best choice because it can be used in every context you will encounter.
 
-It is recommended that list initialisation is used for anything more complicated that a simple variable - even though not having the {term}`assignment operator` `=` may be a little disconcerting at first.
+It is recommended that list initialisation is used for anything more complicated that a simple variable - even though not having the {term}`assignment operator`, `=`, may be a little disconcerting at first.
 
-{term}`list-initialisation` does not permit {term}`narrowing` conversion. A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type: leading to data loss or undefined behaviours.
+{term}`list-initialisation` does not permit {term}`narrowing` conversion. 
+
+A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type: leading to data loss or undefined behaviours.
 
 List-initialisation ensures that:
 
@@ -118,11 +129,12 @@ List-initialisation ensures that:
 * a `double` cannot be converted to a `float`, but the reverse is permitted 
 * A floating-point value cannot be converted to an integer type.
 * An integer value cannot
-`````{exercise-start}
+`````{exercise-start} Initialisation
 :label: exercisem1
 :class: dropdown
+:nonumber:
 `````
-The following code will not run as written. Look at the error messages and try to correct the problem.
+The following code should not run as written. Look at the error messages and try to correct the problem.
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -139,48 +151,49 @@ int main()
 }
 ````
 ````{solution} exercisem1
-:class: dropdown note
+:class: dropdown 
 :label: solutionm1
-Using `static_cast` forces an explicit conversion, which can be used to bypass the blocked narrowing conversion.
+Removing the tow uses of list-initialisation will allow the code to run - the problem is that the double values may be 'implicitly' converted to integers, but this costs some of the information - narrowing - which is not allowed for `{}`
 
-Try replacing `b` with:
-```{code-block} c++
-#include <iostream>
-int main()
-{
- static_cast<int>(b)
-}
-```
+The code can be made to work using `static_cast` to forces an explicit conversion.
+
+Try replacing `b` with ` static_cast<int>(b)` inside the two `{}`
+
 ````
 `````{exercise-end}
 `````
 
-## Empty Initialiser List - Value-Initialisation and Zero-Initialisation
+## Empty Initialiser List, Value-Initialisation and Zero-Initialisation
 
 If an object is initialised with an empty initialiser list `{}` it is first zero-initialised, and then value-initialised, if possible.
 
 If the variable is a {term}`scalar` (arithmetic, pointer, or enum type) they are only zero-initialised.
 
-Value-initialisation is initialisation to a default value, which is only possible for types that have a default-constructor. (Confusingly not the same as default-initialisation)
-`````{code_example-start}
+Value-initialisation is initialisation to a default value, which is only possible for types that have a default-constructor, which is confusingly not the same as default-initialisation!
+`````{code_example-start} Empty Initialisers
 :label: examplem4
 :class: dropdown
+:nonumber:
 `````
 ````{code-cell} c++
 :tags: [remove-output]
 int myInt{}; // myInt initialised to 0
 double myDouble{}; // myDouble initialised as 0.0
-char* myPointerToChar{}; // myPointerToChar initialised as `nullptr`
-std::vector<int> myVector{}; // myVector initialised as an empty vector
 std::string myString{}; // myString initialised as ""
-std::cout << myInt << '\t' << myDouble << '\t' << "12"+myString+"34" << '\t' << myVector.capacity() << '\t' << &myPointerToChar  << '\n';
+std::vector<int> myVector{}; // myVector initialised as an empty vector
+char* myPointerToChar{}; // myPointerToChar initialised as `nullptr`
+std::cout << myInt << '\n' << myDouble << '\n' << "12"+myString+"34" << '\n' << myVector.capacity() << '\n' << &myPointerToChar  << '\n';
 ````
-```{exercise}
+```{exercise} Empty Initialisers
 :label: exercisem4
 :class: dropdown
-Try removing the empty initialiser for each variable type and rerunning the code - start in reverse order.
+:nonumber:
+- Try removing the empty initialiser for each variable type and rerunning the code - start in reverse order.
 
-Explanation - most containers including vector and string have a default
+- Explanation - most containers including vector and string have a default; pointers are initialised to `nullptr`.
+
+In visual studio the code would not work - the compiler will not let you proceed if an `int` and a `double` are uninitialised.
+
 ```
 `````{code_example-end}
 `````
@@ -193,13 +206,15 @@ Most types have a default value:
 
 For user-defined types, there can be a distinction between direct initialization (where implicit conversions are allowed) and copy initialization (where they are not).
 
-The syntax `Type objectIdentifier()`; does not initialise an object; it declares a function that takes no arguments and returns `Type`. 
-
+```{warning}
+:class: dropdown
+The syntax `Type objectIdentifier();` does not initialise an object - it declares a function that takes no arguments and returns `Type`. 
+```
 References cannot be value-initialised. If the initializer specified for an object is () the object is value-initialized. If the initializer specified for a reference is (), the program is ill-formed.
 
 ### Zero-initialization 
 
-Initialisation of variable to the zero value of its type:
+Initialisation of a variable to the zero value of its type:
 
 * Arithmetic variables: 0 (or 0.0, or 0.0000000000, etc.)
 * Char variables: '\0'
@@ -208,7 +223,7 @@ Initialisation of variable to the zero value of its type:
 
 Zero-initialisation is:
 * The first step in value-initialisation.
-* Performed at the start of the execution of every programme for all named variables that have {term}`static duration`.
+* Performed at the start of the execution of every program for all named variables that have {term}`static duration`.
 * Used for arrays that have only a subset of their members initialized.
 
 ## Missing Initialisers - Default Initialisation
@@ -227,11 +242,10 @@ Global built-in type variables are default initialised to 0 – but you should n
 
 Class members would be initialised using any specified default values.
 
-For example:
-
-`````{code_example-start}
+`````{code_example-start} Missing Initialisers
 :label: examplem5
 :class: dropdown
+:nonumber:
 `````
 When no initializer is specified, a `global`, `namespace`, `local static`, or `static member` (static objects) is initialized to `{}` of the appropriate type. For example:
 ````{code-cell} C++
@@ -261,34 +275,33 @@ int main()
     return 0;
 }
 ````
-`assert` aborts the programmes execution and offers a message in the terminal if its user defined condition does not evaluate to `true`.
+`assert` aborts the programmes execution and offers a message in the terminal if its user defined condition does not evaluate to `true`; requires `<cassert>` - useful during program development, similar to {term}`print debugging`. 
 
-Useful during programme development - similar to {term}`print debugging`. 
-
-````{exercise} 
+````{exercise} Missing Initialisers
 :class: dropdown
 :label: exercisem3
+:nonumber:
 Try removing the list-initialiser `{}` from the two `int` and two `string` type variables one at a time.
 ```{admonition} Code Explanation
 :class: dropdown
-The global `int` is default initialised, but the local one is left uninitialized because it has no default constructor.
+- The global `int` is default initialised, but the local one is left uninitialized because it has no default constructor.
 
-The string does have a default constructor.
+- `string` does have a default constructor.
 ```
 ````
 
 Constant variables must be declared together with an initializer. If they're scalar types they cause a compiler error, and if they're class types that have a default-constructor they cause a warning:
 
-````{admonition} Effect of Missing Initialiser - Examples
+````{admonition} Effect of Missing Initialiser - More examples
 :class: dropdown
-Global and Static Variables
+Global and Static Variables:
 ```{code-block} c++
-int eRest; // is equivalent to 'int eRest{};', and 'eRest' is initialised to '0'.
-double U;  // is equialent to 'double U{};' so that 'U' becomes '0.0'.
+int myInt; // is equivalent to 'int myInt{};', and 'myInt' is initialised to '0'.
+double myDouble;  // is equialent to 'double myDouble{};' so that 'myDouble' becomes '0.0'.
 ```
-Local variables and objects created on the {term}`free store` are not initialised by unless they are of user-defined types with a default constructor. For example:
+Local variables and objects created on the {term}`free store` are not initialised unless they are of user-defined types with a default constructor. For example:
 ```{code-block} c++
-int myInt; // myIntx does not have a well-defined value
+int myInt; // myInt does not have a well-defined value
 char myBuffer[1024]; // myBuffer[i] does not have a well-defined value
 int* myPointer{ new int }; // myPointer does not have a well-defined value
 char* myOtherPointer{ new char[1024] }; // myOtherPointer[i] does not have a well-defined value
@@ -298,16 +311,17 @@ std::string* myStringPointer{ new std::string }; // *myStringPointer is "" becau
 std::cout << myInt << '\t'<< myBuffer[4] << '\t'<< &myPointer << '\t'<< myOtherPointer[8] << '\n';
 return 0;
 ```
-If you want initialization of local variables of built-in type or objects of built-in type created with `new`, use `{}`.
+For initialization of local variables of built-in type or objects of built-in type created with `new`, use `{}`.
 ````
 `````{code_example-end}
 `````
 
 ## Initialiser Lists
 More complicated objects can require more than one value as an initializer. This is primarily handled by initializer lists delimited by `{` and `}`. For example:
-`````{code_example-start}
+`````{code_example-start} Initaliser Lists
 :label: examplem6
 :class: dropdown
+:nonumber:
 `````
 ````{code-cell} c++
 :tags: [remove-output]
@@ -329,25 +343,26 @@ int main()
 ```
 In some cases, function-style argument lists can also be used. For example:
 ```{code-block} c++
-std::vector<double> myVectrov(10, 3.3); // use constructor: v gets 10 elements initialized to 3.3
+std::vector<double> myVector(10, 3.3); // use constructor: myVector gets 10 elements initialized to 3.3
 ```
-In a declaration, an empty pair of parentheses, (), always means "function". Therefore, if you want to explicitly require "default initialization" you must use`{}`. 
+In a declaration, an empty pair of parentheses, (), always means "function". Therefore, if you want to explicitly require "default initialisation" you must use`{}`. 
 ```{code-block} c++
-std::complex<double> z1(1, 2); // function-style initializer (initialization by constructor)
-std::complex<double> f1(); // function declaration
-std::complex<double> z2{ 1,2 }; // initialization by constructor to {1,2}
-std::complex<double> f2{}; // initialization by constructor to the default value {0,0}
+std::complex<double> mYComplexNumber1(1, 2); // function-style initializer (initialization by constructor)
+std::complex<double> myFunction1(); // function declaration
+std::complex<double> mYComplexNumber2{ 1,2 }; // initialization by constructor to {1,2}
+std::complex<double> myComplexNumber3{}; // initialization by constructor to the default value {0,0}
 ```
 `````{code_example-end}
 `````
 ## Auto
 When defining a variable, it is not always necessary to explicitly state its type - although it is almost always better to do so.
 
-In some cases, the ‘type’ might not be known ahead of time - the type can be deduced from the initializer using `auto`.
+In some cases, the ‘type’ might not be known ahead of time - the type can be deduced from the initialiser using `auto`.
 
-`````{code_example-start}
+`````{code_example-start} Auto Examples
 :label: examplem7
 :class: dropdown
+:nonumber:
 `````
 ````{code-cell} C++
 :tags: [remove-output]
@@ -361,16 +376,18 @@ auto d = 1.2; //   a double - default for floating-point number
 auto e = sqrt(f); // e has the type of whatever sqrt(f) returns
 ```
 ```{danger}
-Be careful!! It is always wise to specify type and initialise immediately!
+:class: dropdown
+Be careful!! It is always better to specify type, and to initialise immediately!
 
 The {term}`type system` is there for good reason.
 ```
-When using `auto`, {term}`copy-initialisation` is acceptable because there can be no type conversion to cause unexpected issues; and in the case of initialiser-lists using `{}` list-initialization is actually problematic. 
+When using `auto`, {term}`copy-initialisation` is acceptable because there can be no type conversion to cause unexpected issues; and in the case of initialiser-lists using `{}` list-initialization may be problematic. 
 
-The problem is trap is that if the initializer is a {}-list, we may not want its type deduced. For example:
+A significant danger when using `auto` is that if the initializer is a {}-list, we may not want its type deduced. For example:
 ```{code-block} c++
-auto z1{ 99 }; // z1 is an initialiser_list<int> 
-auto z2 = 99; // z2 is an int
+auto myExample1{ 99 }; // myExample1 has type `initialiser_list<int>` 
+auto myExample2 = 99; // myExample2 has type `int`
 ```
 `````{code_example-end}
 `````
+

@@ -16,22 +16,23 @@ kernelspec:
 
 An expression is a sequence of operators and their operands, that specifies a computation.
 
-Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces the result 4) and may generate side-effects (e.g. evaluation of std::printf("%d", 4) prints the character '4' on the standard output).
+Expression evaluation may produce a result (e.g. evaluation of 2 + 2 produces the result 4) and may generate side-effects (unexpected behaviours). 
 
-Each C++ expression is characterized by two independent properties: A type and a value category.
+Each C++ expression is characterized by two independent properties: A {term}`type` and a {term}`value category`.
 
 ## Operations and Operators
-Each {term}`type` can only be operated on by specific operators - it would not make sense for every operator to work on all types or in the same way on different types. For example, multiplication using `*` on two strings would make no sense.
+Each {term}`type` can only be operated on by specific operators. It would not make sense for every operator to work on all types or in the same way on different types, e.g. multiplication using `*` on two strings would make no sense.
 
-Some operators are ***overloaded*** - meaning they do work on different types, but not necessarily in the same manner.
+Some operators are **overloaded** - meaning they do work on different types, but not necessarily in the same manner.
 
 For example: `+` is the addition operator for arithmetic types, but the {term}`concatenation` operator for `string` and `char` types.
 
 Programmers can also overload some operators.
 
-`````{code_example-start}
+`````{code_example-start} Operators
 :label: examplek1
 :class: dropdown
+:nonumber:
 `````
 Complete and run the following code:
 ````{code-block} c++
@@ -52,9 +53,10 @@ Write code here..
 ````
 ```{exercise}
 :class: dropdown exercise
+:nonumber:
 Try moving the declaration of name to after `std::cin >> name;`.
 ```
-We can use concatenation instead of repeating << . However, that requires us to use a string conversion.
+We can use concatenation instead of repeating `<<`, however, that would require conversion to `string`.
 
 Try the following code.
 ```{code-block} c++
@@ -70,7 +72,7 @@ std::cout << "n == " << n
 << sqrt(n)
 << "\n";
 ```
-Note:  The definitions of integer *, /, and % guarantee that for two positive integers `a` and `b` we have `a/b * b + a%b == a`.
+Note:  The definitions of integer *, /, and % guarantee that for two positive integers `a` and `b` we have `(a / b) * b + (a % b) == a`.
 
 ````{exercise-start}
 :class: dropdown exercise
@@ -79,7 +81,7 @@ Note:  The definitions of integer *, /, and % guarantee that for two positive in
 ````
 Is the modulus truncating or flooring in c++?
 ```{solution} exercisek5
-It is truncating i.e – always rounds towards zero. Flooring is always rounded downwards. Swift is truncated – python is floored.
+It is truncating i.e. always rounds towards zero. Flooring is always rounded downwards. Swift is truncated – Python is floored.
 ```
 ````{exercise-end}
 ````
@@ -106,7 +108,7 @@ Incrementing or decrementing can be programmed in several ways.
 :label: examplek4
 :class: dropdown
 `````
-Demonstration of copy-assignement.
+Demonstration of copy-assignment.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution] 
 #include <iostream>
@@ -154,15 +156,15 @@ int main() {
 `````
 ## Subscript Operator
 
-`[]` is the subscript operator, which is used to index into arrays and others containers. See chapter on arrays or vector.
+`[]` is the subscript operator, which is used to index into arrays and other containers - refer to the later chapters on arrays or vectors.
 
 ## The Comma Operator
 
-The most common use of a comma in C++ us as a separator. For example, to declare or define multiple values of the same type
+The most common use of a comma in C++ us as a separator. For example, to declare or define multiple variable of the same type:
 ````{code-block} C++
 int firstInt = 3, secondInt, thirdInt {4};
 ````
-Or to separate parameters is a function declaration or call:
+Or to separate parameters in a function declaration or call:
 ````{code-block} C++
 void myFunction (int a, std:string b, bool c) {}
 ````
@@ -178,14 +180,14 @@ Expression1 , Expression2;
 //equivalently
 (Expression1 , Expression2);
 ````
-In a comma expression `Expression1 , Expression2;`, `Expression1` is evaluated, its result is discarded and its side effects are completed, before evaluation of `Expression2` begins.
+In a comma expression `Expression1 , Expression2;`, `Expression1` is evaluated, its result is discarded, and its side effects are completed, before evaluation of `Expression2` begins.
 
 The type, value, and value category of the result of the comma expression are exactly the type, value, and value category of the second operand, `Expression2`; If `Expression2` is a temporary expression, the result of the expression is that temporary expression.
 
-The parentheses are only required when there might be confusion with the comma seperator.
+The parentheses are only required when there might be confusion with the comma separator.
 `````{syntax-end}
 `````
-The comma operator is particularly dangerous and should be used only if you have no other choice and with great care.
+The comma operator is particularly dangerous and should be used only when there is no other choice.
 
 `````{code_example-start} Comma Operator
 :label: examplek8
@@ -202,8 +204,9 @@ int main() {
     return 0;
 }
 ````
-`myInt` is incremented and then new value of is passed to the output stream.
-````{exercise} exercisek8
+`myInt` is incremented and then the new value is passed to the output stream.
+````{exercise} Comma Operator
+:label: exercisek8
 :class: dropdown
 :nonumber:
 Try removing the parentheses.
@@ -232,7 +235,7 @@ int main() {
     return 0;
 }
 ````
-What is the value of m at the end - check. 
+What is the value of m at the end? Please check. 
 `````{code_example-end}
 `````
 
@@ -241,18 +244,17 @@ What is the value of m at the end - check.
 Example:
 `return (a >= b) ? a : b;`
 
-`?` construct is called an 'arithmetic if' or a conditional expression. 
-The returned value will be a if the condition is true and b if the condition is false.
-value of (a >= b) ? a : b is a if a >= b and b otherwise.
-That is, if the condition is true, the ternary operator returns `a` otherwise `b`.
+The `?` construct is called an 'arithmetic if' or a conditional expression. 
+
+The returned value will be `a` if the condition is true and `b` if the condition is false. That is, if the condition is true, the ternary operator returns `a` otherwise `b`.
 
 
 
-`````{exercise-start}
+`````{exercise-start} Ternary Operator
 :label: exercisek2
 :class: dropdown
 `````
-Complete this code using the ternary operator to print out the name of the enemy that is closest.
+Complete this code using the ternary operator to print out the name of the 'enemy' that is closest.
 ````{code-cell} c++
 :tags: [remove-output, skip-execution] 
 #include <iostream>
@@ -288,10 +290,6 @@ Try variations on this code:
 
 `````{exercise-end}
 `````
-## Useful functions
-
-std::max(7,8)
-std::abs(a)
 
 ## Comparison Operators
 
@@ -300,7 +298,7 @@ Comparison operators are used to form expressions which return a `bool` i.e. the
 :nonumber:
 :class: dropdown
 `````
-Comparison expressions and operators.
+Comparison expressions and operators:
 ```{list-table}
 :header-rows: 1
 :name: example_table_3
@@ -406,9 +404,7 @@ Operators used in Boolean (Logical) expressions.
 
 It may be possible to correctly evaluate a compound logical expression without evaluating all the individual expressions. 
 
-For example, if the condition being checked is: `A && B`.
-
-It is only necessary to check that `B` is true when `A` has first been found to be true. If `A == false`, it does not matter what `B` evaluates to because `A && B == false`.
+For example, if the condition being checked is: `A && B`. It is only necessary to check that `B` is true when `A` has first been found to be true. If `A == false`, it does not matter what `B` evaluates to because `A && B == false`.
 
 Similarly, if the condition is `A || B` then when `A` has evaluated as true, there is no need to check `B`. When `A` is true, then regardless of the status of `B`, `A || B == true`. 
 
@@ -430,23 +426,19 @@ If `a` is 0, the first expression `(a == 0)` is `true` and the second expression
 `````
 ## Order of evaluation
 
-The order of evaluation of any part of any expression, including the order of evaluation of function arguments, is usually unspecified.
+The order of evaluation of any part of any expression, including the order of evaluation of function arguments, is usually unspecified. The {term}`compiler` can evaluate operands and other subexpressions in any order and may choose another order when the same expression is evaluated again.
 
-The {term}`compiler` can evaluate operands and other subexpressions in any order and may choose another order when the same expression is evaluated again.
+There is no concept of left-to-right or right-to-left evaluation in C++. This is not to be confused with left-to-right and right-to-left associativity of operators: 
 
-There is no concept of left-to-right or right-to-left evaluation in C++. 
+The expression `a() + b() + c()` is parsed as `(a() + b()) + c()` due to left-to-right associativity of operator `+`, but `c()` may be evaluated first, last, or between `a()` or `b()` at runtime.
 
-This is not to be confused with left-to-right and right-to-left associativity of operators: 
-
-the expression `a() + b() + c()` is parsed as `(a() + b()) + c()` due to left-to-right associativity of operator `+`, but `c()` may be evaluated first, last, or between `a()` or `b()` at runtime.
+This becomes a problem when values changed depending on what is evaluated first.
 
 ## Unspecified Behaviours
 
-The behaviour of every part of your code must operate in the way you expect it to, or unexpected outcomes will result.
+The behaviour of every part of your code must operate in the way you expect it to, or unexpected outcomes will result. 
 
-Unspecified behaviours are those which may vary between implementations, and which the implementation is not required to document.
-
-There are several types of undefined behaviours. Some behaviour varies between implementations and can be allowed for by checking the documentation for your implementation and conforming to the rules.
+Unspecified behaviours are those which may vary between implementations, and which the implementation is not required to document. There are several types of undefined behaviours. Some behaviour varies between implementations and can be allowed for by checking the documentation for your implementation and conforming to the rules.
 
 The problem with unspecified behaviours is that each possible behaviour is valid, and it can be difficult to know what to expect.
 

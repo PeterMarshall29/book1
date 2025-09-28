@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.41f2669f-53c2-45d3-8d0b-cfa6a376584e.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\operations_and_operators.306ab5e9-03d8-4f4d-9900-e7ad7af6bfeb.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/operations_and_operators';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -527,7 +527,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscript-operator">Subscript Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comma-operator">The Comma Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-operators">Ternary Operators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logical-operators">Boolean (Logical) Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-circuiting">Short Circuiting</a></li>
@@ -549,18 +548,18 @@ document.write(`
 <section id="expressions">
 <h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading">#</a></h2>
 <p>An expression is a sequence of operators and their operands, that specifies a computation.</p>
-<p>Expression evaluation may produce a result (e.g., evaluation of 2 + 2 produces the result 4) and may generate side-effects (e.g. evaluation of std::printf(“%d”, 4) prints the character ‘4’ on the standard output).</p>
-<p>Each C++ expression is characterized by two independent properties: A type and a value category.</p>
+<p>Expression evaluation may produce a result (e.g. evaluation of 2 + 2 produces the result 4) and may generate side-effects (unexpected behaviours).</p>
+<p>Each C++ expression is characterized by two independent properties: A <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a> and a <a class="reference internal" href="glossary.html#term-Value-Category"><span class="xref std std-term">value category</span></a>.</p>
 </section>
 <section id="id1">
 <h2>Operations and Operators<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>Each <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a> can only be operated on by specific operators - it would not make sense for every operator to work on all types or in the same way on different types. For example, multiplication using <code class="docutils literal notranslate"><span class="pre">*</span></code> on two strings would make no sense.</p>
-<p>Some operators are <em><strong>overloaded</strong></em> - meaning they do work on different types, but not necessarily in the same manner.</p>
+<p>Each <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a> can only be operated on by specific operators. It would not make sense for every operator to work on all types or in the same way on different types, e.g. multiplication using <code class="docutils literal notranslate"><span class="pre">*</span></code> on two strings would make no sense.</p>
+<p>Some operators are <strong>overloaded</strong> - meaning they do work on different types, but not necessarily in the same manner.</p>
 <p>For example: <code class="docutils literal notranslate"><span class="pre">+</span></code> is the addition operator for arithmetic types, but the <a class="reference internal" href="glossary.html#term-Concatenation"><span class="xref std std-term">concatenation</span></a> operator for <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">char</span></code> types.</p>
 <p>Programmers can also overload some operators.</p>
 <div class="code_example dropdown admonition" id="examplek1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 18 </span></p>
+<p class="admonition-title">Code Example: Operators </p>
 <section id="code_example-content">
 <p>Complete and run the following code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
@@ -584,12 +583,11 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/operations_and_operators-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
+<p class="admonition-title">Exercise</p>
 <section id="exercise-content">
 <p>Try moving the declaration of name to after <code class="docutils literal notranslate"><span class="pre">std::cin</span> <span class="pre">&gt;&gt;</span> <span class="pre">name;</span></code>.</p>
 </section>
-</div>
-<p>We can use concatenation instead of repeating &lt;&lt; . However, that requires us to use a string conversion.</p>
+</div><p>We can use concatenation instead of repeating <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, however, that would require conversion to <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
 <p>Try the following code.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please enter a floating-point number : </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="kt">double</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
@@ -604,7 +602,7 @@ document.write(`
 <span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Note:  The definitions of integer *, /, and % guarantee that for two positive integers <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> we have <code class="docutils literal notranslate"><span class="pre">a/b</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">a%b</span> <span class="pre">==</span> <span class="pre">a</span></code>.</p>
+<p>Note:  The definitions of integer *, /, and % guarantee that for two positive integers <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> we have <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">/</span> <span class="pre">b)</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">(a</span> <span class="pre">%</span> <span class="pre">b)</span> <span class="pre">==</span> <span class="pre">a</span></code>.</p>
 <div class="exercise dropdown admonition" id="exercisek5">
 
 <p class="admonition-title">Exercise</p>
@@ -614,13 +612,12 @@ document.write(`
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exercisek5"> Exercise</a></p>
 <section id="solution-content">
-<p>It is truncating i.e – always rounds towards zero. Flooring is always rounded downwards. Swift is truncated – python is floored.</p>
+<p>It is truncating i.e. always rounds towards zero. Flooring is always rounded downwards. Swift is truncated – Python is floored.</p>
 </section>
 </div>
 </section>
 </div></section>
-</div>
-<p>Check the list of operators on the Learn page.</p>
+</div><p>Check the list of operators on the Learn page.</p>
 <div class="dropdown note admonition">
 <p class="admonition-title">Incrementing and Decrementing Arithmetic Types</p>
 <p>Incrementing or decrementing can be programmed in several ways.</p>
@@ -633,9 +630,9 @@ document.write(`
 <p><a class="reference internal" href="glossary.html#term-Copy-Assignment"><span class="xref std std-term">Copy-Assignment</span></a> replaces the contents of an object (often a value) with the contents of a second object. The copied object is unaffected by copy-assignment.</p>
 <div class="code_example dropdown admonition" id="examplek4">
 
-<p class="admonition-title"><span class="caption-number">Code Example 19 </span>: Copy Assignment </p>
+<p class="admonition-title"><span class="caption-number">Code Example 1 </span>: Copy Assignment </p>
 <section id="code_example-content">
-<p>Demonstration of copy-assignement.</p>
+<p>Demonstration of copy-assignment.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -696,15 +693,15 @@ document.write(`
 </div></section>
 <section id="subscript-operator">
 <h2>Subscript Operator<a class="headerlink" href="#subscript-operator" title="Permalink to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">[]</span></code> is the subscript operator, which is used to index into arrays and others containers. See chapter on arrays or vector.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[]</span></code> is the subscript operator, which is used to index into arrays and other containers - refer to the later chapters on arrays or vectors.</p>
 </section>
 <section id="the-comma-operator">
 <h2>The Comma Operator<a class="headerlink" href="#the-comma-operator" title="Permalink to this heading">#</a></h2>
-<p>The most common use of a comma in C++ us as a separator. For example, to declare or define multiple values of the same type</p>
+<p>The most common use of a comma in C++ us as a separator. For example, to declare or define multiple variable of the same type:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">firstInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">secondInt</span><span class="p">,</span><span class="w"> </span><span class="n">thirdInt</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
 </pre></div>
 </div>
-<p>Or to separate parameters is a function declaration or call:</p>
+<p>Or to separate parameters in a function declaration or call:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">:</span><span class="n">string</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
 </div>
@@ -719,11 +716,11 @@ document.write(`
 <span class="p">(</span><span class="n">Expression1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Expression2</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In a comma expression <code class="docutils literal notranslate"><span class="pre">Expression1</span> <span class="pre">,</span> <span class="pre">Expression2;</span></code>, <code class="docutils literal notranslate"><span class="pre">Expression1</span></code> is evaluated, its result is discarded and its side effects are completed, before evaluation of <code class="docutils literal notranslate"><span class="pre">Expression2</span></code> begins.</p>
+<p>In a comma expression <code class="docutils literal notranslate"><span class="pre">Expression1</span> <span class="pre">,</span> <span class="pre">Expression2;</span></code>, <code class="docutils literal notranslate"><span class="pre">Expression1</span></code> is evaluated, its result is discarded, and its side effects are completed, before evaluation of <code class="docutils literal notranslate"><span class="pre">Expression2</span></code> begins.</p>
 <p>The type, value, and value category of the result of the comma expression are exactly the type, value, and value category of the second operand, <code class="docutils literal notranslate"><span class="pre">Expression2</span></code>; If <code class="docutils literal notranslate"><span class="pre">Expression2</span></code> is a temporary expression, the result of the expression is that temporary expression.</p>
-<p>The parentheses are only required when there might be confusion with the comma seperator.</p>
+<p>The parentheses are only required when there might be confusion with the comma separator.</p>
 </section>
-</div><p>The comma operator is particularly dangerous and should be used only if you have no other choice and with great care.</p>
+</div><p>The comma operator is particularly dangerous and should be used only when there is no other choice.</p>
 <div class="code_example dropdown admonition" id="examplek8">
 
 <p class="admonition-title">Code Example: Comma Operator </p>
@@ -741,10 +738,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">myInt</span></code> is incremented and then new value of is passed to the output stream.</p>
-<div class="exercise dropdown admonition" id="jupyternotebooks/operations_and_operators-exercise-8">
+<p><code class="docutils literal notranslate"><span class="pre">myInt</span></code> is incremented and then the new value is passed to the output stream.</p>
+<div class="exercise dropdown admonition" id="exercisek8">
 
-<p class="admonition-title">Exercise  exercisek8  </p>
+<p class="admonition-title">Exercise  Comma Operator  </p>
 <section id="exercise-content">
 <p>Try removing the parentheses.</p>
 <p>Try moving the comma expression without parentheses to another position to show parentheses are not always required.</p>
@@ -770,22 +767,20 @@ document.write(`
 </div>
 </div>
 </div>
-<p>What is the value of m at the end - check.</p>
+<p>What is the value of m at the end? Please check.</p>
 </section>
 </div></section>
 <section id="ternary-operators">
 <h2>Ternary Operators<a class="headerlink" href="#ternary-operators" title="Permalink to this heading">#</a></h2>
 <p>Example:
 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(a</span> <span class="pre">&gt;=</span> <span class="pre">b)</span> <span class="pre">?</span> <span class="pre">a</span> <span class="pre">:</span> <span class="pre">b;</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">?</span></code> construct is called an ‘arithmetic if’ or a conditional expression.
-The returned value will be a if the condition is true and b if the condition is false.
-value of (a &gt;= b) ? a : b is a if a &gt;= b and b otherwise.
-That is, if the condition is true, the ternary operator returns <code class="docutils literal notranslate"><span class="pre">a</span></code> otherwise <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">?</span></code> construct is called an ‘arithmetic if’ or a conditional expression.</p>
+<p>The returned value will be <code class="docutils literal notranslate"><span class="pre">a</span></code> if the condition is true and <code class="docutils literal notranslate"><span class="pre">b</span></code> if the condition is false. That is, if the condition is true, the ternary operator returns <code class="docutils literal notranslate"><span class="pre">a</span></code> otherwise <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <div class="exercise dropdown admonition" id="exercisek2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 3 </span>  Ternary Operator  </p>
 <section id="exercise-content">
-<p>Complete this code using the ternary operator to print out the name of the enemy that is closest.</p>
+<p>Complete this code using the ternary operator to print out the name of the ‘enemy’ that is closest.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -814,7 +809,7 @@ That is, if the condition is true, the ternary operator returns <code class="doc
 </div>
 <div class="solution dropdown note admonition" id="solutionk2">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisek2"> Exercise 9</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisek2"> Exercise 3  Ternary Operator  </a></p>
 <section id="solution-content">
 <p>Try variations on this code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p">(</span><span class="n">dist2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dist1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 2 </span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;City 1 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -825,11 +820,6 @@ That is, if the condition is true, the ternary operator returns <code class="doc
 </section>
 </div>
 </section>
-<section id="useful-functions">
-<h2>Useful functions<a class="headerlink" href="#useful-functions" title="Permalink to this heading">#</a></h2>
-<p>std::max(7,8)
-std::abs(a)</p>
-</section>
 <section id="comparison-operators">
 <h2>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this heading">#</a></h2>
 <p>Comparison operators are used to form expressions which return a <code class="docutils literal notranslate"><span class="pre">bool</span></code> i.e. the expression evaluates to either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
@@ -837,7 +827,7 @@ std::abs(a)</p>
 
 <p class="admonition-title">Syntax Rules: Comparison Operators </p>
 <section id="syntax-content">
-<p>Comparison expressions and operators.</p>
+<p>Comparison expressions and operators:</p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-3">
 <thead>
 <tr class="row-odd"><th class="head"><p>Operator Name</p></th>
@@ -958,8 +948,7 @@ std::abs(a)</p>
 <section id="short-circuiting">
 <h2>Short Circuiting<a class="headerlink" href="#short-circuiting" title="Permalink to this heading">#</a></h2>
 <p>It may be possible to correctly evaluate a compound logical expression without evaluating all the individual expressions.</p>
-<p>For example, if the condition being checked is: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">B</span></code>.</p>
-<p>It is only necessary to check that <code class="docutils literal notranslate"><span class="pre">B</span></code> is true when <code class="docutils literal notranslate"><span class="pre">A</span></code> has first been found to be true. If <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">==</span> <span class="pre">false</span></code>, it does not matter what <code class="docutils literal notranslate"><span class="pre">B</span></code> evaluates to because <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">B</span> <span class="pre">==</span> <span class="pre">false</span></code>.</p>
+<p>For example, if the condition being checked is: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">B</span></code>. It is only necessary to check that <code class="docutils literal notranslate"><span class="pre">B</span></code> is true when <code class="docutils literal notranslate"><span class="pre">A</span></code> has first been found to be true. If <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">==</span> <span class="pre">false</span></code>, it does not matter what <code class="docutils literal notranslate"><span class="pre">B</span></code> evaluates to because <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">B</span> <span class="pre">==</span> <span class="pre">false</span></code>.</p>
 <p>Similarly, if the condition is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">||</span> <span class="pre">B</span></code> then when <code class="docutils literal notranslate"><span class="pre">A</span></code> has evaluated as true, there is no need to check <code class="docutils literal notranslate"><span class="pre">B</span></code>. When <code class="docutils literal notranslate"><span class="pre">A</span></code> is true, then regardless of the status of <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">||</span> <span class="pre">B</span> <span class="pre">==</span> <span class="pre">true</span></code>.</p>
 <p>These two situations are referred to as short-circuit evaluation, which is useful in computing for two main reasons:</p>
 <ul class="simple">
@@ -979,17 +968,15 @@ std::abs(a)</p>
 </div></section>
 <section id="order-of-evaluation">
 <h2>Order of evaluation<a class="headerlink" href="#order-of-evaluation" title="Permalink to this heading">#</a></h2>
-<p>The order of evaluation of any part of any expression, including the order of evaluation of function arguments, is usually unspecified.</p>
-<p>The <a class="reference internal" href="glossary.html#term-Compiler"><span class="xref std std-term">compiler</span></a> can evaluate operands and other subexpressions in any order and may choose another order when the same expression is evaluated again.</p>
-<p>There is no concept of left-to-right or right-to-left evaluation in C++.</p>
-<p>This is not to be confused with left-to-right and right-to-left associativity of operators:</p>
-<p>the expression <code class="docutils literal notranslate"><span class="pre">a()</span> <span class="pre">+</span> <span class="pre">b()</span> <span class="pre">+</span> <span class="pre">c()</span></code> is parsed as <code class="docutils literal notranslate"><span class="pre">(a()</span> <span class="pre">+</span> <span class="pre">b())</span> <span class="pre">+</span> <span class="pre">c()</span></code> due to left-to-right associativity of operator <code class="docutils literal notranslate"><span class="pre">+</span></code>, but <code class="docutils literal notranslate"><span class="pre">c()</span></code> may be evaluated first, last, or between <code class="docutils literal notranslate"><span class="pre">a()</span></code> or <code class="docutils literal notranslate"><span class="pre">b()</span></code> at runtime.</p>
+<p>The order of evaluation of any part of any expression, including the order of evaluation of function arguments, is usually unspecified. The <a class="reference internal" href="glossary.html#term-Compiler"><span class="xref std std-term">compiler</span></a> can evaluate operands and other subexpressions in any order and may choose another order when the same expression is evaluated again.</p>
+<p>There is no concept of left-to-right or right-to-left evaluation in C++. This is not to be confused with left-to-right and right-to-left associativity of operators:</p>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">a()</span> <span class="pre">+</span> <span class="pre">b()</span> <span class="pre">+</span> <span class="pre">c()</span></code> is parsed as <code class="docutils literal notranslate"><span class="pre">(a()</span> <span class="pre">+</span> <span class="pre">b())</span> <span class="pre">+</span> <span class="pre">c()</span></code> due to left-to-right associativity of operator <code class="docutils literal notranslate"><span class="pre">+</span></code>, but <code class="docutils literal notranslate"><span class="pre">c()</span></code> may be evaluated first, last, or between <code class="docutils literal notranslate"><span class="pre">a()</span></code> or <code class="docutils literal notranslate"><span class="pre">b()</span></code> at runtime.</p>
+<p>This becomes a problem when values changed depending on what is evaluated first.</p>
 </section>
 <section id="unspecified-behaviours">
 <h2>Unspecified Behaviours<a class="headerlink" href="#unspecified-behaviours" title="Permalink to this heading">#</a></h2>
 <p>The behaviour of every part of your code must operate in the way you expect it to, or unexpected outcomes will result.</p>
-<p>Unspecified behaviours are those which may vary between implementations, and which the implementation is not required to document.</p>
-<p>There are several types of undefined behaviours. Some behaviour varies between implementations and can be allowed for by checking the documentation for your implementation and conforming to the rules.</p>
+<p>Unspecified behaviours are those which may vary between implementations, and which the implementation is not required to document. There are several types of undefined behaviours. Some behaviour varies between implementations and can be allowed for by checking the documentation for your implementation and conforming to the rules.</p>
 <p>The problem with unspecified behaviours is that each possible behaviour is valid, and it can be difficult to know what to expect.</p>
 </section>
 </section>
@@ -1064,7 +1051,6 @@ std::abs(a)</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subscript-operator">Subscript Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comma-operator">The Comma Operator</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-operators">Ternary Operators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logical-operators">Boolean (Logical) Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-circuiting">Short Circuiting</a></li>

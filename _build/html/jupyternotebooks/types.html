@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.d78b667d-caec-4533-82fb-68a6f7b88aca.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.348cb02e-6ac9-4def-aa7b-c0b908696ec6.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -83,7 +83,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-790b7c26-8b51-41c9-8743-18f6e2272a9b] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-2f8d76b0-945c-4fa6-a925-4d710a088665] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -268,19 +268,19 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -559,7 +559,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-types-in-c">Fundamental Types in C++</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-is-a-strongly-typed-language">C++ is a <strong>strongly-typed language</strong>.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-is-a-strongly-typed-language">C++ is a Strongly-typed Language.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-system-and-type-safety">Type System and Type Safety</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-to-type">Casting to Type</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-casting">Implicit Casting</a></li>
@@ -568,7 +568,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-type-of-a-variable">Determining the Type of a Variable</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deducing-a-type-auto-and-decltype">Deducing a Type: auto and decltype()</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvalue-and-rvalue"><code class="docutils literal notranslate"><span class="pre">lvalue</span></code> and <code class="docutils literal notranslate"><span class="pre">rvalue</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvalue-and-rvalue-advanced">lvalue and rvalue (Advanced)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-aliases">Type Aliases</a></li>
 </ul>
             </nav>
@@ -583,30 +583,30 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="types-in-c">
 <h1>Types in C++<a class="headerlink" href="#types-in-c" title="Permalink to this heading">#</a></h1>
-<p>The <strong>type</strong> of a variable defines its properties, the rules it must obey, and the set of operators and functions available to members of each type.</p>
+<p>The <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a> of a variable defines its properties, the rules it must obey, and the set of operators and functions available to members of that type.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">+</span></code> behaves differently when used an <a class="reference internal" href="glossary.html#term-Infix-Operator"><span class="xref std std-term">infix operator</span></a> between two integers, compared to between two strings.</p>
 <p>The addition of integers yields a different numerical value than the addition of the <code class="docutils literal notranslate"><span class="pre">char</span></code> representation of the same numbers.</p>
-<p>It would not make much sense to be able to add string-type to double-type variables, and the <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">system</span></code> helps by preventing this.</p>
+<p>It would not make much sense to be able to add string-type to double-type variables, and the <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">system</span></code> helps by preventing this. It may seem odd to even suggest the possibility but remember that all the types are stored in the memory as just binary numbers - any pair of binary codes can be added together, but it would be meaningless.</p>
 <p>Each object, reference, function, expression in C++ is associated with a type, which may be fundamental, compound, or user-defined, complete or incomplete, etc.</p>
 <section id="fundamental-types-in-c">
 <h2>Fundamental Types in C++<a class="headerlink" href="#fundamental-types-in-c" title="Permalink to this heading">#</a></h2>
-<p>Types defined in the <a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a> are the <a class="reference internal" href="glossary.html#term-Fundamental-Types"><span class="xref std std-term">fundamental types</span></a>:</p>
+<p>Types defined in the <a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a> are called the <a class="reference internal" href="glossary.html#term-Fundamental-Types"><span class="xref std std-term">fundamental types</span></a>:</p>
 <ul class="simple">
 <li><p>Integral Types: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, and variants.</p></li>
-<li><p>Floating-point Types: <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, etc…</p></li>
-<li><p>Void</p></li>
+<li><p>Floating-point Types: <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, etc.</p></li>
+<li><p>Void.</p></li>
 </ul>
 <p><a class="reference internal" href="glossary.html#term-Void"><span class="xref std std-term">Void</span></a> is a type used to signify the absence of information.</p>
 <p>The integral and floating-point types are collectively called the arithmetic types.</p>
-<p>Other ‘built-in’ types, are constructed using declarator operators, including: pointer types <code class="docutils literal notranslate"><span class="pre">int*</span></code>, simple array type, <code class="docutils literal notranslate"><span class="pre">char[]</span></code>, and reference types <code class="docutils literal notranslate"><span class="pre">double&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">vector&lt;int&gt;&amp;&amp;</span></code>.</p>
+<p>Other ‘built-in’ types are constructed using declarator operators - e.g. pointer types <code class="docutils literal notranslate"><span class="pre">int*</span></code>, simple array type e.g. <code class="docutils literal notranslate"><span class="pre">char[]</span></code>, and reference types <code class="docutils literal notranslate"><span class="pre">double&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">vector&lt;int&gt;&amp;&amp;</span></code>.</p>
 <p>The types in the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> are <strong>derived types</strong> constructed using the types in the core language.</p>
-<p>Programmers can define their own ‘user-defined’ types. Using a <a class="reference internal" href="glossary.html#term-Class"><span class="xref std std-term">class</span></a>, or a <a class="reference internal" href="glossary.html#term-Template"><span class="xref std std-term">template</span></a>, etc…</p>
+<p>Programmers can define their own ‘user-defined’ types, using a <a class="reference internal" href="glossary.html#term-Class"><span class="xref std std-term">class</span></a>, or a <a class="reference internal" href="glossary.html#term-Template"><span class="xref std std-term">template</span></a> etc…</p>
 </section>
 <section id="c-is-a-strongly-typed-language">
-<h2>C++ is a <strong>strongly-typed language</strong>.<a class="headerlink" href="#c-is-a-strongly-typed-language" title="Permalink to this heading">#</a></h2>
-<p>Once a variable type is set, for example when a number is cast as a <strong>double</strong>, the type cannot be changed.</p>
-<p>However, type conversion is possible - by copying the value from a variable of one type to a new variable of the different type.</p>
-<p>This is called <a class="reference internal" href="glossary.html#term-Casting-to-Type"><span class="xref std std-term">casting to type</span></a>. Casting required conversion from one type to another - there are some inbuilt conversions, and others may be created by the user.</p>
+<h2>C++ is a Strongly-typed Language.<a class="headerlink" href="#c-is-a-strongly-typed-language" title="Permalink to this heading">#</a></h2>
+<p>Once a variable’s type has been declared, for example when a number is cast as a <code class="docutils literal notranslate"><span class="pre">double</span></code>, the type cannot be changed.</p>
+<p>However, type conversion is possible - by copying the value from a variable of one type to a new variable of the different type. This is called <a class="reference internal" href="glossary.html#term-Casting-to-Type"><span class="xref std std-term">casting to type</span></a>.</p>
+<p>Casting required conversion from one type to another - there are some inbuilt conversions, and others may be created by the user.</p>
 <p>Strict type enforcement offers benefits to both efficiency and safety. It would be difficult to keep track of the type of a variable if it could be changed and would require frequent type checking to ensure no errors, which takes time and resources.</p>
 </section>
 <section id="type-system-and-type-safety">
@@ -615,21 +615,19 @@ document.write(`
 <p>The C++ type system is a fundamental aspect of the language - a set of rules applied by the compiler that ensure every variable, function argument, return value, and expression has a specific type.</p>
 <p>The C++ type system keeps track of the size of the memory block, and how to interpret the value in it. The binary code in a memory block could represent the integer value 33 or be the ASCII code for ‘!’ - the type tells the computer which was intended. This system provides structure, safety, and meaning to the code.</p>
 <p>Also, all expressions (including literal values) are implicitly given a type by the compiler before they’re evaluated.</p>
-<p>The type system ensure type safety - the guarantee that an object can be accessed only according to its definition.</p>
-<p>C++ is highly type safe, but a programmer can still violate type safety by explicit casting, by using an uninitialized variable, by using a pointer that doesn’t point to an object, by accessing beyond the end of an array, and by misusing a union. Type safety must be preserved for a program to be correct and maintainable.</p>
+<p>The type system ensures type safety - the guarantee that an object can be accessed only according to its definition.</p>
+<p>C++ is highly type safe, but a programmer can still violate type-safety by explicit casting, by using an uninitialized variable, by using a pointer that doesn’t point to an object, by accessing beyond the end of an array, and by misusing a union. Type safety must be preserved for a program to be correct and maintainable.</p>
 </section>
 <section id="casting-to-type">
 <h2>Casting to Type<a class="headerlink" href="#casting-to-type" title="Permalink to this heading">#</a></h2>
-<p>Although the type of a variable cannot be changed.</p>
-<p>The value of a variable can be copy assigned to another variable that has a different type  - not all permutations are permitted.</p>
-<p>Casting to type, means conversion from the original type to the type of the variable that the value is being assigned.</p>
-<p>This is often useful, and often necessary when working with numeric types.</p>
+<p>Although the type of a variable cannot be changed, the value of a variable can be copy assigned to a different variable that has a different type - not all permutations are permitted.</p>
+<p>Casting to type, means conversion from the original type to the type of the variable that the value is being assigned. This is often useful, and often necessary when working with numeric types.</p>
 <p>Casting may be implicit or explicit.</p>
 <section id="implicit-casting">
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-790b7c26-8b51-41c9-8743-18f6e2272a9b" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-2f8d76b0-945c-4fa6-a925-4d710a088665" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
@@ -654,15 +652,15 @@ document.write(`
     linkStyle 5 stroke:#00C853,fill:none
     </pre></div>
 <p>Some types are automatically converted by the compiler if there is a mismatch and the type conversion required is one of the permitted built-in conversions - called implicit casting.</p>
-<p>Implicit casting occurs when a single expression is found to include multiple types. e.g. attempted addition of an <code class="docutils literal notranslate"><span class="pre">int</span></code> to a <code class="docutils literal notranslate"><span class="pre">double</span></code> - although they are both numbers, a decision needs to be made about the type of the result, and some possible operations behave differently between types, such as division.</p>
+<p>Implicit casting occurs when a single expression is found to include multiple types - e.g. the attempted addition of an <code class="docutils literal notranslate"><span class="pre">int</span></code> to a <code class="docutils literal notranslate"><span class="pre">double</span></code> - although they are both numbers, a decision needs to be made about the type of the result, and some possible operations behave differently between types, such as division.</p>
 <p>The compiler must have a set of rules for each possible conversion - programmers need to be aware of what rule might be applied.</p>
-<p>For numeric values - this is called type promotion - the type with the smallest precision is converted to the type with the larger precision.</p>
+<p>For numeric values - the rule is called type promotion - the type with the smallest precision is converted to the type with the larger precision.</p>
 <p>Type promotion occurs in arithmetic expressions, when the types are mismatched, but convertible, and in functions, if the passed in types is smaller than the expected type.</p>
 <div class="code_example dropdown admonition" id="examplef1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 1 </span></p>
+<p class="admonition-title">Code Example: Implicit Casting </p>
 <section id="code_example-content">
-<p>In the following code, ‘a’ has been promoted to type <code class="docutils literal notranslate"><span class="pre">double</span></code> from type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>In the following code, <code class="docutils literal notranslate"><span class="pre">a</span></code> has been promoted to type <code class="docutils literal notranslate"><span class="pre">double</span></code> from type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -688,17 +686,14 @@ document.write(`
 </section>
 </div>
 </section>
-</div>
-<p>Type promotion can cause problems and needs to be considered carefully if you want to rely on your calculations - but less often than type demotion.</p>
+</div><p>Type promotion can cause problems and needs to be considered carefully if you want to rely on your calculations - does not cause as many issues as type demotion.</p>
 </section>
 <section id="explicit-casting">
 <h3>Explicit Casting<a class="headerlink" href="#explicit-casting" title="Permalink to this heading">#</a></h3>
-<p>Some types may be explicitly cast to another, using a type conversion function</p>
-<p>There are several ways to direct that a value is us</p>
-<p>Function style casting is the simplest. Inserting the variable who type is to be changed in the following functions, in the expressions where the new type is required.</p>
-<p><code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">double()</span></code>. The functions do not alter the original type, just the copy used in the expression.</p>
+<p>Some types may be explicitly cast to another, using a type conversion function - there are several methods.</p>
+<p>Function style casting is the simplest - e.g. <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">double()</span></code>. These functions do not actually alter the original type; they just create a converted copy to be used in the expression.</p>
 <p>c-style cast can also be used:
-<code class="docutils literal notranslate"><span class="pre">(int)2.0</span></code> yields the integer value ‘2’.</p>
+<code class="docutils literal notranslate"><span class="pre">(int)2.0</span></code> yields the integer value ‘2’, identical to <code class="docutils literal notranslate"><span class="pre">int(2.0);</span></code>.</p>
 </section>
 </section>
 <section id="determining-the-type-of-a-variable">
@@ -706,7 +701,7 @@ document.write(`
 <p>It is tremendously useful to be able to check the type of a variable.</p>
 <div class="code_example dropdown admonition" id="examplef2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 2 </span></p>
+<p class="admonition-title">Code Example: Type Checking </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -720,19 +715,21 @@ document.write(`
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;when&#39;s lunch?&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myInt</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myBool</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myDouble</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myChar</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myString</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myInt</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myBool</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myDouble</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myChar</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">myString</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>This produces more easily understood values for the primitive types.</p>
+<p>This produces more easily understood values for the primitive types. Whole words are printed in Visual Studio - just the first letter of the type in ‘Live Code’.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/types-exercise-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 3 </span></p>
+<p class="admonition-title">Exercise</p>
 <section id="exercise-content">
-<p>Use <code class="docutils literal notranslate"><span class="pre">typeid</span></code> on a function.</p>
+<ul class="simple">
+<li><p>Try using <code class="docutils literal notranslate"><span class="pre">typeid</span></code> on a function.</p></li>
+</ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Only use the functions name - no parentheses!</p>
@@ -745,48 +742,31 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">typeid(square).name()</span></code> returns <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">--cdecl(int,</span> <span class="pre">double)</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">typeid(myFunction).name()</span></code> returns <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">--cdecl(int,</span> <span class="pre">double)</span></code> in Visual Studio, and <code class="docutils literal notranslate"><span class="pre">FiidE</span></code> in ‘Live Code’.</p>
 <p>The function type is <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">(int</span> <span class="pre">,</span> <span class="pre">double)</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">__cdecl</span></code> refers to the calling convention of a function, different compilers may handle this differently - not important now.</p>
 </div>
 </section>
-</div>
-</section>
-</div>
-</section>
+</div></section>
+</div></section>
 <section id="deducing-a-type-auto-and-decltype">
 <h2>Deducing a Type: auto and decltype()<a class="headerlink" href="#deducing-a-type-auto-and-decltype" title="Permalink to this heading">#</a></h2>
 <p>C++ provides two mechanisms for deducing a type from an expression - or rather for reporting the type that is already known to the compiler.</p>
-<p><code class="docutils literal notranslate"><span class="pre">auto</span></code> is used to deduce an object’s type from its initializer; the type can be the type of a variable, a const, or a constexpr.</p>
-<p><code class="docutils literal notranslate"><span class="pre">decltype(expr)</span></code> is used to deduce the of something that is not a simple initializer, such as the return type for a function, or the type of a class member.</p>
-<p>There is not much advantage in using auto instead of int for an expression as simple as 123.</p>
-<p>For types that are more difficult to write and therefore harder to know, auto is much more useful.</p>
+<p><code class="docutils literal notranslate"><span class="pre">auto</span></code> for deducing a type of an object from its initializer; the type can be the type of a variable, a <code class="docutils literal notranslate"><span class="pre">const</span></code>, or a <code class="docutils literal notranslate"><span class="pre">constexpr</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">decltype(expr)</span></code> is used to deduce the type of something that does not have a simple initializer, such as the return type for a function, or the type of a class member.</p>
+<p>For types that are more difficult to write and therefore harder to know, <code class="docutils literal notranslate"><span class="pre">auto</span></code> is much more useful.</p>
 <div class="code_example dropdown admonition" id="examplef3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 3 </span></p>
+<p class="admonition-title">Code Example: auto and decltype() </p>
 <section id="code_example-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="n">arg</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span>
-<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span>
-<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes.</p>
-<p>c++ provides two mechanisms for deducing a type from an expression:</p>
-<p><code class="docutils literal notranslate"><span class="pre">auto</span></code> for deducing a type of an object from its initializer; the type can be the type of a variable, a <code class="docutils literal notranslate"><span class="pre">const</span></code>, or a <code class="docutils literal notranslate"><span class="pre">constexpr</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">decltype(expr)</span></code> for deducing the type of something that is not a simple initializer, such as the return type for a function or the type of a class member.</p>
-<p>The deduction done here is very simple: <code class="docutils literal notranslate"><span class="pre">auto</span></code> and <code class="docutils literal notranslate"><span class="pre">decltype()</span></code> simply report the type of an expression already known to the compiler.</p>
-<p>When a declaration of a variable has an initializer, we don’t need to explicitly specify a type.</p>
-<p>Instead, we can let the variable have the type of its initializer. Consider:</p>
+<p>When a declaration of a variable has an initialiser, we don’t need to explicitly specify a type.</p>
+<p>Instead, we can let the variable have the type of its initialiser. Consider:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"> </span>
 <span class="kt">char</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"> </span>
 <span class="k">auto</span><span class="w"> </span><span class="n">a3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w">    </span><span class="c1">// the type of a3 is ‘int’</span>
 </pre></div>
 </div>
-<p>The type of the integer literal ‘123’ is <code class="docutils literal notranslate"><span class="pre">int</span></code>, so <code class="docutils literal notranslate"><span class="pre">a3</span></code> is an <code class="docutils literal notranslate"><span class="pre">int</span></code>. That is, <code class="docutils literal notranslate"><span class="pre">auto</span></code> is a placeholder for the type of the initializer.</p>
+<p>The type of the integer literal ‘123’ is <code class="docutils literal notranslate"><span class="pre">int</span></code>, so <code class="docutils literal notranslate"><span class="pre">a3</span></code> is an <code class="docutils literal notranslate"><span class="pre">int</span></code> i.e. <code class="docutils literal notranslate"><span class="pre">auto</span></code> is a placeholder for the type of the initialiser.</p>
 <p>There is not much advantage in using <code class="docutils literal notranslate"><span class="pre">auto</span></code> instead of <code class="docutils literal notranslate"><span class="pre">int</span></code> for an expression as simple as ‘123’. The harder the type is to write and the harder the type is to know, the more useful auto becomes. For example:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f1</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
@@ -797,22 +777,21 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes.</p>
+<p>The loop using auto is the more convenient to write and the easier to read and usually make the code more resilient to changes elsewhere.</p>
 </section>
-</div>
-</section>
-<section id="lvalue-and-rvalue">
-<h2><code class="docutils literal notranslate"><span class="pre">lvalue</span></code> and <code class="docutils literal notranslate"><span class="pre">rvalue</span></code><a class="headerlink" href="#lvalue-and-rvalue" title="Permalink to this heading">#</a></h2>
-<p>The c++ term ``lvalue` was originally coined to mean <strong>something that can be on the left-hand side of an assignment.</strong></p>
-<p>An <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> is a named object, or an unnamed objected created using <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
-<p>Not all <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> may be used on the left-hand side of an assignment, for example if the <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> refers to a constant.</p>
-<p>An <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> that has not been declared <code class="docutils literal notranslate"><span class="pre">const</span></code> is called a modifiable <code class="docutils literal notranslate"><span class="pre">lvalue</span></code>.</p>
-<p>This simple and low-level notion of an object should not be confused with the notions of class object and object of polymorphic type.</p>
-<p><code class="docutils literal notranslate"><span class="pre">rvalue</span></code> means “a value that is not an <code class="docutils literal notranslate"><span class="pre">lvalue</span></code>”, such as a temporary value (e.g., the value returned by a function).</p>
-<p>There are two properties that matter for an object when it comes to addressing, copying, and moving:
-• Has identity: The program has the name of, pointer to, or reference to the object so that it is possible to determine if two objects are the same, whether the value of the object has changed, etc.
-• Movable: The object may be moved from (i.e., we are allowed to move its value to another location and leave the object in a valid but unspecified state, rather than copying).</p>
-<p>For practical programming, thinking in terms of <code class="docutils literal notranslate"><span class="pre">rvalue</span></code> and <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> is usually sufficient. Note that every expression is either an <code class="docutils literal notranslate"><span class="pre">lvalue</span></code> or an <code class="docutils literal notranslate"><span class="pre">rvalue</span></code>, but not both.</p>
+</div></section>
+<section id="lvalue-and-rvalue-advanced">
+<h2>lvalue and rvalue (Advanced)<a class="headerlink" href="#lvalue-and-rvalue-advanced" title="Permalink to this heading">#</a></h2>
+<p>The C++ term <a class="reference internal" href="glossary.html#term-lvalue"><span class="xref std std-term">lvalue</span></a> was originally coined to mean ‘something that can be on the left-hand side of an assignment’.</p>
+<p>lvalues are named objects, or an unnamed object created using <code class="docutils literal notranslate"><span class="pre">new</span></code>. Not all lvalues may be used on the left-hand side of an assignment, for example if the lvalue refers to a constant.</p>
+<p>An lvalue that has not been declared <code class="docutils literal notranslate"><span class="pre">const</span></code> is called a modifiable-lvalue.</p>
+<p><a class="reference internal" href="glossary.html#term-rvalue"><span class="xref std std-term">rvalue</span></a> means ‘a value that is not an lvalue’, such as a temporary value e.g. the value returned by a function.</p>
+<p>There are two properties that matter for an object when it comes to addressing, copying, and moving:</p>
+<ol class="arabic simple">
+<li><p>It has identity - the program has the name of, pointer to, or reference to the object so that it is possible to determine if two objects are the same, whether the value of the object has changed, etc.</p></li>
+<li><p>It is movable - the object may be moved from i.e. we are allowed to move its value to another location and leave the object in a valid but unspecified state, rather than copying.</p></li>
+</ol>
+<p>For practical programming, thinking in terms of rvalue and lvalue is usually sufficient - every expression is either an lvalue or an rvalue, but not both.</p>
 <p>It turns out that three of the four possible combinations of those two properties are needed to precisely describe the C++ language rules (we have no need for objects that do not have identity and cannot be moved).</p>
 </section>
 <section id="type-aliases">
@@ -821,20 +800,21 @@ document.write(`
 <p>Possible reasons include:</p>
 <ul class="simple">
 <li><p>The original name is too long or complicated in some way.</p></li>
-<li><p>A programming technique requires different types to have the same name in a context.</p></li>
+<li><p>A programming technique requires different types to have the same name in some context.</p></li>
 <li><p>A specific type is mentioned in one place only to simplify maintenance.</p></li>
 </ul>
 <div class="code_example dropdown admonition" id="examplef4">
 
-<p class="admonition-title"><span class="caption-number">Code Example 4 </span></p>
+<p class="admonition-title">Code Example: Type Alias </p>
 <section id="code_example-content">
+<p>How to create a type alias.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pchar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointer to character</span>
 <span class="k">using</span><span class="w"> </span><span class="n">PF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">double</span><span class="p">);</span><span class="w"> </span><span class="c1">// pointer to function taking a double and returning an int</span>
 </pre></div>
 </div>
+<p>The first example is not particularly helpful, but the function example clearly saves some time.</p>
 </section>
-</div>
-</section>
+</div></section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -904,7 +884,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-types-in-c">Fundamental Types in C++</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-is-a-strongly-typed-language">C++ is a <strong>strongly-typed language</strong>.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-is-a-strongly-typed-language">C++ is a Strongly-typed Language.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-system-and-type-safety">Type System and Type Safety</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-to-type">Casting to Type</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-casting">Implicit Casting</a></li>
@@ -913,7 +893,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-type-of-a-variable">Determining the Type of a Variable</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deducing-a-type-auto-and-decltype">Deducing a Type: auto and decltype()</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvalue-and-rvalue"><code class="docutils literal notranslate"><span class="pre">lvalue</span></code> and <code class="docutils literal notranslate"><span class="pre">rvalue</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvalue-and-rvalue-advanced">lvalue and rvalue (Advanced)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-aliases">Type Aliases</a></li>
 </ul>
   </nav></div>

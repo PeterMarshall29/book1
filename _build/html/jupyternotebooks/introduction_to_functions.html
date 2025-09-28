@@ -70,15 +70,15 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.7a0ab9e2-9673-4dae-a029-1d68b8f259ce.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.8b180a22-83d4-4f54-88a1-6f473f575621.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
     <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercises 5" href="exercise5.html" />
-    <link rel="prev" title="Exercises 4" href="exercise4.html" />
+    <link rel="next" title="Exercises Week 3 Functions" href="exercise5.html" />
+    <link rel="prev" title="Exercises Week 2 Part 2" href="exercise4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -544,8 +544,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> specifies what the function returns.
-If a function definition has declared that a particular type of data (an integer value in this case) will be returned, then whatever comes after the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword must equate to that type. In this case we just type a value, but a variable or code that yields the required value is more common.</p>
 <p>Programmers often want to use the same <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code-block</span></a> repeatedly - in the same program, or across many programmes.</p>
 <p>A code-block can be made reusable by encapsulating it into a function.</p>
 <p>At its simplest, a <a class="reference internal" href="glossary.html#term-Function"><span class="xref std std-term">function</span></a> is just a sequence of <a class="reference internal" href="glossary.html#term-Statements"><span class="xref std std-term">statements</span></a> collected and given a name - to identify that set of statements.</p>
@@ -561,7 +559,7 @@ If a function definition has declared that a particular type of data (an integer
 <p>Functions offer many benefits to the programmer, and we should consider defining a function when we want a separate computation/task with a name because doing so:</p>
 <ul class="simple">
 <li><p>Make programming more efficient by enabling the reuse of code-blocks.</p></li>
-<li><p>Reduce the complexity of the overall programme by separating concerns.</p></li>
+<li><p>Reduce the complexity of the overall program by separating concerns.</p></li>
 <li><p>Make the program easier to understand because individual parts are separated and identified by a name.</p></li>
 <li><p>Make it easier to test the program - testing reduces to testing functions and their interactions.</p></li>
 </ul>
@@ -569,7 +567,7 @@ If a function definition has declared that a particular type of data (an integer
 <p>Use a function is advisable, even when it will not be reused, because separating individual tasks/computations, and calling them by name makes programmes easier to follow.</p>
 <div class="code_example dropdown admonition" id="exampleu1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 37 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 19 </span></p>
 <section id="code_example-content">
 <p>Run this code, which demonstrates a simple function declaration and call.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -591,7 +589,7 @@ If a function definition has declared that a particular type of data (an integer
 </div>
 <div class="code_explanation dropdown admonition" id="explanationu1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleu1"> Code Example 37</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleu1"> Code Example 19</a></p>
 <section id="code_explanation-content">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -612,8 +610,11 @@ If a function definition has declared that a particular type of data (an integer
 </ul>
 <p class="sd-card-text">The type of this function is <code class="docutils literal notranslate"><span class="pre">void()</span></code>.</p>
 <ul class="simple">
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">int</span></code> indicates that <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns an integer, hence we require a <a class="reference internal" href="glossary.html#term-Return-statement"><span class="xref std std-term">return-statement</span></a> i.e. <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code>, and the type of <code class="docutils literal notranslate"><span class="pre">main()</span></code> is <code class="docutils literal notranslate"><span class="pre">int()</span></code>.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">int</span></code> indicates that <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns an integer, hence we require a <a class="reference internal" href="glossary.html#term-Return-statement"><span class="xref std std-term">return-statement</span></a> i.e. <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code>, and the type of <code class="docutils literal notranslate"><span class="pre">main()</span></code> is <code class="docutils literal notranslate"><span class="pre">int()</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">return</span></code> <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> specifies what the function returns at the end of its execution.</p></li>
 </ul>
+<p class="sd-card-text">In the example above, <code class="docutils literal notranslate"><span class="pre">myFirstFunction()</span></code> is effectively replaced by the returned value if there is one, after all the actions of the function have been completed.</p>
+<p class="sd-card-text">If a function definition has declared that a particular type of data (an integer value in case of <code class="docutils literal notranslate"><span class="pre">main()</span></code>) will be returned, then whatever comes after the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword must equate to that type or be a literal of that type.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -664,7 +665,7 @@ If a function definition has declared that a particular type of data (an integer
 <p>Functions would be less useful if they variables used in their execution could not be modified. Global variables could be used, but these are generally to be avoided.</p>
 <div class="code_example dropdown admonition" id="exampleu2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 38 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 20 </span></p>
 <section id="code_example-content">
 <p>Run this code.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -688,7 +689,7 @@ If a function definition has declared that a particular type of data (an integer
 </div>
 <div class="code_explanation dropdown admonition" id="explanationu2">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleu2"> Code Example 38</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleu2"> Code Example 20</a></p>
 <section id="code_explanation-content">
 <p>The definition of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> declares a single parameter called ‘x’ of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <ul class="simple">
@@ -769,7 +770,7 @@ If a function definition has declared that a particular type of data (an integer
 </div>
 <div class="code_example dropdown admonition" id="exampleu3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 39 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 21 </span></p>
 <section id="code_example-content">
 <p>Run this code, which demonstrates passing multiple arguments.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -824,7 +825,7 @@ If a function definition has declared that a particular type of data (an integer
 <p>If there is a separate function declaration - it must contain the default values. The default values are only required in a definition, if there is no declaration.</p>
 <div class="code_example dropdown admonition" id="exampleu4">
 
-<p class="admonition-title"><span class="caption-number">Code Example 40 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 22 </span></p>
 <section id="code_example-content">
 <p>Consider this code again.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -846,7 +847,7 @@ If a function definition has declared that a particular type of data (an integer
 </div>
 <div class="exercise dropdown admonition" id="exerciseu3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 32 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
 <section id="exercise-content">
 <p>Try putting <code class="docutils literal notranslate"><span class="pre">age</span></code> back into the function call - what happens?</p>
 </section>
@@ -861,7 +862,7 @@ If a function definition has declared that a particular type of data (an integer
 <p>Within any function body - the statements are executed sequentially. The location of the second function dictates when it will be called.</p>
 <div class="code_example dropdown admonition" id="exampleu5">
 
-<p class="admonition-title"><span class="caption-number">Code Example 41 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 23 </span></p>
 <section id="code_example-content">
 <p>Try the following code - it should work</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -887,7 +888,7 @@ If a function definition has declared that a particular type of data (an integer
 </div>
 <div class="exercise dropdown admonition" id="exerciseu5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 33 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
 <section id="exercise-content">
 <p>Swap the order in which the two functions appear and then run the code again.</p>
 <div class="dropdown note admonition">
@@ -901,7 +902,7 @@ If a function definition has declared that a particular type of data (an integer
 </div>
 <div class="code_example dropdown admonition" id="exampleu6">
 
-<p class="admonition-title"><span class="caption-number">Code Example 42 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 24 </span></p>
 <section id="code_example-content">
 <p>This code is an old classic describing the evolution of the mutually dependent fox and rabbit populations - an example of mutual recursion.</p>
 <p>But it will not run - no matter which function is listed first because the call each other.</p>
@@ -955,7 +956,7 @@ If a function definition has declared that a particular type of data (an integer
 <p>A function definition requires the code body also - ‘Declarations are not definitions’.</p>
 <div class="code_example admonition" id="exampleu7">
 
-<p class="admonition-title"><span class="caption-number">Code Example 43 </span></p>
+<p class="admonition-title"><span class="caption-number">Code Example 25 </span></p>
 <section id="code_example-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// is a declaration</span>
 <span class="c1">//This is the corresponding definition.</span>
@@ -988,7 +989,7 @@ If a function definition has declared that a particular type of data (an integer
 <p>Having been apprised of the name and type of the function, the program can look for the definition. The declaration is just an interface; it describes what the definition must conform to.</p>
 <div class="exercise dropdown admonition" id="exerciseu4">
 
-<p class="admonition-title"><span class="caption-number">Exercise 34 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
 <section id="exercise-content">
 <p>Try removing the parameter names from the declaration in a previous example.</p>
 </section>
@@ -1058,7 +1059,7 @@ If a function definition has declared that a particular type of data (an integer
 <section id="functions-with-multiple-returned-values">
 <h2>Functions with multiple Returned Values<a class="headerlink" href="#functions-with-multiple-returned-values" title="Permalink to this heading">#</a></h2>
 <p>More than one value of more than one type can be returned from a function.</p>
-<p>There are several ways to programme a function for multiple returns.</p>
+<p>There are several ways to program a function for multiple returns.</p>
 <ol class="arabic simple">
 <li><p>Using classes or structs - the values are encapsulated into a single object to be returned - the class or struct definition to be visible to the caller.</p></li>
 <li><p>Using a <a class="reference internal" href="glossary.html#term-Tuple"><span class="xref std std-term">tuple</span></a> - see <code class="docutils literal notranslate"><span class="pre">&lt;tuple&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code>. Can be extended by also using a <a class="reference internal" href="glossary.html#term-Structured-Binding"><span class="xref std std-term">structured binding</span></a>.</p></li>
@@ -1167,7 +1168,7 @@ If a function definition has declared that a particular type of data (an integer
 </div>
 </div>
 </div>
-<p>Notice that the programme modifies the local variable (called <code class="docutils literal notranslate"><span class="pre">localVector</span></code>) - that because this is reference, not a copy, the variable referred to is being modified.</p>
+<p>Notice that the program modifies the local variable (called <code class="docutils literal notranslate"><span class="pre">localVector</span></code>) - that because this is reference, not a copy, the variable referred to is being modified.</p>
 <hr class="docutils" />
 <p>Otherwise, the original variable would only be accessible by a function if the variable is global, which means declaring it before the main function, otherwise the <code class="docutils literal notranslate"><span class="pre">myPrint()</span></code> functions could not alter it, only its copy. If a variable is global there is no real reason to pass it into a function.</p>
 <p>Method 2 – Modifying a Global Variable</p>
@@ -1297,7 +1298,7 @@ If a function definition has declared that a particular type of data (an integer
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exercises 4</p>
+        <p class="prev-next-title">Exercises Week 2 Part 2</p>
       </div>
     </a>
     <a class="right-next"
@@ -1305,7 +1306,7 @@ If a function definition has declared that a particular type of data (an integer
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercises 5</p>
+        <p class="prev-next-title">Exercises Week 3 Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

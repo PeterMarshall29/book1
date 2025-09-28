@@ -12,39 +12,39 @@ kernelspec:
 
 # Types in C++
 
-The **type** of a variable defines its properties, the rules it must obey, and the set of operators and functions available to members of each type.
+The {term}`type` of a variable defines its properties, the rules it must obey, and the set of operators and functions available to members of that type.
 
 For example, `+` behaves differently when used an {term}`infix operator` between two integers, compared to between two strings.
 
 The addition of integers yields a different numerical value than the addition of the `char` representation of the same numbers.
 
-It would not make much sense to be able to add string-type to double-type variables, and the `type system` helps by preventing this.
+It would not make much sense to be able to add string-type to double-type variables, and the `type system` helps by preventing this. It may seem odd to even suggest the possibility but remember that all the types are stored in the memory as just binary numbers - any pair of binary codes can be added together, but it would be meaningless.
 
 Each object, reference, function, expression in C++ is associated with a type, which may be fundamental, compound, or user-defined, complete or incomplete, etc.
 ## Fundamental Types in C++
 
-Types defined in the {term}`core language` are the {term}`fundamental types`:
+Types defined in the {term}`core language` are called the {term}`fundamental types`:
 - Integral Types: `int`, `char`, `bool`, and variants.
-- Floating-point Types: `float`, `double`, etc..
-- Void
+- Floating-point Types: `float`, `double`, etc.
+- Void.
 
 {term}`Void` is a type used to signify the absence of information.
 
 The integral and floating-point types are collectively called the arithmetic types.
 
-Other 'built-in' types, are constructed using declarator operators, including: pointer types `int*`, simple array type, `char[]`, and reference types `double&` and `vector<int>&&`.
+Other ‘built-in’ types are constructed using declarator operators - e.g. pointer types `int*`, simple array type e.g. `char[]`, and reference types `double&` and `vector<int>&&`.
 
 The types in the {term}`standard library` are **derived types** constructed using the types in the core language.
 
-Programmers can define their own 'user-defined' types. Using a {term}`class`, or a {term}`template`, etc..
+Programmers can define their own 'user-defined' types, using a {term}`class`, or a {term}`template` etc..
 
-## C++ is a **strongly-typed language**. 
+## C++ is a Strongly-typed Language. 
 
-Once a variable type is set, for example when a number is cast as a **double**, the type cannot be changed.
+Once a variable's type has been declared, for example when a number is cast as a `double`, the type cannot be changed.
 
-However, type conversion is possible - by copying the value from a variable of one type to a new variable of the different type.
+However, type conversion is possible - by copying the value from a variable of one type to a new variable of the different type. This is called {term}`casting to type`. 
 
-This is called {term}`casting to type`. Casting required conversion from one type to another - there are some inbuilt conversions, and others may be created by the user.
+Casting required conversion from one type to another - there are some inbuilt conversions, and others may be created by the user.
 
 Strict type enforcement offers benefits to both efficiency and safety. It would be difficult to keep track of the type of a variable if it could be changed and would require frequent type checking to ensure no errors, which takes time and resources.
 
@@ -58,19 +58,15 @@ The C++ type system keeps track of the size of the memory block, and how to inte
 
 Also, all expressions (including literal values) are implicitly given a type by the compiler before they're evaluated.
 
-The type system ensure type safety - the guarantee that an object can be accessed only according to its definition. 
+The type system ensures type safety - the guarantee that an object can be accessed only according to its definition. 
 
-C++ is highly type safe, but a programmer can still violate type safety by explicit casting, by using an uninitialized variable, by using a pointer that doesn't point to an object, by accessing beyond the end of an array, and by misusing a union. Type safety must be preserved for a program to be correct and maintainable.
+C++ is highly type safe, but a programmer can still violate type-safety by explicit casting, by using an uninitialized variable, by using a pointer that doesn't point to an object, by accessing beyond the end of an array, and by misusing a union. Type safety must be preserved for a program to be correct and maintainable.
 
 ## Casting to Type
 
-Although the type of a variable cannot be changed.
+Although the type of a variable cannot be changed, the value of a variable can be copy assigned to a different variable that has a different type - not all permutations are permitted.
 
-The value of a variable can be copy assigned to another variable that has a different type  - not all permutations are permitted.
-
-Casting to type, means conversion from the original type to the type of the variable that the value is being assigned.
-
-This is often useful, and often necessary when working with numeric types.
+Casting to type, means conversion from the original type to the type of the variable that the value is being assigned. This is often useful, and often necessary when working with numeric types.
 
 Casting may be implicit or explicit.
 
@@ -106,19 +102,20 @@ flowchart BT
 ````
 Some types are automatically converted by the compiler if there is a mismatch and the type conversion required is one of the permitted built-in conversions - called implicit casting.
 
-Implicit casting occurs when a single expression is found to include multiple types. e.g. attempted addition of an `int` to a `double` - although they are both numbers, a decision needs to be made about the type of the result, and some possible operations behave differently between types, such as division.
+Implicit casting occurs when a single expression is found to include multiple types - e.g. the attempted addition of an `int` to a `double` - although they are both numbers, a decision needs to be made about the type of the result, and some possible operations behave differently between types, such as division.
 
 The compiler must have a set of rules for each possible conversion - programmers need to be aware of what rule might be applied.
 
-For numeric values - this is called type promotion - the type with the smallest precision is converted to the type with the larger precision.
+For numeric values - the rule is called type promotion - the type with the smallest precision is converted to the type with the larger precision.
 
 Type promotion occurs in arithmetic expressions, when the types are mismatched, but convertible, and in functions, if the passed in types is smaller than the expected type.
 
-`````{code_example-start}
+`````{code_example-start} Implicit Casting
 :label: examplef1
 :class: dropdown
+:nonumber:
 `````
-In the following code, 'a' has been promoted to type `double` from type `int`.
+In the following code, `a` has been promoted to type `double` from type `int`.
 ````{code-cell} c++
 :tags: [remove-output]
 #include <iostream>
@@ -137,28 +134,25 @@ Try the following:
 ```
 `````{code_example-end}
 `````
-Type promotion can cause problems and needs to be considered carefully if you want to rely on your calculations - but less often than type demotion.
+Type promotion can cause problems and needs to be considered carefully if you want to rely on your calculations - does not cause as many issues as type demotion.
 
 ### Explicit Casting
 
-Some types may be explicitly cast to another, using a type conversion function
+Some types may be explicitly cast to another, using a type conversion function - there are several methods.
 
-There are several ways to direct that a value is us
-
-Function style casting is the simplest. Inserting the variable who type is to be changed in the following functions, in the expressions where the new type is required.
-
-`int()`, `double()`. The functions do not alter the original type, just the copy used in the expression.
+Function style casting is the simplest - e.g. `int()`, `double()`. These functions do not actually alter the original type; they just create a converted copy to be used in the expression.
 
 c-style cast can also be used:
-`(int)2.0` yields the integer value '2'.
+`(int)2.0` yields the integer value '2', identical to `int(2.0);`.
 
 ## Determining the Type of a Variable
 
 It is tremendously useful to be able to check the type of a variable.
 
-``````{code_example-start}
+``````{code_example-start} Type Checking
 :label: examplef2
 :class: dropdown
+:nonumber:
 ``````
 `````{code-cell} c++
 :tags: [remove-output]
@@ -172,14 +166,15 @@ int main() {
     double myDouble = 3.14;
     std::string myString = "when's lunch?";
     bool myBool = true;
-    std::cout << typeid(myInt).name()  << '\t' << typeid(myBool).name() << '\t' << typeid(myDouble).name() << '\t' << typeid(myChar).name() << '\t' << typeid(myString).name() << '\n';
+    std::cout << typeid(myInt).name()  << '\n' << typeid(myBool).name() << '\n' << typeid(myDouble).name() << '\n' << typeid(myChar).name() << '\n' << typeid(myString).name() << '\n';
     return 0;
 }
 `````
-This produces more easily understood values for the primitive types. 
+This produces more easily understood values for the primitive types. Whole words are printed in Visual Studio - just the first letter of the type in 'Live Code'.
 `````{exercise}
 :class: dropdown
-Use `typeid` on a function.
+:nonumber:
+- Try using `typeid` on a function.
 ```{hint}
 Only use the functions name - no parentheses!
 ```
@@ -191,7 +186,7 @@ int myFunction(int x, double y) {
     return 2;
 }
 ```
-`typeid(square).name()` returns `int --cdecl(int, double)`.
+`typeid(myFunction).name()` returns `int --cdecl(int, double)` in Visual Studio, and `FiidE` in 'Live Code'.
 
 The function type is `int (int , double)`.
 
@@ -204,45 +199,25 @@ The function type is `int (int , double)`.
 
 C++ provides two mechanisms for deducing a type from an expression - or rather for reporting the type that is already known to the compiler.
 
-`auto` is used to deduce an object's type from its initializer; the type can be the type of a variable, a const, or a constexpr.
-
-`decltype(expr)` is used to deduce the of something that is not a simple initializer, such as the return type for a function, or the type of a class member.
-
-There is not much advantage in using auto instead of int for an expression as simple as 123. 
-
-For types that are more difficult to write and therefore harder to know, auto is much more useful. 
-`````{code_example-start}
-:label: examplef3
-:class: dropdown
-`````
-```{code-block} c++
-template<class T> void f1(std::vector<T>&arg)
-{
-for (std::vector<T>::iterator p = arg.begin(); p != arg.end(); ++p)
-*p = 7;
-for (auto p = arg.begin(); p != arg.end(); ++p)
-*p = 7;
-}
-```
-The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes. 
-
-c++ provides two mechanisms for deducing a type from an expression:
-
 `auto` for deducing a type of an object from its initializer; the type can be the type of a variable, a `const`, or a `constexpr`.
 
-`decltype(expr)` for deducing the type of something that is not a simple initializer, such as the return type for a function or the type of a class member.
+`decltype(expr)` is used to deduce the type of something that does not have a simple initializer, such as the return type for a function, or the type of a class member.
 
-The deduction done here is very simple: `auto` and `decltype()` simply report the type of an expression already known to the compiler.
+For types that are more difficult to write and therefore harder to know, `auto` is much more useful. 
+`````{code_example-start} auto and decltype()
+:label: examplef3
+:class: dropdown
+:nonumber:
+`````
+When a declaration of a variable has an initialiser, we don't need to explicitly specify a type. 
 
-When a declaration of a variable has an initializer, we don't need to explicitly specify a type. 
-
-Instead, we can let the variable have the type of its initializer. Consider:
+Instead, we can let the variable have the type of its initialiser. Consider:
 ```{code-block} c++
 int a1 = 123; 
 char a2 = 123; 
 auto a3 = 123;    // the type of a3 is ‘int’
 ```
-The type of the integer literal ‘123’ is `int`, so `a3` is an `int`. That is, `auto` is a placeholder for the type of the initializer.
+The type of the integer literal ‘123’ is `int`, so `a3` is an `int` i.e. `auto` is a placeholder for the type of the initialiser.
 
 There is not much advantage in using `auto` instead of `int` for an expression as simple as ‘123’. The harder the type is to write and the harder the type is to know, the more useful auto becomes. For example:
 ```{code-block} c++
@@ -254,28 +229,25 @@ for (auto p = arg.begin(); p != arg.end(); ++p)
 *p = 7;
 }
 ```
-The loop using auto is the more convenient to write and the easier to read. Also, it is more resilient to code changes. 
+The loop using auto is the more convenient to write and the easier to read and usually make the code more resilient to changes elsewhere. 
 `````{code_example-end}
 `````
-## `lvalue` and `rvalue`
+## lvalue and rvalue (Advanced)
 
-The c++ term ``lvalue` was originally coined to mean **something that can be on the left-hand side of an assignment.** 
+The C++ term {term}`lvalue` was originally coined to mean 'something that can be on the left-hand side of an assignment'. 
 
-An `lvalue` is a named object, or an unnamed objected created using `new`.
+lvalues are named objects, or an unnamed object created using `new`. Not all lvalues may be used on the left-hand side of an assignment, for example if the lvalue refers to a constant.
 
-Not all `lvalue` may be used on the left-hand side of an assignment, for example if the `lvalue` refers to a constant.
+An lvalue that has not been declared `const` is called a modifiable-lvalue. 
 
-An `lvalue` that has not been declared `const` is called a modifiable `lvalue`. 
+{term}`rvalue` means 'a value that is not an lvalue', such as a temporary value e.g. the value returned by a function. 
 
-This simple and low-level notion of an object should not be confused with the notions of class object and object of polymorphic type.
+There are two properties that matter for an object when it comes to addressing, copying, and moving:
 
-`rvalue` means "a value that is not an `lvalue`", such as a temporary value (e.g., the value returned by a function). 
+1. It has identity - the program has the name of, pointer to, or reference to the object so that it is possible to determine if two objects are the same, whether the value of the object has changed, etc.
+2. It is movable - the object may be moved from i.e. we are allowed to move its value to another location and leave the object in a valid but unspecified state, rather than copying. 
 
-There are two properties that matter for an object when it comes to addressing, copying, and moving: 
-• Has identity: The program has the name of, pointer to, or reference to the object so that it is possible to determine if two objects are the same, whether the value of the object has changed, etc.
-• Movable: The object may be moved from (i.e., we are allowed to move its value to another location and leave the object in a valid but unspecified state, rather than copying). 
-
-For practical programming, thinking in terms of `rvalue` and `lvalue` is usually sufficient. Note that every expression is either an `lvalue` or an `rvalue`, but not both.
+For practical programming, thinking in terms of rvalue and lvalue is usually sufficient - every expression is either an lvalue or an rvalue, but not both.
 
 It turns out that three of the four possible combinations of those two properties are needed to precisely describe the C++ language rules (we have no need for objects that do not have identity and cannot be moved). 
 
@@ -285,19 +257,23 @@ Sometimes, we need a new name for a type.
 
 Possible reasons include:
 * The original name is too long or complicated in some way.
-* A programming technique requires different types to have the same name in a context.
+* A programming technique requires different types to have the same name in some context.
 * A specific type is mentioned in one place only to simplify maintenance.
 
-`````{code_example-start}
+`````{code_example-start} Type Alias
 :label: examplef4
 :class: dropdown
+:nonumber:
 `````
+How to create a type alias.
 ```{code-block} c++
 using Pchar = char*; // pointer to character
 using PF = int(*)(double); // pointer to function taking a double and returning an int
 ```
+The first example is not particularly helpful, but the function example clearly saves some time.
 `````{code_example-end}
 `````
+
 
 
 

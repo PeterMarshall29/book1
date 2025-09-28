@@ -423,7 +423,7 @@ The full sequence is :
 
 There are several alternatives to `std::cout` in C++. In C++23 a new `print()` was introduced.
 
-Note we are using C++20.
+Note: we are using C++20.
 
 `````{code_example-start} print()
 :label: examplec5

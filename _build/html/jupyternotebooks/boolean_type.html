@@ -70,7 +70,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.7bfd43bd-ede8-4cc9-be5b-df098c473f6a.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.f5b78275-c7df-4b61-916e-40e4a7b7b122.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/boolean_type';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -231,19 +231,19 @@
 <li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -541,16 +541,17 @@ document.write(`
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Boolean Algebra</p>
-<p>A branch of algebra used to describe logical operations - with the following distinguishing features.</p>
-<p>Boolean variables may only have the value <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> - called truth values - which are generally represented by <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>Boolean variables are operands for Boolean operators (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, and others) - normal algebraic rules do not apply.</p>
+<p>A branch of algebra used to describe logical operations - with the following distinguishing features:</p>
+<ul class="simple">
+<li><p>Boolean variables may only have the value <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> - called truth values - which are generally represented by <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>Boolean variables are operands for Boolean operators (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, and others) - normal algebraic rules do not apply.</p></li>
+</ul>
 <p>In 1937 Shannon proved that the behaviour of certain types of electrical circuit was logically equivalent to Boolean algebra.</p>
 </div>
-<p>Computers operate using Boolean logic, i.e. the electronic circuits are a physical manifestation of two-value Boolean logic.</p>
-<p>Boolean operations required that the computer circuits can be in one of two distinct states, representing <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is achieved in various ways, the simplest being that the voltage in a wire is either 0 or a positive value.</p>
+<p>Computers operate using Boolean logic i.e. the electronic circuits are a physical manifestation of two-value Boolean logic.</p>
+<p>Boolean operations required that the computer circuits can be in one of two distinct states, representing <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is achieved in various ways, the simplest being that the voltage in a wire is either zero volts or a positive value above a threshold voltage (current systems are under 2V).</p>
 <p>Two-state Boolean logic is not the only possibility, but it is the simplest to implement. Using 4 states would offer some advantages, but currently it’s simpler to use 2 wires to get 4 possible states.</p>
-<p>In programming a Boolean, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, is a fundamental integer data type.</p>
-<p>Each <code class="docutils literal notranslate"><span class="pre">bool</span></code> may hold only the integer values <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>, which represent <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> respectively.</p>
+<p>In programming a Boolean <code class="docutils literal notranslate"><span class="pre">bool</span></code> is a fundamental ‘integer’ data type. Each <code class="docutils literal notranslate"><span class="pre">bool</span></code> may hold only the integer values <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>, which represent <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> respectively.</p>
 <p>Booleans are used in conditional statements to determine the control flow depending on whether a conditional expression evaluates to true or false.</p>
 <div class="code_example dropdown admonition" id="examplel1">
 
@@ -617,13 +618,13 @@ document.write(`
 </div>
 </div>
 </div>
-<p>It is often not necessary to create a Boolean variable.</p>
-<p>The evaluation of any comparison expression returns a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> etc., all generate temporary Booleans.</p>
+<p>It is often not necessary to create a Boolean variable - temporary Booleans are more common.</p>
+<p>The evaluation of any comparison expression returns a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> etc. - all generate a temporary Boolean - which is an object without a name.</p>
 <p>The last code can therefore have the function simplified by replacing the entire function body with only:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Check that works.</p>
+<p>Check that this substitution works…</p>
 </section>
 </div><div class="code_example dropdown admonition" id="examplel2">
 
@@ -644,11 +645,11 @@ document.write(`
 </pre></div>
 </div>
 <p>This code will not compile until you comment out line 4. Conversion of an integer to a Boolean is an example of narrowing, which is barred when using an initialiser list <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
-<p>At line 3: 7 != 0 , myBool1 becomes true.</p>
+<p>At line 3: <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">!=</span> <span class="pre">0</span></code> is evaluated and <code class="docutils literal notranslate"><span class="pre">myBool1</span></code> becomes <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>The conversion from Boolean to integer is not a narrowing conversion, integers are bigger than Booleans, so this is permitted using <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
 <hr class="docutils" />
-<p>In arithmetic and logical expressions, <code class="docutils literal notranslate"><span class="pre">bool</span></code>s are converted to <code class="docutils literal notranslate"><span class="pre">int</span></code>s; integer arithmetic and logical operations are performed on the converted values.</p>
-<p>If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true. For example:</p>
+<p>In arithmetic and logical expressions, <code class="docutils literal notranslate"><span class="pre">bool</span></code>s are converted to <code class="docutils literal notranslate"><span class="pre">int</span></code>s - integer arithmetic and logical operations are performed on the converted values.</p>
+<p>If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true - for example:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
@@ -666,7 +667,7 @@ document.write(`
 </section>
 </div><section id="pointers-and-booleans">
 <h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Permalink to this heading">#</a></h2>
-<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. A non-null pointer converts to true; pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span> </code>convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. A non-null pointer converts to <code class="docutils literal notranslate"><span class="pre">true</span></code> - pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <div class="code_example dropdown admonition" id="examplel6">
 
 <p class="admonition-title">Code Example: Pointers and Booleans </p>

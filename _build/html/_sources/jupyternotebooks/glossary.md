@@ -47,6 +47,9 @@ Case Sensitive
 Casting to Type
   Conversion of one type of data safely to another. A variable cannot change its type, so type casting occurs on assignment to a variable of the correct type.
 
+char
+  Type for representing individual characters. Character literals are enclosed by `' '`. `char`is an integer type - each character has an associated integer value.
+
 Char Type
   Type for representing individual characters. Character literals are enclosed by `' '`. `char`is an integer type - each character has an associated integer value.
 
@@ -360,7 +363,8 @@ Keywords
   An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programr. [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keywords.html).
 
 Linkage
-  The process of merging code from separately compiled translation units into a program, or part of a program. 
+  linkage refers to how names can refer to the same entities across different scopes or translation units. Internal Linkage - Identifiers can only be seen within a translation unit. External Linkage - Identifiers can be seen in other translation units. No Linkage - Identifiers can only be seen in the scope where they are defined. Linkage is determined by how identifiers are declared, and it affects how names can refer to the same object, function, or other entity throughout the program. 
+  Sometimes used in connection with the linker.
 
 Linker
   The part of the C++ implementation that merges the code generated from separately compiled translation units into a program, or part of a program
@@ -525,6 +529,9 @@ Reference
 References
   The memory address of an object.
 
+Regular Expression
+  Regular expressions are used for pattern matching within strings. They are part of the `<regex>` library that provides tools to define, search, and manipulate patterns in text.
+
 Reserved Characters
   Some characters cannot be freely used because they have special meaning in the syntax. Some may be overloaded. Examples: `#`, `\`, arithmetic operators, comparison operators, punctuation symbols. 
 
@@ -541,6 +548,9 @@ Scalar
   A type that holds a single value of a defined range. Scalars include arithmetic types (integral or floating-point values), enumeration type members, pointer types, pointer-to-member types, and `std::nullptr_t`. Fundamental types are typically scalar types.
 
 Scope
+  The context in which a variable, function, or class is defined. May be global, namespace, class, function, block/local. 
+
+Scopes
   The context in which a variable, function, or class is defined. May be global, namespace, class, function, block/local. 
 
 Scope Resolution Operator
@@ -644,6 +654,9 @@ Value
 
 Values
   Literals stored in a variable. Other usages -  see {term}`Value Categories`. 
+
+Value Category
+  Each C++ expression (an operator with its operands, literals, variables, etc.) is characterized by two independent properties: a type and a [value category](https://en.cppreference.com/w/cpp/language/value_category.html). The include lvalues and rvalues.
 
 Value Categories
   Each C++ expression (an operator with its operands, literals, variables, etc.) is characterized by two independent properties: a type and a [value category](https://en.cppreference.com/w/cpp/language/value_category.html). The include lvalues and rvalues.

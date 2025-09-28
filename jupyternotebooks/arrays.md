@@ -36,7 +36,7 @@ The number of elements of an array is called the array bound - which must be an 
 
 For a type `T`, `T[N]` is of type 'array of N elements of type T'. e.g. int myArray[10], has the type 'array of 10 int's' - often just 'int array'.
 
-Note: The type may not be pointer or reference types. To make an array of pointers parentheses must be used see {term}`Pointers and Arrays`.
+Note: The type may not be pointer or reference types. To make an array of pointers parentheses must be used see {ref}`Pointers and Arrays`.
 
 Advanced - an attribute may be added after the square brackets - not covered here.
 

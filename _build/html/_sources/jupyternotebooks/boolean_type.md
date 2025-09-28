@@ -19,23 +19,21 @@ George Boole defined an algebraic system of logic in 1847 in "The Mathematical A
 
 ````{admonition} Boolean Algebra
 :class: dropdown
-A branch of algebra used to describe logical operations - with the following distinguishing features. 
+A branch of algebra used to describe logical operations - with the following distinguishing features: 
 
-Boolean variables may only have the value `true` or `false` - called truth values - which are generally represented by `1` and `0`.
+- Boolean variables may only have the value `true` or `false` - called truth values - which are generally represented by `1` and `0`.
 
-Boolean variables are operands for Boolean operators (`and`, `or`, `not`, and others) - normal algebraic rules do not apply.
+- Boolean variables are operands for Boolean operators (`and`, `or`, `not`, and others) - normal algebraic rules do not apply.
 
 In 1937 Shannon proved that the behaviour of certain types of electrical circuit was logically equivalent to Boolean algebra.
 ````
-Computers operate using Boolean logic, i.e. the electronic circuits are a physical manifestation of two-value Boolean logic. 
+Computers operate using Boolean logic i.e. the electronic circuits are a physical manifestation of two-value Boolean logic. 
 
-Boolean operations required that the computer circuits can be in one of two distinct states, representing `true` or `false`. This is achieved in various ways, the simplest being that the voltage in a wire is either 0 or a positive value.
+Boolean operations required that the computer circuits can be in one of two distinct states, representing `true` or `false`. This is achieved in various ways, the simplest being that the voltage in a wire is either zero volts or a positive value above a threshold voltage (current systems are under 2V).
 
 Two-state Boolean logic is not the only possibility, but it is the simplest to implement. Using 4 states would offer some advantages, but currently it’s simpler to use 2 wires to get 4 possible states.
 
-In programming a Boolean, `bool`, is a fundamental integer data type. 
-
-Each `bool` may hold only the integer values `1` or `0`, which represent `true` and `false` respectively. 
+In programming a Boolean `bool` is a fundamental 'integer' data type. Each `bool` may hold only the integer values `1` or `0`, which represent `true` and `false` respectively. 
 
 Booleans are used in conditional statements to determine the control flow depending on whether a conditional expression evaluates to true or false.
 
@@ -100,15 +98,15 @@ int main() {
     return 0;
 }
 ````
-It is often not necessary to create a Boolean variable.
+It is often not necessary to create a Boolean variable - temporary Booleans are more common.
 
-The evaluation of any comparison expression returns a `bool`. `a == b`, `a != b`, `a <= b` etc., all generate temporary Booleans.
+The evaluation of any comparison expression returns a `bool`. `a == b`, `a != b`, `a <= b` etc. - all generate a temporary Boolean - which is an object without a name.
 
 The last code can therefore have the function simplified by replacing the entire function body with only:  
 ```{code-block} c++
 return a == b ;
 ``` 
-Check that works.
+Check that this substitution works...
 
 `````{code_example-end}
 `````
@@ -136,14 +134,14 @@ int main() {
 ```
 This code will not compile until you comment out line 4. Conversion of an integer to a Boolean is an example of narrowing, which is barred when using an initialiser list `{}`.
 
-At line 3: 7 != 0 , myBool1 becomes true.
+At line 3: `7 != 0` is evaluated and `myBool1` becomes `true`.
 
 The conversion from Boolean to integer is not a narrowing conversion, integers are bigger than Booleans, so this is permitted using `{}`.
 
 ***
-In arithmetic and logical expressions, `bool`s are converted to `int`s; integer arithmetic and logical operations are performed on the converted values. 
+In arithmetic and logical expressions, `bool`s are converted to `int`s - integer arithmetic and logical operations are performed on the converted values. 
 
-If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true. For example:
+If the result needs to be converted back to bool, a 0 is converted to false and a nonzero value is converted to true - for example:
 ```{code-block} c++
 #include <iostream>
 int main() {
@@ -166,7 +164,7 @@ Line 7: Arithmetic evaluation to integer '0', converted to `false`.
 
 ## Pointers and Booleans
 
-A pointer can be implicitly converted to a `bool`. A non-null pointer converts to true; pointers with the value `nullptr `convert to `false`. 
+A pointer can be implicitly converted to a `bool`. A non-null pointer converts to `true` - pointers with the value `nullptr` convert to `false`. 
 
 `````{code_example-start} Pointers and Booleans
 :label: examplel6
