@@ -39,9 +39,10 @@ std::vector<...elements_type...> myVectorName(...number_of_elements..., ...value
 ```
 ````
 
-``````{code_example-start}
+``````{code_example-start} Vector
 :label: examplen1
 :class: dropdown
+:nonumber:
 ``````
 Try this code - construct the supporting program.
 `````{code-cell} c++
@@ -100,9 +101,10 @@ New elements my only be added immediately after the last existing element of a v
 
 To append an extra element, at the end, the `push_back()` function is used.
 
-`````{code_example-start}
+`````{code_example-start} Modifying Vectors
 :label: examplen2
 :class: dropdown
+:nonumber:
 `````
 Try this code - construct the supporting program.
 ````{code-cell} c++
@@ -129,9 +131,10 @@ mySecondVector.push_back({6, 7, 8, 9 , 10});
 `````{code_example-end}
 `````
 
-`````{exercise-start}
+`````{exercise-start} Vector
 :label: exercisen1
 :class: dropdown
+:nonumber:
 `````
 TRY to read in a possibly large unknown number of data points..
 ````{code-cell} c++
@@ -167,9 +170,10 @@ An element of a vector can only be accesses or modified if it already exists.
 ```
 To access or modify a vector's elements we use the index notation, or the at() function.
 
-`````{example-start}
+`````{code_example-start} Working with Vectors
 :label: examplen3
 :class: dropdown
+:nonumber:
 `````
 Create a vector in the code box - and the supporting code to print the vector elements to the screen.
 ````{code-cell} c++
@@ -184,7 +188,7 @@ yourVectorName.at(n) = ..newValueHere.. ;
 ```
 The .at() function lets you know if an error occurs - slightly more useful than simple indexing.
 
-`````{example-end}
+`````{code_example-end}
 `````
 
 ## Multi-dimensional Vectors

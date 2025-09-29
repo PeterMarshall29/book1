@@ -38,7 +38,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
@@ -70,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.634bba9e-788e-406d-8515-690736b8d390.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\input_and_output.d25102e3-cdd5-4f54-b1f2-fdc4c5de1b6f.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/input_and_output';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -524,7 +523,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-std-endl-vs-n">Newline - <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-numeric-output">Formatting Numeric Output</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-getline-function">The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with">Using std::cout with <vector></vector></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with-std-vector">Using std::cout with std::vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-debugging">Print debugging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf">printf()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-print-only-in-c-23">New Print() - only in  C++23</a></li>
@@ -802,7 +801,7 @@ Who’s there?</p>
 </div></section>
 <section id="the-getline-function">
 <h2>The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function<a class="headerlink" href="#the-getline-function" title="Permalink to this heading">#</a></h2>
-<p>An alternative to <code class="docutils literal notranslate"><span class="pre">std::cin</span></code> is to use <code class="docutils literal notranslate"><span class="pre">getline()</span></code>, which will ignore whitespace and collect every character before <kbd class="kbd docutils literal notranslate">return</kbd> into a single string.</p>
+<p>An alternative to <code class="docutils literal notranslate"><span class="pre">std::cin</span></code> is to use <code class="docutils literal notranslate"><span class="pre">getline()</span></code>, which will collect every character before <kbd class="kbd docutils literal notranslate">return</kbd> into a single string i.e. including any whitespace.</p>
 <p>The downside is that you may need to split up the string later. See <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_stringstream.html">sstream</a> for further information on how to separate a string.</p>
 <div class="code_example dropdown admonition" id="Examplec3">
 
@@ -826,14 +825,15 @@ Who’s there?</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function takes two arguments - The name of the input stream and the name of the string to write to, i.e. <code class="docutils literal notranslate"><span class="pre">getline(stream,</span> <span class="pre">variable);</span></code>.</p>
 </section>
 </div></section>
-<section id="using-std-cout-with">
-<h2>Using std::cout with <vector><a class="headerlink" href="#using-std-cout-with" title="Permalink to this heading">#</a></h2>
+<section id="using-std-cout-with-std-vector">
+<h2>Using std::cout with std::vector<a class="headerlink" href="#using-std-cout-with-std-vector" title="Permalink to this heading">#</a></h2>
 <p>If indexing into a vector is inconvenient, another option is to overload the insertion operator <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> using a template to accommodate the variety of types accepted by <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
 <p>This is most likely beyond the scope of this module, but to demonstrate the possibility…</p>
 <div class="code_example dropdown admonition" id="examplec6">
 
 <p class="admonition-title">Code Example: Using std::cout with std::vector </p>
 <section id="code_example-content">
+<p>Templates can be used to create new features in the language - we will not look at templates until semester 2, but there are a couple of useful examples that can simply be used without understanding the details of their implementation.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -853,6 +853,7 @@ Who’s there?</p>
 </div>
 </div>
 </div>
+<p>Putting the template into a source file or header file makes it easier to print the values of a vector.</p>
 </section>
 </div></section>
 <section id="print-debugging">
@@ -904,25 +905,25 @@ Who’s there?</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td></td>
+<tr class="row-even"><td><p>%d</p></td>
 <td><p>Integer (decimal)</p></td>
 </tr>
-<tr class="row-odd"><td></td>
+<tr class="row-odd"><td><p>%f</p></td>
 <td><p>Floating-point number</p></td>
 </tr>
-<tr class="row-even"><td></td>
+<tr class="row-even"><td><p>%s</p></td>
 <td><p>String</p></td>
 </tr>
-<tr class="row-odd"><td></td>
+<tr class="row-odd"><td><p>%c</p></td>
 <td><p>Character</p></td>
 </tr>
-<tr class="row-even"><td></td>
+<tr class="row-even"><td><p>%x, %X</p></td>
 <td><p>Hexadecimal lower/upper</p></td>
 </tr>
-<tr class="row-odd"><td></td>
+<tr class="row-odd"><td><p>%e</p></td>
 <td><p>Scientific Notation</p></td>
 </tr>
-<tr class="row-even"><td></td>
+<tr class="row-even"><td><p>%g</p></td>
 <td><p>Shortest representation %e/%f</p></td>
 </tr>
 </tbody>
@@ -1031,7 +1032,7 @@ Who’s there?</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newline-std-endl-vs-n">Newline - <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> vs <code class="docutils literal notranslate"><span class="pre">'\n'</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-numeric-output">Formatting Numeric Output</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-getline-function">The <code class="docutils literal notranslate"><span class="pre">getline()</span></code> function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with">Using std::cout with <vector></vector></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-std-cout-with-std-vector">Using std::cout with std::vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-debugging">Print debugging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf">printf()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-print-only-in-c-23">New Print() - only in  C++23</a></li>

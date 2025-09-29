@@ -41,9 +41,10 @@ Functions offer many benefits to the programmer, and we should consider defining
 Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g., computations) were not clearly separated and labelled.
 
 Use a function is advisable, even when it will not be reused, because separating individual tasks/computations, and calling them by name makes programmes easier to follow.
-``````{code_example-start}
+``````{code_example-start} Introduction to Functions
 :label: exampleu1
 :class: dropdown
+:nonumber:
 ``````
 Run this code, which demonstrates a simple function declaration and call.
 
@@ -131,9 +132,10 @@ These values become {term}`local variables` that can be used within the function
 
 Functions would be less useful if they variables used in their execution could not be modified. Global variables could be used, but these are generally to be avoided.
 
-``````{code_example-start}
+``````{code_example-start} Function Parameters and Arguments
 :label: exampleu2
 :class: dropdown
+:nonumber:
 ``````
 Run this code. 
 `````{code-cell} c++
@@ -237,6 +239,7 @@ Remember that the function arguments may only be passed in the same order as in 
 `````{code_example-start}
 :label: exampleu3
 :class: dropdown
+:nonumber:
 `````
 Run this code, which demonstrates passing multiple arguments. 
 ````{code-cell} c++
@@ -292,6 +295,7 @@ If there is a separate function declaration - it must contain the default values
 `````{code_example-start}
 :label: exampleu4
 :class: dropdown
+:nonumber:
 `````
 Consider this code again.
 
@@ -316,6 +320,7 @@ int main()
 ```{exercise}
 :label: exerciseu3
 :class: dropdown
+:nonumber:
 Try putting `age` back into the function call - what happens?
 ```
 `````{code_example-end}
@@ -332,6 +337,7 @@ Within any function body - the statements are executed sequentially. The locatio
 `````{code_example-start}
 :label: exampleu5
 :class: dropdown
+:nonumber:
 `````
 Try the following code - it should work
 ````{code-cell} c++
@@ -368,6 +374,7 @@ Keeping the order straight is not sufficient - try the following code in the liv
 `````{code_example-start}
 :label: exampleu6
 :class: dropdown
+:nonumber:
 `````
 This code is an old classic describing the evolution of the mutually dependent fox and rabbit populations - an example of mutual recursion.
 
@@ -423,6 +430,7 @@ Function declarations dictate the attributes of a function, before it is defined
 A function definition requires the code body also - 'Declarations are not definitions'.
 `````{code_example-start}
 :label: exampleu7
+:nonumber:
 `````
 ```{code-block} c++
 int myFunction(int); // is a declaration
@@ -458,6 +466,7 @@ Having been apprised of the name and type of the function, the program can look 
 ````{exercise-start}
 :label: exerciseu4
 :class: dropdown
+:nonumber:
 ````
 Try removing the parameter names from the declaration in a previous example.
 ````{exercise-end}

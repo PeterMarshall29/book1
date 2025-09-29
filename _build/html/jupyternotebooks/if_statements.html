@@ -38,7 +38,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
@@ -70,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.a27f4f4a-4601-48cd-858d-531a39ba56a5.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.109c5897-cde7-4dbc-a659-f2c5d58f7db0.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/if_statements';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -642,7 +641,7 @@ The C++ patter is if…elif…else.</p>
 </div>
 <div class="code_example dropdown admonition" id="exampleq1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 3 </span></p>
+<p class="admonition-title">Code Example: The If-statement </p>
 <section id="code_example-content">
 <p>Try this code:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -664,7 +663,7 @@ The C++ patter is if…elif…else.</p>
 </div>
 <div class="code_explanation dropdown note admonition" id="explanationq1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleq1"> Code Example 3</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleq1"> Code Example: The If-statement </a></p>
 <section id="code_explanation-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;42&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
@@ -677,10 +676,9 @@ More correctly, the condition is evaluated. If it evaluates to the Boolean value
 </section>
 </div>
 </section>
-</div>
-<div class="code_example dropdown note admonition" id="exampleq2">
+</div><div class="code_example dropdown admonition" id="exampleq2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 4 </span></p>
+<p class="admonition-title">Code Example: if-statement </p>
 <section id="code_example-content">
 <p>Try this code:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -704,7 +702,7 @@ More correctly, the condition is evaluated. If it evaluates to the Boolean value
 </div>
 <div class="code_explanation dropdown admonition" id="explanationq2">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleq2"> Code Example 4</a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleq2"> Code Example: if-statement </a></p>
 <section id="code_explanation-content">
 <p>The programme does basically work.</p>
 <p>s except does not return the value if two identical values are entered – also behaves oddly if first number is a double – takes part before the decimal point then reports having received the second part as 0 without pause. If second is a double, it rounds or ignores what is after the decimal point.
@@ -712,8 +710,7 @@ This fixes part of the issue – other issues left as an exercise</p>
 </section>
 </div>
 </section>
-</div>
-<div class="admonition tip">
+</div><div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Every possible way to exit a selection, iteration, or function must have either a return or an error attached to it.</p>
 </div>
@@ -728,7 +725,7 @@ This fixes part of the issue – other issues left as an exercise</p>
         },
         codeMirrorConfig: {
             theme: "<cm-material>",
-            mode: "text/x-c++src"
+            mode: "cpp20"
         },
         kernelOptions: {
             name: "cpp20",

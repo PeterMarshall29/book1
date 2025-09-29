@@ -38,7 +38,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
     <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
@@ -70,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.37b12e68-1dfb-4aa6-9c32-a5775e485c11.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.01bba28f-2c49-4664-a2c9-2f0e02f98243.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -738,7 +737,7 @@ document.write(`
 <p>When the program gets to the instance of the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> following the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator it sends the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> to the screen, not the letter ‘a’.</p>
 <div class="exercise dropdown admonition" id="exerciseb1">
 
-<p class="admonition-title">Exercise  Working with Variables  </p>
+<p class="admonition-title">Exercise  Working with Variables </p>
 <section id="exercise-content">
 <p>After a variable has been declared and given a value, the value can be changed.</p>
 <ol class="arabic simple">
@@ -762,7 +761,7 @@ document.write(`
 </ol>
 <div class="solution dropdown admonition" id="solutionb1">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseb1"> Exercise  Working with Variables  </a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseb1"> Exercise  Working with Variables </a></p>
 <section id="solution-content">
 <ol class="arabic simple">
 <li><p>The program executes statements sequentially, starting at the top. If the second output statement precedes the change of value, the number 5 is printed twice. If both output statements come after the change in value, then the number 10 is printed twice.</p></li>
@@ -865,7 +864,7 @@ document.write(`
 </section>
 </div><div class="exercise dropdown admonition" id="exerciseb3">
 
-<p class="admonition-title">Exercise  Data Types  </p>
+<p class="admonition-title">Exercise  Data Types </p>
 <section id="exercise-content">
 <p>Try to fix this code:</p>
 <div class="cell tag_remove-output docutils container">
@@ -883,20 +882,21 @@ document.write(`
 </div>
 <div class="solution dropdown admonition" id="solutionb3">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseb3"> Exercise  Data Types  </a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseb3"> Exercise  Data Types </a></p>
 <section id="solution-content">
 <p><code class="docutils literal notranslate"><span class="pre">string</span></code> type variables are part of the standard library and must be referenced by prefixing with <code class="docutils literal notranslate"><span class="pre">std::</span></code></p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">52</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.0</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.5</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;12.0&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">nameOfFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.5</span><span class="p">;</span>
 <span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">char</span></code> are all part of the <a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a> - do not use <code class="docutils literal notranslate"><span class="pre">std::</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">char</span></code> are all part of the <a class="reference internal" href="glossary.html#term-Core-Language"><span class="xref std std-term">core language</span></a> - i.e. do not use <code class="docutils literal notranslate"><span class="pre">std::</span></code> !</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">float</span></code> type variable needed an identifier (a name), and the <code class="docutils literal notranslate"><span class="pre">string</span></code> type must be initialised by a sequence of characters enclosed between double quote marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
 </section>
 </div>
 </section>
@@ -989,7 +989,7 @@ proper pronunciation for the angle-bracket characters <code class="docutils lite
         },
         codeMirrorConfig: {
             theme: "<cm-material>",
-            mode: "text/x-c++src"
+            mode: "cpp20"
         },
         kernelOptions: {
             name: "cpp20",

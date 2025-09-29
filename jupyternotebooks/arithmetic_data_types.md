@@ -150,7 +150,7 @@ int main() {
 
 Integer literals may also represent numbers in octal or hexadecimal, instead of decimal or binary.
 
-Octal is base 8. the units run from 1-7. The value 21 in octal is 15 in decimal. Octal literals start with a 0 followed by the digits of the octal number, so the octal number '55' would be written `055`. Note that the octal '0' remains just `0`.
+Octal is base 8. the units run from 1-7. The value 21 in octal is 17 in decimal. Octal literals start with a 0 followed by the digits of the octal number, so the octal number '55' would be written `055`. Note that the octal '0' remains just `0`.
 
 Hexadecimal numbers start 0x, so the hexadecimal value '3f' would be `0x3f`. Hexadecimal is base 16, the units are 1,2,3,4,5,6,7,8,9,A,B,C,D,E,F. The value in decimal of the hexadecimal number 3f is 63.
 

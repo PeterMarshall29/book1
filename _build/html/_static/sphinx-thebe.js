@@ -122,10 +122,6 @@ var detectLanguage = (language) => {
     language = "python";
   } else if (language === "ir") {
     language = "r";
-  } else if (language === "cpp20") {
-    language = "text/x-c++src";
   }
   return language;
 };
-
-

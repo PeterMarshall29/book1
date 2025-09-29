@@ -106,9 +106,10 @@ The three statements in parentheses are the arguments of the for-statement and c
     ```
 ```
 
-``````{code_example-start} 
+``````{code_example-start} For-statements
 :label: examples1
 :class: dropdown
+:nonumber:
 ``````
 Start the live code editor, complete the program, and run this code.
 `````{code-block} c++
@@ -171,9 +172,10 @@ The third and final argument is the for-statement increment.
 `````
 ``````{code_example-end}
 ``````
-`````{code_example-start} 
+`````{code_example-start} For Loop
 :label: examples2
 :class: dropdown
+:nonumber:
 `````
 It is bad practice, and a common mistake, to increment the loop-variable within the execution block; this should only be done for a good reason.
 
@@ -205,9 +207,10 @@ The minimum argument to a for-statement is `(;;)`.
 
 `for(;;){}` is a way to specify an infinite loop; sometimes called a ‘for-ever statement’..
 
-````{code_example-start} 
+````{code_example-start} Forever
 :label: examples3
 :class: dropdown
+:nonumber:
 ````
 ```{code-cell} c++
 int main()
@@ -224,9 +227,10 @@ int main()
 This code behaves identically to `while(true){}`.
 ## Single Commands
 If there is only a single statement i.e. not a whole code block of statements, then the statement can simply be placed after for-statement, and closed with `;`.
-````{code_example-start} 
+````{code_example-start} Single Line For-statements
 :label: examples4
 :class: dropdown
+:nonumber:
 ````
 ```{code-cell} c++
 #include <iostream>
@@ -239,9 +243,10 @@ int main() {
 ````
 ## For-statement - Multiple Loop-Variables
 The for-statement can only initialise more than one loop-variable, the final expression can affect both, and the condition can take account of both values. For example: 
-````{code_example-start} 
+````{code_example-start} Multiple Loop Variables
 :label: examples5
 :class: dropdown 
+:nonumber:
 ````
 ```{code-cell} c++
 
@@ -257,9 +262,10 @@ After each iteration, x is incremented and y decremented by one each. The condit
 
 ## Comparison to While Loops and Functions
 
-`````{code_example-start} 
+`````{code_example-start} Loops
 :label: examples6
 :class: dropdown
+:nonumber:
 `````
 Run the following code - showing a for-statement, a while-statement, and a recursive function doing the same thing.
 
@@ -376,9 +382,10 @@ Full information on [For-statements](https://en.cppreference.com/w/cpp/language/
 
 It is not always obvious what is the right type to use for a controlled variable in a for-statement, so `auto` often comes in handy:
 
-````{code_example} 
+````{code_example} Auto
 :label: examples7
 :class: dropdown
+:nonumber:
 
 for (auto p = begin(c); c!=end(c); ++p) {
 // ... use iterator p for elements in container c ...
@@ -388,9 +395,10 @@ for (auto p = begin(c); c!=end(c); ++p) {
 ```{warning}
 The next sections require you to have read the chapter on [vectors](vectors).
 ```
-````{code_example-start} 
+````{code_example-start} Vector
 :label: examples8
 :class: dropdown
+:nonumber:
 ````
 TRY to create and change a vector of zeros.
 ```{code-cell} c++
@@ -406,9 +414,10 @@ int main() {
 ```
 ````{code_example-end}
 ````
-````{code_example-start} 
+````{code_example-start} Vector 2
 :label: examples9
 :class: dropdown
+:nonumber:
 ````
 ```{code-cell} c++
 #include <iostream>
@@ -427,9 +436,10 @@ int main() {
 The range for any vector is the half-open sequence [0 : vectorName.size() ) meaning 0 is included, but the last element is `vectorName.size()-1` .
 
 A `range-for` loop uses this half-open sequence.
-````{code_example-start} 
+````{code_example-start} Range-For Loops
 :label: examples10
 :class: dropdown
+:nonumber:
 ````
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]

@@ -351,12 +351,14 @@ return 0;
 #include <string>
 int main(){
     int age = 52;
-    std::string firstName = 12.0;
-    float = 12.5;
+    std::string firstName = "12.0";
+    float nameOfFloat = 12.5;
 return 0;
 }
 ```
-`int`, `float`, `double`, and `char` are all part of the {term}`core language` - do not use `std::`
+`int`, `float`, `double`, and `char` are all part of the {term}`core language` - i.e. do not use `std::` !
+
+The `float` type variable needed an identifier (a name), and the `string` type must be initialised by a sequence of characters enclosed between double quote marks `""`.
 ````
 `````{exercise-end}
 `````
