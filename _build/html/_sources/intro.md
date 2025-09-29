@@ -15,7 +15,7 @@ myst:
   dmath_double_inline: true
 ---
 
-# Introducton to the C++ Programming Language
+# Introduction to the C++ Programming Language
 
 This jupyter-book is intended to introduce the C++ language during the preliminary weeks of the Computational Physics (Part A) module at Loughbourough University. 
 
