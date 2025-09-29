@@ -294,7 +294,7 @@ Notice that the three values are not the same - comparing different pairs would 
 
 ## The `getline()` function
 
-An alternative to `std::cin` is to use `getline()`, which will ignore whitespace and collect every character before {kbd}`return` into a single string.
+An alternative to `std::cin` is to use `getline()`, which will collect every character before {kbd}`return` into a single string i.e. including any whitespace.
 
 The downside is that you may need to split up the string later. See [sstream](https://en.cppreference.com/w/cpp/io/basic_stringstream.html) for further information on how to separate a string.
 `````{code_example-start} getline() Function
@@ -319,7 +319,7 @@ The `getline()` function takes two arguments - The name of the input stream and 
 `````{code_example-end}
 `````
 
-## Using std::cout with <vector>
+## Using std::cout with std::vector
 
 If indexing into a vector is inconvenient, another option is to overload the insertion operator `<<` using a template to accommodate the variety of types accepted by `vector`.
 
@@ -330,6 +330,7 @@ This is most likely beyond the scope of this module, but to demonstrate the poss
 :class: dropdown
 :nonumber:
 `````
+Templates can be used to create new features in the language - we will not look at templates until semester 2, but there are a couple of useful examples that can simply be used without understanding the details of their implementation.
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -346,6 +347,7 @@ int main() {
     return 0;
 }
 ````
+Putting the template into a source file or header file makes it easier to print the values of a vector.
 `````{code_example-end}
 `````
 
@@ -399,19 +401,19 @@ The full sequence is :
 :name: <cmath>
 * - Specifier
   - Description
-* - %d 
+* - \%d 
   - Integer (decimal)
-* - %f 
+* - \%f 
   - Floating-point number
-* - %s 
+* - \%s 
   - String
-* - %c 
+* - \%c 
   - Character
-* - %x, %X 
+* - \%x, \%X 
   - Hexadecimal lower/upper
-* - %e 
+* - \%e 
   - Scientific Notation
-* - %g 
+* - \%g 
   - Shortest representation %e/%f
 ```
 ````{syntax-end}

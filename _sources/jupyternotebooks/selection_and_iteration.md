@@ -23,7 +23,7 @@ Selection and iteration statements are control flow statements - they control th
 
 The {term}`control flow` refers to the order in which all its statements are executed. 
 
-More literally {term}`control flow` refers to the sequential flow of ***control*** through the program - i.e. the current statement has *control* of the processor. 
+More literally {term}`control flow` refers to the sequential flow of ***control*** through the program - i.e. the current statement has *control* of the processor  - control is then passed to the next statement in the programmed sequence. 
 
 {term}`Control flow statements` break up the flow of execution, by transferring control of execution to the next statement by deciding between two possible paths. 
 ***
@@ -89,9 +89,10 @@ The first program ever to run on a stored-program computer (the EDSAC), included
 
 Written and David Wheeler in the run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:
 
-`````{code_example-start}
+`````{code_example-start} Iteration Example
 :label: examplep1
 :class: dropdown
+:nonumber:
 `````
 This is the c++ equivalent of  Wheeler's program.
 ````{code-cell} c++
@@ -108,7 +109,7 @@ int main() {
 ````
 ````{code_explanation} examplep1
 :label: explanationp1
-:class: dropdown note
+:class: dropdown
 ````
 `````{code_example-end}
 `````

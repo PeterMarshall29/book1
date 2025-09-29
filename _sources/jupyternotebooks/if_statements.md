@@ -134,9 +134,10 @@ end if;
 
 
 
-`````{code_example-start}
+`````{code_example-start} The If-statement
 :label: exampleq1
 :class: dropdown
+:nonumber:
 `````
 Try this code:
 ````{code-cell}  c++
@@ -170,9 +171,10 @@ The program does basically work.
 `````
 
 
-`````{code_example-start}
+`````{code_example-start} if-statement
 :label: exampleq2
-:class: dropdown note
+:class: dropdown
+:nonumber:
 `````
 Try this code:
 ````{code-cell}  c++

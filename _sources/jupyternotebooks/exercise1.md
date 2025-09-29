@@ -86,7 +86,7 @@ int main() {
 :class: dropdown
 :nonumber:
 ````
-Write a program to demonstrate the effect of combining interger and double type numbers in a single arithemetic expression.
+Write a program to demonstrate the effect of combining integer and double type numbers in a single arithemetic expression.
 Try all 5 arithmetic operators and include negative values.
 Use `<iomanip>` to control the precision of the outputs to 3 decimal places.
 ```{code-cell} c++
