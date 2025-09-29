@@ -69,7 +69,7 @@ var modifyDOMForThebe = () => {
 
     // Clean up the language to make it work w/ CodeMirror and add it to the cell
     dataLanguage = detectLanguage(kernelName);
-
+    dataLanguage = "text/x-c++src";
     // Re-arrange the cell and add metadata
     if (codeCellText) {
       codeCellText.setAttribute("data-language", dataLanguage);

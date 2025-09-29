@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.07f21e77-8a4f-45c9-bf37-b9938d66358d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.474ab815-3abc-4370-b542-c6d5deca8f21.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-8384ad23-0559-4640-96ac-ff2a89a2fbab] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-82bff875-c40f-435a-8e29-666316b74b2d] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -592,7 +592,7 @@ document.write(`
 <p>The break-statements prevent more than one case being triggered
 The break statements are not optional.</p>
 <p>The program will be ill-formed if there are more than one default statements in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-8384ad23-0559-4640-96ac-ff2a89a2fbab" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-82bff875-c40f-435a-8e29-666316b74b2d" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
