@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.268b27f9-0a2f-4621-a52a-ef3c3bf6f31e.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.56cb2b1b-b031-4c0b-82a9-e47e365c9d64.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-c8bbeb47-d5c3-4189-9ce0-7dd340c040e7] svg, .mermaid[data-zoom-id=id-853746ae-33a6-4dc3-a231-a0b35170cb50] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-39136287-02ed-4e00-9e35-28d4b41958af] svg, .mermaid[data-zoom-id=id-cdd1da1f-8f07-4f86-9f1d-0369474702d8] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -586,23 +586,28 @@ document.write(`
 </div></blockquote>
 </div>
 <p>The <a class="reference internal" href="glossary.html#term-For-Statement"><span class="xref std std-term">for-statement</span></a> conditionally executes a statement, or code block, repeatedly; also known as the <a class="reference internal" href="glossary.html#term-For-loop"><span class="xref std std-term">for-loop</span></a>, and is the most frequently used and important iteration control structure in C++.</p>
-<div class="admonition-the-syntax-of-the-for-statement admonition">
-<p class="admonition-title">The Syntax of the For-Statement</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">loop_variable_declaration_and_initialisation</span><span class="w">    </span><span class="p">;</span><span class="w"> </span>
-<span class="w">      </span><span class="n">condition_to_continue_the_loop</span><span class="w">                  </span><span class="p">;</span><span class="w"> </span>
-<span class="w">      </span><span class="n">end_of_iteration_expression</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">code_to_be_executed_every_loop</span><span class="w"> </span><span class="p">}</span>
+<div class="syntax dropdown admonition" id="jupyternotebooks/for_loops-syntax-0">
+
+<p class="admonition-title">Syntax Rules: for-statement </p>
+<section id="syntax-content">
+<p>Syntax of the for-statement:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">loop_variable_declaration_and_initialisation</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">condition_to_continue_the_loop</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>
+<span class="w">                        </span><span class="n">end_of_iteration_expression</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<span class="p">{</span><span class="w"> </span><span class="n">code_to_be_executed_every_loop</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
-</div>
 <p>The three statements in parentheses are the arguments of the for-statement and collectively manage its behaviour.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="example-table-3">
+<p>A single statement to be executed each loop can be terminated by a semicolon i.e. no <code class="docutils literal notranslate"><span class="pre">{}</span></code> are needed.</p>
+</section>
+</div><div class="pst-scrollable-table-container"><table class="table" id="example-table-3">
 <thead>
 <tr class="row-odd"><th class="head"><p>Generic Flowchart</p></th>
 <th class="head"><p>Example Flowchart</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-c8bbeb47-d5c3-4189-9ce0-7dd340c040e7" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-39136287-02ed-4e00-9e35-28d4b41958af" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -633,7 +638,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-853746ae-33a6-4dc3-a231-a0b35170cb50" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-cdd1da1f-8f07-4f86-9f1d-0369474702d8" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -703,13 +708,13 @@ document.write(`
 <section id="code_explanation-content">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">The syntax for this example shows the most common pattern for a for-statement loop:</p>
+<p class="sd-card-text">The syntax for this example shows the most common pattern for a for-statement:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="o">**</span><span class="n">Code</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="o">**</span><span class="w"> </span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="sd-card-text">The 3 semicolon delimited terms in parentheses control the operation of the for-loop.</p>
+<p class="sd-card-text">The 3 terms in parentheses, semicolon delimited, control the operation of the for-loop.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -717,9 +722,9 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p class="sd-card-text">The first argument is the for-statement initialiser.</p>
-<p class="sd-card-text">This statement names a loop-variable <code class="docutils literal notranslate"><span class="pre">i</span></code> and initialises it with a value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p class="sd-card-text">The loop variable is local to the for-statement and can be used in the code-block. No other variable called <code class="docutils literal notranslate"><span class="pre">i</span></code> may be used inside the for-statement code block.</p>
+<p class="sd-card-text">The first argument is the <strong>for-statement initialiser</strong>.</p>
+<p class="sd-card-text">The initialiser, declares the name of a <a class="reference internal" href="glossary.html#term-Loop-Variable"><span class="xref std std-term">loop-variable</span></a> <code class="docutils literal notranslate"><span class="pre">i</span></code> and initialises it with a value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p class="sd-card-text">The loop variable is local to the for-statement and can be used in the code-block, but no other variable called <code class="docutils literal notranslate"><span class="pre">i</span></code> may be used inside the for-statement’s code-block.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -727,7 +732,7 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
-<p class="sd-card-text">The second argument is the for-statement condition.</p>
+<p class="sd-card-text">The second argument is the <strong>for-statement condition</strong>.</p>
 <p class="sd-card-text">The for-loop runs until this condition becomes false, repeating the code-block each time.</p>
 <p class="sd-card-text">The condition must be an expression that returns a Boolean, and it must be true on the first loop - or the program exits the loop.</p>
 <p class="sd-card-text">If the condition is empty, it evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, so the loop runs.</p>
@@ -738,7 +743,7 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
 </pre></div>
 </div>
-<p class="sd-card-text">The third and final argument is the for-statement increment.</p>
+<p class="sd-card-text">The third and final argument is the <strong>for-statement increment</strong>.</p>
 <p class="sd-card-text"><em><strong>After</strong></em> executing the for-statement’s code block, the loop-variable is increased or decreased according to this instruction. The increment/decrement can be by any constant amount.</p>
 </div>
 </div>
@@ -750,9 +755,8 @@ document.write(`
 <p class="admonition-title">Code Example: For Loop </p>
 <section id="code_example-content">
 <p>It is bad practice, and a common mistake, to increment the loop-variable within the execution block; this should only be done for a good reason.</p>
-<p>In programming it is always better to separate concerns. In this case it is better to leave control to the loop arguments.</p>
-<p>When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instructions are implemented in each loop.</p>
-<p>The instructions are also implemented in sequence and can result in two different values being used for the loop-variable in a single iteration.</p>
+<p>In programming it is always better to separate concerns. In this case it is better to leave control to the for-loop arguments.</p>
+<p>When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instructions are implemented in each loop. The instructions are also implemented in sequence and can result in two different values being used for the loop-variable in a single iteration.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -814,7 +818,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0	1	2	3	4	5	6	7	8	9</p>
+<p>0</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1	2	3	4	5	6	7	8	9	
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -837,10 +844,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>0</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
-</pre></div>
-</div>
+<p>0	10</p>
 <p>1	9</p>
 <p>2	8</p>
 <p>3	7</p>
@@ -1034,7 +1038,8 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>00	01	52	03	04	05</p>
+<p>0</p>
+<p>0	01	52	03	04	05</p>
 </div>
 </div>
 </section>
@@ -1055,7 +1060,8 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>, 0	, 1	, 2	, 3	, 4	, 5</p>
+<p>,</p>
+<p>0	, 1	, 2	, 3	, 4	, 5</p>
 </div>
 </div>
 </section>

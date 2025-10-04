@@ -12,12 +12,14 @@ kernelspec:
 (switch)=
 # Switch Statements
 
-An alternative to an if-statement ladder is the switch-statement.
+An alternative to the if-else-statement ladder is the switch-statement.
 
-A switch statement is generally easier to read than nested if statements.
+A switch statement is generally easier to read than nested if-else-statements.
 
-````{admonition} The Syntax of a switch-statement:
-:class: note dropdown
+`````{syntax-start} The Syntax of the switch-statement:
+:class: dropdown
+:nonumber:
+`````
 ```{code-block} c++
 
 switch (condition) {
@@ -36,7 +38,8 @@ switch (condition) {
 		}
 
 ```
-````
+`````{syntax-end}
+`````
 The switch statement tests the value of its condition against a series of possible alternative values.
 
 The condition may either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition. 
@@ -49,12 +52,11 @@ If the case label constant value does not match the value of the condition, then
 
 If a value matches, the corresponding statements are executed, followed by the `break` statement, which causes the program to exit the switch-statement and move onto the next statement after the switch-block.
 
-If no statement match, then either the optional default block is executed, or control passes back. 
+If no cases match, then the optional default block is executed, and control is passed on. 
 
-The break-statements prevent more than one case being triggered
-The break statements are not optional.
+The break statements are not optional - without them every code block after the first matched case will also be executed because control falls through.
 
-The program will be ill-formed if there are more than one default statements in a single switch-statement.
+The program will be ill-formed if there is more than one default statement in a single switch-statement.
 ```{mermaid}
 :align: center
 :zoom:
@@ -93,20 +95,19 @@ flowchart LR
     linkStyle 10 stroke:#AA00FF,fill:none
 ```
 ```{admonition} Switch Rules
-:class: dropdown note
-???correction needed
+:class: dropdown
 
 - Switch variables must be constant expressions i.e. there must be literal value typed at the case line.
 
-- Switch variables may only be of the types: integral (including `char`), enumeration, or class.
+- Switch variables may only be of the types: integer (including `char`), enumeration, or class.
 
-- You cannot switch on a string value – selection based on a `string` requires an if-statement or a 'map'.
+- Selection based on a `string` requires an if-statement or a 'map'.
 
 - A single case can be executed for several case labels. But case labels cannot be used for two cases.
 
 i.e. use multiple labels for the same case: e.g. case '0': case '2': case '4': case '6': case '8': ..then case statements...
 
-- Most compilers do not warn if you forget break – it is required – try it.
+- Most compilers do not warn if you forget `break`, and it is not optional.
 
 - Without the breaks - all the code blocks below the first detected case will also be executed.
 ```
@@ -145,9 +146,9 @@ int main() {
 :class: dropdown note
 In this example, the while loop is just to keep the program running – we are only interested in the switch loop.
 
-constexpr double cm_per_inch = 2.54 - the conversion factor.
+`constexpr double cm_per_inch = 2.54` is the conversion factor.
 
-Every time the while loop runs, the user is asked to input a value for 'unit', and then the switch statement runs, using unit as its condition.
+Every time the `while` loop runs, the user is asked to input a value for `unit` and then the switch statement runs, using `unit` as its condition.
 
 There are two cases - switching to their code block if the condition yield a value of 'i' or 'c'.
 
@@ -159,10 +160,12 @@ The value in parentheses after the switch keyword is compared to the case values
 
 ```{exercise}
 :class: dropdown
-- Try removing the break statement from the default case. 
-- Try removing the second break statements.
-- Try removing all first and second break statements.
-- Try writing two cases, both with the case label 'c'.
+:nonumber:
+Try:
+- Removing the `break` statement from the default case. 
+- Removing the second `break` statement.
+- Removing all the `break` statements.
+- Writing two cases, both with the case label 'c'.
 
 ```
 ````
@@ -177,18 +180,13 @@ The value in parentheses after the switch keyword is compared to the case values
 :tags: [remove-output, skip-execution]
 #include <iostream>
 int main() {
-
-
-std::cout << "please enter an expression to be evaluated (only +,-,*,/ for now, ADD an x to show the end of your expression):";
-int lhs = 0;
-int rhs = 0;
-int result;
-std::cin >> lhs;
-if (!std::cin) throw std::runtime_error("no first operand");
-	for (char operation; std::cin >> operation;) { //keeps reading cin until it gets an operator
-		if (operation != 'x') std::cin >> rhs;
-		if (!std::cin) throw std::runtime_error("no second operand");
- 
+	std::cout << "Please enter an arithmetic expression to be evaluated. \nRequires two operands separated by +,-,*,/. Terminate the expression with an '=' to show the end of your expression: \n";
+	int lhs = 0;
+	int rhs = 0;
+	int result;
+	std::cin >> lhs;
+	for (char operation; std::cin >> operation;) { 
+		if (operation != '=') std::cin >> rhs;
 		switch (operation) {
 		case '+':
 			result = lhs + rhs;
@@ -208,18 +206,27 @@ if (!std::cin) throw std::runtime_error("no first operand");
 		}
 		lhs = result;
 	}
-		
-	throw std::runtime_error("bad expression");
-
+}
 ````
 ````{code_explanation} exampler2
 :label: explanationr2
-:class: dropdown hint
-words
+:class: dropdown
+The integer is assigned to the 'lhs'.
+
+The first non-numeric character is assigned to the 'operator'.
+
+The for loop is then used to run the switch case repeatedly.
+
+If the symbol is not `=`, then the next input is assigned to 'rhs' and then the `switch` selection statement is triggered.
+
+The arithmetic symbol of the matching case assigns a value to 'result'.
+
 ```{exercise}
 :class: dropdown
-wrds
+:nonumber:
+What happens if you extend the expression with more operands and operators before the `=` ?
 ```
 ````
 `````{code_example-end}
 `````
+

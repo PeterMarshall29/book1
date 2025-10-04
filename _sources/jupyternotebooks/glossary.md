@@ -572,6 +572,9 @@ Standard Library Facilities
 Standard Library Facility
   The individual components of the Standard Library made available using the `#include <>` directive.
 
+Statement
+  Statements are fragments of the C++ program that are executed in sequence, or that are used to control the execution flow. The body of any function is a sequence of statements, which may include declaration statements, {term}`expression statements`, and return statements. Other statements include if-statements, while-statements, do-statements, and switch-statements. Simple statements end with a semicolon, but iteration and selection statements are often terminated by `}` ended their code block.
+
 Statements
   Statements are fragments of the C++ program that are executed in sequence, or that are used to control the execution flow. The body of any function is a sequence of statements, which may include declaration statements, {term}`expression statements`, and return statements. Other statements include if-statements, while-statements, do-statements, and switch-statements. Simple statements end with a semicolon, but iteration and selection statements are often terminated by `}` ended their code block.
 
