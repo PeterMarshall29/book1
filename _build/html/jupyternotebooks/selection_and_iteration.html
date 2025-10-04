@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.ae266962-7e11-44bd-9ea6-8dc52b26f00d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.2a466f41-3f51-4628-850d-787590ec1999.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/selection_and_iteration';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -522,6 +522,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">Selection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions">Conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-statement">Jump Statement</a></li>
 </ul>
             </nav>
@@ -538,63 +539,57 @@ document.write(`
 <h1>Selection and Iteration<a class="headerlink" href="#selection-and-iteration" title="Permalink to this heading">#</a></h1>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
-<p>‘Control Flow’ and ‘Flow Control’ are used almost interchangebly.</p>
-<p>Flow control, just refers to controlling the sequential flow of execution.</p>
+<p>‘Control Flow’ and ‘Flow Control’ are used almost interchangeably.</p>
+<p>Flow control refers to controlling the sequential flow of execution.</p>
 <p>Both refer to the mechanisms that dictate the order in which statements are executed in a program.</p>
 </div>
 <p>Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a program.</p>
 <p>The <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the order in which all its statements are executed.</p>
-<p>More literally <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the sequential flow of <em><strong>control</strong></em> through the program - i.e. the current statement has <em>control</em> of the processor  - control is then passed to the next statement in the programmed sequence.</p>
-<p><a class="reference internal" href="glossary.html#term-Control-Flow-Statements"><span class="xref std std-term">Control flow statements</span></a> break up the flow of execution, by transferring control of execution to the next statement by deciding between two possible paths.</p>
+<p>More literally <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the sequential flow of <strong>control</strong> through the program - i.e. the current statement has <em>control</em> of the processor - control is then passed to the next statement in the programmed sequence.</p>
+<p><a class="reference internal" href="glossary.html#term-Control-Flow-Statements"><span class="xref std std-term">Control flow statements</span></a> alter the flow of execution, by conditional choosing the next statement to be executed from two options. Nesting control flow statement allows complicated decisions between many possible paths.</p>
 <hr class="docutils" />
-<p>Without selection statements a program can only run from beginning to end - executing the same statements in the same order every time.</p>
-<p>Without iteration statement a program has to end - your phone’s program is constantly running because code is repeatedly executed in a loop.</p>
+<p>Without selection statements: a program can only run from beginning to end - executing the same statements in the same order every time.</p>
+<p>Without iteration statements:</p>
+<ul class="simple">
+<li><p>A program must end - your phone’s program is constantly running because code is repeatedly executed in a loop.</p></li>
+<li><p>All statement would only be executed once - a mechanism to repeat statements shortens the length of a program.</p></li>
+</ul>
 <div class="dropdown admonition">
 <p class="admonition-title">Statements and Expressions</p>
-<p>A computer program is a sequences of statements, which are executed sequentially.</p>
-<p>The order of the execution, is determined by the <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a>
-A computer program is a sequences of statements, which are executed sequentially.</p>
-<p>The simplest type of statement is an <a class="reference internal" href="glossary.html#term-Expression-Statement"><span class="xref std std-term">expression statement</span></a> - an expression followed by a terminator.</p>
-<p>Expression are sequences of operators and their operands, that specifies a computation.</p>
-<p>When the expression statement is executed, the expression is evaluated, producing a result which will have a <a class="reference internal" href="glossary.html#term-Value"><span class="xref std std-term">value</span></a> and a <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a>.</p>
-<p>Statements are always terminated by either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or by a <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code-block</span></a> {…some code here…}, which may be empty or contain statements.</p>
-<p>Forgetting to terminate a statement correctly will result in a compile-time error.</p>
-<p>A semicolon is a statement terminator, and by itself a statement, an <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> (null statement).</p>
-<p>An expression statement without an expression is called a <a class="reference internal" href="glossary.html#term-Null-Statement"><span class="xref std std-term">null statement</span></a>, which may be used to provide an empty body to a for or while loop, or to carry a label in the end of a compound statement.
-Statements always terminate with either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or with a code block `{…some code here…}.</p>
-<p>A code block may be a compound statement, enclosing multiple statements.</p>
-<p>Forgetting to terminate a statement correctly will result in a compile-time error.</p>
+<p>A computer program is a sequence of statements, which are executed sequentially.</p>
+<p>Each statement is an instruction to the computer to do something. The simplest and most common type of statement is the <a class="reference internal" href="glossary.html#term-Expression-Statement"><span class="xref std std-term">expression statement</span></a> i.e. an expression followed by a terminator.</p>
+<p>Expressions are sequences of operators and their operands, that specifies a computation. When expression statements are executed, the expression is evaluated. Evaluation produces a result which will have a <a class="reference internal" href="glossary.html#term-Value"><span class="xref std std-term">value</span></a> and a <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a>.</p>
+<p>Statements are always terminated by either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or by a <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code-block</span></a> {…some code here…}, which may be empty or contain statements. Forgetting to terminate a statement correctly will result in a compile-time error.</p>
+<p>The semicolon is a statement terminator, and by itself a statement called the <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> (null statement). The lone semicolon can be thought of as an expression statement without an expression, which does nothing, but is useful when a statement is required in the syntax, but the programmer does not need or want the program to do anything - see the <a class="reference internal" href="for_loops.html#forever"><span class="std std-ref">forever</span></a> loop. The null statement could also provide an empty body to a ‘for’ or ‘while’ loop, or to carry a label in the end of a compound statement.</p>
 </div>
 <section id="selection">
 <span id="id1"></span><h2>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">#</a></h2>
-<p>Selection statements conditonally change the control flow.</p>
-<p>A decison is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.</p>
+<p>Selection statements conditionally change the control flow.</p>
+<p>A decision is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.</p>
 <p>In C++ the selections statements are the <a class="reference internal" href="if_statements.html#if"><span class="std std-ref">if</span></a>-statement and the <a class="reference internal" href="switch_statements.html#switch"><span class="std std-ref">switch</span></a>-statement.</p>
 </section>
 <section id="iteration">
 <span id="id2"></span><h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this heading">#</a></h2>
-<p>Computer programmes often repeat the same execution of the same lines of code - Iteration statements instruct the computer to repeat the same statements a finite number of times, or until a testable condition changes.</p>
+<p>Computer programmes often do the same thing over and over - iteration statements are used to instruct the computer to repeatedly execute the same statements a finite number of times, or until a testable condition changes.</p>
 <p>Iterations statements in C++ are the <a class="reference internal" href="for_loops.html#for"><span class="std std-ref">for</span></a>-statement, the <a class="reference internal" href="while_loops.html#while"><span class="std std-ref">while</span></a>-statement, the do-while-statement, and the range-for statement.</p>
-<p>For-statements repeat a code-block a finite number of times in most programming languages. In C++ the for-statement has additional flexibility and is preferred</p>
+<p>For-statements repeat a code-block a finite number of times in most programming languages. In C++ the for-statement has additional flexibility and is preferred over the other options.</p>
+<p>Range-for statements repeat the code-block once for each element in an array - a simpler version of the for-statement.</p>
 <p>While-statements repeat the code-block until a testable condition changes.</p>
 <p>Do-while-statements differ from while-statements by always executing the code-block once before testing the iteration condition for the first time.</p>
-<p>Range-for statements repeat the code-block once for each element in an array - a simpler version of the for-statement.</p>
-<p>Its usually best to use a for loop – even if you want it to run forever – shown later on. If you know how many iterations are required, use a for loop. If you want it to possibly keep running still use a for loop – it cannot be set up without a condition.</p>
-<p>The first program ever to run on a stored-program computer (the EDSAC), included iteration.</p>
-<p>Written and David Wheeler in the run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares like this:</p>
+<p>The first program ever to run on a stored-program computer (the EDSAC), included iteration. Written and David Wheeler and run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares.</p>
 <div class="code_example dropdown admonition" id="examplep1">
 
 <p class="admonition-title">Code Example: Iteration Example </p>
 <section id="code_example-content">
-<p>This is the c++ equivalent of  Wheeler’s program.</p>
-<div class="cell tag_remove-output docutils container">
+<p>This is the c++ equivalent of Wheeler’s program.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -606,9 +601,63 @@ Statements always terminate with either a semicolon <code class="docutils litera
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examplep1"> Code Example: Iteration Example </a></p>
 <section id="code_explanation-content">
+<p>The while loop repeats the output statement until the value of <code class="docutils literal notranslate"><span class="pre">i</span></code> exceeds 99.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">&lt;</span> <span class="pre">100)</span></code> is the condition (or loop-condition), that must be true if the loop is to run. The first time the condition is false, the program moves past the loop and continues with the next statements.</p>
+<p>The increment assignment <code class="docutils literal notranslate"><span class="pre">++1</span></code> cause the value of <code class="docutils literal notranslate"><span class="pre">i</span></code> to change every loop, which:</p>
+<ol class="arabic simple">
+<li><p>Is used to print an increased value on every iteration.</p></li>
+<li><p>Makes it possible for the loop to end - if <code class="docutils literal notranslate"><span class="pre">i</span></code> were not changed, the condition would remain true forever.</p></li>
+</ol>
 </section>
 </div>
 </section>
+</div></section>
+<section id="conditions">
+<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this heading">#</a></h2>
+<p>Selection and iteration are controlled by evaluation of a Boolean (logical) condition. The condition must evaluate to either true or false.</p>
+<p>There are several ways to create a condition for the selection and iteration statements:</p>
+<ul class="simple">
+<li><p>The condition can be set manually be inserting a Boolean literal - <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>, or <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p>Any expression that contains a comparison operator is evaluated to <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p>Wherever the program expects a condition (i.e. in parentheses next to the keywords <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, etc.) the compiler will try to convert what it finds to a Boolean.</p></li>
+</ul>
+<div class="code_example dropdown admonition" id="jupyternotebooks/selection_and_iteration-code_example-2">
+
+<p class="admonition-title">Code Example: Comparison Operations </p>
+<section id="code_example-content">
+<p>Try the following and add some more comparisons.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">int1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">int2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">int1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">int2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">int1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">int2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">int1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">int2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">int1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">int2</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The 1’s and 0’s represent Boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="exercise dropdown admonition" id="exercisep1">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Use the typeinfo library to confirm the comparison expressions are evaluated to <code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+<div class="solution dropdown admonition" id="jupyternotebooks/selection_and_iteration-solution-4">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisep1"> Exercise</a></p>
+<section id="solution-content">
+<p>Add the following:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">int1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">int2</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">// and so on..</span>
+</pre></div>
+</div>
+</section>
+</div>
+</section>
+</div></section>
 </div></section>
 <section id="jump-statement">
 <h2>Jump Statement<a class="headerlink" href="#jump-statement" title="Permalink to this heading">#</a></h2>
@@ -692,6 +741,7 @@ Statements always terminate with either a semicolon <code class="docutils litera
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">Selection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions">Conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-statement">Jump Statement</a></li>
 </ul>
   </nav></div>

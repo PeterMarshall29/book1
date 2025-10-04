@@ -17,14 +17,22 @@ kernelspec:
 > What has been said once can always be repeated.
 ```
 The {term}`for-statement` conditionally executes a statement, or code block, repeatedly; also known as the {term}`for-loop`, and is the most frequently used and important iteration control structure in C++.
-````{admonition} The Syntax of the For-Statement
+`````{syntax-start} for-statement
+:class: dropdown
+:nonumber:
+`````
+Syntax of the for-statement:
 ```{code-block} c++
-for ( loop_variable_declaration_and_initialisation    ; 
-      condition_to_continue_the_loop                  ; 
-      end_of_iteration_expression ) { code_to_be_executed_every_loop }
+for ( loop_variable_declaration_and_initialisation  ; 
+                    condition_to_continue_the_loop  ; 
+                        end_of_iteration_expression ) 
+{ code_to_be_executed_every_loop }
 ```
-````
 The three statements in parentheses are the arguments of the for-statement and collectively manage its behaviour.  
+
+A single statement to be executed each loop can be terminated by a semicolon i.e. no `{}` are needed.
+`````{syntax-end}
+`````
 
 ```{list-table}
 :header-rows: 1
@@ -131,29 +139,29 @@ Because the for-statement {term}`loop-variable` has been included in this statem
 :label: explanations1
 :class: dropdown note
 ````{card}
-The syntax for this example shows the most common pattern for a for-statement loop:
+The syntax for this example shows the most common pattern for a for-statement:
 ```{code-block} c++
 for (int i = 0; i < 100; ++i) {
 **Code statements to be executed each time the loop runs go here** 
 }
 ```
-The 3 semicolon delimited terms in parentheses control the operation of the for-loop.
+The 3 terms in parentheses, semicolon delimited, control the operation of the for-loop.
 ````
 ````{card}
 ```{code-block} c++ 
 int i = 0;
 ```
-The first argument is the for-statement initialiser. 
+The first argument is the **for-statement initialiser**.
 
-This statement names a loop-variable `i` and initialises it with a value of `0`.
+The initialiser, declares the name of a {term}`loop-variable` `i` and initialises it with a value of `0`.
 
-The loop variable is local to the for-statement and can be used in the code-block. No other variable called `i` may be used inside the for-statement code block.
+The loop variable is local to the for-statement and can be used in the code-block, but no other variable called `i` may be used inside the for-statement's code-block.
 ````
 ````{card}
 ```{code-block} c++
  i < 100;
 ```
-The second argument is the for-statement condition. 
+The second argument is the **for-statement condition**. 
 
 The for-loop runs until this condition becomes false, repeating the code-block each time.
 
@@ -165,7 +173,7 @@ If the condition is empty, it evaluates to `true`, so the loop runs.
 ```{code-block} c++
 ++i;
 ```
-The third and final argument is the for-statement increment. 
+The third and final argument is the **for-statement increment**. 
 
 ***After*** executing the for-statement's code block, the loop-variable is increased or decreased according to this instruction. The increment/decrement can be by any constant amount. 
 ````
@@ -179,11 +187,9 @@ The third and final argument is the for-statement increment.
 `````
 It is bad practice, and a common mistake, to increment the loop-variable within the execution block; this should only be done for a good reason.
 
-In programming it is always better to separate concerns. In this case it is better to leave control to the loop arguments.
+In programming it is always better to separate concerns. In this case it is better to leave control to the for-loop arguments.
 
-When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instructions are implemented in each loop.
-
-The instructions are also implemented in sequence and can result in two different values being used for the loop-variable in a single iteration.
+When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instructions are implemented in each loop. The instructions are also implemented in sequence and can result in two different values being used for the loop-variable in a single iteration.
 
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
