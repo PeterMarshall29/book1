@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.b59d9922-738a-4169-b011-fcf9afb142d2.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\boolean_type.039f6055-3055-413f-ad4e-52b0242d50a9.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/boolean_type';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -663,6 +663,28 @@ document.write(`
 <p>Line 5: <code class="docutils literal notranslate"><span class="pre">true</span></code> + <code class="docutils literal notranslate"><span class="pre">true</span></code> = <code class="docutils literal notranslate"><span class="pre">2</span></code>, conversion to integers before addition, then ‘&gt;0’ converts to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>Line 6: If either or both are true, the logical <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>Line 7: Arithmetic evaluation to integer ‘0’, converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</section>
+</div><p>Booleans values can also be printed as words using <code class="docutils literal notranslate"><span class="pre">std::boolalpha</span></code></p>
+<div class="code_example dropdown admonition" id="examplel7">
+
+<p class="admonition-title">Code Example: Formatting Output using boolalpha </p>
+<section id="code_example-content">
+<p>Outputing ‘true’ and ‘false’ instead of ‘1’ and ‘0’.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">myBool2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Default output: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Boolalpha output: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myBool2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div><section id="pointers-and-booleans">
 <h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Permalink to this heading">#</a></h2>

@@ -23,6 +23,9 @@ Assignment Operator
 Algorithm
   Algorithm: A sequence of steps or rules to solve a problem, often implemented using STL (Standard Template Library).
 
+Array
+  Fundamental method for representing a sequence of objects in memory, under a single variable name - part of the core language.
+
 Arguments
   Values passed to a function or template. For templates, the arguments are usually types.
 
@@ -532,6 +535,9 @@ References
 Regular Expression
   Regular expressions are used for pattern matching within strings. They are part of the `<regex>` library that provides tools to define, search, and manipulate patterns in text.
 
+Regular Expressions
+  Regular expressions are used for pattern matching within strings. They are part of the `<regex>` library that provides tools to define, search, and manipulate patterns in te
+
 Reserved Characters
   Some characters cannot be freely used because they have special meaning in the syntax. Some may be overloaded. Examples: `#`, `\`, arithmetic operators, comparison operators, punctuation symbols. 
 
@@ -618,6 +624,9 @@ Translation unit
 
 Translation units
   Part of a program that can be separately compiled. Individual source, or header, files.
+
+Truthy Expressions
+  Expressions that evaluate to true in a boolean context: non-zero values, non-null pointers, non-empty containters/objects and all the usual comparision and logical expressions.
 
 Tuple
   A container that allows grouping of multiple values of potentially different types into a single object.

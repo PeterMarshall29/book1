@@ -21,17 +21,7 @@ Both refer to the mechanisms that dictate the order in which statements are exec
 ```
 Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a program. 
 
-The {term}`control flow` refers to the order in which all its statements are executed. 
-
-More literally {term}`control flow` refers to the sequential flow of **control** through the program - i.e. the current statement has *control* of the processor - control is then passed to the next statement in the programmed sequence. 
-
-{term}`Control flow statements` alter the flow of execution, by conditional choosing the next statement to be executed from two options. Nesting control flow statement allows complicated decisions between many possible paths. 
-***
-Without selection statements: a program can only run from beginning to end - executing the same statements in the same order every time.
-
-Without iteration statements:
-- A program must end - your phone's program is constantly running because code is repeatedly executed in a loop.
-- All statement would only be executed once - a mechanism to repeat statements shortens the length of a program.
+{term}`Control flow` refers to the order in which the program's statements are executed. 
 
 ````{admonition} Statements and Expressions
 :class: dropdown
@@ -46,6 +36,19 @@ Statements are always terminated by either a semicolon `;` or by a {term}`code-b
 The semicolon is a statement terminator, and by itself a statement called the {term}`empty statement` (null statement). The lone semicolon can be thought of as an expression statement without an expression, which does nothing, but is useful when a statement is required in the syntax, but the programmer does not need or want the program to do anything - see the [forever](forever) loop. The null statement could also provide an empty body to a 'for' or 'while' loop, or to carry a label in the end of a compound statement.
 
 ````
+
+More literally {term}`control flow` refers to the sequential flow of **control** through the program - the current statement is said to have *control* of the processor - control is then passed to the next statement in the programmed sequence. 
+
+{term}`Control flow statements` alter the flow of execution, by conditional choosing the next statement to be executed from two options. Nesting control flow statement allows complicated decisions between many possible paths. 
+***
+Without selection statements: a program can only run from beginning to end - executing the same statements in the same order every time.
+
+Without iteration statements:
+- All statement would only be executed once - a mechanism to repeat statements shortens the length of a program.
+- A program must end - your phone's program is constantly running because code is repeatedly executed in a loop.
+
+
+
 (selection)=
 ## Selection
 

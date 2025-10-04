@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.2b1248ad-cf27-4515-b352-5b51ccfe665c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.b5401700-86af-4af8-a937-a0b778696427.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/while_loops';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -549,7 +549,7 @@ document.write(`
 <p>A <code class="docutils literal notranslate"><span class="pre">while</span></code> statement will repeatedly execute a sequence of code statements until a condition becomes false.</p>
 <p>For the while-statement, the condition is checked before each execution.</p>
 <p>C++ also has a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> statement, which only differs by not checking the condition until after execution of the loop body - guaranteeing the first execution occurs, even if the condition is false.</p>
-<p>It is usually recommended to prefer for-statements in C++.</p>
+<p>It is generally considered better to use for-statements in preference to while-statements, mainly because control of the loop is separated from the code-block, they have a useful loop-variable and chance accidentally programming an infinite loop is smaller.</p>
 <figure class="align-default" id="my-fig-ref-t1">
 <img alt="../_images/programmingloops.svg" src="../_images/programmingloops.svg" /><figcaption>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Iteration Methods</span><a class="headerlink" href="#my-fig-ref-t1" title="Permalink to this image">#</a></p>
@@ -613,8 +613,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>If the condition depends on a variable value, there must be way for that value to change, or the loop runs forever. In this case <code class="docutils literal notranslate"><span class="pre">myInt</span></code> is increments on each execution.</p>
-<p>There condtion can be anything which evaluates to true - includeing just using the keyword <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>If the condition depends on a variable value, there must be way for that value to change, or the loop runs forever. In this case <code class="docutils literal notranslate"><span class="pre">myInt</span></code> is incremented during each iteration.</p>
+<p>The condition can be anything which evaluates to true - including just the keyword <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -633,26 +633,34 @@ document.write(`
 </div>
 </div>
 <p>In this case, the loop condition is the receipt of a valid input.</p>
-<p>Try again but make the variable int’s. What happens if you type letters?</p>
-<p>Remember that the conditional expressions must be in parens in C++ - as shown here for both <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/while_loops-exercise-2">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<ul class="simple">
+<li><p>Try changing the code by making the variables int’s.</p></li>
+<li><p>What happens if you type letters?</p></li>
+</ul>
+</section>
+</div><p>Remember that the conditional expressions must be in parens in C++ - as shown here for both <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
 </section>
 </div><section id="loop-exit">
 <h2>Loop Exit<a class="headerlink" href="#loop-exit" title="Permalink to this heading">#</a></h2>
 <p>If the condition of an iteration statement is forgotten the loop will run until the program crashes - this can tie up a computer for a very long time.</p>
-<p>Use <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">Z</kbd></kbd> to end a loop. <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">D</kbd></kbd> in Linux.</p>
+<p>Use <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">Z</kbd></kbd>, <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd></kbd> to end a loop. <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">D</kbd></kbd> in Linux.</p>
 <p>The iteration condition may also be intentionally omitted, but an alternative method to end the loop is required.</p>
 <p>The program can exit an iteration statement by arriving at the keywords, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">goto</span></code>, or <code class="docutils literal notranslate"><span class="pre">throw</span></code>.</p>
 <section id="break">
 <h3>Break<a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">break</span></code> - causes the program to break out of the nearest enclosing <a class="reference internal" href="glossary.html#term-Switch-Statement"><span class="xref std std-term">switch statement</span></a> or <a class="reference internal" href="glossary.html#term-Iteration-Statement"><span class="xref std std-term">iteration statement</span></a>. <code class="docutils literal notranslate"><span class="pre">break</span></code> is used if the logical flow may require the program to leave the loop in the middle.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> is usually found as an option in a selection-statement within the loop.</p>
-<p>It is usually better to exit loops via the loop exit condition unless the logic requires extra variables an complexity.</p>
-<div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-2">
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code> - causes the program to break out of the nearest enclosing <a class="reference internal" href="glossary.html#term-Switch-Statement"><span class="xref std std-term">switch statement</span></a> or <a class="reference internal" href="glossary.html#term-Iteration-Statement"><span class="xref std std-term">iteration statement</span></a> and is used if the logical flow may require the program to leave the loop before the end.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> statement is usually found as an option in a selection-statement within the loop.</p>
+<p>It is usually better to exit a loop via the loop-condition unless the logic requires extra variables and complexity.</p>
+<div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-3">
 
 <p class="admonition-title">Code Example: Break </p>
 <section id="code_example-content">
 <p>Example of using break to exit a loop.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
@@ -660,7 +668,7 @@ document.write(`
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">collectedValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w">   </span><span class="c1">//creates an empty vector.</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="c1">// contorls a loop that adds an element to the vector each time.</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">collectedValues</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">         </span><span class="c1">//size() - member function - most C++ containers - returns number of elements.</span>
-<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The loop terminated when i =&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. First element was 0!&quot;</span><span class="p">;</span><span class="w">    </span><span class="c1">// Prints out only if vector has 20 elements.</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The loop terminated when i == &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">;</span><span class="w">    </span><span class="c1">// Prints out only if vector has 20 elements.</span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w">                                                   </span><span class="c1">// Exits the loop when vector has 20 elements. </span>
 <span class="w">     </span><span class="p">}</span><span class="w">  </span>
 <span class="w">    </span><span class="n">collectedValues</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">//push_back() - a member function - appends its argument at end of vector.</span>
@@ -671,27 +679,23 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<p>0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19</p>
-<p>The loop terminated when i =20. First element was 0!</p>
-</div>
 </div>
 </section>
 </div></section>
 <section id="continue">
 <h3>Continue<a class="headerlink" href="#continue" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">continue</span></code> cause the program to skip directly to the next iteration jumping over any remaining code statements in the current loop.</p>
-<div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-3">
+<div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-4">
 
 <p class="admonition-title">Code Example: Continue </p>
 <section id="code_example-content">
 <p>Example of using continue to skip one iteration of a loop.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">21</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w">  </span><span class="c1">// if is exactly divisible by 5, skip printing the value of i.</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w">  </span><span class="c1">// if i is exactly divisible by 5, skip printing its value.</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -699,15 +703,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<p>1	2	3	4	6	7	8	9	11	12	13	14	16	17	18	19</p>
-</div>
 </div>
 </section>
 </div></section>
 <section id="goto">
 <h3>Goto<a class="headerlink" href="#goto" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">goto</span></code> statements are best avoided in most programming languages. Code has a simpler structure, and is more easily obtained without the use of <code class="docutils literal notranslate"><span class="pre">goto</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">goto</span></code> statements are best avoided in most programming languages. Code has a simpler structure, and is more easily understood without the use of <code class="docutils literal notranslate"><span class="pre">goto</span></code> .</p>
 </section>
 </section>
 <div class="toctree-wrapper compound">

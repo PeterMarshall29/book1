@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.2a466f41-3f51-4628-850d-787590ec1999.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.02427afc-c655-40af-b547-d91eba17f620.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/selection_and_iteration';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -544,16 +544,7 @@ document.write(`
 <p>Both refer to the mechanisms that dictate the order in which statements are executed in a program.</p>
 </div>
 <p>Selection and iteration statements are control flow statements - they control the sequential flow of the execution of a program.</p>
-<p>The <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the order in which all its statements are executed.</p>
-<p>More literally <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the sequential flow of <strong>control</strong> through the program - i.e. the current statement has <em>control</em> of the processor - control is then passed to the next statement in the programmed sequence.</p>
-<p><a class="reference internal" href="glossary.html#term-Control-Flow-Statements"><span class="xref std std-term">Control flow statements</span></a> alter the flow of execution, by conditional choosing the next statement to be executed from two options. Nesting control flow statement allows complicated decisions between many possible paths.</p>
-<hr class="docutils" />
-<p>Without selection statements: a program can only run from beginning to end - executing the same statements in the same order every time.</p>
-<p>Without iteration statements:</p>
-<ul class="simple">
-<li><p>A program must end - your phone’s program is constantly running because code is repeatedly executed in a loop.</p></li>
-<li><p>All statement would only be executed once - a mechanism to repeat statements shortens the length of a program.</p></li>
-</ul>
+<p><a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">Control flow</span></a> refers to the order in which the program’s statements are executed.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Statements and Expressions</p>
 <p>A computer program is a sequence of statements, which are executed sequentially.</p>
@@ -562,6 +553,15 @@ document.write(`
 <p>Statements are always terminated by either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or by a <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code-block</span></a> {…some code here…}, which may be empty or contain statements. Forgetting to terminate a statement correctly will result in a compile-time error.</p>
 <p>The semicolon is a statement terminator, and by itself a statement called the <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> (null statement). The lone semicolon can be thought of as an expression statement without an expression, which does nothing, but is useful when a statement is required in the syntax, but the programmer does not need or want the program to do anything - see the <a class="reference internal" href="for_loops.html#forever"><span class="std std-ref">forever</span></a> loop. The null statement could also provide an empty body to a ‘for’ or ‘while’ loop, or to carry a label in the end of a compound statement.</p>
 </div>
+<p>More literally <a class="reference internal" href="glossary.html#term-Control-Flow"><span class="xref std std-term">control flow</span></a> refers to the sequential flow of <strong>control</strong> through the program - the current statement is said to have <em>control</em> of the processor - control is then passed to the next statement in the programmed sequence.</p>
+<p><a class="reference internal" href="glossary.html#term-Control-Flow-Statements"><span class="xref std std-term">Control flow statements</span></a> alter the flow of execution, by conditional choosing the next statement to be executed from two options. Nesting control flow statement allows complicated decisions between many possible paths.</p>
+<hr class="docutils" />
+<p>Without selection statements: a program can only run from beginning to end - executing the same statements in the same order every time.</p>
+<p>Without iteration statements:</p>
+<ul class="simple">
+<li><p>All statement would only be executed once - a mechanism to repeat statements shortens the length of a program.</p></li>
+<li><p>A program must end - your phone’s program is constantly running because code is repeatedly executed in a loop.</p></li>
+</ul>
 <section id="selection">
 <span id="id1"></span><h2>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">#</a></h2>
 <p>Selection statements conditionally change the control flow.</p>
@@ -647,7 +647,7 @@ document.write(`
 <p>Use the typeinfo library to confirm the comparison expressions are evaluated to <code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
 <div class="solution dropdown admonition" id="jupyternotebooks/selection_and_iteration-solution-4">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercisep1"> Exercise</a></p>
+<p class="admonition-title">Solution to <a class="reference internal" href="#exercisep1"> Exercise</a></p>
 <section id="solution-content">
 <p>Add the following:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span>

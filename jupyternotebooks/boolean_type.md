@@ -162,6 +162,28 @@ Line 7: Arithmetic evaluation to integer '0', converted to `false`.
 `````{code_example-end}
 `````
 
+Booleans values can also be printed as words using `std::boolalpha`
+
+`````{code_example-start} Formatting Output using boolalpha
+:label: examplel7
+:class: dropdown
+:nonumber:
+`````
+Outputing 'true' and 'false' instead of '1' and '0'.
+````{code-cell} c++
+:tags: [remove-output,skip-execution]
+#include <iostream>
+int main() {
+    bool myBool1 = true;
+    bool myBool2 = false;
+    std::cout << "Default output: " << myBool1 << " and " << myBool2 << '\n';
+    std::cout << std::boolalpha;
+    std::cout << "Boolalpha output: " << myBool1 << " and " << myBool2 << '\n';
+    return 0;
+}
+````
+`````{code_example-end}
+`````
 ## Pointers and Booleans
 
 A pointer can be implicitly converted to a `bool`. A non-null pointer converts to `true` - pointers with the value `nullptr` convert to `false`. 
