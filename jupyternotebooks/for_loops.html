@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.56cb2b1b-b031-4c0b-82a9-e47e365c9d64.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.f44ea2ef-d452-4c6b-b679-9e04edf186b6.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-39136287-02ed-4e00-9e35-28d4b41958af] svg, .mermaid[data-zoom-id=id-cdd1da1f-8f07-4f86-9f1d-0369474702d8] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-78c05f00-a8e8-4076-9227-7f9aa09a1768] svg, .mermaid[data-zoom-id=id-1e765663-4b05-477a-83f9-60d0f36782f2] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -558,7 +558,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forever">Forever</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-commands">Single Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statement-multiple-loop-variables">For-statement - Multiple Loop-Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-while-loops-and-functions">Comparison to While Loops and Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statements-more-on-the-syntax">For-Statements - More on the Syntax</a></li>
@@ -585,16 +584,15 @@ document.write(`
 <p class="attribution">—Zeno of Elea</p>
 </div></blockquote>
 </div>
-<p>The <a class="reference internal" href="glossary.html#term-For-Statement"><span class="xref std std-term">for-statement</span></a> conditionally executes a statement, or code block, repeatedly; also known as the <a class="reference internal" href="glossary.html#term-For-loop"><span class="xref std std-term">for-loop</span></a>, and is the most frequently used and important iteration control structure in C++.</p>
+<p>The <a class="reference internal" href="glossary.html#term-For-Statement"><span class="xref std std-term">for-statement</span></a> conditionally executes a statement, or a code-block, repeatedly. Also known as the <a class="reference internal" href="glossary.html#term-For-loop"><span class="xref std std-term">for-loop</span></a>, it is the most frequently used and most important iteration control structure in C++.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/for_loops-syntax-0">
 
 <p class="admonition-title">Syntax Rules: for-statement </p>
 <section id="syntax-content">
 <p>Syntax of the for-statement:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">loop_variable_declaration_and_initialisation</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>
-<span class="w">                    </span><span class="n">condition_to_continue_the_loop</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>
-<span class="w">                        </span><span class="n">end_of_iteration_expression</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<span class="p">{</span><span class="w"> </span><span class="n">code_to_be_executed_every_loop</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initial_expression</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">conditional_expression</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">end_of_iteration_expression</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">     </span><span class="n">code_to_be_executed_every_loop</span><span class="w"> </span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The three statements in parentheses are the arguments of the for-statement and collectively manage its behaviour.</p>
@@ -607,7 +605,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-39136287-02ed-4e00-9e35-28d4b41958af" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-78c05f00-a8e8-4076-9227-7f9aa09a1768" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -638,7 +636,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-cdd1da1f-8f07-4f86-9f1d-0369474702d8" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-1e765663-4b05-477a-83f9-60d0f36782f2" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -682,18 +680,18 @@ document.write(`
 </div>
 <div class="code_example dropdown admonition" id="examples1">
 
-<p class="admonition-title">Code Example: For-statements </p>
+<p class="admonition-title">Code Example: The for-statement </p>
 <section id="code_example-content">
-<p>Start the live code editor, complete the program, and run this code.</p>
+<p>Start the live code editor, complete the code, and run the finished program…</p>
 <div class="literal-block-wrapper docutils container" id="codes1">
-<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">For Loop Template</span><a class="headerlink" href="#codes1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Simple for-statement Example</span><a class="headerlink" href="#codes1" title="Permalink to this code">#</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="hll"><span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </span><span class="linenos">3</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<p>The highlighted code statements are repeated as many times as required by the <code class="docutils literal notranslate"><span class="pre">for-statement</span></code>.</p>
+<p>The highlighted code statement will be executed repeatedly - the number of iterations depends on the loop-variable and the loop-condition.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="p">...</span>
@@ -701,14 +699,13 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Because the for-statement <a class="reference internal" href="glossary.html#term-Loop-Variable"><span class="xref std std-term">loop-variable</span></a> has been included in this statement, the value printed to the output stream will be different in every iteration.</p>
-<div class="code_explanation dropdown note admonition" id="explanations1">
+<div class="code_explanation dropdown admonition" id="explanations1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examples1"> Code Example: For-statements </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examples1"> Code Example: The for-statement </a></p>
 <section id="code_explanation-content">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">The syntax for this example shows the most common pattern for a for-statement:</p>
+<p class="sd-card-text">This example shows the most common syntax pattern used in a for-statement:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="o">**</span><span class="n">Code</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="o">**</span><span class="w"> </span>
 <span class="p">}</span>
@@ -722,9 +719,9 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p class="sd-card-text">The first argument is the <strong>for-statement initialiser</strong>.</p>
-<p class="sd-card-text">The initialiser, declares the name of a <a class="reference internal" href="glossary.html#term-Loop-Variable"><span class="xref std std-term">loop-variable</span></a> <code class="docutils literal notranslate"><span class="pre">i</span></code> and initialises it with a value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p class="sd-card-text">The loop variable is local to the for-statement and can be used in the code-block, but no other variable called <code class="docutils literal notranslate"><span class="pre">i</span></code> may be used inside the for-statement’s code-block.</p>
+<p class="sd-card-text">The first argument is the <strong>for-statement initialiser</strong>, which declares the name of a <a class="reference internal" href="glossary.html#term-Loop-Variable"><span class="xref std std-term">loop-variable</span></a> <code class="docutils literal notranslate"><span class="pre">i</span></code> and initialises it with value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p class="sd-card-text">Loop-variables are local to their for-statement and can be used in the code-block, but no other variable called <code class="docutils literal notranslate"><span class="pre">i</span></code> may be used inside the for-statement’s code-block unless they are accessed using <code class="docutils literal notranslate"><span class="pre">::</span></code></p>
+<p class="sd-card-text">The loop-variable is not required to be an integer, and it does not have to be used to control the loop.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -733,9 +730,9 @@ document.write(`
 </pre></div>
 </div>
 <p class="sd-card-text">The second argument is the <strong>for-statement condition</strong>.</p>
-<p class="sd-card-text">The for-loop runs until this condition becomes false, repeating the code-block each time.</p>
-<p class="sd-card-text">The condition must be an expression that returns a Boolean, and it must be true on the first loop - or the program exits the loop.</p>
-<p class="sd-card-text">If the condition is empty, it evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, so the loop runs.</p>
+<p class="sd-card-text">The condition is tested before every iteration - if the condition is true the code-block is executed - the first time the condition evaluates to false, the program exits the for-loop and continues to the next statements.</p>
+<p class="sd-card-text">The condition must be an expression that returns a Boolean, and it must be true on the first loop - or the program exits the for-statement immediately.</p>
+<p class="sd-card-text">If the condition is empty, it evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> and the loop runs.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -743,8 +740,8 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
 </pre></div>
 </div>
-<p class="sd-card-text">The third and final argument is the <strong>for-statement increment</strong>.</p>
-<p class="sd-card-text"><em><strong>After</strong></em> executing the for-statement’s code block, the loop-variable is increased or decreased according to this instruction. The increment/decrement can be by any constant amount.</p>
+<p class="sd-card-text">The third argument, in this example, is the <strong>for-statement increment</strong>.</p>
+<p class="sd-card-text"><em><strong>After</strong></em> executing the for-statement’s code block, the loop-variable is increased or decreased according to this instruction.</p>
 </div>
 </div>
 </section>
@@ -752,11 +749,11 @@ document.write(`
 </section>
 </div><div class="code_example dropdown admonition" id="examples2">
 
-<p class="admonition-title">Code Example: For Loop </p>
+<p class="admonition-title">Code Example: The for-loop </p>
 <section id="code_example-content">
 <p>It is bad practice, and a common mistake, to increment the loop-variable within the execution block; this should only be done for a good reason.</p>
-<p>In programming it is always better to separate concerns. In this case it is better to leave control to the for-loop arguments.</p>
-<p>When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instructions are implemented in each loop. The instructions are also implemented in sequence and can result in two different values being used for the loop-variable in a single iteration.</p>
+<p>In programming it is always better to separate concerns - in this case it is better to leave control to the for-loop arguments.</p>
+<p>When the loop variable increment instruction appears in both the code-block and the for-statement argument - both increment instructions are implemented in each loop. The instructions are also implemented in sequence and can result in two different values being used for the loop-variable at different points within a single iteration.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -770,17 +767,50 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Use of an integer loop-variable with unit increment is the most common scenario, but the size of the increment may be variable i.e. <code class="docutils literal notranslate"><span class="pre">i+=n</span></code> and the loop-variable can be of non-integer type.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">.01</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">+=</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="o">++</span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: Some languages require integer types for loop-variables.</p>
+</section>
+</div><p>If the for-statement executes a single statement on each iteration, that statement can simply be placed after the for-statement, and terminated by a semi-colon <code class="docutils literal notranslate"><span class="pre">;</span></code> .</p>
+<div class="code_example dropdown admonition" id="examples4">
+
+<p class="admonition-title">Code Example: Single line for-statements </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div><section id="forever">
 <span id="id1"></span><h2>Forever<a class="headerlink" href="#forever" title="Permalink to this heading">#</a></h2>
 <p>The for-statement parentheses may not be empty - the compiler will not permit it.</p>
-<p>The minimum argument to a for-statement is <code class="docutils literal notranslate"><span class="pre">(;;)</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">for(;;){}</span></code> is a way to specify an infinite loop; sometimes called a ‘for-ever statement’…</p>
+<p>The minimum argument to a for-statement is <code class="docutils literal notranslate"><span class="pre">(;;)</span></code> .</p>
+<p><code class="docutils literal notranslate"><span class="pre">for(;;){}</span></code> is one way to specify an infinite loop; sometimes called a ‘for-ever statement’…</p>
 <div class="code_example dropdown admonition" id="examples3">
 
 <p class="admonition-title">Code Example: Forever </p>
 <section id="code_example-content">
-<div class="cell docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -793,49 +823,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<p>Loop ran once because ‘break’ was included!</p>
 </div>
-</div>
-</section>
-</div><p>This code behaves identically to <code class="docutils literal notranslate"><span class="pre">while(true){}</span></code>.</p>
-</section>
-<section id="single-commands">
-<h2>Single Commands<a class="headerlink" href="#single-commands" title="Permalink to this heading">#</a></h2>
-<p>If there is only a single statement i.e. not a whole code block of statements, then the statement can simply be placed after for-statement, and closed with <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
-<div class="code_example dropdown admonition" id="examples4">
+<div class="exercise dropdown admonition" id="jupyternotebooks/for_loops-exercise-6">
 
-<p class="admonition-title">Code Example: Single Line For-statements </p>
-<section id="code_example-content">
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<p>0</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1	2	3	4	5	6	7	8	9	
-</pre></div>
-</div>
-</div>
-</div>
+<p class="admonition-title">Exercise  Visual Studio Exercise  </p>
+<section id="exercise-content">
+<p>Only if you are already familiar with Visual Studio - otherwise please leave until week 4.</p>
+<p>Copy this code into Visual Studio and remove the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement - find out what happens.</p>
+<p><kbd class="kbd docutils literal notranslate">ctrl</kbd> and <kbd class="kbd docutils literal notranslate">c</kbd> simultaneously will stop execution in the terminal.</p>
+<p>Please do not try this in the ‘Live Code’ window.</p>
 </section>
 </div></section>
+</div><p>This code behaves identically to <code class="docutils literal notranslate"><span class="pre">while(true){}</span></code> .</p>
+</section>
 <section id="for-statement-multiple-loop-variables">
 <h2>For-statement - Multiple Loop-Variables<a class="headerlink" href="#for-statement-multiple-loop-variables" title="Permalink to this heading">#</a></h2>
-<p>The for-statement can only initialise more than one loop-variable, the final expression can affect both, and the condition can take account of both values. For example:</p>
+<p>The for-statement can initialise more than one loop-variable, which may all be used in the loop-condition, and included in the final expression e.g. multiple variables are incremented.</p>
 <div class="code_example dropdown admonition" id="examples5">
 
 <p class="admonition-title">Code Example: Multiple Loop Variables </p>
 <section id="code_example-content">
-<div class="cell docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -843,16 +854,15 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<p>0	10</p>
-<p>1	9</p>
-<p>2	8</p>
-<p>3	7</p>
-<p>4	6</p>
 </div>
-</div>
-<p>After each iteration, x is incremented and y decremented by one each. The condition uses the logical <code class="docutils literal notranslate"><span class="pre">AND</span></code> operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> to required two conditions to be true at the same time.</p>
+<p>After each iteration, the final expression increments x and decrements y by one each. The condition uses the logical ‘AND’ operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> to require two conditions to be true at the same time in order for the loop to continue.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/for_loops-exercise-8">
+
+<p class="admonition-title">Exercise  Multiple Loop-Variables  </p>
+<section id="exercise-content">
+<p>The condition in this example can be simplified but still produce the same output - work out how.</p>
 </section>
+</div></section>
 </div></section>
 <section id="comparison-to-while-loops-and-functions">
 <h2>Comparison to While Loops and Functions<a class="headerlink" href="#comparison-to-while-loops-and-functions" title="Permalink to this heading">#</a></h2>
@@ -860,15 +870,15 @@ document.write(`
 
 <p class="admonition-title">Code Example: Loops </p>
 <section id="code_example-content">
-<p>Run the following code - showing a for-statement, a while-statement, and a recursive function doing the same thing.</p>
+<p>Run the following code, which demonstrate the same task being completed by a for-statement, a while-statement, and a recursive function call.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">loopFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">loopVariable</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">exitValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">loopVariable</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">exitValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">//checks loop condition</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">loopVariable</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">exitValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// Checks loop condition</span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">loopVariable</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span>
-<span class="w">        </span><span class="n">loopFunction</span><span class="p">(</span><span class="o">++</span><span class="n">loopVariable</span><span class="p">,</span><span class="w"> </span><span class="n">exitValue</span><span class="p">);</span><span class="w"> </span><span class="c1">//function calls itself</span>
+<span class="w">        </span><span class="n">loopFunction</span><span class="p">(</span><span class="o">++</span><span class="n">loopVariable</span><span class="p">,</span><span class="w"> </span><span class="n">exitValue</span><span class="p">);</span><span class="w"> </span><span class="c1">// Function calls itself = recursion</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -877,11 +887,11 @@ document.write(`
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">loopVariable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">exitValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">loopVariable</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">exitValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Check the termination condition</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">loopVariable</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">//execute code block</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">loopVariable</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Execute code block</span>
 <span class="w">        </span><span class="o">++</span><span class="n">loopVariable</span><span class="p">;</span><span class="w"> </span><span class="c1">// Increment the loop-variable</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">loopFunction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">//Call function - recursion</span>
+<span class="w">    </span><span class="n">loopFunction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// Calls function</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -896,98 +906,54 @@ document.write(`
 
 <p class="admonition-title">Syntax Rules: For-Statements </p>
 <section id="syntax-content">
-<p>Extending the syntax rules for the <code class="docutils literal notranslate"><span class="pre">for-statement</span></code>.</p>
+<p>Extending the syntax rules for the <code class="docutils literal notranslate"><span class="pre">for-statement</span></code> .</p>
 <hr class="docutils" />
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Initialisation Statement</div>
-<p class="sd-card-text">The initialisation statement creates a new variable and initialises its value – this variable is used to control the loop and later the execution of the code in the code block, and is called the <code class="docutils literal notranslate"><span class="pre">loop-variable</span></code>, or loop-counter, and similar terms.
-The initialisation statement is only executed once, before the iterations, if any, begin.
-More than one loop-variable can be initialised in the initialisation statement, and if no initialisation is required it may be left as a null statement, i.e. just the <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
+First Argument - Initial Expression</div>
+<p class="sd-card-text">The initial expression/statement is often called the loop-initialiser because it usually declares a loop-variable and initialises its value.</p>
+<p class="sd-card-text">However, the initial expression can be any expression that must be executed exactly once before the iterations begin.</p>
+<p class="sd-card-text">More than one loop-variable can be initialised in the initialisation statement.</p>
+<p class="sd-card-text">If no loop-variable is required, an <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> may be used, i.e. just the <code class="docutils literal notranslate"><span class="pre">;</span></code> .</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 The Loop-Variable</div>
-<p class="sd-card-text">The loop variable is local to the for-statement, can be used in the code-block, but cannot be shadowed (you may not declare another variable called <code class="docutils literal notranslate"><span class="pre">i</span></code> inside the code-block).
-The loop variable cannot be shadowed - another variable with the same name cannot be declared inside the for-statement’s code block. For example:</p>
+<p class="sd-card-text">Loop-variables are often used to control the number of iterations and are therefore also called the loop-counter and other similar names.</p>
+<p class="sd-card-text">A loop-variable is local to its for-statement - they can be used in the associated code-block but cannot be shadowed (i.e. you may not declare another variable called <code class="docutils literal notranslate"><span class="pre">i</span></code> inside the code-block).</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">   </span><span class="c1">//  invalid in C++</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">   </span><span class="c1">//  Invalid in C++</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="sd-card-text">If the final value of the loop-variable is needed by the program, then the loop-variable must be
-declared before the for-statement.</p>
+<p class="sd-card-text">Variables called <code class="docutils literal notranslate"><span class="pre">i</span></code> from other namespaces, including the global namespace, may be used on the loop via the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">Scope Resolution Operator</span></a> - <code class="docutils literal notranslate"><span class="pre">::</span></code> .</p>
+<p class="sd-card-text">If the final value of the loop-variable is required after execution of the for-statement ends - the loop-variable must be declared before, and outside of, the for-statement.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Condition</div>
-<p class="sd-card-text">The condition is an expression which is evaluated at the start of each iteration – the code block is only executed if the condition evaluates to true.
-The condition must therefore always yield a <code class="docutils literal notranslate"><span class="pre">Bool</span></code>.
-The condition is not optional but may be empty, i.e. just the second <code class="docutils literal notranslate"><span class="pre">;</span></code>.
-An <code class="docutils literal notranslate"><span class="pre">empty</span> <span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>; causing the code- block to repeat forever, unless there is a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.</p>
+Conditional Expression</div>
+<p class="sd-card-text">The for-statement condition is an expression which is evaluated at the start of each iteration – the code block is only executed if the condition evaluates to true. The condition must therefore always yield a <code class="docutils literal notranslate"><span class="pre">Bool</span></code> or be implicitly convertible to an integral type.</p>
+<p class="sd-card-text">The condition is not optional but may be an empty statement, i.e. just the second <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
+<p class="sd-card-text">An <code class="docutils literal notranslate"><span class="pre">empty</span> <span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> causing the code-block to repeat forever, unless a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement is encountered.</p>
+<p class="sd-card-text">Instead of simple conditional expression using a comparison operator, the condition may be a simple declaration e.g. declaring and initialising a new variable, or an assignment expression - provide the value assigned is not zero or null. There are some other <a class="reference internal" href="glossary.html#term-Truthy-Expressions"><span class="xref std std-term">truthy expressions</span></a> that evaluate to true or false when the context requires a Boolean i.e. when they are placed where the program expects a Boolean. Some objects unexpectedly evaluate to true e.g. <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> evaluates to true unless the operation fails - it has a good/bad state that is checkable.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Increment Expression</div>
-<p class="sd-card-text">The third argument is usually an expression that increment/decrements the loop-variable; however it can be any statement that is required to run once after the code block in each iteration.
-The increment statement controls change to the loop-variable that is implemented following each execution of the code-block.
-Without the increment, the loop could run forever; however, the condition can also be changed from within the code-block.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Code-Block</div>
-<p class="sd-card-text">The code-block usually has no effect on the loop condition (best practice) but it does often utilise the loop variable to change what happens on each iteration.
-The code-block could of course be a single statement.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Break out of Loop, or out of Current Increment</div>
-<p class="sd-card-text">Inside the code-block:
-•	<code class="docutils literal notranslate"><span class="pre">break</span></code> causes the programme to exit the for-statement and continue with the next statement following it.
-•	<code class="docutils literal notranslate"><span class="pre">continue</span></code> causes the loop to skip to the next iteration
-Both would normally be placed inside a selection statement nested inside the loop.
-An empty statement evaluates to true. Therefore, the code block repeats forever, unless there is a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Additional Options</div>
-<p class="sd-card-text">The initialisation statement can also be any other statement that will only be executed once.
-Instead of a conditional expression, the condition may be a simple declaration if it yields a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. For example:</p>
+Final Expression</div>
+<p class="sd-card-text">The third argument can by any statement that is required to run once after the code-block is executed in each iteration.</p>
+<p class="sd-card-text">The most common example is an increment statement - used to change the loop-variable and ensure that the loop ends.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Begin Loop </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Iteration&quot;</span><span class="p">;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;... Ended by Break! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="k">break</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="sd-card-text">In the above code, the initialisation statement only outputs “begin loop”.
-The condition is a declaration, if <code class="docutils literal notranslate"><span class="pre">std::cout</span> <span class="pre">&lt;&lt;</span> <span class="pre">&quot;Iteration&quot;</span></code> succeeds, it returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, and the loop continues.
-The final statement includes an increment expression inside an output steam statement.</p>
-<p class="sd-card-text">The third statement can be any statement that is required to run once after the code block in each iteration. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Loop goes back to check condition&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Loop goes back to check condition and ends!&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Loop ran once </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
@@ -997,12 +963,64 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 </div>
-<p>Full information on <a class="reference external" href="https://en.cppreference.com/w/cpp/language/for.html">For-statements</a> ca be found in the C++ reference.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Code-Block</div>
+<p class="sd-card-text">The code-block usually has no effect on the loop condition (best practice) but it does often utilise the loop variable to change what happens during successive iterations.
+The code-block could of course be a single statement.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Exiting the for-loop, or Ending the Current Iteration</div>
+<p class="sd-card-text">Inside the code-block:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">break</span></code> causes the program to exit the for-statement and continue with the statements following it.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">continue</span></code> causes the program to skip to the next iteration of the for-loop AFTER first executing the final expression.</p></li>
+</ul>
+<p class="sd-card-text">Both <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> would normally be found inside a selection statement nested inside the loop.</p>
+<p class="sd-card-text">An empty condition statement evaluates to true. Therefore, the code block repeats forever, unless there is a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.</p>
+</div>
+</div>
+<p>Full information on <a class="reference external" href="https://en.cppreference.com/w/cpp/language/for.html">for-statements</a> ca be found in the C++ reference.</p>
+</section>
+</div><div class="code_example dropdown admonition" id="examples12">
+
+<p class="admonition-title">Code Example: Unconventional Arguments </p>
+<section id="code_example-content">
+<p>Try this code…</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Begin Loop </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Iteration&quot;</span><span class="p">;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;... Ended by Break! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="code_explanation admonition" id="jupyternotebooks/for_loops-code_explanation-12">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examples12"> Code Example: Unconventional Arguments </a></p>
+<section id="code_explanation-content">
+<p>In this example, the first argument only outputs “begin loop”.</p>
+<p>Since std::cout returns a reference to the output stream, which evaluates to true, the loop continues unless explicitly terminated i.e. by <code class="docutils literal notranslate"><span class="pre">break</span></code> .</p>
+<p>The final statement includes an increment expression inside an output steam statement.</p>
+</section>
+</div>
 </section>
 </div></section>
 <section id="using-auto">
 <h2>Using <code class="docutils literal notranslate"><span class="pre">auto</span></code><a class="headerlink" href="#using-auto" title="Permalink to this heading">#</a></h2>
-<p>It is not always obvious what is the right type to use for a controlled variable in a for-statement, so <code class="docutils literal notranslate"><span class="pre">auto</span></code> often comes in handy:</p>
+<p>The correct type to use for the loop-variable of a for-statement may not always be obvious, so using <code class="docutils literal notranslate"><span class="pre">auto</span></code> is often helpful:</p>
 <div class="code_example dropdown admonition" id="examples7">
 
 <p class="admonition-title">Code Example: Auto </p>
@@ -1060,8 +1078,7 @@ The final statement includes an increment expression inside an output steam stat
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>,</p>
-<p>0	, 1	, 2	, 3	, 4	, 5</p>
+<p>, 0	, 1	, 2	, 3	, 4	, 5</p>
 </div>
 </div>
 </section>
@@ -1154,7 +1171,6 @@ The loop-variable takes the value of the nth element during the nth iteration.</
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forever">Forever</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-commands">Single Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statement-multiple-loop-variables">For-statement - Multiple Loop-Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-while-loops-and-functions">Comparison to While Loops and Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statements-more-on-the-syntax">For-Statements - More on the Syntax</a></li>
