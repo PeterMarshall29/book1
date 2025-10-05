@@ -52,9 +52,7 @@ Without iteration statements:
 (selection)=
 ## Selection
 
-Selection statements conditionally change the control flow.
-
-A decision is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.
+Selection statements conditionally change the control flow - a decision is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.
 
 In C++ the selections statements are the [if](if)-statement and the [switch](switch)-statement.
 
@@ -64,7 +62,7 @@ In C++ the selections statements are the [if](if)-statement and the [switch](swi
 
 Computer programmes often do the same thing over and over - iteration statements are used to instruct the computer to repeatedly execute the same statements a finite number of times, or until a testable condition changes.
 
-Iterations statements in C++ are the [for](for)-statement, the [while](while)-statement, the do-while-statement, and the range-for statement.
+Iteration statements in C++ are the [for](for)-statement, the [while](while)-statement, the do-while-statement, and the range-for statement.
 
 For-statements repeat a code-block a finite number of times in most programming languages. In C++ the for-statement has additional flexibility and is preferred over the other options. 
 
@@ -74,7 +72,7 @@ While-statements repeat the code-block until a testable condition changes.
 
 Do-while-statements differ from while-statements by always executing the code-block once before testing the iteration condition for the first time.
 
-The first program ever to run on a stored-program computer (the EDSAC), included iteration. Written and David Wheeler and run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares. 
+The first program ever to run on a stored-program computer (the EDSAC), included iteration. Written by David Wheeler and run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares. 
 `````{code_example-start} Iteration Example
 :label: examplep1
 :class: dropdown
@@ -114,9 +112,9 @@ Selection and iteration are controlled by evaluation of a Boolean (logical) cond
 
 There are several ways to create a condition for the selection and iteration statements:
 
-- The condition can be set manually be inserting a Boolean literal - `0`, `1`, `false`, or `true`.
-- Any expression that contains a comparison operator is evaluated to `bool`
-- Wherever the program expects a condition (i.e. in parentheses next to the keywords `if`, `while`, etc.) the compiler will try to convert what it finds to a Boolean.
+- The condition can be set manually be inserting a Boolean literal - `0` , `1` , `false` , or `true` .
+- Any expression that contains a comparison operator is evaluated to `bool` .
+- Wherever the program expects a condition (i.e. in parentheses next to the keywords `if` , `while` , etc.) the compiler will try to convert what it finds to a Boolean.
 
 ``````{code_example-start} Comparison Operations
 :class: dropdown
@@ -133,14 +131,14 @@ int main() {
     return 0;
 }
 `````
-The 1's and 0's represent Boolean `true` and `false`.
+The 1's and 0's represent Boolean `true` and `false` .
 
 `````{exercise-start} 
 :class: dropdown
 :label: exercisep1
 :nonumber:
 `````
-Use the typeinfo library to confirm the comparison expressions are evaluated to `bool`
+Use the `<typeinfo>` library to confirm the comparison expressions are evaluated to `bool` …
 ````{solution} exercisep1
 :class: dropdown
 Add the following:
@@ -157,16 +155,16 @@ std::cout << typeid(int1 == int2).name()  << '\n' ; // and so on..
 
 ## Jump Statement
 
-Jump Statements unconditionally transfers control to another part of the program.
+Jump-statements unconditionally transfer control to another part of the program.
 
-The available Jump Statements in C++ are.
+The available jump-statements in C++ are:
 
-- Break statement
-- Continue statement
-- Return statement with an optional expression
-- Return statement using list initialization
-- Goto statement
+- Break statement.
+- Continue statement.
+- Return statement with an optional expression.
+- Return statement using list initialization.
+- Goto statement.
 
-`return` - control transfers to the statement following the funcion call.
+`return` - control transfers to the statement following the function call.
 `break` - control transfers to the statement after the selection or iteration block.
 

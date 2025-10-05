@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.fff9a5d1-263d-452f-b30f-84ab258d0490.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.13295b76-678f-46bf-bac2-d9064ad4a268.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/vector';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -520,10 +520,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-to-a-vector">Adding to a Vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-or-modifying-the-elements-of-a-vector">Accessing or Modifying the Elements of a <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-to-a-vector">Adding to a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-vectors">Multi-dimensional Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-a-vector-is-empty">Check if a Vector is Empty</a></li>
 </ul>
             </nav>
         </div>
@@ -537,68 +537,82 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vectors">
 <span id="id1"></span><h1>Vectors<a class="headerlink" href="#vectors" title="Permalink to this heading">#</a></h1>
-<p>There are several ways to store multiple values in a single variable. <vector>, <array>, and built-in arrays.</p>
-<p>The <vector> library provides the most flexible method.</p>
+<p>In C++, there are a variety of objects that can be used to store multiple values of the same type in a single variable including <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code> , <code class="docutils literal notranslate"><span class="pre">&lt;array&gt;</span></code> , and simple arrays.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code> library provides the most flexible method - a <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> is a sequence of elements that can be accessed by their index using <code class="docutils literal notranslate"><span class="pre">[]</span></code> , the <a class="reference internal" href="glossary.html#term-Subscript-Operator"><span class="xref std std-term">subscript operator</span></a>.</p>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
-<p><vector> is superior because the number of elements is variable - the number of elements in <array> must be known at compile time.
-<array> is better than built-in array because it carries the value of number of its size (so you can use with standard-library algorithms), and it can be copied (using = or initialization), and most importantly there are not surprise conversions to pointers. Use built-in arrays when you want</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::vector</span></code> is superior because the number of elements is variable - the number of elements in <code class="docutils literal notranslate"><span class="pre">&lt;array&gt;</span></code> must be known at compile time.</p>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">std:array</span></code> is better than a simple array because it carries the value of the number of its size (so you can use with standard-library algorithms), and it can be copied (for assignment and initialization), and most importantly there are no surprise conversions to pointers.</p>
 </div>
-<p>A <code class="docutils literal notranslate"><span class="pre">vector</span></code> is a sequence of elements that can be accessed by their index.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Add <vector> to header file using <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;vector&gt;</span></code>.</p>
+<p>Add <vector> to header file using <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;vector&gt;</span></code> .</p>
 </div>
-<div class="admonition-the-syntax-of-vector admonition">
-<p class="admonition-title">The Syntax of Vector</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/vector-syntax-0">
+
+<p class="admonition-title">Syntax Rules: std::vector </p>
+<section id="syntax-content">
+<p><code class="docutils literal notranslate"><span class="pre">std::vector</span></code> is provided by the <code class="docutils literal notranslate"><span class="pre">&lt;vector&gt;</span></code> standard library facility.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="c1"> </span>
 <span class="c1">//Declarations</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="p">...</span><span class="n">elements_type</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="p">;</span><span class="w"> </span><span class="c1">// Declaration</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="p">;</span><span class="w"> </span><span class="c1">// Declaration</span>
 <span class="c1">// Definitions</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="p">...</span><span class="n">elements_type</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">element_1</span><span class="p">,</span><span class="w"> </span><span class="n">element2</span><span class="p">,</span><span class="w"> </span><span class="n">element3</span><span class="p">,</span><span class="w"> </span><span class="n">element4</span><span class="w"> </span><span class="p">};</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="p">...</span><span class="n">elements_type</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">element_1</span><span class="p">,</span><span class="w"> </span><span class="n">element2</span><span class="p">,</span><span class="w"> </span><span class="n">element3</span><span class="p">,</span><span class="w"> </span><span class="n">element4</span><span class="w">  </span><span class="p">};</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="p">...</span><span class="n">elements_type</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="p">(...</span><span class="n">number_of_elements</span><span class="p">...);</span><span class="w"> </span><span class="c1">// Definition of number of null elements</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="p">...</span><span class="n">elements_type</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="p">(...</span><span class="n">number_of_elements</span><span class="p">...,</span><span class="w"> </span><span class="p">...</span><span class="n">value_of_all_elements</span><span class="p">);</span><span class="w"> </span><span class="c1">// Definition of number of elements each with same initial value</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">element_1</span><span class="p">,</span><span class="w"> </span><span class="n">element2</span><span class="p">,</span><span class="w"> </span><span class="n">element3</span><span class="p">,</span><span class="w"> </span><span class="n">element4</span><span class="w"> </span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">element_1</span><span class="p">,</span><span class="w"> </span><span class="n">element2</span><span class="p">,</span><span class="w"> </span><span class="n">element3</span><span class="p">,</span><span class="w"> </span><span class="n">element4</span><span class="w"> </span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="p">(</span><span class="n">number_of_elements</span><span class="p">);</span><span class="w"> </span><span class="c1">// Definition of vector with specific number of null elements</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorName</span><span class="p">(</span><span class="n">number_of_elements</span><span class="p">,</span><span class="w"> </span><span class="n">value_of_elements</span><span class="p">);</span><span class="w"> </span><span class="c1">// Definition of a vector with specific number of elements each with same initial value</span>
 </pre></div>
 </div>
-</div>
-<div class="code_example dropdown admonition" id="examplen1">
+</section>
+</div><div class="code_example dropdown admonition" id="examplen1">
 
-<p class="admonition-title">Code Example: Vector </p>
+<p class="admonition-title">Code Example: Vector Basics </p>
 <section id="code_example-content">
 <p>Try this code - construct the supporting program.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown hint admonition" id="jupyternotebooks/vector-code_explanation-1">
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/vector-code_explanation-2">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen1"> Code Example: Vector </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen1"> Code Example: Vector Basics </a></p>
 <section id="code_explanation-content">
-<p>This code will not work - the character output stream <code class="docutils literal notranslate"><span class="pre">cout</span></code> cannot print a whole vector.</p>
-<p>To print one element of the vector, we can use its index.</p>
-<div class="dropdown admonition">
+<p>This code will not compile - one of the first issues encountered when learning C++ is that the character output stream <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> cannot print a whole vector or array.</p>
+<p>There is a simple solution - shown below - but we can start by only printing single elements of the vector using the element’s index.</p>
+<div class="dropdown note admonition">
 <p class="admonition-title">Indexing into a Vector</p>
-<p>To access or modify an individual element of a vector we use the elements index:</p>
+<p>To access or modify an individual element of a vector we use the element’s index i.e. same as an array.</p>
+<p>Indices run from ‘0’ to <code class="docutils literal notranslate"><span class="pre">(number_of_elements</span> <span class="pre">-</span> <span class="pre">1)</span></code> :</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">vectorName</span><span class="p">[..</span><span class="n">element_index_here</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>In computing, most index values start from 0!</p>
+<p>In computing, most index values start at 0!</p>
 </div>
 </div>
-<p>Try changing the ouptut line to:</p>
+<ul class="simple">
+<li><p>Try changing the ouptut line to:</p></li>
+</ul>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>What happens if you replace 0, with 5? Find out!</p>
-<p>To output all the values of a vector we need to use an iteration statement</p>
-<p>Try this code</p>
+<ul class="simple">
+<li><p>What happens if you replace 0, with 5? Find out!</p></li>
+</ul>
+</section>
+</div>
+</section>
+</div><p>To output all the values of a vector we need to use an iteration statement.</p>
+<div class="code_example dropdown admonition" id="examplen11">
+
+<p class="admonition-title">Code Example: Printing a Vector </p>
+<section id="code_example-content">
+<p>Add the following statements to the previous example:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span>
 </pre></div>
 </div>
@@ -606,23 +620,59 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">capacity()</span></code> is a member function of the class <code class="docutils literal notranslate"><span class="pre">vector</span></code> and therefore must be addressed using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation on an instance of <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">capacity()</span></code> is a member function of the class <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> and therefore must be addressed using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation on an instance of <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> e.g. <code class="docutils literal notranslate"><span class="pre">myFirstVector.capacity()</span></code> .</p>
+<p>The for-statements stops when the loop-variable integer value is one less than <code class="docutils literal notranslate"><span class="pre">.capacity()</span></code> because the indices run from ‘0’.</p>
 </section>
+</div><section id="accessing-or-modifying-the-elements-of-a-vector">
+<h2>Accessing or Modifying the Elements of a <code class="docutils literal notranslate"><span class="pre">vector</span></code><a class="headerlink" href="#accessing-or-modifying-the-elements-of-a-vector" title="Permalink to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Only existing elements of a vector can be accesses or modified. Trying to assign a value to a non-exiting element fails and throws a catastrophic error.</p>
+</div>
+<p>The <a class="reference internal" href="glossary.html#term-Subscript-Operator"><span class="xref std std-term">subscript operator</span></a> and the element’s index is used to access or modify the values contained in a vector.</p>
+<p>A useful alternative is the <code class="docutils literal notranslate"><span class="pre">at()</span></code> member function.</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/vector-syntax-4">
+
+<p class="admonition-title">Syntax Rules: Access and Modify Elements of a Vector </p>
+<section id="syntax-content">
+<p>To change the nth element, there are two options.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">yourVectorName</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">..</span><span class="n">newValueHere</span><span class="p">..</span><span class="w"> </span><span class="p">;</span>
+<span class="c1">// or</span>
+<span class="n">yourVectorName</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">..</span><span class="n">newValueHere</span><span class="p">..</span><span class="w"> </span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.at()</span></code> function lets you know if an error occurs - slightly more useful than simple indexing.</p>
+</section>
+</div><div class="exercise dropdown admonition" id="examplen3">
+
+<p class="admonition-title">Exercise  Vector - Checking Progress  </p>
+<section id="exercise-content">
+<ul class="simple">
+<li><p>Write a program that creates a vector of strings in the code box.</p></li>
+<li><p>Add the supporting code to print the vector elements to the screen.</p></li>
+</ul>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Your</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="p">...</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-</div><section id="adding-to-a-vector">
+</div></section>
+<section id="adding-to-a-vector">
 <h2>Adding to a Vector<a class="headerlink" href="#adding-to-a-vector" title="Permalink to this heading">#</a></h2>
-<p>A non-existent element cannot be accessed or assigned to in any type of vector or array.</p>
+<p>A non-existent element cannot be accessed or be created by assignment in C++.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Assigning a value to a non-existent element will throw an error.
-In some languages the new element would be created and intermediate values filled with zeros - not in C++!</p>
+<p>Assigning a value to a non-existent element will throw an error.</p>
+<p>In some languages a new element would be created by the assignment and any intermediate non-existing values would be created and filled with zeros - not in C++!</p>
 </div>
-<p>New elements my only be added immediately after the last existing element of a vector.</p>
-<p>To append an extra element, at the end, the <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> function is used.</p>
+<p>New elements may only be added to a vector at the index/position immediately after the last existing element.</p>
+<p>To append an extra element at the end of the vector the <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> function is used.</p>
 <div class="code_example dropdown admonition" id="examplen2">
 
-<p class="admonition-title">Code Example: Modifying Vectors </p>
+<p class="admonition-title">Code Example: Modifying Vectors - push_back() </p>
 <section id="code_example-content">
 <p>Try this code - construct the supporting program.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -634,25 +684,30 @@ In some languages the new element would be created and intermediate values fille
 </div>
 </div>
 </div>
-<div class="code_explanation admonition" id="jupyternotebooks/vector-code_explanation-3">
+<div class="code_explanation admonition" id="jupyternotebooks/vector-code_explanation-7">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen2"> Code Example: Modifying Vectors </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen2"> Code Example: Modifying Vectors - push_back() </a></p>
 <section id="code_explanation-content">
-<p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code> is another member function – it belongs to std::vector and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code> is another member function – it belongs to <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation.</p>
 <p>Line 3 is a range-for-statement, explained <a class="reference internal" href="for_loops.html#range-for"><span class="std std-ref">here</span></a>.</p>
-<p>More than element may be added by <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> by using a list.</p>
-<p>Try adding:</p>
+<p>More than one element may be added by <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> by using a list i.e. put a curly brace <code class="docutils literal notranslate"><span class="pre">{}</span></code> enclosed, comma delimited sequence of values in the parens.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/vector-exercise-8">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Try adding the following to your previous example code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">mySecondVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">});</span><span class="w"> </span>
 </pre></div>
 </div>
 </section>
+</div></section>
 </div>
 </section>
-</div><div class="exercise dropdown admonition" id="exercisen1">
+</div><div class="code_example dropdown admonition" id="exercisen11">
 
-<p class="admonition-title">Exercise  Vector  </p>
-<section id="exercise-content">
-<p>TRY to read in a possibly large unknown number of data points…</p>
+<p class="admonition-title">Code Example</p>
+<section id="code_example-content">
+<p>Try this code - it will continue to read in an unspecified number of data points until a letter is typed…</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">growingVector</span><span class="p">;</span>
@@ -662,78 +717,69 @@ In some languages the new element would be created and intermediate values fille
 </div>
 </div>
 </div>
-<div class="admonition-code-explanation admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
-<p>The second term is the condition for the <code class="docutils literal notranslate"><span class="pre">for-statement</span> <span class="pre">loop</span></code> – std::cin &gt;&gt;.</p>
-<p>This works if it is given the correct variable type by the user and therefore returns true, otherwise false and the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop ends.</p>
-<p>Vector has many useful member functions.</p>
-<p>We can sort out list into ascending order – or otherwise.</p>
-<p>Try adding the following code.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">growingVector</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">growingVector</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">growingVector</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<p>Accepting a number of elements that is not known at compile time is one of the advantages of <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> .</p>
+<p>The second argument to this for-statement, the loop-condition is <code class="docutils literal notranslate"><span class="pre">std::cin</span> <span class="pre">&gt;&gt;</span></code> .</p>
+<p>This only works if the extraction operation finds the correct variable type in the buffer i.e. the user correctly entered another number - strictly this does not evaluate to true, but the state of <code class="docutils literal notranslate"><span class="pre">std::cin</span></code> is checked and returns true if there have been no errors, which is contextually sufficient for a loop-condition.</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::cin</span></code> fails when a letter is entered - the loop-condition evaluates as false and the for-loop ends.</p>
+</div>
+</section>
+</div></section>
+<section id="useful-functions">
+<h2>Useful Functions<a class="headerlink" href="#useful-functions" title="Permalink to this heading">#</a></h2>
+<div class="code_example dropdown admonition" id="examplen5">
+
+<p class="admonition-title">Code Example: Useful Function </p>
+<section id="code_example-content">
+<p>Vector has other useful member functions, including <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code> , which return a random access <a class="reference internal" href="glossary.html#term-Iterator"><span class="xref std std-term">iterator</span></a> to the first and last elements respectively - basically these are equivalent to indexing that location using the subscript operator with the correct index.</p>
+<p>Iterators are similar to pointers - arithmetic values can be used with iterators to traverse the elements i.e. <code class="docutils literal notranslate"><span class="pre">myVector.end()</span> <span class="pre">-</span> <span class="pre">1</span></code> gives the value of the second last element.</p>
+<p>Other useful member functions for vector are <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector.html">listed</a> in the C++ Reference.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;algorithm&gt;</span></code> library has more functions that are useful for vectors. For example: <code class="docutils literal notranslate"><span class="pre">std::sort</span></code> allows us to sort the elements of our vector into ascending order – or otherwise.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/vector-exercise-11">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Try adding the following code to the previous example…</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">growingVector</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">growingVector</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">growingVector</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
+<ul class="simple">
+<li><p>Modify this code so that the first and last elements are not sorted.</p></li>
+</ul>
 </section>
-</div><p>Other useful member functions for vector are listed <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector.html">here</a></p>
-</section>
-<section id="accessing-or-modifying-the-elements-of-a-vector">
-<h2>Accessing or Modifying the Elements of a <code class="docutils literal notranslate"><span class="pre">vector</span></code><a class="headerlink" href="#accessing-or-modifying-the-elements-of-a-vector" title="Permalink to this heading">#</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>An element of a vector can only be accesses or modified if it already exists.</p>
-</div>
-<p>To access or modify a vector’s elements we use the index notation, or the at() function.</p>
-<div class="code_example dropdown admonition" id="examplen3">
-
-<p class="admonition-title">Code Example: Working with Vectors </p>
-<section id="code_example-content">
-<p>Create a vector in the code box - and the supporting code to print the vector elements to the screen.</p>
-<div class="cell tag_remove-output tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Your</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">here</span><span class="p">...</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>To change the nth element, there are two options.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">yourVectorName</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">..</span><span class="n">newValueHere</span><span class="p">..</span><span class="w"> </span><span class="p">;</span>
-<span class="c1">// or</span>
-<span class="n">yourVectorName</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">..</span><span class="n">newValueHere</span><span class="p">..</span><span class="w"> </span><span class="p">;</span>
-</pre></div>
-</div>
-<p>The .at() function lets you know if an error occurs - slightly more useful than simple indexing.</p>
+</div><p>The <code class="docutils literal notranslate"><span class="pre">empty()</span></code> function is another useful member function, which checks whether a vector is empty or not - returns 1 (true) if the vector is empty and 0 (false) if it contains one or more elements.</p>
 </section>
 </div></section>
 <section id="multi-dimensional-vectors">
 <h2>Multi-dimensional Vectors<a class="headerlink" href="#multi-dimensional-vectors" title="Permalink to this heading">#</a></h2>
 <p>We can define a vector of vectors.</p>
+<div class="code_example dropdown admonition" id="examplen4">
+
+<p class="admonition-title">Code Example: Multidimensional Vectors </p>
+<section id="code_example-content">
+<p>Try this example - the usual program components must be added…</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">my2DVector</span><span class="p">;</span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">my2DVector</span><span class="p">;</span>
+<span class="w">    </span><span class="n">my2DVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">});</span>
+<span class="w">    </span><span class="n">my2DVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">});</span>
+<span class="w">    </span><span class="n">my2DVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">});</span>
 
-<span class="n">my2DVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">});</span>
-<span class="n">my2DVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">});</span>
-<span class="n">my2DVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">});</span>
-
-<span class="c1">// Print the vector of vectors</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">my2DVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// Print the vector of vectors</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">my2DVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="check-if-a-vector-is-empty">
-<h2>Check if a Vector is Empty<a class="headerlink" href="#check-if-a-vector-is-empty" title="Permalink to this heading">#</a></h2>
-<p>Another useful member function checks whether a vector is empty or not.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">empty()</span></code> function returns 1 (true) if the vector is empty and 0 (false) if it contains one or more elements:</p>
-</section>
+</div></section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -802,10 +848,10 @@ In some languages the new element would be created and intermediate values fille
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-to-a-vector">Adding to a Vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-or-modifying-the-elements-of-a-vector">Accessing or Modifying the Elements of a <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-to-a-vector">Adding to a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-vectors">Multi-dimensional Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-a-vector-is-empty">Check if a Vector is Empty</a></li>
 </ul>
   </nav></div>
 

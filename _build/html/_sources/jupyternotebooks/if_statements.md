@@ -16,11 +16,11 @@ kernelspec:
 {attribution="Yogi Berra" }
 > When you get to a fork in the road, take it.
 ```
-The if-statement is used to select between two alternatives - changing what the program does when it runs.
+The if-statement is used to select between two alternatives - changing what the program does each time it runs depending on the choice made at each if-statement.
 
-At its simplest, an if-statement causes another statement or a code-block to be executed if a condition is true and does nothing if the condition is false.
+At its simplest, an if-statement causes another statement or a code-block to be executed if a condition is true and does nothing if the condition is false. 
 
-The condition may depend on a choice made by the user of the program, or on a value recorded by a sensor etc.
+The if-statement condition may depend on a choice made by the user of the program, or on a value recorded by a sensor etc.
 
 `````{syntax-start} if-statement Basics
 :class: dropdown
@@ -71,9 +71,9 @@ if (answer == "42") {}
 ```
 `answer==42` is the condition - which MUST be put in parentheses. 
 
-When the thread of control reaches if statement, the condition is evaluated - if the condition evaluates to the Boolean value `1`, or `true`, then the following code block is executed. 
+When the thread of control reaches the if-statement, the condition is evaluated - if the condition evaluates to the Boolean value `1` , or `true` , then the code-block is executed. 
 
-The compiler should not allow you to have a condition that will not evaluate to a `bool`.
+The compiler should not allow you to have a condition that will not evaluate to a `bool` .
 
 In this example, the code-block contains only a single statement and the `{}` are not required, as shown here:
 ```{code-block} c++
@@ -87,7 +87,7 @@ if (answer == "42") std::cout << "You are truly wise!";
 
 If statements are found in most programming languages.
 
-Some languages have a separate 'elseif' statement - C++ uses nested `if-else` statements. 
+Some languages have a separate `elseif` statement - C++ uses nested `if-else` statements instead. 
 
 ````{tab} C++
 ```{code-block} c++
@@ -184,9 +184,9 @@ end if;
 ```
 ````
 `````
-if-statement are often paired with an else-statements, which are usually referred to as the else-branch of the if-statement. 
+if-statements are often paired with else-statements, which are usually referred to as the else-branch of the if-statement. 
 
-`else` provides a alternative statement, or code-block, that will only be executed if the condition is false.
+`else` provides an alternative statement, or code-block, that will only be executed if the condition is false.
 
 `````{syntax-start} if-statement Basics
 :class: dropdown
@@ -222,7 +222,7 @@ int main() {
     return 0;
 }
 ````
-- Try swapping the condition to 'false', and then to '1' and '0'.
+- Try swapping the condition to `false` , and then to `1` and to `0` .
 
 Try the next code:
 ````{code-cell}  c++
@@ -250,21 +250,18 @@ The programme does works to an extent... but there are issues.
 
 Clearly this is not what we want - there are three possible outcomes, so we need more than two options from the selection statement. 
 
-The solution is to use nested if-else statements (an if-else ladder) (next section) - or to use a `switch` statement instead (next chapter).
+The solution is to use nested `if-else` statements (an if-else ladder) (next section) - or to use a `switch` statement instead (next chapter).
 
 - Try entering two numbers where one is a floating-point number - try putting the float both first and second - what is the difference?
 
 The first `int` takes the number before the decimal point, but then the non-integer character causes an issue for the second variable. 
 
-Try adding a line with `std::cin.ignore(100, ' ')` or `std::cin.ignore(100, ' ')` to resolve this issue, these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes one character to be discarded.
+Try adding a line with `std::cin.ignore(100, ' ')` or `std::cin.ignore(100, ' ')` to resolve this issue - these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes only a single character to be discarded.
 ````
 `````{code_example-end}
 `````
 
-```{warning}
-Every possible way to exit a selection, iteration, or function must have either a return or an error attached to it.
-```
-if-else statements can be nested creating an if-else-if ladder.
+`if-else` statements can be nested creating an `if-else-if` ladder.
 
 `````{syntax-start} if-else-if Ladder
 :class: dropdown
@@ -289,7 +286,7 @@ Only one of the `else if` statements will be executed - once a condition evaluat
 :class: dropdown
 :nonumber:
 ``````
-Try this code..
+Try this code... a couple of corrections are required - see the error message for details.
 `````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -335,17 +332,19 @@ How could you ensure that more invalid entries are not a problem?
 
 Compound conditions are constructed using Boolean operators to combine the Boolean result of multiple expression using comparison operations.
 
-`&&` is the logical `and` and evaluates true when both/all the expressions are true.
+`&&` is the logical `and` and evaluates `true` when **all** the expressions are `true` .
 
-`||` is the logical `or` and evaluates true if either/any of the expression are true. 
+`||` is the logical `or` and evaluates `true` if **any** of the expressions are `true` . 
 
-`!` is the logical `not`
+`&&` and `||` are infix operators and `!` is a prefix operator.
 
-Alternatively: `and` can be used for `&&`, `or` can be used for `||`, and `not` can used for `!`.
+`!` is the logical `not` which changes the evaluation of any Boolean expression from `true` to `false` and vice versa.
 
-More complicated conditions can be created by combining these operators.
+Alternatively: `and` can be used for `&&` , `or` can be used for `||` , and `not` can used for `!` .
 
-NOTE: `||` is the 'inclusive or'. The 'exclusive or' would only be true if one, and only one, of the expressions are true. This can be achieved using a compound condition of the form `((a || b) && !(a && b))`
+More complicated conditions can be created by chaining these operators - parentheses may be required to get the desired result.
+
+NOTE: `||` is the 'inclusive or'. The 'exclusive or' would only be true if one, and only one, of the expressions are true. This can be achieved using a compound condition of the form `((a || b) && !(a && b))` .
 
 ``````{syntax-start} Compound Conditions
 :class: dropdown
@@ -361,6 +360,14 @@ Syntax of Compound Conditions:
 ( (exprssion1) && ( (expression2)  || (expression3) ) )
 ```
 Further combinations can be created by applying the logical `not` to any of these expressions.
+
+The operators are evaluated based on precedence:
+
+`!` has the highest precedence, then `&&` has higher precedence than `||` .
+
+Parentheses `()` can be used to explicitly define the order of evaluation.
+
+
 ``````{syntax-end}
 ``````
 `````{code_example-start} Compound Conditions
@@ -380,14 +387,14 @@ int main() {
     return 0;
 }
 ````
-- Try replacing `&&` with `and`
+- Try replacing `&&` with `and` .
 - Create a new program to demonstrate the use of `||`, `or`, and a combination of `or` with `and` - test the code properly.
 `````{code_example-end}
 `````
 
 ## Options for the If-Condition
 
-The condition can be an expression or a declaration - the only requirement being that they evaluate to boolean `true` or `false`.
+The condition can be an expression or a declaration - the only requirement being that they evaluate to Boolean `true` or `false` .
 
 If-statements can be used as a test of the validity of a value.
 
@@ -417,17 +424,17 @@ int main() {
 :label: exerciseq1
 `````
 Find out what happens if:
-- The value of `myInt` is changed to 0, then to a negative number.
+- The value of `myInt` is changed to `0`, then to a negative number.
 - Would this work with a `double` ?
 - Replace the integer with a `string`, then with a `char`, does this work?
-- Replace the integer with a pointer (Pointers covered in week 3).
+- Replace the integer with a pointer (pointers are covered in week 3).
 ````{solution} exerciseq1
 :class: dropdown
-- All non-zero integers are converted to `true` ; only 0 is converted to `false`.
-- `string` type should not be allowed by the compiler - they cannot be convert to a Boolean. `Char` converts to `int` ,  which converts to `Bool` , however '0' does not convert to the integer zero!
-- A pointer to `nullptr` is converted to `false` , an pointer to a valid object is converted to `true` .
+- All non-zero integers are converted to `true` ; only `0` is converted to `false` .
+- `string` type should not be allowed by the compiler - they cannot be converted to a Boolean. `Char` converts to `int` ,  which converts to `Bool` , however `0` does not convert to the integer zero!
+- A pointer to `nullptr` is converted to `false` , a pointer to a valid object is converted to `true` .
 
-`if (myPtrToMyInt)` is equivalent to `if (myPtrToMyInt != nullptr)`
+`if (myPtrToMyInt)` is equivalent to `if (myPtrToMyInt != nullptr)` .
 ```{code-block} c++
 int main() {
     int myInt = 5;
@@ -442,7 +449,7 @@ int main() {
 ```
 ````
 
-The condition can also contain a declaration; useful for restricting the scope of a variable. Variables declared in condition are accessible to all the branches of the ladder. Only a single variable can be declared and initialised in a condition.
+The condition can also contain a declaration; useful for restricting the scope of a variable. Variables declared in conditions are accessible to all the branches of the ladder. Only a single variable can be declared and initialised in a condition.
 `````{exercise-end}
 `````
 `````{code_example-end}

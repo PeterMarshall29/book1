@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\arrays.cf2afac2-b1a6-4245-9d37-c3d4f3718e37.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\arrays.6c7e1078-02ac-48c9-980e-c5578353286f.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/arrays';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -540,7 +540,7 @@ document.write(`
 <h1>Arrays in C++<a class="headerlink" href="#arrays-in-c" title="Permalink to this heading">#</a></h1>
 <p>All computing languages use containers to collect multiple elements together into a single object, e.g. collecting a list of 5 numbers under a single variable named <code class="docutils literal notranslate"><span class="pre">myList</span></code> .</p>
 <p>An <a class="reference internal" href="glossary.html#term-Array"><span class="xref std std-term">array</span></a> is the C++ fundamental method for representing a sequence of objects in memory, part of the core language.</p>
-<p>For a simple fixed-length sequence of objects, all of the same <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a>, an array is the ideal solution. However, these ‘basic’ arrays do no not offer sufficient flexibility and typically programmers prefer to use standard library containers such as <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
+<p>For a simple fixed-length sequence of objects, all the same <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a>, an array is the ideal solution. However, these ‘basic’ built-in arrays do no not offer sufficient flexibility and typically programmers prefer to use standard library containers such as <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
 <p>Arrays can be constructed from any of the fundamental types, including pointers, classes and enumerations - but not from void, references, or functions.</p>
 <p>The number of elements in an array is fixed at declaration, and the values are fixed at initialisation.</p>
 <p>Arrays may not be copied, or used to initialise other arrays, or passed into functions as values.</p>
@@ -548,12 +548,12 @@ document.write(`
 
 <p class="admonition-title">Syntax Rules: Arrays </p>
 <section id="syntax-content">
-<p>An array declaration has the following form, with the <a class="reference internal" href="glossary.html#term-Declarator-operator"><span class="xref std std-term">declarator-operator</span></a> <code class="docutils literal notranslate"><span class="pre">[]</span></code> attached to the indentifier:</p>
+<p>An array declaration has the following form, with the <a class="reference internal" href="glossary.html#term-Declarator-operator"><span class="xref std std-term">declarator-operator</span></a> <code class="docutils literal notranslate"><span class="pre">[]</span></code> attached to the identifier:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="n">arrayName</span><span class="p">[</span><span class="o">...</span><span class="n">number</span> <span class="n">of</span> <span class="n">elements</span><span class="o">...</span><span class="p">];</span>
 </pre></div>
 </div>
 <p>The number of elements of an array is called the array bound - which must be an integer literal, or a <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int</span></code> expression that evaluates to greater than zero and is not optional in a declaration.</p>
-<p>For a type <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">T[N]</span></code> is of type ‘array of N elements of type T’. e.g. int myArray[10], has the type ‘array of 10 int’s’ - often just ‘int array’.</p>
+<p>For a type <code class="docutils literal notranslate"><span class="pre">T</span></code> , <code class="docutils literal notranslate"><span class="pre">T[N]</span></code> is of type ‘array of N elements of type T’ ; e.g. <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">myArray[10]</span></code> , has the type ‘array of 10 int’s’ - often just ‘int array’.</p>
 <p>To make an array of pointers parentheses must be used see <a class="reference internal" href="introduction_to_pointers.html#pointers-and-arrays"><span class="std std-ref">Pointer Arithmetic and Arrays</span></a>.</p>
 <p>There are no arrays of reference or functions, and the type may not be <code class="docutils literal notranslate"><span class="pre">void</span></code> .</p>
 <p>Advanced - an attribute may be added after the square brackets - not covered here.</p>
@@ -603,7 +603,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/arrays-exercise-3">
 
-<p class="admonition-title">Exercise  Arrays 1  </p>
+<p class="admonition-title">Exercise  Arrays  </p>
 <section id="exercise-content">
 <ul class="simple">
 <li><p>Try adding an extra element to one of the initialisers.</p></li>
@@ -617,7 +617,7 @@ document.write(`
 </div></section>
 </div><section id="accessing-array-elements">
 <h2>Accessing Array Elements<a class="headerlink" href="#accessing-array-elements" title="Permalink to this heading">#</a></h2>
-<p>The individual elements of an array are accessed using the subscript operator <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p>The individual elements of an array are accessed using the <a class="reference internal" href="glossary.html#term-Subscript-Operator"><span class="xref std std-term">subscript operator</span></a> <code class="docutils literal notranslate"><span class="pre">[]</span></code> .</p>
 <p>The element indexes run from ‘0’ to ‘(number of elements) - 1’.</p>
 <p>Access out of the range of an array is undefined and usually disastrous. Run-time range checking is neither guaranteed nor common.</p>
 <p>Comparison of two indexed elements of an array compares the values.</p>
@@ -642,23 +642,27 @@ document.write(`
 </div>
 </div>
 </div>
+<p>See the next example for the explanation.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="jupyternotebooks/arrays-code_example-5">
 
 <p class="admonition-title">Code Example: Modifying Array Elements </p>
 <section id="code_example-content">
-<p>There is no array assignment.</p>
+<p>There is no array assignment - you cannot assign a list of the correct length to an array.</p>
 <p>There is no built-in copy operation for arrays, one array cannot therefore be initialised using another array (not even of the same type).</p>
-<p>If the array is not initialised, then values can still be added one at a time using their index - which can be done in a loop to add multiple values.</p>
-<p>Try this code instead - print out the values of myArray1.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<p>If the array is not initialised, then values may only be added one at a time using their index - which can be done in a loop to add multiple values.</p>
+<p>Try this program instead - add code to print out the values of <code class="docutils literal notranslate"><span class="pre">myArray1</span></code> .</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myArray1</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
 <span class="w">    </span><span class="n">myArray1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">;</span>
-<span class="w">    </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">myArray1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">;}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+</div>
 </div>
 </section>
 </div><div class="dropdown admonition">
@@ -677,13 +681,13 @@ document.write(`
 </div>
 <div class="code_example dropdown admonition" id="jupyternotebooks/arrays-code_example-6">
 
-<p class="admonition-title">Code Example: Allocation of Arrays </p>
+<p class="admonition-title">Code Example: Allocation of Arrays - Advanced </p>
 <section id="code_example-content">
 <p>An array can be allocated statically, on the stack, and on the free store.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w">    </span><span class="c1">// 10 ints in static storage</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">myArray2</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span><span class="w">       </span><span class="c1">// 20 ints on the stack</span>
-<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span><span class="w">   </span><span class="c1">// 40 ints on the free store</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myArray2</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span><span class="w">       </span><span class="c1">// 20 ints on the stack</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span><span class="w">   </span><span class="c1">// 40 ints on the free store</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -691,11 +695,13 @@ document.write(`
 </div></section>
 <section id="array-to-pointer-decay">
 <h2>Array-to-pointer decay<a class="headerlink" href="#array-to-pointer-decay" title="Permalink to this heading">#</a></h2>
+<p>This section requires <a class="reference internal" href="glossary.html#term-Pointers"><span class="xref std std-term">pointers</span></a> - covered in Week 3.</p>
 <p>When the compiler finds an array where it is not expected, but a pointer is acceptable, there is an implicit conversion from lvalues and rvalues of array type to rvalues of pointer type - the pointer is to the first element of the array.</p>
 <p>When array-to-pointer decay is applied, a multidimensional array is converted to a pointer to its first element; array-to-pointer decay is applied only once.</p>
 </section>
 <section id="passing-arrays">
 <h2>Passing Arrays<a class="headerlink" href="#passing-arrays" title="Permalink to this heading">#</a></h2>
+<p>This section requires <a class="reference internal" href="glossary.html#term-Functions"><span class="xref std std-term">functions</span></a> - covered in week 3.</p>
 <p>Arrays cannot be <a class="reference internal" href="glossary.html#term-Passed-by-Value"><span class="xref std std-term">passed by value</span></a> i.e. they may not be used as arguments in a function call.</p>
 <p>Instead, an array is passed as a pointer to its first element.</p>
 <div class="code_example dropdown admonition" id="jupyternotebooks/arrays-code_example-7">
@@ -703,27 +709,40 @@ document.write(`
 <p class="admonition-title">Code Example: Arrays </p>
 <section id="code_example-content">
 <p>Example of passing a pointer to an array</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// array is a double*</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// parameter array is actually a pointer == double*</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
 <span class="p">}</span>
-
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">array1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">array2</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">array3</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
 <span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">array1</span><span class="p">);</span>
-<span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">array2</span><span class="p">);</span><span class="w"> </span>
-<span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">array3</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">array2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">myFunction</span><span class="p">(</span><span class="n">array3</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">array1</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">array2</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">array3</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>This code compiles and runs but contains logic errors.</p>
 <p>The call <code class="docutils literal notranslate"><span class="pre">myFunction(array2)</span></code> will write beyond the bounds of array2 and the call <code class="docutils literal notranslate"><span class="pre">myFunction(array3)</span></code> will only use the first 10 elements.</p>
-<p>It may seem like we passed array1,2,3 by value to the function, but in fact a pointer to the first element is what has been passed in.</p>
-<p>The function could equivalently have been written as</p>
+<p>It may seem like array1, array2, and array3 have been <a class="reference internal" href="glossary.html#term-Passed-by-Value"><span class="xref std std-term">passed by value</span></a> to the function, but in fact a pointer to the first element is what has been passed in.</p>
+<ul class="simple">
+<li><p>Add this code to the function - at the first line of its code-block. <code class="docutils literal notranslate"><span class="pre">&lt;typeinfo&gt;</span></code> will be required.</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">array</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is another example of the usefulness of <code class="docutils literal notranslate"><span class="pre">typeid().name()</span></code> when trying to understand the intricacies of the language.</p>
+<p>The function could equivalently have been written as:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -804,7 +823,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>3D wouuld requires 3 nested loops.</p>
+<p>3D – requires 3 nested loops.</p>
 </section>
 </div></section>
 <section id="empty-arrays-advanced">

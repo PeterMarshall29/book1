@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.f44ea2ef-d452-4c6b-b679-9e04edf186b6.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.aed06599-aef5-4919-a6e1-3503a76e9ddf.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-78c05f00-a8e8-4076-9227-7f9aa09a1768] svg, .mermaid[data-zoom-id=id-1e765663-4b05-477a-83f9-60d0f36782f2] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-358a1b16-0d0f-48eb-9d22-0d71f40273b3] svg, .mermaid[data-zoom-id=id-285bad82-9d0c-4ffe-9e64-e40d854a686d] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -561,9 +561,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statement-multiple-loop-variables">For-statement - Multiple Loop-Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-while-loops-and-functions">Comparison to While Loops and Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statements-more-on-the-syntax">For-Statements - More on the Syntax</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auto">Using <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-with-vector">Iteration with <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-over-the-elements-of-a-vector">Iteration over the Elements of a <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range-for-traversing-a-vector">Range-For: Traversing a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auto">Using <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -597,15 +597,14 @@ document.write(`
 </div>
 <p>The three statements in parentheses are the arguments of the for-statement and collectively manage its behaviour.</p>
 <p>A single statement to be executed each loop can be terminated by a semicolon i.e. no <code class="docutils literal notranslate"><span class="pre">{}</span></code> are needed.</p>
-</section>
-</div><div class="pst-scrollable-table-container"><table class="table" id="example-table-3">
+<div class="pst-scrollable-table-container"><table class="table" id="example-table-3">
 <thead>
 <tr class="row-odd"><th class="head"><p>Generic Flowchart</p></th>
 <th class="head"><p>Example Flowchart</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-78c05f00-a8e8-4076-9227-7f9aa09a1768" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-358a1b16-0d0f-48eb-9d22-0d71f40273b3" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -636,7 +635,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-1e765663-4b05-477a-83f9-60d0f36782f2" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-285bad82-9d0c-4ffe-9e64-e40d854a686d" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -678,7 +677,8 @@ document.write(`
 </tbody>
 </table>
 </div>
-<div class="code_example dropdown admonition" id="examples1">
+</section>
+</div><div class="code_example dropdown admonition" id="examples1">
 
 <p class="admonition-title">Code Example: The for-statement </p>
 <section id="code_example-content">
@@ -830,7 +830,7 @@ document.write(`
 <section id="exercise-content">
 <p>Only if you are already familiar with Visual Studio - otherwise please leave until week 4.</p>
 <p>Copy this code into Visual Studio and remove the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement - find out what happens.</p>
-<p><kbd class="kbd docutils literal notranslate">ctrl</kbd> and <kbd class="kbd docutils literal notranslate">c</kbd> simultaneously will stop execution in the terminal.</p>
+<p>Typing <kbd class="kbd docutils literal notranslate">ctrl</kbd> and <kbd class="kbd docutils literal notranslate">c</kbd> simultaneously will stop execution in the terminal.</p>
 <p>Please do not try this in the ‘Live Code’ window.</p>
 </section>
 </div></section>
@@ -915,7 +915,7 @@ First Argument - Initial Expression</div>
 <p class="sd-card-text">The initial expression/statement is often called the loop-initialiser because it usually declares a loop-variable and initialises its value.</p>
 <p class="sd-card-text">However, the initial expression can be any expression that must be executed exactly once before the iterations begin.</p>
 <p class="sd-card-text">More than one loop-variable can be initialised in the initialisation statement.</p>
-<p class="sd-card-text">If no loop-variable is required, an <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> may be used, i.e. just the <code class="docutils literal notranslate"><span class="pre">;</span></code> .</p>
+<p class="sd-card-text">If no loop-variable is required, an <a class="reference internal" href="glossary.html#term-Empty-Statement"><span class="xref std std-term">empty statement</span></a> may be used i.e. just the <code class="docutils literal notranslate"><span class="pre">;</span></code> .</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -933,7 +933,7 @@ The Loop-Variable</div>
 </pre></div>
 </div>
 <p class="sd-card-text">Variables called <code class="docutils literal notranslate"><span class="pre">i</span></code> from other namespaces, including the global namespace, may be used on the loop via the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">Scope Resolution Operator</span></a> - <code class="docutils literal notranslate"><span class="pre">::</span></code> .</p>
-<p class="sd-card-text">If the final value of the loop-variable is required after execution of the for-statement ends - the loop-variable must be declared before, and outside of, the for-statement.</p>
+<p class="sd-card-text">If the final value of the loop-variable is required after execution of the for-statement ends - the loop-variable must be declared before, and outside of, the for-statement. Its value can still be re-assigned in the initial statement, so that it always starts at the same value etc.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -943,7 +943,8 @@ Conditional Expression</div>
 <p class="sd-card-text">The for-statement condition is an expression which is evaluated at the start of each iteration – the code block is only executed if the condition evaluates to true. The condition must therefore always yield a <code class="docutils literal notranslate"><span class="pre">Bool</span></code> or be implicitly convertible to an integral type.</p>
 <p class="sd-card-text">The condition is not optional but may be an empty statement, i.e. just the second <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
 <p class="sd-card-text">An <code class="docutils literal notranslate"><span class="pre">empty</span> <span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> causing the code-block to repeat forever, unless a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement is encountered.</p>
-<p class="sd-card-text">Instead of simple conditional expression using a comparison operator, the condition may be a simple declaration e.g. declaring and initialising a new variable, or an assignment expression - provide the value assigned is not zero or null. There are some other <a class="reference internal" href="glossary.html#term-Truthy-Expressions"><span class="xref std std-term">truthy expressions</span></a> that evaluate to true or false when the context requires a Boolean i.e. when they are placed where the program expects a Boolean. Some objects unexpectedly evaluate to true e.g. <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> evaluates to true unless the operation fails - it has a good/bad state that is checkable.</p>
+<p class="sd-card-text">Instead of a conditional expression using a comparison operator, the condition may be a simple declaration e.g. declaring and initialising a new variable, or an assignment expression - provide the value assigned is not zero or null.</p>
+<p class="sd-card-text">There are some other <a class="reference internal" href="glossary.html#term-Truthy-Expressions"><span class="xref std std-term">truthy expressions</span></a> that evaluate to true or false when the context requires a Boolean i.e. when they are placed where the program expects a Boolean. Some objects unexpectedly evaluate to true e.g. <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> evaluates to true unless the operation fails - it has a good/bad state that is checkable.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -984,7 +985,7 @@ Exiting the for-loop, or Ending the Current Iteration</div>
 <p class="sd-card-text">An empty condition statement evaluates to true. Therefore, the code block repeats forever, unless there is a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.</p>
 </div>
 </div>
-<p>Full information on <a class="reference external" href="https://en.cppreference.com/w/cpp/language/for.html">for-statements</a> ca be found in the C++ reference.</p>
+<p>Full information on <a class="reference external" href="https://en.cppreference.com/w/cpp/language/for.html">for-statements</a> can be found in the C++ reference.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="examples12">
 
@@ -1007,7 +1008,7 @@ Exiting the for-loop, or Ending the Current Iteration</div>
 </div>
 </div>
 </div>
-<div class="code_explanation admonition" id="jupyternotebooks/for_loops-code_explanation-12">
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/for_loops-code_explanation-12">
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examples12"> Code Example: Unconventional Arguments </a></p>
 <section id="code_explanation-content">
@@ -1018,6 +1019,124 @@ Exiting the for-loop, or Ending the Current Iteration</div>
 </div>
 </section>
 </div></section>
+<section id="iteration-over-the-elements-of-a-vector">
+<h2>Iteration over the Elements of a <code class="docutils literal notranslate"><span class="pre">vector</span></code><a class="headerlink" href="#iteration-over-the-elements-of-a-vector" title="Permalink to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The next sections requires that you have read the chapter on <a class="reference internal" href="vector.html#vectors"><span class="std std-ref">vectors</span></a> - please return to this page later.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">std::cout</span></code> does not allow you to print out all the values of an array or a vector simply by calling their identifier. Individual elements can be printed by index.</p>
+<p>As a result, the for-statement is often used to traverse an array or vector and print the values of all their elements.</p>
+<div class="code_example dropdown admonition" id="examples8">
+
+<p class="admonition-title">Code Example: Printing a Vector </p>
+<section id="code_example-content">
+<p>This example also shows how to create a vector of 6 integer value ‘0’ elements, and how to modify one of the elements.</p>
+<p>The vector called <code class="docutils literal notranslate"><span class="pre">myVectorOfZeros(6)</span></code> demonstrates a useful way to specify the length of a vector before its values are actually assigned.</p>
+<p>The key point of the example is the for-statement.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorOfZeros</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">myVectorOfZeros</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myVectorOfZeros</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVectorOfZeros</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And for a vector of strings:</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVectorOfEmptyStrings</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myVectorOfEmptyStrings</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVectorOfEmptyStrings</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s">&quot;?&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div></section>
+<section id="range-for-traversing-a-vector">
+<span id="range-for"></span><h2>Range-For: Traversing a Vector<a class="headerlink" href="#range-for-traversing-a-vector" title="Permalink to this heading">#</a></h2>
+<p>A variant of the for-statement is the range-based for-statement or range-for loop, which is used to iterate over a range.</p>
+<p>A range is defined as anything that you can iterate through e.g. arrays or containers like std::vector that have member functions <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code>.</p>
+<p>The range-for loop repeats once for each element in an array or vector. In each iteration, the loop-variable represents the value of the next element in the array or vector.</p>
+<p>A loop-variable is again declared in the first argument to a range-for-statement, which is again local to the for-statement, and whose name cannot be re-declared or shadowed.</p>
+<p>The range of the indexes of any vector is the half-open sequence [0 : vectorName.size() ) i.e. ‘0’ is included, but the last element is <code class="docutils literal notranslate"><span class="pre">vectorName.size()-1</span></code> .</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/for_loops-syntax-14">
+
+<p class="admonition-title">Syntax Rules: range-for </p>
+<section id="syntax-content">
+<p>A variant of the for-statement is the range-based for-statement or range-for loop.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement</span><span class="p">;</span><span class="w"> </span><span class="n">item</span><span class="o">-</span><span class="n">declaration</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">range</span><span class="o">-</span><span class="n">intialiser</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="c1">// or more commonly </span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">item</span><span class="o">-</span><span class="n">declaration</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">range</span><span class="o">-</span><span class="n">intialiser</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>The init-statement was only added in C++20 and will not work in all compilers - the second version without the init-statement is the only one discussed.</p>
+<p>The item-declaration must be a simple declaration with the following restrictions:</p>
+<ul class="simple">
+<li><p>Only one declarator, which has no initialiser.</p></li>
+<li><p>The declaration specifier sequence can only contain type specifiers and <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> , and it cannot define a class or enumeration.</p></li>
+</ul>
+<p>The range-initialiser is either:</p>
+<ul class="simple">
+<li><p>An expression that evaluates to an array or vector, including just an identifier.</p></li>
+<li><p>An initialiser list, i.e. values enclosed by <code class="docutils literal notranslate"><span class="pre">{}</span></code> .</p></li>
+</ul>
+<p>More advanced: In the item declaration using <code class="docutils literal notranslate"><span class="pre">auto</span></code> and a reference, e.g. <code class="docutils literal notranslate"><span class="pre">&amp;i</span></code> is always preferable. Using a reference avoid copying, but declaration of <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> is then required to prevent modification.</p>
+</section>
+</div><div class="code_example dropdown admonition" id="examples10">
+
+<p class="admonition-title">Code Example: Range-For Loops </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">myVector</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">myVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number of iterations equals the number of elements in the vector.</p>
+<p>The loop-variable takes the value of the nth element during the nth iteration.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/for_loops-exercise-16">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Find out what happens if:</p>
+<ul class="simple">
+<li><p>The loop-variable <code class="docutils literal notranslate"><span class="pre">i</span></code> is used as the index for <code class="docutils literal notranslate"><span class="pre">myVector</span></code> .</p></li>
+<li><p>The comparison is <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">0</span></code> .</p></li>
+<li><p>Try using this range-for in the above code.</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">myVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</div></section>
+</div></section>
 <section id="using-auto">
 <h2>Using <code class="docutils literal notranslate"><span class="pre">auto</span></code><a class="headerlink" href="#using-auto" title="Permalink to this heading">#</a></h2>
 <p>The correct type to use for the loop-variable of a for-statement may not always be obvious, so using <code class="docutils literal notranslate"><span class="pre">auto</span></code> is often helpful:</p>
@@ -1025,83 +1144,35 @@ Exiting the for-loop, or Ending the Current Iteration</div>
 
 <p class="admonition-title">Code Example: Auto </p>
 <section id="code_example-content">
-<p>for (auto p = begin©; c!=end©; ++p) {
-// … use iterator p for elements in container c …
-}</p>
-</section>
-</div></section>
-<section id="iteration-with-vector">
-<h2>Iteration with <code class="docutils literal notranslate"><span class="pre">vector</span></code><a class="headerlink" href="#iteration-with-vector" title="Permalink to this heading">#</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The next sections require you to have read the chapter on <a class="reference internal" href="vector.html#vectors"><span class="std std-ref">vectors</span></a>.</p>
-</div>
-<div class="code_example dropdown admonition" id="examples8">
-
-<p class="admonition-title">Code Example: Vector </p>
-<section id="code_example-content">
-<p>TRY to create and change a vector of zeros.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vzeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
-<span class="w">  </span><span class="n">vzeros</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">vzeros</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vzeros</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
-
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<p>0</p>
-<p>0	01	52	03	04	05</p>
-</div>
-</div>
-</section>
-</div><div class="code_example dropdown admonition" id="examples9">
-
-<p class="admonition-title">Code Example: Vector 2 </p>
-<section id="code_example-content">
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vEmptyStrings</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">vEmptyStrings</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vEmptyStrings</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<p>, 0	, 1	, 2	, 3	, 4	, 5</p>
-</div>
-</div>
-</section>
-</div></section>
-<section id="range-for-traversing-a-vector">
-<span id="range-for"></span><h2>Range-For: Traversing a Vector<a class="headerlink" href="#range-for-traversing-a-vector" title="Permalink to this heading">#</a></h2>
-<p>The range for any vector is the half-open sequence [0 : vectorName.size() ) meaning 0 is included, but the last element is <code class="docutils literal notranslate"><span class="pre">vectorName.size()-1</span></code> .</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">range-for</span></code> loop uses this half-open sequence.</p>
-<div class="code_example dropdown admonition" id="examples10">
-
-<p class="admonition-title">Code Example: Range-For Loops </p>
-<section id="code_example-content">
+<p>This example also demonstrates the use of iterators to traverse a vector.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
-<span class="n">myVector</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">myVector</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Around&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;the &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rugged&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rock&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;the&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ragged&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rascal&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ran&quot;</span><span class="p">};</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">itr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">begin</span><span class="p">(</span><span class="n">myVector</span><span class="p">);</span><span class="w"> </span><span class="n">itr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">end</span><span class="p">(</span><span class="n">myVector</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">itr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">itr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">begin</span><span class="p">(</span><span class="n">myVector</span><span class="p">))</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">itr</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="o">*</span><span class="n">itr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The number of iterations equals the number of elements in the vector.
-The loop-variable takes the value of the nth element during the nth iteration.</p>
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/for_loops-code_explanation-18">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examples7"> Code Example: Auto </a></p>
+<section id="code_explanation-content">
+<p><code class="docutils literal notranslate"><span class="pre">itr</span></code> is given type <code class="docutils literal notranslate"><span class="pre">iterator</span></code> because the <code class="docutils literal notranslate"><span class="pre">begin()</span></code> returns an iterator.</p>
+<p><a class="reference internal" href="glossary.html#term-Iterators"><span class="xref std std-term">Iterators</span></a> are similar to pointers - covered in week 3. Adding ‘1’ to an iterator causes it to refer to the next element of the vector.</p>
+<p><code class="docutils literal notranslate"><span class="pre">*itr</span></code> gives the value of the element that <code class="docutils literal notranslate"><span class="pre">itr</span></code> references.</p>
+</section>
+</div>
 </section>
 </div></section>
 </section>
@@ -1174,9 +1245,9 @@ The loop-variable takes the value of the nth element during the nth iteration.</
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statement-multiple-loop-variables">For-statement - Multiple Loop-Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-while-loops-and-functions">Comparison to While Loops and Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statements-more-on-the-syntax">For-Statements - More on the Syntax</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auto">Using <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-with-vector">Iteration with <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration-over-the-elements-of-a-vector">Iteration over the Elements of a <code class="docutils literal notranslate"><span class="pre">vector</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range-for-traversing-a-vector">Range-For: Traversing a Vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-auto">Using <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
 </ul>
   </nav></div>
 

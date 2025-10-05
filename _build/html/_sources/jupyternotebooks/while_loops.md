@@ -18,9 +18,7 @@ kernelspec:
 ```
 A `while` statement will repeatedly execute a sequence of code statements until a condition becomes false.
 
-For the while-statement, the condition is checked before each execution. 
-
-C++ also has a `do-while` statement, which only differs by not checking the condition until after execution of the loop body - guaranteeing the first execution occurs, even if the condition is false.
+The conditional expression in the while-statement is evaluated before each execution - alternatively the `do-while` statement guarantees the code-block is executed at least once by not checking the condition until after the first execution.
 
 It is generally considered better to use for-statements in preference to while-statements, mainly because control of the loop is separated from the code-block, they have a useful loop-variable and chance accidentally programming an infinite loop is smaller.  
 
@@ -34,10 +32,24 @@ Iteration Methods
 `````
 Syntax of While Loop.
 ````{code-block} c++
-while (conditional expression) {
-  code to be repeatedly executed here...
+while (conditional-expression) {
+  ...code to be repeatedly executed here...
 }
 ````
+```{list-table}
+:header-rows: 1
+:name: example_table_4
+* - Generic While Loop
+  - Example While Loop
+* - ```{figure} ../images/WhileLoopExample.svg
+    :name: my-fig-ref-t2
+    Iteration Methods
+    ```
+  - ```{figure} ../images/WhileLoopGeneral.svg
+    :name: my-fig-ref-t3
+    Iteration Methods
+    ```
+```
 ```{Warning}
 Programmers must ensure there is a logical way for the program to exit every while loop.
 ```
@@ -45,20 +57,7 @@ Programmers must ensure there is a logical way for the program to exit every whi
 `````
 
 
-```{list-table}
-:header-rows: 1
-:name: example_table_4
-* - Generic While Loop
-  - Example While Loop
-* - ```{figure} ../images/WhileLoopGeneral.svg
-    :name: my-fig-ref-t2
-    Iteration Methods
-    ```
-  - ```{figure} ../images/WhileLoopExample.svg
-    :name: my-fig-ref-t3
-    Iteration Methods
-    ```
-```
+
 `````{code_example-start} While Statements
 :class: dropdown
 :nonumber:
@@ -102,7 +101,7 @@ In this case, the loop condition is the receipt of a valid input.
 - Try changing the code by making the variables int's. 
 - What happens if you type letters?
 ```
-Remember that the conditional expressions must be in parens in C++ - as shown here for both `while` and `if`.
+Remember that the conditional expressions must be in parens in C++.
 `````{code_example-end} 
 `````
 
@@ -110,7 +109,7 @@ Remember that the conditional expressions must be in parens in C++ - as shown he
 
 If the condition of an iteration statement is forgotten the loop will run until the program crashes - this can tie up a computer for a very long time.
 
-Use {kbd}`Crtl+Z`, {kbd}`Crtl+C` to end a loop. {kbd}`Ctrl+D` in Linux.
+Use {kbd}`Crtl+Z` or {kbd}`Crtl+C` to end a loop. {kbd}`Ctrl+D` in Linux.
 
 The iteration condition may also be intentionally omitted, but an alternative method to end the loop is required.
 
@@ -150,7 +149,7 @@ int main() {
 `````
 ### Continue
 
-`continue` cause the program to skip directly to the next iteration jumping over any remaining code statements in the current loop.
+`continue` causes the program to skip directly to the next iteration jumping over any remaining code statements in the current loop.
 
 `````{code_example-start} Continue
 :class: dropdown

@@ -157,19 +157,19 @@ Line 5: `true` + `true` = `2`, conversion to integers before addition, then '>0'
 
 Line 6: If either or both are true, the logical `or`, `||`, evaluates to `true`.
 
-Line 7: Arithmetic evaluation to integer '0', converted to `false`.
+Line 7: Arithmetic evaluation to integer '0', converted to `false` .
 
 `````{code_example-end}
 `````
 
-Booleans values can also be printed as words using `std::boolalpha`
+Booleans values can also be printed as words using `std::boolalpha` .
 
 `````{code_example-start} Formatting Output using boolalpha
 :label: examplel7
 :class: dropdown
 :nonumber:
 `````
-Outputing 'true' and 'false' instead of '1' and '0'.
+Outputing `true` and `false` instead of `1` and `0` .
 ````{code-cell} c++
 :tags: [remove-output,skip-execution]
 #include <iostream>

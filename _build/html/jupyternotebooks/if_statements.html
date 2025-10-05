@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.978eb8b5-1f44-4506-a328-537330db854c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.ff223e69-b3c9-4103-b6fe-f9f51dd2100a.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/if_statements';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -542,9 +542,9 @@ document.write(`
 <p class="attribution">—Yogi Berra</p>
 </div></blockquote>
 </div>
-<p>The if-statement is used to select between two alternatives - changing what the program does when it runs.</p>
+<p>The if-statement is used to select between two alternatives - changing what the program does each time it runs depending on the choice made at each if-statement.</p>
 <p>At its simplest, an if-statement causes another statement or a code-block to be executed if a condition is true and does nothing if the condition is false.</p>
-<p>The condition may depend on a choice made by the user of the program, or on a value recorded by a sensor etc.</p>
+<p>The if-statement condition may depend on a choice made by the user of the program, or on a value recorded by a sensor etc.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/if_statements-syntax-0">
 
 <p class="admonition-title">Syntax Rules: if-statement Basics </p>
@@ -595,8 +595,8 @@ document.write(`
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">answer==42</span></code> is the condition - which MUST be put in parentheses.</p>
-<p>When the thread of control reaches if statement, the condition is evaluated - if the condition evaluates to the Boolean value <code class="docutils literal notranslate"><span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the following code block is executed.</p>
-<p>The compiler should not allow you to have a condition that will not evaluate to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<p>When the thread of control reaches the if-statement, the condition is evaluated - if the condition evaluates to the Boolean value <code class="docutils literal notranslate"><span class="pre">1</span></code> , or <code class="docutils literal notranslate"><span class="pre">true</span></code> , then the code-block is executed.</p>
+<p>The compiler should not allow you to have a condition that will not evaluate to a <code class="docutils literal notranslate"><span class="pre">bool</span></code> .</p>
 <p>In this example, the code-block contains only a single statement and the <code class="docutils literal notranslate"><span class="pre">{}</span></code> are not required, as shown here:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;42&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;You are truly wise!&quot;</span><span class="p">;</span>
 </pre></div>
@@ -607,7 +607,7 @@ document.write(`
 </div><div class="dropdown admonition">
 <p class="admonition-title">if-Statements in Other Languages</p>
 <p>If statements are found in most programming languages.</p>
-<p>Some languages have a separate ‘elseif’ statement - C++ uses nested <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements.</p>
+<p>Some languages have a separate <code class="docutils literal notranslate"><span class="pre">elseif</span></code> statement - C++ uses nested <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements instead.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">C++</label><div class="tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -705,8 +705,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>if-statement are often paired with an else-statements, which are usually referred to as the else-branch of the if-statement.</p>
-<p><code class="docutils literal notranslate"><span class="pre">else</span></code> provides a alternative statement, or code-block, that will only be executed if the condition is false.</p>
+<p>if-statements are often paired with else-statements, which are usually referred to as the else-branch of the if-statement.</p>
+<p><code class="docutils literal notranslate"><span class="pre">else</span></code> provides an alternative statement, or code-block, that will only be executed if the condition is false.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/if_statements-syntax-3">
 
 <p class="admonition-title">Syntax Rules: if-statement Basics </p>
@@ -743,7 +743,7 @@ document.write(`
 </div>
 </div>
 <ul class="simple">
-<li><p>Try swapping the condition to ‘false’, and then to ‘1’ and ‘0’.</p></li>
+<li><p>Try swapping the condition to <code class="docutils literal notranslate"><span class="pre">false</span></code> , and then to <code class="docutils literal notranslate"><span class="pre">1</span></code> and to <code class="docutils literal notranslate"><span class="pre">0</span></code> .</p></li>
 </ul>
 <p>Try the next code:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -774,20 +774,16 @@ document.write(`
 <li><p>Try entering a pair of identical values.</p></li>
 </ul>
 <p>Clearly this is not what we want - there are three possible outcomes, so we need more than two options from the selection statement.</p>
-<p>The solution is to use nested if-else statements (an if-else ladder) (next section) - or to use a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement instead (next chapter).</p>
+<p>The solution is to use nested <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements (an if-else ladder) (next section) - or to use a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement instead (next chapter).</p>
 <ul class="simple">
 <li><p>Try entering two numbers where one is a floating-point number - try putting the float both first and second - what is the difference?</p></li>
 </ul>
 <p>The first <code class="docutils literal notranslate"><span class="pre">int</span></code> takes the number before the decimal point, but then the non-integer character causes an issue for the second variable.</p>
-<p>Try adding a line with <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'</span> <span class="pre">')</span></code> or <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'</span> <span class="pre">')</span></code> to resolve this issue, these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes one character to be discarded.</p>
+<p>Try adding a line with <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'</span> <span class="pre">')</span></code> or <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'</span> <span class="pre">')</span></code> to resolve this issue - these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes only a single character to be discarded.</p>
 </section>
 </div>
 </section>
-</div><div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Every possible way to exit a selection, iteration, or function must have either a return or an error attached to it.</p>
-</div>
-<p>if-else statements can be nested creating an if-else-if ladder.</p>
+</div><p><code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements can be nested creating an <code class="docutils literal notranslate"><span class="pre">if-else-if</span></code> ladder.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/if_statements-syntax-6">
 
 <p class="admonition-title">Syntax Rules: if-else-if Ladder </p>
@@ -809,7 +805,7 @@ document.write(`
 
 <p class="admonition-title">Code Example: if-else-if Ladder </p>
 <section id="code_example-content">
-<p>Try this code…</p>
+<p>Try this code… a couple of corrections are required - see the error message for details.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -855,12 +851,13 @@ document.write(`
 </div><section id="compound-conditions">
 <h2>Compound Conditions<a class="headerlink" href="#compound-conditions" title="Permalink to this heading">#</a></h2>
 <p>Compound conditions are constructed using Boolean operators to combine the Boolean result of multiple expression using comparison operations.</p>
-<p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> is the logical <code class="docutils literal notranslate"><span class="pre">and</span></code> and evaluates true when both/all the expressions are true.</p>
-<p><code class="docutils literal notranslate"><span class="pre">||</span></code> is the logical <code class="docutils literal notranslate"><span class="pre">or</span></code> and evaluates true if either/any of the expression are true.</p>
-<p><code class="docutils literal notranslate"><span class="pre">!</span></code> is the logical <code class="docutils literal notranslate"><span class="pre">not</span></code></p>
-<p>Alternatively: <code class="docutils literal notranslate"><span class="pre">and</span></code> can be used for <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> can be used for <code class="docutils literal notranslate"><span class="pre">||</span></code>, and <code class="docutils literal notranslate"><span class="pre">not</span></code> can used for <code class="docutils literal notranslate"><span class="pre">!</span></code>.</p>
-<p>More complicated conditions can be created by combining these operators.</p>
-<p>NOTE: <code class="docutils literal notranslate"><span class="pre">||</span></code> is the ‘inclusive or’. The ‘exclusive or’ would only be true if one, and only one, of the expressions are true. This can be achieved using a compound condition of the form <code class="docutils literal notranslate"><span class="pre">((a</span> <span class="pre">||</span> <span class="pre">b)</span> <span class="pre">&amp;&amp;</span> <span class="pre">!(a</span> <span class="pre">&amp;&amp;</span> <span class="pre">b))</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> is the logical <code class="docutils literal notranslate"><span class="pre">and</span></code> and evaluates <code class="docutils literal notranslate"><span class="pre">true</span></code> when <strong>all</strong> the expressions are <code class="docutils literal notranslate"><span class="pre">true</span></code> .</p>
+<p><code class="docutils literal notranslate"><span class="pre">||</span></code> is the logical <code class="docutils literal notranslate"><span class="pre">or</span></code> and evaluates <code class="docutils literal notranslate"><span class="pre">true</span></code> if <strong>any</strong> of the expressions are <code class="docutils literal notranslate"><span class="pre">true</span></code> .</p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> are infix operators and <code class="docutils literal notranslate"><span class="pre">!</span></code> is a prefix operator.</p>
+<p><code class="docutils literal notranslate"><span class="pre">!</span></code> is the logical <code class="docutils literal notranslate"><span class="pre">not</span></code> which changes the evaluation of any Boolean expression from <code class="docutils literal notranslate"><span class="pre">true</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> and vice versa.</p>
+<p>Alternatively: <code class="docutils literal notranslate"><span class="pre">and</span></code> can be used for <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> , <code class="docutils literal notranslate"><span class="pre">or</span></code> can be used for <code class="docutils literal notranslate"><span class="pre">||</span></code> , and <code class="docutils literal notranslate"><span class="pre">not</span></code> can used for <code class="docutils literal notranslate"><span class="pre">!</span></code> .</p>
+<p>More complicated conditions can be created by chaining these operators - parentheses may be required to get the desired result.</p>
+<p>NOTE: <code class="docutils literal notranslate"><span class="pre">||</span></code> is the ‘inclusive or’. The ‘exclusive or’ would only be true if one, and only one, of the expressions are true. This can be achieved using a compound condition of the form <code class="docutils literal notranslate"><span class="pre">((a</span> <span class="pre">||</span> <span class="pre">b)</span> <span class="pre">&amp;&amp;</span> <span class="pre">!(a</span> <span class="pre">&amp;&amp;</span> <span class="pre">b))</span></code> .</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/if_statements-syntax-10">
 
 <p class="admonition-title">Syntax Rules: Compound Conditions </p>
@@ -875,6 +872,9 @@ document.write(`
 </pre></div>
 </div>
 <p>Further combinations can be created by applying the logical <code class="docutils literal notranslate"><span class="pre">not</span></code> to any of these expressions.</p>
+<p>The operators are evaluated based on precedence:</p>
+<p><code class="docutils literal notranslate"><span class="pre">!</span></code> has the highest precedence, then <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> has higher precedence than <code class="docutils literal notranslate"><span class="pre">||</span></code> .</p>
+<p>Parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> can be used to explicitly define the order of evaluation.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="jupyternotebooks/if_statements-code_example-11">
 
@@ -897,14 +897,14 @@ document.write(`
 </div>
 </div>
 <ul class="simple">
-<li><p>Try replacing <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> with <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p>Try replacing <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> with <code class="docutils literal notranslate"><span class="pre">and</span></code> .</p></li>
 <li><p>Create a new program to demonstrate the use of <code class="docutils literal notranslate"><span class="pre">||</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, and a combination of <code class="docutils literal notranslate"><span class="pre">or</span></code> with <code class="docutils literal notranslate"><span class="pre">and</span></code> - test the code properly.</p></li>
 </ul>
 </section>
 </div></section>
 <section id="options-for-the-if-condition">
 <h2>Options for the If-Condition<a class="headerlink" href="#options-for-the-if-condition" title="Permalink to this heading">#</a></h2>
-<p>The condition can be an expression or a declaration - the only requirement being that they evaluate to boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>The condition can be an expression or a declaration - the only requirement being that they evaluate to Boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> .</p>
 <p>If-statements can be used as a test of the validity of a value.</p>
 <div class="code_example dropdown admonition" id="jupyternotebooks/if_statements-code_example-12">
 
@@ -934,21 +934,21 @@ document.write(`
 <section id="exercise-content">
 <p>Find out what happens if:</p>
 <ul class="simple">
-<li><p>The value of <code class="docutils literal notranslate"><span class="pre">myInt</span></code> is changed to 0, then to a negative number.</p></li>
+<li><p>The value of <code class="docutils literal notranslate"><span class="pre">myInt</span></code> is changed to <code class="docutils literal notranslate"><span class="pre">0</span></code>, then to a negative number.</p></li>
 <li><p>Would this work with a <code class="docutils literal notranslate"><span class="pre">double</span></code> ?</p></li>
 <li><p>Replace the integer with a <code class="docutils literal notranslate"><span class="pre">string</span></code>, then with a <code class="docutils literal notranslate"><span class="pre">char</span></code>, does this work?</p></li>
-<li><p>Replace the integer with a pointer (Pointers covered in week 3).</p></li>
+<li><p>Replace the integer with a pointer (pointers are covered in week 3).</p></li>
 </ul>
 <div class="solution dropdown admonition" id="jupyternotebooks/if_statements-solution-14">
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseq1"> Exercise  if-statement conditions  </a></p>
 <section id="solution-content">
 <ul class="simple">
-<li><p>All non-zero integers are converted to <code class="docutils literal notranslate"><span class="pre">true</span></code> ; only 0 is converted to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> type should not be allowed by the compiler - they cannot be convert to a Boolean. <code class="docutils literal notranslate"><span class="pre">Char</span></code> converts to <code class="docutils literal notranslate"><span class="pre">int</span></code> ,  which converts to <code class="docutils literal notranslate"><span class="pre">Bool</span></code> , however ‘0’ does not convert to the integer zero!</p></li>
-<li><p>A pointer to <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">false</span></code> , an pointer to a valid object is converted to <code class="docutils literal notranslate"><span class="pre">true</span></code> .</p></li>
+<li><p>All non-zero integers are converted to <code class="docutils literal notranslate"><span class="pre">true</span></code> ; only <code class="docutils literal notranslate"><span class="pre">0</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">false</span></code> .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> type should not be allowed by the compiler - they cannot be converted to a Boolean. <code class="docutils literal notranslate"><span class="pre">Char</span></code> converts to <code class="docutils literal notranslate"><span class="pre">int</span></code> ,  which converts to <code class="docutils literal notranslate"><span class="pre">Bool</span></code> , however <code class="docutils literal notranslate"><span class="pre">0</span></code> does not convert to the integer zero!</p></li>
+<li><p>A pointer to <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">false</span></code> , a pointer to a valid object is converted to <code class="docutils literal notranslate"><span class="pre">true</span></code> .</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPtrToMyInt)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPtrToMyInt</span> <span class="pre">!=</span> <span class="pre">nullptr)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPtrToMyInt)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPtrToMyInt</span> <span class="pre">!=</span> <span class="pre">nullptr)</span></code> .</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToMyInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myInt</span><span class="p">;</span><span class="w">  </span><span class="c1">//replace with, = nullptr;</span>
@@ -963,7 +963,7 @@ document.write(`
 </div>
 </section>
 </div>
-<p>The condition can also contain a declaration; useful for restricting the scope of a variable. Variables declared in condition are accessible to all the branches of the ladder. Only a single variable can be declared and initialised in a condition.</p>
+<p>The condition can also contain a declaration; useful for restricting the scope of a variable. Variables declared in conditions are accessible to all the branches of the ladder. Only a single variable can be declared and initialised in a condition.</p>
 </section>
 </div></section>
 </div></section>
