@@ -30,8 +30,7 @@ for ( initial_expression ; conditional_expression ; end_of_iteration_expression 
 The three statements in parentheses are the arguments of the for-statement and collectively manage its behaviour.  
 
 A single statement to be executed each loop can be terminated by a semicolon i.e. no `{}` are needed.
-`````{syntax-end}
-`````
+
 
 ```{list-table}
 :header-rows: 1
@@ -112,7 +111,8 @@ A single statement to be executed each loop can be terminated by a semicolon i.e
       linkStyle 8 stroke:#AA00FF
     ```
 ```
-
+`````{syntax-end}
+`````
 ``````{code_example-start} The for-statement
 :label: examples1
 :class: dropdown
@@ -239,7 +239,7 @@ The for-statement parentheses may not be empty - the compiler will not permit it
 
 The minimum argument to a for-statement is `(;;)` .
 
-`for(;;){}` is one way to specify an infinite loop; sometimes called a ‘for-ever statement’..
+`for(;;){}` is one way to specify an infinite loop; sometimes called a ‘for-ever statement’…
 
 ````{code_example-start} Forever
 :label: examples3
@@ -264,7 +264,7 @@ Only if you are already familiar with Visual Studio - otherwise please leave unt
 
 Copy this code into Visual Studio and remove the `break` statement - find out what happens. 
 
-{kbd}`ctrl` and {kbd}`c` simultaneously will stop execution in the terminal.
+Typing {kbd}`ctrl` and {kbd}`c` simultaneously will stop execution in the terminal.
 
 Please do not try this in the 'Live Code' window.
 ```
@@ -348,7 +348,7 @@ However, the initial expression can be any expression that must be executed exac
 
 More than one loop-variable can be initialised in the initialisation statement. 
 
-If no loop-variable is required, an {term}`empty statement` may be used, i.e. just the `;` .
+If no loop-variable is required, an {term}`empty statement` may be used i.e. just the `;` .
 ````
 ````{card} The Loop-Variable
 Loop-variables are often used to control the number of iterations and are therefore also called the loop-counter and other similar names.
@@ -366,7 +366,7 @@ int main() {
 ```
 Variables called `i` from other namespaces, including the global namespace, may be used on the loop via the {term}`Scope Resolution Operator` - `::` .
 
-If the final value of the loop-variable is required after execution of the for-statement ends - the loop-variable must be declared before, and outside of, the for-statement.
+If the final value of the loop-variable is required after execution of the for-statement ends - the loop-variable must be declared before, and outside of, the for-statement. Its value can still be re-assigned in the initial statement, so that it always starts at the same value etc.
 
 ````
 ````{card} Conditional Expression
@@ -376,7 +376,9 @@ The condition is not optional but may be an empty statement, i.e. just the secon
 
 An `empty condition` evaluates to `true` causing the code-block to repeat forever, unless a `break` statement is encountered.
 
-Instead of simple conditional expression using a comparison operator, the condition may be a simple declaration e.g. declaring and initialising a new variable, or an assignment expression - provide the value assigned is not zero or null. There are some other {term}`truthy expressions` that evaluate to true or false when the context requires a Boolean i.e. when they are placed where the program expects a Boolean. Some objects unexpectedly evaluate to true e.g. `std::cout` evaluates to true unless the operation fails - it has a good/bad state that is checkable.
+Instead of a conditional expression using a comparison operator, the condition may be a simple declaration e.g. declaring and initialising a new variable, or an assignment expression - provide the value assigned is not zero or null. 
+
+There are some other {term}`truthy expressions` that evaluate to true or false when the context requires a Boolean i.e. when they are placed where the program expects a Boolean. Some objects unexpectedly evaluate to true e.g. `std::cout` evaluates to true unless the operation fails - it has a good/bad state that is checkable.
 
 ````
 ````{card} Final Expression
@@ -408,7 +410,7 @@ Both `break` and `continue` would normally be found inside a selection statement
 
 An empty condition statement evaluates to true. Therefore, the code block repeats forever, unless there is a `break` statement.
 ````
-Full information on [for-statements](https://en.cppreference.com/w/cpp/language/for.html) ca be found in the C++ reference.
+Full information on [for-statements](https://en.cppreference.com/w/cpp/language/for.html) can be found in the C++ reference.
 ``````{syntax-end}
 ``````
 
@@ -432,6 +434,7 @@ int main() {
 }
 ````
 ````{code_explanation} examples12
+:class: dropdown
 In this example, the first argument only outputs "begin loop".
 
 Since std::cout returns a reference to the output stream, which evaluates to true, the loop continues unless explicitly terminated i.e. by `break` .
@@ -441,54 +444,47 @@ The final statement includes an increment expression inside an output steam stat
 `````{code_example-end}
 `````
 
-## Using `auto`
 
-The correct type to use for the loop-variable of a for-statement may not always be obvious, so using `auto` is often helpful:
-
-````{code_example} Auto
-:label: examples7
-:class: dropdown
-:nonumber:
-
-for (auto p = begin(c); c!=end(c); ++p) {
-// ... use iterator p for elements in container c ...
-}
-````
-## Iteration with `vector`
+## Iteration over the Elements of a `vector`
 ```{warning}
-The next sections require you to have read the chapter on [vectors](vectors).
+The next sections requires that you have read the chapter on [vectors](vectors) - please return to this page later.
 ```
-````{code_example-start} Vector
+`std::cout` does not allow you to print out all the values of an array or a vector simply by calling their identifier. Individual elements can be printed by index.
+
+As a result, the for-statement is often used to traverse an array or vector and print the values of all their elements.
+
+````{code_example-start} Printing a Vector
 :label: examples8
 :class: dropdown
 :nonumber:
 ````
-TRY to create and change a vector of zeros.
+This example also shows how to create a vector of 6 integer value '0' elements, and how to modify one of the elements.
+
+The vector called `myVectorOfZeros(6)` demonstrates a useful way to specify the length of a vector before its values are actually assigned.
+
+The key point of the example is the for-statement.
 ```{code-cell} c++
+:tags: [remove-output, skip-execution]
 #include <iostream>
 #include <vector>
 int main() {
-  std::vector<int> vzeros(6) ;
-  std::vector<int> v = { 1,2,3,4,5 };
-  vzeros[2] = 5;
-    for (int i = 0; i < vzeros.size(); ++i) std::cout << vzeros[i] << i <<"\t";
-
+    std::vector<int> myVectorOfZeros(6);
+    std::vector<int> myVector = { 1, 2, 3, 4, 5, 6 };
+    myVectorOfZeros[2] = 5;
+    for (int i = 0; i < myVectorOfZeros.size(); ++i) std::cout << i << '\t' << myVectorOfZeros[i] << '\t' << myVector[i] << '\n';
+    return 0;
 }
 ```
-````{code_example-end}
-````
-````{code_example-start} Vector 2
-:label: examples9
-:class: dropdown
-:nonumber:
-````
+And for a vector of strings:
+
 ```{code-cell} c++
+:tags: [remove-output, skip-execution]
 #include <iostream>
 #include <vector>
-
 int main() {
-  std::vector<std::string> vEmptyStrings(6);
-    for (int i = 0; i < vEmptyStrings.capacity(); ++i) std::cout << vEmptyStrings[i]<<", " << i << "\t";
+    std::vector<std::string> myVectorOfEmptyStrings(6);
+    for (int i = 0; i < myVectorOfEmptyStrings.capacity(); ++i) std::cout << i << '\t' << myVectorOfEmptyStrings[i]+"?" << '\n';
+    return 0;
 }
 ```
 ````{code_example-end}
@@ -496,22 +492,116 @@ int main() {
 (range-for)=
 ## Range-For: Traversing a Vector
 
-The range for any vector is the half-open sequence [0 : vectorName.size() ) meaning 0 is included, but the last element is `vectorName.size()-1` .
+A variant of the for-statement is the range-based for-statement or range-for loop, which is used to iterate over a range.
 
-A `range-for` loop uses this half-open sequence.
-````{code_example-start} Range-For Loops
+A range is defined as anything that you can iterate through e.g. arrays or containers like std::vector that have member functions `begin()` and `end()`. 
+
+The range-for loop repeats once for each element in an array or vector. In each iteration, the loop-variable represents the value of the next element in the array or vector.
+
+A loop-variable is again declared in the first argument to a range-for-statement, which is again local to the for-statement, and whose name cannot be re-declared or shadowed. 
+
+The range of the indexes of any vector is the half-open sequence [0 : vectorName.size() ) i.e. '0' is included, but the last element is `vectorName.size()-1` .
+
+`````{syntax-start} range-for
+:class: dropdown
+:nonumber:
+`````
+A variant of the for-statement is the range-based for-statement or range-for loop.
+````{code-block} c++
+for (init-statement; item-declaration  : range-intialiser) {}
+// or more commonly 
+for ( item-declaration  : range-intialiser) {}
+
+````
+The init-statement was only added in C++20 and will not work in all compilers - the second version without the init-statement is the only one discussed.
+
+The item-declaration must be a simple declaration with the following restrictions:
+- Only one declarator, which has no initialiser.
+- The declaration specifier sequence can only contain type specifiers and `constexpr` , and it cannot define a class or enumeration.
+
+The range-initialiser is either:
+- An expression that evaluates to an array or vector, including just an identifier.
+- An initialiser list, i.e. values enclosed by `{}` .
+
+More advanced: In the item declaration using `auto` and a reference, e.g. `&i` is always preferable. Using a reference avoid copying, but declaration of `constexpr` is then required to prevent modification.
+
+`````{syntax-end}
+`````
+
+`````{code_example-start} Range-For Loops
 :label: examples10
 :class: dropdown
 :nonumber:
-````
-```{code-cell} c++
+`````
+````{code-cell} c++
 :tags: [remove-output, skip-execution]
-std::vector<int> myVector = { 1, 2, 3, 4, 5 };
-myVector[2] = 5;
-for (int i : myVector) std::cout << i << "\n";
-```
+#include <iostream>
+#include <vector>
+int main() {
+    std::vector<int> myVector = { 10, 20, 30, 40, 50 };
+    myVector[2] = 5;
+    for (int i : myVector) {
+        if (i == 10) std::cout << typeid(i).name() << '\n';
+        std::cout << i << '\n';
+    }
+    return 0;
+}
+````
 The number of iterations equals the number of elements in the vector. 
+
 The loop-variable takes the value of the nth element during the nth iteration.
-````{code_example-end}
+
+````{exercise}
+:class: dropdown
+:nonumber:
+Find out what happens if:
+- The loop-variable `i` is used as the index for `myVector` .
+- The comparison is `i == 0` .
+- Try using this range-for in the above code.
+```{code-block} c++
+    for (auto &i : myVector) {
+        if (i == 10) std::cout << typeid(i).name() << '\n';
+        std::cout << i << '\n';
+    }
+```
 ````
 
+`````{code_example-end}
+`````
+
+## Using `auto`
+
+The correct type to use for the loop-variable of a for-statement may not always be obvious, so using `auto` is often helpful:
+
+````{code_example-start} Auto
+:label: examples7
+:class: dropdown
+:nonumber:
+`````
+This example also demonstrates the use of iterators to traverse a vector.
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+#include <typeinfo>
+#include <vector>
+#include <string>
+int main() {
+    std::vector<std::string> myVector = {"Around", "the ", "rugged", "rock", "the", "ragged", "rascal", "ran"};
+    for (auto itr = begin(myVector); itr != end(myVector); ++itr) {
+        if (itr == begin(myVector)) std::cout << typeid(itr).name() << '\n';
+        std::cout <<  *itr << '\n';
+    }
+    
+    return 0;
+}
+````
+````{code_explanation} examples7
+:class: dropdown
+`itr` is given type `iterator` because the `begin()` returns an iterator.
+
+{term}`Iterators` are similar to pointers - covered in week 3. Adding '1' to an iterator causes it to refer to the next element of the vector.
+
+`*itr` gives the value of the element that `itr` references.
+````
+````{code_example-end}
+`````

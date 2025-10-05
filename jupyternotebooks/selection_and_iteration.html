@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.02427afc-c655-40af-b547-d91eba17f620.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\selection_and_iteration.3ae1d4eb-ba12-4687-a4c5-8df348eb85a6.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/selection_and_iteration';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -564,19 +564,18 @@ document.write(`
 </ul>
 <section id="selection">
 <span id="id1"></span><h2>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">#</a></h2>
-<p>Selection statements conditionally change the control flow.</p>
-<p>A decision is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.</p>
+<p>Selection statements conditionally change the control flow - a decision is made to follow one of two possible flows, depending on whether a condition is found to be true or false at the time of checking.</p>
 <p>In C++ the selections statements are the <a class="reference internal" href="if_statements.html#if"><span class="std std-ref">if</span></a>-statement and the <a class="reference internal" href="switch_statements.html#switch"><span class="std std-ref">switch</span></a>-statement.</p>
 </section>
 <section id="iteration">
 <span id="id2"></span><h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this heading">#</a></h2>
 <p>Computer programmes often do the same thing over and over - iteration statements are used to instruct the computer to repeatedly execute the same statements a finite number of times, or until a testable condition changes.</p>
-<p>Iterations statements in C++ are the <a class="reference internal" href="for_loops.html#for"><span class="std std-ref">for</span></a>-statement, the <a class="reference internal" href="while_loops.html#while"><span class="std std-ref">while</span></a>-statement, the do-while-statement, and the range-for statement.</p>
+<p>Iteration statements in C++ are the <a class="reference internal" href="for_loops.html#for"><span class="std std-ref">for</span></a>-statement, the <a class="reference internal" href="while_loops.html#while"><span class="std std-ref">while</span></a>-statement, the do-while-statement, and the range-for statement.</p>
 <p>For-statements repeat a code-block a finite number of times in most programming languages. In C++ the for-statement has additional flexibility and is preferred over the other options.</p>
 <p>Range-for statements repeat the code-block once for each element in an array - a simpler version of the for-statement.</p>
 <p>While-statements repeat the code-block until a testable condition changes.</p>
 <p>Do-while-statements differ from while-statements by always executing the code-block once before testing the iteration condition for the first time.</p>
-<p>The first program ever to run on a stored-program computer (the EDSAC), included iteration. Written and David Wheeler and run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares.</p>
+<p>The first program ever to run on a stored-program computer (the EDSAC), included iteration. Written by David Wheeler and run in the computer laboratory at Cambridge University, England, on May 6, 1949, to calculate and print a simple list of squares.</p>
 <div class="code_example dropdown admonition" id="examplep1">
 
 <p class="admonition-title">Code Example: Iteration Example </p>
@@ -617,9 +616,9 @@ document.write(`
 <p>Selection and iteration are controlled by evaluation of a Boolean (logical) condition. The condition must evaluate to either true or false.</p>
 <p>There are several ways to create a condition for the selection and iteration statements:</p>
 <ul class="simple">
-<li><p>The condition can be set manually be inserting a Boolean literal - <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>, or <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
-<li><p>Any expression that contains a comparison operator is evaluated to <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
-<li><p>Wherever the program expects a condition (i.e. in parentheses next to the keywords <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, etc.) the compiler will try to convert what it finds to a Boolean.</p></li>
+<li><p>The condition can be set manually be inserting a Boolean literal - <code class="docutils literal notranslate"><span class="pre">0</span></code> , <code class="docutils literal notranslate"><span class="pre">1</span></code> , <code class="docutils literal notranslate"><span class="pre">false</span></code> , or <code class="docutils literal notranslate"><span class="pre">true</span></code> .</p></li>
+<li><p>Any expression that contains a comparison operator is evaluated to <code class="docutils literal notranslate"><span class="pre">bool</span></code> .</p></li>
+<li><p>Wherever the program expects a condition (i.e. in parentheses next to the keywords <code class="docutils literal notranslate"><span class="pre">if</span></code> , <code class="docutils literal notranslate"><span class="pre">while</span></code> , etc.) the compiler will try to convert what it finds to a Boolean.</p></li>
 </ul>
 <div class="code_example dropdown admonition" id="jupyternotebooks/selection_and_iteration-code_example-2">
 
@@ -639,12 +638,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The 1’s and 0’s represent Boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>The 1’s and 0’s represent Boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> .</p>
 <div class="exercise dropdown admonition" id="exercisep1">
 
 <p class="admonition-title">Exercise</p>
 <section id="exercise-content">
-<p>Use the typeinfo library to confirm the comparison expressions are evaluated to <code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">&lt;typeinfo&gt;</span></code> library to confirm the comparison expressions are evaluated to <code class="docutils literal notranslate"><span class="pre">bool</span></code> …</p>
 <div class="solution dropdown admonition" id="jupyternotebooks/selection_and_iteration-solution-4">
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exercisep1"> Exercise</a></p>
@@ -661,16 +660,16 @@ document.write(`
 </div></section>
 <section id="jump-statement">
 <h2>Jump Statement<a class="headerlink" href="#jump-statement" title="Permalink to this heading">#</a></h2>
-<p>Jump Statements unconditionally transfers control to another part of the program.</p>
-<p>The available Jump Statements in C++ are.</p>
+<p>Jump-statements unconditionally transfer control to another part of the program.</p>
+<p>The available jump-statements in C++ are:</p>
 <ul class="simple">
-<li><p>Break statement</p></li>
-<li><p>Continue statement</p></li>
-<li><p>Return statement with an optional expression</p></li>
-<li><p>Return statement using list initialization</p></li>
-<li><p>Goto statement</p></li>
+<li><p>Break statement.</p></li>
+<li><p>Continue statement.</p></li>
+<li><p>Return statement with an optional expression.</p></li>
+<li><p>Return statement using list initialization.</p></li>
+<li><p>Goto statement.</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">return</span></code> - control transfers to the statement following the funcion call.
+<p><code class="docutils literal notranslate"><span class="pre">return</span></code> - control transfers to the statement following the function call.
 <code class="docutils literal notranslate"><span class="pre">break</span></code> - control transfers to the statement after the selection or iteration block.</p>
 </section>
 </section>

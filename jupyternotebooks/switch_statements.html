@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.e33a24b3-4bc3-42f4-a56e-696f5209c924.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.e4e27758-a479-4323-8f59-f0af47ced94c.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-cc3529d5-5db3-4be0-a598-6862c7a85eae] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-acb1d427-4d85-4e08-9a50-51d6b7a00648] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -565,17 +565,18 @@ document.write(`
 <p>A switch statement is generally easier to read than nested if-else-statements.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/switch_statements-syntax-0">
 
-<p class="admonition-title">Syntax Rules: The Syntax of the switch-statement: </p>
+<p class="admonition-title">Syntax Rules: The switch-statement: </p>
 <section id="syntax-content">
+<p>Syntax of the switch-statement:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">first_possible_value_of_condtion</span><span class="w"> </span><span class="p">:</span>
-<span class="w">			</span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="p">....;</span>
+<span class="w">			</span><span class="n">statements_to_execute_</span><span class="w"> </span><span class="n">go_here</span><span class="p">....;</span>
 <span class="w">			</span><span class="k">break</span><span class="p">;</span>
 <span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">second_possible_value_of_condtion</span><span class="p">:</span>
-<span class="w">			</span><span class="n">Alternative</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="p">...;</span>
+<span class="w">			</span><span class="n">Alternative_statements_to_execute_go_here</span><span class="p">...;</span>
 <span class="w">			</span><span class="k">break</span><span class="p">;</span>
 <span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">third_possible_value_of_condtion</span><span class="p">:</span>
-<span class="w">			</span><span class="n">Different</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="p">...;</span>
+<span class="w">			</span><span class="n">Different_statements_to_execute_go_here</span><span class="p">...;</span>
 <span class="w">			</span><span class="k">break</span><span class="p">;</span>
 <span class="w">		</span><span class="k">default</span><span class="o">:</span>
 <span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Sorry, no case matched the condition value....</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -584,16 +585,15 @@ document.write(`
 </pre></div>
 </div>
 </section>
-</div><p>The switch statement tests the value of its condition against a series of possible alternative values.</p>
-<p>The condition may either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition.</p>
-<p>The cases are the possible values that will trigger a decision to switch control flow.</p>
-<p>The program checks each case from the top down.</p>
+</div><p>The switch statement tests the value of its condition against a series of possible constant values.</p>
+<p>The condition may either be an expression or a simple declaration, which is evaluated to yield a value when control reaches the condition - the switch condition does not specifically yield a Boolean.</p>
+<p>The cases are the possible constant values that will trigger a decision to switch control flow - these are checked one at a time from the top down.</p>
 <p>If the case label constant value does not match the value of the condition, then the program ignores the corresponding code block and moves onto the next case.</p>
 <p>If a value matches, the corresponding statements are executed, followed by the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement, which causes the program to exit the switch-statement and move onto the next statement after the switch-block.</p>
 <p>If no cases match, then the optional default block is executed, and control is passed on.</p>
 <p>The break statements are not optional - without them every code block after the first matched case will also be executed because control falls through.</p>
 <p>The program will be ill-formed if there is more than one default statement in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-cc3529d5-5db3-4be0-a598-6862c7a85eae" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-acb1d427-4d85-4e08-9a50-51d6b7a00648" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]
@@ -630,14 +630,11 @@ document.write(`
     </pre><div class="dropdown admonition">
 <p class="admonition-title">Switch Rules</p>
 <ul class="simple">
-<li><p>Switch variables must be constant expressions i.e. there must be literal value typed at the case line.</p></li>
 <li><p>Switch variables may only be of the types: integer (including <code class="docutils literal notranslate"><span class="pre">char</span></code>), enumeration, or class.</p></li>
-<li><p>Selection based on a <code class="docutils literal notranslate"><span class="pre">string</span></code> requires an if-statement or a ‘map’.</p></li>
-<li><p>A single case can be executed for several case labels. But case labels cannot be used for two cases.</p></li>
-</ul>
-<p>i.e. use multiple labels for the same case: e.g. case ‘0’: case ‘2’: case ‘4’: case ‘6’: case ‘8’: …then case statements…</p>
-<ul class="simple">
-<li><p>Most compilers do not warn if you forget <code class="docutils literal notranslate"><span class="pre">break</span></code>, and it is not optional.</p></li>
+<li><p>Case labels must be constant expressions i.e. a literal typed at the case line.</p></li>
+<li><p>Selection based on a <code class="docutils literal notranslate"><span class="pre">string</span></code> requires an if-statement or a <code class="docutils literal notranslate"><span class="pre">map</span></code> .</p></li>
+<li><p>A single case can be executed for several case labels. But case labels cannot be used for two cases. i.e. use multiple case labels for the same case: e.g. case ‘0’: case ‘2’: case ‘4’: case ‘6’: case ‘8’: …then the case’s statements…</p></li>
+<li><p>Most compilers do not warn if you forget <code class="docutils literal notranslate"><span class="pre">break</span></code>, which is not optional.</p></li>
 <li><p>Without the breaks - all the code blocks below the first detected case will also be executed.</p></li>
 </ul>
 </div>
@@ -672,14 +669,14 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown note admonition" id="explanationr1">
+<div class="code_explanation dropdown admonition" id="explanationr1">
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampler1"> Code Example 2</a></p>
 <section id="code_explanation-content">
 <p>In this example, the while loop is just to keep the program running – we are only interested in the switch loop.</p>
 <p><code class="docutils literal notranslate"><span class="pre">constexpr</span> <span class="pre">double</span> <span class="pre">cm_per_inch</span> <span class="pre">=</span> <span class="pre">2.54</span></code> is the conversion factor.</p>
 <p>Every time the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop runs, the user is asked to input a value for <code class="docutils literal notranslate"><span class="pre">unit</span></code> and then the switch statement runs, using <code class="docutils literal notranslate"><span class="pre">unit</span></code> as its condition.</p>
-<p>There are two cases - switching to their code block if the condition yield a value of ‘i’ or ‘c’.</p>
+<p>There are two cases - switching to their code block if the condition yields a value of ‘i’ or ‘c’.</p>
 <p>The break statements cause the program to exit the switch-statement after completing the successful switch.</p>
 <p>If neither ‘i’ nor ‘c’ is typed in, then the default case is executed.</p>
 <p>The value in parentheses after the switch keyword is compared to the case values. A match to a case causes its code block to execute the syntax requires each case to be terminated by a break. If no case is true, then the default code block is executed.</p>
@@ -742,11 +739,11 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampler2"> Code Example 3</a></p>
 <section id="code_explanation-content">
-<p>The integer is assigned to the ‘lhs’.</p>
-<p>The first non-numeric character is assigned to the ‘operator’.</p>
+<p>The integer is assigned to the <code class="docutils literal notranslate"><span class="pre">lhs</span></code>.</p>
+<p>The first non-numeric character is assigned to the <code class="docutils literal notranslate"><span class="pre">operator</span></code>.</p>
 <p>The for loop is then used to run the switch case repeatedly.</p>
-<p>If the symbol is not <code class="docutils literal notranslate"><span class="pre">=</span></code>, then the next input is assigned to ‘rhs’ and then the <code class="docutils literal notranslate"><span class="pre">switch</span></code> selection statement is triggered.</p>
-<p>The arithmetic symbol of the matching case assigns a value to ‘result’.</p>
+<p>If the symbol is not <code class="docutils literal notranslate"><span class="pre">=</span></code>, then the next input is assigned to <code class="docutils literal notranslate"><span class="pre">rhs</span></code> and then the <code class="docutils literal notranslate"><span class="pre">switch</span></code> selection statement is triggered.</p>
+<p>The arithmetic symbol of the matching case assigns a value to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/switch_statements-exercise-6">
 
 <p class="admonition-title">Exercise</p>

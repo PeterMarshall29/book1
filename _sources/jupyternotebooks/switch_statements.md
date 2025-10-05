@@ -16,21 +16,21 @@ An alternative to the if-else-statement ladder is the switch-statement.
 
 A switch statement is generally easier to read than nested if-else-statements.
 
-`````{syntax-start} The Syntax of the switch-statement:
+`````{syntax-start} The switch-statement:
 :class: dropdown
 :nonumber:
 `````
+Syntax of the switch-statement:
 ```{code-block} c++
-
 switch (condition) {
 		case first_possible_value_of_condtion :
-			statements to execute go here....;
+			statements_to_execute_ go_here....;
 			break;
 		case second_possible_value_of_condtion:
-			Alternative statements to execute go here...;
+			Alternative_statements_to_execute_go_here...;
 			break;
 		case third_possible_value_of_condtion:
-			Different statements to execute go here...;
+			Different_statements_to_execute_go_here...;
 			break;
 		default:
 			std::cout << "Sorry, no case matched the condition value....\n";
@@ -40,13 +40,11 @@ switch (condition) {
 ```
 `````{syntax-end}
 `````
-The switch statement tests the value of its condition against a series of possible alternative values.
+The switch statement tests the value of its condition against a series of possible constant values.
 
-The condition may either be an expression or a simple declaration, which are evaluated to yield a value when control reaches the condition. 
+The condition may either be an expression or a simple declaration, which is evaluated to yield a value when control reaches the condition - the switch condition does not specifically yield a Boolean. 
 
-The cases are the possible values that will trigger a decision to switch control flow.
-
-The program checks each case from the top down.
+The cases are the possible constant values that will trigger a decision to switch control flow - these are checked one at a time from the top down.
 
 If the case label constant value does not match the value of the condition, then the program ignores the corresponding code block and moves onto the next case. 
 
@@ -97,17 +95,15 @@ flowchart LR
 ```{admonition} Switch Rules
 :class: dropdown
 
-- Switch variables must be constant expressions i.e. there must be literal value typed at the case line.
-
 - Switch variables may only be of the types: integer (including `char`), enumeration, or class.
 
-- Selection based on a `string` requires an if-statement or a 'map'.
+- Case labels must be constant expressions i.e. a literal typed at the case line.
 
-- A single case can be executed for several case labels. But case labels cannot be used for two cases.
+- Selection based on a `string` requires an if-statement or a `map` .
 
-i.e. use multiple labels for the same case: e.g. case '0': case '2': case '4': case '6': case '8': ..then case statements...
+- A single case can be executed for several case labels. But case labels cannot be used for two cases. i.e. use multiple case labels for the same case: e.g. case '0': case '2': case '4': case '6': case '8': ..then the case's statements...
 
-- Most compilers do not warn if you forget `break`, and it is not optional.
+- Most compilers do not warn if you forget `break`, which is not optional.
 
 - Without the breaks - all the code blocks below the first detected case will also be executed.
 ```
@@ -143,14 +139,14 @@ int main() {
 ````
 ````{code_explanation} exampler1
 :label: explanationr1
-:class: dropdown note
+:class: dropdown
 In this example, the while loop is just to keep the program running – we are only interested in the switch loop.
 
 `constexpr double cm_per_inch = 2.54` is the conversion factor.
 
 Every time the `while` loop runs, the user is asked to input a value for `unit` and then the switch statement runs, using `unit` as its condition.
 
-There are two cases - switching to their code block if the condition yield a value of 'i' or 'c'.
+There are two cases - switching to their code block if the condition yields a value of 'i' or 'c'.
 
 The break statements cause the program to exit the switch-statement after completing the successful switch.
 
@@ -211,15 +207,15 @@ int main() {
 ````{code_explanation} exampler2
 :label: explanationr2
 :class: dropdown
-The integer is assigned to the 'lhs'.
+The integer is assigned to the `lhs`.
 
-The first non-numeric character is assigned to the 'operator'.
+The first non-numeric character is assigned to the `operator`.
 
 The for loop is then used to run the switch case repeatedly.
 
-If the symbol is not `=`, then the next input is assigned to 'rhs' and then the `switch` selection statement is triggered.
+If the symbol is not `=`, then the next input is assigned to `rhs` and then the `switch` selection statement is triggered.
 
-The arithmetic symbol of the matching case assigns a value to 'result'.
+The arithmetic symbol of the matching case assigns a value to `result`.
 
 ```{exercise}
 :class: dropdown

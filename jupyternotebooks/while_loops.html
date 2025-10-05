@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.b5401700-86af-4af8-a937-a0b778696427.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\while_loops.342823e4-37bd-42e4-b03e-c12cd03fe161.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/while_loops';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -547,8 +547,7 @@ document.write(`
 </div></blockquote>
 </div>
 <p>A <code class="docutils literal notranslate"><span class="pre">while</span></code> statement will repeatedly execute a sequence of code statements until a condition becomes false.</p>
-<p>For the while-statement, the condition is checked before each execution.</p>
-<p>C++ also has a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> statement, which only differs by not checking the condition until after execution of the loop body - guaranteeing the first execution occurs, even if the condition is false.</p>
+<p>The conditional expression in the while-statement is evaluated before each execution - alternatively the <code class="docutils literal notranslate"><span class="pre">do-while</span></code> statement guarantees the code-block is executed at least once by not checking the condition until after the first execution.</p>
 <p>It is generally considered better to use for-statements in preference to while-statements, mainly because control of the loop is separated from the code-block, they have a useful loop-variable and chance accidentally programming an infinite loop is smaller.</p>
 <figure class="align-default" id="my-fig-ref-t1">
 <img alt="../_images/programmingloops.svg" src="../_images/programmingloops.svg" /><figcaption>
@@ -560,17 +559,12 @@ document.write(`
 <p class="admonition-title">Syntax Rules: While Statements </p>
 <section id="syntax-content">
 <p>Syntax of While Loop.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">conditional</span><span class="w"> </span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">code</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">repeatedly</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="n">here</span><span class="p">...</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">conditional</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">...</span><span class="n">code</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">repeatedly</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="n">here</span><span class="p">...</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Programmers must ensure there is a logical way for the program to exit every while loop.</p>
-</div>
-</section>
-</div><div class="pst-scrollable-table-container"><table class="table" id="example-table-4">
+<div class="pst-scrollable-table-container"><table class="table" id="example-table-4">
 <thead>
 <tr class="row-odd"><th class="head"><p>Generic While Loop</p></th>
 <th class="head"><p>Example While Loop</p></th>
@@ -578,13 +572,13 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><figure class="align-default" id="my-fig-ref-t2">
-<img alt="../_images/WhileLoopGeneral.svg" src="../_images/WhileLoopGeneral.svg" /><figcaption>
+<img alt="../_images/WhileLoopExample.svg" src="../_images/WhileLoopExample.svg" /><figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Iteration Methods</span><a class="headerlink" href="#my-fig-ref-t2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </td>
 <td><figure class="align-default" id="my-fig-ref-t3">
-<img alt="../_images/WhileLoopExample.svg" src="../_images/WhileLoopExample.svg" /><figcaption>
+<img alt="../_images/WhileLoopGeneral.svg" src="../_images/WhileLoopGeneral.svg" /><figcaption>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">Iteration Methods</span><a class="headerlink" href="#my-fig-ref-t3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -593,7 +587,12 @@ document.write(`
 </tbody>
 </table>
 </div>
-<div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-1">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Programmers must ensure there is a logical way for the program to exit every while loop.</p>
+</div>
+</section>
+</div><div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-1">
 
 <p class="admonition-title">Code Example: While Statements </p>
 <section id="code_example-content">
@@ -642,12 +641,12 @@ document.write(`
 <li><p>What happens if you type letters?</p></li>
 </ul>
 </section>
-</div><p>Remember that the conditional expressions must be in parens in C++ - as shown here for both <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+</div><p>Remember that the conditional expressions must be in parens in C++.</p>
 </section>
 </div><section id="loop-exit">
 <h2>Loop Exit<a class="headerlink" href="#loop-exit" title="Permalink to this heading">#</a></h2>
 <p>If the condition of an iteration statement is forgotten the loop will run until the program crashes - this can tie up a computer for a very long time.</p>
-<p>Use <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">Z</kbd></kbd>, <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd></kbd> to end a loop. <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">D</kbd></kbd> in Linux.</p>
+<p>Use <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">Z</kbd></kbd> or <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Crtl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd></kbd> to end a loop. <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">D</kbd></kbd> in Linux.</p>
 <p>The iteration condition may also be intentionally omitted, but an alternative method to end the loop is required.</p>
 <p>The program can exit an iteration statement by arriving at the keywords, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">goto</span></code>, or <code class="docutils literal notranslate"><span class="pre">throw</span></code>.</p>
 <section id="break">
@@ -684,7 +683,7 @@ document.write(`
 </div></section>
 <section id="continue">
 <h3>Continue<a class="headerlink" href="#continue" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> cause the program to skip directly to the next iteration jumping over any remaining code statements in the current loop.</p>
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> causes the program to skip directly to the next iteration jumping over any remaining code statements in the current loop.</p>
 <div class="code_example dropdown admonition" id="jupyternotebooks/while_loops-code_example-4">
 
 <p class="admonition-title">Code Example: Continue </p>

@@ -11,35 +11,41 @@ kernelspec:
 ---
 (vectors)=
 # Vectors
-There are several ways to store multiple values in a single variable. <vector>, <array>, and built-in arrays.
+In C++, there are a variety of objects that can be used to store multiple values of the same type in a single variable including `<vector>` , `<array>` , and simple arrays.
 
-The <vector> library provides the most flexible method.
+The `<vector>` library provides the most flexible method - a `std::vector` is a sequence of elements that can be accessed by their index using `[]` , the {term}`subscript operator`.
 
 ```{note}
 :class: margin
-<vector> is superior because the number of elements is variable - the number of elements in <array> must be known at compile time.
-<array> is better than built-in array because it carries the value of number of its size (so you can use with standard-library algorithms), and it can be copied (using = or initialization), and most importantly there are not surprise conversions to pointers. Use built-in arrays when you want 
-```
-A `vector` is a sequence of elements that can be accessed by their index.
-```{tip}
-:class: margin
-Add <vector> to header file using `#include <vector>`.
+`std::vector` is superior because the number of elements is variable - the number of elements in `<array>` must be known at compile time.
+
+Using a `std:array` is better than a simple array because it carries the value of the number of its size (so you can use with standard-library algorithms), and it can be copied (for assignment and initialization), and most importantly there are no surprise conversions to pointers. 
 ```
 
-````{admonition} The Syntax of Vector
+```{tip}
+:class: margin
+Add <vector> to header file using `#include <vector>` .
+```
+
+````{syntax-start} std::vector
+:class: dropdown
+:nonumber:
+````
+`std::vector` is provided by the `<vector>` standard library facility.
 ```{code-block} c++
 #include <vector> 
 //Declarations
-std::vector<...elements_type...> myVectorName; // Declaration
+std::vector<element_type> myVectorName; // Declaration
 // Definitions
-std::vector<...elements_type...> myVectorName = { element_1, element2, element3, element4 };
-std::vector<...elements_type...> myVectorName { element_1, element2, element3, element4  };
-std::vector<...elements_type...> myVectorName(...number_of_elements...); // Definition of number of null elements
-std::vector<...elements_type...> myVectorName(...number_of_elements..., ...value_of_all_elements); // Definition of number of elements each with same initial value
+std::vector<element_type> myVectorName = { element_1, element2, element3, element4 };
+std::vector<element_type> myVectorName { element_1, element2, element3, element4 };
+std::vector<element_type> myVectorName(number_of_elements); // Definition of vector with specific number of null elements
+std::vector<element_type> myVectorName(number_of_elements, value_of_elements); // Definition of a vector with specific number of elements each with same initial value
 ```
+````{syntax-end}
 ````
 
-``````{code_example-start} Vector
+``````{code_example-start} Vector Basics
 :label: examplen1
 :class: dropdown
 :nonumber:
@@ -47,35 +53,45 @@ std::vector<...elements_type...> myVectorName(...number_of_elements..., ...value
 Try this code - construct the supporting program.
 `````{code-cell} c++
 :tags: [remove-output, skip-execution]
-std::vector<int> myFirstVector = {1,2,3,4,5 };
+std::vector<int> myFirstVector = { 1, 2, 3, 4, 5 };
 std::cout << myFirstVector;
 ````` 
 `````{code_explanation} examplen1
-:class: dropdown hint
-This code will not work - the character output stream `cout` cannot print a whole vector.
+:class: dropdown 
+This code will not compile - one of the first issues encountered when learning C++ is that the character output stream `std::cout` cannot print a whole vector or array.
 
-To print one element of the vector, we can use its index.
+There is a simple solution - shown below - but we can start by only printing single elements of the vector using the element's index.
 
 ````{admonition} Indexing into a Vector
-:class: dropdown
-To access or modify an individual element of a vector we use the elements index:
+:class: dropdown note
+To access or modify an individual element of a vector we use the element's index i.e. same as an array.
+
+Indices run from '0' to `(number_of_elements - 1)` :
 ```{code-block} c++
 vectorName[..element_index_here]
 ```
 ```{important}
-In computing, most index values start from 0!
+In computing, most index values start at 0!
 ```
 ````
-Try changing the ouptut line to:
+- Try changing the ouptut line to:
 
 ```{code-block} c++
 std::cout << myFirstVector[0];
 ```
-What happens if you replace 0, with 5? Find out!
+- What happens if you replace 0, with 5? Find out!
+`````
+``````{code_example-end}
+``````
 
-To output all the values of a vector we need to use an iteration statement
+To output all the values of a vector we need to use an iteration statement.
 
-Try this code
+``````{code_example-start} Printing a Vector
+:label: examplen11
+:class: dropdown
+:nonumber:
+``````
+Add the following statements to the previous example:
 ```{code-block} c++
 for (int i = 0; i < myFirstVector.capacity(); ++i) std::cout << myFirstVector[i] << "\n"; 
 ```
@@ -83,60 +99,105 @@ Or:
 ```{code-block} c++
 for (int i = 0; i < myFirstVector.size(); ++i) std::cout << myFirstVector[i] << "\n";
 ```
-`capacity()` is a member function of the class `vector` and therefore must be addressed using the `.` notation on an instance of `vector`.
-`````
+`capacity()` is a member function of the class `std::vector` and therefore must be addressed using the `.` notation on an instance of `std::vector` e.g. `myFirstVector.capacity()` .
+
+The for-statements stops when the loop-variable integer value is one less than `.capacity()` because the indices run from '0'.
+
 ``````{code_example-end}
 ``````
+## Accessing or Modifying the Elements of a `vector`
 
+```{important}
+Only existing elements of a vector can be accesses or modified. Trying to assign a value to a non-exiting element fails and throws a catastrophic error.
+```
+The {term}`subscript operator` and the element's index is used to access or modify the values contained in a vector.
+
+A useful alternative is the `at()` member function.
+
+`````{syntax-start} Access and Modify Elements of a Vector
+:class: dropdown
+:nonumber:
+`````
+
+To change the nth element, there are two options.
+```{code-block} c++
+yourVectorName[n] = ..newValueHere.. ;
+// or
+yourVectorName.at(n) = ..newValueHere.. ;
+```
+The `.at()` function lets you know if an error occurs - slightly more useful than simple indexing.
+
+`````{syntax-end}
+`````
+
+`````{exercise-start} Vector - Checking Progress
+:label: examplen3
+:class: dropdown
+:nonumber:
+`````
+- Write a program that creates a vector of strings in the code box.
+- Add the supporting code to print the vector elements to the screen.
+
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+Your code here...
+````
+
+`````{exercise-end}
+`````
 ## Adding to a Vector
 
-A non-existent element cannot be accessed or assigned to in any type of vector or array.
+A non-existent element cannot be accessed or be created by assignment in C++.
 
 ```{tip}
 :class: margin
 Assigning a value to a non-existent element will throw an error.
-In some languages the new element would be created and intermediate values filled with zeros - not in C++!
+
+In some languages a new element would be created by the assignment and any intermediate non-existing values would be created and filled with zeros - not in C++!
 ```
-New elements my only be added immediately after the last existing element of a vector.
+New elements may only be added to a vector at the index/position immediately after the last existing element.
 
-To append an extra element, at the end, the `push_back()` function is used.
+To append an extra element at the end of the vector the `push_back()` function is used.
 
-`````{code_example-start} Modifying Vectors
+``````{code_example-start} Modifying Vectors - push_back()
 :label: examplen2
 :class: dropdown
 :nonumber:
-`````
+``````
 Try this code - construct the supporting program.
-````{code-cell} c++
+`````{code-cell} c++
 :tags: [remove-output, skip-execution]
 :linenos:
 :emphasize-lines: 3
 std::vector<int> mySecondVector = { 1, 2, 3, 4, 5 };
 mySecondVector.push_back(17);
 for (int i : mySecondVector ) std::cout << i <<"\n";
-```` 
-````{code_explanation} examplen2
+````` 
+`````{code_explanation} examplen2
 
-`push_back()` is another member function – it belongs to std::vector and must be called using the `.` notation.
+`push_back()` is another member function – it belongs to `std::vector` and must be called using the `.` notation.
 
 Line 3 is a range-for-statement, explained [here](range-for).
 
-More than element may be added by `push_back()` by using a list.
-
-Try adding:
+More than one element may be added by `push_back()` by using a list i.e. put a curly brace `{}` enclosed, comma delimited sequence of values in the parens.
+````{exercise}
+:class: dropdown
+:nonumber:
+Try adding the following to your previous example code:
 ```{code-block} c++
 mySecondVector.push_back({6, 7, 8, 9 , 10}); 
 ```
 ````
-`````{code_example-end}
 `````
+``````{code_example-end}
+``````
 
-`````{exercise-start} Vector
-:label: exercisen1
+`````{code_example-start} 
+:label: exercisen11
 :class: dropdown
 :nonumber:
 `````
-TRY to read in a possibly large unknown number of data points..
+Try this code - it will continue to read in an unspecified number of data points until a letter is typed... 
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 std::vector<double> growingVector;
@@ -144,75 +205,74 @@ for (double tempVectorNextValue; std::cin >> tempVectorNextValue;)
 	growingVector.push_back(tempVectorNextValue);
 ````
 ````{admonition} Code Explanation
-The second term is the condition for the `for-statement loop` – std::cin >>.
+:class: dropdown
+Accepting a number of elements that is not known at compile time is one of the advantages of `std::vector` .
 
-This works if it is given the correct variable type by the user and therefore returns true, otherwise false and the `for` loop ends.
+The second argument to this for-statement, the loop-condition is `std::cin >>` .
 
-Vector has many useful member functions. 
+This only works if the extraction operation finds the correct variable type in the buffer i.e. the user correctly entered another number - strictly this does not evaluate to true, but the state of `std::cin` is checked and returns true if there have been no errors, which is contextually sufficient for a loop-condition.
 
-We can sort out list into ascending order – or otherwise.
+`std::cin` fails when a letter is entered - the loop-condition evaluates as false and the for-loop ends.
+````
+`````{code_example-end}
+`````
 
-Try adding the following code.
+## Useful Functions
+
+``````{code_example-start} Useful Function
+:label: examplen5
+:class: dropdown
+:nonumber:
+``````
+Vector has other useful member functions, including `begin()` and `end()` , which return a random access {term}`iterator` to the first and last elements respectively - basically these are equivalent to indexing that location using the subscript operator with the correct index. 
+
+Iterators are similar to pointers - arithmetic values can be used with iterators to traverse the elements i.e. `myVector.end() - 1` gives the value of the second last element.
+
+Other useful member functions for vector are [listed](https://en.cppreference.com/w/cpp/container/vector.html) in the C++ Reference.
+
+The `<algorithm>` library has more functions that are useful for vectors. For example: `std::sort` allows us to sort the elements of our vector into ascending order – or otherwise.
+
+`````{exercise}
+:class: dropdown
+:nonumber:
+
+Try adding the following code to the previous example...
 
 ````{code-block} c++
-std::vector<double> growingVector;
 std::sort(growingVector.begin(),growingVector.end());
 for (double i : growingVector) std::cout << i << "\n";
 ````
-`````{exercise-end}
+- Modify this code so that the first and last elements are not sorted.
 `````
-Other useful member functions for vector are listed [here](https://en.cppreference.com/w/cpp/container/vector.html)
+The `empty()` function is another useful member function, which checks whether a vector is empty or not - returns 1 (true) if the vector is empty and 0 (false) if it contains one or more elements.
+``````{code_example-end}
+``````
 
-## Accessing or Modifying the Elements of a `vector`
-
-```{important}
-An element of a vector can only be accesses or modified if it already exists.
-```
-To access or modify a vector's elements we use the index notation, or the at() function.
-
-`````{code_example-start} Working with Vectors
-:label: examplen3
-:class: dropdown
-:nonumber:
-`````
-Create a vector in the code box - and the supporting code to print the vector elements to the screen.
-````{code-cell} c++
-:tags: [remove-output, skip-execution]
-Your code here...
-````
-To change the nth element, there are two options.
-```{code-block} c++
-yourVectorName[n] = ..newValueHere.. ;
-// or
-yourVectorName.at(n) = ..newValueHere.. ;
-```
-The .at() function lets you know if an error occurs - slightly more useful than simple indexing.
-
-`````{code_example-end}
-`````
 
 ## Multi-dimensional Vectors
 
 We can define a vector of vectors.
 
+`````{code_example-start} Multidimensional Vectors
+:label: examplen4
+:class: dropdown
+:nonumber:
+`````
+Try this example - the usual program components must be added....
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
-std::vector<std::vector<int>> my2DVector;
+    std::vector<std::vector<int>> my2DVector;
+    my2DVector.push_back({1, 2, 3});
+    my2DVector.push_back({4, 5});
+    my2DVector.push_back({6, 7, 8, 9});
 
-my2DVector.push_back({1, 2, 3});
-my2DVector.push_back({4, 5});
-my2DVector.push_back({6, 7, 8, 9});
-
-// Print the vector of vectors
-for (const auto& row : my2DVector) {
-for (int val : row) {
-std::cout << val << " ";
-}
-std::cout << std::endl;
-}
+    // Print the vector of vectors
+    for (const auto& row : my2DVector) {
+        for (int val : row) {
+        std::cout << val << " ";
+        }
+        std::cout << std::endl;
+    }
 ````
-## Check if a Vector is Empty
-
-Another useful member function checks whether a vector is empty or not.
-
-The `empty()` function returns 1 (true) if the vector is empty and 0 (false) if it contains one or more elements:
+`````{code_example-end}
+`````
