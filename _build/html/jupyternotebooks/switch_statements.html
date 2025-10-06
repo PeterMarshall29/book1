@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.e4e27758-a479-4323-8f59-f0af47ced94c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.6ed3421c-1952-43ac-bf60-83e5e895fd3a.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-acb1d427-4d85-4e08-9a50-51d6b7a00648] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-4b6347a3-2399-404e-88a1-67dba5d868ac] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -569,13 +569,13 @@ document.write(`
 <section id="syntax-content">
 <p>Syntax of the switch-statement:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">first_possible_value_of_condtion</span><span class="w"> </span><span class="p">:</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">first_possible_value_of_condition</span><span class="w"> </span><span class="p">:</span>
 <span class="w">			</span><span class="n">statements_to_execute_</span><span class="w"> </span><span class="n">go_here</span><span class="p">....;</span>
 <span class="w">			</span><span class="k">break</span><span class="p">;</span>
-<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">second_possible_value_of_condtion</span><span class="p">:</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">second_possible_value_of_condition</span><span class="p">:</span>
 <span class="w">			</span><span class="n">Alternative_statements_to_execute_go_here</span><span class="p">...;</span>
 <span class="w">			</span><span class="k">break</span><span class="p">;</span>
-<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">third_possible_value_of_condtion</span><span class="p">:</span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="no">third_possible_value_of_condition</span><span class="p">:</span>
 <span class="w">			</span><span class="n">Different_statements_to_execute_go_here</span><span class="p">...;</span>
 <span class="w">			</span><span class="k">break</span><span class="p">;</span>
 <span class="w">		</span><span class="k">default</span><span class="o">:</span>
@@ -593,7 +593,7 @@ document.write(`
 <p>If no cases match, then the optional default block is executed, and control is passed on.</p>
 <p>The break statements are not optional - without them every code block after the first matched case will also be executed because control falls through.</p>
 <p>The program will be ill-formed if there is more than one default statement in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-acb1d427-4d85-4e08-9a50-51d6b7a00648" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-4b6347a3-2399-404e-88a1-67dba5d868ac" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]

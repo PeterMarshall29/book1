@@ -167,4 +167,3 @@ The available jump-statements in C++ are:
 
 `return` - control transfers to the statement following the function call.
 `break` - control transfers to the statement after the selection or iteration block.
-

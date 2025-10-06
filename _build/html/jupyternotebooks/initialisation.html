@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.338f1e0c-41bb-49cf-a64e-0baa745c7ec1.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.b49d9070-1a5b-4514-a32f-ed3932a7d06d.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/initialisation';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -637,13 +637,13 @@ document.write(`
 <p>List-initialisation ensures that:</p>
 <ul class="simple">
 <li><p>An <code class="docutils literal notranslate"><span class="pre">integer</span></code> cannot be converted to a <code class="docutils literal notranslate"><span class="pre">char</span></code>, but <code class="docutils literal notranslate"><span class="pre">char</span></code> to <code class="docutils literal notranslate"><span class="pre">int</span></code> is permitted.</p></li>
-<li><p>a <code class="docutils literal notranslate"><span class="pre">double</span></code> cannot be converted to a <code class="docutils literal notranslate"><span class="pre">float</span></code>, but the reverse is permitted</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">double</span></code> cannot be converted to a <code class="docutils literal notranslate"><span class="pre">float</span></code>, but the reverse is permitted</p></li>
 <li><p>A floating-point value cannot be converted to an integer type.</p></li>
-<li><p>An integer value cannot</p></li>
+<li><p>An integer value cannot be converted to a floating-point type.</p></li>
 </ul>
 <div class="exercise dropdown admonition" id="exercisem1">
 
-<p class="admonition-title">Exercise  Initialisation  </p>
+<p class="admonition-title">Exercise  Initialisation </p>
 <section id="exercise-content">
 <p>The following code should not run as written. Look at the error messages and try to correct the problem.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -666,7 +666,7 @@ document.write(`
 </div>
 <div class="solution dropdown admonition" id="solutionm1">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisem1"> Exercise  Initialisation  </a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisem1"> Exercise  Initialisation </a></p>
 <section id="solution-content">
 <p>Removing the tow uses of list-initialisation will allow the code to run - the problem is that the double values may be ‘implicitly’ converted to integers, but this costs some of the information - narrowing - which is not allowed for <code class="docutils literal notranslate"><span class="pre">{}</span></code></p>
 <p>The code can be made to work using <code class="docutils literal notranslate"><span class="pre">static_cast</span></code> to forces an explicit conversion.</p>
@@ -698,7 +698,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exercisem4">
 
-<p class="admonition-title">Exercise  Empty Initialisers  </p>
+<p class="admonition-title">Exercise  Empty Initialisers </p>
 <section id="exercise-content">
 <ul class="simple">
 <li><p>Try removing the empty initialiser for each variable type and rerunning the code - start in reverse order.</p></li>
@@ -783,7 +783,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">assert</span></code> aborts the programmes execution and offers a message in the terminal if its user defined condition does not evaluate to <code class="docutils literal notranslate"><span class="pre">true</span></code>; requires <code class="docutils literal notranslate"><span class="pre">&lt;cassert&gt;</span></code> - useful during program development, similar to <a class="reference internal" href="glossary.html#term-Print-Debugging"><span class="xref std std-term">print debugging</span></a>.</p>
 <div class="exercise dropdown admonition" id="exercisem3">
 
-<p class="admonition-title">Exercise  Missing Initialisers  </p>
+<p class="admonition-title">Exercise  Missing Initialisers </p>
 <section id="exercise-content">
 <p>Try removing the list-initialiser <code class="docutils literal notranslate"><span class="pre">{}</span></code> from the two <code class="docutils literal notranslate"><span class="pre">int</span></code> and two <code class="docutils literal notranslate"><span class="pre">string</span></code> type variables one at a time.</p>
 <div class="dropdown admonition">

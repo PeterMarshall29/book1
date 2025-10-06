@@ -256,7 +256,7 @@ The solution is to use nested `if-else` statements (an if-else ladder) (next sec
 
 The first `int` takes the number before the decimal point, but then the non-integer character causes an issue for the second variable. 
 
-Try adding a line with `std::cin.ignore(100, ' ')` or `std::cin.ignore(100, ' ')` to resolve this issue - these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes only a single character to be discarded.
+Try adding a line with `std::cin.ignore(100, ' ')` or `std::cin.ignore(100, '\n')` to resolve this issue (first one if you enter two numbers, space separated - second one if you hit return after each number) - these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes only a single character to be discarded.
 ````
 `````{code_example-end}
 `````
@@ -279,7 +279,7 @@ if (condition1) {
 ```
 The ladder can continue with additional `else if` branches but there can only be one `else` branch.
 
-Only one of the `else if` statements will be executed - once a condition evaluates as true, the other if-statements are behind the next else-statement and are therefore not considered
+Only one of the `else if` statements will be executed - once a condition evaluates as true, the other if-statements are behind the next else-statement and are therefore not considered.
 `````{syntax-end}
 `````
 ``````{code_example-start} if-else-if Ladder

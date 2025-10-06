@@ -126,9 +126,9 @@ A narrowing (conversion) occurs when a value is converted from one type to anoth
 List-initialisation ensures that:
 
 * An `integer` cannot be converted to a `char`, but `char` to `int` is permitted.
-* a `double` cannot be converted to a `float`, but the reverse is permitted 
+* A `double` cannot be converted to a `float`, but the reverse is permitted 
 * A floating-point value cannot be converted to an integer type.
-* An integer value cannot
+* An integer value cannot be converted to a floating-point type.
 `````{exercise-start} Initialisation
 :label: exercisem1
 :class: dropdown

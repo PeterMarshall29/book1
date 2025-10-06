@@ -23,13 +23,13 @@ A switch statement is generally easier to read than nested if-else-statements.
 Syntax of the switch-statement:
 ```{code-block} c++
 switch (condition) {
-		case first_possible_value_of_condtion :
+		case first_possible_value_of_condition :
 			statements_to_execute_ go_here....;
 			break;
-		case second_possible_value_of_condtion:
+		case second_possible_value_of_condition:
 			Alternative_statements_to_execute_go_here...;
 			break;
-		case third_possible_value_of_condtion:
+		case third_possible_value_of_condition:
 			Different_statements_to_execute_go_here...;
 			break;
 		default:
