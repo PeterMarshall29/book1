@@ -221,7 +221,7 @@ int main()
     std::cout << "Enter two characters, space separated. \n";
     std::cin >> firstChar >> secondChar;
     std::cout << "The ASCII values of " << firstChar << " and " << secondChar << " are: " << int(firstChar) << " and " << int(secondChar) << '\n';
-    std::cout << "The character with the ASCII value of " << (firstChar+secondChar) << " is " << char(firstChar + secondChar) << '\n';
+    std::cout << "The character with the ASCII value of " << (firstChar+secondChar) << " is " << char(firstChar+secondChar) << '\n';
     return 0;
 }
 ```

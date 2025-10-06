@@ -81,6 +81,7 @@ Note:  The definitions of integer *, /, and % guarantee that for two positive in
 ````
 Is the modulus truncating or flooring in c++?
 ```{solution} exercisek5
+:class: dropdown
 It is truncating i.e. always rounds towards zero. Flooring is always rounded downwards. Swift is truncated – Python is floored.
 ```
 ````{exercise-end}

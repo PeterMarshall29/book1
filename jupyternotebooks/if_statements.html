@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.ff223e69-b3c9-4103-b6fe-f9f51dd2100a.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\if_statements.69a301f7-06fc-44db-80b7-c035c3787189.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/if_statements';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -779,7 +779,7 @@ document.write(`
 <li><p>Try entering two numbers where one is a floating-point number - try putting the float both first and second - what is the difference?</p></li>
 </ul>
 <p>The first <code class="docutils literal notranslate"><span class="pre">int</span></code> takes the number before the decimal point, but then the non-integer character causes an issue for the second variable.</p>
-<p>Try adding a line with <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'</span> <span class="pre">')</span></code> or <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'</span> <span class="pre">')</span></code> to resolve this issue - these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes only a single character to be discarded.</p>
+<p>Try adding a line with <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'</span> <span class="pre">')</span></code> or <code class="docutils literal notranslate"><span class="pre">std::cin.ignore(100,</span> <span class="pre">'\n')</span></code> to resolve this issue (first one if you enter two numbers, space separated - second one if you hit return after each number) - these statements cause the buffer to be cleared until the next space or newline, or 100 characters, whichever comes first - empty parentheses causes only a single character to be discarded.</p>
 </section>
 </div>
 </section>
@@ -799,7 +799,7 @@ document.write(`
 </pre></div>
 </div>
 <p>The ladder can continue with additional <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branches but there can only be one <code class="docutils literal notranslate"><span class="pre">else</span></code> branch.</p>
-<p>Only one of the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> statements will be executed - once a condition evaluates as true, the other if-statements are behind the next else-statement and are therefore not considered</p>
+<p>Only one of the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> statements will be executed - once a condition evaluates as true, the other if-statements are behind the next else-statement and are therefore not considered.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="jupyternotebooks/if_statements-code_example-7">
 
@@ -827,12 +827,12 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseq2">
 
-<p class="admonition-title">Exercise  if-else-if  </p>
+<p class="admonition-title">Exercise  if-else-if </p>
 <section id="exercise-content">
 <p>Is there a way to have the program give you a second chance if your first input is invalid?</p>
 <div class="solution dropdown admonition" id="jupyternotebooks/if_statements-solution-9">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseq2"> Exercise  if-else-if  </a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseq2"> Exercise  if-else-if </a></p>
 <section id="solution-content">
 <p>Substitute the following lines:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">yourScore</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">yourScore</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -930,7 +930,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myInt)</span></code> is basically the same as <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myInt</span> <span class="pre">!=</span> <span class="pre">0)</span></code> - but the compiler is implicitly converting the integer directly to a Boolean because that is the required type of expression for a condition.</p>
 <div class="exercise dropdown admonition" id="exerciseq1">
 
-<p class="admonition-title">Exercise  if-statement conditions  </p>
+<p class="admonition-title">Exercise  if-statement conditions </p>
 <section id="exercise-content">
 <p>Find out what happens if:</p>
 <ul class="simple">
@@ -941,7 +941,7 @@ document.write(`
 </ul>
 <div class="solution dropdown admonition" id="jupyternotebooks/if_statements-solution-14">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseq1"> Exercise  if-statement conditions  </a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseq1"> Exercise  if-statement conditions </a></p>
 <section id="solution-content">
 <ul class="simple">
 <li><p>All non-zero integers are converted to <code class="docutils literal notranslate"><span class="pre">true</span></code> ; only <code class="docutils literal notranslate"><span class="pre">0</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">false</span></code> .</p></li>

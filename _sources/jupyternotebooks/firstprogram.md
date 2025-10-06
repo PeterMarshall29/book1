@@ -58,14 +58,17 @@ C++ programs rely upon libraries - you will not get far without at least one of 
 
 `#include` instructs the computer to provide access to the library named in the angle brackets `<>`. 
 
-```{syntax} `#include`
+```{syntax} #include
 :class: dropdown
+:nonumber:
+
 `#include` is a {term}`directive` instructing the {term}`preprocessor` to copy the contents of the named library or header file into the source file.
 
 Use `#include <facility_name_here>` to include {term}`standard library facilities` and `#include "header_file_name.h"` for user-defined {term}`header files`.
 
 {term}`standard library facilities` are components of the {term}`standard library`.
 ```
+
 `<iostream>` is the part of the {term}`standard library` that contains specific functions for {term}`input` and {term}`output` i.e. writing to the computer's display and accepting inputs from the keyboard etc.
 
 ```{code-block} c++

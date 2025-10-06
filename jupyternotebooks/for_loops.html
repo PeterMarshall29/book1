@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.aed06599-aef5-4919-a6e1-3503a76e9ddf.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.468784ba-5327-41c4-a934-7d77a7fcb13b.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-358a1b16-0d0f-48eb-9d22-0d71f40273b3] svg, .mermaid[data-zoom-id=id-285bad82-9d0c-4ffe-9e64-e40d854a686d] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-5ee3d0ed-dcc9-4b98-912e-5ad608621150] svg, .mermaid[data-zoom-id=id-77a22b02-c46f-4390-ae28-65acfcab7497] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -604,7 +604,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-358a1b16-0d0f-48eb-9d22-0d71f40273b3" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-5ee3d0ed-dcc9-4b98-912e-5ad608621150" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -635,7 +635,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-285bad82-9d0c-4ffe-9e64-e40d854a686d" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-77a22b02-c46f-4390-ae28-65acfcab7497" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -826,7 +826,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/for_loops-exercise-6">
 
-<p class="admonition-title">Exercise  Visual Studio Exercise  </p>
+<p class="admonition-title">Exercise  Visual Studio Exercise </p>
 <section id="exercise-content">
 <p>Only if you are already familiar with Visual Studio - otherwise please leave until week 4.</p>
 <p>Copy this code into Visual Studio and remove the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement - find out what happens.</p>
@@ -858,7 +858,7 @@ document.write(`
 <p>After each iteration, the final expression increments x and decrements y by one each. The condition uses the logical ‘AND’ operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> to require two conditions to be true at the same time in order for the loop to continue.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/for_loops-exercise-8">
 
-<p class="admonition-title">Exercise  Multiple Loop-Variables  </p>
+<p class="admonition-title">Exercise  Multiple Loop-Variables </p>
 <section id="exercise-content">
 <p>The condition in this example can be simplified but still produce the same output - work out how.</p>
 </section>

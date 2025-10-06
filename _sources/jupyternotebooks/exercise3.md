@@ -67,6 +67,10 @@ int main() {
 :nonumber:
 `````
 Write a program to calculate and print the sum of the squares of the positive integers from one to a user inputted value.
+```{code-cell} c++
+:tags: [remove-output, skip-execution]
+Code goes here....
+```
 `````{exercise-end} 
 `````
 
@@ -127,7 +131,7 @@ Solution not provided.....
 ````
 Use a for-statement to evaluate the equation:
 ```{math}
-S_3=\sum_{i=0}^\infty \frac{(-1)^{i+1}}{i^2}
+S=\sum_{i=0}^\infty \frac{(-1)^{i+1}}{i^2}
 ```
 
 Hint: You cannot actually use infinity...
@@ -172,7 +176,7 @@ int main() {
 Evaluate:
 
 ```{math}
-P_3=\prod_{i=1}^\infty \left(1+x^{2^i}\right )\ ;\ |x|<1
+P=\prod_{i=1}^\infty \left(1+x^{2^i}\right )\ ;\ |x|<1
 ```
 
 ```{code-cell} c++
@@ -187,6 +191,7 @@ Code goes here....
 :class: dropdown
 ````
 Suggested Solution - try to improve this code.
+
 ```{code-block} c++
 #include <iostream>
 #include <numbers> //requires C++ 2020 or better

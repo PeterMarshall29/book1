@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.a0c1bd60-c4d3-47ca-b48f-43d0b467ae12.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.aca830d0-60be-4157-b2b4-006f4a8c9fd9.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/firstprogram';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -577,22 +577,19 @@ document.write(`
 </div>
 <p>C++ programs rely upon libraries - you will not get far without at least one of these, because the additional libraries include basic ‘facilities’ that your program is going to need, such as the code for the commands required to allow you to print out a value to the computer’s display.</p>
 <p><code class="docutils literal notranslate"><span class="pre">#include</span></code> instructs the computer to provide access to the library named in the angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>.</p>
-<p>```{syntax} <code class="docutils literal notranslate"><span class="pre">#include</span></code></p>
-<dl class="myst field-list simple">
-<dt class="field-odd">class<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dropdown
-<code class="docutils literal notranslate"><span class="pre">#include</span></code> is a <a class="reference internal" href="glossary.html#term-Directive"><span class="xref std std-term">directive</span></a> instructing the <a class="reference internal" href="glossary.html#term-Preprocessor"><span class="xref std std-term">preprocessor</span></a> to copy the contents of the named library or header file into the source file.</p>
-</dd>
-</dl>
+<div class="syntax dropdown admonition" id="jupyternotebooks/firstprogram-syntax-2">
+
+<p class="admonition-title">Syntax Rules: #include </p>
+<section id="syntax-content">
+<p><code class="docutils literal notranslate"><span class="pre">#include</span></code> is a <a class="reference internal" href="glossary.html#term-Directive"><span class="xref std std-term">directive</span></a> instructing the <a class="reference internal" href="glossary.html#term-Preprocessor"><span class="xref std std-term">preprocessor</span></a> to copy the contents of the named library or header file into the source file.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;facility_name_here&gt;</span></code> to include <a class="reference internal" href="glossary.html#term-Standard-Library-Facilities"><span class="xref std std-term">standard library facilities</span></a> and <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;header_file_name.h&quot;</span></code> for user-defined <a class="reference internal" href="glossary.html#term-Header-Files"><span class="xref std std-term">header files</span></a>.</p>
 <p><a class="reference internal" href="glossary.html#term-Standard-Library-Facilities"><span class="xref std std-term">standard library facilities</span></a> are components of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`&lt;iostream&gt;` is the part of the {term}`standard library` that contains specific functions for {term}`input` and {term}`output` i.e. writing to the computer&#39;s display and accepting inputs from the keyboard etc.
-
-```{code-block} c++
-int main() {
-**code statements go here**
-return 0;
-}
+</section>
+</div><p><code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> is the part of the <a class="reference internal" href="glossary.html#term-Standard-Library"><span class="xref std std-term">standard library</span></a> that contains specific functions for <a class="reference internal" href="glossary.html#term-Input"><span class="xref std std-term">input</span></a> and <a class="reference internal" href="glossary.html#term-Output"><span class="xref std std-term">output</span></a> i.e. writing to the computer’s display and accepting inputs from the keyboard etc.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="o">**</span><span class="n">code</span><span class="w"> </span><span class="n">statements</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">here</span><span class="o">**</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">main()</span></code> is a <a class="reference internal" href="glossary.html#term-Function"><span class="xref std std-term">function</span></a>. Functions are explained <a class="reference internal" href="introduction_to_functions.html"><span class="doc">here</span></a>, but you can safely leave this topic until week 3.</p>
@@ -622,7 +619,7 @@ return 0;
 </div>
 <div class="exercise dropdown admonition" id="exercisea1">
 
-<p class="admonition-title">Exercise  First Program - Syntax Rules  </p>
+<p class="admonition-title">Exercise  First Program - Syntax Rules </p>
 <section id="exercise-content">
 <p>Try making the following changes to the above code - run the code after each change and note what happens.</p>
 <ul class="simple">
@@ -638,7 +635,7 @@ return 0;
 </ul>
 <div class="solution dropdown admonition" id="solutiona1">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisea1"> Exercise  First Program - Syntax Rules  </a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisea1"> Exercise  First Program - Syntax Rules </a></p>
 <section id="solution-content">
 <ul class="simple">
 <li><p>A semicolon is required at the end of each statement – exceptions after directive such as <code class="docutils literal notranslate"><span class="pre">#include</span></code> and after <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
@@ -664,7 +661,7 @@ return 0;
 </section>
 </div><div class="exercise dropdown admonition" id="exercisea2">
 
-<p class="admonition-title">Exercise  Practice Fixing Syntax Errors  </p>
+<p class="admonition-title">Exercise  Practice Fixing Syntax Errors </p>
 <section id="exercise-content">
 <p>This code is incorrect. Correct the mistakes in the syntax so that the code will run and print your name.</p>
 <div class="cell tag_remove-output docutils container">
@@ -680,7 +677,7 @@ return 0;
 </div>
 <div class="solution dropdown admonition" id="solutiona2">
 
-<p class="admonition-title">Solution to <a class="reference internal" href="#exercisea2"> Exercise  Practice Fixing Syntax Errors  </a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercisea2"> Exercise  Practice Fixing Syntax Errors </a></p>
 <section id="solution-content">
 <p>Try not to look at the solutions until you have attempted the exercise… you will find that both your understanding and retention are improved compared to just looking at a solution.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -701,7 +698,7 @@ return 0;
 <p>When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by ‘commenting them out`.</p>
 <p>Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable, and easier for others to use.</p>
 <p>Since the comments are ignored, there are no special rules for them, except that they must be identified as <a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">comments</span></a>.</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/firstprogram-syntax-6">
+<div class="syntax dropdown admonition" id="jupyternotebooks/firstprogram-syntax-7">
 
 <p class="admonition-title">Syntax Rules: Comments </p>
 <section id="syntax-content">
