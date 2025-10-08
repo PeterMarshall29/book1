@@ -12,7 +12,6 @@ kernelspec:
 
 # Exercises Week 1
 
-
 `````{exercise-start} 1A
 :label: exerciseex11
 :class: dropdown
@@ -22,7 +21,7 @@ Write a program to print the following message in the terminal.
 
 Welcome to Loughborough!                            
 //----------------------------------------------                         
-This is Compuational Physics - Part A.
+This is Computational Physics - Part A.
 ````{code-cell} cpp
 :tags: [remove-output]
 Code goes here...
@@ -86,7 +85,7 @@ int main() {
 :class: dropdown
 :nonumber:
 ````
-Write a program to demonstrate the effect of combining integer and double type numbers in a single arithemetic expression.
+Write a program to demonstrate the effect of combining integer and double type numbers in a single arithmetic expression.
 Try all 5 arithmetic operators and include negative values.
 Use `<iomanip>` to control the precision of the outputs to 3 decimal places.
 ```{code-cell} c++
@@ -124,7 +123,7 @@ int main() {
 :nonumber:
 ````
 A common computing task is to swap the values of two variables.
-Write a program that asks the user for two variables, and then swaps their values.
+Write a program that asks the user for two variables and then swaps their values.
 Print out the variables' values, before and after the swap, in the same order to show the changed values. 
 DO NOT just print the variable in reverse order - misses the learning point of this exercise.
 ```{code-cell} c++
@@ -156,7 +155,6 @@ int main() {
 ````{solution-end}
 ````
 
-
 ````{exercise-start} 1E
 :label: exerciseex15
 :class: dropdown
@@ -164,7 +162,7 @@ int main() {
 ````
 Write a program that asks the user for the lengths of the sides of a triangle and returns the area.
 
-Hint: Use Heron's Formula. Check your answer with a right angled triangle. Include <cmath>.
+Hint: Use Heron's Formula. Check your answer with a right-angled triangle. Include `<cmath>`.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -193,13 +191,12 @@ int main() {
 ````{solution-end}
 ````
 
-
 ````{exercise-start} 1F
 :label: exerciseex16
 :class: dropdown
 :nonumber:
 ````
-Write a program that asks for two characters to be input by the user, and returns their ASCII code value and the character with the ASCII code that is the sum of the two character.
+Write a program that asks for two characters to be input by the user and returns their ASCII code value and the character with the ASCII code that is the sum of the two characters.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -235,7 +232,7 @@ int main()
     std::cout << "Enter two characters, space separated. \n";
     std::cin >> firstChar >> secondChar;
     std::cout << "The ASCII values of " << firstChar << " and " << secondChar << " are: " << +firstChar << " and " << +secondChar << '\n';
-    std::cout << "The character with the ASCII value of " << (firstChar + secondChar) << " is " << char(firstChar + secondChar) << '\n';
+    std::cout << "The character with the ASCII value of " << (firstChar + secondChar) << " is " << char(firstChar+secondChar) << '\n';
     return 0;
 }
 ```
@@ -375,7 +372,7 @@ int main() {
 ````
 The `std::max()` function returns the largest of the two values it is given. i.e. if `a` and `b` are arithmetic variables then `max(a,b)` equals `a` if `a>b`.
 
-Write the shortest possible program that prints the higherst of 4 user chosen double precision floating point numbers. 
+Write the shortest possible program that prints the highest of 4 user chosen double precision floating point numbers. 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -404,4 +401,5 @@ Was my choice of variable names helpful?
 Does `max()` work for integers?
 ````{solution-end}
 ````
+
 

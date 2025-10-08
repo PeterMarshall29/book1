@@ -446,7 +446,7 @@ int main() {
 
 The first argument is the string to be printed.
 
-The numbers in the curly braces `{}` refer to the position of the subeseqent arguments in order, starting with the first argument after the string, which has index '0'.
+The numbers in the curly braces `{}` refer to the position of the subsequent arguments in order, starting with the first argument after the string, which has index '0'.
 
 The printed string will have those arguments inserted in the indicated corresponding position; e.g. {1} is replaced by the second argument following the string.
 

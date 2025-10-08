@@ -17,7 +17,7 @@ myst:
 
 # Introduction to the C++ Programming Language
 
-This jupyter-book is intended to introduce the C++ language during the preliminary weeks of the Computational Physics (Part A) module at Loughbourough University. 
+This Jupyter-book is intended to introduce the C++ language during the preliminary weeks of the Computational Physics (Part A) module at Loughborough University. 
 
 The module will transition to working in Visual Studio in week 4.
 

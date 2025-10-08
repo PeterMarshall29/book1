@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.b49d9070-1a5b-4514-a32f-ed3932a7d06d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\initialisation.db62f8e4-3fc4-4f93-a417-1b30d7ab3177.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/initialisation';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -523,7 +523,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-initialisation">List-Initialisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation">Empty Initialiser List, Value-Initialisation and Zero-Initialisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-initialization">Zero-initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-initialisation">Zero-initialisation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-initialisers-default-initialisation">Missing Initialisers - Default Initialisation</a></li>
@@ -574,7 +574,7 @@ document.write(`
 </section>
 </div><p>Some objects are initialised by default, but this is not always helpful; for example, Global variables are default-initialised to 0 – but you should not use global variables in the first place and ‘0’ can be just as problematic as no value.</p>
 <p><code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">vector</span></code> are initialised as empty, which is often helpful.</p>
-<p>Initialisation also takes place during function calls: function parameters and the function return values are both initialized.</p>
+<p>Initialisation also takes place during function calls: function parameters and the function return values are both initialised.</p>
 <p>N.B. These rules apply to objects, not references.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/initialisation-syntax-1">
 
@@ -591,7 +591,7 @@ document.write(`
 </div><section id="initialisers">
 <h2>Initialisers<a class="headerlink" href="#initialisers" title="Permalink to this heading">#</a></h2>
 <p>There are different ways to initialise an object.</p>
-<p>If an <a class="reference internal" href="glossary.html#term-Initialiser"><span class="xref std std-term">initialiser</span></a> is specified for an object, that initializer determines the initial value of an object.</p>
+<p>If an <a class="reference internal" href="glossary.html#term-Initialiser"><span class="xref std std-term">initialiser</span></a> is specified for an object, that initialiser determines the initial value of an object.</p>
 <p>An initialiser is just the syntax used to initialise the object. There are four syntactic styles for initialisers:</p>
 <div class="code_example dropdown admonition" id="examplem1">
 
@@ -630,7 +630,7 @@ document.write(`
 </div></section>
 <section id="list-initialisation">
 <h2>List-Initialisation<a class="headerlink" href="#list-initialisation" title="Permalink to this heading">#</a></h2>
-<p>Initialization using only <code class="docutils literal notranslate"><span class="pre">{}</span></code> is called <a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list-initialisation</span></a> and is usually the best choice because it can be used in every context you will encounter.</p>
+<p>initialisation using only <code class="docutils literal notranslate"><span class="pre">{}</span></code> is called <a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list-initialisation</span></a> and is usually the best choice because it can be used in every context you will encounter.</p>
 <p>It is recommended that list initialisation is used for anything more complicated that a simple variable - even though not having the <a class="reference internal" href="glossary.html#term-Assignment-Operator"><span class="xref std std-term">assignment operator</span></a>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, may be a little disconcerting at first.</p>
 <p><a class="reference internal" href="glossary.html#term-List-Initialisation"><span class="xref std std-term">list-initialisation</span></a> does not permit <a class="reference internal" href="glossary.html#term-Narrowing"><span class="xref std std-term">narrowing</span></a> conversion.</p>
 <p>A narrowing (conversion) occurs when a value is converted from one type to another and the new type is not big enough to represent all possible values of the original type: leading to data loss or undefined behaviours.</p>
@@ -713,35 +713,35 @@ document.write(`
 <li><p>For pointers, the default value is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p></li>
 <li><p>For user-defined types, the default value (if any) is determined by the type’s constructors.</p></li>
 </ul>
-<p>For user-defined types, there can be a distinction between direct initialization (where implicit conversions are allowed) and copy initialization (where they are not).</p>
+<p>For user-defined types, there can be a distinction between direct initialisation (where implicit conversions are allowed) and copy initialisation (where they are not).</p>
 <div class="dropdown admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The syntax <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">objectIdentifier();</span></code> does not initialise an object - it declares a function that takes no arguments and returns <code class="docutils literal notranslate"><span class="pre">Type</span></code>.</p>
 </div>
-<p>References cannot be value-initialised. If the initializer specified for an object is () the object is value-initialized. If the initializer specified for a reference is (), the program is ill-formed.</p>
-<section id="zero-initialization">
-<h3>Zero-initialization<a class="headerlink" href="#zero-initialization" title="Permalink to this heading">#</a></h3>
+<p>References cannot be value-initialised. If the initialiser specified for an object is () the object is value-initialised. If the initialiser specified for a reference is (), the program is ill-formed.</p>
+<section id="zero-initialisation">
+<h3>Zero-initialisation<a class="headerlink" href="#zero-initialisation" title="Permalink to this heading">#</a></h3>
 <p>Initialisation of a variable to the zero value of its type:</p>
 <ul class="simple">
 <li><p>Arithmetic variables: 0 (or 0.0, or 0.0000000000, etc.)</p></li>
 <li><p>Char variables: ‘\0’</p></li>
 <li><p>Pointers: <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p></li>
-<li><p>Arrays, classes, structs, and unions: all members initialized to a zero value.</p></li>
+<li><p>Arrays, classes, structs, and unions: all members initialised to a zero value.</p></li>
 </ul>
 <p>Zero-initialisation is:</p>
 <ul class="simple">
 <li><p>The first step in value-initialisation.</p></li>
 <li><p>Performed at the start of the execution of every program for all named variables that have <a class="reference internal" href="glossary.html#term-Static-Duration"><span class="xref std std-term">static duration</span></a>.</p></li>
-<li><p>Used for arrays that have only a subset of their members initialized.</p></li>
+<li><p>Used for arrays that have only a subset of their members initialised.</p></li>
 </ul>
 </section>
 </section>
 <section id="missing-initialisers-default-initialisation">
 <h2>Missing Initialisers - Default Initialisation<a class="headerlink" href="#missing-initialisers-default-initialisation" title="Permalink to this heading">#</a></h2>
 <p>Default-initialisation refers to the way C++ handles initialisation when no initialiser has been specified.</p>
-<p>The manner of default-initialisation depends on the entity. Objects can be default-initialized, but if no initializer is specified for a reference, the program is ill-formed.</p>
-<p>The <a class="reference internal" href="glossary.html#term-Scalar"><span class="xref std std-term">scalar</span></a> variables are simply left uninitialized - uninitialized primitive types have indeterminate values (unpredictable value that may depend on implementation).</p>
-<p>However, when no initializer is specified, <code class="docutils literal notranslate"><span class="pre">global</span></code>, <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">static</span></code>, or <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">member</span></code> (static objects) are initialized using <code class="docutils literal notranslate"><span class="pre">{}</span></code> of the appropriate type.</p>
+<p>The manner of default-initialisation depends on the entity. Objects can be default-initialised, but if no initialiser is specified for a reference, the program is ill-formed.</p>
+<p>The <a class="reference internal" href="glossary.html#term-Scalar"><span class="xref std std-term">scalar</span></a> variables are simply left uninitialised - uninitialised primitive types have indeterminate values (unpredictable value that may depend on implementation).</p>
+<p>However, when no initialiser is specified, <code class="docutils literal notranslate"><span class="pre">global</span></code>, <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">static</span></code>, or <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">member</span></code> (static objects) are initialised using <code class="docutils literal notranslate"><span class="pre">{}</span></code> of the appropriate type.</p>
 <p>Classes will be initialised by their <a class="reference internal" href="glossary.html#term-Default-Constructor"><span class="xref std std-term">default-constructor</span></a> if they have one. Containers such as <code class="docutils literal notranslate"><span class="pre">string</span></code> and <code class="docutils literal notranslate"><span class="pre">vector</span></code> are classes, have default-constructors, and are <a class="reference internal" href="glossary.html#term-Default-Initialised"><span class="xref std std-term">default-initialised</span></a> as ‘empty’ i.e. <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for a <code class="docutils literal notranslate"><span class="pre">string</span></code>, and <code class="docutils literal notranslate"><span class="pre">v.capacity()</span> <span class="pre">=</span> <span class="pre">0</span></code> for a <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
 <p>Global built-in type variables are default initialised to 0 – but you should not use global variables in the first place and ‘0’ can be just as problematic as no value.</p>
 <p>Class members would be initialised using any specified default values.</p>
@@ -749,7 +749,7 @@ document.write(`
 
 <p class="admonition-title">Code Example: Missing Initialisers </p>
 <section id="code_example-content">
-<p>When no initializer is specified, a <code class="docutils literal notranslate"><span class="pre">global</span></code>, <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">static</span></code>, or <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">member</span></code> (static objects) is initialized to <code class="docutils literal notranslate"><span class="pre">{}</span></code> of the appropriate type. For example:</p>
+<p>When no initialiser is specified, a <code class="docutils literal notranslate"><span class="pre">global</span></code>, <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">static</span></code>, or <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">member</span></code> (static objects) is initialised to <code class="docutils literal notranslate"><span class="pre">{}</span></code> of the appropriate type. For example:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -757,20 +757,20 @@ document.write(`
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cassert&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">myGlobalInt</span><span class="p">{};</span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myGlobalString</span><span class="p">{};</span><span class="w"> </span><span class="c1">// class =&gt; default-initialization, the value is &quot;&quot;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myGlobalString</span><span class="p">{};</span><span class="w"> </span><span class="c1">// class =&gt; default-initialisation, the value is &quot;&quot;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myLocalString</span><span class="p">{};</span><span class="w">   </span><span class="c1">// class =&gt; default-initialization, the value is &quot;&quot;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myLocalString</span><span class="p">{};</span><span class="w">   </span><span class="c1">// class =&gt; default-initialisation, the value is &quot;&quot;</span>
 <span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">myLocalString</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">myGlobalString</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myLocalInt</span><span class="p">{};</span><span class="w">       </span><span class="c1">// scalar =&gt; zero-initialization, the value is 0 </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myLocalInt</span><span class="p">{};</span><span class="w">       </span><span class="c1">// scalar =&gt; zero-initialisation, the value is 0 </span>
 <span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">myLocalInt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">myGlobalInt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">();</span><span class="w">    </span><span class="c1">// scalar =&gt; zero-initialization, the value is 0.0</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">();</span><span class="w">    </span><span class="c1">// scalar =&gt; zero-initialisation, the value is 0.0</span>
 <span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">]();</span><span class="w"> </span><span class="c1">// array =&gt; value-initialization of each element</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">]();</span><span class="w"> </span><span class="c1">// array =&gt; value-initialisation of each element</span>
 <span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">      </span><span class="c1">//  the value of each element is 0</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// value-initialization of each element</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// value-initialisation of each element</span>
 <span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">      </span><span class="c1">// the value of each element is 0</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;No asserts! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
@@ -789,17 +789,17 @@ document.write(`
 <div class="dropdown admonition">
 <p class="admonition-title">Code Explanation</p>
 <ul class="simple">
-<li><p>The global <code class="docutils literal notranslate"><span class="pre">int</span></code> is default initialised, but the local one is left uninitialized because it has no default constructor.</p></li>
+<li><p>The global <code class="docutils literal notranslate"><span class="pre">int</span></code> is default initialised, but the local one is left uninitialised because it has no default constructor.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> does have a default constructor.</p></li>
 </ul>
 </div>
 </section>
-</div><p>Constant variables must be declared together with an initializer. If they’re scalar types they cause a compiler error, and if they’re class types that have a default-constructor they cause a warning:</p>
+</div><p>Constant variables must be declared together with an initialiser. If they’re scalar types they cause a compiler error, and if they’re class types that have a default-constructor they cause a warning:</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Effect of Missing Initialiser - More examples</p>
 <p>Global and Static Variables:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"> </span><span class="c1">// is equivalent to &#39;int myInt{};&#39;, and &#39;myInt&#39; is initialised to &#39;0&#39;.</span>
-<span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="p">;</span><span class="w">  </span><span class="c1">// is equialent to &#39;double myDouble{};&#39; so that &#39;myDouble&#39; becomes &#39;0.0&#39;.</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="p">;</span><span class="w">  </span><span class="c1">// is equivalent to &#39;double myDouble{};&#39; so that &#39;myDouble&#39; becomes &#39;0.0&#39;.</span>
 </pre></div>
 </div>
 <p>Local variables and objects created on the <a class="reference internal" href="glossary.html#term-Free-store"><span class="xref std std-term">free store</span></a> are not initialised unless they are of user-defined types with a default constructor. For example:</p>
@@ -814,13 +814,13 @@ document.write(`
 <span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>For initialization of local variables of built-in type or objects of built-in type created with <code class="docutils literal notranslate"><span class="pre">new</span></code>, use <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<p>For initialisation of local variables of built-in type or objects of built-in type created with <code class="docutils literal notranslate"><span class="pre">new</span></code>, use <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
 </div>
 </section>
 </div></section>
 <section id="initialiser-lists">
 <h2>Initialiser Lists<a class="headerlink" href="#initialiser-lists" title="Permalink to this heading">#</a></h2>
-<p>More complicated objects can require more than one value as an initializer. This is primarily handled by initializer lists delimited by <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>. For example:</p>
+<p>More complicated objects can require more than one value as an initialiser. This is primarily handled by initialiser lists delimited by <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>. For example:</p>
 <div class="code_example dropdown admonition" id="examplem6">
 
 <p class="admonition-title">Code Example: Initaliser Lists </p>
@@ -838,23 +838,23 @@ document.write(`
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// array initializer</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// array initialiser</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">MyStruct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myString</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
-<span class="w">    </span><span class="n">MyStruct</span><span class="w"> </span><span class="n">myStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Helios&quot;</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// struct initializer</span>
+<span class="w">    </span><span class="n">MyStruct</span><span class="w"> </span><span class="n">myStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Helios&quot;</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// struct initialiser</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myComplexNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// use constructor</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.2</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// use list constructor</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>In some cases, function-style argument lists can also be used. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">);</span><span class="w"> </span><span class="c1">// use constructor: myVector gets 10 elements initialized to 3.3</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">);</span><span class="w"> </span><span class="c1">// use constructor: myVector gets 10 elements initialised to 3.3</span>
 </pre></div>
 </div>
 <p>In a declaration, an empty pair of parentheses, (), always means “function”. Therefore, if you want to explicitly require “default initialisation” you must use<code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mYComplexNumber1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// function-style initializer (initialization by constructor)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mYComplexNumber1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// function-style initialiser (initialisation by constructor)</span>
 <span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myFunction1</span><span class="p">();</span><span class="w"> </span><span class="c1">// function declaration</span>
-<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mYComplexNumber2</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// initialization by constructor to {1,2}</span>
-<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myComplexNumber3</span><span class="p">{};</span><span class="w"> </span><span class="c1">// initialization by constructor to the default value {0,0}</span>
+<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mYComplexNumber2</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// initialisation by constructor to {1,2}</span>
+<span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myComplexNumber3</span><span class="p">{};</span><span class="w"> </span><span class="c1">// initialisation by constructor to the default value {0,0}</span>
 </pre></div>
 </div>
 </section>
@@ -886,8 +886,8 @@ document.write(`
 <p>Be careful!! It is always better to specify type, and to initialise immediately!</p>
 <p>The <a class="reference internal" href="glossary.html#term-Type-System"><span class="xref std std-term">type system</span></a> is there for good reason.</p>
 </div>
-<p>When using <code class="docutils literal notranslate"><span class="pre">auto</span></code>, <a class="reference internal" href="glossary.html#term-Copy-initialisation"><span class="xref std std-term">copy-initialisation</span></a> is acceptable because there can be no type conversion to cause unexpected issues; and in the case of initialiser-lists using <code class="docutils literal notranslate"><span class="pre">{}</span></code> list-initialization may be problematic.</p>
-<p>A significant danger when using <code class="docutils literal notranslate"><span class="pre">auto</span></code> is that if the initializer is a {}-list, we may not want its type deduced. For example:</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">auto</span></code>, <a class="reference internal" href="glossary.html#term-Copy-initialisation"><span class="xref std std-term">copy-initialisation</span></a> is acceptable because there can be no type conversion to cause unexpected issues; and in the case of initialiser-lists using <code class="docutils literal notranslate"><span class="pre">{}</span></code> list-initialisation may be problematic.</p>
+<p>A significant danger when using <code class="docutils literal notranslate"><span class="pre">auto</span></code> is that if the initialiser is a {}-list, we may not want its type deduced. For example:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">myExample1</span><span class="p">{</span><span class="w"> </span><span class="mi">99</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// myExample1 has type `initialiser_list&lt;int&gt;` </span>
 <span class="k">auto</span><span class="w"> </span><span class="n">myExample2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span><span class="w"> </span><span class="c1">// myExample2 has type `int`</span>
 </pre></div>
@@ -963,7 +963,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisers">Initialisers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-initialisation">List-Initialisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-initialiser-list-value-initialisation-and-zero-initialisation">Empty Initialiser List, Value-Initialisation and Zero-Initialisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-initialization">Zero-initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-initialisation">Zero-initialisation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-initialisers-default-initialisation">Missing Initialisers - Default Initialisation</a></li>

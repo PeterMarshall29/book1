@@ -57,8 +57,8 @@ Creating a program with the correct syntax means it can be correctly compiled, i
 The semantics of a computer program are the meaning and behaviour of the program. The logical flow of the program must result in it completing the desired task correctly.
 
 By analogy with ordinary writing: 
-* The syntax would be the spelling and grammer.
-* The sematics would be the syntactially correct sentences making sense to the reader, both individually and when read together.
+* The syntax would be the spelling and grammar.
+* The semantics would be the syntactically correct sentences making sense to the reader, both individually and when read together.
 
 A syntax errors occurs when the syntax is incorrect. For example, forgetting the `;` at the end of a statement in C++. Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.
 
@@ -84,7 +84,7 @@ Programming encompasses the entire process of creating new software. Including:
 * Maintaining the software - creating updates and patches for issues.
 
 
-Coding may also refer to writing complete files in languages such as HTML, CSS, or Markdown. These languages are also used to create instructions for a computer, but they have fewer capabiliites, are not capable of computation, using algrorithms and data structures, and are completed as text documents using a simple text editor. 
+Coding may also refer to writing complete files in languages such as HTML, CSS, or Markdown. These languages are also used to create instructions for a computer, but they have fewer capabiliites, are not capable of computation, using algorithms and data structures, and are completed as text documents using a simple text editor. 
 
 ## Algorithms
 
@@ -103,23 +103,23 @@ The process of writing a program can be reduced to four stages
 
 - Analysis of the problem: 
   * What does the program need to do? 
-  * Are there any constaints on how this can be done? e.g. a particular operating system is required, a limition on resouces (e.g. memory, or time)
+  * Are there any constraints on how this can be done? e.g. a particular operating system is required, a limitation on resources (e.g. memory, or time)
 - Design: How do we solve the problem? What should be the overall structure of the system? Which parts does it consist of? How do those parts communicate with each other? How does the system communicate with its users?
 - Programming: Convert your solution to the problem into computer code. 
-  * Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandabiliy).
+  * Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandability).
 - Testing: Make sure the program works correctly **under all circumstances**.
   * Ensure that all possible scenarios are tried e.g. when a user input is required, what happens in the case of all possible entries.
 
-## FlowCharts
+## Flowcharts
 
 Flowcharts are very useful diagrams that assist in design of new programmes, and are often used to represent algorithms for a program or a subroutine (methods/functions). 
 Each flowchart diagram shows the flow of information, from start to end of the process, through decisions points, loops, and I/O using specific symbols for different parts of the algorithm.
 
-This visual representation of the logical flow of your algortihm may help you to understand if your algorithm is correct before try to write the code to implement it. Flowcharts are particularly useful for identifying missing processes and faulty logic.
+This visual representation of the logical flow of your algorithm may help you to understand if your algorithm is correct before try to write the code to implement it. Flowcharts are particularly useful for identifying missing processes and faulty logic.
 
-Examples of flow charts. Some of these steps could/should be broken into multiple steps.
+Examples of flowcharts. Some of these steps could/should be broken into multiple steps.
 
-````{admonition} Examples of flow charts. 
+````{admonition} Examples of flowcharts. 
 :class: dropdown note
 Some of these steps could/should be broken into multiple steps.
 
@@ -203,10 +203,10 @@ Some of these steps could/should be broken into multiple steps.
     ```
 ```
 ````
-````{admonition} Flow Chart Symbols
+````{admonition} Flowchart Symbols
 :class: dropdown note
-These are the basic symbols used to build flow charts. 
-There is an ISO standard for the symbols used in flow charts, but unless you are producing charts for publication you are free to use other shapes.
+These are the basic symbols used to build flowcharts. 
+There is an ISO standard for the symbols used in flowcharts, but unless you are producing charts for publication you are free to use other shapes.
 The shape used is less important when the labels are clear.
 
 ```{list-table}
@@ -232,13 +232,13 @@ The shape used is less important when the labels are clear.
         A{"Diamond"}
     ```
   - Decision
-  - The operation of a program often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows
+  - The operation of a program often changes direction depending on a condition. The conditional operation is shown in the diamond and the options are used to label the outflow arrows
 * - ```{mermaid}
       flowchart TD
         A[\"Parallelogram"\]
     ```
   - Input and/or output
-  - Ofter occur in pairs. User is given a prompt to input data.
+  - Often occur in pairs. User is given a prompt to input data.
 * - ```{mermaid}
       flowchart TD
         A(["A"]) --> |"Condition Text"| B(["B"])
@@ -248,15 +248,15 @@ The shape used is less important when the labels are clear.
 ```
 ````
 
-There are many free tools for designing flow charts. One used recently can cound [here](https://www.mermaidchart.com/play).
+There are many free tools for designing flowcharts. One used recently can cound [here](https://www.mermaidchart.com/play).
 
 ## Programming Environments
 
 C++ programmes are written in plain text - i.e. the source code can be written in a simple text editor like "Notepad" on windows, or "Edit" in the Windows Terminal.
 
-Some of your teachers learned to write computer programmes in plain text because there were no alternatives. Today programmes are usuall written in an IDE - Integrated Development Environment. 
+Some of your teachers learned to write computer programmes in plain text because there were no alternatives. Today programmes are usually written in an IDE - Integrated Development Environment. 
 
-We will be using [Visual Studio](Visual Studio) for this module.
+We will be using [Visual Studio](VisualStudio) for this module.
 
 
 ## Error Types
@@ -274,8 +274,8 @@ Ill-formed programmes contain errors that prevent it from being valid or correct
 
 Rounding (or round-off) errors - The precision of the arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.
 
-For example `sin(acos(-1)/4)` will not be identically equal to `sqrt(2)/2` provided sufficient decimal places are used, and testing their equality would produce an unexpected result.
+For example, `sin(acos(-1)/4)` will not be identically equal to `sqrt(2)/2` provided sufficient decimal places are used, and testing their equality would produce an unexpected result.
 
 `acos(-1)` is a simple way to obtain the value of `pi` in C++.
 
-Truncation errors: Result from the use of an approximation. For example using numerical integration techniques, or Euler's method.
+Truncation errors: Result from the use of an approximation. For example, using numerical integration techniques, or Euler's method.

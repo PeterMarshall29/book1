@@ -161,7 +161,7 @@ int main() {
 		sum = sum + numerator / denominator; 
 	}
 	std::cout << "Result of summation is " << sum << '\n';
-	std::cout << "pi squated over 12 = " << (std::numbers::pi * std::numbers::pi) / 12;
+	std::cout << "pi squared over 12 = " << (std::numbers::pi * std::numbers::pi) / 12;
 	return 0;
 }
 ```
@@ -203,7 +203,7 @@ int main() {
 	std::cin >> x; //read value of x from keyboard
 	res = 1.0 + x; term = x; //calculating res and x^(2^i) for i=0
 	for (int i = 1; i < n; i++) {   // note that we start multiplication from 1 since the value for i=0 was calculated before the loop
-		term *= term; //calcuation of x^(2^i) on i^th iteration
+		term *= term; //calculation of x^(2^i) on i^th iteration
 		//this takes into account that 	//x^(2^i)=x^(2^[i-1])*x^(2^[i-1])
 		res *= (1.0 + term); //calculates res on i^th iteration
 	}

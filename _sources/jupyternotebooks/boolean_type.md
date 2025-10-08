@@ -169,7 +169,7 @@ Booleans values can also be printed as words using `std::boolalpha` .
 :class: dropdown
 :nonumber:
 `````
-Outputing `true` and `false` instead of `1` and `0` .
+Outputting `true` and `false` instead of `1` and `0` .
 ````{code-cell} c++
 :tags: [remove-output,skip-execution]
 #include <iostream>

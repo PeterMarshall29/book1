@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.55c4479d-b618-4a53-bbe0-fbc44712afbc.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.d0dcb3e2-9861-4bb8-ab1e-f75d7bdbacaa.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -600,7 +600,7 @@ document.write(`
 </div>
 <ul class="simple">
 <li><p class="sd-card-text">The statement(s) inside the curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> (a code-block) are the <a class="reference internal" href="glossary.html#term-Function-Body"><span class="xref std std-term">function-body</span></a>.</p></li>
-<li><p class="sd-card-text">The function-<a class="reference internal" href="glossary.html#term-Identifier"><span class="xref std std-term">identifier</span></a> (name) is <em><strong>myFirstFuncton</strong></em> - which is user-defined.</p></li>
+<li><p class="sd-card-text">The function-<a class="reference internal" href="glossary.html#term-Identifier"><span class="xref std std-term">identifier</span></a> (name) is <em><strong>myFirstFunction</strong></em> - which is user-defined.</p></li>
 </ul>
 <p class="sd-card-text">The <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> before the identifier, specifies the type of the value that will be returned when the function completes its execution.</p>
 <ul class="simple">
@@ -1220,7 +1220,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 
 <p class="admonition-title">Code Example: Return Type Deduction </p>
 <section id="code_example-content">
-<p>Return type deducion:</p>
+<p>Return type deduction:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">        </span><span class="c1">// return type is int</span>
 <span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// return type is const int&amp;</span>

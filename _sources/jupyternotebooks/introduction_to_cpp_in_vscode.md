@@ -9,7 +9,7 @@ kernelspec:
   language: c++
   name: cpp20
 ---
-(Visual Studio)=
+(VisualStudio)=
 # C++ in Visual Studio
 
 Visual Studio is a comprehensive Integrated Development Environment (IDE) developed by Microsoft - we will be using the community edition for much of this module.
