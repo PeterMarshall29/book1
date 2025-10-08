@@ -75,7 +75,7 @@ void myFirstFunction () {
 }
 ```
 * The statement(s) inside the curly braces `{}` (a code-block) are the {term}`function-body`.
-* The function-{term}`identifier` (name) is ***myFirstFuncton*** - which is user-defined.
+* The function-{term}`identifier` (name) is ***myFirstFunction*** - which is user-defined.
 
 The {term}`keyword` before the identifier, specifies the type of the value that will be returned when the function completes its execution.
 
@@ -740,7 +740,7 @@ If the `decl-specifier-seq` of the function declaration contains the keyword `au
 :class: dropdown
 :nonumber:
 `````
-Return type deducion:
+Return type deduction:
 ````{code-block} c++
 int x = 1;
 auto f() { return x; }        // return type is int

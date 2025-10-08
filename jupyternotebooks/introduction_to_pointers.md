@@ -42,7 +42,7 @@ int main() {
 ````{code_explanation} examplev0
 :label: solutionv0
 :class: dropdown
-This is the declaraton of a pointer.
+This is the declaration of a pointer.
 ```{code-block} c++
 int* myPointerTo_myInt;
 ```

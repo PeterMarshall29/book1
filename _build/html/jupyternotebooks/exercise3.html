@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise3.ec4fcbb1-b604-4461-b0eb-f17fcf42e634.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise3.a9c5b1d7-94e3-45bf-8379-9bdf9fd3b4ab.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/exercise3';</script>
@@ -666,7 +666,7 @@ document.write(`
 <span class="w">		</span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span><span class="w"> </span>
 <span class="w">	</span><span class="p">}</span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Result of summation is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;pi squated over 12 = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;pi squared over 12 = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -703,7 +703,7 @@ document.write(`
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">//read value of x from keyboard</span>
 <span class="w">	</span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">//calculating res and x^(2^i) for i=0</span>
 <span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// note that we start multiplication from 1 since the value for i=0 was calculated before the loop</span>
-<span class="w">		</span><span class="n">term</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">term</span><span class="p">;</span><span class="w"> </span><span class="c1">//calcuation of x^(2^i) on i^th iteration</span>
+<span class="w">		</span><span class="n">term</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">term</span><span class="p">;</span><span class="w"> </span><span class="c1">//calculation of x^(2^i) on i^th iteration</span>
 <span class="w">		</span><span class="c1">//this takes into account that 	//x^(2^i)=x^(2^[i-1])*x^(2^[i-1])</span>
 <span class="w">		</span><span class="n">res</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">term</span><span class="p">);</span><span class="w"> </span><span class="c1">//calculates res on i^th iteration</span>
 <span class="w">	</span><span class="p">}</span>
@@ -827,8 +827,8 @@ The binomial coefficients are calculated as:</p>
 <div class="math notranslate nohighlight">
 \[C(k,n)= \frac{n!}{k!(n-k)!} \]</div>
 <p>You should know that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da6c587a-3486-43f8-ac3e-7471159638fd">
-<span class="eqno">(1)<a class="headerlink" href="#equation-da6c587a-3486-43f8-ac3e-7471159638fd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd532d1b-7664-4515-a98a-32a12043a3da">
+<span class="eqno">(1)<a class="headerlink" href="#equation-dd532d1b-7664-4515-a98a-32a12043a3da" title="Permalink to this equation">#</a></span>\[\begin{align}
 C(k,n)=C(n-k,n)\\
 C(0,n)=1\\
 C(1,n)=n\\

@@ -17,7 +17,7 @@ Computer languages are just complicated sets of instructions. It can be difficul
 
 As your experience of programming builds you will find that these resources do start to appear a lot simpler to understand than your initial impressions might lead you to believe. 
 
-Only time and perseverence can improve your ability to learn new programming languages and concepts.
+Only time and perseverance can improve your ability to learn new programming languages and concepts.
 
 
 ## The Secret to Becoming Really Good at C++ Programming
@@ -32,18 +32,17 @@ Practice, practice, and yep....., more PRACTICE!
 Not a secret!
 
 ```{admonition} DONT LOOK AT THIS!
-:class: dropdown danger```{admonition} DONT LOOK AT THIS!
 :class: dropdown danger
 
 A computer would not have clicked the button! 
 
-Computers can only follow instuctions. 
+Computers can only follow instructions. 
 
 If a program will not compile your program - your instructions are not in the correct form. 
 
 If a program does 'run', but does not work correctly - the computer is doing exactly what you told it to do!
 
-Remeber **GIGO** - Garbage in, Garbage out!
+Remember **GIGO** - Garbage in, Garbage out!
 ```
 ````
 ```{note}
@@ -54,7 +53,7 @@ Remeber **GIGO** - Garbage in, Garbage out!
 
 ## Growth Mindsets
 
-Pschologist Carol Dweck developed the theory of the growth and fixed mindsets. People with a growth mindset believe that their abilities, intelligence, and talents can be developed through effort, learning, and persistence. They understand that their brain is akin to a muscled that is strengthened by practice and struggling with new ideas and acivities.
+Psychologist Carol Dweck developed the theory of the growth and fixed mindsets. People with a growth mindset believe that their abilities, intelligence, and talents can be developed through effort, learning, and persistence. They understand that their brain is akin to a muscled that is strengthened by practice and struggling with new ideas and acivities.
 
 A fixed mindset believes that you are either good at something or not - this is usually wrong and always self defeating. 
 

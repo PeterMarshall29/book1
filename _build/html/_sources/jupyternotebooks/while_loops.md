@@ -134,7 +134,7 @@ Example of using break to exit a loop.
 #include <vector>
 int main() {
   std::vector<int> collectedValues = {};   //creates an empty vector.
-  for (int i = 0; i < 100; ++i) {          // contorls a loop that adds an element to the vector each time.
+  for (int i = 0; i < 100; ++i) {          // controls a loop that adds an element to the vector each time.
     if (collectedValues.size() == 20) {         //size() - member function - most C++ containers - returns number of elements.
       std::cout << '\n' << "The loop terminated when i == " << i ;    // Prints out only if vector has 20 elements.
       break;                                                   // Exits the loop when vector has 20 elements. 

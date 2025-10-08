@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.74324379-6f73-4c78-af46-b65d5082fe81.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.848ecf69-0f29-47e2-8817-e716fdd273ff.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-6bb0d441-b353-4b64-9f75-610acc6db05a] svg, .mermaid[data-zoom-id=id-ae18b4ae-8aa7-4e54-919b-908d83a6abf3] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-2bd54382-a9ba-4394-bc72-ccabfc4da93b] svg, .mermaid[data-zoom-id=id-b21b223b-8bf3-4d05-9f40-0faf7146ce38] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -561,7 +561,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-sematics-of-a-programming-language">Syntax and Sematics of a Programming Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">Flowcharts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environments">Programming Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations">Errors In Calculations</a></li>
@@ -612,8 +612,8 @@ Syntax is unique to each language - each language requires a different set of sy
 <p>The semantics of a computer program are the meaning and behaviour of the program. The logical flow of the program must result in it completing the desired task correctly.</p>
 <p>By analogy with ordinary writing:</p>
 <ul class="simple">
-<li><p>The syntax would be the spelling and grammer.</p></li>
-<li><p>The sematics would be the syntactially correct sentences making sense to the reader, both individually and when read together.</p></li>
+<li><p>The syntax would be the spelling and grammar.</p></li>
+<li><p>The semantics would be the syntactically correct sentences making sense to the reader, both individually and when read together.</p></li>
 </ul>
 <p>A syntax errors occurs when the syntax is incorrect. For example, forgetting the <code class="docutils literal notranslate"><span class="pre">;</span></code> at the end of a statement in C++. Syntax errors are easily found at compile time - the compiler will not let you have any syntax error, and will return an error description that usually makes it easy to correct your code.</p>
 <p>Semantic errors are logic errors and will not necessarily be caught by the compiler, resulting in an executable program that does not work correctly.</p>
@@ -636,7 +636,7 @@ Syntax is unique to each language - each language requires a different set of sy
 <li><p>Managing deployment/distribution.</p></li>
 <li><p>Maintaining the software - creating updates and patches for issues.</p></li>
 </ul>
-<p>Coding may also refer to writing complete files in languages such as HTML, CSS, or Markdown. These languages are also used to create instructions for a computer, but they have fewer capabiliites, are not capable of computation, using algrorithms and data structures, and are completed as text documents using a simple text editor.</p>
+<p>Coding may also refer to writing complete files in languages such as HTML, CSS, or Markdown. These languages are also used to create instructions for a computer, but they have fewer capabiliites, are not capable of computation, using algorithms and data structures, and are completed as text documents using a simple text editor.</p>
 </section>
 <section id="algorithms">
 <h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading">#</a></h2>
@@ -655,13 +655,13 @@ Syntax is unique to each language - each language requires a different set of sy
 <li><p>Analysis of the problem:</p>
 <ul>
 <li><p>What does the program need to do?</p></li>
-<li><p>Are there any constaints on how this can be done? e.g. a particular operating system is required, a limition on resouces (e.g. memory, or time)</p></li>
+<li><p>Are there any constraints on how this can be done? e.g. a particular operating system is required, a limitation on resources (e.g. memory, or time)</p></li>
 </ul>
 </li>
 <li><p>Design: How do we solve the problem? What should be the overall structure of the system? Which parts does it consist of? How do those parts communicate with each other? How does the system communicate with its users?</p></li>
 <li><p>Programming: Convert your solution to the problem into computer code.</p>
 <ul>
-<li><p>Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandabiliy).</p></li>
+<li><p>Use best practices in creating your code so that it meets all constraints (time, space, money, reliability, maintainability, understandability).</p></li>
 </ul>
 </li>
 <li><p>Testing: Make sure the program works correctly <strong>under all circumstances</strong>.</p>
@@ -672,13 +672,13 @@ Syntax is unique to each language - each language requires a different set of sy
 </ul>
 </section>
 <section id="flowcharts">
-<h2>FlowCharts<a class="headerlink" href="#flowcharts" title="Permalink to this heading">#</a></h2>
+<h2>Flowcharts<a class="headerlink" href="#flowcharts" title="Permalink to this heading">#</a></h2>
 <p>Flowcharts are very useful diagrams that assist in design of new programmes, and are often used to represent algorithms for a program or a subroutine (methods/functions).
 Each flowchart diagram shows the flow of information, from start to end of the process, through decisions points, loops, and I/O using specific symbols for different parts of the algorithm.</p>
-<p>This visual representation of the logical flow of your algortihm may help you to understand if your algorithm is correct before try to write the code to implement it. Flowcharts are particularly useful for identifying missing processes and faulty logic.</p>
-<p>Examples of flow charts. Some of these steps could/should be broken into multiple steps.</p>
+<p>This visual representation of the logical flow of your algorithm may help you to understand if your algorithm is correct before try to write the code to implement it. Flowcharts are particularly useful for identifying missing processes and faulty logic.</p>
+<p>Examples of flowcharts. Some of these steps could/should be broken into multiple steps.</p>
 <div class="dropdown note admonition">
-<p class="admonition-title">Examples of flow charts.</p>
+<p class="admonition-title">Examples of flowcharts.</p>
 <p>Some of these steps could/should be broken into multiple steps.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-2">
 <thead>
@@ -687,7 +687,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-6bb0d441-b353-4b64-9f75-610acc6db05a" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-2bd54382-a9ba-4394-bc72-ccabfc4da93b" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -718,7 +718,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-ae18b4ae-8aa7-4e54-919b-908d83a6abf3" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-b21b223b-8bf3-4d05-9f40-0faf7146ce38" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -762,9 +762,9 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </div>
 </div>
 <div class="dropdown note admonition">
-<p class="admonition-title">Flow Chart Symbols</p>
-<p>These are the basic symbols used to build flow charts.
-There is an ISO standard for the symbols used in flow charts, but unless you are producing charts for publication you are free to use other shapes.
+<p class="admonition-title">Flowchart Symbols</p>
+<p>These are the basic symbols used to build flowcharts.
+There is an ISO standard for the symbols used in flowcharts, but unless you are producing charts for publication you are free to use other shapes.
 The shape used is less important when the labels are clear.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="example-table-1">
 <thead>
@@ -793,14 +793,14 @@ The shape used is less important when the labels are clear.</p>
     A{&quot;Diamond&quot;}
     </pre></td>
 <td><p>Decision</p></td>
-<td><p>The operation of a program often changes direction depending on a condition. The conditonal operation is shown in the diamond and the options are used to label the outflow arrows</p></td>
+<td><p>The operation of a program often changes direction depending on a condition. The conditional operation is shown in the diamond and the options are used to label the outflow arrows</p></td>
 </tr>
 <tr class="row-odd"><td><pre  class="mermaid">
           flowchart TD
     A[\&quot;Parallelogram&quot;\]
     </pre></td>
 <td><p>Input and/or output</p></td>
-<td><p>Ofter occur in pairs. User is given a prompt to input data.</p></td>
+<td><p>Often occur in pairs. User is given a prompt to input data.</p></td>
 </tr>
 <tr class="row-even"><td><pre  class="mermaid">
           flowchart TD
@@ -813,13 +813,13 @@ The shape used is less important when the labels are clear.</p>
 </table>
 </div>
 </div>
-<p>There are many free tools for designing flow charts. One used recently can cound <a class="reference external" href="https://www.mermaidchart.com/play">here</a>.</p>
+<p>There are many free tools for designing flowcharts. One used recently can cound <a class="reference external" href="https://www.mermaidchart.com/play">here</a>.</p>
 </section>
 <section id="programming-environments">
 <h2>Programming Environments<a class="headerlink" href="#programming-environments" title="Permalink to this heading">#</a></h2>
 <p>C++ programmes are written in plain text - i.e. the source code can be written in a simple text editor like “Notepad” on windows, or “Edit” in the Windows Terminal.</p>
-<p>Some of your teachers learned to write computer programmes in plain text because there were no alternatives. Today programmes are usuall written in an IDE - Integrated Development Environment.</p>
-<p>We will be using [Visual Studio](Visual Studio) for this module.</p>
+<p>Some of your teachers learned to write computer programmes in plain text because there were no alternatives. Today programmes are usually written in an IDE - Integrated Development Environment.</p>
+<p>We will be using <a class="reference internal" href="introduction_to_cpp_in_vscode.html#visualstudio"><span class="std std-ref">Visual Studio</span></a> for this module.</p>
 </section>
 <section id="error-types">
 <h2>Error Types<a class="headerlink" href="#error-types" title="Permalink to this heading">#</a></h2>
@@ -835,9 +835,9 @@ The shape used is less important when the labels are clear.</p>
 <section id="errors-in-calculations">
 <h2>Errors In Calculations<a class="headerlink" href="#errors-in-calculations" title="Permalink to this heading">#</a></h2>
 <p>Rounding (or round-off) errors - The precision of the arithmetic used by a computer is limited by its architecture. This can lead to unexpected values even from calculations expected to be simple.</p>
-<p>For example <code class="docutils literal notranslate"><span class="pre">sin(acos(-1)/4)</span></code> will not be identically equal to <code class="docutils literal notranslate"><span class="pre">sqrt(2)/2</span></code> provided sufficient decimal places are used, and testing their equality would produce an unexpected result.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">sin(acos(-1)/4)</span></code> will not be identically equal to <code class="docutils literal notranslate"><span class="pre">sqrt(2)/2</span></code> provided sufficient decimal places are used, and testing their equality would produce an unexpected result.</p>
 <p><code class="docutils literal notranslate"><span class="pre">acos(-1)</span></code> is a simple way to obtain the value of <code class="docutils literal notranslate"><span class="pre">pi</span></code> in C++.</p>
-<p>Truncation errors: Result from the use of an approximation. For example using numerical integration techniques, or Euler’s method.</p>
+<p>Truncation errors: Result from the use of an approximation. For example, using numerical integration techniques, or Euler’s method.</p>
 </section>
 </section>
 
@@ -909,7 +909,7 @@ The shape used is less important when the labels are clear.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-sematics-of-a-programming-language">Syntax and Sematics of a Programming Language</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">FlowCharts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flowcharts">Flowcharts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environments">Programming Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types">Error Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors-in-calculations">Errors In Calculations</a></li>
