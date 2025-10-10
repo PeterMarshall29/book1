@@ -190,8 +190,8 @@ Possible solutions - can you make them more useful or more efficient?
 
 //factorial
 int factorial(int number) {
-  if (number == 0 || number == 1) return 1;
-  return number * factorial(number - 1);
+  if (number == 0 || number == 1) return 1; //the termination condition
+  return number * factorial(number - 1);    // recursive step
 }
 ```
 
@@ -241,6 +241,7 @@ int main() {
     return 0;
 }
 ```
+Extension - rewrite the Fibonacci function to use recursion.
 
 ````{solution-end}
 ````

@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.d0dcb3e2-9861-4bb8-ab1e-f75d7bdbacaa.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.74da67fa-551d-4ea9-9e07-fcfc28be4e47.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -246,7 +246,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises Week 3 Pointers</a></li>
 </ul>
 </details></li>
 </ul>
@@ -527,6 +527,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-return-types">Function Return Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-multiple-returned-values">Functions with multiple Returned Values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference-and-pass-by-constant-reference">Pass-by-Reference and Pass-by-Constant-Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signature">Function Signature</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-type-deduction">Return Type Deduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-templates">Function Templates</a></li>
@@ -546,24 +547,23 @@ document.write(`
 <p>Programmers often want to use the same <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code-block</span></a> repeatedly - in the same program, or across many programmes.</p>
 <p>A code-block can be made reusable by encapsulating it into a function.</p>
 <p>At its simplest, a <a class="reference internal" href="glossary.html#term-Function"><span class="xref std std-term">function</span></a> is just a sequence of <a class="reference internal" href="glossary.html#term-Statements"><span class="xref std std-term">statements</span></a> collected and given a name - to identify that set of statements.</p>
-<p>When a function is ‘called’ (or invoked) its statements are executed as though they had been typed at the same point in your program.</p>
+<p>When a function is ‘called’ (or ‘invoked’) its statements are executed as though they had been typed at that same point in the program.</p>
 <p>Functions may be identified in code by finding an identifier suffixed by parentheses, which may be empty or contain arguments, e.g. <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
 <p>In a declaration, an empty pair of parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> <strong>always</strong> means “function” - in C++.</p>
 <hr class="docutils" />
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
 <p>Functional programming is a programming paradigm that constructs programs from only functions.</p>
-<p>C++ is a multiparadigm language - we will use a combination of functional programming and object-oriented programming. Possibly with some Generic programming.</p>
+<p>C++ is a multiparadigm language - we will use a combination of Functional Programming and Object-oriented Programming, and possibly some Generic Programming.</p>
 </div>
-<p>Functions offer many benefits to the programmer, and we should consider defining a function when we want a separate computation/task with a name because doing so:</p>
+<p>Functions offer many benefits to the programmer, including:</p>
 <ul class="simple">
-<li><p>Make programming more efficient by enabling the reuse of code-blocks.</p></li>
-<li><p>Reduce the complexity of the overall program by separating concerns.</p></li>
-<li><p>Make the program easier to understand because individual parts are separated and identified by a name.</p></li>
-<li><p>Make it easier to test the program - testing reduces to testing functions and their interactions.</p></li>
+<li><p>Making programming more efficient by enabling the reuse of code-blocks.</p></li>
+<li><p>Reducing the complexity of the overall program by separating concerns - making it easier to write and understand the program because individual parts are separated and identified by a name.</p></li>
+<li><p>Making it easier to test the program - testing reduces to testing functions and their interactions.</p></li>
 </ul>
-<p>Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g., computations) were not clearly separated and labelled.</p>
-<p>Use a function is advisable, even when it will not be reused, because separating individual tasks/computations, and calling them by name makes programmes easier to follow.</p>
+<p>Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g. tasks or computations) were not clearly separated and labelled.</p>
+<p>Using a function is advisable, even when it will not be reused, because separating individual tasks/computations, and calling them by name makes programmes easier to follow.</p>
 <div class="code_example dropdown admonition" id="exampleu1">
 
 <p class="admonition-title">Code Example: Introduction to Functions </p>
@@ -593,14 +593,14 @@ document.write(`
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">This is the <a class="reference internal" href="glossary.html#term-Function-Definition"><span class="xref std std-term">function-definition</span></a>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFirstFunction</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFirstFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p class="sd-card-text">The statement(s) inside the curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> (a code-block) are the <a class="reference internal" href="glossary.html#term-Function-Body"><span class="xref std std-term">function-body</span></a>.</p></li>
-<li><p class="sd-card-text">The function-<a class="reference internal" href="glossary.html#term-Identifier"><span class="xref std std-term">identifier</span></a> (name) is <em><strong>myFirstFunction</strong></em> - which is user-defined.</p></li>
+<li><p class="sd-card-text">The function-<a class="reference internal" href="glossary.html#term-Identifier"><span class="xref std std-term">identifier</span></a> (name) is <em><strong>myFirstFunction</strong></em> - which may be user-defined.</p></li>
 </ul>
 <p class="sd-card-text">The <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> before the identifier, specifies the type of the value that will be returned when the function completes its execution.</p>
 <ul class="simple">
@@ -608,12 +608,22 @@ document.write(`
 <li><p class="sd-card-text">The empty parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> indicate that this function takes no <a class="reference internal" href="glossary.html#term-Arguments"><span class="xref std std-term">arguments</span></a>. (Arguments are discussed below…)</p></li>
 </ul>
 <p class="sd-card-text">The type of this function is <code class="docutils literal notranslate"><span class="pre">void()</span></code>.</p>
+<p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">return</span></code> <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> specifies what the function returns at the end of its execution.</p>
+<p class="sd-card-text">If a function definition has declared that a particular type of data (an integer value in case of <code class="docutils literal notranslate"><span class="pre">main()</span></code>) will be returned, then whatever comes after the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword must evaluate to that type or be a literal of that type.</p>
+<p class="sd-card-text">In the example program above, <code class="docutils literal notranslate"><span class="pre">myFirstFunction()</span></code> has no return type, so when the function completes execution, the program moves on to the next line, which in this case is the return-statement for <code class="docutils literal notranslate"><span class="pre">main()</span></code>, which requires an <code class="docutils literal notranslate"><span class="pre">int</span></code> be returned, hence <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">For the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">int</span></code> indicates that <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns an integer, hence we require a <a class="reference internal" href="glossary.html#term-Return-statement"><span class="xref std std-term">return-statement</span></a> i.e. <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code>, and the type of <code class="docutils literal notranslate"><span class="pre">main()</span></code> is <code class="docutils literal notranslate"><span class="pre">int()</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">return</span></code> <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> specifies what the function returns at the end of its execution.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">int</span></code> indicates that <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns an integer, hence we require a <a class="reference internal" href="glossary.html#term-Return-statement"><span class="xref std std-term">return-statement</span></a> i.e. <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code>, and the type of <code class="docutils literal notranslate"><span class="pre">main()</span></code> is <code class="docutils literal notranslate"><span class="pre">int()</span></code>.</p></li>
 </ul>
-<p class="sd-card-text">In the example above, <code class="docutils literal notranslate"><span class="pre">myFirstFunction()</span></code> is effectively replaced by the returned value if there is one, after all the actions of the function have been completed.</p>
-<p class="sd-card-text">If a function definition has declared that a particular type of data (an integer value in case of <code class="docutils literal notranslate"><span class="pre">main()</span></code>) will be returned, then whatever comes after the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword must equate to that type or be a literal of that type.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -624,12 +634,12 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="sd-card-text">If there are nested blocks inside the function, the outermost block is the function body.</p>
+<p class="sd-card-text">If there are nested blocks inside the <a class="reference internal" href="glossary.html#term-Function-Body"><span class="xref std std-term">function-body</span></a>, the outermost block has function <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>, and inner blocks have only local scope. Variables declared in the outer block are accessible throughout the function, but locally scoped variables are only used in their nested block. The outermost block is sometimes synonymous with function-body - but all the blocks are within the function body.</p>
 </div>
 </div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text">This is a <a class="reference internal" href="glossary.html#term-1"><span class="xref std std-term">function call</span></a>.</p>
+<p class="sd-card-text">This is a <a class="reference internal" href="glossary.html#term-1"><span class="xref std std-term">function call</span></a>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">myFirstFunction</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -639,7 +649,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p class="sd-card-text">The function must be placed outside of the main function.</p>
+<p class="sd-card-text">The function declaration and definition must be placed outside of the main function.</p>
 </div>
 <p class="sd-card-text">For now, we will place the functions above the main function, but in future all functions should be placed in <a class="reference internal" href="glossary.html#term-Header-Files"><span class="xref std std-term">header files</span></a>, using the <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive to make them available to <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
 </div>
@@ -647,20 +657,20 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <div class="dropdown admonition note">
 <p class="admonition-title">Note</p>
 <p>The statement before the function body, followed by a <code class="docutils literal notranslate"><span class="pre">;</span></code> would be a <a class="reference internal" href="glossary.html#term-Function-Declaration"><span class="xref std std-term">function declaration</span></a>, which would look like this:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFirstFunction</span><span class="w"> </span><span class="p">();</span><span class="w">   </span><span class="c1">//function prototype/declaration of myFirstFunction</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFirstFunction</span><span class="w"> </span><span class="p">();</span><span class="w">   </span><span class="c1">// Declaration of myFirstFunction</span>
 </pre></div>
 </div>
 </div>
-<p>Function prototypes and declarations are used in addition to their definitions to give us more flexibility over where we may put the function definition.</p>
+<p>Function declarations are used in addition to their definitions to give us more flexibility over where we may put the function definition. A definition is the declaration with the function body.</p>
 </section>
 </div>
 </section>
 </div><hr class="docutils" />
 <section id="functions-with-arguments">
 <h2>Functions with Arguments<a class="headerlink" href="#functions-with-arguments" title="Permalink to this heading">#</a></h2>
-<p>When a function is called values may be <em><strong>passed in</strong></em> as <a class="reference internal" href="glossary.html#term-Arguments"><span class="xref std std-term">arguments</span></a> to the function.</p>
-<p>These values become <a class="reference internal" href="glossary.html#term-Local-Variables"><span class="xref std std-term">local variables</span></a> that can be used within the function. The outcome of the function call thus changes in response to the supplied variables.</p>
-<p>Functions would be less useful if they variables used in their execution could not be modified. Global variables could be used, but these are generally to be avoided.</p>
+<p>When a function is called, values may be <em><strong>passed in</strong></em> as <a class="reference internal" href="glossary.html#term-Arguments"><span class="xref std std-term">arguments</span></a> to the function.</p>
+<p>These values are assigned to <a class="reference internal" href="glossary.html#term-Function-Parameters"><span class="xref std std-term">function-parameters</span></a> which are <a class="reference internal" href="glossary.html#term-Local-Variables"><span class="xref std std-term">local variables</span></a> having function-scope that can only be used within the function. The outcome of the function call changes in response to the supplied values.</p>
+<p>Functions would be less useful if the variables used in their execution could not be modified. Global variables could be used but are generally to be avoided.</p>
 <div class="code_example dropdown admonition" id="exampleu2">
 
 <p class="admonition-title">Code Example: Function Parameters and Arguments </p>
@@ -673,8 +683,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <span class="kt">int</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">squareOf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
@@ -689,25 +698,79 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleu2"> Code Example: Function Parameters and Arguments </a></p>
 <section id="code_explanation-content">
-<p>The definition of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> declares a single parameter called ‘x’ of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-<ul class="simple">
-<li><p>The type of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> is <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">(int)</span></code>.</p></li>
-</ul>
-<p>To call <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> its name must be included in a code-statement followed by <code class="docutils literal notranslate"><span class="pre">()</span></code> with either an integer value in the parentheses, or an integer type variable that must have been initialised with a value before the call.</p>
-<ul class="simple">
-<li><p>Parameters declared in the function declaration/definition become local variables of the same name that may be used within the body of the function - having the value that was passed in.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> function returns an integer value when it is called and, in the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function, that value is immediately used by the character output stream - i.e. treated as an expression.</p></li>
-<li><p>If the return value is needed more than once, then it must be preserved by copy assignment to another variable.</p></li>
-<li><p>If a return value is not used, it is better practice to declare return type as <code class="docutils literal notranslate"><span class="pre">void</span></code>. It is also common practice to put <code class="docutils literal notranslate"><span class="pre">return;</span></code> at the end of a void function - though not strictly necessary.</p></li>
-</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">The definition of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> declares a single parameter named <code class="docutils literal notranslate"><span class="pre">x</span></code> of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The definition may not be placed inside of another function including <code class="docutils literal notranslate"><span class="pre">main()</span></code>, and must come before the function call unless there is a separated function declaration.</p>
+<p class="sd-card-text">The declaration would be written as follows.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="c1">//or</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The declaration must have the same name and type, but the parameter names need not be included in the declaration.</p>
+<p class="sd-card-text">The type of <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> is therefore <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">(int)</span></code>.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">This is the function call:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">squareOf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="sd-card-text">To call any function, its name must be included in a code-statement followed by <code class="docutils literal notranslate"><span class="pre">()</span></code>. The argument listed in the function’s definition specifies the number and type of values that must be included in the parentheses.</p>
+<p class="sd-card-text">For <code class="docutils literal notranslate"><span class="pre">square()</span></code>, a single value integer value, an integer type variable, or an expression that evaluates to an integer must is required.</p>
+<p class="sd-card-text">Variable must have been initialised before being used as arguments in a function call - only their values are being passed into the function, so they must have values.</p>
+<p class="sd-card-text">Note that the type is required in the definition, but not in the call.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Parameters declared in the function declaration/definition become local variables of the same name that may be used within the body of the function - having the value that was passed in.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Evaluates to a value that is the square of the values passed in during the call to the function e.g. the call <code class="docutils literal notranslate"><span class="pre">squareOf(5)</span></code> passes the integer value <code class="docutils literal notranslate"><span class="pre">5</span></code> into the function, where it is assigned as the value of the local variable <code class="docutils literal notranslate"><span class="pre">x</span></code>. Then <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">x</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">25</span></code>.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Wherever a function is called in a program, at the end of its execution the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement initialises a variable of the return type. This is identical to copy initialisation, but the variable is unnamed, and its value is lost if not used immediately. That temporary value is used by the program at the position where the function call was written - effectively replacing the function call with the value that was returned - the same as any expression is evaluated and the value then used.</p>
+<p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">squareOf()</span></code> function returns an integer value when it is called and, in the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function, that value is immediately used by the character output stream - i.e. treated as an expression.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">If the return value is needed more than once, then it must be preserved by copy assignment to another variable. For example, we could have written:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">returnedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">squareOf</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">returnedValue</span></code> can then be used until we no longer need it.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">If a return value is not used, it is better practice to declare the return type as <code class="docutils literal notranslate"><span class="pre">void</span></code>. It is also common practice to put <code class="docutils literal notranslate"><span class="pre">return;</span></code> at the end of a void function - though not strictly necessary.</p>
+</div>
+</div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Ways to Exit a Function</p>
 <p>There are 4 ways for the program to exit a function.</p>
 <ul class="simple">
-<li><p>Executing a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement - <code class="docutils literal notranslate"><span class="pre">return</span></code> can be positioned at more than one point in a function within selection and iteration statements.</p></li>
+<li><p>Executing a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement - <code class="docutils literal notranslate"><span class="pre">return</span></code> can be positioned at more than one point in a function within selection and iteration statements, but only one return-statement can be reached in each function execution.</p></li>
 <li><p><a class="reference internal" href="glossary.html#term-Falling-Through"><span class="xref std std-term">Falling through</span></a> - arriving at the end of the function code block and not finding a <code class="docutils literal notranslate"><span class="pre">return</span></code> - usually only acceptable for <code class="docutils literal notranslate"><span class="pre">void</span></code>.</p></li>
 <li><p>Throwing an <a class="reference internal" href="glossary.html#term-Exception"><span class="xref std std-term">exception</span></a> - this can be handled programmatically.</p></li>
-<li><p>By invoking another function that fails to return.</p></li>
+<li><p>By invoking another function that fails to return - does not pass control back to the original function.</p></li>
 </ul>
 <p>The programmer should always ensure there is a <code class="docutils literal notranslate"><span class="pre">return</span></code>, or an <code class="docutils literal notranslate"><span class="pre">error</span></code>, for every logically possible way out of a function.</p>
 </div>
@@ -752,13 +815,6 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <p>A definition requires the declaration (again) followed by the function-body.</p>
 <p>“Declarations are not definitions”.</p>
 </div>
-<p>A result can also be returned.</p>
-<div class="dropdown note admonition">
-<p class="admonition-title">Using Return Values</p>
-<p>Where the function call is encountered in the execution of a program, the program calls the function and then substitutes the returned value at that point in the code.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement initialises a variable of the return type. This is identical to copy initialisation, but the variable is unnamed, and its value lost if not used immediately.</p>
-<p>The alternative is to copy-assign the returned value to a variable.</p>
-</div>
 <hr class="docutils" />
 <p>Functions can have multiple parameters.</p>
 <div class="margin admonition important">
@@ -791,8 +847,10 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 </div>
 </div>
 </div>
-<p>Notice that the <code class="docutils literal notranslate"><span class="pre">type</span></code> is not repeated in the function call.</p>
-<p>A slightly more advanced approach would be to pass in a reference to the input stream and then use the extraction operator.</p>
+<p>When a function takes multiple arguments, they must be passed in the same order as in the function definition.</p>
+<p>In c++ only the required values are passed in i.e. there is no simple way to include the parameter names to make it easier to keep the order correct.</p>
+<hr class="docutils" />
+<p>An alternative approach to the same program - slightly more advanced - would be to pass in a reference to the input stream and then use the extraction operator. Passing by reference is covered in a later section.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -817,8 +875,8 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <section id="default-arguments">
 <h2>Default Arguments<a class="headerlink" href="#default-arguments" title="Permalink to this heading">#</a></h2>
 <p>Function parameters may be given default values. If a call to the function does not provide a value for a parameter, then the default value is used, otherwise the passed in value is given preference.</p>
-<p>Default parameters must appear at the end of the parameter list, because once a parameter has a default value, all following parameters must also have default values.</p>
-<p>If there is a separate function declaration - it must contain the default values. The default values are only required in a definition, if there is no declaration.</p>
+<p>Default parameters must appear at the end of the parameter list, because once a parameter has a default value, all following parameters must also have default values i.e. if 5 parameters are required, you can stop passing in values at any point, but not restart - if the program passes 3 values to the function, they must be the first 3 and the last 2 must have default values, the compiler cannot deduce any other patterns of arguments.</p>
+<p>If there is a separate function declaration - it must contain the default values. The default values are only required in a definition, when there is no separate declaration.</p>
 <div class="code_example dropdown admonition" id="exampleu4">
 
 <p class="admonition-title">Code Example</p>
@@ -845,14 +903,17 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 
 <p class="admonition-title">Exercise</p>
 <section id="exercise-content">
-<p>Try putting <code class="docutils literal notranslate"><span class="pre">age</span></code> back into the function call - what happens?</p>
+<ul class="simple">
+<li><p>Try putting <code class="docutils literal notranslate"><span class="pre">age</span></code> back into the function call - what happens?</p></li>
+<li><p>Try removing another argument from the function call - what happens?</p></li>
+</ul>
 </section>
 </div></section>
 </div></section>
 <section id="functions-calling-functions">
 <h2>Functions Calling Functions<a class="headerlink" href="#functions-calling-functions" title="Permalink to this heading">#</a></h2>
-<p>Often functions call other functions. The function that makes the call, is sometimes called the ‘caller’ and the called function the ‘callee’</p>
-<p>When one function calls another - control passes to the second function. When the second function returns, control passes back.</p>
+<p>Often functions call other functions. The function that makes the call, is sometimes called the ‘caller’ and the called function the ‘callee’.</p>
+<p>When one function calls another - control passes to the second function. When the second function returns, control passes back to the first function, which finishes its execution and returns control to the program.</p>
 <p>Within any function body - the statements are executed sequentially. The location of the second function dictates when it will be called.</p>
 <div class="code_example dropdown admonition" id="exampleu5">
 
@@ -898,7 +959,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <p class="admonition-title">Code Example</p>
 <section id="code_example-content">
 <p>This code is an old classic describing the evolution of the mutually dependent fox and rabbit populations - an example of mutual recursion.</p>
-<p>But it will not run - no matter which function is listed first because the call each other.</p>
+<p>But it will not run - no matter which function is listed first because the functions call each other.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -946,7 +1007,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <p>A <a class="reference internal" href="glossary.html#term-Function-Declaration"><span class="xref std std-term">function declaration</span></a> has the same form as the <a class="reference internal" href="glossary.html#term-Function-Definition"><span class="xref std std-term">function-definition</span></a> up to the closing parenthesis, but then the declaration is terminated by a semicolon, not by the function body.</p>
 <p>Function declarations dictate the attributes of a function, before it is defined, so function calls found by the compiler before the definition can be checked to ensure their argument-types and return-types match requirements.</p>
 <p>A function definition requires the code body also - ‘Declarations are not definitions’.</p>
-<div class="code_example admonition" id="exampleu7">
+<div class="code_example dropdown admonition" id="exampleu7">
 
 <p class="admonition-title">Code Example</p>
 <section id="code_example-content">
@@ -964,27 +1025,18 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <p>An entity may be declared more than once - but a definition cannot be repeated, or the code will not compile.</p>
 <p>A second declaration may not have a different type-pattern to the first for a given identifier.</p>
 </div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Function Declarations - Uses &amp; Benefits</p>
-<p>Function Declarations:</p>
-<ul class="simple">
-<li><p>Provide a master parameter list that can be used to check arguments in function calls match the parameters in the function definition.</p></li>
-<li><p>Prevent standard conversions being, but no attempt is made to check the type or number of arguments with the number of parameters.</p></li>
-<li><p>Can initialize pointers to functions before those functions are defined.</p></li>
-</ul>
-</div>
 <p>If a function declaration is made before <code class="docutils literal notranslate"><span class="pre">main()</span></code> the function definition can be put after <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
 <p>Most importantly declarations make it possible for functions to call each other, without worrying about the order they were defined in. Useful for organizing code and handling mutual function calls.</p>
 <p>Reason: Two functions may be called in each other’s definition, but they cannot both be defined first.</p>
 <p>The solution is to declare both functions before defining either one. Since the declaration does not refer to the other function, because the function call happens in the body of the function, the problem disappears.</p>
-<p>Having been apprised of the name and type of the function, the program can look for the definition. The declaration is just an interface; it describes what the definition must conform to.</p>
+<p>Having been apprised of the name and type of the function, the program can look for the definition. The declaration is just an interface; providing a description to which the definition must conform.</p>
 <div class="exercise dropdown admonition" id="exerciseu4">
 
 <p class="admonition-title">Exercise</p>
 <section id="exercise-content">
 <p>Try removing the parameter names from the declaration in a previous example.</p>
 </section>
-</div><p>Function declarations and definition may appear in any scope - for example a function declared in a class is a member function of that class.</p>
+</div><p>Function declarations and definitions may appear in any scope - for example, a function declared in a class is a member function of that class.</p>
 <p>Parameter names are not formally necessary in the declaration, and in fact are ignored by the compiler - they are only required in the corresponding definition.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
 </pre></div>
@@ -1005,7 +1057,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <section id="syntax-content">
 <p>Declaration Syntax: <code class="docutils literal notranslate"><span class="pre">returnType</span> <span class="pre">functionIdentifier</span> <span class="pre">(</span> <span class="pre">parameter-list</span> <span class="pre">);</span></code></p>
 <p>Definition Syntax: <code class="docutils literal notranslate"><span class="pre">returnType</span> <span class="pre">functionIdentifier</span> <span class="pre">(</span> <span class="pre">parameter-list</span> <span class="pre">)</span> <span class="pre">{function-body}</span></code></p>
-<p>The parameter list includes the type followed by a placeholder variable name, separated by a space, for each required input argument, comma delimited.</p>
+<p>The parameter list is comma delimited, stating the type and the placeholder’s name, separated by a space, for each required input argument.</p>
 <p>Call Syntax: <code class="docutils literal notranslate"><span class="pre">functionIdentifier</span> <span class="pre">(argument-list)</span></code>.</p>
 <p>The argument list includes only the values, comma delimited - arguments must be supplied in the same order in the function call as in the parameter list in the function declaration.</p>
 <hr class="docutils" />
@@ -1043,7 +1095,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Auto acts as placeholder when used in conjunction with a trailing return type (leading type keyword may not be missing) but it does not deduce the type in this case.</p>
+<p>Auto acts as placeholder when used in conjunction with a trailing return type (the leading-type keyword may not be missing) but it does not deduce the type in this case.</p>
 </div>
 </section>
 <section id="functions-with-multiple-returned-values">
@@ -1051,17 +1103,15 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <p>More than one value of more than one type can be returned from a function.</p>
 <p>There are several ways to program a function for multiple returns.</p>
 <ol class="arabic simple">
-<li><p>Using classes or structs - the values are encapsulated into a single object to be returned - the class or struct definition to be visible to the caller.</p></li>
+<li><p>Using classes or structs - the values are encapsulated into a single object to be returned - the class or struct definition must be visible to the caller.</p></li>
 <li><p>Using a <a class="reference internal" href="glossary.html#term-Tuple"><span class="xref std std-term">tuple</span></a> - see <code class="docutils literal notranslate"><span class="pre">&lt;tuple&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code>. Can be extended by also using a <a class="reference internal" href="glossary.html#term-Structured-Binding"><span class="xref std std-term">structured binding</span></a>.</p></li>
 <li><p>Using pass be reference - defining parameters to use pass-by-reference so that the function can modify or initialize the values of objects that the caller provides.</p></li>
 </ol>
 </section>
 <section id="pass-by-reference-and-pass-by-constant-reference">
 <h2>Pass-by-Reference and Pass-by-Constant-Reference<a class="headerlink" href="#pass-by-reference-and-pass-by-constant-reference" title="Permalink to this heading">#</a></h2>
-<p>Calling a function using by including variable as arguments to populate a functions parameter list, is called pass-by-value.</p>
-<p>It is often better not to pass a value directly into a function.</p>
-<p>When a value is passed into a function, a new copy of that value is created in the memory - a local copy for the use of the function.</p>
-<p>Passing in a long array of large numbers, or a very large image, will use up both resources and time unnecessarily.</p>
+<p>Calling a function by including variables in parentheses as arguments, to populate the functions parameter list, is called pass-by-value.</p>
+<p>It is often better not to pass a value directly into a function. When a value is passed into a function, a new copy of that value is created in the memory - a local copy for the use of the function. Passing in a long array of large numbers, or a very large image, will use up both resources and time unnecessarily.</p>
 <p>The alternative approach is to only pass in a reference to the variable - called <a class="reference internal" href="glossary.html#term-Pass-by-Reference"><span class="xref std std-term">pass-by-reference</span></a>.</p>
 <p>A <a class="reference internal" href="glossary.html#term-Reference"><span class="xref std std-term">reference</span></a> is the <a class="reference internal" href="glossary.html#term-Memory-Address"><span class="xref std std-term">memory address</span></a> of a named object.</p>
 <p>Programs run faster when function parameters are <a class="reference internal" href="glossary.html#term-Passed-by-reference"><span class="xref std std-term">passed by reference</span></a>.</p>
@@ -1085,13 +1135,11 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 </section>
 </div><hr class="docutils" />
 <p>To declare that a parameter will by passed by reference, its type is declared with a postfixed ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
-<p>Passing by reference poses one risk - the original object is not affected by a function call when <a class="reference internal" href="glossary.html#term-Passed-by-Value"><span class="xref std std-term">passed by value</span></a>, because a local copy is generated.</p>
-<p>Passing a reference to a variable gives the function direct access to the variable, which the function can then modify.</p>
-<p>To prevent the function altering the named object that is referenced, the parameter must be listed as <a class="reference internal" href="glossary.html#term-Constant"><span class="xref std std-term">constant</span></a>, by adding the modifier <code class="docutils literal notranslate"><span class="pre">const</span></code> keyword before, the type, space separated.</p>
-<p>This is called <a class="reference internal" href="glossary.html#term-Passing-by-Constant-Reference"><span class="xref std std-term">passing by constant reference</span></a>.</p>
+<p><a class="reference internal" href="glossary.html#term-Passing-by-Reference"><span class="xref std std-term">Passing by reference</span></a> poses one risk - the original object is not affected by a function call when <a class="reference internal" href="glossary.html#term-Passed-by-Value"><span class="xref std std-term">passed by value</span></a>, because a local copy is generated - however, passing a reference to a variable gives the function direct access to that variable, which the function can then modify.</p>
+<p>To prevent the function altering the named object that is referenced, the parameter must be listed as <a class="reference internal" href="glossary.html#term-Constant"><span class="xref std std-term">constant</span></a>, by adding the modifier <code class="docutils literal notranslate"><span class="pre">const</span></code> keyword before the type, space separated. This is called <a class="reference internal" href="glossary.html#term-Passing-by-Constant-Reference"><span class="xref std std-term">passing by constant reference</span></a>.</p>
 <div class="code_example dropdown admonition" id="exampleu8">
 
-<p class="admonition-title">Code Example: Passing By Constant Reference </p>
+<p class="admonition-title">Code Example: Passing by Constant Reference </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1116,12 +1164,13 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 </div>
 </div>
 </section>
-</div><div class="code_example dropdown admonition" id="exampleu9">
+</div><p>When we do want to modify a variable that is used by a function, passing by reference is one of two ways for a function to modify a variable outside of the functions scope.</p>
+<div class="code_example dropdown admonition" id="exampleu9">
 
 <p class="admonition-title">Code Example: Passing by Reference </p>
 <section id="code_example-content">
 <p>Pass by reference allows us to modify the original values.</p>
-<p>Method 2 - Modifying a local variable – which is a reference to the external value.</p>
+<p>Method 1 - Modifying a Local Variable – which is a reference to the external value.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -1158,7 +1207,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 </div>
 </div>
 </div>
-<p>Notice that the program modifies the local variable (called <code class="docutils literal notranslate"><span class="pre">localVector</span></code>) - that because this is reference, not a copy, the variable referred to is being modified.</p>
+<p>Notice that the program modifies the local variable (called <code class="docutils literal notranslate"><span class="pre">localVector</span></code>) - because this is reference, not a copy, the variable referred to is being modified.</p>
 <hr class="docutils" />
 <p>Otherwise, the original variable would only be accessible by a function if the variable is global, which means declaring it before the main function, otherwise the <code class="docutils literal notranslate"><span class="pre">myPrint()</span></code> functions could not alter it, only its copy. If a variable is global there is no real reason to pass it into a function.</p>
 <p>Method 2 – Modifying a Global Variable</p>
@@ -1200,13 +1249,21 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> prints out the elements of a vector.</p>
 <p><code class="docutils literal notranslate"><span class="pre">myPrinter2()</span></code> adds one to each element of the global vector but prints the terms of a local copy of the original vector.</p>
-<ul class="simple">
-<li><p>It does not matter whether <code class="docutils literal notranslate"><span class="pre">myVector[i]</span> <span class="pre">=</span> <span class="pre">myVector[i]</span> <span class="pre">+</span> <span class="pre">1;</span></code> is before or after the print statement, because it is not used for printing, but usually the position of an increment matters!</p></li>
-</ul>
+<p>It does not matter whether <code class="docutils literal notranslate"><span class="pre">myVector[i]</span> <span class="pre">=</span> <span class="pre">myVector[i]</span> <span class="pre">+</span> <span class="pre">1;</span></code> is before or after the print statement, because it is not used for printing - usually the position of an increment statement does matter!</p>
 <p>The second call to the <code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> prints the modified Global vector.</p>
 <p>This is not helpful, because now you have a global variable.</p>
 </section>
 </div><!-- ## constexpr Functions -->
+</section>
+<section id="recursion">
+<h2>Recursion<a class="headerlink" href="#recursion" title="Permalink to this heading">#</a></h2>
+<p><a class="reference internal" href="glossary.html#term-Recursion"><span class="xref std std-term">Recursion</span></a> is a programming technique where a function calls itself to solve a smaller instance of the same problem.</p>
+<p>Recursion is used when the problem can be broken down into a series of similar steps, with a small variation each step - such as required to calculate a factorial (see problem 4E) or to generate the Fibonacci sequence.</p>
+<p>There are two main components to a recursive function:</p>
+<ul class="simple">
+<li><p>The termination condition: The condition under which the recursion stops. Without a base case, the recursion will continue indefinitely, causing a stack overflow, and breaking things…</p></li>
+<li><p>The recursive step: The part of the function-body where the function calls itself using a smaller, or simpler argument based on the current parameter value.</p></li>
+</ul>
 </section>
 <section id="function-signature">
 <h2>Function Signature<a class="headerlink" href="#function-signature" title="Permalink to this heading">#</a></h2>
@@ -1323,6 +1380,7 @@ The <code class="docutils literal notranslate"><span class="pre">return</span></
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-return-types">Function Return Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-multiple-returned-values">Functions with multiple Returned Values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference-and-pass-by-constant-reference">Pass-by-Reference and Pass-by-Constant-Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signature">Function Signature</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-type-deduction">Return Type Deduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-templates">Function Templates</a></li>

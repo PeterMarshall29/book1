@@ -62,6 +62,9 @@ Class
 Class Members
   Functions that belong to a class.
 
+Class Templates
+  Class templates define a family of related classes that are based on the type arguments passed to the class upon instantiation.
+
 Code-Block
   Sequence of {term}`statements` enclosed by curly braces `{}`. Also referred to as a {term}`compound statement`.
 
@@ -264,7 +267,7 @@ Function-Arguments
   The values passed into a function. The function declaration specifies the number and type of the required arguments, which must be matched by each call to that function.
 
 Function-Body
-  Sequence of statements to be executed when the function is called.
+  Sequence of statements to be executed when the function is called. The outermost block of a function, that has function-scope. Inner blocks have local scope.
 
 Function-Call
   A function is 'called' or 'invoked' by a statement of the function name followed by the values to be passed to the function in parentheses. Any value returned by the function can be used by {term}`copy-assignment`.
@@ -287,11 +290,17 @@ Function-Identifier
 Function-Parameter
   Placeholders in the function declaration for the arguments that will be passed in. The parameter is the local variable name within the function body associated with the corresponding argument’s value.
 
+Function-Parameters
+  Placeholders in the function declaration for the arguments that will be passed in. The parameter is the local variable name within the function body associated with the corresponding argument’s value.
+
 Functional Programming
   Programming paradigm that constructs programmes using functions. A declarative model of programming emphasising "what to do" rather than "how to do it."
 
 Function Prototype
   Function Declaration
+
+Function Templates
+  Function templates are similar to class templates but define a family of functions
 
 Function-type
   Combination of the return type and arguments' type. e.g. `int(double, string, int)`.
@@ -537,6 +546,9 @@ prvalue
 
 Range
   a sequence of elements that can be iterated over.
+
+Recursion
+  See {term}`recursion`.
 
 Reference
   The memory address of an object.

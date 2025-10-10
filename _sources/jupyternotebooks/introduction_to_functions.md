@@ -18,7 +18,7 @@ A code-block can be made reusable by encapsulating it into a function.
 
 At its simplest, a {term}`function` is just a sequence of {term}`statements` collected and given a name - to identify that set of statements.
 
-When a function is 'called' (or invoked) its statements are executed as though they had been typed at the same point in your program.
+When a function is 'called' (or 'invoked') its statements are executed as though they had been typed at that same point in the program.
 
 Functions may be identified in code by finding an identifier suffixed by parentheses, which may be empty or contain arguments, e.g. `main()`.
 
@@ -29,23 +29,22 @@ In a declaration, an empty pair of parentheses `()` **always** means "function" 
 :class: margin
 Functional programming is a programming paradigm that constructs programs from only functions.
 
-C++ is a multiparadigm language - we will use a combination of functional programming and object-oriented programming. Possibly with some Generic programming.
+C++ is a multiparadigm language - we will use a combination of Functional Programming and Object-oriented Programming, and possibly some Generic Programming.
 ```
-Functions offer many benefits to the programmer, and we should consider defining a function when we want a separate computation/task with a name because doing so:
+Functions offer many benefits to the programmer, including: 
 
-* Make programming more efficient by enabling the reuse of code-blocks.
-* Reduce the complexity of the overall program by separating concerns.
-* Make the program easier to understand because individual parts are separated and identified by a name.
-* Make it easier to test the program - testing reduces to testing functions and their interactions.
+* Making programming more efficient by enabling the reuse of code-blocks.
+* Reducing the complexity of the overall program by separating concerns - making it easier to write and understand the program because individual parts are separated and identified by a name.
+* Making it easier to test the program - testing reduces to testing functions and their interactions.
 
-Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g., computations) were not clearly separated and labelled.
+Real-world programs use thousands of functions, some even hundreds of thousands of functions. We would never be able to write or understand such programs if their parts (e.g. tasks or computations) were not clearly separated and labelled.
 
-Use a function is advisable, even when it will not be reused, because separating individual tasks/computations, and calling them by name makes programmes easier to follow.
-``````{code_example-start} Introduction to Functions
+Using a function is advisable, even when it will not be reused, because separating individual tasks/computations, and calling them by name makes programmes easier to follow.
+```````{code_example-start} Introduction to Functions
 :label: exampleu1
 :class: dropdown
 :nonumber:
-``````
+```````
 Run this code, which demonstrates a simple function declaration and call.
 
 `````{code-cell} c++
@@ -63,19 +62,19 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleu1
+``````{code_explanation} exampleu1
 :label: explanationu1
 :class: dropdown
 
-````{card}
+`````{card}
 This is the {term}`function-definition`.
 ```{code-block} c++
-void myFirstFunction () {
+void myFirstFunction() {
     std::cout << "Hello, World!" << '\n';
 }
 ```
 * The statement(s) inside the curly braces `{}` (a code-block) are the {term}`function-body`.
-* The function-{term}`identifier` (name) is ***myFirstFunction*** - which is user-defined.
+* The function-{term}`identifier` (name) is ***myFirstFunction*** - which may be user-defined.
 
 The {term}`keyword` before the identifier, specifies the type of the value that will be returned when the function completes its execution.
 
@@ -84,14 +83,22 @@ The {term}`keyword` before the identifier, specifies the type of the value that 
 
 The type of this function is `void()`. 
 
-* `int` indicates that `main()` returns an integer, hence we require a {term}`return-statement` i.e. `return 0;`, and the type of `main()` is `int()`.
 The `return` {term}`keyword` specifies what the function returns at the end of its execution.
 
-In the example above, `myFirstFunction()` is effectively replaced by the returned value if there is one, after all the actions of the function have been completed.
+If a function definition has declared that a particular type of data (an integer value in case of `main()`) will be returned, then whatever comes after the `return` keyword must evaluate to that type or be a literal of that type.
 
-If a function definition has declared that a particular type of data (an integer value in case of `main()`) will be returned, then whatever comes after the `return` keyword must equate to that type or be a literal of that type.
+In the example program above, `myFirstFunction()` has no return type, so when the function completes execution, the program moves on to the next line, which in this case is the return-statement for `main()`, which requires an `int` be returned, hence `return 0;`. 
+````{card}
+For the `main()` function:
 
+```{code-block} c++
+int main() {
+    return 0;
+}
+```
+* `int` indicates that `main()` returns an integer, hence we require a {term}`return-statement` i.e. `return 0;`, and the type of `main()` is `int()`.
 ````
+`````
 ````{card}
 This is the function-body - the code that will be executed every time the function is ***called***.
 ```{code-block} c++
@@ -99,17 +106,17 @@ This is the function-body - the code that will be executed every time the functi
     std::cout << "Hello, World!" << '\n';
 }
 ```
-If there are nested blocks inside the function, the outermost block is the function body.
-````
+If there are nested blocks inside the {term}`function-body`, the outermost block has function {term}`scope`, and inner blocks have only local scope. Variables declared in the outer block are accessible throughout the function, but locally scoped variables are only used in their nested block. The outermost block is sometimes synonymous with function-body - but all the blocks are within the function body.
+```` 
 ````{card}
-This is a {term}`function call`. 
+This is a {term}`function call`: 
 ```{code-block} c++
 myFirstFunction();
 ```
 * To call a function we state its name followed by `()`. 
 * If the function takes arguments, their values must be supplied in the parentheses.
 ```{important}
-The function must be placed outside of the main function. 
+The function declaration and definition must be placed outside of the main function. 
 ```
 For now, we will place the functions above the main function, but in future all functions should be placed in {term}`header files`, using the `#include` directive to make them available to `main()`.
 ````
@@ -117,20 +124,20 @@ For now, we will place the functions above the main function, but in future all 
 :class: dropdown
 The statement before the function body, followed by a `;` would be a {term}`function declaration`, which would look like this:
 ```{code-block} c++
-void myFirstFunction ();   //function prototype/declaration of myFirstFunction
+void myFirstFunction ();   // Declaration of myFirstFunction
 ```
 ````
-Function prototypes and declarations are used in addition to their definitions to give us more flexibility over where we may put the function definition. 
-`````
-``````{code_example-end}
+Function declarations are used in addition to their definitions to give us more flexibility over where we may put the function definition. A definition is the declaration with the function body.
 ``````
+```````{code_example-end}
+```````
 ***
 ## Functions with Arguments
-When a function is called values may be ***passed in*** as {term}`arguments` to the function. 
+When a function is called, values may be ***passed in*** as {term}`arguments` to the function. 
 
-These values become {term}`local variables` that can be used within the function. The outcome of the function call thus changes in response to the supplied variables. 
+These values are assigned to {term}`function-parameters` which are {term}`local variables` having function-scope that can only be used within the function. The outcome of the function call changes in response to the supplied values. 
 
-Functions would be less useful if they variables used in their execution could not be modified. Global variables could be used, but these are generally to be avoided.
+Functions would be less useful if the variables used in their execution could not be modified. Global variables could be used but are generally to be avoided.
 
 ``````{code_example-start} Function Parameters and Arguments
 :label: exampleu2
@@ -146,8 +153,7 @@ Run this code.
 int squareOf(int x) {
     return x * x;
 }
-int main()
-{
+int main() {
     for (int i = 0; i < 20; ++i) {
         std::cout << i << "\t" << squareOf(i) << "\n";
         ++i;
@@ -158,28 +164,73 @@ int main()
 `````{code_explanation} exampleu2
 :label: explanationu2
 :class: dropdown
-The definition of `squareOf()` declares a single parameter called 'x' of type `int`. 
+````{card}
+The definition of `squareOf()` declares a single parameter named `x` of type `int`. 
+```{code-block} c++
+int squareOf(int x) {
+    return x * x;
+}
+```
+The definition may not be placed inside of another function including `main()`, and must come before the function call unless there is a separated function declaration.
 
-* The type of `squareOf()` is `int (int)`.
+The declaration would be written as follows.
+```{code-block} c++
+int squareOf(int x);
+//or
+int squareOf(int);
+```
+The declaration must have the same name and type, but the parameter names need not be included in the declaration.
 
-To call `squareOf()` its name must be included in a code-statement followed by `()` with either an integer value in the parentheses, or an integer type variable that must have been initialised with a value before the call.
+The type of `squareOf()` is therefore `int (int)`.
+````
+````{card}
+This is the function call:
+```{code-block} c++
+squareOf(i);
+```
+To call any function, its name must be included in a code-statement followed by `()`. The argument listed in the function’s definition specifies the number and type of values that must be included in the parentheses.
 
-* Parameters declared in the function declaration/definition become local variables of the same name that may be used within the body of the function - having the value that was passed in.
+For `square()`, a single value integer value, an integer type variable, or an expression that evaluates to an integer must is required. 
 
-* The `squareOf()` function returns an integer value when it is called and, in the `main()` function, that value is immediately used by the character output stream - i.e. treated as an expression.
+Variable must have been initialised before being used as arguments in a function call - only their values are being passed into the function, so they must have values.
 
-* If the return value is needed more than once, then it must be preserved by copy assignment to another variable. 
+Note that the type is required in the definition, but not in the call.
+````
+````{card}
+Parameters declared in the function declaration/definition become local variables of the same name that may be used within the body of the function - having the value that was passed in.
+```{code-block} c++
+x * x
+```
+Evaluates to a value that is the square of the values passed in during the call to the function e.g. the call `squareOf(5)` passes the integer value `5` into the function, where it is assigned as the value of the local variable `x`. Then `x * x` evaluates to `25`.
+````
+````{card}
+Wherever a function is called in a program, at the end of its execution the `return` statement initialises a variable of the return type. This is identical to copy initialisation, but the variable is unnamed, and its value is lost if not used immediately. That temporary value is used by the program at the position where the function call was written - effectively replacing the function call with the value that was returned - the same as any expression is evaluated and the value then used.
 
-* If a return value is not used, it is better practice to declare return type as `void`. It is also common practice to put `return;` at the end of a void function - though not strictly necessary. 
-
+The `squareOf()` function returns an integer value when it is called and, in the `main()` function, that value is immediately used by the character output stream - i.e. treated as an expression.
+````
+````{card}
+If the return value is needed more than once, then it must be preserved by copy assignment to another variable. For example, we could have written:
+```{code-block} c++
+int main() {
+    int number = 5;
+    int returnedValue = squareOf(number);
+    std::cout << temp << '\n'; 
+    return 0;
+}
+```
+`returnedValue` can then be used until we no longer need it.
+````
+````{card}
+If a return value is not used, it is better practice to declare the return type as `void`. It is also common practice to put `return;` at the end of a void function - though not strictly necessary. 
+````
 ```{admonition} Ways to Exit a Function
 :class: note dropdown
 There are 4 ways for the program to exit a function.
 
-- Executing a `return` statement - `return` can be positioned at more than one point in a function within selection and iteration statements.
+- Executing a `return` statement - `return` can be positioned at more than one point in a function within selection and iteration statements, but only one return-statement can be reached in each function execution.
 - {term}`Falling through` - arriving at the end of the function code block and not finding a `return` - usually only acceptable for `void`.
 - Throwing an {term}`exception` - this can be handled programmatically.
-- By invoking another function that fails to return.
+- By invoking another function that fails to return - does not pass control back to the original function.
 
 The programmer should always ensure there is a `return`, or an `error`, for every logically possible way out of a function.
 ```
@@ -219,16 +270,7 @@ A definition requires the declaration (again) followed by the function-body.
 
 "Declarations are not definitions".
 ```
-A result can also be returned.
-```{admonition} Using Return Values
-:class: dropdown note
 
-Where the function call is encountered in the execution of a program, the program calls the function and then substitutes the returned value at that point in the code.
-
-The `return` statement initialises a variable of the return type. This is identical to copy initialisation, but the variable is unnamed, and its value lost if not used immediately.
-
-The alternative is to copy-assign the returned value to a variable. 
-```
 ****
 Functions can have multiple parameters.
 ```{important}
@@ -261,9 +303,11 @@ int main()
     return 0;
 }
 ````
-Notice that the `type` is not repeated in the function call.
+When a function takes multiple arguments, they must be passed in the same order as in the function definition.
 
-A slightly more advanced approach would be to pass in a reference to the input stream and then use the extraction operator.
+In c++ only the required values are passed in i.e. there is no simple way to include the parameter names to make it easier to keep the order correct.
+****
+An alternative approach to the same program - slightly more advanced - would be to pass in a reference to the input stream and then use the extraction operator. Passing by reference is covered in a later section.
 ````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -288,9 +332,9 @@ int main()
 
 Function parameters may be given default values. If a call to the function does not provide a value for a parameter, then the default value is used, otherwise the passed in value is given preference.
 
-Default parameters must appear at the end of the parameter list, because once a parameter has a default value, all following parameters must also have default values.
+Default parameters must appear at the end of the parameter list, because once a parameter has a default value, all following parameters must also have default values i.e. if 5 parameters are required, you can stop passing in values at any point, but not restart - if the program passes 3 values to the function, they must be the first 3 and the last 2 must have default values, the compiler cannot deduce any other patterns of arguments.
 
-If there is a separate function declaration - it must contain the default values. The default values are only required in a definition, if there is no declaration.
+If there is a separate function declaration - it must contain the default values. The default values are only required in a definition, when there is no separate declaration.
 
 `````{code_example-start}
 :label: exampleu4
@@ -321,16 +365,17 @@ int main()
 :label: exerciseu3
 :class: dropdown
 :nonumber:
-Try putting `age` back into the function call - what happens?
+* Try putting `age` back into the function call - what happens?
+* Try removing another argument from the function call - what happens?
 ```
 `````{code_example-end}
 `````
 
 ## Functions Calling Functions
 
-Often functions call other functions. The function that makes the call, is sometimes called the 'caller' and the called function the 'callee'
+Often functions call other functions. The function that makes the call, is sometimes called the 'caller' and the called function the 'callee'.
 
-When one function calls another - control passes to the second function. When the second function returns, control passes back.
+When one function calls another - control passes to the second function. When the second function returns, control passes back to the first function, which finishes its execution and returns control to the program.
 
 Within any function body - the statements are executed sequentially. The location of the second function dictates when it will be called.
 
@@ -378,7 +423,7 @@ Keeping the order straight is not sufficient - try the following code in the liv
 `````
 This code is an old classic describing the evolution of the mutually dependent fox and rabbit populations - an example of mutual recursion.
 
-But it will not run - no matter which function is listed first because the call each other.
+But it will not run - no matter which function is listed first because the functions call each other.
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -430,6 +475,7 @@ Function declarations dictate the attributes of a function, before it is defined
 A function definition requires the code body also - 'Declarations are not definitions'.
 `````{code_example-start}
 :label: exampleu7
+:class: dropdown
 :nonumber:
 `````
 ```{code-block} c++
@@ -447,13 +493,6 @@ An entity may be declared more than once - but a definition cannot be repeated, 
 
 A second declaration may not have a different type-pattern to the first for a given identifier.
 ```
-````{admonition} Function Declarations - Uses & Benefits
-:class: note dropdown
-Function Declarations:
-*  Provide a master parameter list that can be used to check arguments in function calls match the parameters in the function definition.
-*  Prevent standard conversions being, but no attempt is made to check the type or number of arguments with the number of parameters.
-*  Can initialize pointers to functions before those functions are defined.
-````
 If a function declaration is made before `main()` the function definition can be put after `main()`.
 
 Most importantly declarations make it possible for functions to call each other, without worrying about the order they were defined in. Useful for organizing code and handling mutual function calls. 
@@ -462,7 +501,7 @@ Reason: Two functions may be called in each other's definition, but they cannot 
 
 The solution is to declare both functions before defining either one. Since the declaration does not refer to the other function, because the function call happens in the body of the function, the problem disappears.
 
-Having been apprised of the name and type of the function, the program can look for the definition. The declaration is just an interface; it describes what the definition must conform to.
+Having been apprised of the name and type of the function, the program can look for the definition. The declaration is just an interface; providing a description to which the definition must conform.
 ````{exercise-start}
 :label: exerciseu4
 :class: dropdown
@@ -471,7 +510,7 @@ Having been apprised of the name and type of the function, the program can look 
 Try removing the parameter names from the declaration in a previous example.
 ````{exercise-end}
 ````
-Function declarations and definition may appear in any scope - for example a function declared in a class is a member function of that class.
+Function declarations and definitions may appear in any scope - for example, a function declared in a class is a member function of that class.
 
 Parameter names are not formally necessary in the declaration, and in fact are ignored by the compiler - they are only required in the corresponding definition.
 ```{code-block} c++
@@ -500,7 +539,7 @@ Declaration Syntax: `returnType functionIdentifier ( parameter-list );`
 
 Definition Syntax: `returnType functionIdentifier ( parameter-list ) {function-body}`
 
-The parameter list includes the type followed by a placeholder variable name, separated by a space, for each required input argument, comma delimited.
+The parameter list is comma delimited, stating the type and the placeholder’s name, separated by a space, for each required input argument.
 
 Call Syntax: `functionIdentifier (argument-list)`.
 
@@ -547,7 +586,7 @@ int main() {
     return 0;
 }
 ```
-Auto acts as placeholder when used in conjunction with a trailing return type (leading type keyword may not be missing) but it does not deduce the type in this case.
+Auto acts as placeholder when used in conjunction with a trailing return type (the leading-type keyword may not be missing) but it does not deduce the type in this case.
 ````
 ## Functions with multiple Returned Values
 
@@ -555,19 +594,15 @@ More than one value of more than one type can be returned from a function.
 
 There are several ways to program a function for multiple returns.
 
-1. Using classes or structs - the values are encapsulated into a single object to be returned - the class or struct definition to be visible to the caller.
+1. Using classes or structs - the values are encapsulated into a single object to be returned - the class or struct definition must be visible to the caller.
 2. Using a {term}`tuple` - see `<tuple>` and `std::tuple`. Can be extended by also using a {term}`structured binding`.
 3. Using pass be reference - defining parameters to use pass-by-reference so that the function can modify or initialize the values of objects that the caller provides.
 
 ## Pass-by-Reference and Pass-by-Constant-Reference
 
-Calling a function using by including variable as arguments to populate a functions parameter list, is called pass-by-value.
+Calling a function by including variables in parentheses as arguments, to populate the functions parameter list, is called pass-by-value.
 
-It is often better not to pass a value directly into a function.  
-
-When a value is passed into a function, a new copy of that value is created in the memory - a local copy for the use of the function.
-
-Passing in a long array of large numbers, or a very large image, will use up both resources and time unnecessarily. 
+It is often better not to pass a value directly into a function. When a value is passed into a function, a new copy of that value is created in the memory - a local copy for the use of the function. Passing in a long array of large numbers, or a very large image, will use up both resources and time unnecessarily. 
 
 The alternative approach is to only pass in a reference to the variable - called {term}`pass-by-reference`.
 
@@ -595,14 +630,10 @@ int main() {
 ***
 To declare that a parameter will by passed by reference, its type is declared with a postfixed ampersand `&`.
 
-Passing by reference poses one risk - the original object is not affected by a function call when {term}`passed by value`, because a local copy is generated.
+{term}`Passing by reference` poses one risk - the original object is not affected by a function call when {term}`passed by value`, because a local copy is generated - however, passing a reference to a variable gives the function direct access to that variable, which the function can then modify.
 
-Passing a reference to a variable gives the function direct access to the variable, which the function can then modify.
-
-To prevent the function altering the named object that is referenced, the parameter must be listed as {term}`constant`, by adding the modifier `const` keyword before, the type, space separated.
-
-This is called {term}`passing by constant reference`.
-`````{code_example-start} Passing By Constant Reference
+To prevent the function altering the named object that is referenced, the parameter must be listed as {term}`constant`, by adding the modifier `const` keyword before the type, space separated. This is called {term}`passing by constant reference`.
+`````{code_example-start} Passing by Constant Reference
 :label: exampleu8
 :class: dropdown
 :nonumber:
@@ -628,7 +659,7 @@ int main() {
 ````
 `````{code_example-end}
 `````
-
+When we do want to modify a variable that is used by a function, passing by reference is one of two ways for a function to modify a variable outside of the functions scope.
 `````{code_example-start} Passing by Reference
 :label: exampleu9
 :class: dropdown
@@ -636,7 +667,7 @@ int main() {
 `````
 Pass by reference allows us to modify the original values.
 
-Method 2 - Modifying a local variable – which is a reference to the external value.
+Method 1 - Modifying a Local Variable – which is a reference to the external value.
 
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -671,7 +702,7 @@ int main() {
     return 0;
 }
 ````
-Notice that the program modifies the local variable (called `localVector`) - that because this is reference, not a copy, the variable referred to is being modified.
+Notice that the program modifies the local variable (called `localVector`) - because this is reference, not a copy, the variable referred to is being modified.
 ***
 
 Otherwise, the original variable would only be accessible by a function if the variable is global, which means declaring it before the main function, otherwise the `myPrint()` functions could not alter it, only its copy. If a variable is global there is no real reason to pass it into a function.
@@ -715,17 +746,27 @@ int main() {
 
 `myPrinter2()` adds one to each element of the global vector but prints the terms of a local copy of the original vector.
 
-* It does not matter whether `myVector[i] = myVector[i] + 1;` is before or after the print statement, because it is not used for printing, but usually the position of an increment matters!
+It does not matter whether `myVector[i] = myVector[i] + 1;` is before or after the print statement, because it is not used for printing - usually the position of an increment statement does matter!
 
 The second call to the `myPrinter()` prints the modified Global vector.
 
 This is not helpful, because now you have a global variable.
 
-
 `````{code_example-end}
 `````
 
 <!-- ## constexpr Functions -->
+
+## Recursion
+{term}`Recursion` is a programming technique where a function calls itself to solve a smaller instance of the same problem. 
+
+Recursion is used when the problem can be broken down into a series of similar steps, with a small variation each step - such as required to calculate a factorial (see problem 4E) or to generate the Fibonacci sequence.
+
+There are two main components to a recursive function:
+
+* The termination condition: The condition under which the recursion stops. Without a base case, the recursion will continue indefinitely, causing a stack overflow, and breaking things... 
+
+* The recursive step: The part of the function-body where the function calls itself using a smaller, or simpler argument based on the current parameter value.
 
 ## Function Signature
 Every function has a signature, which consists of its name and its parameter-type-list. 
@@ -771,6 +812,7 @@ auto b = addEntities(string{ "Hello" }, string{ " World" }); // b is a std::stri
 ````
 `````{code_example-end} 
 `````
+
 
 
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercises 6 &#8212; Introduction to C++ Programming</title>
+    <title>Exercises Week 3 Pointers &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise6.0ba1355f-1758-43a8-968d-ed061a83b5b6.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise6.0a86d025-531f-4c5e-9bec-7507d52ad76f.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/exercise6';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -246,7 +246,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises 6</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises Week 3 Pointers</a></li>
 </ul>
 </details></li>
 </ul>
@@ -508,7 +508,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercises 6</h1>
+    <h1>Exercises Week 3 Pointers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -522,12 +522,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercises-6">
-<h1>Exercises 6<a class="headerlink" href="#exercises-6" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises-week-3-pointers">
+<h1>Exercises Week 3 Pointers<a class="headerlink" href="#exercises-week-3-pointers" title="Permalink to this heading">#</a></h1>
 <div class="exercise dropdown admonition" id="exerciseex61">
 
-<p class="admonition-title"><span class="caption-number">Exercise 5 </span></p>
+<p class="admonition-title">Exercise  5A </p>
 <section id="exercise-content">
+<p>Write a program that asks for two integers, assigns the values to two variables, then creates pointers to those variables and adds the intgers by dereferencing their pointers.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -536,20 +537,34 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex61">
+</div><div class="solution dropdown admonition" id="solutionex61">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex61"> Exercise 5</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex61"> Exercise  5A </a></p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<p>A possible solution - try to improve or modify it.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pointerToNumber1</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pointerToNumber2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in two numbers to be added, space separated </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pointerToNumber1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">number1</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="n">pointerToNumber2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">number2</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pointerToNumber1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">*</span><span class="n">pointerToNumber2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The sum of the entered numbers is : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">result</span><span class="p">;</span><span class="w">  </span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex62">
 
-<p class="admonition-title"><span class="caption-number">Exercise 6 </span></p>
+<p class="admonition-title">Exercise  5B </p>
 <section id="exercise-content">
+<p>Write a program that asks for two floating-point numbers, then calls a function by reference to caluate the first number raised to the power of the second number.</p>
+<p>Hint: Include <code class="docutils literal notranslate"><span class="pre">&lt;cmath&gt;</span></code> and use <code class="docutils literal notranslate"><span class="pre">pow()</span></code>.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -558,20 +573,34 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex62">
+</div><div class="solution dropdown admonition" id="solutionex62">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex62"> Exercise 6</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex62"> Exercise  5B </a></p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<p>A possible solution - try to improve or modify it.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">powerOf</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">number2</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">powerOf</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">number2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="o">*</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">number2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a number and a power to raise that number to: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">powerOf</span><span class="p">(</span><span class="o">&amp;</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">number2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The sum of the entered numbers is : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">result</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex63">
 
-<p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
+<p class="admonition-title">Exercise  5C </p>
 <section id="exercise-content">
+<p>Write a program to print all the permutations of the character array “abcd”.</p>
+<p>Use functions and pass pointers to the characters.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -580,19 +609,92 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex63">
+</div><div class="solution dropdown admonition" id="solutionex63">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex63"> Exercise 7</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex63"> Exercise  5C </a></p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<p>A possible solution - try to improve or modify it.</p>
+<p>A char array cannot be passed into a function, but the attempt produces a pointer to its first element, which is what is then used with some pointer arithmetic.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">changePosition</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">char1</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">char2</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">char1</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">char1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">char2</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">char2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">charPermutations</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inputCharacterString</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">startNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">endNumber</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">startNumber</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">endNumber</span><span class="p">)</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startNumber</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">endNumber</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">changePosition</span><span class="p">((</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">startNumber</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">));</span><span class="w"> </span>
+<span class="w">            </span><span class="n">charPermutations</span><span class="p">(</span><span class="n">inputCharacterString</span><span class="p">,</span><span class="w"> </span><span class="n">startNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">endNumber</span><span class="p">);</span><span class="w"> </span>
+<span class="w">            </span><span class="n">changePosition</span><span class="p">((</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">startNumber</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">));</span><span class="w"> </span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a word </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">InputCharString</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;abce&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/*for (int i = 0; i &lt; strlen(InputCharString); ++i) {</span>
+<span class="cm">        std::cin &gt;&gt; InputCharString[i];</span>
+<span class="cm">    }*/</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">InputCharString</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; The permutations of the string are : </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">charPermutations</span><span class="p">(</span><span class="n">InputCharString</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For a std::string a reference to the first character must be passed into the pointer for this code to work.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">changePosition</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">char1</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">char2</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">char1</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">char1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">char2</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">char2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">charPermutations</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inputCharacterString</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">startNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">endNumber</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">startNumber</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">endNumber</span><span class="p">)</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startNumber</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">endNumber</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">changePosition</span><span class="p">((</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">startNumber</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">));</span><span class="w"> </span>
+<span class="w">            </span><span class="n">charPermutations</span><span class="p">(</span><span class="n">inputCharacterString</span><span class="p">,</span><span class="w"> </span><span class="n">startNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">endNumber</span><span class="p">);</span><span class="w"> </span>
+<span class="w">            </span><span class="n">changePosition</span><span class="p">((</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">startNumber</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">inputCharacterString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">));</span><span class="w"> </span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a word </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">inputString</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">inputString</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/*for (int i = 0; i &lt; strlen(InputCharString); ++i) {</span>
+<span class="cm">        std::cin &gt;&gt; InputCharString[i];</span>
+<span class="cm">    }*/</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">inputString</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; The permutations of the letters in &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">inputString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;are: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">charPermutations</span><span class="p">(</span><span class="o">&amp;</span><span class="n">inputString</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex64">
 
-<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
+<p class="admonition-title">Exercise  5D </p>
 <section id="exercise-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -602,10 +704,9 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex64">
+</div><div class="solution dropdown admonition" id="solutionex64">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex64"> Exercise 8</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex64"> Exercise  5D </a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </pre></div>
@@ -614,7 +715,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex65">
 
-<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
+<p class="admonition-title">Exercise  5E </p>
 <section id="exercise-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -624,10 +725,9 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex65">
+</div><div class="solution dropdown admonition" id="solutionex65">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex65"> Exercise 9</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex65"> Exercise  5E </a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -636,7 +736,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex66">
 
-<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
+<p class="admonition-title">Exercise  5F </p>
 <section id="exercise-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -646,10 +746,9 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex66">
+</div><div class="solution dropdown admonition" id="solutionex66">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex66"> Exercise 10</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex66"> Exercise  5F </a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -658,7 +757,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex67">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
+<p class="admonition-title">Exercise  5G </p>
 <section id="exercise-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -668,10 +767,9 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex67">
+</div><div class="solution dropdown admonition" id="solutionex67">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex67"> Exercise 11</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex67"> Exercise  5G </a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -680,7 +778,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex68">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<p class="admonition-title">Exercise  5H </p>
 <section id="exercise-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -690,10 +788,9 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex68">
+</div><div class="solution dropdown admonition" id="solutionex68">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex68"> Exercise 12</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex68"> Exercise  5H </a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -702,7 +799,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex69">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<p class="admonition-title">Exercise  5I </p>
 <section id="exercise-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -712,10 +809,9 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex69">
+</div><div class="solution dropdown admonition" id="solutionex69">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex69"> Exercise 13</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex69"> Exercise  5I </a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -724,7 +820,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="exerciseex610">
 
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<p class="admonition-title">Exercise  5J </p>
 <section id="exercise-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -734,10 +830,9 @@ document.write(`
 </div>
 </div>
 </section>
-</div>
-<div class="solution dropdown admonition" id="solutionex610">
+</div><div class="solution dropdown admonition" id="solutionex610">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex610"> Exercise 14</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exerciseex610"> Exercise  5J </a></p>
 <section id="solution-content">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
 </pre></div>

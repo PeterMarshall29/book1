@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.f735213a-36fb-4391-82ed-f92bf8757bcc.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.bd2feee5-6131-4295-941c-fb5973f51b55.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-ee55c7a0-079c-40d5-ab45-23e645bd26b9] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-4c4e6a28-0dff-4bc6-83b6-68d5d4b0d061] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -283,7 +283,7 @@ window.addEventListener("load", load);
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises Week 3 Pointers</a></li>
 </ul>
 </details></li>
 </ul>
@@ -626,7 +626,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-ee55c7a0-079c-40d5-ab45-23e645bd26b9" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-4c4e6a28-0dff-4bc6-83b6-68d5d4b0d061" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]
