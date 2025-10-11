@@ -15,7 +15,7 @@ An {term}`object` in C++ is a region of memory holding a value. Each region of m
 
 The value of an object can be accessed using either its identifier, or its address. Reference to an object's address, instead of its value, can make a program more efficient, and access to memory addresses is useful for memory management.
 
-A {term}`pointer stores only the memory address of another object - the value of a pointer is the memory address of the (first byte of the) object that the pointer is associated with, not the value of the object pointed at.
+A {term}`pointer1 stores only the memory address of another object - the value of a pointer is the memory address of the (first byte of the) object that the pointer is associated with, not the value of the object pointed at.
 
 A pointer is itself an {term}`object` and therefore has a `type` and must be declared before use. 
 
@@ -24,7 +24,7 @@ A pointer is itself an {term}`object` and therefore has a `type` and must be dec
 :class: dropdown
 :nonumber:
 `````
-This code demonstrates the definition and use of a pointer.
+This program demonstrates the definition and use of a pointer.
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -35,7 +35,8 @@ int main() {
     std::cout << "The Value of myInt is " << myInt << '\n';
     std::cout << "The memory address of myInt is " << &myInt << '\n';
     std::cout << "The value of myPointerTo_myInt is " << myPointerTo_myInt << '\n';
-    std::cout << "The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is " << *myPointerTo_myInt << '\n';
+    std::cout << "The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is ";
+    std::cout << *myPointerTo_myInt << '\n'; // separate line is only for readability
     return 0;
 }
 ````
@@ -46,7 +47,7 @@ This is the declaration of a pointer.
 ```{code-block} c++
 int* myPointerTo_myInt;
 ```
-The `*` modifies the declaration to indicate that `myPointerTo_myInt` is a pointer to an integer variable.
+The `*` modifies the declaration to indicate that `myPointerTo_myInt` is a pointer to an integer variable i.e. the type of `myPointerTo_myInt` is `pointer to int`.
 
 A pointer **only** contains the memory address of another object.
 
@@ -55,13 +56,13 @@ myPointerTo_myInt = &myInt;
 ```
 This line initialises the value of `myPointerTo_myInt` by copy assignment - the pointer now contains the memory address of `myInt`.
 
-`&myInt` - the prefix `&` creates an expression that returns the hexadecimal code for the memory address of `myInt` - i.e. `&myInt` = 'address of `myInt`'.
+`&myInt` - evaluates to the memory address of `myInt` - i.e. `&myInt` = "memory address of `myInt`".
 ```{code-block} c++
-std::cout << "The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is " << *myPointerTo_myInt << '\n';
+std::cout << *myPointerTo_myInt << '\n'; 
 ```
 `*myPointerTo_myInt` is the value of the object that the pointer points at, in this case the value of `myInt` - this is called dereferencing.
 
-Note that the use of the `*` is quite different when attached to an existing pointer, compared with in the declaration.
+Note: the use of the `*` is quite different when attached to an existing pointer, as compared with when used in the declaration.
 ````
 `````{code_example-end}
 `````
@@ -75,17 +76,18 @@ The basic syntax of pointers can be summarised as:
 ````{code-block} c++
 :linenos:
 type objectIdentifier = value; // Simple definition
-type* pointersIdentifier; // declaration of a new pointer
-pointersIndentifier = &objectIdentifier;   // assignment of the address of an object to the pointer
+type* pointerToIdentifier; // declaration of a new pointer
+pointerToIndentifier = &objectIdentifier;   // assignment of the address of an object to the pointer
 type secondObjectIdentifier = *pointerToIdentifier;  // assignment of the value of the object pointed at 
 ````
 
 `*` has two distinct uses in C++ for pointers.
-
+````{card}
 Line 2: Attached postfix/suffix to a type in a pointer declaration, `*` is a {term}`unary` {term}`declarator-operator`, used to introduce the identifier of a pointer.
 
 It is important to note that the declaration specifies that the pointer is to an object of the stated `type` - this type may not be changed, and the pointer may not be associated with any other type.
-
+````
+````{card}
 Line 4: Attached prefix to an existing pointer's identifier, `*` is the {term}`dereferencing` operator or {term}`indirection` operator. 
 
 The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer. 
@@ -93,19 +95,21 @@ The fundamental operation on a pointer is dereferencing, that is, referring to t
 {term}`Dereferencing` or {term}`indirection` usually means returning the value of the object associated with the pointer. The prefix unary operator `*` before a pointer's identifier means "contents of" - i.e. the value of the object associated with the pointer. 
 
 [More correctly - the indirection operator returns the identifier of the object pointed at, but since the identifier is immediately evaluated (the value is used) in most instances the above explanation is sufficient; the exception being in creating a reference.]
-
+````
+````{card}
 Line 3: A prefix `&` is the `address-of` operator, which returns the hexadecimal literal representing the memory address of an object - specifically the address of first byte of the object. 
 
 The prefix `&` operator with an operand (a variable name) is then used to create an expression which initialises the value of the pointer. [An address literal could be used instead]
-
+````
 ```{note}
+:class: dropdown
 * A pointer's value is the address of the first byte of the memory location of the object pointed at.
 * A pointer points to an object of a specified type.
 * A pointer does not know how many elements it points to.
 ```
 
 ***
-The location of `*` is not important but cannot be used to create multiple pointers – Try this and see where the errors arise.
+In declarations, the location of the `*` is often not important. 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -115,16 +119,26 @@ int main() {
     int * test1 = &myInt;
     int *test2 =& myInt;
     int* test3 =  test2;
-    std::cout << test << '\t' << test1 << '\t' << test2 << '\t' << test3 << '\n';
+    std::cout << test << '\n' << test1 << '\n' << test2 << '\n' << test3 << '\n';
     return 0;
 }
 ```
-Its best to attach the `*` postfix to the type in the declaration - and keep the prefix `*` for {term}`dereferencing` the pointer - except for pointers to functions, see below.
+For simple declarations attaching the `*` postfix to the type without whitespace may improve readability. 
+
+The exceptions are declaring pointers to functions (covered below), or attempting to declare multiple pointers of the same type in a single declaration.
+
+The prefix `*` for {term}`dereferencing` the pointer may also be separated by a whitespace, but again it is generally better to attach to the variale name.
 
 Note that the value of a pointer can be copy assigned - e.g. `int* test3 =  test2;`
 
 When used in declarations `*`, `&`, and `[]` are "declarator operators".
 
+````{card}
+To declare multiple pointers of the same type in a single line, the `*` must be repeated.
+```{code-block} c++
+int* pointer1, pointer2; //declares one pointer to an integer, and one integer.
+int* pointer1, * pointer2: // declares two pointers
+````
 `````{syntax-end}
 `````
 ## Pointers and Type

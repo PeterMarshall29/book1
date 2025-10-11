@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.11e47baf-3aa2-45c7-b3f2-3e6cdc292531.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.9fe4b50c-f199-4892-a7d0-4a91c796373c.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_pointers';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -549,13 +549,13 @@ document.write(`
 <h1>Pointers<a class="headerlink" href="#pointers" title="Permalink to this heading">#</a></h1>
 <p>An <a class="reference internal" href="glossary.html#term-Object"><span class="xref std std-term">object</span></a> in C++ is a region of memory holding a value. Each region of memory can also be identified by its <a class="reference internal" href="glossary.html#term-Memory-Address"><span class="xref std std-term">memory address</span></a>.</p>
 <p>The value of an object can be accessed using either its identifier, or its address. Reference to an object’s address, instead of its value, can make a program more efficient, and access to memory addresses is useful for memory management.</p>
-<p>A {term}`pointer stores only the memory address of another object - the value of a pointer is the memory address of the (first byte of the) object that the pointer is associated with, not the value of the object pointed at.</p>
+<p>A {term}`pointer1 stores only the memory address of another object - the value of a pointer is the memory address of the (first byte of the) object that the pointer is associated with, not the value of the object pointed at.</p>
 <p>A pointer is itself an <a class="reference internal" href="glossary.html#term-Object"><span class="xref std std-term">object</span></a> and therefore has a <code class="docutils literal notranslate"><span class="pre">type</span></code> and must be declared before use.</p>
 <div class="code_example dropdown admonition" id="examplev0">
 
 <p class="admonition-title">Code Example: Pointers </p>
 <section id="code_example-content">
-<p>This code demonstrates the definition and use of a pointer.</p>
+<p>This program demonstrates the definition and use of a pointer.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -566,7 +566,8 @@ document.write(`
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The Value of myInt is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The memory address of myInt is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The value of myPointerTo_myInt is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// separate line is only for readability</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -581,18 +582,18 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerTo_myInt</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> modifies the declaration to indicate that <code class="docutils literal notranslate"><span class="pre">myPointerTo_myInt</span></code> is a pointer to an integer variable.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> modifies the declaration to indicate that <code class="docutils literal notranslate"><span class="pre">myPointerTo_myInt</span></code> is a pointer to an integer variable i.e. the type of <code class="docutils literal notranslate"><span class="pre">myPointerTo_myInt</span></code> is <code class="docutils literal notranslate"><span class="pre">pointer</span> <span class="pre">to</span> <span class="pre">int</span></code>.</p>
 <p>A pointer <strong>only</strong> contains the memory address of another object.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myInt</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>This line initialises the value of <code class="docutils literal notranslate"><span class="pre">myPointerTo_myInt</span></code> by copy assignment - the pointer now contains the memory address of <code class="docutils literal notranslate"><span class="pre">myInt</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">&amp;myInt</span></code> - the prefix <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> creates an expression that returns the hexadecimal code for the memory address of <code class="docutils literal notranslate"><span class="pre">myInt</span></code> - i.e. <code class="docutils literal notranslate"><span class="pre">&amp;myInt</span></code> = ‘address of <code class="docutils literal notranslate"><span class="pre">myInt</span></code>’.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;myInt</span></code> - evaluates to the memory address of <code class="docutils literal notranslate"><span class="pre">myInt</span></code> - i.e. <code class="docutils literal notranslate"><span class="pre">&amp;myInt</span></code> = “memory address of <code class="docutils literal notranslate"><span class="pre">myInt</span></code>”.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">*myPointerTo_myInt</span></code> is the value of the object that the pointer points at, in this case the value of <code class="docutils literal notranslate"><span class="pre">myInt</span></code> - this is called dereferencing.</p>
-<p>Note that the use of the <code class="docutils literal notranslate"><span class="pre">*</span></code> is quite different when attached to an existing pointer, compared with in the declaration.</p>
+<p>Note: the use of the <code class="docutils literal notranslate"><span class="pre">*</span></code> is quite different when attached to an existing pointer, as compared with when used in the declaration.</p>
 </section>
 </div>
 </section>
@@ -602,21 +603,33 @@ document.write(`
 <section id="syntax-content">
 <p>The basic syntax of pointers can be summarised as:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">type</span><span class="w"> </span><span class="n">objectIdentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// Simple definition</span>
-<span class="linenos">2</span><span class="n">type</span><span class="o">*</span><span class="w"> </span><span class="n">pointersIdentifier</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaration of a new pointer</span>
-<span class="linenos">3</span><span class="n">pointersIndentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">objectIdentifier</span><span class="p">;</span><span class="w">   </span><span class="c1">// assignment of the address of an object to the pointer</span>
+<span class="linenos">2</span><span class="n">type</span><span class="o">*</span><span class="w"> </span><span class="n">pointerToIdentifier</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaration of a new pointer</span>
+<span class="linenos">3</span><span class="n">pointerToIndentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">objectIdentifier</span><span class="p">;</span><span class="w">   </span><span class="c1">// assignment of the address of an object to the pointer</span>
 <span class="linenos">4</span><span class="n">type</span><span class="w"> </span><span class="n">secondObjectIdentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pointerToIdentifier</span><span class="p">;</span><span class="w">  </span><span class="c1">// assignment of the value of the object pointed at </span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code> has two distinct uses in C++ for pointers.</p>
-<p>Line 2: Attached postfix/suffix to a type in a pointer declaration, <code class="docutils literal notranslate"><span class="pre">*</span></code> is a <a class="reference internal" href="glossary.html#term-Unary"><span class="xref std std-term">unary</span></a> <a class="reference internal" href="glossary.html#term-Declarator-operator"><span class="xref std std-term">declarator-operator</span></a>, used to introduce the identifier of a pointer.</p>
-<p>It is important to note that the declaration specifies that the pointer is to an object of the stated <code class="docutils literal notranslate"><span class="pre">type</span></code> - this type may not be changed, and the pointer may not be associated with any other type.</p>
-<p>Line 4: Attached prefix to an existing pointer’s identifier, <code class="docutils literal notranslate"><span class="pre">*</span></code> is the <a class="reference internal" href="glossary.html#term-Dereferencing"><span class="xref std std-term">dereferencing</span></a> operator or <a class="reference internal" href="glossary.html#term-Indirection"><span class="xref std std-term">indirection</span></a> operator.</p>
-<p>The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer.</p>
-<p><a class="reference internal" href="glossary.html#term-Dereferencing"><span class="xref std std-term">Dereferencing</span></a> or <a class="reference internal" href="glossary.html#term-Indirection"><span class="xref std std-term">indirection</span></a> usually means returning the value of the object associated with the pointer. The prefix unary operator <code class="docutils literal notranslate"><span class="pre">*</span></code> before a pointer’s identifier means “contents of” - i.e. the value of the object associated with the pointer.</p>
-<p>[More correctly - the indirection operator returns the identifier of the object pointed at, but since the identifier is immediately evaluated (the value is used) in most instances the above explanation is sufficient; the exception being in creating a reference.]</p>
-<p>Line 3: A prefix <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is the <code class="docutils literal notranslate"><span class="pre">address-of</span></code> operator, which returns the hexadecimal literal representing the memory address of an object - specifically the address of first byte of the object.</p>
-<p>The prefix <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator with an operand (a variable name) is then used to create an expression which initialises the value of the pointer. [An address literal could be used instead]</p>
-<div class="admonition note">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Line 2: Attached postfix/suffix to a type in a pointer declaration, <code class="docutils literal notranslate"><span class="pre">*</span></code> is a <a class="reference internal" href="glossary.html#term-Unary"><span class="xref std std-term">unary</span></a> <a class="reference internal" href="glossary.html#term-Declarator-operator"><span class="xref std std-term">declarator-operator</span></a>, used to introduce the identifier of a pointer.</p>
+<p class="sd-card-text">It is important to note that the declaration specifies that the pointer is to an object of the stated <code class="docutils literal notranslate"><span class="pre">type</span></code> - this type may not be changed, and the pointer may not be associated with any other type.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Line 4: Attached prefix to an existing pointer’s identifier, <code class="docutils literal notranslate"><span class="pre">*</span></code> is the <a class="reference internal" href="glossary.html#term-Dereferencing"><span class="xref std std-term">dereferencing</span></a> operator or <a class="reference internal" href="glossary.html#term-Indirection"><span class="xref std std-term">indirection</span></a> operator.</p>
+<p class="sd-card-text">The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer.</p>
+<p class="sd-card-text"><a class="reference internal" href="glossary.html#term-Dereferencing"><span class="xref std std-term">Dereferencing</span></a> or <a class="reference internal" href="glossary.html#term-Indirection"><span class="xref std std-term">indirection</span></a> usually means returning the value of the object associated with the pointer. The prefix unary operator <code class="docutils literal notranslate"><span class="pre">*</span></code> before a pointer’s identifier means “contents of” - i.e. the value of the object associated with the pointer.</p>
+<p class="sd-card-text">[More correctly - the indirection operator returns the identifier of the object pointed at, but since the identifier is immediately evaluated (the value is used) in most instances the above explanation is sufficient; the exception being in creating a reference.]</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Line 3: A prefix <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is the <code class="docutils literal notranslate"><span class="pre">address-of</span></code> operator, which returns the hexadecimal literal representing the memory address of an object - specifically the address of first byte of the object.</p>
+<p class="sd-card-text">The prefix <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator with an operand (a variable name) is then used to create an expression which initialises the value of the pointer. [An address literal could be used instead]</p>
+</div>
+</div>
+<div class="dropdown admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p>A pointer’s value is the address of the first byte of the memory location of the object pointed at.</p></li>
@@ -625,7 +638,7 @@ document.write(`
 </ul>
 </div>
 <hr class="docutils" />
-<p>The location of <code class="docutils literal notranslate"><span class="pre">*</span></code> is not important but cannot be used to create multiple pointers – Try this and see where the errors arise.</p>
+<p>In declarations, the location of the <code class="docutils literal notranslate"><span class="pre">*</span></code> is often not important.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -635,16 +648,27 @@ document.write(`
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">test1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myInt</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">test2</span><span class="w"> </span><span class="o">=&amp;</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">test3</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">test2</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">test3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Its best to attach the <code class="docutils literal notranslate"><span class="pre">*</span></code> postfix to the type in the declaration - and keep the prefix <code class="docutils literal notranslate"><span class="pre">*</span></code> for <a class="reference internal" href="glossary.html#term-Dereferencing"><span class="xref std std-term">dereferencing</span></a> the pointer - except for pointers to functions, see below.</p>
+<p>For simple declarations attaching the <code class="docutils literal notranslate"><span class="pre">*</span></code> postfix to the type without whitespace may improve readability.</p>
+<p>The exceptions are declaring pointers to functions (covered below), or attempting to declare multiple pointers of the same type in a single declaration.</p>
+<p>The prefix <code class="docutils literal notranslate"><span class="pre">*</span></code> for <a class="reference internal" href="glossary.html#term-Dereferencing"><span class="xref std std-term">dereferencing</span></a> the pointer may also be separated by a whitespace, but again it is generally better to attach to the variale name.</p>
 <p>Note that the value of a pointer can be copy assigned - e.g. <code class="docutils literal notranslate"><span class="pre">int*</span> <span class="pre">test3</span> <span class="pre">=</span>&#160; <span class="pre">test2;</span></code></p>
 <p>When used in declarations <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, and <code class="docutils literal notranslate"><span class="pre">[]</span></code> are “declarator operators”.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">To declare multiple pointers of the same type in a single line, the <code class="docutils literal notranslate"><span class="pre">*</span></code> must be repeated.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">pointer1</span><span class="p">,</span><span class="w"> </span><span class="n">pointer2</span><span class="p">;</span><span class="w"> </span><span class="c1">//declares one pointer to an integer, and one integer.</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">pointer1</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pointer2</span><span class="o">:</span><span class="w"> </span><span class="c1">// declares two pointers</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div><section id="pointers-and-type">
 <h2>Pointers and Type<a class="headerlink" href="#pointers-and-type" title="Permalink to this heading">#</a></h2>
@@ -747,8 +771,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>myDouble =</p>
-<p>10</p>
+<p>myDouble = 10</p>
 <p>myReferenceTo_myDouble = 10</p>
 <p>The contents of the object pointed to by pointerTo_myDouble = 6</p>
 <p>The contents of the object pointed to by pointerTo_myReferenceTo_myDouble = 6</p>
