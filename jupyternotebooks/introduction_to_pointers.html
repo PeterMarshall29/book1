@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.572e200c-bcd8-4cab-9316-ff5ce907cdbf.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.697f0914-462c-4eb5-85a4-9ef6dadeff27.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_pointers';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -747,17 +747,17 @@ document.write(`
 </div></section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<p>A reference is an alias for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.</p>
+<p>A reference is an <a class="reference internal" href="glossary.html#term-Alias"><span class="xref std std-term">alias</span></a> for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.</p>
 <p>References are not objects - therefore, there cannot be arrays of references or pointers to references.</p>
-<p>The reference aliases an existing object so it is not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy knows nothing of the copied object after initialisation.</p>
-<p>References cannot be redirected; they may only refer to one object, i.e. once initialized, a reference cannot be reseated (changed) to refer to another object.</p>
-<p>References are initialized in the following situations:</p>
+<p>The reference aliases an existing object and is therefore not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy-initialised variable knows nothing of the copied object after initialisation. Assigning a value to a reference is identical to assigning a value to the referenced object.</p>
+<p>References cannot be redirected; they may only refer to one object, i.e. once initialised, a reference cannot be reseated (changed) to refer to another object.</p>
+<p>References are initialised in the following situations:</p>
 <ul class="simple">
 <li><p>When a named lvalue reference variable is declared with an initialiser.</p></li>
 <li><p>When a named rvalue reference variable is declared with an initialiser.</p></li>
 <li><p>In a function call expression, when the function parameter has reference type.</p></li>
 <li><p>In the return statement, when the function returns a reference type.</p></li>
-<li><p>When a non-static data member of reference type is initialized using a member initialiser.</p></li>
+<li><p>When a non-static data member of reference type is initialised using a member initialiser.</p></li>
 </ul>
 <div class="code_example dropdown admonition" id="examplev3">
 
@@ -776,13 +776,13 @@ document.write(`
 <span class="w">    </span><span class="n">myReferenceTo_myDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The contents of the object pointed to by pointerTo_myDouble = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pointerTo_myDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The contents of the object pointed to by pointerTo_myReferenceTo_myDouble = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pointerTo_myReferenceTo_myDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Notice that changing the alias changes the original.</p>
+<p>Note: changing the value of the alias changes the value of the referenced variable, because the reference is just an alternative name for the same object.</p>
 </section>
 </div><div class="syntax dropdown admonition" id="jupyternotebooks/introduction_to_pointers-syntax-7">
 
@@ -798,7 +798,8 @@ document.write(`
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">referenceIdentifier</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Reference to <code class="docutils literal notranslate"><span class="pre">void</span></code> is not permitted.</p>
+<hr class="docutils" />
+<p>References to <code class="docutils literal notranslate"><span class="pre">void</span></code> are not permitted.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="jupyternotebooks/introduction_to_pointers-code_example-8">
 
@@ -823,7 +824,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Note: changing either reference changed the original object - in this case both caused concatenation of their strings.</p>
+<p>Note: changing either reference changed the refernced object - in this case, both reassignments caused concatenation of an extra string to the current string held in the referenced object.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="jupyternotebooks/introduction_to_pointers-code_example-9">
 
@@ -849,16 +850,15 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Note: the rvalue reference was not updated.</p>
+<p>Note: the rvalue reference was not updated when the objects used to create it were changed, because an rvalue reference refers to the value of <code class="docutils literal notranslate"><span class="pre">myString1</span> <span class="pre">+</span> <span class="pre">myString1</span></code> at the time of initialisation - i.e. it is a persistant copy of the temporary that was created by the evaluation of <code class="docutils literal notranslate"><span class="pre">myString1</span> <span class="pre">+</span> <span class="pre">myString1</span></code> at the point of assignment.</p>
 </section>
 </div></section>
 <section id="pointer-arithmetic-and-arrays">
 <span id="pointers-and-arrays"></span><h2>Pointer Arithmetic and Arrays<a class="headerlink" href="#pointer-arithmetic-and-arrays" title="Permalink to this heading">#</a></h2>
 <p>In C++, pointers and arrays are closely related.</p>
-<p>The name of an array can be used as a pointer to its initial element.</p>
-<p>Writing <code class="docutils literal notranslate"><span class="pre">myArray[3]</span></code> tells the compiler to return the element that is 3 away from the starting element of <code class="docutils literal notranslate"><span class="pre">myArray</span></code>.</p>
-<p>This explains why arrays are always passed by reference: passing an array is really passing a pointer.</p>
-<p>This also explains why array indices start at 0: the first element of an array is the element that is 0 away from the start of the array</p>
+<p>The name of an array can be used as a pointer to its initial element i.e. anywhere that a program might require a pointer object, the programmer may put the name of an array, because the array will be interpreted as a pointer to its first element.</p>
+<p>Arrays may not be passed by value because there is no copying assigment for arrays - i.e. a function parameter cannot have the array copied to it - arrays can only be passed by reference.</p>
+<p>Arrays are implicitly converted to a pointer to their first element in any context where an array is not expected but a pointer is permitted. This explains why arrays are always passed by reference: passing an array is really passing a pointer.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Pointer arithmetic is meaningless unless performed on an array.</p>
@@ -866,12 +866,12 @@ document.write(`
 <section id="pointer-arithmetic">
 <h3>Pointer Arithmetic<a class="headerlink" href="#pointer-arithmetic" title="Permalink to this heading">#</a></h3>
 <p>Pointer arithmetic is used to move execution of the program to different elements of an array using subtraction and addition of integers on pointers.</p>
-<p>Adding an integer ‘n’ to a pointer produces a new pointer which points to the array element that is ‘n’ positions further along in memory.</p>
+<p>Adding an integer ‘n’ to a pointer produces a new pointer that points to the array element that is ‘n’ positions further along in memory.</p>
 <div class="code_example dropdown admonition" id="examplev2">
 
 <p class="admonition-title">Code Example: Pointer Arithmetic </p>
 <section id="code_example-content">
-<p>Examine the following code that demonstrates Pointer Arithmetic.</p>
+<p>Examine the following code that demonstrates Pointer Arithmetic:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -899,7 +899,13 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Pointer arithmetic can be risky:</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/introduction_to_pointers-exercise-11">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Try adding and subtracting more integer values to one of the pointers or to <code class="docutils literal notranslate"><span class="pre">myArray</span></code> - why has <code class="docutils literal notranslate"><span class="pre">myArray</span></code> still been used after a named pointer was constructed to its first element?</p>
+</section>
+</div><p>Pointer arithmetic can be risky:</p>
 <ul class="simple">
 <li><p>Pointing to a non-existent object will crash a program.</p></li>
 <li><p>It is possible to point to an unrelated object that happens to be adjacent in memory.</p></li>
@@ -910,9 +916,9 @@ document.write(`
 <h3>Pointer Expressions and Arithmetic<a class="headerlink" href="#pointer-expressions-and-arithmetic" title="Permalink to this heading">#</a></h3>
 <p>A limited set of arithmetic operations can be performed on pointers. Pointers may be:</p>
 <ul class="simple">
-<li><p>Incremented or decremented by 1 (++ or –)</p></li>
-<li><p>Be increased or decreased by addition on an integer, literal of variable, (+= or -=)</p></li>
-<li><p>Subtracted from each other(ptr1-ptr2)</p></li>
+<li><p>Incremented or decremented by 1 using <code class="docutils literal notranslate"><span class="pre">++</span></code> or <code class="docutils literal notranslate"><span class="pre">--</span></code>.</p></li>
+<li><p>Be increased or decreased by addition on an integer, literal of variable, using <code class="docutils literal notranslate"><span class="pre">+=</span></code> or <code class="docutils literal notranslate"><span class="pre">-=</span></code> or the equivalent extended expressions.</p></li>
+<li><p>Subtracted from each other e.g. <code class="docutils literal notranslate"><span class="pre">ptr1-ptr2</span></code></p></li>
 </ul>
 </section>
 <section id="pointers-into-arrays">
@@ -949,9 +955,16 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examplev7"> Code Example: Pointer in Arrays </a></p>
 <section id="code_explanation-content">
-<p>Try to print an array to the output stream results in printing only the address of the first element.</p>
-<p>Note how similar the memory addresses are - this is to be expected but is not guaranteed and easily missed. Check the furthest right digits first when comparing memory addresses, the other initial digits are likely to be very similar across elements of an array.</p>
-<p>Taking a pointer to the element one beyond the end of an array is guaranteed to work, and is necessary for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided.</p>
+<p>Attempting to print an array to the output stream results in printing only the address of the first element.</p>
+<p>It is worth noting how similar the memory addresses are - this is to be expected but is not guaranteed and easily missed. Check the final (rightmost) digits first when comparing memory addresses, the initial digits are likely to be very similar across elements of an array.</p>
+<p>Taking a pointer to the element one beyond the end of an array is guaranteed to work, and is necessary for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/introduction_to_pointers-exercise-14">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Try adding <code class="docutils literal notranslate"><span class="pre">5</span></code> and then <code class="docutils literal notranslate"><span class="pre">6</span></code>, and then subtracting <code class="docutils literal notranslate"><span class="pre">1</span></code> to <code class="docutils literal notranslate"><span class="pre">myArray</span></code> in the assignment to <code class="docutils literal notranslate"><span class="pre">ptrTo_myArray3</span></code>.</p>
+</section>
+</div><p>The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided.</p>
 </section>
 </div>
 </section>
@@ -960,10 +973,8 @@ document.write(`
 <section id="nullptr">
 <h2>Nullptr<a class="headerlink" href="#nullptr" title="Permalink to this heading">#</a></h2>
 <p>A pointer should always point at an object, otherwise dereferencing is not valid.</p>
-<p>If there is no object to point at, or if it is useful to represent the idea that no object is available (e.g., for the end of a list), the pointer may be given the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> (the null pointer).</p>
-<p>The literal <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> represents the null pointer. The memory address of the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is the all-zeros hexadecimal code or bit pattern.</p>
-<p>The literal <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types; there is only one <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> shared by all pointer types, and therefore <code class="docutils literal notranslate"><span class="pre">Nullptr</span></code> is of type <code class="docutils literal notranslate"><span class="pre">pointer</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">nullptr</span></code> can only be assigned to pointers - a syntax error occurs otherwise.</p>
+<p>If there is no object to point at, or if it is useful to represent the idea that no object is available (e.g., for the end of a list), the pointer may be given the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
+<p>The literal <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> represents the null pointer - and can be assigned to any named pointer which does not point at an object. <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> can only be assigned to pointers - a syntax error occurs otherwise. There is only one <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> shared by all pointer types, and therefore <code class="docutils literal notranslate"><span class="pre">Nullptr</span></code> is of type <code class="docutils literal notranslate"><span class="pre">pointer</span></code>. <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> has a memory address consisting of all-zeros (hexadecimal code or bit pattern) that is not used for any other object.</p>
 <div class="code_example dropdown admonition" id="examplev5">
 
 <p class="admonition-title">Code Example: The Null Pointer </p>
@@ -990,7 +1001,7 @@ document.write(`
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examplev5"> Code Example: The Null Pointer </a></p>
 <section id="code_explanation-content">
 <p>There is just one <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>, which can be used for every pointer type, rather than a null pointer for each pointer type. <code class="docutils literal notranslate"><span class="pre">Nullptr</span></code> is of type <code class="docutils literal notranslate"><span class="pre">pointer</span></code>.</p>
-<p>Before <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> was introduced, zero (0) was used as a notation for the null pointer; now assignment to integer literal zero gives a pointer the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
+<p>Before <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> was introduced, zero (0) was used as a notation for the null pointer; now assignment to integer literal zero gives a pointer the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. This is not obvious using Live Code, but if you try running the code in Visual Studio - rather than four zeros, you will find that <code class="docutils literal notranslate"><span class="pre">0000000000000000</span></code> is printed four times, each being the memory address of the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
 <p>No object is allocated with at memory address ‘0000000000000000’, which is the most common representation of ‘nullptr’.</p>
 <p>Zero (0) is an <code class="docutils literal notranslate"><span class="pre">int</span></code>. However, the standard conversions allow ‘0’ to be used as a constant of ‘pointer’ or ‘pointer-to-member’ type.</p>
 <p>It is best not to use <code class="docutils literal notranslate"><span class="pre">NULL</span></code> because it is an <a class="reference internal" href="glossary.html#term-Implementation"><span class="xref std std-term">implementation</span></a> defined <a class="reference internal" href="glossary.html#term-Macro"><span class="xref std std-term">macro</span></a> and there may be difference in implementation, e.g. NULL might be 0 or 0L.</p>
@@ -998,7 +1009,6 @@ document.write(`
 </section>
 </div>
 <hr class="docutils" />
-<p>What happens if we use an unitialised pointer? Most compilers will prevent this, but run the following code in the Live Code Editor…</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -1012,10 +1022,16 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Run the code several times - not the changing memory address.</p>
-<p>Try chaning the code to double* and std::string* - what happens.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/introduction_to_pointers-exercise-17">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>What happens if we use an unitialised pointer? Most compilers will prevent this, but run the above code in the Live Code Editor…</p>
+<p>Run the code several times - note the changing memory address.</p>
+<p>Try changing the code to double* and std::string* - what happens?</p>
 <p>Dereferencing an unitialised pointer is an <a class="reference internal" href="glossary.html#term-Undefined-Behaviour"><span class="xref std std-term">undefined behaviour</span></a>.</p>
-<hr class="docutils" />
+</section>
+</div><hr class="docutils" />
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -1030,14 +1046,14 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Dereferencing the nullptr is also an undefined behaviour - <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> does not point to a valid memory location.</p>
-<p>It is best to always check a pointer is not the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> as follows.</p>
+<p>Dereferencing the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is also an undefined behaviour - <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> does not point to a valid memory location.</p>
+<p>It is best to always check a pointer is not the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. For example, as follows:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">    </span><span class="c1">// change to = nullptr</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myInt</span><span class="p">;</span><span class="w">    </span><span class="c1">// change to = nullptr</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myPointer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointer</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -1053,7 +1069,8 @@ document.write(`
 </div></section>
 <section id="pointers-and-booleans">
 <h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Permalink to this heading">#</a></h2>
-<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. A non-null pointer converts to true; pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span> </code>convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<p>A non-null pointer converts to true; pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <div class="code_example dropdown admonition" id="examplev6">
 
 <p class="admonition-title">Code Example: Pointers and Booleans </p>
@@ -1088,9 +1105,9 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examplev6"> Code Example: Pointers and Booleans </a></p>
 <section id="code_explanation-content">
-<p>Note that <code class="docutils literal notranslate"><span class="pre">==</span></code> compares addresses (pointer values) when applied to pointers, and not the values pointed to.</p>
-<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer</span> <span class="pre">!=</span> <span class="pre">nullptr)</span></code>. The compiler knows a Boolean is required and implicitly converts the pointer obviating the comparison expression.</p>
-<p>It is usually better to use shorter code - less chance of a mistake - and in this case we have a clear expression of testing whether the pointer is valid, i.e. it points at an actual object.</p>
+<p>Note: when used on pointers, <code class="docutils literal notranslate"><span class="pre">==</span></code> and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the value of the objects the point at are not being compared.</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer</span> <span class="pre">!=</span> <span class="pre">nullptr)</span></code>. The compiler knows a Boolean is required and implicitly converts the pointer; obviating the comparison expression.</p>
+<p>It is usually better to use shorter code - fewer opportunities to make mistakes - and in this case we have a clear expression for tesing the validity of the pointer i.e. does it point at an actual object.</p>
 </section>
 </div>
 </section>
@@ -1098,10 +1115,10 @@ document.write(`
 <section id="pointers-to-functions">
 <h2>Pointers to Functions<a class="headerlink" href="#pointers-to-functions" title="Permalink to this heading">#</a></h2>
 <p>Functions are also stored in memory and therefore have a unique address allowing us to define a pointer to a function in a similar manner to a pointer to an object.</p>
-<p>A pointer to function can be initialized with an address of a non-member function or a static member function.</p>
-<p>The pointer obtained by taking the address of a function can be used to call the function.</p>
-<p>Unlike functions or references to functions, pointers to functions are objects and thus can be stored in arrays, copied, assigned, etc.</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/introduction_to_pointers-syntax-17">
+<p>A pointer to function can be initialised with the address of a non-member function or a static member function.</p>
+<p>The pointer defined by assigning the address of a function can be used to call the function.</p>
+<p>Unlike functions, or references to functions, pointers to functions are objects and thus can be stored in arrays, copied, assigned, etc.</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/introduction_to_pointers-syntax-20">
 
 <p class="admonition-title">Syntax Rules: Pointers to Functions </p>
 <section id="syntax-content">
