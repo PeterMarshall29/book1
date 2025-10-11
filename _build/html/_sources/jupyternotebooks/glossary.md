@@ -14,6 +14,9 @@ kernelspec:
 
 ```{glossary}
 
+Alias
+  An alternative name - declared to refer to an existing object, that can be used anywhere the original identifier would be used.
+
 Assignment
   Modification of the current value of an object using an assignment operator. Simplest case is using the simple assignment operator `=`; i.e. `LHS = RHS;`.
 

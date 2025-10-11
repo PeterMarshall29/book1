@@ -224,21 +224,21 @@ A pointer past the end of an object represents the address of the first byte in 
 ````
 ## References
 
-A reference is an alias for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.
+A reference is an {term}`alias` for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.
 
 References are not objects - therefore, there cannot be arrays of references or pointers to references.
 
-The reference aliases an existing object so it is not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy knows nothing of the copied object after initialisation.
+The reference aliases an existing object and is therefore not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy-initialised variable knows nothing of the copied object after initialisation. Assigning a value to a reference is identical to assigning a value to the referenced object.
 
-References cannot be redirected; they may only refer to one object, i.e. once initialized, a reference cannot be reseated (changed) to refer to another object.
+References cannot be redirected; they may only refer to one object, i.e. once initialised, a reference cannot be reseated (changed) to refer to another object.
 
-References are initialized in the following situations:
+References are initialised in the following situations:
 
 * When a named lvalue reference variable is declared with an initialiser.
 * When a named rvalue reference variable is declared with an initialiser.
 * In a function call expression, when the function parameter has reference type.
 * In the return statement, when the function returns a reference type. 
-* When a non-static data member of reference type is initialized using a member initialiser.
+* When a non-static data member of reference type is initialised using a member initialiser.
 
 `````{code_example-start} References
 :label: examplev3
@@ -258,10 +258,10 @@ int main() {
     myReferenceTo_myDouble = 6.0;
     std::cout << "The contents of the object pointed to by pointerTo_myDouble = " << *pointerTo_myDouble << '\n';
     std::cout << "The contents of the object pointed to by pointerTo_myReferenceTo_myDouble = " << *pointerTo_myReferenceTo_myDouble << '\n';
-    return 1;
+    return 0;
 }
 ```
-Notice that changing the alias changes the original.
+Note: changing the value of the alias changes the value of the referenced variable, because the reference is just an alternative name for the same object.
 `````{code_example-end}
 `````
 
@@ -273,6 +273,7 @@ An {term}`lvalue` reference is declared as follows.
 ````{code-block} c++
 type& referenceIdentifier;
 ````
+
 ***
 Rvalue references can be used to extend the lifetimes of temporary objects (note, lvalue references to const can extend the lifetimes of temporary objects too, but they are not modifiable through them).
 
@@ -280,7 +281,8 @@ An {term}`rvalue` reference is declared as follows.
 ````{code-block} c++
 type&& referenceIdentifier;
 ````
-Reference to `void` is not permitted.
+***
+References to `void` are not permitted.
 `````{syntax-end}
 `````
 
@@ -305,7 +307,7 @@ int main()
     return 0;
 }
 ```
-Note: changing either reference changed the original object - in this case both caused concatenation of their strings.
+Note: changing either reference changed the refernced object - in this case, both reassignments caused concatenation of an extra string to the current string held in the referenced object.
 ````{code_example-end}
 ````
 
@@ -331,7 +333,7 @@ int main()
     return 0;
 }
 ```
-Note: the rvalue reference was not updated.
+Note: the rvalue reference was not updated when the objects used to create it were changed, because an rvalue reference refers to the value of `myString1 + myString1` at the time of initialisation - i.e. it is a persistant copy of the temporary that was created by the evaluation of `myString1 + myString1` at the point of assignment.
 ````{code_example-end}
 ````
 
@@ -340,13 +342,11 @@ Note: the rvalue reference was not updated.
 
 In C++, pointers and arrays are closely related. 
 
-The name of an array can be used as a pointer to its initial element. 
+The name of an array can be used as a pointer to its initial element i.e. anywhere that a program might require a pointer object, the programmer may put the name of an array, because the array will be interpreted as a pointer to its first element. 
 
-Writing `myArray[3]` tells the compiler to return the element that is 3 away from the starting element of `myArray`. 
+Arrays may not be passed by value because there is no copying assigment for arrays - i.e. a function parameter cannot have the array copied to it - arrays can only be passed by reference. 
 
-This explains why arrays are always passed by reference: passing an array is really passing a pointer.
-
-This also explains why array indices start at 0: the first element of an array is the element that is 0 away from the start of the array
+Arrays are implicitly converted to a pointer to their first element in any context where an array is not expected but a pointer is permitted. This explains why arrays are always passed by reference: passing an array is really passing a pointer.
 
 ```{tip}
 :class: margin
@@ -357,14 +357,14 @@ Pointer arithmetic is meaningless unless performed on an array.
 
 Pointer arithmetic is used to move execution of the program to different elements of an array using subtraction and addition of integers on pointers. 
 
-Adding an integer 'n' to a pointer produces a new pointer which points to the array element that is 'n' positions further along in memory.
+Adding an integer 'n' to a pointer produces a new pointer that points to the array element that is 'n' positions further along in memory.
 
 `````{code_example-start} Pointer Arithmetic
 :label: examplev2
 :class: dropdown
 :nonumber:
 `````
-Examine the following code that demonstrates Pointer Arithmetic.
+Examine the following code that demonstrates Pointer Arithmetic:
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -389,6 +389,12 @@ int main()
     return 0;
 }
 ````
+```{exercise}
+:class: dropdown
+:nonumber:
+Try adding and subtracting more integer values to one of the pointers or to `myArray` - why has `myArray` still been used after a named pointer was constructed to its first element?
+```
+
 Pointer arithmetic can be risky:
 * Pointing to a non-existent object will crash a program.
 * It is possible to point to an unrelated object that happens to be adjacent in memory.
@@ -398,9 +404,9 @@ Pointer arithmetic can be risky:
 ### Pointer Expressions and Arithmetic
 
 A limited set of arithmetic operations can be performed on pointers. Pointers may be:
-* Incremented or decremented by 1 (++ or --)
-* Be increased or decreased by addition on an integer, literal of variable, (+= or -=)
-* Subtracted from each other(ptr1-ptr2)
+* Incremented or decremented by 1 using `++` or `--`.
+* Be increased or decreased by addition on an integer, literal of variable, using `+=` or `-=` or the equivalent extended expressions.
+* Subtracted from each other e.g. `ptr1-ptr2`
 
 ### Pointers into Arrays
 `````{code_example-start} Pointer in Arrays
@@ -433,11 +439,18 @@ int main() {
 ````{code_explanation} examplev7
 :label: explanationv7
 :class: dropdown
-Try to print an array to the output stream results in printing only the address of the first element.
+Attempting to print an array to the output stream results in printing only the address of the first element.
 
-Note how similar the memory addresses are - this is to be expected but is not guaranteed and easily missed. Check the furthest right digits first when comparing memory addresses, the other initial digits are likely to be very similar across elements of an array.
+It is worth noting how similar the memory addresses are - this is to be expected but is not guaranteed and easily missed. Check the final (rightmost) digits first when comparing memory addresses, the initial digits are likely to be very similar across elements of an array.
 
-Taking a pointer to the element one beyond the end of an array is guaranteed to work, and is necessary for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided.
+Taking a pointer to the element one beyond the end of an array is guaranteed to work, and is necessary for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. 
+
+```{exercise}
+:class: dropdown
+:nonumber:
+Try adding `5` and then `6`, and then subtracting `1` to `myArray` in the assignment to `ptrTo_myArray3`.
+```
+The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided.
 ````
 `````{code_example-end}
 `````
@@ -446,13 +459,9 @@ Taking a pointer to the element one beyond the end of an array is guaranteed to 
 
 A pointer should always point at an object, otherwise dereferencing is not valid.
 
-If there is no object to point at, or if it is useful to represent the idea that no object is available (e.g., for the end of a list), the pointer may be given the value `nullptr` (the null pointer). 
+If there is no object to point at, or if it is useful to represent the idea that no object is available (e.g., for the end of a list), the pointer may be given the value `nullptr`. 
 
-The literal `nullptr` represents the null pointer. The memory address of the `nullptr` is the all-zeros hexadecimal code or bit pattern.
-
-The literal `nullptr` represents the null pointer, that is, a pointer that does not point to an object. It can be assigned to any pointer type, but not to other built-in types; there is only one `nullptr` shared by all pointer types, and therefore `Nullptr` is of type `pointer`.
-
-`nullptr` can only be assigned to pointers - a syntax error occurs otherwise.
+The literal `nullptr` represents the null pointer - and can be assigned to any named pointer which does not point at an object. `nullptr` can only be assigned to pointers - a syntax error occurs otherwise. There is only one `nullptr` shared by all pointer types, and therefore `Nullptr` is of type `pointer`. `nullptr` has a memory address consisting of all-zeros (hexadecimal code or bit pattern) that is not used for any other object.
 
 `````{code_example-start} The Null Pointer
 :label: examplev5
@@ -478,7 +487,7 @@ int main() {
 :class: dropdown
 There is just one `nullptr`, which can be used for every pointer type, rather than a null pointer for each pointer type. `Nullptr` is of type `pointer`. 
 
-Before `nullptr` was introduced, zero (0) was used as a notation for the null pointer; now assignment to integer literal zero gives a pointer the value `nullptr`.
+Before `nullptr` was introduced, zero (0) was used as a notation for the null pointer; now assignment to integer literal zero gives a pointer the value `nullptr`. This is not obvious using Live Code, but if you try running the code in Visual Studio - rather than four zeros, you will find that `0000000000000000` is printed four times, each being the memory address of the `nullptr`.
 
 No object is allocated with at memory address '0000000000000000', which is the most common representation of 'nullptr'. 
 
@@ -489,7 +498,7 @@ It is best not to use `NULL` because it is an {term}`implementation` defined {te
 Using `nullptr` makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.
 ````
 ***
-What happens if we use an unitialised pointer? Most compilers will prevent this, but run the following code in the Live Code Editor..
+
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
@@ -500,12 +509,17 @@ int main() {
     return 0;
 }
 ````
+```{exercise}
+:class: dropdown
+:nonumber:
+What happens if we use an unitialised pointer? Most compilers will prevent this, but run the above code in the Live Code Editor..
 
-Run the code several times - not the changing memory address.
+Run the code several times - note the changing memory address.
 
-Try chaning the code to double* and std::string* - what happens.
+Try changing the code to double* and std::string* - what happens?
 
 Dereferencing an unitialised pointer is an {term}`undefined behaviour`.
+```
 ***
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -518,16 +532,16 @@ int main() {
     return 0;
 }
 ````
-Dereferencing the nullptr is also an undefined behaviour - `nullptr` does not point to a valid memory location.
+Dereferencing the `nullptr` is also an undefined behaviour - `nullptr` does not point to a valid memory location.
 
-It is best to always check a pointer is not the `nullptr` as follows.
+It is best to always check a pointer is not the `nullptr`. For example, as follows:
 
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
 int main() {
     int myInt = 5;
-    int* myPointer = nullptr;    // change to = nullptr
+    int* myPointer = &myInt;    // change to = nullptr
     if (myPointer != nullptr) {
         std::cout << *myPointer;
     } else {
@@ -544,7 +558,9 @@ int main() {
 `````
 ## Pointers and Booleans
 
-A pointer can be implicitly converted to a `bool`. A non-null pointer converts to true; pointers with the value `nullptr `convert to `false`. 
+A pointer can be implicitly converted to a `bool`. 
+
+A non-null pointer converts to true; pointers with the value `nullptr` convert to `false`. 
 
 `````{code_example-start} Pointers and Booleans
 :label: examplev6
@@ -577,11 +593,11 @@ int main() {
 ````{code_explanation} examplev6
 :label: explanationv6
 :class: dropdown
-Note that `==` compares addresses (pointer values) when applied to pointers, and not the values pointed to.
+Note: when used on pointers, `==` and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the value of the objects the point at are not being compared.
 
-`if (myPointer)` is equivalent to `if (myPointer != nullptr)`. The compiler knows a Boolean is required and implicitly converts the pointer obviating the comparison expression. 
+`if (myPointer)` is equivalent to `if (myPointer != nullptr)`. The compiler knows a Boolean is required and implicitly converts the pointer; obviating the comparison expression. 
 
-It is usually better to use shorter code - less chance of a mistake - and in this case we have a clear expression of testing whether the pointer is valid, i.e. it points at an actual object.
+It is usually better to use shorter code - fewer opportunities to make mistakes - and in this case we have a clear expression for tesing the validity of the pointer i.e. does it point at an actual object.
 ````
 `````{code_example-end}
 `````
@@ -590,11 +606,11 @@ It is usually better to use shorter code - less chance of a mistake - and in thi
 
 Functions are also stored in memory and therefore have a unique address allowing us to define a pointer to a function in a similar manner to a pointer to an object. 
 
-A pointer to function can be initialized with an address of a non-member function or a static member function. 
+A pointer to function can be initialised with the address of a non-member function or a static member function. 
 
-The pointer obtained by taking the address of a function can be used to call the function. 
+The pointer defined by assigning the address of a function can be used to call the function. 
 
-Unlike functions or references to functions, pointers to functions are objects and thus can be stored in arrays, copied, assigned, etc.
+Unlike functions, or references to functions, pointers to functions are objects and thus can be stored in arrays, copied, assigned, etc.
 
 `````{syntax-start} Pointers to Functions
 :nonumber:
