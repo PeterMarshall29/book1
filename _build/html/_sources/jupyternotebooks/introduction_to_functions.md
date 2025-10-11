@@ -754,6 +754,13 @@ This is not helpful, because now you have a global variable.
 
 `````{code_example-end}
 `````
+## Call by Reference
+
+A similar idea to pass by reference, but declaring the function parameters to be {term}`pointers`. Pointers are in the next chapter. 
+
+The arguments supplied in function call are the memory addresses of the variables - functions called by reference are able to modify the external variables just as in pass by reference.
+
+Addresses are passed in using the `&` prefix operator before the variables name  (or you could type the hex-code of the memory address). An array does not require `&` because it automatically decays to a pointer to its first element.
 
 <!-- ## constexpr Functions -->
 
