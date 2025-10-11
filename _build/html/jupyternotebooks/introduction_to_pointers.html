@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.9fe4b50c-f199-4892-a7d0-4a91c796373c.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.572e200c-bcd8-4cab-9316-ff5ce907cdbf.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_pointers';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -568,6 +568,10 @@ document.write(`
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The value of myPointerTo_myInt is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is &quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// separate line is only for readability</span>
+<span class="w">    </span><span class="o">*</span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The modified contents of the object pointed to by myPointerTo_myInt is &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerTo_myInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// separate line is only for readability</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;myInt now has the value of: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -593,11 +597,18 @@ document.write(`
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">*myPointerTo_myInt</span></code> is the value of the object that the pointer points at, in this case the value of <code class="docutils literal notranslate"><span class="pre">myInt</span></code> - this is called dereferencing.</p>
-<p>Note: the use of the <code class="docutils literal notranslate"><span class="pre">*</span></code> is quite different when attached to an existing pointer, as compared with when used in the declaration.</p>
+<p>Note: the use of the <code class="docutils literal notranslate"><span class="pre">*</span></code> is different when attached to an existing pointer in comparison to when used in a declaration.</p>
+<p>Dereferencing can also be used to modify the object pointed at - note the value of <code class="docutils literal notranslate"><span class="pre">myInt</span></code> was changed to ‘10’.</p>
 </section>
 </div>
 </section>
-</div><div class="syntax dropdown admonition" id="jupyternotebooks/introduction_to_pointers-syntax-2">
+</div><p>Pointers are used extensively in C++ for three main purposes:</p>
+<ul class="simple">
+<li><p>Allocating new objects on the free store (the heap - dynamic memory managed by programmer).</p></li>
+<li><p>Passing functions to other functions.</p></li>
+<li><p>Iterating over the elements of arrays and similar data structures.</p></li>
+</ul>
+<div class="syntax dropdown admonition" id="jupyternotebooks/introduction_to_pointers-syntax-2">
 
 <p class="admonition-title">Syntax Rules: Pointer Syntax </p>
 <section id="syntax-content">
@@ -673,7 +684,7 @@ document.write(`
 </div><section id="pointers-and-type">
 <h2>Pointers and Type<a class="headerlink" href="#pointers-and-type" title="Permalink to this heading">#</a></h2>
 <p>Each pointer points to an object of a specified <code class="docutils literal notranslate"><span class="pre">type</span></code>, so the pointer is said to be of type <code class="docutils literal notranslate"><span class="pre">pointer</span> <span class="pre">to</span> <span class="pre">'type'</span></code>, e.g. a pointer to an <code class="docutils literal notranslate"><span class="pre">int</span></code> has the type <code class="docutils literal notranslate"><span class="pre">pointer</span> <span class="pre">to</span> <span class="pre">int</span></code>.</p>
-<p>Although the pointer value is only a memory location - it is not permitted to assign a declared pointer a value of a different type; to ensure security in the type-system.</p>
+<p>Although the pointer value is only a memory location, to ensure security in the type-system, it is not permitted to assign a declared pointer a value of a different type i.e. a pointer to an <code class="docutils literal notranslate"><span class="pre">int</span></code> cannot be assigned the address of a <code class="docutils literal notranslate"><span class="pre">double</span></code> - the compiler will not permit it.</p>
 <div class="code_example dropdown admonition" id="examplev1">
 
 <p class="admonition-title">Code Example: Introduction to Pointers </p>
@@ -681,14 +692,15 @@ document.write(`
 <p>This code shows examples of pointers to different types.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="o">???</span><span class="w"> </span><span class="n">Add</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">directives</span><span class="w"> </span><span class="n">here</span><span class="o">???</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">5.9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.6</span><span class="w"> </span><span class="p">};</span>
 <span class="w">        </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">myPointerToMyVector</span><span class="p">;</span>
 <span class="w">        </span><span class="n">myPointerToMyVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myVector</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w">  </span><span class="c1">//Assigns address of 4th element to the pointer</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">myPointerToMyVector</span><span class="p">;</span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myPointerToMyVector</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; - is the address of the object pointed to by the pointer. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//prints the address of myVector</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; - is the value held at that address pointed at. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">//prints the value of myVector[3]</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; - is the value held at the memory address pointed at by the poitner. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">//prints the value of myVector[3]</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -700,7 +712,7 @@ document.write(`
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examplev1"> Code Example: Introduction to Pointers </a></p>
 <section id="code_explanation-content">
 <p>For a type <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">T*</span></code> is of type ‘pointer to object of type T’, which is usually shortened to ‘pointer to T’ e.g. ‘pointer to int’, or ‘pointer to double’ etc.</p>
-<p>That is, a variable of type <code class="docutils literal notranslate"><span class="pre">T*</span></code> can hold the address of an object of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<p>That is, a variable of type <code class="docutils literal notranslate"><span class="pre">T*</span></code> may only hold the address of an object of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
 </section>
 </div>
 </section>
@@ -709,50 +721,49 @@ document.write(`
 <p class="admonition-title">Syntax Rules: Advanced Pointer Syntax </p>
 <section id="syntax-content">
 <p>Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToInt</span><span class="p">;</span><span class="w">                     </span><span class="c1">// Declares a pointer to (an) int</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToInt</span><span class="p">;</span><span class="w">                     </span><span class="c1">// Declares a pointer to an int</span>
 <span class="linenos">2</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">ptrToPtrToChar</span><span class="p">;</span><span class="w">             </span><span class="c1">// Declares a pointer to a pointer to a char</span>
 <span class="linenos">3</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">arrayOfPtrs</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span><span class="w">               </span><span class="c1">// Declares an array of 9 pointers to int&#39;s</span>
-<span class="linenos">4</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptrToArray</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myArray</span><span class="p">;</span><span class="w">    </span><span class="c1">// Declare a pointer to an array of int&#39;s</span>
+<span class="linenos">4</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptrToArray</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myArray</span><span class="p">;</span><span class="w">   </span><span class="c1">// Declare a pointer to an array of int&#39;s</span>
 <span class="linenos">5</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptrToMyFunction</span><span class="p">)(</span><span class="kt">char</span><span class="o">*</span><span class="p">);</span><span class="w">     </span><span class="c1">// Declares a pointer to a function that takes a pointer to a char as its argument and returns an int</span>
 <span class="linenos">6</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">myFunction2</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">);</span><span class="w">           </span><span class="c1">// Declares a function that takes a pointer to a char as its argument and returns a pointer to int.</span>
 </pre></div>
 </div>
 <p>Note the requirement for parentheses around the array and function identifiers in lines 4 and 5 - required to identify ownership of the <code class="docutils literal notranslate"><span class="pre">*</span></code> declarator.</p>
 <hr class="docutils" />
-<p>Note that <code class="docutils literal notranslate"><span class="pre">==</span></code> compares addresses (pointer values) when applied to pointers, and not the values pointed to.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">==</span></code> compares addresses (pointer values) when applied to pointers, and not the values of the objects pointed at by the pointers.</p>
 <hr class="docutils" />
 <p>Every value of pointer type is one of the following:</p>
 <ul class="simple">
-<li><p>A pointer to an object or function (in which case the pointer is said to point to the object or function)</p></li>
-<li><p>A pointer past the end of an object</p></li>
-<li><p>The null pointer value for that type</p></li>
-<li><p>An invalid pointer value</p></li>
+<li><p>A pointer to an object or function (in which case the pointer is said to point to the object or function).</p></li>
+<li><p>A pointer past the end of an object.</p></li>
+<li><p>The null pointer value for that type.</p></li>
+<li><p>An invalid pointer value.</p></li>
 </ul>
 <hr class="docutils" />
 <p>A pointer that points to an object represents the address of the first byte in memory occupied by the object.</p>
 <p>A pointer past the end of an object represents the address of the first byte in memory after the end of the storage occupied by the object.</p>
-<p>Note that two pointers that represent the same address may nonetheless have different values.???</p>
 </section>
 </div></section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>A reference is an alias for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.</p>
-<p>References are not objects - therefore there cannot be arrays of references or pointers to references.</p>
+<p>References are not objects - therefore, there cannot be arrays of references or pointers to references.</p>
 <p>The reference aliases an existing object so it is not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy knows nothing of the copied object after initialisation.</p>
 <p>References cannot be redirected; they may only refer to one object, i.e. once initialized, a reference cannot be reseated (changed) to refer to another object.</p>
 <p>References are initialized in the following situations:</p>
 <ul class="simple">
-<li><p>When a named lvalue reference variable is declared with an initializer.</p></li>
-<li><p>When a named rvalue reference variable is declared with an initializer.</p></li>
+<li><p>When a named lvalue reference variable is declared with an initialiser.</p></li>
+<li><p>When a named rvalue reference variable is declared with an initialiser.</p></li>
 <li><p>In a function call expression, when the function parameter has reference type.</p></li>
 <li><p>In the return statement, when the function returns a reference type.</p></li>
-<li><p>When a non-static data member of reference type is initialized using a member initializer.</p></li>
+<li><p>When a non-static data member of reference type is initialized using a member initialiser.</p></li>
 </ul>
 <div class="code_example dropdown admonition" id="examplev3">
 
 <p class="admonition-title">Code Example: References </p>
 <section id="code_example-content">
-<div class="cell docutils container">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -767,15 +778,6 @@ document.write(`
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The contents of the object pointed to by pointerTo_myReferenceTo_myDouble = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">pointerTo_myReferenceTo_myDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<p>myDouble = 10</p>
-<p>myReferenceTo_myDouble = 10</p>
-<p>The contents of the object pointed to by pointerTo_myDouble = 6</p>
-<p>The contents of the object pointed to by pointerTo_myReferenceTo_myDouble = 6</p>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[C++ kernel] Error: Executable exited with code 0x1.
 </pre></div>
 </div>
 </div>
@@ -973,7 +975,7 @@ document.write(`
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">   </span><span class="c1">// intialises the new pointer to the </span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToInt2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptrToInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptrToDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptrToString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptrToInt2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
@@ -994,6 +996,58 @@ document.write(`
 <p>It is best not to use <code class="docutils literal notranslate"><span class="pre">NULL</span></code> because it is an <a class="reference internal" href="glossary.html#term-Implementation"><span class="xref std std-term">implementation</span></a> defined <a class="reference internal" href="glossary.html#term-Macro"><span class="xref std std-term">macro</span></a> and there may be difference in implementation, e.g. NULL might be 0 or 0L.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.</p>
 </section>
+</div>
+<hr class="docutils" />
+<p>What happens if we use an unitialised pointer? Most compilers will prevent this, but run the following code in the Live Code Editor…</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToInt</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">ptrToInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptrToInt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the code several times - not the changing memory address.</p>
+<p>Try chaning the code to double* and std::string* - what happens.</p>
+<p>Dereferencing an unitialised pointer is an <a class="reference internal" href="glossary.html#term-Undefined-Behaviour"><span class="xref std std-term">undefined behaviour</span></a>.</p>
+<hr class="docutils" />
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptrToInt2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptrToInt2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">ptrToInt2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptrToInt2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dereferencing the nullptr is also an undefined behaviour - <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> does not point to a valid memory location.</p>
+<p>It is best to always check a pointer is not the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> as follows.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">myPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">    </span><span class="c1">// change to = nullptr</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myPointer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">myPointer</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointer is null!&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </div></section>
@@ -1131,13 +1185,12 @@ document.write(`
 <section id="this-advanced-topic">
 <h2>This - Advanced Topic<a class="headerlink" href="#this-advanced-topic" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">this</span></code> is only useful when dealing with classes, when it becomes a shorthand way of referring to the innermost enclosing class.</p>
-<p>The keyword <code class="docutils literal notranslate"><span class="pre">this</span></code> is used as an expression, being a built-in pointer, and the associated value can be accessed using <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
-<p>The expression <code class="docutils literal notranslate"><span class="pre">this</span></code> is a <a class="reference internal" href="glossary.html#term-prvalue"><span class="xref std std-term">prvalue</span></a> expression whose value is the address of the implicit object parameter (object on which the implicit object member function is being called).</p>
-<p>This may only be used within:</p>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">this</span></code> is used as an expression (<a class="reference internal" href="glossary.html#term-prvalue"><span class="xref std std-term">prvalue</span></a>), being a built-in pointer, and the associated value can be accessed using <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">This</span></code> may only be used within:</p>
 <ul class="simple">
-<li><p>The body of an implicit object member function - a member initializer list, and lambda expression body.</p></li>
+<li><p>The body of an implicit object member function - a member initialiser list, and lambda expression body.</p></li>
 <li><p>The declaration of an implicit object member function.</p></li>
-<li><p>A default member-initializer.</p></li>
+<li><p>A default member-initialiser.</p></li>
 <li><p>The capture list of a lambda expression.</p></li>
 </ul>
 </section>

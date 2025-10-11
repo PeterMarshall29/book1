@@ -682,6 +682,9 @@ Type System
 Unary
   Describing an operator that operates on a single operand, such as the negation operator. Unary operators are further classified as prefix and postfix. The alternative is an {term}`infix operator`.
 
+Undefined Behaviour
+  Behaiour the is unpredictable, being unspecified by the language and often implementation dependent. Ill-formed programs have issues with syntax or semantics that may be caught by the compiler - other issues are not caught, and lead to programs that are not reliable being undefined by the standard in execution.
+
 Variable
   A variable is a named object, or a reference that is not a non-static data member, that is introduced by a declaration, in a scope.
 

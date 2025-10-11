@@ -37,9 +37,14 @@ int main() {
     std::cout << "The value of myPointerTo_myInt is " << myPointerTo_myInt << '\n';
     std::cout << "The contents (value) of the object (memory location) pointed to by myPointerTo_myInt is ";
     std::cout << *myPointerTo_myInt << '\n'; // separate line is only for readability
+    *myPointerTo_myInt = 10;
+    std::cout << "The modified contents of the object pointed to by myPointerTo_myInt is ";
+    std::cout << *myPointerTo_myInt << '\n'; // separate line is only for readability
+    std::cout << "myInt now has the value of: " << myInt; 
     return 0;
 }
 ````
+
 ````{code_explanation} examplev0
 :label: solutionv0
 :class: dropdown
@@ -62,11 +67,16 @@ std::cout << *myPointerTo_myInt << '\n';
 ```
 `*myPointerTo_myInt` is the value of the object that the pointer points at, in this case the value of `myInt` - this is called dereferencing.
 
-Note: the use of the `*` is quite different when attached to an existing pointer, as compared with when used in the declaration.
+Note: the use of the `*` is different when attached to an existing pointer in comparison to when used in a declaration.
+
+Dereferencing can also be used to modify the object pointed at - note the value of `myInt` was changed to '10'.
 ````
 `````{code_example-end}
 `````
-
+Pointers are used extensively in C++ for three main purposes:
+* Allocating new objects on the free store (the heap - dynamic memory managed by programmer).
+* Passing functions to other functions.
+* Iterating over the elements of arrays and similar data structures.
  
 `````{syntax-start} Pointer Syntax
 :class: dropdown
@@ -145,7 +155,7 @@ int* pointer1, * pointer2: // declares two pointers
 
 Each pointer points to an object of a specified `type`, so the pointer is said to be of type `pointer to 'type'`, e.g. a pointer to an `int` has the type `pointer to int`.
 
-Although the pointer value is only a memory location - it is not permitted to assign a declared pointer a value of a different type; to ensure security in the type-system.
+Although the pointer value is only a memory location, to ensure security in the type-system, it is not permitted to assign a declared pointer a value of a different type i.e. a pointer to an `int` cannot be assigned the address of a `double` - the compiler will not permit it.
 
 `````{code_example-start} Introduction to Pointers 
 :label: examplev1
@@ -155,14 +165,15 @@ Although the pointer value is only a memory location - it is not permitted to as
 This code shows examples of pointers to different types.
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
-??? Add some directives here???
+#include <iostream>
+#include <vector>
 int main() {
         std::vector<double> myVector = { 5.9,8,1.1,2.3,4.5,5.6 };
         double* myPointerToMyVector;
         myPointerToMyVector = &myVector[3];  //Assigns address of 4th element to the pointer
         double temp = *myPointerToMyVector;
         std::cout << myPointerToMyVector << " - is the address of the object pointed to by the pointer. \n"; //prints the address of myVector
-        std::cout << temp << " - is the value held at that address pointed at. \n";  //prints the value of myVector[3]
+        std::cout << temp << " - is the value held at the memory address pointed at by the poitner. \n";  //prints the value of myVector[3]
         return 0;
 }
 ````
@@ -172,7 +183,7 @@ int main() {
 :class: dropdown
 For a type `T`, `T*` is of type 'pointer to object of type T', which is usually shortened to 'pointer to T' e.g. 'pointer to int', or 'pointer to double' etc. 
 
-That is, a variable of type `T*` can hold the address of an object of type `T`. 
+That is, a variable of type `T*` may only hold the address of an object of type `T`. 
 ````
 `````{code_example-end}
 `````
@@ -184,10 +195,10 @@ That is, a variable of type `T*` can hold the address of an object of type `T`.
 Unfortunately, pointers to arrays and pointers to functions need a more complicated notation:
 ```{code-block} c++
 :linenos:
- int* ptrToInt;                     // Declares a pointer to (an) int
+ int* ptrToInt;                     // Declares a pointer to an int
  char** ptrToPtrToChar;             // Declares a pointer to a pointer to a char
  int* arrayOfPtrs[9];               // Declares an array of 9 pointers to int's
- int (*ptrToArray)[2] = &myArray;    // Declare a pointer to an array of int's
+ int (*ptrToArray)[2] = &myArray;   // Declare a pointer to an array of int's
  int (*ptrToMyFunction)(char*);     // Declares a pointer to a function that takes a pointer to a char as its argument and returns an int
  int* myFunction2(char*);           // Declares a function that takes a pointer to a char as its argument and returns a pointer to int.
 ``` 
@@ -195,21 +206,19 @@ Note the requirement for parentheses around the array and function identifiers i
 
 ***
 
-Note that `==` compares addresses (pointer values) when applied to pointers, and not the values pointed to.
+Note that `==` compares addresses (pointer values) when applied to pointers, and not the values of the objects pointed at by the pointers.
 
 ***
 Every value of pointer type is one of the following:
-* A pointer to an object or function (in which case the pointer is said to point to the object or function)
-* A pointer past the end of an object
-* The null pointer value for that type
-* An invalid pointer value
+* A pointer to an object or function (in which case the pointer is said to point to the object or function).
+* A pointer past the end of an object.
+* The null pointer value for that type.
+* An invalid pointer value.
 
 ***
 A pointer that points to an object represents the address of the first byte in memory occupied by the object. 
 
 A pointer past the end of an object represents the address of the first byte in memory after the end of the storage occupied by the object.
-
-Note that two pointers that represent the same address may nonetheless have different values.???
 
 ````{syntax-end}
 ````
@@ -217,7 +226,7 @@ Note that two pointers that represent the same address may nonetheless have diff
 
 A reference is an alias for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.
 
-References are not objects - therefore there cannot be arrays of references or pointers to references.
+References are not objects - therefore, there cannot be arrays of references or pointers to references.
 
 The reference aliases an existing object so it is not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy knows nothing of the copied object after initialisation.
 
@@ -225,11 +234,11 @@ References cannot be redirected; they may only refer to one object, i.e. once in
 
 References are initialized in the following situations:
 
-* When a named lvalue reference variable is declared with an initializer.
-* When a named rvalue reference variable is declared with an initializer.
+* When a named lvalue reference variable is declared with an initialiser.
+* When a named rvalue reference variable is declared with an initialiser.
 * In a function call expression, when the function parameter has reference type.
 * In the return statement, when the function returns a reference type. 
-* When a non-static data member of reference type is initialized using a member initializer.
+* When a non-static data member of reference type is initialized using a member initialiser.
 
 `````{code_example-start} References
 :label: examplev3
@@ -237,6 +246,7 @@ References are initialized in the following situations:
 :nonumber:
 `````
 ```{code-cell} c++
+:tags: [remove-output, skip-execution]
 #include <iostream>
 int main() {
     double myDouble = 10.0;
@@ -434,7 +444,7 @@ Taking a pointer to the element one beyond the end of an array is guaranteed to 
 
 ## Nullptr
 
-A pointer should always point at an object, otherwise dereferencing is not valid. 
+A pointer should always point at an object, otherwise dereferencing is not valid.
 
 If there is no object to point at, or if it is useful to represent the idea that no object is available (e.g., for the end of a list), the pointer may be given the value `nullptr` (the null pointer). 
 
@@ -456,7 +466,7 @@ Using `nullptr`:
 #include <string>
 int main() {
     int* ptrToInt = 0;  
-    double* ptrToDouble = nullptr; 
+    double* ptrToDouble = nullptr;   // intialises the new pointer to the 
     std::string* ptrToString = nullptr;
     int* ptrToInt2 = NULL; 
     std::cout << ptrToInt << '\t' << ptrToDouble << '\t' << ptrToString << '\t' << ptrToInt2 << '\n';
@@ -478,6 +488,58 @@ It is best not to use `NULL` because it is an {term}`implementation` defined {te
 
 Using `nullptr` makes code more readable than alternatives and avoids potential confusion when a function is overloaded to accept either a pointer or an integer.
 ````
+***
+What happens if we use an unitialised pointer? Most compilers will prevent this, but run the following code in the Live Code Editor..
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+int main() {
+    int* ptrToInt;
+    std::cout <<  ptrToInt << '\n';
+    std::cout << *ptrToInt << '\n';
+    return 0;
+}
+````
+
+Run the code several times - not the changing memory address.
+
+Try chaning the code to double* and std::string* - what happens.
+
+Dereferencing an unitialised pointer is an {term}`undefined behaviour`.
+***
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+int main() {
+    int* ptrToInt2 = nullptr;
+    std::cout << ptrToInt2 << '\n';
+    *ptrToInt2 = 10;
+    std::cout << *ptrToInt2;
+    return 0;
+}
+````
+Dereferencing the nullptr is also an undefined behaviour - `nullptr` does not point to a valid memory location.
+
+It is best to always check a pointer is not the `nullptr` as follows.
+
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+int main() {
+    int myInt = 5;
+    int* myPointer = nullptr;    // change to = nullptr
+    if (myPointer != nullptr) {
+        std::cout << *myPointer;
+    } else {
+        std::cout << "Pointer is null!";
+    }
+    return 0;
+}
+````
+
+
+
+
 `````{code_example-end}
 `````
 ## Pointers and Booleans
@@ -629,14 +691,12 @@ Pointers to functions and pointers to members cannot be assigned to `void*`.
 
 `this` is only useful when dealing with classes, when it becomes a shorthand way of referring to the innermost enclosing class. 
 
-The keyword `this` is used as an expression, being a built-in pointer, and the associated value can be accessed using `*this`.
+The keyword `this` is used as an expression ({term}`prvalue`), being a built-in pointer, and the associated value can be accessed using `*this`.
 
-The expression `this` is a {term}`prvalue` expression whose value is the address of the implicit object parameter (object on which the implicit object member function is being called).
-
-This may only be used within:
-* The body of an implicit object member function - a member initializer list, and lambda expression body.
+`This` may only be used within:
+* The body of an implicit object member function - a member initialiser list, and lambda expression body.
 * The declaration of an implicit object member function.
-* A default member-initializer.
+* A default member-initialiser.
 * The capture list of a lambda expression.
 
 
