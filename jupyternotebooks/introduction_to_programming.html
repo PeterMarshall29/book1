@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.534871be-0aee-4051-afd4-8efe5de7aea0.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.33955268-d351-4c0d-b29a-2212ee7a10d0.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-91d78fa7-971c-4bb3-8f54-c5485dddf182] svg, .mermaid[data-zoom-id=id-053760f1-630d-4981-b7a1-14780df5629f] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-e7c2024b-227d-4752-b77a-d05e9519780d] svg, .mermaid[data-zoom-id=id-c51e8eeb-f681-4902-83ec-d5a15ae26487] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -283,7 +283,7 @@ window.addEventListener("load", load);
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises Week 3 Pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises Week 3 Pointers and Functions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -687,7 +687,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-91d78fa7-971c-4bb3-8f54-c5485dddf182" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-e7c2024b-227d-4752-b77a-d05e9519780d" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -718,7 +718,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-053760f1-630d-4981-b7a1-14780df5629f" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-c51e8eeb-f681-4902-83ec-d5a15ae26487" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input

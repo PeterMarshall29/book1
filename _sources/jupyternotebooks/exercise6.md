@@ -10,14 +10,14 @@ kernelspec:
   name: cpp20
 ---
 
-# Exercises Week 3 Pointers
+# Exercises Week 3 Pointers and Functions
 
 ````{exercise-start} 5A
 :label: exerciseex61
 :class: dropdown
 :nonumber:
 ````
-Write a program that asks for two integers, assigns the values to two variables, then creates pointers to those variables and adds the intgers by dereferencing their pointers.
+Write a program that asks for two integers, assigns the values to two variables, then creates pointers to those variables and adds the integers by dereferencing their pointers.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -53,7 +53,7 @@ int main() {
 :class: dropdown
 :nonumber:
 ````
-Write a program that asks for two floating-point numbers, then calls a function by reference to caluate the first number raised to the power of the second number.
+Write a program that asks for two floating-point numbers and then calls a function by reference to calculate the first number raised to the power of the second number.
 
 Hint: Include `<cmath>` and use `pow()`.
 ```{code-cell} c++
@@ -93,7 +93,7 @@ int main() {
 ````
 Write a program to print all the permutations of the character array "abcd".
 
-Use functions and pass pointers to the characters.
+You should use functions and pass pointers to the characters.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -134,7 +134,7 @@ void charPermutations(char* inputCharacterString, int startNumber, int endNumber
 
 int main() {
     std::cout << "Please type in a word \n";
-    char InputCharString[] ="abce";
+    char InputCharString[] ="abcd";
     /*for (int i = 0; i < strlen(InputCharString); ++i) {
         std::cin >> InputCharString[i];
     }*/
@@ -192,7 +192,11 @@ int main() {
 :class: dropdown
 :nonumber:
 ````
+Write three functions that return the square of, the cube of, and half of a floating-point number.
 
+Write a single function that will print to the character stream the value returned by any of the above functions.
+
+Write a program that asks the user for a floating point number and uses the single printer function to print the square of, the cube of, and half of the user's floating-point number.
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -204,9 +208,39 @@ Code goes here....
 :label: solutionex64
 :class: dropdown
 ````
+A possible solution - try to improve or modify it.
 ```{code-block} c++
 #include <iostream>
+double cubeOf(double);
+double squareOf(double);
+double halfOf(double);
+void myPrinter(double, double(*)(double));
 
+double cubeOf(double userDouble) {
+    return userDouble * userDouble * userDouble;
+}
+double squareOf(double userDouble) {
+    return userDouble * userDouble;
+}
+double halfOf(double userDouble) {
+    return userDouble * 0.5;
+}
+    
+void myPrinter(double userDouble, double(*passedInFunction)(double)) {
+    std::cout << passedInFunction(userDouble) << '\n';
+}
+int main(){
+    double number;
+    std::cout << "Please type in a number: ";
+    std::cin >> number;
+    std::cout << "\nHalf the value is ";
+    myPrinter(number, halfOf);
+    std::cout << "\nThe value squared is ";
+    myPrinter(number, squareOf);
+    std::cout << "\nThe value cubed is ";
+    myPrinter(number, cubeOf);
+    return 0;
+}
 ```
 ````{solution-end}
 ````
@@ -217,6 +251,11 @@ Code goes here....
 :class: dropdown
 :nonumber:
 ````
+Write a program that asks the user to input two floating point numbers followed by an arithmetic operator (+, -, *, /).
+
+The program should have four separate functions to compute the basic arithmetic operations on a pair of floating-point numbers and a fifth function that will be called from `main()` that selects which arithmetic function to use based on the users choice of operator i.e. the function called by `main()` should have the details of which arithmetic function is to be called passed into it.
+
+Print a suitable response back to the user, providing the result.
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -229,7 +268,55 @@ Code goes here....
 :label: solutionex65
 :class: dropdown
 ````
+A possible solution - try to improve or modify it.
 ```{code-block} c++
+double add(double, double);
+double multiply(double, double);
+double divide(double, double);
+double subtract(double, double);
+double calculate(double, double, double(*)(double, double));
+
+double add(double userDouble1, double userDouble2) {
+    return userDouble1 + userDouble2;
+}
+double subtract(double userDouble1, double userDouble2) {
+    return userDouble1 - userDouble2;
+}
+double multiply(double userDouble1, double userDouble2) {
+    return userDouble1 * userDouble2;
+}
+double divide(double userDouble1, double userDouble2) {
+    return userDouble1 / userDouble2;
+}
+    
+double calculate(double userDouble1, double userDouble2, double(*passedInFunction)(double, double)) {
+    return passedInFunction(userDouble1, userDouble2);
+}
+int main(){
+    double number2;
+    double number1;
+    char operation;
+    std::cout << "Please type in two floating point numbers separated followed by an arithmetic operator - space separated: ";
+    std::cin >> number1 >> number2 >> operation;
+
+    switch (operation) {
+    case '+':
+        std::cout << '\n' << number1 << " plus " << number2 << " equals " << calculate(number1, number2, add);
+        break;
+    case '-':
+        std::cout << '\n' << number1 << " minus " << number2 << " equals " << calculate(number1, number2, subtract);
+        break;
+    case '*':
+        std::cout << '\n' << number1 << " times " << number2 << " equals " << calculate(number1, number2, multiply);
+        break;
+    case '/':
+        std::cout << '\n' << number1 << " divided by " << number2 << " equals " << calculate(number1, number2, divide);
+        break;
+    default:
+        std::cout << "\nSomething went wrong!";
+    }
+    return 0;
+}
 
 ```
 ````{solution-end}
@@ -241,6 +328,25 @@ Code goes here....
 :class: dropdown
 :nonumber:
 ````
+Consider this example of recursion - without running any code, try to determine the following:
+
+1. What happens for the following function calls:
+* `myFunction(4);`
+* `myFunction(7);`
+* `myFunction(12);`
+
+2. If `number - 1` were replaced with `number + 1` what would be the result of the last 3 function calls be?
+
+3. What would happen if another `std::cout` statement was placed before the function call? 
+
+```{code-block} c++
+void myFunction(int number) {
+    if ((1 <= number) && (number <= 8)) {
+        myFunction(number - 1);
+        std::cout << number;
+    } else std::cout << '\n';
+}
+```
 
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -253,9 +359,8 @@ Code goes here....
 :label: solutionex66
 :class: dropdown
 ````
-```{code-block} c++
+No answer provided – please write a program to call the provided function and check your answers.
 
-```
 ````{solution-end}
 ````
 
@@ -265,7 +370,9 @@ Code goes here....
 :class: dropdown
 :nonumber:
 ````
+Write a program that asks the user to type in a sentence and then calls a function that prints the sentence in reverse using recursion.
 
+Hint: Use `std::getline()` to get the sentence. Then consider using the `subtr()` function from `<string>` - you will need to look than one up!
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -277,8 +384,22 @@ Code goes here....
 :label: solutionex67
 :class: dropdown
 ````
+A possible solution - try to improve or modify it.
 ```{code-block} c++
-
+#include <iostream>
+#include <string>
+void reverseString(std::string inputString) {
+    if (inputString.size() == 0) return;
+    reverseString(inputString.substr(1));
+    std::cout << inputString[0];
+}
+int main() {
+    std::string myString;
+    std::cout << "Please type in a sentence: \n";
+    std::getline(std::cin, myString);
+    reverseString(myString);
+    return 0;
+}
 ```
 ````{solution-end}
 ````
@@ -288,7 +409,25 @@ Code goes here....
 :class: dropdown
 :nonumber:
 ````
+Without running this code - determine what the output will be. 
 
+If you were happy with this program, please visit https://www.ioccc.org/ for lots more examples and hours of fun!!
+
+```{code-block} c++
+void obfuscatedArithmetic(int& one, int two, int& three) {
+    ++one;
+    --two;
+    three += one;
+}
+int main() {
+    int one = 4;
+    int three = 10;
+    int two = 7;
+    obfuscatedArithmetic(three, one, two);
+    std::cout << one << " " << two << " " << three << '\n';
+    return 0;
+}
+```
 ```{code-cell} c++
 :tags: [remove-output, skip-execution]
 Code goes here....
@@ -300,56 +439,11 @@ Code goes here....
 :label: solutionex68
 :class: dropdown
 ````
+No answer supplied - run the code to find out if you are correct.
+
+Was this code helpfully written - or was the intent of the programmer obfuscated?
 ```{code-block} c++
 
 ```
 ````{solution-end}
 ````
-
-````{exercise-start} 5I
-:label: exerciseex69
-:class: dropdown
-:nonumber:
-````
-
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-Code goes here....
-```
-````{exercise-end}
-````
-
-````{solution-start} exerciseex69
-:label: solutionex69
-:class: dropdown
-````
-```{code-block} c++
-
-```
-````{solution-end}
-````
-
-````{exercise-start} 5J
-:label: exerciseex610
-:class: dropdown
-:nonumber:
-````
-
-```{code-cell} c++
-:tags: [remove-output, skip-execution]
-Code goes here....
-```
-````{exercise-end}
-````
-
-````{solution-start} exerciseex610
-:label: solutionex610
-:class: dropdown
-````
-```{code-block} c++
-
-```
-````{solution-end}
-````
-
-

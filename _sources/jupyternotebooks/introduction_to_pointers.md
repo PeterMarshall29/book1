@@ -13,9 +13,9 @@ kernelspec:
 # Pointers
 An {term}`object` in C++ is a region of memory holding a value. Each region of memory can also be identified by its {term}`memory address`.
 
-The value of an object can be accessed using either its identifier, or its address. Reference to an object's address, instead of its value, can make a program more efficient, and access to memory addresses is useful for memory management.
+The value of an object can be accessed using either its identifier, or its address. Referring to an object's address, instead of its value, can make a program more efficient, and access to memory addresses is useful for memory management.
 
-A {term}`pointer1 stores only the memory address of another object - the value of a pointer is the memory address of the (first byte of the) object that the pointer is associated with, not the value of the object pointed at.
+A {term}`pointer` stores only the memory address of another object - the value of a pointer is the memory address of the (first byte of the) object that the pointer is associated with, not the value of the object associated with the pointer.
 
 A pointer is itself an {term}`object` and therefore has a `type` and must be declared before use. 
 
@@ -65,11 +65,11 @@ This line initialises the value of `myPointerTo_myInt` by copy assignment - the 
 ```{code-block} c++
 std::cout << *myPointerTo_myInt << '\n'; 
 ```
-`*myPointerTo_myInt` is the value of the object that the pointer points at, in this case the value of `myInt` - this is called dereferencing.
+`*myPointerTo_myInt` is the value of the object pointer at by the pointer i.e. the value of the variable `myInt` - this is called dereferencing.
 
 Note: the use of the `*` is different when attached to an existing pointer in comparison to when used in a declaration.
 
-Dereferencing can also be used to modify the object pointed at - note the value of `myInt` was changed to '10'.
+Dereferencing can also be used to modify the object pointed at - in this example, the value of `myInt` was changed to '10' by dereferencing.
 ````
 `````{code_example-end}
 `````
@@ -93,12 +93,12 @@ type secondObjectIdentifier = *pointerToIdentifier;  // assignment of the value 
 
 `*` has two distinct uses in C++ for pointers.
 ````{card}
-Line 2: Attached postfix/suffix to a type in a pointer declaration, `*` is a {term}`unary` {term}`declarator-operator`, used to introduce the identifier of a pointer.
+Line 2: Attached postfix/suffix to a type in a pointer declaration - `*` is a {term}`unary` {term}`declarator-operator` used to introduce the identifier of a pointer.
 
 It is important to note that the declaration specifies that the pointer is to an object of the stated `type` - this type may not be changed, and the pointer may not be associated with any other type.
 ````
 ````{card}
-Line 4: Attached prefix to an existing pointer's identifier, `*` is the {term}`dereferencing` operator or {term}`indirection` operator. 
+Line 4: Attached prefix to an existing pointer's identifier - `*` is the {term}`dereferencing` operator or {term}`indirection` operator. 
 
 The fundamental operation on a pointer is dereferencing, that is, referring to the object pointed to by the pointer. 
 
@@ -107,7 +107,7 @@ The fundamental operation on a pointer is dereferencing, that is, referring to t
 [More correctly - the indirection operator returns the identifier of the object pointed at, but since the identifier is immediately evaluated (the value is used) in most instances the above explanation is sufficient; the exception being in creating a reference.]
 ````
 ````{card}
-Line 3: A prefix `&` is the `address-of` operator, which returns the hexadecimal literal representing the memory address of an object - specifically the address of first byte of the object. 
+Line 3: A prefix `&` is the `address-of` operator, which returns the hexadecimal literal representing the memory address of an object - specifically the address of the first byte of the object. 
 
 The prefix `&` operator with an operand (a variable name) is then used to create an expression which initialises the value of the pointer. [An address literal could be used instead]
 ````
@@ -135,9 +135,9 @@ int main() {
 ```
 For simple declarations attaching the `*` postfix to the type without whitespace may improve readability. 
 
-The exceptions are declaring pointers to functions (covered below), or attempting to declare multiple pointers of the same type in a single declaration.
+The exceptions are declaring pointers to functions (covered below) or attempting to declare multiple pointers of the same type in a single declaration.
 
-The prefix `*` for {term}`dereferencing` the pointer may also be separated by a whitespace, but again it is generally better to attach to the variale name.
+The prefix `*` for {term}`dereferencing` the pointer may also be separated by a whitespace, but again it is generally better to attach it to the variable's name.
 
 Note that the value of a pointer can be copy assigned - e.g. `int* test3 =  test2;`
 
@@ -173,7 +173,7 @@ int main() {
         myPointerToMyVector = &myVector[3];  //Assigns address of 4th element to the pointer
         double temp = *myPointerToMyVector;
         std::cout << myPointerToMyVector << " - is the address of the object pointed to by the pointer. \n"; //prints the address of myVector
-        std::cout << temp << " - is the value held at the memory address pointed at by the poitner. \n";  //prints the value of myVector[3]
+        std::cout << temp << " - is the value held at the memory address pointed at by the pointer. \n";  //prints the value of myVector[3]
         return 0;
 }
 ````
@@ -224,9 +224,9 @@ A pointer past the end of an object represents the address of the first byte in 
 ````
 ## References
 
-A reference is an {term}`alias` for an existing object or function i.e. a reference cannot be initialised until the referenced entity exists.
+A reference is an {term}`alias` for an existing object or function - therefore, a reference cannot be initialised until the referenced entity exists.
 
-References are not objects - therefore, there cannot be arrays of references or pointers to references.
+References are not objects - so, there cannot be arrays of references or pointers to references.
 
 The reference aliases an existing object and is therefore not copy initialised, meaning that changes to the object it references are still accessible through the reference, whereas a copy-initialised variable knows nothing of the copied object after initialisation. Assigning a value to a reference is identical to assigning a value to the referenced object.
 
@@ -275,7 +275,7 @@ type& referenceIdentifier;
 ````
 
 ***
-Rvalue references can be used to extend the lifetimes of temporary objects (note, lvalue references to const can extend the lifetimes of temporary objects too, but they are not modifiable through them).
+{term}`rvalue` references can be used to extend the lifetimes of temporary objects (note, `lvalue` references to `const` can extend the lifetimes of temporary objects too, but they are not modifiable through them).
 
 An {term}`rvalue` reference is declared as follows.
 ````{code-block} c++
@@ -307,7 +307,7 @@ int main()
     return 0;
 }
 ```
-Note: changing either reference changed the refernced object - in this case, both reassignments caused concatenation of an extra string to the current string held in the referenced object.
+Note: changing either reference changed the referenced object - in this case, both reassignments caused concatenation of an extra string to the current string held in the referenced object.
 ````{code_example-end}
 ````
 
@@ -333,18 +333,16 @@ int main()
     return 0;
 }
 ```
-Note: the rvalue reference was not updated when the objects used to create it were changed, because an rvalue reference refers to the value of `myString1 + myString1` at the time of initialisation - i.e. it is a persistant copy of the temporary that was created by the evaluation of `myString1 + myString1` at the point of assignment.
+Note: the rvalue reference was not updated when the objects used to create it were changed, because an rvalue reference refers to the value of `myString1 + myString1` at the time of initialisation - i.e. it is a persistent copy of the temporary that was created by the evaluation of `myString1 + myString1` at the point of assignment.
 ````{code_example-end}
 ````
 
 (Pointers and Arrays)=
 ## Pointer Arithmetic and Arrays
 
-In C++, pointers and arrays are closely related. 
+In C++, the name of an array can be used as a pointer to its initial element i.e. anywhere that a program might require a pointer object, the programmer may put the name of an array, because the array will be interpreted as a pointer to its first element. 
 
-The name of an array can be used as a pointer to its initial element i.e. anywhere that a program might require a pointer object, the programmer may put the name of an array, because the array will be interpreted as a pointer to its first element. 
-
-Arrays may not be passed by value because there is no copying assigment for arrays - i.e. a function parameter cannot have the array copied to it - arrays can only be passed by reference. 
+Arrays may not be passed by value because there is no copying assignment for arrays - i.e. a function parameter cannot have the array copied to it - arrays can only be passed by reference. 
 
 Arrays are implicitly converted to a pointer to their first element in any context where an array is not expected but a pointer is permitted. This explains why arrays are always passed by reference: passing an array is really passing a pointer.
 
@@ -405,8 +403,8 @@ Pointer arithmetic can be risky:
 
 A limited set of arithmetic operations can be performed on pointers. Pointers may be:
 * Incremented or decremented by 1 using `++` or `--`.
-* Be increased or decreased by addition on an integer, literal of variable, using `+=` or `-=` or the equivalent extended expressions.
-* Subtracted from each other e.g. `ptr1-ptr2`
+* Be increased or decreased by addition of an integer, literal of variable, using `+=` or `-=` or the equivalent extended expressions.
+* Subtracted from each other e.g. `ptr1-ptr2`.
 
 ### Pointers into Arrays
 `````{code_example-start} Pointer in Arrays
@@ -443,14 +441,14 @@ Attempting to print an array to the output stream results in printing only the a
 
 It is worth noting how similar the memory addresses are - this is to be expected but is not guaranteed and easily missed. Check the final (rightmost) digits first when comparing memory addresses, the initial digits are likely to be very similar across elements of an array.
 
-Taking a pointer to the element one beyond the end of an array is guaranteed to work, and is necessary for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. 
+Taking a pointer to the element number that is one beyond the end of an array is guaranteed to work, and is necessary for many algorithms, however, since such a pointer does not in fact point to an element of the array, it may not be used for reading or writing. 
 
 ```{exercise}
 :class: dropdown
 :nonumber:
-Try adding `5` and then `6`, and then subtracting `1` to `myArray` in the assignment to `ptrTo_myArray3`.
+Try adding `5` and then `6` and then subtracting `1` to `myArray` in the assignment to `ptrTo_myArray3`.
 ```
-The result of taking the address of the element before the initial element or beyond one-past-the-last element is undefined and should be avoided.
+The result of taking the address of the element before the initial element, or beyond one-past-the-last element, is undefined and should be avoided.
 ````
 `````{code_example-end}
 `````
@@ -461,7 +459,7 @@ A pointer should always point at an object, otherwise dereferencing is not valid
 
 If there is no object to point at, or if it is useful to represent the idea that no object is available (e.g., for the end of a list), the pointer may be given the value `nullptr`. 
 
-The literal `nullptr` represents the null pointer - and can be assigned to any named pointer which does not point at an object. `nullptr` can only be assigned to pointers - a syntax error occurs otherwise. There is only one `nullptr` shared by all pointer types, and therefore `Nullptr` is of type `pointer`. `nullptr` has a memory address consisting of all-zeros (hexadecimal code or bit pattern) that is not used for any other object.
+The literal `nullptr` represents the null pointer - and can be assigned to any named pointer which does not point at an object. `nullptr` can only be assigned to pointers - a syntax error occurs otherwise. There is only one `nullptr` shared by all pointer types. `nullptr` is of type `pointer` and has a memory address consisting of all-zeros (hexadecimal code or bit pattern) that is not used for any other object.
 
 `````{code_example-start} The Null Pointer
 :label: examplev5
@@ -475,7 +473,7 @@ Using `nullptr`:
 #include <string>
 int main() {
     int* ptrToInt = 0;  
-    double* ptrToDouble = nullptr;   // intialises the new pointer to the 
+    double* ptrToDouble = nullptr;   // initialises the new pointer to null 
     std::string* ptrToString = nullptr;
     int* ptrToInt2 = NULL; 
     std::cout << ptrToInt << '\t' << ptrToDouble << '\t' << ptrToString << '\t' << ptrToInt2 << '\n';
@@ -489,7 +487,7 @@ There is just one `nullptr`, which can be used for every pointer type, rather th
 
 Before `nullptr` was introduced, zero (0) was used as a notation for the null pointer; now assignment to integer literal zero gives a pointer the value `nullptr`. This is not obvious using Live Code, but if you try running the code in Visual Studio - rather than four zeros, you will find that `0000000000000000` is printed four times, each being the memory address of the `nullptr`.
 
-No object is allocated with at memory address '0000000000000000', which is the most common representation of 'nullptr'. 
+No object is allocated with at memory address `0000000000000000`, which is the most common representation of 'nullptr'. 
 
 Zero (0) is an `int`. However, the standard conversions allow '0' to be used as a constant of 'pointer' or 'pointer-to-member' type.
 
@@ -512,13 +510,13 @@ int main() {
 ```{exercise}
 :class: dropdown
 :nonumber:
-What happens if we use an unitialised pointer? Most compilers will prevent this, but run the above code in the Live Code Editor..
+What happens if we use an uninitialised pointer? Most compilers will prevent this but try running the above code in the Live Code Editor….
 
 Run the code several times - note the changing memory address.
 
 Try changing the pointers type to double* and std::string* - what happens?
 
-Dereferencing an unitialised pointer is an {term}`undefined behaviour`.
+Dereferencing an uninitialised pointer is an {term}`undefined behaviour`.
 ```
 ***
 ````{code-cell} c++
@@ -593,11 +591,11 @@ int main() {
 ````{code_explanation} examplev6
 :label: explanationv6
 :class: dropdown
-Note: when used on pointers, `==` and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the value of the objects to which the pointer point are not being compared.
+Note: when used on pointers, `==` and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the values of the objects to which the pointers point, are not being compared.
 
-`if (myPointer)` is equivalent to `if (myPointer != nullptr)`. The compiler knows a Boolean is required and implicitly converts the pointer; obviating the comparison expression. 
+`if (myPointer)` is equivalent to `if (myPointer != nullptr)`. The compiler knows a Boolean is required and implicitly converts the pointer, obviating the comparison expression. 
 
-It is usually better to use shorter code - fewer opportunities to make mistakes - and in this case we have a clear expression for tesing the validity of the pointer i.e. does it point at an actual object.
+It is usually better to use shorter code - fewer opportunities to make mistakes - and in this case we have a clear expression for testing the validity of the pointer i.e. does it point at an actual object.
 ````
 `````{code_example-end}
 `````
@@ -627,7 +625,7 @@ ptrToFunction = &exitingFunction;
 //or equivalently,
 ptrToFunction = exitingFunction;
 ```
-The type of the pointer must match the type of the function it will be associated with i.e. the return type and list of parameter types must exactly match, but paramater names are not required.
+The type of the pointer must match the type of the function it will be associated with i.e. the return type and list of parameter types must exactly match, but parameter names are not required.
 
 e.g. a pointer to a function of type int(int,double) must be declared as `int ptrName (int, double);` 
 ***
@@ -639,7 +637,7 @@ ptrToFunction(arguments);
 ```
 The arguments required by the function pointed at by the pointer must be supplied in the usual manner.
 
-Dereferencing a function using `*`, or obtaining the address of the function using `&` is optional - but may improve readability and clarify your intentions to other programmers.
+Dereferencing a function using `*`, or obtaining the address of the function using `&`, is optional - but may improve readability and clarify your intentions to other programmers.
 `````{syntax-end}
 `````
 `````{code_example-start} Pointers to Functions
@@ -664,7 +662,7 @@ int main() {
 ```{exercise}
 :class: dropdown
 :nonumber: 
-Change the above code to call the funtion using the pointer with the prefixed `*`. What alse needs to be changed before the code will compile?
+Change the above code to call the function using the pointer with the prefixed `*`. What else needs to be changed before the code will compile?
 
 What happens if you remove the `&` in the pointer assignment?
 ```
@@ -676,16 +674,12 @@ In pointer assignments, the complete function type must match exactly.
 
 ## Passing Functions as Arguments to Functions
 
-You may want to write a function whose behaviour relies on calling a nominated second function. 
+It is often useful to call a function and specify that it will call another function by including the name of the chosen function in the same way as you include values in the argument list.
 
-Functions cannot be passed directly as arguments in C++. There are two ways to use functions as arguments to another function:
+Functions cannot be passed directly as arguments in C++. There are two ways to use functions as arguments to be passed-in to another function:
 
 * Pass a pointer to the function.
 * Use a lamda expression.
-
-
-
-
 
 `````{code_example-start} Functions as Function Arguments
 :label: examplev11
@@ -717,18 +711,18 @@ int main() {
 
 The `combine()` function takes 3 arguments - two strings and a pointer to a function of type `std::string(std::string, std::string)` i.e. a function that takes in two strings and returns a string.
 
-When a function is called - the parentheses only contain the variable names, or the literals, of the correct type in the correct order - so only the name of the pointer is used i.e. no parentheses or arguments - the function is not being called at the point.
+When a function is called - the parentheses only contain the variable names, or the literals, of the correct type in the correct order - so only the name of the pointer is used i.e. no trailing parentheses, hence not arguments included - the passed in function is not being called at that point and its arguments are not yet required.
 
-In `main()` the second line prints out the new value assigned to `myString` by the call to the `combine()` function.
+In `main()` the second line prints the new value assigned to `myString` from the return of the call to the `combine()` function.
 
-The call to `combine()` includes two strings and the address of a function. The `&` is unnecessary because the a pointer to a function was declared in the parameter list of `combine()` and a function name will be interpreted as the address of the function by the compiler - but it is useful to remind yourself that the address is being passed. 
+The call to `combine()` includes two strings and the address of a function. The `&` is unnecessary because a pointer to a function was declared in the parameter list of `combine()` and a function name will be interpreted as the address of the same function by the compiler - but it is useful to remind yourself that the address is being passed by including the `&`. 
 
-Inside the `combine()` the two passed in strings are used to constuct a call to whatever function (of the correct type) was named in the function call. Again the `*` and the extra pair of parentheses are unnecessary.
+Inside `combine()`, the two passed-in strings are used to construct a call to whatever function (of the correct type) was named in the function call. Again, the `*` and the extra parentheses are unnecessary.
 
 ```{exercise}
 :class: dropdown
 :nonumber:
-Remove any unnecessary `*` and `&` and `()` - be careful! some are required.
+Remove any unnecessary `*`, `&`, or `()` from the above code and check it still compiles and works in the same manner as before. Be careful! some of `*`, `&`, and `()` are required.
 ```
 
 ````
@@ -755,10 +749,9 @@ double* pointerToArrayOfDoubles = new double[number]; // allocates an array of '
 `````
 
 ## Void* - Advanced Topic
+`void*` is the 'pointer to an object of unknown type'.
 
-In low-level code, it is sometimes necessary to store or pass along an address of a memory location without knowing the type of the object stored. 
-
-`void*` is used for that purpose. `void*` is a 'pointer to an object of unknown type'.
+In low-level code, it is sometimes necessary to store or pass along an address of a memory location without knowing the type of the object stored - `void*` is used.
 
 Functions using `void*` pointers typically exist at the very lowest level of the system, where real hardware resources are manipulated. 
 `````{code_example-start} Void
@@ -770,7 +763,7 @@ For example:
 ```{code-block} c++
 void* myAlloc(size_t number);    // Allocate 'number' of bytes on the heap
 ```
-Occurrences of `void*` at higher levels are likely to be design errors that need investigation. 
+Finding an occurrence of `void*` in higher level code usually indicates a design mistake and should be checked carefully. 
 
 `void*` can be hidden behind a type-safe interface, when used for optimisation.
 
@@ -780,9 +773,9 @@ Pointers to functions and pointers to members cannot be assigned to `void*`.
 
 ## This - Advanced Topic
 
-`this` is only useful when dealing with classes, when it becomes a shorthand way of referring to the innermost enclosing class. 
+`this` is only useful when dealing with classes, when `this` becomes a shorthand way of referring to the innermost enclosing class. 
 
-The keyword `this` is used as an expression ({term}`prvalue`), being a built-in pointer, and the associated value can be accessed using `*this`.
+The keyword `this` is used as an expression ({term}`prvalue`), being a built-in pointer - and the associated value can be accessed using `*this`.
 
 `This` may only be used within:
 * The body of an implicit object member function - a member initialiser list, and lambda expression body.

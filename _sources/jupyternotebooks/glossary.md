@@ -143,6 +143,9 @@ Declaration
 Declarations
   Declarations introduce names/identifiers into a C++ program. Each kind of entity is declared differently.
 
+decl-specifier-seq
+  Declaration specifier sequence - a sequence of specifiers that defines the type and other properties of an entity being declared. It is part of a declaration and can include various specifiers such as `type` specifiers, storage class specifiers (e.g. `static`, `extern`, `register`, `thread_local`), and function specifiers (e.g. `inline`, `virtual`, `explicit`, `constexpr`), and other specifiers (`friend`, `typedef`, `mutable`).
+
 Declarator
   The part of a declaration that specifies the name of an entity - may include modifiers.
 

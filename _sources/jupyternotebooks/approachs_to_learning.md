@@ -21,6 +21,11 @@ Only time and perseverance can improve your ability to learn new programming lan
 
 
 ## The Secret to Becoming Really Good at C++ Programming
+```{note}
+:class: margin
+{attribution="Charles Babbage - Designed the 'Difference Engine' in 1820 - first to conceive the digital programmable computer" }
+> "On two occasions I have been asked, "Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?" I am not able rightly to apprehend the kind of confusion of ideas that could provoke such a question"
+```
 
 ````{admonition} TOP SECRET INFORMATION
 :class: dropdown warning

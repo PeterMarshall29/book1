@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercises Week 3 Pointers &#8212; Introduction to C++ Programming</title>
+    <title>Exercises Week 3 Pointers and Functions &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise6.90654bef-68f8-48ac-9183-bcfda49297fa.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise6.2f7d86ac-7f60-43c1-b910-c8121308dd5b.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/exercise6';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -246,7 +246,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises Week 3 Pointers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises Week 3 Pointers and Functions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -508,7 +508,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercises Week 3 Pointers</h1>
+    <h1>Exercises Week 3 Pointers and Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -522,13 +522,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercises-week-3-pointers">
-<h1>Exercises Week 3 Pointers<a class="headerlink" href="#exercises-week-3-pointers" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises-week-3-pointers-and-functions">
+<h1>Exercises Week 3 Pointers and Functions<a class="headerlink" href="#exercises-week-3-pointers-and-functions" title="Permalink to this heading">#</a></h1>
 <div class="exercise dropdown admonition" id="exerciseex61">
 
 <p class="admonition-title">Exercise  5A  </p>
 <section id="exercise-content">
-<p>Write a program that asks for two integers, assigns the values to two variables, then creates pointers to those variables and adds the intgers by dereferencing their pointers.</p>
+<p>Write a program that asks for two integers, assigns the values to two variables, then creates pointers to those variables and adds the integers by dereferencing their pointers.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -563,7 +563,7 @@ document.write(`
 
 <p class="admonition-title">Exercise  5B  </p>
 <section id="exercise-content">
-<p>Write a program that asks for two floating-point numbers, then calls a function by reference to caluate the first number raised to the power of the second number.</p>
+<p>Write a program that asks for two floating-point numbers and then calls a function by reference to calculate the first number raised to the power of the second number.</p>
 <p>Hint: Include <code class="docutils literal notranslate"><span class="pre">&lt;cmath&gt;</span></code> and use <code class="docutils literal notranslate"><span class="pre">pow()</span></code>.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -600,7 +600,7 @@ document.write(`
 <p class="admonition-title">Exercise  5C  </p>
 <section id="exercise-content">
 <p>Write a program to print all the permutations of the character array “abcd”.</p>
-<p>Use functions and pass pointers to the characters.</p>
+<p>You should use functions and pass pointers to the characters.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -640,7 +640,7 @@ document.write(`
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a word </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">InputCharString</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;abce&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">InputCharString</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;abcd&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="cm">/*for (int i = 0; i &lt; strlen(InputCharString); ++i) {</span>
 <span class="cm">        std::cin &gt;&gt; InputCharString[i];</span>
 <span class="cm">    }*/</span>
@@ -696,6 +696,9 @@ document.write(`
 
 <p class="admonition-title">Exercise  5D  </p>
 <section id="exercise-content">
+<p>Write three functions that return the square of, the cube of, and half of a floating-point number.</p>
+<p>Write a single function that will print to the character stream the value returned by any of the above functions.</p>
+<p>Write a program that asks the user for a floating point number and uses the single printer function to print the square of, the cube of, and half of the user’s floating-point number.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -708,7 +711,38 @@ document.write(`
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex64"> Exercise  5D  </a></p>
 <section id="solution-content">
+<p>A possible solution - try to improve or modify it.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">cubeOf</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">halfOf</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">double</span><span class="p">));</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">cubeOf</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDouble</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">userDouble</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">userDouble</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">squareOf</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDouble</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">userDouble</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">halfOf</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDouble</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="w">    </span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="o">*</span><span class="n">passedInFunction</span><span class="p">)(</span><span class="kt">double</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">passedInFunction</span><span class="p">(</span><span class="n">userDouble</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a number: &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Half the value is &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">halfOf</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The value squared is &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">squareOf</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The value cubed is &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">cubeOf</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -717,6 +751,9 @@ document.write(`
 
 <p class="admonition-title">Exercise  5E  </p>
 <section id="exercise-content">
+<p>Write a program that asks the user to input two floating point numbers followed by an arithmetic operator (+, -, *, /).</p>
+<p>The program should have four separate functions to compute the basic arithmetic operations on a pair of floating-point numbers and a fifth function that will be called from <code class="docutils literal notranslate"><span class="pre">main()</span></code> that selects which arithmetic function to use based on the users choice of operator i.e. the function called by <code class="docutils literal notranslate"><span class="pre">main()</span></code> should have the details of which arithmetic function is to be called passed into it.</p>
+<p>Print a suitable response back to the user, providing the result.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -729,7 +766,54 @@ document.write(`
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex65"> Exercise  5E  </a></p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<p>A possible solution - try to improve or modify it.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">));</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDouble1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDouble1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDouble1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDouble1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="w">    </span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="o">*</span><span class="n">passedInFunction</span><span class="p">)(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">passedInFunction</span><span class="p">(</span><span class="n">userDouble1</span><span class="p">,</span><span class="w"> </span><span class="n">userDouble2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">number2</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">number1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">operation</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in two floating point numbers separated followed by an arithmetic operator - space separated: &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">operation</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; plus &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; equals &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">calculate</span><span class="p">(</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;-&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; minus &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; equals &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">calculate</span><span class="p">(</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">,</span><span class="w"> </span><span class="n">subtract</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;*&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; times &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; equals &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">calculate</span><span class="p">(</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">,</span><span class="w"> </span><span class="n">multiply</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;/&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; divided by &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; equals &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">calculate</span><span class="p">(</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">,</span><span class="w"> </span><span class="n">divide</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Something went wrong!&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -738,6 +822,27 @@ document.write(`
 
 <p class="admonition-title">Exercise  5F  </p>
 <section id="exercise-content">
+<p>Consider this example of recursion - without running any code, try to determine the following:</p>
+<ol class="arabic simple">
+<li><p>What happens for the following function calls:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">myFunction(4);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myFunction(7);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myFunction(12);</span></code></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">-</span> <span class="pre">1</span></code> were replaced with <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">+</span> <span class="pre">1</span></code> what would be the result of the last 3 function calls be?</p></li>
+<li><p>What would happen if another <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> statement was placed before the function call?</p></li>
+</ol>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">myFunction</span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -750,15 +855,15 @@ document.write(`
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex66"> Exercise  5F  </a></p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
+<p>No answer provided – please write a program to call the provided function and check your answers.</p>
 </section>
 </div>
 <div class="exercise dropdown admonition" id="exerciseex67">
 
 <p class="admonition-title">Exercise  5G  </p>
 <section id="exercise-content">
+<p>Write a program that asks the user to type in a sentence and then calls a function that prints the sentence in reverse using recursion.</p>
+<p>Hint: Use <code class="docutils literal notranslate"><span class="pre">std::getline()</span></code> to get the sentence. Then consider using the <code class="docutils literal notranslate"><span class="pre">subtr()</span></code> function from <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> - you will need to look than one up!</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -771,7 +876,21 @@ document.write(`
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex67"> Exercise  5G  </a></p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
+<p>A possible solution - try to improve or modify it.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">reverseString</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">inputString</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inputString</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="n">reverseString</span><span class="p">(</span><span class="n">inputString</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">inputString</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myString</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please type in a sentence: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span><span class="w"> </span><span class="n">myString</span><span class="p">);</span>
+<span class="w">    </span><span class="n">reverseString</span><span class="p">(</span><span class="n">myString</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -780,6 +899,23 @@ document.write(`
 
 <p class="admonition-title">Exercise  5H  </p>
 <section id="exercise-content">
+<p>Without running this code - determine what the output will be.</p>
+<p>If you were happy with this program, please visit <a class="reference external" href="https://www.ioccc.org/">https://www.ioccc.org/</a> for lots more examples and hours of fun!!</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">obfuscatedArithmetic</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">three</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">one</span><span class="p">;</span>
+<span class="w">    </span><span class="o">--</span><span class="n">two</span><span class="p">;</span>
+<span class="w">    </span><span class="n">three</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">one</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="w">    </span><span class="n">obfuscatedArithmetic</span><span class="p">(</span><span class="n">three</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">two</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
@@ -792,48 +928,8 @@ document.write(`
 
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex68"> Exercise  5H  </a></p>
 <section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="exercise dropdown admonition" id="exerciseex69">
-
-<p class="admonition-title">Exercise  5I  </p>
-<section id="exercise-content">
-<div class="cell tag_remove-output tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</div><div class="solution dropdown admonition" id="solutionex69">
-
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex69"> Exercise  5I  </a></p>
-<section id="solution-content">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="exercise dropdown admonition" id="exerciseex610">
-
-<p class="admonition-title">Exercise  5J  </p>
-<section id="exercise-content">
-<div class="cell tag_remove-output tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="w"> </span><span class="n">goes</span><span class="w"> </span><span class="n">here</span><span class="p">....</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</div><div class="solution dropdown admonition" id="solutionex610">
-
-<p class="admonition-title">Solution to <a class="reference internal" href="#exerciseex610"> Exercise  5J  </a></p>
-<section id="solution-content">
+<p>No answer supplied - run the code to find out if you are correct.</p>
+<p>Was this code helpfully written - or was the intent of the programmer obfuscated?</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
