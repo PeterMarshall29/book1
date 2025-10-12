@@ -171,7 +171,7 @@ int squareOf(int x) {
     return x * x;
 }
 ```
-The definition may not be placed inside of another function including `main()`, and must come before the function call unless there is a separated function declaration.
+The definition may not be placed inside of another function including `main()` and must come before the function call unless there is a separated function declaration.
 
 The declaration would be written as follows.
 ```{code-block} c++
@@ -305,7 +305,7 @@ int main()
 ````
 When a function takes multiple arguments, they must be passed in the same order as in the function definition.
 
-In c++ only the required values are passed in i.e. there is no simple way to include the parameter names to make it easier to keep the order correct.
+In C++ only the required values are passed in i.e. there is no simple way to include the parameter names to make it easier to keep the order correct.
 ****
 An alternative approach to the same program - slightly more advanced - would be to pass in a reference to the input stream and then use the extraction operator. Passing by reference is covered in a later section.
 ````{code-cell} c++
@@ -343,8 +343,8 @@ If there is a separate function declaration - it must contain the default values
 `````
 Consider this code again.
 
-````{code-block} c++
-:linenos:
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
 #include <iostream>
 #include <string>
 std::string myBirthdayGreeting(std::string firstName, std::string lastName, int age = 56) {
@@ -473,7 +473,7 @@ A {term}`function declaration` has the same form as the {term}`function-definiti
 Function declarations dictate the attributes of a function, before it is defined, so function calls found by the compiler before the definition can be checked to ensure their argument-types and return-types match requirements.
 
 A function definition requires the code body also - 'Declarations are not definitions'.
-`````{code_example-start}
+`````{code_example-start} Declartion and Defintion of Functions
 :label: exampleu7
 :class: dropdown
 :nonumber:
@@ -514,9 +514,8 @@ Function declarations and definitions may appear in any scope - for example, a f
 
 Parameter names are not formally necessary in the declaration, and in fact are ignored by the compiler - they are only required in the corresponding definition.
 ```{code-block} c++
-int myFunction(int);
+int myFunction(int); // This is an acceptable declaration.
 ```
-So this is an acceptable declaration.
 
 However, the safest way to ensure your declaration and definition type patterns and name spellings match, is to cut & paste from one to other. It also helps the reader to understand a program.
 
@@ -641,7 +640,7 @@ To prevent the function altering the named object that is referenced, the parame
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
 #include <iostream>
-#inlcude <vector>
+#include <vector>
 void myPrinter(const std::vector<double>& vectorLocal)
 {
     std::cout << "{";
@@ -756,11 +755,11 @@ This is not helpful, because now you have a global variable.
 `````
 ## Call by Reference
 
-A similar idea to pass by reference, but declaring the function parameters to be {term}`pointers`. Pointers are in the next chapter. 
+A similar idea to pass by reference but declaring the function parameters to be {term}`pointers`. Pointers are in the next chapter. 
 
-The arguments supplied in function call are the memory addresses of the variables - functions called by reference are able to modify the external variables just as in pass by reference.
+The arguments supplied in function call are the memory addresses of the variables - functions called by reference can modify the external variables just as in pass by reference.
 
-Addresses are passed in using the `&` prefix operator before the variables name  (or you could type the hex-code of the memory address). An array does not require `&` because it automatically decays to a pointer to its first element.
+Addresses are passed in using the `&` prefix operator before the variables name (or you could type the hex-code of the memory address). An array does not require `&` because it automatically decays to a pointer to its first element.
 
 <!-- ## constexpr Functions -->
 
@@ -780,8 +779,25 @@ Every function has a signature, which consists of its name and its parameter-typ
 
 The signature also contains the enclosing namespace, unless it is a member function, when its signature contains the class of which the function is a member instead of the enclosing namespace. 
 
+## Function Overloading
+More than one function in the same namespace may have the same identifier - the functions and (more correctly) the shared function identifier are said to be overloaded. 
+
+Only the function signature must change between overloads. For Example:
+
+```{code-block} c++
+void myPrinter(std::string );            
+void myPrinter(double );            
+void myPrinter(double , int);  
+```
+3 overloads of `myPrinter` have been declared i.e. 3 different functions called `myPrinter` have been declared.
+
+The compiler selects the correct function by comparing the arguments supplied in the function call.
+
+A change in only the return type does not differentiate between functions for overloading - two functions with identical signatures but different return types cannot have the same name i.e. you could not have `double myPrinter(double)` and `int myPrinter(double)`.
+
+
 ## Return Type Deduction
-If the `decl-specifier-seq` of the function declaration contains the keyword `auto` the return type will be deduced by the compiler from the type of the variable used in the return statement. 
+If the {term}`decl-specifier-seq` of the function declaration contains the keyword `auto` the return type will be deduced by the compiler from the type of the variable used in the return statement. 
 
 `````{code_example-start} Return Type Deduction
 :label: exampleu10
@@ -819,6 +835,7 @@ auto b = addEntities(string{ "Hello" }, string{ " World" }); // b is a std::stri
 ````
 `````{code_example-end} 
 `````
+
 
 
 
