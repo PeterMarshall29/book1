@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.697f0914-462c-4eb5-85a4-9ef6dadeff27.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_pointers.3ac1e495-acd1-4f50-ba93-28cd36196963.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_pointers';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -531,6 +531,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullptr">Nullptr</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-booleans">Pointers and Booleans</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-to-functions">Pointers to Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-functions-as-arguments-to-functions">Passing Functions as Arguments to Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-and-delete">New and Delete</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void-advanced-topic">Void* - Advanced Topic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-advanced-topic">This - Advanced Topic</a></li>
@@ -1028,7 +1029,7 @@ document.write(`
 <section id="exercise-content">
 <p>What happens if we use an unitialised pointer? Most compilers will prevent this, but run the above code in the Live Code Editor…</p>
 <p>Run the code several times - note the changing memory address.</p>
-<p>Try changing the code to double* and std::string* - what happens?</p>
+<p>Try changing the pointers type to double* and std::string* - what happens?</p>
 <p>Dereferencing an unitialised pointer is an <a class="reference internal" href="glossary.html#term-Undefined-Behaviour"><span class="xref std std-term">undefined behaviour</span></a>.</p>
 </section>
 </div><hr class="docutils" />
@@ -1047,7 +1048,7 @@ document.write(`
 </div>
 </div>
 <p>Dereferencing the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is also an undefined behaviour - <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> does not point to a valid memory location.</p>
-<p>It is best to always check a pointer is not the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. For example, as follows:</p>
+<p>Best practice is to always check a pointer is not the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>, before dereferencing it. For example, as follows:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -1069,8 +1070,8 @@ document.write(`
 </div></section>
 <section id="pointers-and-booleans">
 <h2>Pointers and Booleans<a class="headerlink" href="#pointers-and-booleans" title="Permalink to this heading">#</a></h2>
-<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
-<p>A non-null pointer converts to true; pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>A pointer can be implicitly converted to a <code class="docutils literal notranslate"><span class="pre">bool</span></code>. i.e. if the context requires a Boolean, but a pointer is given, the compiler converts the pointer to <code class="docutils literal notranslate"><span class="pre">Bool</span></code>.</p>
+<p>All non-null pointers are implicitly converted to true - pointers with the value <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> convert to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <div class="code_example dropdown admonition" id="examplev6">
 
 <p class="admonition-title">Code Example: Pointers and Booleans </p>
@@ -1105,7 +1106,7 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examplev6"> Code Example: Pointers and Booleans </a></p>
 <section id="code_explanation-content">
-<p>Note: when used on pointers, <code class="docutils literal notranslate"><span class="pre">==</span></code> and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the value of the objects the point at are not being compared.</p>
+<p>Note: when used on pointers, <code class="docutils literal notranslate"><span class="pre">==</span></code> and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the value of the objects to which the pointer point are not being compared.</p>
 <p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(myPointer</span> <span class="pre">!=</span> <span class="pre">nullptr)</span></code>. The compiler knows a Boolean is required and implicitly converts the pointer; obviating the comparison expression.</p>
 <p>It is usually better to use shorter code - fewer opportunities to make mistakes - and in this case we have a clear expression for tesing the validity of the pointer i.e. does it point at an actual object.</p>
 </section>
@@ -1115,28 +1116,34 @@ document.write(`
 <section id="pointers-to-functions">
 <h2>Pointers to Functions<a class="headerlink" href="#pointers-to-functions" title="Permalink to this heading">#</a></h2>
 <p>Functions are also stored in memory and therefore have a unique address allowing us to define a pointer to a function in a similar manner to a pointer to an object.</p>
-<p>A pointer to function can be initialised with the address of a non-member function or a static member function.</p>
-<p>The pointer defined by assigning the address of a function can be used to call the function.</p>
+<p>In C++ there are only two operations permitted on functions - calling the function and obtaining the functions address.</p>
+<p>A pointer to function can be initialised with the address of a function (only non-member, or static member functions).</p>
+<p>The pointer defined by assigning the address of a function can be used to call the function - but cannot modify the function itself.</p>
 <p>Unlike functions, or references to functions, pointers to functions are objects and thus can be stored in arrays, copied, assigned, etc.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/introduction_to_pointers-syntax-20">
 
 <p class="admonition-title">Syntax Rules: Pointers to Functions </p>
 <section id="syntax-content">
-<p>Declaring and Initialising a pointer to a function</p>
+<p>Declaring and Initialising a pointer to a function:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Declaration:</span>
-<span class="n">returnType</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptrToFunctionIdentifier</span><span class="p">)(</span><span class="n">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">parameters</span><span class="p">);</span>
+<span class="n">returnType</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptrToFunctionIdentifier</span><span class="p">)(</span><span class="n">parameter</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">list</span><span class="p">);</span>
 <span class="c1">// Initialisation:</span>
 <span class="n">ptrToFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">exitingFunction</span><span class="p">;</span>
 <span class="c1">//or equivalently,</span>
 <span class="n">ptrToFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exitingFunction</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>The type of the pointer must match the type of the function it will be associated with i.e. the return type and list of parameter types must exactly match, but paramater names are not required.</p>
+<p>e.g. a pointer to a function of type int(int,double) must be declared as <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">ptrName</span> <span class="pre">(int,</span> <span class="pre">double);</span></code></p>
+<hr class="docutils" />
 <p>Calling a function using a pointer:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">*</span><span class="n">ptrToFunction</span><span class="p">)(</span><span class="n">arguments</span><span class="p">);</span>
 <span class="c1">// or equivalently,</span>
 <span class="n">ptrToFunction</span><span class="p">(</span><span class="n">arguments</span><span class="p">);</span>
 </pre></div>
 </div>
+<p>The arguments required by the function pointed at by the pointer must be supplied in the usual manner.</p>
+<p>Dereferencing a function using <code class="docutils literal notranslate"><span class="pre">*</span></code>, or obtaining the address of the function using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is optional - but may improve readability and clarify your intentions to other programmers.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="examplev8">
 
@@ -1159,10 +1166,69 @@ document.write(`
 </div>
 </div>
 </div>
-<p>When a pointer is used in a function call, the compiler works out that it is a pointer, so dereferencing a pointer to function using <code class="docutils literal notranslate"><span class="pre">∗</span></code> is optional, i.e. <code class="docutils literal notranslate"><span class="pre">ptrToMessagePrinter(&quot;Warning!&quot;);</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">(*ptrToMessagePrinter)(&quot;Warning!&quot;);</span></code>.</p>
-<p>Using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to get the address of a function is also optional; i.e. <code class="docutils literal notranslate"><span class="pre">ptrToMessagePrinter</span> <span class="pre">=</span> <span class="pre">messagePrinter;</span></code> would also work.</p>
-<p>Pointers to functions have argument types declared just like the functions themselves.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/introduction_to_pointers-exercise-22">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Change the above code to call the funtion using the pointer with the prefixed <code class="docutils literal notranslate"><span class="pre">*</span></code>. What alse needs to be changed before the code will compile?</p>
+<p>What happens if you remove the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> in the pointer assignment?</p>
+</section>
+</div><p>Pointers to functions have argument types declared just like the functions themselves.</p>
 <p>In pointer assignments, the complete function type must match exactly.</p>
+</section>
+</div></section>
+<section id="passing-functions-as-arguments-to-functions">
+<h2>Passing Functions as Arguments to Functions<a class="headerlink" href="#passing-functions-as-arguments-to-functions" title="Permalink to this heading">#</a></h2>
+<p>You may want to write a function whose behaviour relies on calling a nominated second function.</p>
+<p>Functions cannot be passed directly as arguments in C++. There are two ways to use functions as arguments to another function:</p>
+<ul class="simple">
+<li><p>Pass a pointer to the function.</p></li>
+<li><p>Use a lamda expression.</p></li>
+</ul>
+<div class="code_example dropdown admonition" id="examplev11">
+
+<p class="admonition-title">Code Example: Functions as Function Arguments </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">passedString1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">passedString2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">passedString1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="n">passedString2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">prepend</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">passedString1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">passedString2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">passedString2</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="n">passedString1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">combine</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">passedString1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">passedString2</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="o">*</span><span class="n">passedFunction</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">passedFunction</span><span class="p">)(</span><span class="n">passedString1</span><span class="p">,</span><span class="w"> </span><span class="n">passedString2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">combine</span><span class="p">(</span><span class="n">myString</span><span class="w"> </span><span class="p">,</span><span class="s">&quot;from Lboro Physics!&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">append</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">combine</span><span class="p">(</span><span class="n">myString</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Good Morning and&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">prepend</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/introduction_to_pointers-code_explanation-24">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#examplev11"> Code Example: Functions as Function Arguments </a></p>
+<section id="code_explanation-content">
+<p>The <code class="docutils literal notranslate"><span class="pre">combine()</span></code> function takes 3 arguments - two strings and a pointer to a function of type <code class="docutils literal notranslate"><span class="pre">std::string(std::string,</span> <span class="pre">std::string)</span></code> i.e. a function that takes in two strings and returns a string.</p>
+<p>When a function is called - the parentheses only contain the variable names, or the literals, of the correct type in the correct order - so only the name of the pointer is used i.e. no parentheses or arguments - the function is not being called at the point.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">main()</span></code> the second line prints out the new value assigned to <code class="docutils literal notranslate"><span class="pre">myString</span></code> by the call to the <code class="docutils literal notranslate"><span class="pre">combine()</span></code> function.</p>
+<p>The call to <code class="docutils literal notranslate"><span class="pre">combine()</span></code> includes two strings and the address of a function. The <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is unnecessary because the a pointer to a function was declared in the parameter list of <code class="docutils literal notranslate"><span class="pre">combine()</span></code> and a function name will be interpreted as the address of the function by the compiler - but it is useful to remind yourself that the address is being passed.</p>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">combine()</span></code> the two passed in strings are used to constuct a call to whatever function (of the correct type) was named in the function call. Again the <code class="docutils literal notranslate"><span class="pre">*</span></code> and the extra pair of parentheses are unnecessary.</p>
+<div class="exercise dropdown admonition" id="jupyternotebooks/introduction_to_pointers-exercise-25">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>Remove any unnecessary <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">()</span></code> - be careful! some are required.</p>
+</section>
+</div></section>
+</div>
 </section>
 </div></section>
 <section id="new-and-delete">
@@ -1290,6 +1356,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nullptr">Nullptr</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-booleans">Pointers and Booleans</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-to-functions">Pointers to Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-functions-as-arguments-to-functions">Passing Functions as Arguments to Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-and-delete">New and Delete</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#void-advanced-topic">Void* - Advanced Topic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-advanced-topic">This - Advanced Topic</a></li>

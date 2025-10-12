@@ -516,7 +516,7 @@ What happens if we use an unitialised pointer? Most compilers will prevent this,
 
 Run the code several times - note the changing memory address.
 
-Try changing the code to double* and std::string* - what happens?
+Try changing the pointers type to double* and std::string* - what happens?
 
 Dereferencing an unitialised pointer is an {term}`undefined behaviour`.
 ```
@@ -534,7 +534,7 @@ int main() {
 ````
 Dereferencing the `nullptr` is also an undefined behaviour - `nullptr` does not point to a valid memory location.
 
-It is best to always check a pointer is not the `nullptr`. For example, as follows:
+Best practice is to always check a pointer is not the `nullptr`, before dereferencing it. For example, as follows:
 
 ````{code-cell} c++
 :tags: [remove-output, skip-execution]
@@ -558,9 +558,9 @@ int main() {
 `````
 ## Pointers and Booleans
 
-A pointer can be implicitly converted to a `bool`. 
+A pointer can be implicitly converted to a `bool`. i.e. if the context requires a Boolean, but a pointer is given, the compiler converts the pointer to `Bool`.
 
-A non-null pointer converts to true; pointers with the value `nullptr` convert to `false`. 
+All non-null pointers are implicitly converted to true - pointers with the value `nullptr` convert to `false`. 
 
 `````{code_example-start} Pointers and Booleans
 :label: examplev6
@@ -593,7 +593,7 @@ int main() {
 ````{code_explanation} examplev6
 :label: explanationv6
 :class: dropdown
-Note: when used on pointers, `==` and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the value of the objects the point at are not being compared.
+Note: when used on pointers, `==` and the other comparison operators compare their memory addresses, which are the values of the pointers - i.e. the value of the objects to which the pointer point are not being compared.
 
 `if (myPointer)` is equivalent to `if (myPointer != nullptr)`. The compiler knows a Boolean is required and implicitly converts the pointer; obviating the comparison expression. 
 
@@ -606,9 +606,11 @@ It is usually better to use shorter code - fewer opportunities to make mistakes 
 
 Functions are also stored in memory and therefore have a unique address allowing us to define a pointer to a function in a similar manner to a pointer to an object. 
 
-A pointer to function can be initialised with the address of a non-member function or a static member function. 
+In C++ there are only two operations permitted on functions - calling the function and obtaining the functions address.
 
-The pointer defined by assigning the address of a function can be used to call the function. 
+A pointer to function can be initialised with the address of a function (only non-member, or static member functions). 
+
+The pointer defined by assigning the address of a function can be used to call the function - but cannot modify the function itself. 
 
 Unlike functions, or references to functions, pointers to functions are objects and thus can be stored in arrays, copied, assigned, etc.
 
@@ -616,21 +618,28 @@ Unlike functions, or references to functions, pointers to functions are objects 
 :nonumber:
 :class: dropdown
 `````
-Declaring and Initialising a pointer to a function
+Declaring and Initialising a pointer to a function:
 ```{code-block} c++
 // Declaration:
-returnType (*ptrToFunctionIdentifier)(List of type and name of parameters);
+returnType (*ptrToFunctionIdentifier)(parameter type list);
 // Initialisation:
 ptrToFunction = &exitingFunction;
 //or equivalently,
 ptrToFunction = exitingFunction;
 ```
+The type of the pointer must match the type of the function it will be associated with i.e. the return type and list of parameter types must exactly match, but paramater names are not required.
+
+e.g. a pointer to a function of type int(int,double) must be declared as `int ptrName (int, double);` 
+***
 Calling a function using a pointer:
 ```{code-block} c++
 (*ptrToFunction)(arguments);
 // or equivalently,
 ptrToFunction(arguments);
 ```
+The arguments required by the function pointed at by the pointer must be supplied in the usual manner.
+
+Dereferencing a function using `*`, or obtaining the address of the function using `&` is optional - but may improve readability and clarify your intentions to other programmers.
 `````{syntax-end}
 `````
 `````{code_example-start} Pointers to Functions
@@ -652,15 +661,81 @@ int main() {
     return 0;
 }
 ````
-When a pointer is used in a function call, the compiler works out that it is a pointer, so dereferencing a pointer to function using `∗` is optional, i.e. `ptrToMessagePrinter("Warning!");` is the same as `(*ptrToMessagePrinter)("Warning!");`. 
+```{exercise}
+:class: dropdown
+:nonumber: 
+Change the above code to call the funtion using the pointer with the prefixed `*`. What alse needs to be changed before the code will compile?
 
-Using `&` to get the address of a function is also optional; i.e. `ptrToMessagePrinter = messagePrinter;` would also work.
-
+What happens if you remove the `&` in the pointer assignment?
+```
 Pointers to functions have argument types declared just like the functions themselves. 
 
 In pointer assignments, the complete function type must match exactly. 
 `````{code_example-end}
 `````
+
+## Passing Functions as Arguments to Functions
+
+You may want to write a function whose behaviour relies on calling a nominated second function. 
+
+Functions cannot be passed directly as arguments in C++. There are two ways to use functions as arguments to another function:
+
+* Pass a pointer to the function.
+* Use a lamda expression.
+
+
+
+
+
+`````{code_example-start} Functions as Function Arguments
+:label: examplev11
+:class: dropdown
+:nonumber:
+`````
+````{code-cell} c++
+:tags: [remove-output, skip-execution]
+#include <iostream>
+#include <string>
+std::string append(std::string passedString1, std::string passedString2) {
+    return passedString1.append(" ").append(passedString2);
+}
+std::string prepend(std::string passedString1, std::string passedString2) {
+    return passedString2.append(" ").append(passedString1);
+}
+std::string combine(std::string passedString1, std::string passedString2, std::string(*passedFunction)(std::string, std::string)) {
+    return (*passedFunction)(passedString1, passedString2);
+}
+int main() {
+    std::string myString = "Hello World";
+    std::cout << (myString = combine(myString ,"from Lboro Physics!", &append)) << "\n";
+    std::cout << combine(myString, "Good Morning and", &prepend) << "\n";
+    return 0;
+}
+````
+````{code_explanation} examplev11
+:class: dropdown
+
+The `combine()` function takes 3 arguments - two strings and a pointer to a function of type `std::string(std::string, std::string)` i.e. a function that takes in two strings and returns a string.
+
+When a function is called - the parentheses only contain the variable names, or the literals, of the correct type in the correct order - so only the name of the pointer is used i.e. no parentheses or arguments - the function is not being called at the point.
+
+In `main()` the second line prints out the new value assigned to `myString` by the call to the `combine()` function.
+
+The call to `combine()` includes two strings and the address of a function. The `&` is unnecessary because the a pointer to a function was declared in the parameter list of `combine()` and a function name will be interpreted as the address of the function by the compiler - but it is useful to remind yourself that the address is being passed. 
+
+Inside the `combine()` the two passed in strings are used to constuct a call to whatever function (of the correct type) was named in the function call. Again the `*` and the extra pair of parentheses are unnecessary.
+
+```{exercise}
+:class: dropdown
+:nonumber:
+Remove any unnecessary `*` and `&` and `()` - be careful! some are required.
+```
+
+````
+
+`````{code_example-end}
+`````
+
 ## New and Delete
 
 The {term}`new` operator is used to allocate memory space on the {term}`free store`.
