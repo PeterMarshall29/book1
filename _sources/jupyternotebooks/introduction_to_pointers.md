@@ -625,9 +625,7 @@ ptrToFunction = &exitingFunction;
 //or equivalently,
 ptrToFunction = exitingFunction;
 ```
-The type of the pointer must match the type of the function it will be associated with i.e. the return type and list of parameter types must exactly match, but parameter names are not required.
-
-e.g. a pointer to a function of type int(int,double) must be declared as `int ptrName (int, double);` 
+The type of the pointer must match the type of the function it will be associated with i.e. the return type and list of parameter types must exactly match, but parameter names are not required. For example, a pointer to a function of type int(int,double) must be declared as `int (*pointerName)(int, double);` 
 ***
 Calling a function using a pointer:
 ```{code-block} c++

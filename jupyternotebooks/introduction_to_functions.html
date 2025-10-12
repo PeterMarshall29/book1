@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.2c210775-5e74-4ce2-aca7-d0357dce6a05.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_functions.14ac142f-d832-4ebb-ab39-b3cb682cdf18.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -529,7 +529,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference-and-pass-by-constant-reference">Pass-by-Reference and Pass-by-Constant-Reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by Reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signature">Function Signature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signatures">Function Signatures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">Function Overloading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-type-deduction">Return Type Deduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-templates">Function Templates</a></li>
@@ -1015,8 +1015,9 @@ document.write(`
 <p>A function definition requires the code body also - ‘Declarations are not definitions’.</p>
 <div class="code_example dropdown admonition" id="exampleu7">
 
-<p class="admonition-title">Code Example: Declartion and Defintion of Functions </p>
+<p class="admonition-title">Code Example: Declaration and Defintion of Functions </p>
 <section id="code_example-content">
+<p>Declaration vs Definition:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// is a declaration</span>
 <span class="c1">//This is the corresponding definition.</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1261,8 +1262,8 @@ document.write(`
 </div></section>
 <section id="call-by-reference">
 <h2>Call by Reference<a class="headerlink" href="#call-by-reference" title="Permalink to this heading">#</a></h2>
-<p>A similar idea to pass by reference but declaring the function parameters to be <a class="reference internal" href="glossary.html#term-Pointers"><span class="xref std std-term">pointers</span></a>. Pointers are in the next chapter.</p>
-<p>The arguments supplied in function call are the memory addresses of the variables - functions called by reference can modify the external variables just as in pass by reference.</p>
+<p>Call by reference is a similar concept to pass by reference, but in this case declaring the function parameters to be <a class="reference internal" href="glossary.html#term-Pointers"><span class="xref std std-term">pointers</span></a> rather than references. Pointers are in the next chapter.</p>
+<p>The arguments supplied in a function call are then the memory addresses of the variables - functions called by reference can modify the external variables just as in pass by reference.</p>
 <p>Addresses are passed in using the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> prefix operator before the variables name (or you could type the hex-code of the memory address). An array does not require <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> because it automatically decays to a pointer to its first element.</p>
 <!-- ## constexpr Functions -->
 </section>
@@ -1276,8 +1277,8 @@ document.write(`
 <li><p>The recursive step: The part of the function-body where the function calls itself using a smaller, or simpler argument based on the current parameter value.</p></li>
 </ul>
 </section>
-<section id="function-signature">
-<h2>Function Signature<a class="headerlink" href="#function-signature" title="Permalink to this heading">#</a></h2>
+<section id="function-signatures">
+<h2>Function Signatures<a class="headerlink" href="#function-signatures" title="Permalink to this heading">#</a></h2>
 <p>Every function has a signature, which consists of its name and its parameter-type-list.</p>
 <p>The signature also contains the enclosing namespace, unless it is a member function, when its signature contains the class of which the function is a member instead of the enclosing namespace.</p>
 </section>
@@ -1406,7 +1407,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference-and-pass-by-constant-reference">Pass-by-Reference and Pass-by-Constant-Reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by Reference</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion">Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signature">Function Signature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signatures">Function Signatures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">Function Overloading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-type-deduction">Return Type Deduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-templates">Function Templates</a></li>

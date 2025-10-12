@@ -554,7 +554,7 @@ Range
   a sequence of elements that can be iterated over.
 
 Recursion
-  See {term}`recursion`.
+  See {term}`recursion`...
 
 Reference
   The memory address of an object.

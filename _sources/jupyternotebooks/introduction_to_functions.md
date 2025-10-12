@@ -473,11 +473,12 @@ A {term}`function declaration` has the same form as the {term}`function-definiti
 Function declarations dictate the attributes of a function, before it is defined, so function calls found by the compiler before the definition can be checked to ensure their argument-types and return-types match requirements.
 
 A function definition requires the code body also - 'Declarations are not definitions'.
-`````{code_example-start} Declartion and Defintion of Functions
+`````{code_example-start} Declaration and Defintion of Functions
 :label: exampleu7
 :class: dropdown
 :nonumber:
 `````
+Declaration vs Definition:
 ```{code-block} c++
 int myFunction(int); // is a declaration
 //This is the corresponding definition.
@@ -755,9 +756,9 @@ This is not helpful, because now you have a global variable.
 `````
 ## Call by Reference
 
-A similar idea to pass by reference but declaring the function parameters to be {term}`pointers`. Pointers are in the next chapter. 
+Call by reference is a similar concept to pass by reference, but in this case declaring the function parameters to be {term}`pointers` rather than references. Pointers are in the next chapter. 
 
-The arguments supplied in function call are the memory addresses of the variables - functions called by reference can modify the external variables just as in pass by reference.
+The arguments supplied in a function call are then the memory addresses of the variables - functions called by reference can modify the external variables just as in pass by reference.
 
 Addresses are passed in using the `&` prefix operator before the variables name (or you could type the hex-code of the memory address). An array does not require `&` because it automatically decays to a pointer to its first element.
 
@@ -774,7 +775,7 @@ There are two main components to a recursive function:
 
 * The recursive step: The part of the function-body where the function calls itself using a smaller, or simpler argument based on the current parameter value.
 
-## Function Signature
+## Function Signatures
 Every function has a signature, which consists of its name and its parameter-type-list. 
 
 The signature also contains the enclosing namespace, unless it is a member function, when its signature contains the class of which the function is a member instead of the enclosing namespace. 

@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.ec3dbabc-e63e-410d-a2f1-ceaecd3babac.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\the_cpp_language.bcfacc4d-8493-4d87-9873-9ccd33989cab.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-5dd1cf1b-36f5-4c5b-b274-d570513250b0] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-d7047850-7208-4a13-b1c3-55583e67f343] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -655,7 +655,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">C++</span></code> is a <a class="reference internal" href="glossary.html#term-Compiled-Language"><span class="xref std std-term">compiled language</span></a>. The <a class="reference internal" href="glossary.html#term-Compiler"><span class="xref std std-term">compiler</span></a> converts the (basically) <strong>human-readable</strong> <code class="docutils literal notranslate"><span class="pre">C++</span></code> translation units into machine language files, called <a class="reference internal" href="glossary.html#term-Object-files"><span class="xref std std-term">object files</span></a> that have endings <code class="docutils literal notranslate"><span class="pre">.obj</span></code> in Windows and <code class="docutils literal notranslate"><span class="pre">.o</span></code> in Linux.</p>
 <p>The collection of object files is then linked together by the <a class="reference internal" href="glossary.html#term-Linker"><span class="xref std std-term">linker</span></a> into an <a class="reference internal" href="glossary.html#term-Executable-File"><span class="xref std std-term">executable file</span></a>; ending <code class="docutils literal notranslate"><span class="pre">.exe</span></code> in Windows.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source code is platform agnostic, but the object files and executable files are not portable amongst platforms, not even amongst generations, therefore a different compiler is required for each different platform, i.e. OS, Windows, Linux, … .</p>
-<pre align="center" data-zoom-id="id-5dd1cf1b-36f5-4c5b-b274-d570513250b0" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-d7047850-7208-4a13-b1c3-55583e67f343" class="mermaid align-center">
         flowchart LR
     A([&quot;Source Files&quot;]) --&gt; B[&quot;Compiler&quot;]
     B -- Object files --&gt; E[&quot;Linker&quot;]
