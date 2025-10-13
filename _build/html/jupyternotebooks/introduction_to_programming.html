@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.796b95e9-3621-4f3c-a4eb-81545c2709b9.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.208ae00f-6df4-424a-8c18-0b8a0187cc47.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-f26979a2-eca0-4eef-b34f-a72710f6777e] svg, .mermaid[data-zoom-id=id-5560469a-ddee-4075-8905-41787653c6d9] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-d70d4dea-9ef1-4f20-a0e6-e936b2eacc76] svg, .mermaid[data-zoom-id=id-4d773e96-6ce4-4d8c-930d-9b9144137ef3] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -687,7 +687,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-f26979a2-eca0-4eef-b34f-a72710f6777e" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-d70d4dea-9ef1-4f20-a0e6-e936b2eacc76" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -718,7 +718,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-5560469a-ddee-4075-8905-41787653c6d9" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-4d773e96-6ce4-4d8c-930d-9b9144137ef3" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input

@@ -174,12 +174,12 @@ mySecondVector.push_back(17);
 for (int i : mySecondVector ) std::cout << i <<"\n";
 ````` 
 `````{code_explanation} examplen2
-
+:class: dropdown
 `push_back()` is another member function – it belongs to `std::vector` and must be called using the `.` notation.
 
 Line 3 is a range-for-statement, explained [here](range-for).
 
-More than one element may be added by `push_back()` by using a list i.e. put a curly brace `{}` enclosed, comma delimited sequence of values in the parens.
+More than one element may not be added by `push_back()`. 
 ````{exercise}
 :class: dropdown
 :nonumber:
@@ -188,7 +188,77 @@ Try adding the following to your previous example code:
 mySecondVector.push_back({6, 7, 8, 9 , 10}); 
 ```
 ````
+Instead we must use the `insert()` member function.
 `````
+``````{code_example-end}
+``````
+``````{code_example-start} Modifying Vectors - insert()
+:label: examplen12
+:class: dropdown
+:nonumber:
+``````
+The `insert()` member function is used to insert a range of additional elements into a `std::vector`.
+````{syntax} insert() for std::vector
+:class: dropdown
+:nonumber:
+The syntax for `insert()` is:
+```{code-block} c++
+//To add a list of literals:
+vectorIdentifier.insert(vectorIdentifier_iterator() , {list of values, comma separated});
+//To add another vector's contents.
+vectorIdentifier.insert(vectorIdentifier_iterator() , otherVectorIndentifier.begin(), otherVectorIdentifier.end());
+```
+````
+{term}`Iterators` are similar to pointers (covered in week 3) and are used to indicate the position of an element in an array or vector - a pointer can be used anywhere an iterator is required. 
+
+Calling a member function such as `.begin()` or `.end()` on an instance of a container, such as `std::vector`, returns an iterator.
+
+`begin()` returns an iterator to the first element.
+
+`end()`returns an iterator to one-after-the-last element - the definition of the end of a range.
+
+The `insert()` function's first argument is an iterator to an a position in the vector that is being extended, the extra elements are inserted before this position.
+
+To put the extra elements at:
+* the beginning of `myVector`  - use `myVector.begin()`.
+* the end of `myVector` - use `myVector.end()` i.e. inserts before one-after-the-end.
+
+The syntax required varies depending on what is being added to the vector. To insert:
+* A set of literal values as the new elements, the second argument can simply be the `{}` enclosed, comma-separated values.
+* Another vector's elements - a second and third argument are required - being iterators to the first and one-past-the-last element.
+
+For example:
+````{code-cell} c++
+:tags: [remove-output,skip-execution]
+#include <iostream>
+#include <vector>
+int main() {
+    std::vector<int> myVector1{ 1, 2, 3, 4 };
+    std::vector<int> myVector2{ 5, 6, 7, 8 };
+    myVector1.insert(myVector1.end(), myVector2.begin(), myVector2.end());
+    for (int i = 0; i < myVector1.capacity(); ++i) {
+        std::cout << myVector1[i] << '\t';
+    }
+    std::cout << '\n';
+    myVector1 = { 1, 2, 3, 4 };
+    myVector1.insert(myVector1.begin(), { -3, -2, -1, 0 });
+    for (int i = 0; i < myVector1.capacity(); ++i) {
+        std::cout << myVector1[i] << '\n';
+    }
+    return 0;
+}
+````
+````{exercise}
+:class: dropdown
+:nonumber:
+The element (position) indicated by an iterator may be modified by addition/subtraction of an integer value to/from the iterator (also true for pointers).
+
+Find out what happens if you change the code above to:
+```{code-block} c++
+myVector1.insert(myVector1.end()-2, myVector2.begin()+1, myVector2.end()-1);
+```
+````
+There are more useful member functions for [vector](https://en.cppreference.com/w/cpp/container/vector.html) described in the C++ Reference pages.
 ``````{code_example-end}
 ``````
 

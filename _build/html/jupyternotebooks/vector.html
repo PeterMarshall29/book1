@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.cc2f85e7-df3f-4266-8493-321da28a47a1.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\vector.27da5b2c-cc75-4bf0-b925-7a9cb66799bc.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/vector';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -645,7 +645,7 @@ document.write(`
 </section>
 </div><div class="exercise dropdown admonition" id="examplen3">
 
-<p class="admonition-title">Exercise  Vector - Checking Progress  </p>
+<p class="admonition-title">Exercise  Vector - Checking Progress </p>
 <section id="exercise-content">
 <ul class="simple">
 <li><p>Write a program that creates a vector of strings in the code box.</p></li>
@@ -684,13 +684,13 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="code_explanation admonition" id="jupyternotebooks/vector-code_explanation-7">
+<div class="code_explanation dropdown admonition" id="jupyternotebooks/vector-code_explanation-7">
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#examplen2"> Code Example: Modifying Vectors - push_back() </a></p>
 <section id="code_explanation-content">
 <p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code> is another member function – it belongs to <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation.</p>
 <p>Line 3 is a range-for-statement, explained <a class="reference internal" href="for_loops.html#range-for"><span class="std std-ref">here</span></a>.</p>
-<p>More than one element may be added by <code class="docutils literal notranslate"><span class="pre">push_back()</span></code> by using a list i.e. put a curly brace <code class="docutils literal notranslate"><span class="pre">{}</span></code> enclosed, comma delimited sequence of values in the parens.</p>
+<p>More than one element may not be added by <code class="docutils literal notranslate"><span class="pre">push_back()</span></code>.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/vector-exercise-8">
 
 <p class="admonition-title">Exercise</p>
@@ -700,8 +700,77 @@ document.write(`
 </pre></div>
 </div>
 </section>
-</div></section>
+</div><p>Instead we must use the <code class="docutils literal notranslate"><span class="pre">insert()</span></code> member function.</p>
+</section>
 </div>
+</section>
+</div><div class="code_example dropdown admonition" id="examplen12">
+
+<p class="admonition-title">Code Example: Modifying Vectors - insert() </p>
+<section id="code_example-content">
+<p>The <code class="docutils literal notranslate"><span class="pre">insert()</span></code> member function is used to insert a range of additional elements into a <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.</p>
+<div class="syntax dropdown admonition" id="jupyternotebooks/vector-syntax-10">
+
+<p class="admonition-title">Syntax Rules: insert() for std::vector </p>
+<section id="syntax-content">
+<p>The syntax for <code class="docutils literal notranslate"><span class="pre">insert()</span></code> is:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//To add a list of literals:</span>
+<span class="n">vectorIdentifier</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">vectorIdentifier_iterator</span><span class="p">()</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">comma</span><span class="w"> </span><span class="n">separated</span><span class="p">});</span>
+<span class="c1">//To add another vector&#39;s contents.</span>
+<span class="n">vectorIdentifier</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">vectorIdentifier_iterator</span><span class="p">()</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">otherVectorIndentifier</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">otherVectorIdentifier</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</pre></div>
+</div>
+</section>
+</div><p><a class="reference internal" href="glossary.html#term-Iterators"><span class="xref std std-term">Iterators</span></a> are similar to pointers (covered in week 3) and are used to indicate the position of an element in an array or vector - a pointer can be used anywhere an iterator is required.</p>
+<p>Calling a member function such as <code class="docutils literal notranslate"><span class="pre">.begin()</span></code> or <code class="docutils literal notranslate"><span class="pre">.end()</span></code> on an instance of a container, such as <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>, returns an iterator.</p>
+<p><code class="docutils literal notranslate"><span class="pre">begin()</span></code> returns an iterator to the first element.</p>
+<p><code class="docutils literal notranslate"><span class="pre">end()</span></code>returns an iterator to one-after-the-last element - the definition of the end of a range.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">insert()</span></code> function’s first argument is an iterator to an a position in the vector that is being extended, the extra elements are inserted before this position.</p>
+<p>To put the extra elements at:</p>
+<ul class="simple">
+<li><p>the beginning of <code class="docutils literal notranslate"><span class="pre">myVector</span></code>  - use <code class="docutils literal notranslate"><span class="pre">myVector.begin()</span></code>.</p></li>
+<li><p>the end of <code class="docutils literal notranslate"><span class="pre">myVector</span></code> - use <code class="docutils literal notranslate"><span class="pre">myVector.end()</span></code> i.e. inserts before one-after-the-end.</p></li>
+</ul>
+<p>The syntax required varies depending on what is being added to the vector. To insert:</p>
+<ul class="simple">
+<li><p>A set of literal values as the new elements, the second argument can simply be the <code class="docutils literal notranslate"><span class="pre">{}</span></code> enclosed, comma-separated values.</p></li>
+<li><p>Another vector’s elements - a second and third argument are required - being iterators to the first and one-past-the-last element.</p></li>
+</ul>
+<p>For example:</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector1</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myVector2</span><span class="p">{</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">myVector1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">myVector1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">myVector2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">myVector2</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myVector1</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myVector1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">myVector1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">myVector1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">myVector1</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myVector1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise dropdown admonition" id="jupyternotebooks/vector-exercise-11">
+
+<p class="admonition-title">Exercise</p>
+<section id="exercise-content">
+<p>The element (position) indicated by an iterator may be modified by addition/subtraction of an integer value to/from the iterator (also true for pointers).</p>
+<p>Find out what happens if you change the code above to:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">myVector1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">myVector1</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="n">myVector2</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">myVector2</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="mi">-1</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</div><p>There are more useful member functions for <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector.html">vector</a> described in the C++ Reference pages.</p>
 </section>
 </div><div class="code_example dropdown admonition" id="exercisen11">
 
@@ -736,7 +805,7 @@ document.write(`
 <p>Iterators are similar to pointers - arithmetic values can be used with iterators to traverse the elements i.e. <code class="docutils literal notranslate"><span class="pre">myVector.end()</span> <span class="pre">-</span> <span class="pre">1</span></code> gives the value of the second last element.</p>
 <p>Other useful member functions for vector are <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector.html">listed</a> in the C++ Reference.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;algorithm&gt;</span></code> library has more functions that are useful for vectors. For example: <code class="docutils literal notranslate"><span class="pre">std::sort</span></code> allows us to sort the elements of our vector into ascending order – or otherwise.</p>
-<div class="exercise dropdown admonition" id="jupyternotebooks/vector-exercise-11">
+<div class="exercise dropdown admonition" id="jupyternotebooks/vector-exercise-14">
 
 <p class="admonition-title">Exercise</p>
 <section id="exercise-content">
