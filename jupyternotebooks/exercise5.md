@@ -197,6 +197,7 @@ int factorial(int number) {
 
 
 // wallis product
+```{code-block} c++
 #include <iostream>
 #include<string>
 #include <cmath>
@@ -219,7 +220,7 @@ int main() {
     std::cout << "Estimated value of π using " << steps << " terms: " << pi << '\n';
     return 0;
 }
-
+```
 
 
 //Fibonacci

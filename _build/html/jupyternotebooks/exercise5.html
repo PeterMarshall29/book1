@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise5.0137bf63-da67-4ff0-ac3e-cc2a165217d8.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\exercise5.5a2d90e2-726a-48b1-ae7a-b42869e2c82f.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/exercise5';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -698,28 +698,31 @@ c.  Generate the Fibonacci sequence to a given number of terms.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>// wallis product
-#include <iostream>
-#include<string>
-#include <cmath>
-#include <iomanip></p>
-<p>double wallisProductPi(int terms) {
-double wallisProduct = 1.0;
-for (int i = 1; i &lt;= terms; ++i) {
-double currentTerm = (4.0 * i * i) / (4.0 * i * i - 1);
-wallisProduct *= currentTerm;
-}
-return wallisProduct * 2;
-}
-int main() {
-int steps;
-std::cout &lt;&lt; “Please enter the number of terms in the Wallis Product estimation: “;
-std::cin &gt;&gt; steps;
-double pi = wallisProductPi(steps);
-std::cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(30);
-std::cout &lt;&lt; “Estimated value of π using ” &lt;&lt; steps &lt;&lt; ” terms: ” &lt;&lt; pi &lt;&lt; ‘\n’;
-return 0;
-}</p>
+<p>// wallis product</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iomanip&gt;</span><span class="c1"> </span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">wallisProductPi</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">terms</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">wallisProduct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">terms</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">currentTerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">4.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">4.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">wallisProduct</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">currentTerm</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">wallisProduct</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">steps</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please enter the number of terms in the Wallis Product estimation: &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">steps</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wallisProductPi</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Estimated value of π using &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; terms: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>//Fibonacci</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
