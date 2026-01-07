@@ -50,6 +50,14 @@ parts:
     - file: jupyternotebooks/introduction_to_pointers     #V
       sections:
         - file: jupyternotebooks/exercise6
+  - caption: Object Oriented Programming Semester 2
+    chapters:
+    - file: jupyternotebooks/introduction_to_object_oriented_programming
+    - file: jupyternotebooks/introduction_to_classes     #Y
+    - file: jupyternotebooks/structs #Z
+    - file: jupyternotebooks/polymorphism_and_virtual_functions #AA
+    - file: jupyternotebooks/templates     #AB
+    - file: jupyternotebooks/random_numbers #AC 
   - caption: C++ Programming in Visual Studio
     chapters:
     - file: jupyternotebooks/introduction_to_cpp_in_vscode
