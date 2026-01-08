@@ -53,8 +53,8 @@ parts:
   - caption: Object Oriented Programming Semester 2
     chapters:
     - file: jupyternotebooks/introduction_to_object_oriented_programming
-    - file: jupyternotebooks/introduction_to_classes     #Y
-    - file: jupyternotebooks/structs #Z
+    - file: jupyternotebooks/structs #Y
+    - file: jupyternotebooks/introduction_to_classes     #Z
     - file: jupyternotebooks/polymorphism_and_virtual_functions #AA
     - file: jupyternotebooks/templates     #AB
     - file: jupyternotebooks/random_numbers #AC 

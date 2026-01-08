@@ -426,6 +426,9 @@ Macros
 Member
   Types, variables and constants, and functions declared within the scope of, and therefore belonging to, a class.
 
+Member Intialiser List
+  Initialise list for members of a class specified in the construtor
+
 Memory Address
   A computer memory address is a unique identifier assigned to a specific location in a computer's memory, allowing the CPU and other hardware components to access and manipulate stored data efficiently. Memory addresses are typically represented as an array of hexadecimal values of a fixed length.
 

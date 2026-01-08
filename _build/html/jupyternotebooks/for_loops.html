@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.818b560c-5ad8-4807-a292-bd8477af39c2.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.ef58201e-f195-4831-9113-5bf1f3846364.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-5a750beb-b49b-4635-a621-294c3aa9518b] svg, .mermaid[data-zoom-id=id-d77fc14a-47e1-4839-91f1-8343a93c90b8] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-76443fb0-e640-4ff2-acd8-363efacf34aa] svg, .mermaid[data-zoom-id=id-e26c7de1-5062-488a-b19a-42c7978f3a36] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -290,10 +290,10 @@ window.addEventListener("load", load);
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Oriented Programming Semester 2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polymorphism_and_virtual_functions.html">Polymorphism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates Functions and Classes.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
@@ -613,7 +613,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-5a750beb-b49b-4635-a621-294c3aa9518b" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-76443fb0-e640-4ff2-acd8-363efacf34aa" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -644,7 +644,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-d77fc14a-47e1-4839-91f1-8343a93c90b8" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-e26c7de1-5062-488a-b19a-42c7978f3a36" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
@@ -835,7 +835,7 @@ document.write(`
 </div>
 <div class="exercise dropdown admonition" id="jupyternotebooks/for_loops-exercise-6">
 
-<p class="admonition-title">Exercise  Visual Studio Exercise  </p>
+<p class="admonition-title">Exercise  Visual Studio Exercise </p>
 <section id="exercise-content">
 <p>Only if you are already familiar with Visual Studio - otherwise please leave until week 4.</p>
 <p>Copy this code into Visual Studio and remove the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement - find out what happens.</p>
@@ -867,7 +867,7 @@ document.write(`
 <p>After each iteration, the final expression increments x and decrements y by one each. The condition uses the logical ‘AND’ operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> to require two conditions to be true at the same time in order for the loop to continue.</p>
 <div class="exercise dropdown admonition" id="jupyternotebooks/for_loops-exercise-8">
 
-<p class="admonition-title">Exercise  Multiple Loop-Variables  </p>
+<p class="admonition-title">Exercise  Multiple Loop-Variables </p>
 <section id="exercise-content">
 <p>The condition in this example can be simplified but still produce the same output - work out how.</p>
 </section>
