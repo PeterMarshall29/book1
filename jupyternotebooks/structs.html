@@ -69,15 +69,15 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\structs.1d0a5b02-9536-48e8-b16d-4db70184ba5f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\structs.3dc0a547-0360-41b8-a046-b5db3c610639.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/structs';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
     <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Polymorphism" href="polymorphism_and_virtual_functions.html" />
-    <link rel="prev" title="Classes in C++" href="introduction_to_classes.html" />
+    <link rel="next" title="Classes in C++" href="introduction_to_classes.html" />
+    <link rel="prev" title="OOP in C++" href="introduction_to_object_oriented_programming.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -253,10 +253,10 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Oriented Programming Semester 2</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Structs in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polymorphism_and_virtual_functions.html">Polymorphism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates Functions and Classes.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
@@ -506,7 +506,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -522,6 +524,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-arithmetic-functions">Adding arithmetic functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members-functions-called-with-stuct-type-name-not-instance-name">Static members functions – called with stuct type name not instance name.</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -533,6 +544,334 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="structs-in-c">
 <span id="structs"></span><h1>Structs in C++<a class="headerlink" href="#structs-in-c" title="Permalink to this heading">#</a></h1>
+<p>Creating a Rational Number Struct.
+Structs is a user-defined type, and a subset of classes.</p>
+<p>Structs are useful for gathering related variables together into a sequence of arbitrary types called the members of the struct.
+When a struct is declared a new type is created i.e. declaring a struct called <code class="docutils literal notranslate"><span class="pre">Date</span></code> creates a type called <code class="docutils literal notranslate"><span class="pre">Date</span></code>.
+Creating a new variable of type <code class="docutils literal notranslate"><span class="pre">Date</span></code> creates an instance of the struct.
+The individual members of each instance of <code class="docutils literal notranslate"><span class="pre">Date</span></code> are then accessed using the instance name attached to the member name by a period <code class="docutils literal notranslate"><span class="pre">.</span></code>.
+Stucts, like most types, can be passed into and returned from functions, by value and by reference, or by using a pointer.
+The members of a struct are held in the order of declaration, so list initialisation is possible.
+Note: <code class="docutils literal notranslate"><span class="pre">size0f()</span></code> does not work the same for stucts, because of memory layout issues with structs that vary between architectures and implementations.
+It is best to order members in a struct in size order i.e. largest member first e.g. doubles then ints then chars etc.
+A struct is declared as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="p">};</span>
+<span class="linenos"> 5</span><span class="n">Values</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">manually</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">struct</span><span class="p">.</span>
+<span class="linenos"> 6</span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">12</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>So far the code is not better that just keeping the two integers. First improvement: use a function for initialisation.
+Values of a struct may also be initialised using a <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="p">};</span>
+<span class="linenos"> 5</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">myRationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">10</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Both the list and the .notation may be used to modify existing values.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="p">};</span>
+<span class="linenos"> 5</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">myRationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">myRationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">12</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>We can create a helper function to initialise a copy of the struct and to check for invalid entries etc.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">void</span><span class="w"> </span><span class="nf">init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rationalNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">rationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Denominator cannot be zero.&quot;</span><span class="p">);</span>
+<span class="linenos"> 4</span><span class="p">}</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">init_RationalNumber</span><span class="p">(</span><span class="n">myRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">11</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>This initialisation function passes a reference to the rational number.
+Note that a referenced object is not a copy and can therefore be modified.
+But there is not yet any explicit connection between the functions and the struct; it is usually better to use a member function.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rationalNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">rationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Denominator cannot be zero.&quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 9</span><span class="p">};</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">init_RationalNumber</span><span class="p">(</span><span class="n">myRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">16</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Now <code class="docutils literal notranslate"><span class="pre">init_</span></code> is a member function and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation on an instance.
+Its better to separate the declaration of the struct from the definitions.</p>
+<p>Declaring the init function inside the struct but defining it outside :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="p">};</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="kt">void</span><span class="w"> </span><span class="nf">RationalNumber::init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rationalNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="n">rationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">10</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Denominator cannot be zero.&quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="p">}</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">init_RationalNumber</span><span class="p">(</span><span class="n">myRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">18</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Instead of passing by reference, as struct can be accessed by a pointer.
+Structures are often accessed through pointers using the <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> the struct pointer member dereference operator. When p is a pointer, <code class="docutils literal notranslate"><span class="pre">p-&gt;m</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">(*p).m</span></code> .</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="p">};</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="kt">void</span><span class="w"> </span><span class="nf">RationalNumber::init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">*</span><span class="w"> </span><span class="n">rationalNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">        </span><span class="n">rationalNumber</span><span class="o">-&gt;</span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">        </span><span class="n">rationalNumber</span><span class="o">-&gt;</span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Denominator cannot be zero.&quot;</span><span class="p">);</span>
+<span class="linenos">14</span><span class="p">}</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">17</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">    </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">init_RationalNumber</span><span class="p">(</span><span class="o">&amp;</span><span class="n">myRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">21</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Or using the pointer to the struct itself,</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">RationalNumber::init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">*</span><span class="w"> </span><span class="n">rationalNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="n">rationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">3</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Denominator cannot be zero.&quot;</span><span class="p">);</span>
+<span class="linenos">4</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Because a struct is a simple class, one with members that are public by default, a struct can have member functions and constructors.
+A constructor is a member function that specifically initialises an instance of a struct or class.
+Constructors are member functions with the same name as the struct (or class) that is used for initialisation. Failing to initialise a struct that has a constructor will produce be caught by the compiler.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="p">};</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">RationalNumber</span><span class="o">::</span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numerator</span><span class="p">{</span><span class="n">numerator</span><span class="p">},</span><span class="w"> </span><span class="n">denominator</span><span class="p">{</span><span class="n">denominator</span><span class="p">}</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Or inside the function</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numerator</span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">denominator</span><span class="p">{</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 6</span><span class="p">};</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">12</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>We can also use the standard method of initialisation but be careful not to use the same name for the contructor parameters.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numerator1</span><span class="p">;</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">denominator1</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos"> 8</span><span class="p">};</span>
+<span class="linenos"> 9</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Or,</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator1</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="p">};</span>
+<span class="linenos"> 7</span><span class="n">RationalNumber</span><span class="o">::</span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numerator1</span><span class="p">;</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">denominator1</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="p">}</span>
+<span class="linenos">10</span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Since it’s a member function, the reference to myRationalNumber is redundant</p>
+<p>Structs can also be returned, for example, although we do not need to return anything from the init function:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="p">};</span>
+<span class="linenos"> 5</span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">init_RationalNumber</span><span class="p">(</span><span class="n">RationalNumber</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rationalNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">denominator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">rationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Denominator cannot be zero.&quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="p">}</span>
+<span class="linenos"> 9</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">mySecondRationalNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_RationalNumber</span><span class="p">(</span><span class="n">myRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">16</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Technical details.
+A struct is a simple class whose members are public by default; a class has private members.</p>
+<p>The name of the struct can be used within its own declaration i.e. the name is available after it has been seen by the compiler, not after the declaration has been completed as with most declarations.
+New instances of a struct may not be declared inside the struct however, only pointers to instances.
+The name of a struct can be used before definition provided that the name of a member or the size of the struct is no needed to be known.
+Most uses required the definition to be completed first.</p>
+<p>Basic operations such as <code class="docutils literal notranslate"><span class="pre">==</span></code> are not available to a struct by default, so these must all be defined by the user for each new struct.</p>
+<section id="adding-arithmetic-functions">
+<h2>Adding arithmetic functions<a class="headerlink" href="#adding-arithmetic-functions" title="Permalink to this heading">#</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numerator</span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">denominator</span><span class="p">{</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="p">};</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">RationalNumber::add</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RationalNumber</span><span class="p">{</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">denominator</span><span class="p">,</span><span class="n">lhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">13</span><span class="p">}</span>
+<span class="linenos">14</span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">RationalNumber::multiply</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RationalNumber</span><span class="p">(</span><span class="n">lhs</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="p">);</span>
+<span class="linenos">16</span><span class="p">}</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myFirstRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">myFirstRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">);</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">myFirstRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">25</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">26</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>These can be written in a neater fashion using <code class="docutils literal notranslate"><span class="pre">this</span></code>, which is a pointer to the instance that the member functions and members belong to.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numerator</span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">denominator</span><span class="p">{</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="p">};</span>
+<span class="linenos">10</span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">RationalNumber::add</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RationalNumber</span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">denominator</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">denominator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">12</span><span class="p">}</span>
+<span class="linenos">13</span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">RationalNumber::multiply</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RationalNumber</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">denominator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="p">);</span>
+<span class="linenos">15</span><span class="p">}</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myFirstRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myFirstRationalNumber</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">mySecondRationalNumber</span><span class="p">);</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myFirstRationalNumber</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">mySecondRationalNumber</span><span class="p">);</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">25</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="static-members-functions-called-with-stuct-type-name-not-instance-name">
+<h2>Static members functions – called with stuct type name not instance name.<a class="headerlink" href="#static-members-functions-called-with-stuct-type-name-not-instance-name" title="Permalink to this heading">#</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">struct</span><span class="w"> </span><span class="nc">RationalNumber</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">RationalNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numerator</span><span class="p">{</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">denominator</span><span class="p">{</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="p">};</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">RationalNumber::add</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RationalNumber</span><span class="p">{</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">denominator</span><span class="p">,</span><span class="n">lhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">13</span><span class="p">}</span>
+<span class="linenos">14</span><span class="n">RationalNumber</span><span class="w"> </span><span class="nf">RationalNumber::multiply</span><span class="p">(</span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RationalNumber</span><span class="p">(</span><span class="n">lhs</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">numerator</span><span class="p">,</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">denominator</span><span class="p">);</span>
+<span class="linenos">16</span><span class="p">}</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">myFirstRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RationalNumber</span><span class="o">::</span><span class="n">multiply</span><span class="p">(</span><span class="n">myFirstRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">);</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">RationalNumber</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RationalNumber</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="n">myFirstRationalNumber</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondRationalNumber</span><span class="p">);</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My Rational Number = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">.</span><span class="n">numerator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">.</span><span class="n">denominator</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">25</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">26</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -566,20 +905,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="introduction_to_classes.html"
+       href="introduction_to_object_oriented_programming.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Classes in C++</p>
+        <p class="prev-next-title">OOP in C++</p>
       </div>
     </a>
     <a class="right-next"
-       href="polymorphism_and_virtual_functions.html"
+       href="introduction_to_classes.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Polymorphism</p>
+        <p class="prev-next-title">Classes in C++</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -589,6 +928,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-arithmetic-functions">Adding arithmetic functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members-functions-called-with-stuct-type-name-not-instance-name">Static members functions – called with stuct type name not instance name.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
