@@ -322,5 +322,17 @@ int main() {
 }
 ```
 
+## Class Templates
 
+Copied from micosoft
+A class template can inherit all the constructors from a type argument if that type specifies a base class:
 
+```{code-block} cpp
+:linenos:
+template< typename T >
+class DerivedClass : T {
+    using T::T;   // declare the constructors from T
+    // ...
+};
+```
+A deriving class can't inherit from multiple base classes if those base classes have constructors that have an identical signature.
