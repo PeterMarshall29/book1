@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\templates.88d15915-6b15-440b-8f5b-26527fe27cdf.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\templates.725682a2-1c0e-45e0-997e-62f1942ea339.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/templates';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -77,7 +77,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Random Numbers" href="random_numbers.html" />
-    <link rel="prev" title="Polymorphism" href="polymorphism_and_virtual_functions.html" />
+    <link rel="prev" title="Polymorphism" href="polymorphism.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -255,7 +255,8 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="polymorphism_and_virtual_functions.html">Polymorphism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_classes_and_virtual_functions.html">Inheritance - Derived Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphism.html">Polymorphism</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Templates Functions and Classes.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
@@ -535,6 +536,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advice-on-using-templates">Advice on using Templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-using-templates">Problems using templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-templates">Class Templates</a></li>
 </ul>
             </nav>
         </div>
@@ -830,6 +832,19 @@ Write a generic function that will swap two values passed by reference.</p>
 </pre></div>
 </div>
 </section>
+<section id="class-templates">
+<h2>Class Templates<a class="headerlink" href="#class-templates" title="Permalink to this heading">#</a></h2>
+<p>Copied from micosoft
+A class template can inherit all the constructors from a type argument if that type specifies a base class:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="linenos">2</span><span class="k">class</span><span class="w"> </span><span class="nc">DerivedClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">T</span><span class="p">;</span><span class="w">   </span><span class="c1">// declare the constructors from T</span>
+<span class="linenos">4</span><span class="w">    </span><span class="c1">// ...</span>
+<span class="linenos">5</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>A deriving class can’t inherit from multiple base classes if those base classes have constructors that have an identical signature.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -863,7 +878,7 @@ Write a generic function that will swap two values passed by reference.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="polymorphism_and_virtual_functions.html"
+       href="polymorphism.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -902,6 +917,7 @@ Write a generic function that will swap two values passed by reference.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advice-on-using-templates">Advice on using Templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-using-templates">Problems using templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-templates">Class Templates</a></li>
 </ul>
   </nav></div>
 

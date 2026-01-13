@@ -55,7 +55,8 @@ parts:
     - file: jupyternotebooks/introduction_to_object_oriented_programming
     - file: jupyternotebooks/structs #Y
     - file: jupyternotebooks/introduction_to_classes     #Z
-    - file: jupyternotebooks/polymorphism_and_virtual_functions #AA
+    - file: jupyternotebooks/derived_classes_and_virtual_functions #AD
+    - file: jupyternotebooks/polymorphism #AA
     - file: jupyternotebooks/templates     #AB
     - file: jupyternotebooks/random_numbers #AC 
   - caption: C++ Programming in Visual Studio

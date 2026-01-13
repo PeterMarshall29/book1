@@ -1,0 +1,748 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Polymorphism &#8212; Introduction to C++ Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/code_example.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/game.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/highscores.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tippy.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
+    <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\polymorphism (2).9dbf28bb-fbd3-4600-8155-bdaca331fd1c.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/polymorphism (2)';</script>
+    <script src="../_static/end.js"></script>
+    <script src="../_static/game.js"></script>
+    <script src="../_static/highscores.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo2big.png" class="logo__image only-light" alt="Introduction to C++ Programming - Home"/>
+    <script>document.write(`<img src="../_static/logo2big.png" class="logo__image only-dark" alt="Introduction to C++ Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to the C++ Programming Language
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_programming.html">Introduction to Computer Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_cpp_language.html">The C++ Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_best_practices.html">Best Practices in Coding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="approachs_to_learning.html">How to Learn C++</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="firstprogram.html">First C++ Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_ideas_and_definitons.html">Basic Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="input_and_output.html">Input and Output</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="printing_to_file.html">Printing to File (Week 7)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="objects_values_variables_and_constants.html">Objects, Values, Variables, and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identifiers.html">Identifiers and Declarations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types in C++</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_data_types.html">Arithmetic Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char_and_string.html">Characters and Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean_type.html">Boolean Data Type</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="initialisation.html">Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations_and_operators.html">Operations and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise1.html">Exercises Week 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="selection_and_iteration.html">Selection and Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="if_statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="switch_statements.html">Switch Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for_loops.html">For loops</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="while_loops.html">While Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise3.html">Exercises Week 2 Part 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays.html">Arrays in C++</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="vector.html">Vectors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise4.html">Exercises Week 2 Part 2</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to C++ Week 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_functions.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise5.html">Exercises Week 3 Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction_to_pointers.html">Pointers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercise6.html">Exercises Week 3 Pointers and Functions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Oriented Programming Semester 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_classes_and_virtual_functions.html">Inheritance - Derived Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates Functions and Classes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_cpp_in_vscode.html">C++ in Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header_files.html">Header Files</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions_to_exercises.html">Solutions to Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/petermarshall29/book1/master?urlpath=lab/tree/jupyternotebooks/polymorphism (2).md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/petermarshall29/book1/issues/new?title=Issue%20on%20page%20%2Fjupyternotebooks/polymorphism (2).html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/polymorphism (2).ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/jupyternotebooks/polymorphism (2).md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Polymorphism</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance-derived-classes">Inheritance - Derived Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheriting-constructors">Inheriting Constructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-functions">Virtual Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override">Override</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="polymorphism">
+<span id="id1"></span><h1>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this heading">#</a></h1>
+<section id="inheritance-derived-classes">
+<h2>Inheritance - Derived Classes<a class="headerlink" href="#inheritance-derived-classes" title="Permalink to this heading">#</a></h2>
+<p>A <strong>derived class</strong> (or sub-class) is a new class that inherits properties from a <strong>base Class</strong>.
+Classes are described as base classes (or super-classes) when other classess are derived from them.</p>
+<p>Using derived class creates a hierarchical relationship between a group of classes.  For example we could define the class <code class="docutils literal notranslate"><span class="pre">Mammal</span></code> and the class <code class="docutils literal notranslate"><span class="pre">Insect</span></code> to share properties of the class <code class="docutils literal notranslate"><span class="pre">Animal</span></code>.</p>
+<p>The use of derived classes and inheritance is the basis of Object-oriented programming.</p>
+<p>A derived class <strong>inherits</strong> the properties of the base class, but then adds more data and functions - derived classes are larger and although often call subclasses they have a superset of the data of an instance of the base class.</p>
+<p>Syntax for a derived class.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">BaseClassName</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="p">}</span>
+<span class="linenos">4</span><span class="k">class</span><span class="w"> </span><span class="nc">DerivedClassName</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">BaseClassName</span>
+</pre></div>
+</div>
+<p>If a single base class is specified, the inheritance model is Single inheritance. If more than one base class is specified, the inheritance model is called Multiple inheritance.</p>
+<p>In the following example, the base class is Person, and the derived class is Student. Note that Student automatically has access to the members of Person, including the constuctor - there is no need to create new versions of these members.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="k">protected</span><span class="o">:</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">Person</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">init_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_age</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">init_name</span><span class="p">),</span><span class="w"> </span><span class="n">age</span><span class="p">(</span><span class="n">init_age</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// Constructor</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">displayInfo</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Name: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Age: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">13</span><span class="p">};</span>
+<span class="linenos">14</span><span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">15</span><span class="k">private</span><span class="o">:</span>
+<span class="linenos">16</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">studentID</span><span class="p">;</span>
+<span class="linenos">17</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">18</span><span class="w">    </span><span class="c1">// Constructor using base class constructor</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">Student</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">init_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_age</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">init_studentID</span><span class="p">)</span>
+<span class="linenos">20</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="n">init_name</span><span class="p">,</span><span class="w"> </span><span class="n">init_age</span><span class="p">),</span><span class="w"> </span><span class="n">studentID</span><span class="p">(</span><span class="n">init_studentID</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">printStudentID</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">studentID</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">22</span><span class="p">};</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">);</span><span class="w">  </span><span class="c1">//Create instance of Person</span>
+<span class="linenos">26</span><span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">displayInfo</span><span class="p">();</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;F123456&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Create an instance of Student</span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">student</span><span class="p">.</span><span class="n">displayInfo</span><span class="p">();</span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;ID: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">printStudentID</span><span class="p">();</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">34</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The access specifier <code class="docutils literal notranslate"><span class="pre">protected</span></code> indicates that the data members may only used by the class and by classes derived from it.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">public</span></code> access modifier for the derived class maintains the same access level for inheritable members of the base class. Any accessible members of the base class, i.e.  <code class="docutils literal notranslate"><span class="pre">public</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code> data members or member functions, become private members of the derived class. Since we want to call the member function <code class="docutils literal notranslate"><span class="pre">dispayInfo()</span></code> we need to make the derived class from a public declared base class.</p>
+<p>If no access modifier is specified in the derived class declaration, the default is <code class="docutils literal notranslate"><span class="pre">private</span></code>; default is public for <code class="docutils literal notranslate"><span class="pre">struct</span></code>.</p>
+<p>Inheritance Syntax:
+class Student : public Person means Student publicly inherits from Person.</p>
+<p>Protected Members:
+name and age are protected so they are accessible in derived classes but not outside.</p>
+<p>Constructor Chaining:
+The derived class constructor calls the base class constructor using : Person(name, age).</p>
+<p>Method Overriding:
+displayInfo() is declared virtual in the base class and overridden in the derived class.</p>
+<p>Polymorphism:
+Using a Person* pointer to a Student object calls the overridden method.</p>
+</section>
+<section id="inheriting-constructors">
+<h2>Inheriting Constructors<a class="headerlink" href="#inheriting-constructors" title="Permalink to this heading">#</a></h2>
+<p>Derived classes can inherit the base class’s constructors if a using directive is declared as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">2</span><span class="k">using</span><span class="w"> </span><span class="n">Base</span><span class="o">::</span><span class="n">Base</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="virtual-functions">
+<span id="id2"></span><h2>Virtual Functions<a class="headerlink" href="#virtual-functions" title="Permalink to this heading">#</a></h2>
+<p>Virtual functions  allows the programmer to declare functions in a base class that can be redefined in each derived class.</p>
+<p>Declaring a particular function as virtual in the base class allows that function identifier to act as an interface to the definitions of the function in both the base and derived classes. The compiler and linker will guarantee the correct correspondence between objects and the functions applied to them.</p>
+<p>A function in a derived class with the same identifier and argument type list as one in the base class is said to override the base class version that would otherwise be inherited. The virutal base function can be overrided with a different return type in the derived version.</p>
+<p>The only constraint on a virtual function being an interface to its variants defined in derived classes is that is that argument types cannot differ from those of the base declaration, and only minor changes are allowed for the return type.</p>
+<p>A virtual member function is also know as a <strong>method</strong>.</p>
+<p>The virtual member function must be defined in the class it is first declared in - see pure virtual functions and abstract classes.</p>
+<p>When a derived class does not need a particular virtual function it does not need to provide a definition even though the function</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>
+</pre></div>
+</div>
+</section>
+<section id="override">
+<h2>Override<a class="headerlink" href="#override" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">override</span></code> is used to designate a member function that override a virtual function in a base class.</p>
+<p><code class="docutils literal notranslate"><span class="pre">override</span></code> is a reserved keyword when used immediately after a member function declaration.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "petermarshall29/book1",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "<cm-material>",
+            mode: "text/x-c++src"
+        },
+        kernelOptions: {
+            name: "cpp20",
+            path: "./jupyternotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cpp20'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance-derived-classes">Inheritance - Derived Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheriting-constructors">Inheriting Constructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-functions">Virtual Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override">Override</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Loughborough Physics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

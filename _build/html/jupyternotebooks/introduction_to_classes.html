@@ -69,14 +69,14 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.595956ca-e07b-4809-ab7c-36f9d91c19fc.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.f9a4f7da-8263-4d87-8da5-a4a4e56f7a8f.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_classes';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
     <script src="../_static/highscores.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Polymorphism" href="polymorphism_and_virtual_functions.html" />
+    <link rel="next" title="Inheritance - Derived Classes" href="derived_classes_and_virtual_functions.html" />
     <link rel="prev" title="Structs in C++" href="structs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -255,7 +255,8 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Classes in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="polymorphism_and_virtual_functions.html">Polymorphism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_classes_and_virtual_functions.html">Inheritance - Derived Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphism.html">Polymorphism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates Functions and Classes.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
@@ -529,12 +530,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-member-functions">Inline Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-member-functions">Fundamental Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#member-intialiser-lists">Member Intialiser Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-constructors">Default Constructors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-member-values">Default Member Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-valid-initialsiation-values">Checking for valid Initialsiation values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-default-constructors">Implicit Default Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-data-members">Static Data Members</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-constructors">Copy Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-copying">Default Copying</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-member-functions">Special Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructors">Destructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-classes">Using Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functor">Functor</a></li>
 </ul>
             </nav>
         </div>
@@ -550,7 +558,7 @@ document.write(`
 <span id="classes"></span><h1>Classes in C++<a class="headerlink" href="#classes-in-c" title="Permalink to this heading">#</a></h1>
 <p>A class is a user-defined type, consisting of a set of members. The most common members are “data members” (variables) and “member functions”, followed by operators and some other language features.</p>
 <p>Member functions can define the meaning of initialization (creation), copy, move, and cleanup (destruction).
-Members are accessed using . (dot) for objects and <code class="docutils literal notranslate"><span class="pre">−&gt;</span></code> (arrow) for pointers.
+Members are accessed using . (dot) for objects and <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> (arrow) for pointers.
 Operators, such as <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">!</span></code>, and <code class="docutils literal notranslate"><span class="pre">[]</span></code>, can be defined for a class.</p>
 <p>A class is a namespace containing its members.</p>
 <p>Every class is divide into two parts - the interface and the implementation. The public members provide the class’s interface, and the private members provide implementation details.</p>
@@ -623,49 +631,56 @@ Operators, such as <code class="docutils literal notranslate"><span class="pre">
 Just to print out the private members - access requires an additional function to return the value.</p>
 <p>Note that the order of declaration of <code class="docutils literal notranslate"><span class="pre">output_day</span></code> and <code class="docutils literal notranslate"><span class="pre">day</span></code> is irrelevant, because its the defined values in the instance that are important.
 Try - comment out the init statement and try to print out the value of day.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## Fundamental Member Functions
-
-* Default, copy, and move constructors.
-* Copy, and move, assignment operators.
-* Destructors.
-
-## Contructors
-
-The correct approach to initialisation of an instance of a class is via a constuctor; the other option is member function that serves the same purpose, which is pointless for classes and increase the danger of an object being left unitialised.
-
-When a class has a constructor, all objects of that class will be initialized by a constructor call. If the constructor requires arguments, these arguments must be supplied:
-
-Constructors are member functions that have the same name as their class. The contstructor can be defined inside the class declaration or separately.
-
-```{code-block} cpp
-:linenos:
-class Date {
-public:
-    Date (int init_day, int init_month, int init_year); // Constructor - parameter names can be ommited
-    int output_day();
-private:
-    int day;
-    int month;
-    int year;
-};
-
-Date::Date(int init_day, int init_month, int init_year) {
-    day = init_day, month = init_month, year = init_year;
-};
-int Date::output_day() { return day; }
-
-int main() {  
-    //Date today;//Error - constructor declared - must be used.
-    Date today{ 01, 01, 2026 };
-    Date birthday = Date{ 27, 2, 1973 };
-    Date StStephensDay{ 26, 12, 2026 }; // abbreviated form
-    //Date someOnes_birthday; //error : initializer missing
-    //Date NewtonMas{ 25, 12 }; // error : third argument missing
-    std::cout &lt;&lt; today.output_day();
-    return 0;
-}
+<p>Accessor functions are often just called <code class="docutils literal notranslate"><span class="pre">getName()</span></code>, where <code class="docutils literal notranslate"><span class="pre">name</span></code> is the private data member being accessed.</p>
+<section id="inline-member-functions">
+<h2>Inline Member Functions<a class="headerlink" href="#inline-member-functions" title="Permalink to this heading">#</a></h2>
+<p>The member functions above could have been defined in place of the declaration line - which has advantages and disadvantages.</p>
+<p>Any memeber function defined within the class declaration become an <strong>inline</strong> member functions. This should only be done with small, frequently used, and rarely modified functions.</p>
+<p><strong>inline</strong> functions are compiled such that their code is repeated at the point of call, rather than code being added for the function call mechanism so that the code runs at the point of call. Depending on what the function actually does, inlining can improve performance, a compiler could even replace the function with the value it would have obtained provided that value can be computed at compile time, whereas a normal function would always wait and run during the program execution. Adding <code class="docutils literal notranslate"><span class="pre">inline</span></code> at the beginning of a function definition does nothing else, and is ignore if not suitable under the circumstances.</p>
+<p>Any member function can be declared as inline by adding the <code class="docutils literal notranslate"><span class="pre">inline</span></code> keyword to its definition outside of the class definition, which retains the separation of declaration and definition that is preferred for classes, separating interface and implementation.</p>
+<p>inline int Date::output_day() { return day; }</p>
+</section>
+<section id="fundamental-member-functions">
+<h2>Fundamental Member Functions<a class="headerlink" href="#fundamental-member-functions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Default, copy, and move constructors.</p></li>
+<li><p>Copy, and move, assignment operators.</p></li>
+<li><p>Destructors.</p></li>
+</ul>
+</section>
+<section id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this heading">#</a></h2>
+<p>The correct approach to initialisation of an instance of a class is via a constuctor; the other option is member function that serves the same purpose, which is pointless for classes and increase the danger of an object being left unitialised.</p>
+<p>When a class has a constructor, all objects of that class will be initialized by a constructor call. If the constructor requires arguments, these arguments must be supplied. Calling the constructor creates the instance of the class.</p>
+<p>Constructors are member functions that have the same name as their class, and return nothing (including void). The constructor can be defined inside the class declaration or separately.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// Constructor - parameter names can be ommited</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">output_day</span><span class="p">();</span>
+<span class="linenos"> 5</span><span class="k">private</span><span class="o">:</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="p">};</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_year</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">};</span>
+<span class="linenos">14</span><span class="kt">int</span><span class="w"> </span><span class="nf">Date::output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="linenos">17</span><span class="w">    </span><span class="c1">//Date today;//Error - constructor declared - must be used.</span>
+<span class="linenos">18</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">birthday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="p">{</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1973</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">StStephensDay</span><span class="p">{</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// abbreviated form</span>
+<span class="linenos">21</span><span class="w">    </span><span class="c1">//Date someOnes_birthday; //error : initializer missing</span>
+<span class="linenos">22</span><span class="w">    </span><span class="c1">//Date NewtonMas{ 25, 12 }; // error : third argument missing</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">output_day</span><span class="p">();</span>
+<span class="linenos">24</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">25</span><span class="p">}</span>
 </pre></div>
 </div>
+</section>
 <section id="member-intialiser-lists">
 <h2>Member Intialiser Lists<a class="headerlink" href="#member-intialiser-lists" title="Permalink to this heading">#</a></h2>
 <p>The preferred way to write a contstuctor is to add include a <code class="docutils literal notranslate"><span class="pre">term</span></code>{member intialiser list}, which initialise class data members before the body of the constuctor is evaluated.</p>
@@ -704,7 +719,7 @@ int main() {
 <span class="linenos">20</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>An alternative woudl be use to use the <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer.</p>
+<p>An alternative would be use to use the <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">2</span><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">).</span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
 <span class="linenos">3</span><span class="p">};</span>
@@ -714,27 +729,46 @@ int main() {
 </section>
 <section id="default-constructors">
 <h2>Default Constructors<a class="headerlink" href="#default-constructors" title="Permalink to this heading">#</a></h2>
-<p>A Default constructor usually has no parameters.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// Default Constructor Declaration - no parameter list</span>
+<p>A Default constructor usually has no parameters. Compilers generate default constructors that take no arguments but only when no other constuctor has been declared.</p>
+<p>Once any constructor is declared, an implicit default constuctor is no longer produced by the compiler and if the user defined constructoryou have not declared any other constructor.</p>
+<p>If you have declared only a constructor that takes parameters, code that attempts to call a default constructor causes the compiler to produce an error message. An explicit default constuctor can be added - overload of constructor.</p>
+<p>The compiler-generated default constructor performs simple member-wise default initialization of the objectl, but default initialization member with an indeterminate state.</p>
+<p>It is bad practice to have a default constuctor for data members without default values - constuction would leave members uninitialised and lead to unexpected results.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="p">();</span><span class="w"> </span><span class="c1">// Default Constructor Declaration - no parameter list</span>
+<span class="linenos">2</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">day</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="mi">2001</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//Default Constructor Definition with Default Values</span>
 </pre></div>
 </div>
-<p>It is bad practice to have a default constuctor for data members without default values - constuction would leave membersr uninitialised and lead to unexpected results.</p>
-<p>If no constructors are declared then the compiler will create an implicit inline default constructor, which again will produce garbage if there are no default values available.</p>
 </section>
-<section id="default-member-values">
-<h2>Default Member Values<a class="headerlink" href="#default-member-values" title="Permalink to this heading">#</a></h2>
-<p>Class declarations may include intialisation of data members (non-static only), the values are then defaul values for an instances of the class.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>
+<section id="implicit-default-constructors">
+<h2>Implicit Default Constructors<a class="headerlink" href="#implicit-default-constructors" title="Permalink to this heading">#</a></h2>
+<p>If no constructors are declared then the compiler will create an implicit inline default constructor, which will produce garbage if there are no default values available i.e. data members initialised in unpredictable states.</p>
+<p>If the implicit default constructor is relied upon, then the data member should be initialised inside the class definition.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">output_day</span><span class="p">();</span>
+<span class="linenos"> 4</span><span class="k">private</span><span class="o">:</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="p">};</span>
+<span class="linenos"> 9</span><span class="kt">int</span><span class="w"> </span><span class="nf">Date::output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">output_day</span><span class="p">();</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">15</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Notes: values assigned by a constructor overwrite any default values i.e. values included in the declaration are replaced.</p>
-</section>
-<section id="checking-for-valid-initialsiation-values">
-<h2>Checking for valid Initialsiation values<a class="headerlink" href="#checking-for-valid-initialsiation-values" title="Permalink to this heading">#</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>
+<p>The compiler defined default constuctor should be called without empty parens; otherwise the compiler will expect the default contructor to have been overloaded and throw an error.
+A user define</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="w"> </span><span class="nf">date1</span><span class="p">();</span><span class="w"> </span><span class="c1">//Error - sometimes</span>
+<span class="linenos">2</span><span class="n">Date</span><span class="w"> </span><span class="n">date2</span><span class="p">;</span><span class="w"> </span><span class="c1">//ok default values used</span>
+<span class="linenos">3</span><span class="n">Date</span><span class="w"> </span><span class="n">date3</span><span class="p">{};</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">used</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>
+<p>To prevent the compilier generating a default constructor we can define it as <strong>deleted</strong>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -768,21 +802,67 @@ int main() {
 </pre></div>
 </div>
 </section>
+<section id="copy-constructors">
+<h2>Copy Constructors<a class="headerlink" href="#copy-constructors" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="default-copying">
 <h2>Default Copying<a class="headerlink" href="#default-copying" title="Permalink to this heading">#</a></h2>
-<p>By default, objects can be copied. Aclass object can be initialized with a copy of an object of its class. For example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_birthday</span><span class="p">;</span><span class="w"> </span><span class="c1">// initialization by copy</span>
-<span class="n">Date</span><span class="w"> </span><span class="n">d2</span><span class="p">{</span><span class="w"> </span><span class="n">my_birthday</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// initialization by copy</span>
+<p>By default, objects can be copied. A class object can be initialized with a copy of an object of its class. For example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="w"> </span><span class="n">date1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_birthday</span><span class="p">;</span><span class="w"> </span><span class="c1">// initialization by copy</span>
+<span class="linenos">2</span><span class="n">Date</span><span class="w"> </span><span class="n">date2</span><span class="p">{</span><span class="w"> </span><span class="n">my_birthday</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// initialization by copy</span>
 </pre></div>
 </div>
 <p>The copy of a class object contains a copy of each member - If that default is not the behaviour wanted for a class X, a more
-appropriate behaviour can be provided.
-Similarly, class objects can be copied by assignment. For example:
-void f(Date&amp; d)
-{
-d = my_birthday;
-}
-Again, the default semantics is a member-wise copy. Alternatively, for a class X, the user can define an appropriate assignment operator .</p>
+appropriate behaviour can be provided.</p>
+<p>Similarly, class objects can be copied by assignment. For example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">Date</span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">  </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_birthday</span><span class="p">;</span>
+<span class="linenos">3</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Again, the default semantics is a member-wise copy. Alternatively, for a class X, the user can define an appropriate assignment operator .</p>
+</section>
+<section id="special-member-functions">
+<h2>Special Member Functions<a class="headerlink" href="#special-member-functions" title="Permalink to this heading">#</a></h2>
+<p>There are certain member functions, catled the <strong>special member functions</strong> that a user defined class may require but which the user does not always need to explicitly define themselves, which include:</p>
+<ul class="simple">
+<li><p>The default constructor</p></li>
+<li><p>The destructor</p></li>
+<li><p>The copy constructor</p></li>
+<li><p>The copy assignment operator</p></li>
+<li><p>The move constructor</p></li>
+<li><p>The move assignment operator</p></li>
+</ul>
+<p>If you define a class but do not explicitly define some required member functions, the compiler will implicitly declares and defines default version of these special members for you, but only if an implementation of the special member function is required by your class.</p>
+<p>You can explicitly declare a default special member function by using the = default keyword. This causes the compiler to define the function only if needed, in the same way as if the function was not declared at all.</p>
+<p>In some cases, the compiler may generate deleted special member functions, which are not defined and therefore not callable. This can happen in cases where a call to a particular special member function on a class doesn’t make sense, given other properties of the class. To explicitly prevent automatic generation of a special member function, you can declare it as deleted by using the = delete keyword.</p>
+<p>T
+The default copy and move construction and assignment operations perform member-wise bit-pattern copies or moves of non-static data members. Move operations are only generated when no destructor or move or copy operations are declared. A default copy constructor is only generated when no copy constructor is declared. It is implicitly deleted if a move operation is declared. A default copy assignment operator is generated only when no copy assignment operator is explicitly declared. It is implicitly deleted if a move operation is declared.</p>
+</section>
+<section id="destructors">
+<h2>Destructors<a class="headerlink" href="#destructors" title="Permalink to this heading">#</a></h2>
+<p>For larger programs, especially those using resources such as files that burden the system memory, it is important to keep track of memory utilisation and to clean up unneeded allocations.</p>
+<p>After the <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, all the allocated memory is freed up. Generally we do not need to write a destructor - the compiler generated default destructor is fine.</p>
+<p>A destructor is a special member function that cleans up any resources allocated to a class instance when it is no longer required, i.e. when the instantiated object goes out of scope. Every instance of the same class is terminated by a separate call to the class destructor.</p>
+<p>The destructor takes the name of the class preceded by the tild <code class="docutils literal notranslate"><span class="pre">~</span></code> symbol.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">~</span><span class="n">MyClassName</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Like a constructor, a destructor cannot have a return value (not even void) because it returns nothing. the compiler.</p>
+<p>A destructor can take no arguments, and therefore cannot be overloaded.</p>
+<p>Destructors are only called by the system, so there is no syntax for a destructor call.</p>
+<p>The default destructor performs member-wise destruction of the object. It is virtual only if a base class destructor is virtual.</p>
+</section>
+<section id="using-classes">
+<h2>Using Classes<a class="headerlink" href="#using-classes" title="Permalink to this heading">#</a></h2>
+<p>Classes can be used as objects inside other classes i.e. the member list of one class can have a named instance of another class. An instance of the new class is then storing data within an instance of the other class.</p>
+<p>In this way the new class is a superet of the data stored in the class it contains - we could take the view that the construct represented by the new class is also a version of the construct represented by the contained class with some added information.</p>
+<p>A more useful way to relate two classes is via inheritance - see next chapter.</p>
+<p>Classes instance can also be passed into functions.</p>
+</section>
+<section id="functor">
+<h2>Functor<a class="headerlink" href="#functor" title="Permalink to this heading">#</a></h2>
+<p>A functor is a class designed to mimic a function, because classes are more easily passed into other functions.</p>
 </section>
 </section>
 
@@ -826,11 +906,11 @@ Again, the default semantics is a member-wise copy. Alternatively, for a class X
       </div>
     </a>
     <a class="right-next"
-       href="polymorphism_and_virtual_functions.html"
+       href="derived_classes_and_virtual_functions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Polymorphism</p>
+        <p class="prev-next-title">Inheritance - Derived Classes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -850,12 +930,19 @@ Again, the default semantics is a member-wise copy. Alternatively, for a class X
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-member-functions">Inline Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-member-functions">Fundamental Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#member-intialiser-lists">Member Intialiser Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-constructors">Default Constructors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-member-values">Default Member Values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-valid-initialsiation-values">Checking for valid Initialsiation values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-default-constructors">Implicit Default Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-data-members">Static Data Members</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-constructors">Copy Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-copying">Default Copying</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-member-functions">Special Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructors">Destructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-classes">Using Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functor">Functor</a></li>
 </ul>
   </nav></div>
 
