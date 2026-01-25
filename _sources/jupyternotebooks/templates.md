@@ -24,7 +24,6 @@ At compile time a set of non-template functions are generated.
 
 The description of the template function begins with the keyword template, followed by a list of symbolic types in angle brackets. 
 ```{code-block} cpp
-:linenos:
 template <typename R, typename T, typename Q>
 ```
 This is the template header. The function can start on the following line or continue after the header.
@@ -32,13 +31,19 @@ This is the template header. The function can start on the following line or con
 The identifier `T` is a placeholder for a generic type.  Wherever you would normally place a type name in a function definition, we can now use `T`. If the same type would be specified more than once, then `T` is just repeated. If a second or third type are required, then additional generic type names are required.
 `T` is traditional in text books, but an identifier may be used, e.g.
 ```{code-block} cpp
-:linenos:
 template <typename FirstType, typename SecondType, typename AnotherType>
 ```
 The actual type required is determined by the compiler and used when the function is called. We can also use T& to pass  by reference etc..
 First example code
-```{code-block} cpp
+``````{code_example-start} Function Template Example
+:label: exampleAC1
+:class: dropdown
+:nonumber:
+``````
+An example of virtual member functions:
+`````{code-cell} c++
 :linenos:
+:tags: [remove-output, skip-execution]
 #include <iostream> 
 
 // The template function: 
@@ -52,7 +57,19 @@ int main() {
     myPrinter("String"); // Calls the template function using a string argument 
     return 0;
 }
-```
+`````
+
+`````{code_explanation} exampleAC1
+:label: explanationAC1
+:class: dropdown
+
+`````
+Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
+
+An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+``````{code_example-end} 
+``````
 Whenever we call the function, T is determined by the type of the argument passed to the function, and the function is executed with this value of the template parameter.
 
 Note: in older code, using older versions of the standard,  typename is replaced by class.
@@ -72,8 +89,15 @@ Example 2
 In this example we need to define a function that takes two arguments - but we expect one of those arguments to always be an integer, so we can explicitly define the second template parameter as an `int` - this is often referred to as a non-type template parameter, because what is being specified is a value, rather than a generic type, although it might be more accurate to state that the type is predefined.
 
 Uses a template parameter for the array type and an integer.
-```{code-block} cpp
+``````{code_example-start} Function Template Example
+:label: exampleAC2
+:class: dropdown
+:nonumber:
+``````
+An example of virtual member functions:
+`````{code-cell} c++
 :linenos:
+:tags: [remove-output, skip-execution]
 template<typename T> void myPrinter1(T* arrayName, int n) {
 	std::cout << "Type of T is: " << typeid(T).name() << '\n';
 	for (int i = 0; i < n; i++) {
@@ -97,10 +121,29 @@ myPrinter2(myArray1);
 myPrinter2(myArray2);
 return 0;
 }
-```
+`````
 
-```{code-block} cpp
+`````{code_explanation} exampleAC2
+:label: explanationAC2
+:class: dropdown
+
+`````
+Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
+
+An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+``````{code_example-end} 
+``````
+
+``````{code_example-start} Function Template Example
+:label: exampleAC3
+:class: dropdown
+:nonumber:
+``````
+An example of virtual member functions:
+`````{code-cell} c++
 :linenos:
+:tags: [remove-output, skip-execution]
 #include <iostream> 
 // This template function prints an array
 template<typename T1> void myPrinter2(T1* m, int n) {
@@ -134,7 +177,19 @@ int main() {
     bubbleSort(myArray2, 7);
     return 0;
 }
-```
+`````
+
+`````{code_explanation} exampleAC3
+:label: explanationAC3
+:class: dropdown
+
+`````
+Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
+
+An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+``````{code_example-end} 
+``````
 We pass simple arrays to functions as pointers to the first element, so everything we say about pointers applies to arrays.
 
 The first argument/parameter is of type T*, i.e. the argument will be a pointer to a an unspecified type that is "hidden" behind T. It is the type of the array/pointer that is generic, the first argument cannot be other than a pointer. 
@@ -147,8 +202,15 @@ In this template example, myArray stands for an array, whose elements are of typ
 
 A template function can have several template parameters.
 Example 3. 
-```{code-block} cpp
+``````{code_example-start} Function Template Example
+:label: exampleAC4
+:class: dropdown
+:nonumber:
+``````
+An example of virtual member functions:
+`````{code-cell} c++
 :linenos:
+:tags: [remove-output, skip-execution]
 #include <iostream> 
 // A template function with two parameters, one function and one argument for that function 
 template<typename T1, typename T2> T2 callFunctionWithValue(T2(*aFunction)(T1), T1 argumentForFunction) {
@@ -175,15 +237,34 @@ int main() {
     std::cout << callFunctionWithValue(mySecondFunction, 10) << '\n';
     return 0;
 }
-```
+`````
+
+`````{code_explanation} exampleAC4
+:label: explanationAC4
+:class: dropdown
+
+`````
+Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
+
+An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+``````{code_example-end} 
+``````
 By using a Template function, the types of the signatures of the functions passed to it do not need to be specified.
 
 Note: if only one template parameter had been called – then the types for each instance would need to be the same.
 
 ## Overloading Template Functions 
 Several template functions may be created with the same identifier. For example we could have a function called myPrinter() that takes one argument in one version but takes two arguments in a second version.
-```{code-block} cpp
+``````{code_example-start} Function Template Example
+:label: exampleAC5
+:class: dropdown
+:nonumber:
+``````
+An example of virtual member functions:
+`````{code-cell} c++
 :linenos:
+:tags: [remove-output, skip-execution]
 #include <iostream> 
 // The version of the template function with one argument
 template<typename T> void myPrinter(T x) {
@@ -206,7 +287,19 @@ int main() {
 	myPrinter('C', 'D');
 	return 0;
 }
-```
+`````
+
+`````{code_explanation} exampleAC5
+:label: explanationAC5
+:class: dropdown
+
+`````
+Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
+
+An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+``````{code_example-end} 
+``````
 Note how the second version has two template parameters.
 
 ## Instantiation
@@ -232,10 +325,15 @@ Making template parameters more specific i.e. less generic, to increase safety.
 C++14 provides a mechanism for vastly improved checking of template inter faces. For example, in C++11 we write template class vector { // . . . }; // for all types T We cannot precisely state what is expected of an argument type T. The standard says what these requirements are, but only in English, rather than in code that the compiler can understand. We call a set of requirements on a template argument a concept. A template argument must meet the requirements, the concepts, of the template to which it is applied. For example, a vector requires that its elements can be copied or moved, can have their address taken, and be default constructed (if needed). In other words, an element must meet a set of requirements, which we could call Element. In C++14, we can make that explicit: template requires Element() class vector { // . . . }; // for all types T // such that T is an Elemen
 
 ## Practice
-Practice Example 1.
+``````{code_example-start} Practice Example 1
+:label: exampleAC6
+:class: dropdown
+:nonumber:
+``````
 Create a family of functions to compare two values, of char, int, float, and double types, and then return the larger value. Then replace the family of functions with a single template function.
-```{code-block} cpp
+`````{code-cell} c++
 :linenos:
+:tags: [remove-output, skip-execution]
 #include <iostream>
 char greater (char first, char second) {
 	if (first > second) {
@@ -268,7 +366,19 @@ std::cout << "The greater of 3.14 and sqrt(10): " << greater(3.14, sqrt(10)) << 
 std::cout << "The greater of 9.100f and 9.11f: " << greater(9.100f , 9.11f) << '\n';
 return 0;
 }
-```
+`````
+
+`````{code_explanation} exampleAC6
+:label: explanationAC6
+:class: dropdown
+
+`````
+Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
+
+An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+``````{code_example-end} 
+``````
 ```{code-block} cpp
 :linenos:
 template<typename T> T greater (T first, T second) {
@@ -290,10 +400,16 @@ return 0;
 Obviously this will have limited usefulness – the type in angle brackets tells the compiler to produce the concrete version of the function that uses two doubles – this only works if the supplied values can by converted during the call.
 
 
-Example 2
+
+``````{code_example-start} Practice Example 2
+:label: exampleAC7
+:class: dropdown
+:nonumber:
+``````
 Write a generic function that will swap two values passed by reference.
-```{code-block} cpp
+`````{code-cell} c++
 :linenos:
+:tags: [remove-output, skip-execution]
 #include <iostream>
 #include <string>
 
@@ -320,7 +436,19 @@ int main() {
 	std::cout << "we get: " << myFirstString << " and " << mySecondString << ". \n";
 	return 0;
 }
-```
+`````
+
+`````{code_explanation} exampleAC7
+:label: explanationAC72
+:class: dropdown
+
+`````
+Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
+
+An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+``````{code_example-end} 
+``````
 
 ## Class Templates
 
@@ -336,3 +464,5 @@ class DerivedClass : T {
 };
 ```
 A deriving class can't inherit from multiple base classes if those base classes have constructors that have an identical signature.
+
+

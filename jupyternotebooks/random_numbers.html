@@ -69,7 +69,9 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\random_numbers.283e9029-6942-47c6-9e35-2b4a75f8cc9d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\random_numbers.4a71d303-864a-4264-bee6-4c0f0d72b74e.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/random_numbers';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -507,7 +509,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -523,6 +527,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rand">rand()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#srand">srand()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions">Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -534,6 +549,251 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="random-numbers">
 <span id="id1"></span><h1>Random Numbers<a class="headerlink" href="#random-numbers" title="Permalink to this heading">#</a></h1>
+<p>Many physical phenomena are random e.g. radioactive decay, and others are most easily modelled by treating them as random e.g. Brownian motion - computational physics therefore requires random numbers. It is also often useful to test a program using random numbers - and random numbers can be used to generate distributions. Randomness is the real or apparent absence of any definite patterns or predictability in data/information. The property of randomness is most often used in statistics to signify well-defined statistical properties. Monte Carlo methods rely on random inputs i.e. from a random number generator.</p>
+<p>There is a difference between true randomness and statistical randomness - in both cases the next number cannot be predicted - but in statistical randomness there may be a probability distribution of outcomes i.e. some numbers are more likely to occur than others.</p>
+<p>A numeric sequence is said to be statistically random when it contains no recognizable patterns or regularities, i.e. there is no way to predict what the next number will be, e.g. the digits of <span class="math notranslate nohighlight">\(\pi\)</span> exhibit statistical randomness, in particluar they exhibit a uniform distribution i.e. over a large interval, each of the 10 possible digits appears with equal likelihood.</p>
+<p>The German Federal Office for Information Security (The Bundesamt
+fur Sicherheit in der Informationstechnik, or BSI) has established
+criteria for a high quality PRNG:</p>
+<ol class="arabic simple">
+<li><p>A sequence of random numbers has a high probability of containing
+no identical consecutive elements;</p></li>
+<li><p>A sequence of numbers which is indistinguishable from ‘true random’
+numbers (tested using statistical tests); 3. It should be impossible to calculate, or guess, from any given sub-
+sequence, any previous or future values in the sequence;</p></li>
+<li><p>It should be impossible, for all practical purposes, for an attacker to
+calculate, or guess, the values used in the random number algorithm.
+Points 3 and 4 are crucial for many applications1</p></li>
+</ol>
+<p>Computers are very bad a generating random numbers - this is not difficult to understand - computers are only capable of following instructions - what ever algorithm you tell a computer to follow, it will repeated identically every time - so why would the output be different, let alone random? In fact we should expect the output of a computer program to be entirely predictable, barring user mistakes i.e. they are deterministic.</p>
+<p>The deterministic nature of all programs makes proper randomness impossible. The degree of randomness required for scientific computing applications, or gaming, is quite different to that required for cryptography.</p>
+<figure class="align-default" id="my-fig-ref">
+<img alt="images/Screenshot2026-01-09at13.34.45.png" src="images/Screenshot2026-01-09at13.34.45.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">No eightred.</span><a class="headerlink" href="#my-fig-ref" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In reality, computers generate pseudo-random numbers - a sequence of pseudo random numbers should approximate the properties of a sequence of random numbers.</p>
+<p>Pseudo-random number generators (PRNG) are algorithms that generate pseudo-random numbers.</p>
+<p>When a PRNG runs it produces the same sequence of digits every time, and eventually that sequence will be repeated. The number of digits in each cycle is called the period of PRNG - the higher the number the better e.g. The Mersenne Twister algorithm has a period of <span class="math notranslate nohighlight">\(2^{19937}-1\)</span>.</p>
+<p>Deterministic random number generation is not entirely useless, it may be desirable to reproduce calculations involving random numbers, but for cryptography it would be a disaster i.e. once the pattern is established, it becomes possible to predict the next number, facilitating decryption.</p>
+<p>To vary the numbers produced every time the PRNG runs, a seed value is used. The sequence produced for a specific seed value is always the same - and therefore still deterministic and reproducible if required.</p>
+<p>A PRNG takes an initial value, called the seed, and uses it to produce a sequence of numbers which are supposed to “look random”. The seed determines the sequence, so you can make the random number generation in a program reproducible by providing an explicit seed. If no seed is provided, a different one will be used each time the program runs.</p>
+<p>The quality of the deviates produced depends on the mathematical algorithms used</p>
+<p>Random number generators are not all equal - care must be take to test and verify the method used. Always use the algroithm that produces the longest period of randomness</p>
+<section id="rand">
+<h2>rand()<a class="headerlink" href="#rand" title="Permalink to this heading">#</a></h2>
+<p>An older implementation of a random number generator in C++ is the rand() function. rand() is not thread-safe, which is a modern problem - older computers had only one core.</p>
+<p>A call to rand() returns a pseudo-random integer value on [0 and RAND_MAX] - repeated calls generate the next number in the sequence generated by the algorithm.</p>
+</section>
+<section id="srand">
+<h2>srand()<a class="headerlink" href="#srand" title="Permalink to this heading">#</a></h2>
+<p>Seeds the pseudo-random number generator used by rand() with the value seed, which must be an integer.
+Defined in standard library as:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If rand() is used before any calls to srand(), rand() behaves as if it was seeded with</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Each time rand() is seeded with the same seed, it must produce the same sequence of values.</p>
+<p>Clearly then the key to producing a truly random number would be a random seed - but this just moves the problem along a step.</p>
+<p>A useful way to increase the randomness is to use time for the seed - obvioulsy running the program at the same time every day would generate the same result - but in most cases the starting time would itself be a random event.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;ctime&gt;</span></code> library is useful for this purpose and it is standard practice is to use the result of a call to time(0) as the seed. time() returns a time_t value, which is usually an integral type.</p>
+<p>Generally speaking, the pseudo-random number generator should only be seeded once, before any calls to rand(), and the start of the program. It should not be repeatedly seeded, or reseeded every time you wish to generate a new batch of pseudo-random numbers.</p>
+<p>For random number generation, there is an additional requirement - a sequence of random numbers must be uncorrelated, and therefore produce the correct distribution over time - which is a standard test.???</p>
+<p>To generate pseudorandomness - the random number generator must be separated from the program using the random numbers</p>
+<p>There are agreed statistical tests that determine the degree of randomness of a random number generator, which any good random number generators must be able to pass.</p>
+<p>The random number generators discussed so far generated uniform distribtutions of random numbers.</p>
+<p><a class="reference external" href="https://en.cppreference.com/w/cpp/header/random.html"><code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code></a></p>
+<p>The random header has many options, all of which are superior to rand() which is simpler to use but now deprecated - don’t use it after this lesson.</p>
+<p><a class="reference external" href="https://learn.microsoft.com/en-us/shows/goingnative-2013/rand-considered-harmful">Why <random> is better than rand().</a></p>
+<p>In C++ a class template designed to generate uniform random number sequences is referred to as an engine. The different generators being different engines with names.</p>
+<p>To create a non-uniform distribution the engine can be combined with a distribution to produce values distributed in the required manner according to the associated mathematical probability density function or discrete density function.
+Microsoft’s C++ website states “The most useful pairing for most applications is the mt19937 engine with uniform_int_distribution”.</p>
+<p>Both the engine and the distribution are function objects of the standard library facility <span class="math notranslate nohighlight">\(&lt;random&gt;\)</span>.
+To generate random numbers we first need to generate an instance of an engine.
+default_random_engine generates pseudo-random numbers - unless seeded with a non-deterministic value - and is usually the fastest option.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="n">default_random_engine</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span>
+<span class="linenos">2</span><span class="w">    </span><span class="n">default_random_engine</span><span class="w"> </span><span class="nf">myEngine2</span><span class="p">(</span><span class="n">mySeedValue</span><span class="p">);</span><span class="w"> </span><span class="c1">// int mySeedValue needs to exist!</span>
+<span class="linenos">3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myEngine</span><span class="p">();</span><span class="w"> </span><span class="c1">// call</span>
+</pre></div>
+</div>
+<p>Other options are:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">linear_congruential_engine</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">m</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myLCEngine</span><span class="p">;</span>
+<span class="linenos">2</span><span class="n">mersenne_twister_engine</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">f</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myMTEngine</span><span class="p">;</span>
+<span class="linenos">3</span><span class="n">subtract_with_carry_engine</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mySWCEngine</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You can find the value for the variables online.</p>
+<p>Although you can construct a generator from this engine directly, it is recommended you use one of these predefined typedefs:</p>
+<p>mt19937: 32-bit Mersenne twister engine (Matsumoto and Nishimura, 1998).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">mt19937</span><span class="w"> </span><span class="nf">myGenerator</span><span class="p">(</span><span class="mi">345</span><span class="p">);</span><span class="w">  </span><span class="c1">//Deterministic - integer seed required.</span>
+<span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span><span class="w">  </span><span class="c1">// non-deterministic generator</span>
+<span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">mt19937</span><span class="w"> </span><span class="nf">myGenerator2</span><span class="p">(</span><span class="n">myEngine</span><span class="p">());</span><span class="w">  </span><span class="c1">// to seed mersenne twister </span>
+</pre></div>
+</div>
+<p>The class random_device is defined in <random> and provides truly random number - the sequence produced is different every time - provided  provide t.</p>
+<p>random_device is intended for applications such as cryptography.
+std::random_device is a uniformly-distributed integer random number generator that produces non-deterministic random numbers.
+We create an instance of random_device as follows</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span>
+<span class="linenos">2</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine2</span><span class="w"> </span><span class="p">{</span><span class="n">myEntropySource</span><span class="p">};</span><span class="w"> </span><span class="c1">// Not needed, myEntropy Source is a String identifying a source of random numbers, such as a geiger counter</span>
+<span class="linenos">3</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myEngine</span><span class="p">.</span><span class="n">entropy</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">entropy()</span></code> member function return an estimate of the random number device entropy, which is a floating-point value between 0 and <span class="math notranslate nohighlight">\(log_2 (max()+1) (which is equal to `std::numeric_limits&lt;unsigned int&gt;::digits`). 
+If the device has n states whose individual probabilities are \)</span>P_0<span class="math notranslate nohighlight">\(,...,\)</span>P_{n-1}<span class="math notranslate nohighlight">\(, the device entropy S is defined as
+\)</span><span class="math notranslate nohighlight">\( S = −\Sigma^{n-1}_{i=0} P_{i}log(P_i)\)</span>$</p>
+<p>A deterministic random number generator (e.g. a pseudo-random engine) has entropy zero. <code class="docutils literal notranslate"><span class="pre">std::random_device</span></code> is a non-deterministic uniform random bit generator, although implementations are allowed to implement <code class="docutils literal notranslate"><span class="pre">std::random_device</span></code> using a pseudo-random number engine if there is no support for non-deterministic random number generation.</p>
+<p>This function is not fully implemented in some standard libraries. For example, LLVM libc++ prior to version 12 always returns zero even though the device is non-deterministic. In comparison, Microsoft Visual C++ implementation always returns 32, and boost.random returns 10.</p>
+</section>
+<section id="distributions">
+<h2>Distributions<a class="headerlink" href="#distributions" title="Permalink to this heading">#</a></h2>
+<p>A random number distribution is a function object that, when called with a random number generator argument, produces a sequence of values of its result type.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span><span class="w">  </span>
+<span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myUniformDistributionOfIntegers</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Default initialised (0, maximum integer)</span>
+<span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">uniform_real_distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myUniformDistributionOfDoubles</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Default initialised to {0,1}</span>
+</pre></div>
+</div>
+</section>
+<section id="normal-distribution">
+<h2>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\exp{(-\\frac{(x-\\mu)^2}{2\\sigma^2})}\end{split}\]</div>
+<p>with mean value <span class="math notranslate nohighlight">\(\\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\\sigma\)</span>. If <span class="math notranslate nohighlight">\(\\mu=0\)</span> and <span class="math notranslate nohighlight">\(\\sigma=1\)</span>, it is normally called the <strong>standard normal distribution</strong></p>
+<p>For a normal distribution:
+double mean = 50;
+double standardDeviation = 10;
+std::random_device myEngine;
+std::normal_distribution<double> myNormalDistribution{ mean, standardDeviation };</p>
+<p>To create an instance of a distribution:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>uniform_int_distribution&lt;int&gt; myDistributionName {low, high}; // [low:high], high&gt;low
+<span class="linenos">2</span>uniform_real_distribution&lt;double&gt; myDistributionName {low,high}; // $[low:high)$
+<span class="linenos">3</span>exponential_distribution&lt;double&gt; myDistributionName {lambda}; // value in $[0:$\inf$)$
+<span class="linenos">4</span>bernoulli_distribution myDistributionName {p} ; // [true:false]
+<span class="linenos">5</span>normal_distribution&lt;double&gt; myDistributionName {median,standard_deviation};  (-$\inf$:$\inf$)
+</pre></div>
+</div>
+<p>We can identify different types of random numbers.</p>
+<p>Advanced - we can use the standard library bind() function to make a function object that will invoke the first argument given its second argument.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">myGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind</span><span class="p">(</span><span class="n">normal_distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="mf">4.0</span><span class="p">},</span><span class="n">default_random_engine</span><span class="p">{});</span>
+<span class="linenos">2</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">500</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myGenerator</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Uniform Deviates
+Uniform deviates are random numbers that lie within a given range, most often [0.0, 1.0] for doubles and <span class="math notranslate nohighlight">\([0, 2^{32}]\)</span> or <span class="math notranslate nohighlight">\([0,2^{64}]\)</span> for integers. Uniform deviates exhibit a uniform probability distribution meaning that in the range every number is as likely to occur as any other.</p>
+<p>An alternative to uniform deviates are random numbers generated by a process that has a exhibits a normal (Gaussian) distribution, which has a mean value and standard deviation.</p>
+<p>These other sorts of deviates are almost always generated by performing appropriate operations on one or more uniform deviates, as we will see in subse-
+quent sections. So, a reliable source of random uniform deviates, the subject of this
+section, is an essential building block for any sort of stochastic modeling or Monte
+Carlo computer work.</p>
+<p>Deviate are</p>
+<p>Generation of Non Uniform Distributions</p>
+<p>Computer Generation of Random Variables Using the Ratio of Uniform Deviates
+The ratio-of-uniforms method for generating random variables having continuous nonuniform
+distributions is presented. In thin method a point is generated uniformly over a particular
+region of the plane. The ratio of the coordinate values of thin point yields a deviate with the
+desired distribution. Algorithms which utilize this techmque are generally short and often as
+fast as longer algorithms.</p>
+<p>Q1
+Use rand() and RAND_MAX to generate a sequence of random numbers - confirm the same sequence is always generated.
+Do not include any libraries except <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code>.
+Convert this program to use
+HINTS: rand() and RAND_MAX are available in the standard library.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The maximum number produced by rand() is RAND\_MAX = &quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Rand() generates a psudo-random value on [0 , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; ], for example: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Each time Rand() is called it generates the next number in a determinstic sequence, for example: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="c1">// roll a 6-sided die 20 times</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<span class="linenos">11</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">13</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Using srand() and <code class="docutils literal notranslate"><span class="pre">&lt;ctime&gt;</span></code> to generate different random number sequences.
+A. Write a program that requests a seed value from the user, and uses srand() to seed rand(), and produces a series of values from 1 to 6, being the outcomes of repeatedly rolling an unbiased die.
+B. Develop the program to use a call to time() to seed the random number generator.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 4</span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">seedValue</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Please input a seed value between 0 and RAND_MAX = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">seedValue</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">srand</span><span class="p">(</span><span class="n">seedValue</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Rand() generates a psudo-random value on [0 , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; ], for example: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Each time Rand() is called it generates the next number in a determinstic sequence, for example: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">13</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos">15</span><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">18</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctime&gt;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="c1">//std::cout &lt;&lt; time(0) &lt;&lt; &#39;\t&#39; &lt;&lt; typeid(time(0)).name() &lt;&lt; &#39;\t&#39; &lt;&lt; time(NULL) &lt;&lt; &#39;\t&#39; &lt;&lt; typeid(time(NULL)).name() &lt;&lt; &#39;\n&#39;;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Rand() generates a psudo-random value on [0 , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; ], that depends on the seed value: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; from the seed value &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Each time Rand() is called it generates the next number in a determinstic sequence, for example: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span>
+<span class="linenos">13</span><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<span class="linenos">14</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">16</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>A <strong>linear congruential random number generator</strong> produces a sequence of pseudo-random numbers by iterating the same equation.</p>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = (ax_{n}+c) \%m\]</div>
+<p>where x, a, c, and m are integers, and <span class="math notranslate nohighlight">\(x_0=1\)</span>.</p>
+<p>Notes: a is called the multiplier and should be positive. m is called the modulus and there are three families of values used, e.g. powers of 2. c is called the increment and must be non-negative; if <span class="math notranslate nohighlight">\(c &gt; 0\)</span>, the method/equation is called a linear congruential generator (LCG). When <span class="math notranslate nohighlight">\(c = 0\)</span>, it is sometimes called a multiplicative LCG or MLCG.</p>
+<p>Initially use <span class="math notranslate nohighlight">\(a = 1664525\)</span>, <span class="math notranslate nohighlight">\(c = 1013904223\)</span> and <span class="math notranslate nohighlight">\(m = 2^{32}=4294967296\)</span>, which are well tested set of values.</p>
+<p>The sequence produces values on <span class="math notranslate nohighlight">\([0,m-1]\)</span>, when a floord modulo function is used, and eventually repeats itself with a period that is limited by m. For a carefully chosen combination of m, a, and c, the period will be m.</p>
+<p>For more information and alternative values to try see: <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear_congruential_generator</a>
+A. Write a program to loop over the following equation and then plot the first 1000 values i.e. printed to terminal or file and transferred to excel or gnuplot.
+B. Which variable acts as the seed?
+C. Which type of modulo operation is used in C++? What effect has this had on the range of values produced?
+D. Change your program to use the floored version of modulo.
+E.  What happens if both c and m are even numbers? Explain why that is a problem.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctime&gt;</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 4</span><span class="w">	</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 5</span><span class="w">	</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1664525</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">	</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1013904223</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">	</span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4294967296</span>
+<span class="linenos"> 8</span><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">		</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">floor</span><span class="p">((</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w"> </span><span class="c1">//floored remainder operation</span>
+<span class="linenos">10</span><span class="w">		</span><span class="c1">//x = (unsigned)(a * x + c) % m; // truncating</span>
+<span class="linenos">11</span><span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">        </span><span class="c1">//std::cout &lt;&lt; (double)x/(m-1) &lt;&lt; &#39;\n&#39;;</span>
+<span class="linenos">13</span><span class="w">	</span><span class="p">}</span>
+<span class="linenos">14</span><span class="w">	</span><span class="cm">/*for (int i = 0; i &lt; 1000; ++i) {</span>
+<span class="linenos">15</span><span class="cm">		x = (unsigned)(a * x + c) % m;</span>
+<span class="linenos">16</span><span class="cm">		std::cout &lt;&lt; x &lt;&lt; &#39;\n&#39;;</span>
+<span class="linenos">17</span><span class="cm">	}*/</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">20</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -590,6 +850,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rand">rand()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#srand">srand()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions">Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
