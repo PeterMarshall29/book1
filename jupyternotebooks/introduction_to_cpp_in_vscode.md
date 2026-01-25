@@ -33,7 +33,7 @@ Select Create a new project.
 Under All Languages, choose c++.
 ```{figure} ../images/image1.png
 :name: my-fig-ref
-My figure title.
+Starting a New Project.
 ```
 Select “empty project”.
 Keep the work project at the start – to distinguish form others options and then give the project a title that includes your name and today’s date.
@@ -41,7 +41,7 @@ Keep the work project at the start – to distinguish form others options and th
 ProjectWeek1WorkName03FEB25
 ```{figure} ../images/image2.png
 :name: my-fig-ref2
-My figure title.
+Selecting the Correct Project Type.
 ```
 Right-click on Source Files and choose “Add” and then “New Module”.
 Copy the path shown for later.

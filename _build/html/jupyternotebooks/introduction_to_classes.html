@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.f9a4f7da-8263-4d87-8da5-a4a4e56f7a8f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.25087013-b745-460e-b675-952357c30702.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_classes';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -530,19 +530,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-specifiers">Access Specifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessor-functions">Accessor Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-member-functions">Inline Member Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-member-functions">Fundamental Member Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">Constructors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#member-intialiser-lists">Member Intialiser Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#member-initialiser-lists">Member Initialiser Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-constructors">Default Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-default-constructors">Implicit Default Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-data-members">Static Data Members</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-constructors">Copy Constructors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-copying">Default Copying</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-member-functions">Special Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-copying">Default Copying</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructors">Destructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-classes">Using Classes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functor">Functor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-objects-functors">Function Objects - Functors</a></li>
 </ul>
             </nav>
         </div>
@@ -556,89 +557,153 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="classes-in-c">
 <span id="classes"></span><h1>Classes in C++<a class="headerlink" href="#classes-in-c" title="Permalink to this heading">#</a></h1>
-<p>A class is a user-defined type, consisting of a set of members. The most common members are “data members” (variables) and “member functions”, followed by operators and some other language features.</p>
-<p>Member functions can define the meaning of initialization (creation), copy, move, and cleanup (destruction).
-Members are accessed using . (dot) for objects and <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> (arrow) for pointers.
-Operators, such as <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">!</span></code>, and <code class="docutils literal notranslate"><span class="pre">[]</span></code>, can be defined for a class.</p>
-<p>A class is a namespace containing its members.</p>
-<p>Every class is divide into two parts - the interface and the implementation. The public members provide the class’s interface, and the private members provide implementation details.</p>
-<p>A struct is a class where members are by default public.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword declares a class or defines an object of class type</p>
-<p>An instance of a class is created by</p>
-<p>Instances of classes are referred to as objects - hence object-oriented programming primarily refers to the use of classes.</p>
-<p>Basic classes are almost the same as structs that we covered last term.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 2</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
-<span class="linenos"> 3</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
-<span class="linenos"> 4</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
-<span class="linenos"> 5</span><span class="k">public</span><span class="o">:</span>
-<span class="linenos"> 6</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">yy</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialize</span>
-<span class="linenos"> 7</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_year</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// add n years</span>
-<span class="linenos"> 8</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_month</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// add n months</span>
-<span class="linenos"> 9</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_day</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// add n days</span>
-<span class="linenos">10</span><span class="p">};</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword declares a class or defines an object of class type. A class is a user-defined type, consisting of a set of members, and each class is a new namespace containing its members.</p>
+<p>The most common members are “data members” (variables) and “member functions”, followed by operators and some other language features.</p>
+<p>An instance of a class is created in the same way as an instance of a <code class="docutils literal notranslate"><span class="pre">double</span></code> or an <code class="docutils literal notranslate"><span class="pre">int</span></code> and new instances of classes are referred to as objects - hence object-oriented programming primarily refers to the use of instances of classes.</p>
+<p>Every class is divided into two parts, members are designated as <code class="docutils literal notranslate"><span class="pre">private</span></code> (by default if unspecified) and <code class="docutils literal notranslate"><span class="pre">public</span></code>. The public members provide the class’s interface, and the private members provide implementation details.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">struct</span></code> is a <code class="docutils literal notranslate"><span class="pre">class</span></code> where all members are public by default - so you already know a lot about creating and working with classes. The notes used to introduce <code class="docutils literal notranslate"><span class="pre">struct</span></code>s last semester have been added to a page on this web resource.</p>
+<p>Member functions can access the data members and are the only functions that can access private data members - all the functionality and behaviour of the new type is defined by its member functions, which includes defining initialization (creation), copy and move, and destruction (cleanup = freeing no longer required memory/storage).</p>
+<p>Members are accessed using . (dot) for objects and <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> (arrow) for pointers. Operators, such as <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">!</span></code>, and <code class="docutils literal notranslate"><span class="pre">[]</span></code>, can be defined for a class.</p>
+<div class="code_example dropdown admonition" id="exampleZ1">
+
+<p class="admonition-title">Code Example: Basic Class Example </p>
+<section id="code_example-content">
+<p>A standard example of a simple class:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="linenos">3</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="linenos">4</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="linenos">5</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">6</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialiser</span>
+<span class="linenos">7</span><span class="p">};</span>
 </pre></div>
 </div>
 <p>This is equivalent to:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 2</span><span class="w">  </span><span class="k">public</span><span class="o">:</span>
-<span class="linenos"> 3</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mm</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">yy</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialize</span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_year</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">);</span><span class="w"> </span><span class="c1">// add number as years</span>
-<span class="linenos"> 5</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_month</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">);</span><span class="w"> </span><span class="c1">// add number as months</span>
-<span class="linenos"> 6</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">add_day</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">);</span><span class="w"> </span><span class="c1">// add number as days</span>
-<span class="linenos"> 7</span><span class="w">  </span><span class="k">private</span><span class="o">:</span>
-<span class="linenos"> 8</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
-<span class="linenos"> 9</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
-<span class="linenos">10</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
-<span class="linenos">11</span><span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">3</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialiser</span>
+<span class="linenos">4</span><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="linenos">5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="linenos">6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="linenos">7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="linenos">8</span><span class="p">};</span>
 </pre></div>
 </div>
-<p>Members are private by default - so anything before the private <code class="docutils literal notranslate"><span class="pre">public</span></code> keyword is autoatically <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">private</span></code>, <code class="docutils literal notranslate"><span class="pre">public</span></code>, and <code class="docutils literal notranslate"><span class="pre">protected</span></code> (covered in later section) are called <strong>access specifiers</strong>.</p>
-<p>The key points to remember are that:</p>
-<ul class="simple">
-<li><p>Private data members may not be initialisd by assignment - a constructor or member-initisation-function is required</p></li>
-<li><p>Non-member function may not access private members of a class.</p></li>
-<li><p>Private data members may not be access by index notation.</p></li>
-</ul>
-<p>When the <code class="docutils literal notranslate"><span class="pre">private</span></code> keyword is also used, the order of the public and private members does not matter, and it is sometimes useful to lead with the public member functions, just to add emphasis to their role as interface to the class. The ‘private’ and ‘public’ keywords may be used more than once each, for a large class this might be helpful, but should generally be avoided because to reduce potential confusion.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialize</span>
-<span class="w">    </span><span class="c1">//int output_day();</span>
-<span class="k">private</span><span class="o">:</span>
+<p>Try: run this code - uncomment one line at a time.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialize</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">output_day</span><span class="p">();</span>
 <span class="p">};</span>
-
 <span class="kt">void</span><span class="w"> </span><span class="nf">Date::init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_year</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="c1">//int Date::output_day() { return day;}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">Date::output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;}</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
-<span class="w">    </span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//today.day = 1;</span>
 <span class="w">    </span><span class="c1">//today.init_date(01, 01, 2026);</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//std::cout &lt;&lt; today.day;</span>
 <span class="w">    </span><span class="c1">//std::cout &lt;&lt; today.output_day();</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Notes: initialisation and access cannot be acheived using dot notation to any private members.
-Just to print out the private members - access requires an additional function to return the value.</p>
-<p>Note that the order of declaration of <code class="docutils literal notranslate"><span class="pre">output_day</span></code> and <code class="docutils literal notranslate"><span class="pre">day</span></code> is irrelevant, because its the defined values in the instance that are important.
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationZ1">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleZ1"> Code Example: Basic Class Example </a></p>
+<section id="code_explanation-content">
+<p>The name of the class becomes a new type. Declaring an instance of that type creates an instance of the class, often called an object.</p>
+<p>To create an instance of date we need to declare it - to use that instance we need to have initialised it.</p>
+<p>Because the data members are default private - there is no way to access them, to initialise, read, or change the values stored.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">init_data()</span></code> is a member function and can therefore access the private data members - this process is usually handled by a <code class="docutils literal notranslate"><span class="pre">constructor()</span></code>; here we use <code class="docutils literal notranslate"><span class="pre">init_data()</span></code> just as a simple example.</p>
+<p>To access private data members must include specific member functions for any type of access - these are collectively called <strong>accessor functions</strong> - see next section.</p>
+<p>Note the use of the namespace resolution operator <code class="docutils literal notranslate"><span class="pre">::</span></code> to define the member function outside of the class.</p>
+</section>
+</div>
+</section>
+</div><section id="access-specifiers">
+<h2>Access Specifiers<a class="headerlink" href="#access-specifiers" title="Permalink to this heading">#</a></h2>
+<p>Members are private by default - so anything before the private <code class="docutils literal notranslate"><span class="pre">public</span></code> keyword is automatically <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">private</span></code>, <code class="docutils literal notranslate"><span class="pre">public</span></code>, and <code class="docutils literal notranslate"><span class="pre">protected</span></code> (covered in later section) are called <strong>access specifiers</strong>.</p>
+<p>The key points to remember are that:</p>
+<ul class="simple">
+<li><p>Private data members may not be initialised by assignment - a constructor or member-initialisation-function is required</p></li>
+<li><p>Non-member function may not access private members of a class.</p></li>
+<li><p>Private data members may not be access by index notation.</p></li>
+</ul>
+<p>When the <code class="docutils literal notranslate"><span class="pre">private</span></code> keyword is also used, the order of the public and private members does not matter, and it is sometimes useful to lead with the public member functions, just to add emphasis to their role as interface to the class. The ‘private’ and ‘public’ keywords may be used more than once each, for a large class this might be helpful, but should generally be avoided because to reduce potential confusion.</p>
+</section>
+<section id="accessor-functions">
+<h2>Accessor Functions<a class="headerlink" href="#accessor-functions" title="Permalink to this heading">#</a></h2>
+<p>Classes require additional <code class="docutils literal notranslate"><span class="pre">public</span></code> member functions because the data members are <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
+<p>Initialisation and access cannot be achieved using dot notation to any private members. Just to print out the private members’ values requires an additional function to return the value.</p>
+<p>Functions written for the purpose of changing (setting) or retrieving (getting) the values of the data members are often called <strong>setters</strong> and <strong>getters</strong></p>
+<p>Note that the order of declaration of <code class="docutils literal notranslate"><span class="pre">output_day</span></code> and <code class="docutils literal notranslate"><span class="pre">day</span></code> is irrelevant, because it’s the defined values in the instance that are important.
 Try - comment out the init statement and try to print out the value of day.</p>
 <p>Accessor functions are often just called <code class="docutils literal notranslate"><span class="pre">getName()</span></code>, where <code class="docutils literal notranslate"><span class="pre">name</span></code> is the private data member being accessed.</p>
+<div class="code_example dropdown admonition" id="exampleZ2">
+
+<p class="admonition-title">Code Example: Accessing Private Data Members </p>
+<section id="code_example-content">
+<p>Examples of accessor functions.</p>
+<p>Try: run this code.</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set_day</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_day</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set_month</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_month</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_month</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set_year</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">new_year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_year</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_month</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">month</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_year</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">year</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
+<span class="w">    </span><span class="n">today</span><span class="p">.</span><span class="n">set_day</span><span class="p">(</span><span class="mi">27</span><span class="p">);</span>
+<span class="w">    </span><span class="n">today</span><span class="p">.</span><span class="n">set_month</span><span class="p">(</span><span class="mo">02</span><span class="p">);</span>
+<span class="w">    </span><span class="n">today</span><span class="p">.</span><span class="n">set_year</span><span class="p">(</span><span class="mi">2002</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The date is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">get_day</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">get_month</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">get_year</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationZ2">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleZ2"> Code Example: Accessing Private Data Members </a></p>
+<section id="code_explanation-content">
+</section>
+</div>
+<p>Setters are only required if the data members will be altered after initialisation - often classes only have constructors.</p>
+<p>An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.</p>
+</section>
+</div></section>
 <section id="inline-member-functions">
 <h2>Inline Member Functions<a class="headerlink" href="#inline-member-functions" title="Permalink to this heading">#</a></h2>
-<p>The member functions above could have been defined in place of the declaration line - which has advantages and disadvantages.</p>
-<p>Any memeber function defined within the class declaration become an <strong>inline</strong> member functions. This should only be done with small, frequently used, and rarely modified functions.</p>
-<p><strong>inline</strong> functions are compiled such that their code is repeated at the point of call, rather than code being added for the function call mechanism so that the code runs at the point of call. Depending on what the function actually does, inlining can improve performance, a compiler could even replace the function with the value it would have obtained provided that value can be computed at compile time, whereas a normal function would always wait and run during the program execution. Adding <code class="docutils literal notranslate"><span class="pre">inline</span></code> at the beginning of a function definition does nothing else, and is ignore if not suitable under the circumstances.</p>
+<p>The accessor member functions have been defined in place of the declaration line - which has advantages and disadvantages.</p>
+<p>Any member function defined within the class declaration becomes an <strong>inline</strong> member functions. This should only be done with small, frequently used, and rarely modified functions.</p>
+<p><strong>inline</strong> functions are compiled such that their code is repeated at the point of call, rather than code being added for the function call mechanism so that the code runs at the point of call. Depending on what the function does, inlining can improve performance, a compiler could even replace the function with the value it would have obtained if value can be computed at compile time, whereas a normal function would always wait and run during the program execution. Adding <code class="docutils literal notranslate"><span class="pre">inline</span></code> at the beginning of a function definition does nothing else and is ignore if not suitable under the circumstances.</p>
 <p>Any member function can be declared as inline by adding the <code class="docutils literal notranslate"><span class="pre">inline</span></code> keyword to its definition outside of the class definition, which retains the separation of declaration and definition that is preferred for classes, separating interface and implementation.</p>
-<p>inline int Date::output_day() { return day; }</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Date::output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="fundamental-member-functions">
 <h2>Fundamental Member Functions<a class="headerlink" href="#fundamental-member-functions" title="Permalink to this heading">#</a></h2>
@@ -650,90 +715,126 @@ Try - comment out the init statement and try to print out the value of day.</p>
 </section>
 <section id="constructors">
 <h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this heading">#</a></h2>
-<p>The correct approach to initialisation of an instance of a class is via a constuctor; the other option is member function that serves the same purpose, which is pointless for classes and increase the danger of an object being left unitialised.</p>
+<p>The correct approach to initialisation of an instance of a class is via a constructor; the alternative is another member function that serves the same purpose, which is pointless for classes and increases the danger of an object being left uninitialised.</p>
 <p>When a class has a constructor, all objects of that class will be initialized by a constructor call. If the constructor requires arguments, these arguments must be supplied. Calling the constructor creates the instance of the class.</p>
-<p>Constructors are member functions that have the same name as their class, and return nothing (including void). The constructor can be defined inside the class declaration or separately.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
-<span class="linenos"> 3</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// Constructor - parameter names can be ommited</span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">output_day</span><span class="p">();</span>
-<span class="linenos"> 5</span><span class="k">private</span><span class="o">:</span>
-<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
-<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
-<span class="linenos"> 8</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
-<span class="linenos"> 9</span><span class="p">};</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_year</span><span class="p">;</span>
-<span class="linenos">13</span><span class="p">};</span>
-<span class="linenos">14</span><span class="kt">int</span><span class="w"> </span><span class="nf">Date::output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="linenos">17</span><span class="w">    </span><span class="c1">//Date today;//Error - constructor declared - must be used.</span>
-<span class="linenos">18</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span>
-<span class="linenos">19</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">birthday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="p">{</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1973</span><span class="w"> </span><span class="p">};</span>
-<span class="linenos">20</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">StStephensDay</span><span class="p">{</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// abbreviated form</span>
-<span class="linenos">21</span><span class="w">    </span><span class="c1">//Date someOnes_birthday; //error : initializer missing</span>
-<span class="linenos">22</span><span class="w">    </span><span class="c1">//Date NewtonMas{ 25, 12 }; // error : third argument missing</span>
-<span class="linenos">23</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">output_day</span><span class="p">();</span>
-<span class="linenos">24</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">25</span><span class="p">}</span>
+<p>Constructors are member functions that have the same name as their class and return nothing (including void). The constructor can be defined inside the class declaration or separately.</p>
+<div class="code_example dropdown admonition" id="exampleZ3">
+
+<p class="admonition-title">Code Example: Constructors </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// Constructor - parameter names can be ommited</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printDate</span><span class="p">();</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_year</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Date::printDate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The date is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//Date today;//Error - constructor declared - must be used.</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">birthday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="p">{</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1973</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">StStephensDay</span><span class="p">{</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// abbreviated form</span>
+<span class="w">    </span><span class="c1">//Date someOnes_birthday; //error : initializer missing</span>
+<span class="w">    </span><span class="c1">//Date NewtonMas{ 25, 12 }; // error : third argument missing</span>
+<span class="w">    </span><span class="n">today</span><span class="p">.</span><span class="n">printDate</span><span class="p">();</span>
+<span class="w">    </span><span class="n">birthday</span><span class="p">.</span><span class="n">printDate</span><span class="p">();</span>
+<span class="w">    </span><span class="n">StStephensDay</span><span class="p">.</span><span class="n">printDate</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationZ3">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleZ3"> Code Example: Constructors </a></p>
+<section id="code_explanation-content">
+<p>Setters are only required if the data members will be altered after initialisation - often classes only have constructors.</p>
+<p>An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.</p>
+</section>
 </div>
 </section>
-<section id="member-intialiser-lists">
-<h2>Member Intialiser Lists<a class="headerlink" href="#member-intialiser-lists" title="Permalink to this heading">#</a></h2>
-<p>The preferred way to write a contstuctor is to add include a <code class="docutils literal notranslate"><span class="pre">term</span></code>{member intialiser list}, which initialise class data members before the body of the constuctor is evaluated.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
-<span class="linenos">2</span><span class="w">    </span><span class="n">day</span><span class="p">(</span><span class="n">init_day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">init_month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</div></section>
+<section id="member-initialiser-lists">
+<h2>Member Initialiser Lists<a class="headerlink" href="#member-initialiser-lists" title="Permalink to this heading">#</a></h2>
+<p>The preferred way to write a constructor is to include a <span class="xref std std-term">member initialiser list</span>, which initialise class data members before the body of the constructor is evaluated. The body of the constructor then has the advantage of access to initialised data members.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">day</span><span class="p">(</span><span class="n">init_day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">init_month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
 </div>
-<p>The body of the constructor then has the advantage of access to initalised data members.</p>
 <p>There are some situations where the constructor must have a <strong>member initialiser list</strong>.</p>
 <ul class="simple">
-<li><p>Initialisation of non-static const data members</p></li>
-<li><p>Initialisation of reference type data members</p></li>
+<li><p>Initialisation of non-static <code class="docutils literal notranslate"><span class="pre">const</span></code> data members.</p></li>
+<li><p>Initialisation of reference type data members.</p></li>
 <li><p>Initialisation of member objects that do not have a default constructor, i.e. when one class has members that are instances of another class.</p></li>
-<li><p>Initialisation of base class memebers</p></li>
+<li><p>Initialisation of base class members.</p></li>
 </ul>
-<p>A non-essentials use of the member initialiser list is when you really really want to use the same identifier for the parameter’s names as the data member’s names.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
-<span class="linenos"> 3</span><span class="w">    </span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">);</span><span class="w"> </span><span class="c1">// Constructor - parameter names can be ommited</span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">output_day</span><span class="p">();</span>
-<span class="linenos"> 5</span><span class="k">private</span><span class="o">:</span>
-<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
-<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
-<span class="linenos"> 8</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
-<span class="linenos"> 9</span><span class="p">};</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">day</span><span class="p">(</span><span class="n">day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span><span class="kt">int</span><span class="w"> </span><span class="n">Date</span><span class="o">::</span><span class="n">output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">17</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span>
-<span class="linenos">18</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">output_day</span><span class="p">();</span>
-<span class="linenos">19</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">20</span><span class="p">}</span>
+<p>A non-essential use of the member initialiser list is when you really want to use the same identifier for the parameter’s names as the data member’s names - using different names keeps the code simpler.</p>
+<div class="code_example dropdown admonition" id="exampleZ4">
+
+<p class="admonition-title">Code Example: Member Initialiser Lists </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">);</span><span class="w"> </span><span class="c1">// Constructor - parameter names can be omitted</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">output_day</span><span class="p">();</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">day</span><span class="p">(</span><span class="n">day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">Date</span><span class="o">::</span><span class="n">output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">output_day</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>An alternative would be use to use the <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer.</p>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationZ4">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleZ4"> Code Example: Member Initialiser Lists </a></p>
+<section id="code_explanation-content">
+<p>An alternative would be to use the <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer. <code class="docutils literal notranslate"><span class="pre">this</span></code> is a pointer to the instance to which the accessed member functions and data members belong.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">2</span><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">).</span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
 <span class="linenos">3</span><span class="p">};</span>
 </pre></div>
 </div>
+<p>Recall <code class="docutils literal notranslate"><span class="pre">this-&gt;</span></code> is identical to <code class="docutils literal notranslate"><span class="pre">(*this).</span></code> - the parens are required syntactically because the asterisk is overloaded.</p>
 <p>Note: repeated identifiers gets confusing!</p>
 </section>
+</div>
+</section>
+</div></section>
 <section id="default-constructors">
 <h2>Default Constructors<a class="headerlink" href="#default-constructors" title="Permalink to this heading">#</a></h2>
-<p>A Default constructor usually has no parameters. Compilers generate default constructors that take no arguments but only when no other constuctor has been declared.</p>
-<p>Once any constructor is declared, an implicit default constuctor is no longer produced by the compiler and if the user defined constructoryou have not declared any other constructor.</p>
-<p>If you have declared only a constructor that takes parameters, code that attempts to call a default constructor causes the compiler to produce an error message. An explicit default constuctor can be added - overload of constructor.</p>
-<p>The compiler-generated default constructor performs simple member-wise default initialization of the objectl, but default initialization member with an indeterminate state.</p>
-<p>It is bad practice to have a default constuctor for data members without default values - constuction would leave members uninitialised and lead to unexpected results.</p>
+<p>A Default constructor usually has no parameters. Compilers generate default constructors that take no arguments but only when no other constructor has been declared.</p>
+<p>Once any constructor is declared, an implicit default constructor is no longer produced by the compiler.</p>
+<p>If you have declared only a constructor that takes parameters, code that attempts to call a default constructor causes the compiler to produce an error message. An explicit default constructor can be added - an overload of the constructor.</p>
+<p>The compiler-generated default constructor performs simple member-wise default initialization of the object, but default initialisation may leave members with an indeterminate state.</p>
+<p>It is bad practice to have a default constructor for data members without default values - construction would leave members uninitialised and lead to unexpected results.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="p">();</span><span class="w"> </span><span class="c1">// Default Constructor Declaration - no parameter list</span>
 <span class="linenos">2</span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">day</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="mi">2001</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//Default Constructor Definition with Default Values</span>
 </pre></div>
@@ -742,33 +843,94 @@ Try - comment out the init statement and try to print out the value of day.</p>
 <section id="implicit-default-constructors">
 <h2>Implicit Default Constructors<a class="headerlink" href="#implicit-default-constructors" title="Permalink to this heading">#</a></h2>
 <p>If no constructors are declared then the compiler will create an implicit inline default constructor, which will produce garbage if there are no default values available i.e. data members initialised in unpredictable states.</p>
-<p>If the implicit default constructor is relied upon, then the data member should be initialised inside the class definition.</p>
+<p>If the implicit default constructor is relied upon, then the data member should be initialised inside the class definition, either to a value, or zero-initialised by an empty initialiser list. See the notes on initialisation from week 1.</p>
+<div class="code_example dropdown admonition" id="exampleZ5">
+
+<p class="admonition-title">Code Example: Implicit Default Constructors </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try the following 3 codes. The first two are acceptable…</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
-<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">output_day</span><span class="p">();</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 <span class="linenos"> 4</span><span class="k">private</span><span class="o">:</span>
 <span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span>
 <span class="linenos"> 8</span><span class="p">};</span>
-<span class="linenos"> 9</span><span class="kt">int</span><span class="w"> </span><span class="nf">Date::output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
-<span class="linenos">13</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">output_day</span><span class="p">();</span>
-<span class="linenos">14</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">15</span><span class="p">}</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">get_day</span><span class="p">();</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>The compiler defined default constuctor should be called without empty parens; otherwise the compiler will expect the default contructor to have been overloaded and throw an error.
-A user define</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="w"> </span><span class="nf">date1</span><span class="p">();</span><span class="w"> </span><span class="c1">//Error - sometimes</span>
-<span class="linenos">2</span><span class="n">Date</span><span class="w"> </span><span class="n">date2</span><span class="p">;</span><span class="w"> </span><span class="c1">//ok default values used</span>
-<span class="linenos">3</span><span class="n">Date</span><span class="w"> </span><span class="n">date3</span><span class="p">{};</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">used</span>
+<p>or</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 4</span><span class="k">private</span><span class="o">:</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="p">{};</span>
+<span class="linenos"> 8</span><span class="p">};</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">get_day</span><span class="p">();</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>To prevent the compilier generating a default constructor we can define it as <strong>deleted</strong>.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<p>But this one produces garbage…</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 4</span><span class="k">private</span><span class="o">:</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="p">};</span>
+<span class="linenos"> 9</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">get_day</span><span class="p">();</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">13</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationZ5">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleZ5"> Code Example: Implicit Default Constructors </a></p>
+<section id="code_explanation-content">
+</section>
+</div>
+<p>Always initialise if you rely on implicit default construction!</p>
+</section>
+</div><p>A user defined constructor can also be called with the values in parens:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="w"> </span><span class="nf">today</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c1">//acceptable - best to use initialiser list</span>
+</pre></div>
+</div>
+<p>However, a compiler defined default constructor should be called without empty parens; otherwise, the compiler will expect the default constructor to have been overloaded and throw an error.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="w"> </span><span class="nf">date1</span><span class="p">();</span><span class="w"> </span><span class="c1">// Error - sometimes</span>
+<span class="linenos">2</span><span class="n">Date</span><span class="w"> </span><span class="n">date2</span><span class="p">;</span><span class="w">   </span><span class="c1">// OK</span>
+<span class="linenos">3</span><span class="n">Date</span><span class="w"> </span><span class="n">date3</span><span class="p">{};</span><span class="w"> </span><span class="c1">// OK , but unnecessary</span>
+</pre></div>
+</div>
+<p>A default constructor can be added when user-defined constructors are declared as follows.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="linenos">2</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">day</span><span class="p">(</span><span class="n">init_day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">init_month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>An instance of <code class="docutils literal notranslate"><span class="pre">Date</span></code> can then be instantiated without an initialiser list - but the values will be garbage unless the data members had default values.</p>
+<p>Just for future reference because it is rarely useful - you can also prevent the compiler generating a default constructor by defining it as <strong>deleted</strong>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -776,34 +938,75 @@ A user define</p>
 <h2>Static Data Members<a class="headerlink" href="#static-data-members" title="Permalink to this heading">#</a></h2>
 <p>When a date member is declared as <code class="docutils literal notranslate"><span class="pre">static</span></code> there is a single copy of that member, which is shared by all instances of that class i.e. change it once, change it everywhere!</p>
 <p>Static member declarations cannot contain an initialiser i.e. a default value cannot be assigned in the declaration.</p>
-<p>Static data members can have a values assigned using the scope resolution operator</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 2</span><span class="k">public</span><span class="o">:</span>
-<span class="linenos"> 3</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialize</span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">output_day</span><span class="p">();</span>
-<span class="linenos"> 5</span><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
-<span class="linenos"> 6</span><span class="k">private</span><span class="o">:</span>
-<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
-<span class="linenos"> 8</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
-<span class="linenos"> 9</span><span class="p">};</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="kt">void</span><span class="w"> </span><span class="nf">Date::init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_year</span><span class="p">;</span>
-<span class="linenos">13</span><span class="p">};</span>
-<span class="linenos">14</span><span class="kt">int</span><span class="w"> </span><span class="nf">Date::output_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span><span class="kt">int</span><span class="w"> </span><span class="n">Date</span><span class="o">::</span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="linenos">17</span>
-<span class="linenos">18</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">19</span><span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{};</span>
-<span class="linenos">20</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="p">;</span>
-<span class="linenos">21</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">22</span><span class="p">}</span>
+<p>Static data members can have values assigned using the scope resolution operator, or by instantiation using a constructor or member function etc…</p>
+<div class="code_example dropdown admonition" id="exampleZ6">
+
+<p class="admonition-title">Code Example: Static Data Members </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">);</span><span class="w"> </span><span class="c1">// initialize</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">get_day</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_day</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">Date::init_date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_year</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">Date::get_day</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">Date::set_day</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_day</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">Date</span><span class="o">::</span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">tomorrow</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tomorrow</span><span class="p">.</span><span class="n">day</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">today</span><span class="p">.</span><span class="n">set_day</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tomorrow</span><span class="p">.</span><span class="n">day</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">yesterday</span><span class="p">;</span>
+<span class="w">    </span><span class="n">yesterday</span><span class="p">.</span><span class="n">init_date</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">yesterday</span><span class="p">.</span><span class="n">day</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tomorrow</span><span class="p">.</span><span class="n">day</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationZ6">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleZ6"> Code Example: Static Data Members </a></p>
+<section id="code_explanation-content">
 </section>
-<section id="copy-constructors">
-<h2>Copy Constructors<a class="headerlink" href="#copy-constructors" title="Permalink to this heading">#</a></h2>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">day</span></code> were not a static data member - each instance of <code class="docutils literal notranslate"><span class="pre">Date</span></code> would have a separate copy of <code class="docutils literal notranslate"><span class="pre">day</span></code> whose values would be unconnected.</p>
+<p>Static data members must be public.</p>
+</section>
+</div></section>
+<section id="special-member-functions">
+<h2>Special Member Functions<a class="headerlink" href="#special-member-functions" title="Permalink to this heading">#</a></h2>
+<p>There are certain member functions, called the <strong>special member functions</strong> that a user defined class may require but which the user does not always need to explicitly define themselves, which include:</p>
+<ul class="simple">
+<li><p>The default constructor</p></li>
+<li><p>The destructor</p></li>
+<li><p>The copy constructor</p></li>
+<li><p>The copy assignment operator</p></li>
+<li><p>The move constructor</p></li>
+<li><p>The move assignment operator</p></li>
+</ul>
+<p>If you define a class but do not explicitly define some required member functions, the compiler will implicitly declare and define default version of these special members for you, but only if an implementation of the special member function is required by your class.</p>
+<p>You can explicitly declare a default special member function by using the = default keyword. This causes the compiler to define the function only if needed, in the same way as if the function was not declared at all.</p>
 </section>
 <section id="default-copying">
 <h2>Default Copying<a class="headerlink" href="#default-copying" title="Permalink to this heading">#</a></h2>
@@ -820,50 +1023,115 @@ appropriate behaviour can be provided.</p>
 <span class="linenos">3</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Again, the default semantics is a member-wise copy. Alternatively, for a class X, the user can define an appropriate assignment operator .</p>
-</section>
-<section id="special-member-functions">
-<h2>Special Member Functions<a class="headerlink" href="#special-member-functions" title="Permalink to this heading">#</a></h2>
-<p>There are certain member functions, catled the <strong>special member functions</strong> that a user defined class may require but which the user does not always need to explicitly define themselves, which include:</p>
-<ul class="simple">
-<li><p>The default constructor</p></li>
-<li><p>The destructor</p></li>
-<li><p>The copy constructor</p></li>
-<li><p>The copy assignment operator</p></li>
-<li><p>The move constructor</p></li>
-<li><p>The move assignment operator</p></li>
-</ul>
-<p>If you define a class but do not explicitly define some required member functions, the compiler will implicitly declares and defines default version of these special members for you, but only if an implementation of the special member function is required by your class.</p>
-<p>You can explicitly declare a default special member function by using the = default keyword. This causes the compiler to define the function only if needed, in the same way as if the function was not declared at all.</p>
-<p>In some cases, the compiler may generate deleted special member functions, which are not defined and therefore not callable. This can happen in cases where a call to a particular special member function on a class doesn’t make sense, given other properties of the class. To explicitly prevent automatic generation of a special member function, you can declare it as deleted by using the = delete keyword.</p>
-<p>T
-The default copy and move construction and assignment operations perform member-wise bit-pattern copies or moves of non-static data members. Move operations are only generated when no destructor or move or copy operations are declared. A default copy constructor is only generated when no copy constructor is declared. It is implicitly deleted if a move operation is declared. A default copy assignment operator is generated only when no copy assignment operator is explicitly declared. It is implicitly deleted if a move operation is declared.</p>
+<p>Again, the default semantics is a member-wise copy. Alternatively, for a class X, the user can define an appropriate assignment operator.</p>
 </section>
 <section id="destructors">
 <h2>Destructors<a class="headerlink" href="#destructors" title="Permalink to this heading">#</a></h2>
 <p>For larger programs, especially those using resources such as files that burden the system memory, it is important to keep track of memory utilisation and to clean up unneeded allocations.</p>
-<p>After the <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, all the allocated memory is freed up. Generally we do not need to write a destructor - the compiler generated default destructor is fine.</p>
-<p>A destructor is a special member function that cleans up any resources allocated to a class instance when it is no longer required, i.e. when the instantiated object goes out of scope. Every instance of the same class is terminated by a separate call to the class destructor.</p>
+<p>A destructor is a special member function that cleans up any resources allocated to a class instance when no longer required, i.e. when the instantiated object goes out of scope. Every instance of the same class is terminated by a separate call to the class destructor.</p>
+<p>After the <code class="docutils literal notranslate"><span class="pre">main()</span></code> returns, all the allocated memory is freed up. Generally, we do not need to write a destructor - the compiler generated default destructor is fine.</p>
 <p>The destructor takes the name of the class preceded by the tild <code class="docutils literal notranslate"><span class="pre">~</span></code> symbol.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">~</span><span class="n">MyClassName</span><span class="p">();</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">~</span><span class="n">MyClassName</span><span class="p">(){};</span>
 </pre></div>
 </div>
-<p>Like a constructor, a destructor cannot have a return value (not even void) because it returns nothing. the compiler.</p>
-<p>A destructor can take no arguments, and therefore cannot be overloaded.</p>
-<p>Destructors are only called by the system, so there is no syntax for a destructor call.</p>
+<p>There is little point in writing your own destructor, unless you utilise the body of the destructor for something useful - otherwise let the compiler construct the default destructor for you.</p>
+<div class="code_example dropdown admonition" id="exampleZ7">
+
+<p class="admonition-title">Code Example: Destructors </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="w">    </span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">day</span><span class="p">(</span><span class="n">init_day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">init_month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Date</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;One instance of Date was cleaned up..!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2003</span><span class="p">};</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">tomorrow</span><span class="p">{</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2004</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div><p>Like a constructor, a destructor cannot have a return value (not even void) because it returns nothing.</p>
+<p>A destructor can take no arguments and therefore cannot be overloaded.</p>
+<p>Destructors are usually only called by the system but can be called explicitly on an instance.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">virtual</span></code> member functions, adding a destructor become important - see next page.</p>
 <p>The default destructor performs member-wise destruction of the object. It is virtual only if a base class destructor is virtual.</p>
 </section>
 <section id="using-classes">
 <h2>Using Classes<a class="headerlink" href="#using-classes" title="Permalink to this heading">#</a></h2>
 <p>Classes can be used as objects inside other classes i.e. the member list of one class can have a named instance of another class. An instance of the new class is then storing data within an instance of the other class.</p>
-<p>In this way the new class is a superet of the data stored in the class it contains - we could take the view that the construct represented by the new class is also a version of the construct represented by the contained class with some added information.</p>
+<p>In this way the new class is a superset of the data stored in the class it contains - we could take the view that the construct represented by the new class is also a version of the construct represented by the contained class with some added information.</p>
 <p>A more useful way to relate two classes is via inheritance - see next chapter.</p>
 <p>Classes instance can also be passed into functions.</p>
 </section>
-<section id="functor">
-<h2>Functor<a class="headerlink" href="#functor" title="Permalink to this heading">#</a></h2>
-<p>A functor is a class designed to mimic a function, because classes are more easily passed into other functions.</p>
+<section id="function-objects-functors">
+<h2>Function Objects - Functors<a class="headerlink" href="#function-objects-functors" title="Permalink to this heading">#</a></h2>
+<p>A function object, or functor, is any type that implements <code class="docutils literal notranslate"><span class="pre">operator()</span></code>, which overloads the function call operator <code class="docutils literal notranslate"><span class="pre">()</span></code>. C++ provides many built-in function objects, and you will have a called a function object without realising it.</p>
+<p>A functor is a class designed to mimic a function i.e. it can be called like a function or function pointer, allowing objects of a class to be called like functions, but still having the advantages of a class.</p>
+<p>Function objects provide some advantages over regular functions.</p>
+<ul class="simple">
+<li><p>A function object can be used wherever an object can be used i.e. it can be passed to a function as an argument or returned from a function.</p></li>
+<li><p>A function object can have a state i.e. it can hold information from one call to another.</p></li>
+<li><p>Inheritance applies - new function objects can be derived from existing ones.</p></li>
+<li><p>Being types function objects can be used as a template parameter.</p></li>
+</ul>
+<p>Function objects allow us to write code that takes nontrivial operations as parameters; in many cases, it is essential that function objects can hold data needed to perform their operation.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">return_type</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">parameter_list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">    </span><span class="c1">// function body</span>
+<span class="linenos">3</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The function object is called using the name of an instance of the class followed by <code class="docutils literal notranslate"><span class="pre">(argument</span> <span class="pre">list)</span></code>.</p>
+<div class="code_example dropdown admonition" id="exampleZ8">
+
+<p class="admonition-title">Code Example: Function Objects </p>
+<section id="code_example-content">
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;string&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">day</span><span class="p">(</span><span class="n">init_day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">init_month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;day&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;month&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">month</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">year</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">myPrinter</span><span class="p">(</span><span class="n">Date</span><span class="w"> </span><span class="n">functor</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">argument</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">functor</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">today</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2003</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">today</span><span class="p">(</span><span class="s">&quot;day&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Date</span><span class="w"> </span><span class="n">tomorrow</span><span class="p">{</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2004</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="n">tomorrow</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;month&quot;</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -930,19 +1198,20 @@ The default copy and move construction and assignment operations perform member-
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-specifiers">Access Specifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessor-functions">Accessor Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-member-functions">Inline Member Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-member-functions">Fundamental Member Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">Constructors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#member-intialiser-lists">Member Intialiser Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#member-initialiser-lists">Member Initialiser Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-constructors">Default Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-default-constructors">Implicit Default Constructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-data-members">Static Data Members</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-constructors">Copy Constructors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-copying">Default Copying</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-member-functions">Special Member Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-copying">Default Copying</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructors">Destructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-classes">Using Classes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functor">Functor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-objects-functors">Function Objects - Functors</a></li>
 </ul>
   </nav></div>
 
