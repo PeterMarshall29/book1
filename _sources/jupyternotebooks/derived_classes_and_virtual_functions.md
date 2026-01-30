@@ -25,24 +25,25 @@ A derived class **inherits** the properties of the base class, but then adds mor
 ````{syntax-start} Derived Classes
 :label: syntaxAD1
 :class: dropdown
+:nonumber:
 Syntax for a derived class.
 ````
 ```{code-block} cpp
 :linenos:
 class BaseClassName {
-
 };
 class DerivedClassName : BaseClassName {
-    
 };
 ```
 ````{syntax-end}
 ````
 If a single base class is specified, the inheritance model is called **Single Inheritance**. If more than one base class is specified, the inheritance model is called **Multiple inheritance**.
 
-In the following example, the base class is `Person`, and the derived class is `Student`. Note that `Student` automatically has access to the members of `Person`, including the constuctor - i.e. there is no need to create new versions of the inherited members.
+In the following example, the base class is `Person`, and the derived class is `Student`. 
 
-``````{code_example-start} Basic Class Example
+
+
+``````{code_example-start} Derived Class Example
 :label: exampleAD1
 :class: dropdown
 :nonumber:
@@ -52,7 +53,7 @@ An example of a derived class:
 :linenos:
 :tags: [remove-output, skip-execution]
 #include<iostream>
-#incldue<string>
+#include<string>
 class Person {
 protected:
     std::string name{};
@@ -86,20 +87,27 @@ int main() {
 :label: explanationAD1
 :class: dropdown
 
-Every instance of the derived class `student` also has data members called `name` and `age` that were inherited from 
+Every instance of the derived class `student` also has data members called `name` and `age` that were inherited from `Person`, including the constuctor - i.e. there is no need to create new versions of the inherited members.
 
-
-Note: there is no constructor, or setter's for the person class, so not much can be done with it. 
+Note: there is no constructor, or setter's for the `person` class, so not much can be done with it in this example. 
 
 `````
 
 ``````{code_example-end} 
 ``````
-The derived class is able to set and access data members belonging to its base class.
+The derived class is able to set and access data members belonging to its base class, because when an instance of a derived class is created, an embedded instance of the base class is also created (hidden withing the derived object, as a subobject).
 
-It is better to use constructors with member list initialisation.
+It is important to note the order of construction and destrucion.
 
-``````{code_example-start} Basic Class Example
+The base class object is constructed first, so that it is fully available for the construction of the derived object - the derived object is then constructed before its constructor body is executed.
+
+At destruction, the destructor of the base class object is called last, after the derived class object has been destroyed.
+
+## Construction of Derived Classes
+
+It is better to use constructors with member list initialisation and to use **constructor chaining**, as shown in this example:
+
+``````{code_example-start} Derived Class Construction
 :label: exampleAD2
 :class: dropdown
 :nonumber:
@@ -150,16 +158,17 @@ int main() {
 :label: explanationAD2
 :class: dropdown
 
-Every instance of the derived class `Student` also has the data members called `name` and `age` that were inherited from the base class `Person`.
+The constructor for derived classes must call the base class's constructor. 
 
-Note: there is no constructor, or setter's for the person class, so not much can be done with it. 
+This ensures the base class is constructed before extra data is added to make the instance of your derived class. This requires that there must be a constructor for the base class.
 
+Order of construction is important - Call the base class constructors in order of derivation, i.e. if Class3 is derived from Class2, which is derived from Class1, the Class1 constructor musst be called first, followed by the Class2 constructor and so on.
 `````
 
 ``````{code_example-end} 
 ``````
 
-The constructor for derived classes must call the base class's constructor. This ensures the base class is constructed before extra data is added to make the instance of your derived class. Order of construction is important - Call the base class constructors in order of derivation, i.e. if Class3 is derived from Class2, which is derived from Class1, the Class1 constructor musst be called first, followed by the Class2 constructor and so on.
+
 
 ## More on Access Specifiers
 
@@ -307,3 +316,21 @@ Making the base class destructor `virtual`ensure this issue is handled correctly
 :linenos:
 virtual ~Person(){}
 ```
+
+
+
+## Abstract Classes
+reqrite
+Abstraction in C++ is the process of hiding the implementation details and only showing the essential details or features to the user. It allows to focus on what an object does rather than how it does it.
+
+In C++ abstraction is achieved using abstract classes (classes that have at least one pure virtual function).
+
+
+## Encapsulation
+
+Encapsulation
+Encapsulation is defined as the process of wrapping data and the methods into a single unit, typically a class. It is like a protective shield that prevents the data from being accessed by the code outside the shield.
+
+Technically, in encapsulation the variables or the data in a class is hidden from any other class and can be accessed only through any member function of the class in which they are declared.
+In encapsulation, the data in a class is hidden from other classes, which is similar to what data-hiding does.
+Encapsulation can be achieved by declaring all the variables in a class as private and writing public methods in the class to set and get the values of the variables.

@@ -14,12 +14,29 @@ kernelspec:
 
 Polymorphism makes it possible to write several versions of the same function each in a different class - considered to be one of the main pillars of object-oriented programming.
 
-Implementation inheritance, or run-time polymorphism, reduces effort in implemenation by sharing facilities provided by a base class.
+Implementation inheritance, or run-time polymorphism, reduces effort in implementation by sharing facilities provided by a base class.
+
 Interface inheritance, or compile-time polymorphism, allows different derived classes to be used interchangeably through an interface provided by a common base class.
-Interface inheritance is often referred to as run-time polymorphism (or dynamic polymorphism)
+Interface inheritance is often referred to as run-time polymorphism (or dynamic polymorphism).
 
-To implement polymorphism we need to add pointers or references to the use of virtual functions.
+To implement polymorphism, we need to add pointers or references to the use of virtual functions.
 
+
+## Binding
+
+Compilers convert your C++ text files into machine language - each line of machine language has it’s a unique sequential address.
+
+Functions then are identified by a unique address. When the program arrives at a function call, the compiler must add a line of machine language dealing with the call.
+
+In programming **binding** is the process of associating named objects with their properties, e.g. a variable, with its type, and the rules associated - function binding determines which function definition is associate with each function call. When a bound function is called, the process is called dispatching.
+
+In the case of non-member, and non-virtual member, functions - this instruction will be to jump directly to the address of the function code - this is called **early binding** (or, static binding) - the same action is required every time these functions are called and this can be resolved by the compiler at compile time.
+
+For virtual member functions - it is not always possible for the compiler to resolve which function is being called at compile time - this is called **late binding**.
+
+Late binding in C++ used pointers. Late binding may be less efficient than early binding because of additional level of indirection, the compiler program needs to check the current address held for a function pointer, before moving there, but the reward is the additional flexibility required to allow decisions about function calls to be made at execution time.
+
+For virtual member functions late binding is implemented by the creation of a **virtual table**, which is a lookup table created by the compiler, allowing the program to resolve function calls; resolving a call to a virtual function is sometimes called dynamic dispatch.
 
 
 
