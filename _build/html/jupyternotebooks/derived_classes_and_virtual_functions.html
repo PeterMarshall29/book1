@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.de976f0b-c83b-4692-b712-fafd6d52d73d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.489a7b09-d49d-4e18-adb6-8a8b8199acaf.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/derived_classes_and_virtual_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -686,21 +686,12 @@ document.write(`
 </div></section>
 <section id="more-on-access-specifiers">
 <h2>More on Access Specifiers<a class="headerlink" href="#more-on-access-specifiers" title="Permalink to this heading">#</a></h2>
-<p>The access specifier <code class="docutils literal notranslate"><span class="pre">protected</span></code> indicates that the data members may only used by the class and by classes derived from it.</p>
+<p>The access specifier <code class="docutils literal notranslate"><span class="pre">protected</span></code> indicates that the data members may only used by the class and by classes derived from it. <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> are protected membere - they are accessible in derived classes but not outside.</p>
+<p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Student</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">Person</span></code> - specifies that <code class="docutils literal notranslate"><span class="pre">Student</span></code> publicly inherits from <code class="docutils literal notranslate"><span class="pre">Person</span></code>.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">public</span></code> access modifier for the derived class maintains the same access level for inheritable members of the base class. Any accessible members of the base class, i.e.  <code class="docutils literal notranslate"><span class="pre">public</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code> data members or member functions, become private members of the derived class. Since we want to call the member function <code class="docutils literal notranslate"><span class="pre">dispayInfo()</span></code> we need to make the derived class from a public declared base class.</p>
 <p>If no access modifier is specified in the derived class declaration, the default is <code class="docutils literal notranslate"><span class="pre">private</span></code> - default is public for <code class="docutils literal notranslate"><span class="pre">struct</span></code>.</p>
 <p>Inhertiance is almost always public, protected inheritance is never used, but private inheritance can be useful.</p>
 <p>Private inheritance is used when some of a classes public member functions are to be used for a second class.</p>
-<p>Inheritance Syntax:
-<code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Student</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">Person</span></code> means Student publicly inherits from Person.</p>
-<p>Protected Members:
-<code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> are protected so they are accessible in derived classes but not outside.</p>
-<p>Constructor Chaining:
-The derived class constructor calls the base class constructor using : Person(name, age).</p>
-<p>Method Overriding:
-displayInfo() is declared virtual in the base class and overridden in the derived class.</p>
-<p>Polymorphism:
-Using a Person* pointer to a Student object calls the overridden method.</p>
 <!-- ## Inheriting Constructors
 
 Constructors cannot be virtual - they have different idenifiers in each class.
@@ -716,12 +707,11 @@ using Base::Base;
 </section>
 <section id="virtual-functions">
 <span id="id1"></span><h2>Virtual Functions<a class="headerlink" href="#virtual-functions" title="Permalink to this heading">#</a></h2>
-<p>Virtual member functions allow the programmer to declare functions in a base class that can be redefined in each derived class.</p>
+<p><strong>Virtual member functions</strong>, also know <strong>methods</strong> allow the programmer to declare functions in a base class that can be redefined in each derived class.</p>
 <p>Declaring a particular function as <code class="docutils literal notranslate"><span class="pre">virtual</span></code> in the base class allows that function identifier to act as an interface to the definitions of the function in both the base and derived classes. The compiler and linker will guarantee the correct correspondence between objects and the functions applied to them.</p>
 <p>A function in a derived class with the same identifier and argument type list as one in the base class is said to <strong>override</strong> the base class version that would otherwise be inherited. The virutal base function can be overrided with a different return type in the derived version.</p>
 <p>The only constraint on a virtual function being an interface to its variants defined in derived classes is that is that argument types cannot differ from those of the base declaration, and only minor changes are allowed for the return type.</p>
-<p>A virtual member function is also know as a <strong>method</strong>.</p>
-<p>The virtual member function must be defined in the class it is first declared in - see pure virtual functions and abstract classes.</p>
+<p>The virtual member function must be defined in the class it is first declared in - see pure <span class="xref std std-term">virtual functions</span> and <a class="reference internal" href="glossary.html#term-Abstract-Classes"><span class="xref std std-term">abstract classes</span></a>.</p>
 <p>When a derived class does not need a particular virtual function it does not need to provide a definition even though the function is listed as virtual and available</p>
 <div class="code_example dropdown admonition" id="exampleAD3">
 
@@ -730,57 +720,63 @@ using Base::Base;
 <p>An example of virtual member functions:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span>#include &lt;iostream&gt;
-#include &lt;string&gt;
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 
-class Person {
-protected:
-    std::string name;
-    int age;
-public:
-    Person(std::string init_name, int init_age) : name(init_name), age(init_age) {} 
-   
-    virtual void displayInfo() {
-        std::cout &lt;&lt; &quot;Name: &quot; &lt;&lt; name &lt;&lt; &quot;\nAge: &quot; &lt;&lt; age &lt;&lt; &#39;\n&#39;;
-    }
-};
-class Student : public Person {
-private:
-    std::string studentID;
-public:
-    Student( std::string init_name, int init_age, const std::string&amp; init_id)
-        : Person(init_name, init_age), studentID(init_id) {}
-    void displayInfo() {
-        std::cout &lt;&lt; &quot;Student Name: &quot; &lt;&lt; name &lt;&lt; &quot;\nAge: &quot; &lt;&lt; age &lt;&lt; &quot;\nStudent ID: &quot; &lt;&lt; studentID &lt;&lt; &#39;\n&#39;;
-    }
-};
+<span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Person</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">init_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_age</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">init_name</span><span class="p">),</span><span class="w"> </span><span class="n">age</span><span class="p">(</span><span class="n">init_age</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span>
+<span class="w">   </span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">displayInfo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Name: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Age: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">studentID</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Student</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">init_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_age</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">init_id</span><span class="p">)</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="n">init_name</span><span class="p">,</span><span class="w"> </span><span class="n">init_age</span><span class="p">),</span><span class="w"> </span><span class="n">studentID</span><span class="p">(</span><span class="n">init_id</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">displayInfo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Student Name: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Age: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Student ID: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">studentID</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
 
-int main() {
-    Person person(&quot;Alice&quot;, 21);  //Create instance of Person
-    person.displayInfo();
-    std::cout &lt;&lt; &quot;\n&quot;;
-    Student student(&quot;Bob&quot;, 20, &quot;F123456&quot;); // Create an instance of Student
-    student.displayInfo();
-    std::cout &lt;&lt; &quot;\n&quot;;
-    return 0;
-}
-```
-`````{code_explanation} exampleAD3
-:label: explanationAD3
-:class: dropdown
-
-Every instance of the derived class `Student` also has the data members called `name` and `age` that were inherited from the base class `Person`.
-
-Note: there is no constructor, or setter&#39;s for the person class, so not much can be done with it. 
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">);</span><span class="w">  </span><span class="c1">//Create instance of Person</span>
+<span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">displayInfo</span><span class="p">();</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">student</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;F123456&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Create an instance of Student</span>
+<span class="w">    </span><span class="n">student</span><span class="p">.</span><span class="n">displayInfo</span><span class="p">();</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationAD3">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD3"> Code Example: Virtual Member Functions Example </a></p>
+<section id="code_explanation-content">
+<p>Every instance of the derived class <code class="docutils literal notranslate"><span class="pre">Student</span></code> also has the data members called <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were inherited from the base class <code class="docutils literal notranslate"><span class="pre">Person</span></code>.</p>
+<p>Note: there is no constructor, or setter’s for the person class, so not much can be done with it.</p>
+</section>
 </div>
 </section>
 </div><p>ADD example showing why vitual is needed - works without it but works differently for pointers and referecnes see <a class="reference external" href="https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170">https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170</a></p>
 </section>
 <section id="constructor-chaining">
 <h2>Constructor Chaining<a class="headerlink" href="#constructor-chaining" title="Permalink to this heading">#</a></h2>
+<p>A useful tec</p>
+<dl class="simple myst">
+<dt>Student( std::string init_name, int init_age, const std::string&amp; init_id)</dt><dd><p>Person(init_name, init_age), studentID(init_id) {}</p>
+</dd>
+</dl>
+<p>If the base class is abstract, then constructor chaining is the only option.</p>
 </section>
 <section id="override">
 <h2>Override<a class="headerlink" href="#override" title="Permalink to this heading">#</a></h2>
@@ -789,20 +785,43 @@ Note: there is no constructor, or setter&#39;s for the person class, so not much
 </section>
 <section id="virtual-destructors">
 <h2>Virtual Destructors<a class="headerlink" href="#virtual-destructors" title="Permalink to this heading">#</a></h2>
-<p>Destructors can be virutal - best practice is to make the base destructor virtual in any case involving polymorphism.</p>
+<p>Destructors can be virtual - it is considered best practice is to make the base destructor virtual in any case involving polymorphism.</p>
 <p>If a virtual function is used anywhere in the class hierarchy a virtual destructor should be added to prevent memory leaks.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">Person:Student</span></code> example above, the data members of any instances of <code class="docutils literal notranslate"><span class="pre">person</span> <span class="pre">or</span> </code>Student<code class="docutils literal notranslate"><span class="pre">are</span> <span class="pre">created</span> <span class="pre">on</span> <span class="pre">the</span></code>term`{heap}.</p>
 <p>If polymorphism is involved, then the polymorphic variable, a pointer, is stored on the <code class="docutils literal notranslate"><span class="pre">term</span></code>{stack} and must be deleted. When the <code class="docutils literal notranslate"><span class="pre">delete</span></code> operator is used on a pointer to an object, the objects destructor is called. However. if the ppinterr is to an instance of <code class="docutils literal notranslate"><span class="pre">Student</span></code>, this is still a pointer to <code class="docutils literal notranslate"><span class="pre">Person</span></code>, so the <code class="docutils literal notranslate"><span class="pre">delete</span></code> operator tries to destroy an non-existent instance of <code class="docutils literal notranslate"><span class="pre">Person</span></code>, and the <code class="docutils literal notranslate"><span class="pre">Student</span></code> object is untouched - a memory leak has occurred (unwanted student object still taking up space in memory).</p>
-<p>Making the base class destructor <code class="docutils literal notranslate"><span class="pre">virtual</span></code>ensure this issue is handled correctly.</p>
+<p>Making the base class destructor <code class="docutils literal notranslate"><span class="pre">virtual</span></code> ensures this issue is handled correctly.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Person</span><span class="p">(){}</span>
 </pre></div>
 </div>
 </section>
 <section id="abstract-classes">
 <h2>Abstract Classes<a class="headerlink" href="#abstract-classes" title="Permalink to this heading">#</a></h2>
-<p>reqrite
-Abstraction in C++ is the process of hiding the implementation details and only showing the essential details or features to the user. It allows to focus on what an object does rather than how it does it.</p>
-<p>In C++ abstraction is achieved using abstract classes (classes that have at least one pure virtual function).</p>
+<p>Abstraction is the hiding of the details of a programmes implementation from the programme’s user, who can only see the essential details required for the interface.</p>
+<p>In C++ abstraction is achieved using <a class="reference internal" href="glossary.html#term-Abstract-Classes"><span class="xref std std-term">abstract classes</span></a> - which are classes that cannot be instantiated i.e. you cannot create on named instance of the abstract class.</p>
+<p>Abstract classes are useful for representing general concepts from which more specific classes may be derived - they are typically base classes for other classes and contain at least one pure virtual function. A pure virtual function is a virtual function that is declared using the pure specifier <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">0</span></code>.</p>
+<p>An abstract class is created by declaring at least one <a class="reference internal" href="glossary.html#term-Pure-Virtual-Member-Function"><span class="xref std std-term">pure virtual member function</span></a> which is done by assigning <code class="docutils literal notranslate"><span class="pre">=0</span></code> to a function declaration.</p>
+<div class="code_example dropdown admonition" id="exampleAD4">
+
+<p class="admonition-title">Code Example: Virtual Member Functions Example </p>
+<section id="code_example-content">
+<p>Example of creating an abstract class:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="k">protected</span><span class="o">:</span>
+<span class="linenos">3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="linenos">4</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="linenos">5</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">6</span><span class="w">    </span><span class="n">Person</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">init_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_age</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">init_name</span><span class="p">),</span><span class="w"> </span><span class="n">age</span><span class="p">(</span><span class="n">init_age</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span>
+<span class="linenos">7</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">displayInfo</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">8</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Person can not longer be instantiated.</p>
+<p>Try altering the code in the previous example.</p>
+<p>If the derived class uses the virtual member function <code class="docutils literal notranslate"><span class="pre">displayInfo()</span></code> - the method must be redclared, and a definition provided in the usual manner.</p>
+</section>
+</div><p>Although you may not create an an object of the abstract class type, it is still possible to use pointers and references to abstract class types.</p>
+<p>You create an abstract class by declaring at least one pure virtual member function. That’s a virtual function declared by using the pure specifier (= 0) syntax. Classes derived from the abstract class must implement the pure virtual function or they, too, are abstract classes.</p>
+<p>Consider the example presented in Virtual functions. The intent of class Account is to provide general functionality, but objects of type Account are too general to be useful. That means Account is a good candidate for an abstract class:</p>
 </section>
 <section id="encapsulation">
 <h2>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this heading">#</a></h2>

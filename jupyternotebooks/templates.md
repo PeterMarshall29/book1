@@ -16,6 +16,7 @@ Templates are used for generalisation and specialisation.
 Templates are used to create generic functions and classes i.e. functions and classes were the return and argument, or parameter, types are not declared in their definitions - this allows the same code logic to be used with different data types.
 
 Templates are one of two main options for "generic" programming. The second option is to use class hierarchies and virtual functions.
+
 Generic programming means writing code that works with a variety of types presented as arguments provided those arguments types meet specific syntactic and semantic requirements. 
 
 It is often that case that the same code logic needs to applied to different data types -  rather than overload the function (writing multiple functions with the same identifier but different parameter/type lists- remember return types cannot differentiate  overloads). 

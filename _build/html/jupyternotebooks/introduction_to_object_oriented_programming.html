@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_object_oriented_programming.98e11828-7b68-4d81-9510-cbb3024fb33f.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_object_oriented_programming.0ca88769-8ddf-4e89-bb90-724b2292dd72.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_object_oriented_programming';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -507,7 +507,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -523,6 +525,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-management-best-practice-in-oop">File Management - Best Practice in OOP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-interface-file">Creating an Interface file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -552,6 +566,50 @@ document.write(`
 <p>Object-oriented programming can provide advantages over procedural programming but is only useful for longer programmes and projects that you intend to develop and reuse.</p>
 <p>Using classes can provide a clear and logical structure, making the code easier to understand, maintain, and debug, by creating reusable components, reducing effort and increasing efficiency in the longer term.</p>
 <p>However, for beginners, concepts such as classes, objects, inheritance, and polymorphism can add confusion, and time - there is a learning curve to anything worth knowing, but the investments will pay off if you are serious about coding or using computational physics. Object oriented programmes are often harder to debug, but will be more easily</p>
+<section id="file-management-best-practice-in-oop">
+<h2>File Management - Best Practice in OOP<a class="headerlink" href="#file-management-best-practice-in-oop" title="Permalink to this heading">#</a></h2>
+<p>Best practice for writing an object-oriented program in C++ is to split your code into three sections, and to place each section in a separate file:</p>
+<ul class="simple">
+<li><p>Class definitions should be put into an interface file, which is a .h header file - includes the declaration of the data members and member functions. It defines the number and types of the members and is normally named after the class itself i.e. the Bubble class would be defined in the Bubble.h interface file.</p></li>
+<li><p>Member function definitions should be located in implementation .cpp files.</p></li>
+<li><p>The application i.e. the main() is then in the application file.</p></li>
+</ul>
+<p>The interface file defines the number and types of the members and is normally named after the class itself i.e. the Bubble class would be defined in the Bubble.h interface file.</p>
+<p>The implementation file contains the definition of all the member function required by class and is usually named after the class, but differentiated by have a .cpp file type, e.g. Bubble.cpp.</p>
+<p>The application file is the core program file containing the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function, which has a name that matches its purpose/project.</p>
+<p>The interface file must be included in both the implementation and application files, which are separately compiled into .obj object files before being the linker creates the executable file.</p>
+</section>
+<section id="creating-an-interface-file">
+<h2>Creating an Interface file<a class="headerlink" href="#creating-an-interface-file" title="Permalink to this heading">#</a></h2>
+<p>The interface file may be included in multiple compilation files, which will cause a compiler error unless handled correctly.</p>
+<p>To avoid this problem the interface file containing the class definition should contain the following preprocessor directives.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef ClassName_H</span>
+<span class="cp">#define ClassName_H</span>
+<span class="c1">// Contents of ClassName.h go here - i.e. the class definition.</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>When ClassName.h is included in both an implementation file and an application file, the instruction of include subsequent copies, after the first, will be ignored by the compiler.</p>
+<p>Most compiler allow a simpler alternative - the above 3 directives can be replaced by the single directive:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pragma</span></code> is not a part of the C++ standard, so you need to be able to use the full version, which will always work.</p>
+<section id="encapsulation">
+<h3>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this heading">#</a></h3>
+<p>The purpose of separate compilations is to allow <a class="reference internal" href="glossary.html#term-Encapsulation"><span class="xref std std-term">encapsulation</span></a>, which is the separation of the design of the class from the use of the class.</p>
+<p>Encapsulation is not just useful for your own programmes, but is extremely valuable for any software that may be distributed.</p>
+<p>The designer of the class, may make the interface and implementation files public, but only the source code for the interface file needs to be shared i.e. crucial details of the implementation are hidden from other programmers because they are in compiled object files i.e. in binary.</p>
+<p>It should be possible to change an implementation file without affecting applications that depend on it, provided the interface remains unchanged, and the code is well written and maintained.</p>
+<p>Users, including the authoring programmer, can then include the interface in their application file before compilation, which links the application object file to the implementation file to produce the executable.</p>
+<p>Benefits of encapsulation:</p>
+<ul class="simple">
+<li><p>Because there are two copies of the interface, one inside the already compiled implementation file, and the second inside the application file, any alteration to the interface is prevented.</p></li>
+<li><p>The more complicated implementation code is protected because it is not accessible to generaly users.</p></li>
+</ul>
+<p>To make an encapsulated class useful, it is necessry to provide documentation, which is generally a text document called the public interface, that provides names and details of the available member functions etc…</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -608,6 +666,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-management-best-practice-in-oop">File Management - Best Practice in OOP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-interface-file">Creating an Interface file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

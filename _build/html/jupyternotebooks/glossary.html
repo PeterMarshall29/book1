@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.08e4cb09-ba41-4d7f-a2c9-1d69453f9007.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\glossary.a90c7fb3-3d1d-42b6-a139-8361f39a909c.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/glossary';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -535,6 +535,10 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h1>
 <dl class="simple glossary">
+<dt id="term-Abstract-Class">Abstract Class<a class="headerlink" href="#term-Abstract-Class" title="Permalink to this term">#</a></dt><dd><p>A class that only defines an interface - used as a base class. Declaring a <a class="reference internal" href="#term-Pure-Virtual-Member-Function"><span class="xref std std-term">pure virtual member function</span></a> makes the class abstract and prevents creation of objects of the abstract class. Use of abstract classes is one of the most effective ways of minimizing the impact of changes in a C++ program and for minimizing compilation time.</p>
+</dd>
+<dt id="term-Abstract-Classes">Abstract Classes<a class="headerlink" href="#term-Abstract-Classes" title="Permalink to this term">#</a></dt><dd><p>Classes that only defines an interface - used as a base class. Declaring a <a class="reference internal" href="#term-Pure-Virtual-Member-Function"><span class="xref std std-term">pure virtual member function</span></a> makes the class abstract and prevents creation of objects of the abstract class. Use of abstract classes is one of the most effective ways of minimizing the impact of changes in a C++ program and for minimizing compilation time.</p>
+</dd>
 <dt id="term-Alias">Alias<a class="headerlink" href="#term-Alias" title="Permalink to this term">#</a></dt><dd><p>An alternative name - declared to refer to an existing object, that can be used anywhere the original identifier would be used.</p>
 </dd>
 <dt id="term-Assignment">Assignment<a class="headerlink" href="#term-Assignment" title="Permalink to this term">#</a></dt><dd><p>Modification of the current value of an object using an assignment operator. Simplest case is using the simple assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>; i.e. <code class="docutils literal notranslate"><span class="pre">LHS</span> <span class="pre">=</span> <span class="pre">RHS;</span></code>.</p>
@@ -653,6 +657,8 @@ document.write(`
 </dd>
 <dt id="term-Empty-Statement">Empty Statement<a class="headerlink" href="#term-Empty-Statement" title="Permalink to this term">#</a></dt><dd><p>A statement that consists of only a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code>. It does nothing and is often referred to as a <a class="reference internal" href="#term-Null-Statement"><span class="xref std std-term">null statement</span></a>. Empty statements are used where the syntax requires a statement, but the contents are optionally not required, to provide an empty body to a <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, or to carry a label at the end of a compound statement.</p>
 </dd>
+<dt id="term-Encapsulation">Encapsulation<a class="headerlink" href="#term-Encapsulation" title="Permalink to this term">#</a></dt><dd><p>The enforcement of abstraction by mechanisms that prevent access to implementation details of an object, or a group of objects, except through a well-defined <a class="reference internal" href="#term-Interface"><span class="xref std std-term">interface</span></a>. C++ enforces encapsulation of private and proteced members of a class as long as users do not violate the type system using casts.</p>
+</dd>
 <dt id="term-Entity">Entity<a class="headerlink" href="#term-Entity" title="Permalink to this term">#</a></dt><dd><p>The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces.</p>
 </dd>
 <dt id="term-Entities">Entities<a class="headerlink" href="#term-Entities" title="Permalink to this term">#</a></dt><dd><p>The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces</p>
@@ -698,6 +704,12 @@ document.write(`
 <dt id="term-For-loop">For-loop<a class="headerlink" href="#term-For-loop" title="Permalink to this term">#</a></dt><dd><p>Common name for the for-statement.</p>
 </dd>
 <dt id="term-Free-store">Free store<a class="headerlink" href="#term-Free-store" title="Permalink to this term">#</a></dt><dd><p><a class="reference internal" href="#term-Memory"><span class="xref std std-term">memory</span></a> allocated by <code class="docutils literal notranslate"><span class="pre">new</span></code>; also called <a class="reference internal" href="#term-Dynamic-Memory"><span class="xref std std-term">dynamic memory</span></a>. Dynamic memory is an amount of memory of indeterminate size used up during execution of a program as new objects are created. Often standard library facilities, such as <code class="docutils literal notranslate"><span class="pre">vector</span></code>, can be used to avoid explicit use of the free store.</p>
+</dd>
+<dt id="term-Friend">Friend<a class="headerlink" href="#term-Friend" title="Permalink to this term">#</a></dt><dd><p>Function or class explicitly granted access to members of a class by that class.</p>
+</dd>
+<dt id="term-Friends">Friends<a class="headerlink" href="#term-Friends" title="Permalink to this term">#</a></dt><dd><p>Functions or classes explicitly granted access to members of a class by that class.</p>
+</dd>
+<dt id="term-Friend-Function">Friend Function<a class="headerlink" href="#term-Friend-Function" title="Permalink to this term">#</a></dt><dd><p>A non-member function that has permission to access the private and protected members of a class - declared inside the class using the friend keyword, but defined outside of the classes scope, like a normal function.</p>
 </dd>
 <dt id="term-Function">Function<a class="headerlink" href="#term-Function" title="Permalink to this term">#</a></dt><dd><p>A named sequence of statements that can be invoked/called by a program, optionally using arguments supplied by the function call, to optionally return a value to the program. The type of the function includes the comma separated list of the types of its argument and the type of the value returned. Functions are useful because they are reusable, making code more efficient to write and execute. Functions can be identified by a name with <code class="docutils literal notranslate"><span class="pre">()</span></code>attached.</p>
 </dd>
@@ -768,6 +780,10 @@ document.write(`
 <dt id="term-Input">Input<a class="headerlink" href="#term-Input" title="Permalink to this term">#</a></dt><dd><p>The process of sending data or instructions to a computer system for processing. The data comes from input devices. The computer’s CPU processes the input to generate meaningful <a class="reference internal" href="#term-Output"><span class="xref std std-term">output</span></a>.</p>
 </dd>
 <dt id="term-Integer-type">Integer type<a class="headerlink" href="#term-Integer-type" title="Permalink to this term">#</a></dt><dd><p>Type for integer values (whole numbers - positive and negative and zero). May be preceded by one or two modifiers - <code class="docutils literal notranslate"><span class="pre">signed</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>. The modifiers may be used on their own, and <code class="docutils literal notranslate"><span class="pre">int</span></code> is implied; but <code class="docutils literal notranslate"><span class="pre">signed</span></code> and <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> may also precede <code class="docutils literal notranslate"><span class="pre">char</span></code>.</p>
+</dd>
+<dt id="term-Interface">Interface<a class="headerlink" href="#term-Interface" title="Permalink to this term">#</a></dt><dd><p>A set of declarations that defines how a part of a program can be accessed. The list of public members, and the <a class="reference internal" href="#term-Friends"><span class="xref std std-term">friends</span></a> of a <a class="reference internal" href="#term-Class"><span class="xref std std-term">class</span></a>, that other code may use. A class without data members defines a pure interface. The protected members provide an additional interface for use by members of derived classes.</p>
+</dd>
+<dt id="term-Interface-Function">Interface Function<a class="headerlink" href="#term-Interface-Function" title="Permalink to this term">#</a></dt><dd><p>A function that can access the representation of a class.</p>
 </dd>
 <dt id="term-Iteration">Iteration<a class="headerlink" href="#term-Iteration" title="Permalink to this term">#</a></dt><dd><p>Iteration means repetition. In computing the same set of instructions, possibly with variations in values, often need to be repeated. Iteration statements are used to instruct the program to repeat a sequence of statements a variable number of times.</p>
 </dd>
@@ -899,6 +915,10 @@ Sometimes used in connection with the linker.</p>
 <dt id="term-Programming-Paradigms">Programming Paradigms<a class="headerlink" href="#term-Programming-Paradigms" title="Permalink to this term">#</a></dt><dd><p>Different approaches to writing computer programmes. The most common paradigms are: Procedural, Functional, and Object-oriented programming.</p>
 </dd>
 <dt id="term-prvalue">prvalue<a class="headerlink" href="#term-prvalue" title="Permalink to this term">#</a></dt><dd><p>‘pure <a class="reference internal" href="#term-rvalue"><span class="xref std std-term">rvalue</span></a>’ expressions including literals, function calls, arithmetic and logical evaluations and comparisons, whose evaluation computes the value of an operand of a built-in operator (no result object) or initializes an object (a result object is created). The result object may be a variable, an object created by new-expression, or a ‘temporary’ created by temporary materialization.</p>
+</dd>
+<dt id="term-Pure-Virtual-Member-Function">Pure Virtual Member Function<a class="headerlink" href="#term-Pure-Virtual-Member-Function" title="Permalink to this term">#</a></dt><dd><p>A virtual member function in a base class that is declared using the pure specifier <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">0</span></code> syntax, which makes the class abstract.</p>
+</dd>
+<dt id="term-Pure-Virtual-Member-Functions">Pure Virtual Member Functions<a class="headerlink" href="#term-Pure-Virtual-Member-Functions" title="Permalink to this term">#</a></dt><dd><p>Virtual member functions in a base class that are declared using the pure specifier <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">0</span></code> syntax, which makes the class abstract.</p>
 </dd>
 <dt id="term-Range">Range<a class="headerlink" href="#term-Range" title="Permalink to this term">#</a></dt><dd><p>a sequence of elements that can be iterated over.</p>
 </dd>
