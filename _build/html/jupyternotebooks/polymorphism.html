@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\polymorphism.d6865621-91da-4e0c-83d6-12d5b42f9779.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\polymorphism.3d71b9c7-267e-4794-aeb0-ea8e38d0c08d.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/polymorphism';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -507,7 +507,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -523,6 +525,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding">Binding</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -535,10 +545,20 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="polymorphism">
 <span id="id1"></span><h1>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this heading">#</a></h1>
 <p>Polymorphism makes it possible to write several versions of the same function each in a different class - considered to be one of the main pillars of object-oriented programming.</p>
-<p>Implementation inheritance, or run-time polymorphism, reduces effort in implemenation by sharing facilities provided by a base class.
-Interface inheritance, or compile-time polymorphism, allows different derived classes to be used interchangeably through an interface provided by a common base class.
-Interface inheritance is often referred to as run-time polymorphism (or dynamic polymorphism)</p>
-<p>To implement polymorphism we need to add pointers or references to the use of virtual functions.</p>
+<p>Implementation inheritance, or run-time polymorphism, reduces effort in implementation by sharing facilities provided by a base class.</p>
+<p>Interface inheritance, or compile-time polymorphism, allows different derived classes to be used interchangeably through an interface provided by a common base class.
+Interface inheritance is often referred to as run-time polymorphism (or dynamic polymorphism).</p>
+<p>To implement polymorphism, we need to add pointers or references to the use of virtual functions.</p>
+<section id="binding">
+<h2>Binding<a class="headerlink" href="#binding" title="Permalink to this heading">#</a></h2>
+<p>Compilers convert your C++ text files into machine language - each line of machine language has it’s a unique sequential address.</p>
+<p>Functions then are identified by a unique address. When the program arrives at a function call, the compiler must add a line of machine language dealing with the call.</p>
+<p>In programming <strong>binding</strong> is the process of associating named objects with their properties, e.g. a variable, with its type, and the rules associated - function binding determines which function definition is associate with each function call. When a bound function is called, the process is called dispatching.</p>
+<p>In the case of non-member, and non-virtual member, functions - this instruction will be to jump directly to the address of the function code - this is called <strong>early binding</strong> (or, static binding) - the same action is required every time these functions are called and this can be resolved by the compiler at compile time.</p>
+<p>For virtual member functions - it is not always possible for the compiler to resolve which function is being called at compile time - this is called <strong>late binding</strong>.</p>
+<p>Late binding in C++ used pointers. Late binding may be less efficient than early binding because of additional level of indirection, the compiler program needs to check the current address held for a function pointer, before moving there, but the reward is the additional flexibility required to allow decisions about function calls to be made at execution time.</p>
+<p>For virtual member functions late binding is implemented by the creation of a <strong>virtual table</strong>, which is a lookup table created by the compiler, allowing the program to resolve function calls; resolving a call to a virtual function is sometimes called dynamic dispatch.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -595,6 +615,21 @@ Interface inheritance is often referred to as run-time polymorphism (or dynamic 
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding">Binding</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

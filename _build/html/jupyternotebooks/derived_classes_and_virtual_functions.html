@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.dee815e3-67ff-4792-9e79-b72d28bcbaf2.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.de976f0b-c83b-4692-b712-fafd6d52d73d.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/derived_classes_and_virtual_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -530,11 +530,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-of-derived-classes">Construction of Derived Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-access-specifiers">More on Access Specifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-functions">Virtual Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructor-chaining">Constructor Chaining</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override">Override</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-destructors">Virtual Destructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-classes">Abstract Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
 </ul>
             </nav>
         </div>
@@ -555,30 +558,27 @@ document.write(`
 <p>A derived class <strong>inherits</strong> the properties of the base class, but then adds more data and functions - derived classes are larger and, although often called subclasses, they have a superset of the data of an instance of the base class.</p>
 <div class="syntax dropdown admonition" id="syntaxAD1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 1 </span> Rules: Derived Classes </p>
+<p class="admonition-title">Syntax Rules: Derived Classes </p>
 <section id="syntax-content">
 <p>Syntax for a derived class.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">BaseClassName</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">2</span>
-<span class="linenos">3</span><span class="p">};</span>
-<span class="linenos">4</span><span class="k">class</span><span class="w"> </span><span class="nc">DerivedClassName</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">BaseClassName</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">5</span><span class="w">    </span>
-<span class="linenos">6</span><span class="p">};</span>
+<span class="linenos">2</span><span class="p">};</span>
+<span class="linenos">3</span><span class="k">class</span><span class="w"> </span><span class="nc">DerivedClassName</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">BaseClassName</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">4</span><span class="p">};</span>
 </pre></div>
 </div>
 </section>
-</div>
-<p>If a single base class is specified, the inheritance model is called <strong>Single Inheritance</strong>. If more than one base class is specified, the inheritance model is called <strong>Multiple inheritance</strong>.</p>
-<p>In the following example, the base class is <code class="docutils literal notranslate"><span class="pre">Person</span></code>, and the derived class is <code class="docutils literal notranslate"><span class="pre">Student</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">Student</span></code> automatically has access to the members of <code class="docutils literal notranslate"><span class="pre">Person</span></code>, including the constuctor - i.e. there is no need to create new versions of the inherited members.</p>
+</div><p>If a single base class is specified, the inheritance model is called <strong>Single Inheritance</strong>. If more than one base class is specified, the inheritance model is called <strong>Multiple inheritance</strong>.</p>
+<p>In the following example, the base class is <code class="docutils literal notranslate"><span class="pre">Person</span></code>, and the derived class is <code class="docutils literal notranslate"><span class="pre">Student</span></code>.</p>
 <div class="code_example dropdown admonition" id="exampleAD1">
 
-<p class="admonition-title">Code Example: Basic Class Example </p>
+<p class="admonition-title">Code Example: Derived Class Example </p>
 <section id="code_example-content">
 <p>An example of a derived class:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
-<span class="cp">#incldue&lt;string&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;string&gt;</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
 <span class="k">protected</span><span class="o">:</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">{};</span>
@@ -612,18 +612,23 @@ document.write(`
 </div>
 <div class="code_explanation dropdown admonition" id="explanationAD1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD1"> Code Example: Basic Class Example </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD1"> Code Example: Derived Class Example </a></p>
 <section id="code_explanation-content">
-<p>Every instance of the derived class <code class="docutils literal notranslate"><span class="pre">student</span></code> also has data members called <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were inherited from</p>
-<p>Note: there is no constructor, or setter’s for the person class, so not much can be done with it.</p>
+<p>Every instance of the derived class <code class="docutils literal notranslate"><span class="pre">student</span></code> also has data members called <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were inherited from <code class="docutils literal notranslate"><span class="pre">Person</span></code>, including the constuctor - i.e. there is no need to create new versions of the inherited members.</p>
+<p>Note: there is no constructor, or setter’s for the <code class="docutils literal notranslate"><span class="pre">person</span></code> class, so not much can be done with it in this example.</p>
 </section>
 </div>
 </section>
-</div><p>The derived class is able to set and access data members belonging to its base class.</p>
-<p>It is better to use constructors with member list initialisation.</p>
+</div><p>The derived class is able to set and access data members belonging to its base class, because when an instance of a derived class is created, an embedded instance of the base class is also created (hidden withing the derived object, as a subobject).</p>
+<p>It is important to note the order of construction and destrucion.</p>
+<p>The base class object is constructed first, so that it is fully available for the construction of the derived object - the derived object is then constructed before its constructor body is executed.</p>
+<p>At destruction, the destructor of the base class object is called last, after the derived class object has been destroyed.</p>
+<section id="construction-of-derived-classes">
+<h2>Construction of Derived Classes<a class="headerlink" href="#construction-of-derived-classes" title="Permalink to this heading">#</a></h2>
+<p>It is better to use constructors with member list initialisation and to use <strong>constructor chaining</strong>, as shown in this example:</p>
 <div class="code_example dropdown admonition" id="exampleAD2">
 
-<p class="admonition-title">Code Example: Basic Class Example </p>
+<p class="admonition-title">Code Example: Derived Class Construction </p>
 <section id="code_example-content">
 <p>An example of a derived class:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -670,14 +675,15 @@ document.write(`
 </div>
 <div class="code_explanation dropdown admonition" id="explanationAD2">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD2"> Code Example: Basic Class Example </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD2"> Code Example: Derived Class Construction </a></p>
 <section id="code_explanation-content">
-<p>Every instance of the derived class <code class="docutils literal notranslate"><span class="pre">Student</span></code> also has the data members called <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were inherited from the base class <code class="docutils literal notranslate"><span class="pre">Person</span></code>.</p>
-<p>Note: there is no constructor, or setter’s for the person class, so not much can be done with it.</p>
+<p>The constructor for derived classes must call the base class’s constructor.</p>
+<p>This ensures the base class is constructed before extra data is added to make the instance of your derived class. This requires that there must be a constructor for the base class.</p>
+<p>Order of construction is important - Call the base class constructors in order of derivation, i.e. if Class3 is derived from Class2, which is derived from Class1, the Class1 constructor musst be called first, followed by the Class2 constructor and so on.</p>
 </section>
 </div>
 </section>
-</div><p>The constructor for derived classes must call the base class’s constructor. This ensures the base class is constructed before extra data is added to make the instance of your derived class. Order of construction is important - Call the base class constructors in order of derivation, i.e. if Class3 is derived from Class2, which is derived from Class1, the Class1 constructor musst be called first, followed by the Class2 constructor and so on.</p>
+</div></section>
 <section id="more-on-access-specifiers">
 <h2>More on Access Specifiers<a class="headerlink" href="#more-on-access-specifiers" title="Permalink to this heading">#</a></h2>
 <p>The access specifier <code class="docutils literal notranslate"><span class="pre">protected</span></code> indicates that the data members may only used by the class and by classes derived from it.</p>
@@ -792,6 +798,20 @@ Note: there is no constructor, or setter&#39;s for the person class, so not much
 </pre></div>
 </div>
 </section>
+<section id="abstract-classes">
+<h2>Abstract Classes<a class="headerlink" href="#abstract-classes" title="Permalink to this heading">#</a></h2>
+<p>reqrite
+Abstraction in C++ is the process of hiding the implementation details and only showing the essential details or features to the user. It allows to focus on what an object does rather than how it does it.</p>
+<p>In C++ abstraction is achieved using abstract classes (classes that have at least one pure virtual function).</p>
+</section>
+<section id="encapsulation">
+<h2>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this heading">#</a></h2>
+<p>Encapsulation
+Encapsulation is defined as the process of wrapping data and the methods into a single unit, typically a class. It is like a protective shield that prevents the data from being accessed by the code outside the shield.</p>
+<p>Technically, in encapsulation the variables or the data in a class is hidden from any other class and can be accessed only through any member function of the class in which they are declared.
+In encapsulation, the data in a class is hidden from other classes, which is similar to what data-hiding does.
+Encapsulation can be achieved by declaring all the variables in a class as private and writing public methods in the class to set and get the values of the variables.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -858,11 +878,14 @@ Note: there is no constructor, or setter&#39;s for the person class, so not much
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-of-derived-classes">Construction of Derived Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-access-specifiers">More on Access Specifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-functions">Virtual Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructor-chaining">Constructor Chaining</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override">Override</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-destructors">Virtual Destructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-classes">Abstract Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
 </ul>
   </nav></div>
 
