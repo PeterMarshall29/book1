@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.0c823d31-0058-429d-a411-bcd05f8c285b.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\switch_statements.55587eef-e453-4573-957b-aa3e37778a30.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-d446b06a-56c8-4c8c-97ef-6e10bacd4afa] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-765bb40a-929b-483b-87e3-e43387d7d07b] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -603,7 +603,7 @@ document.write(`
 <p>If no cases match, then the optional default block is executed, and control is passed on.</p>
 <p>The break statements are not optional - without them every code block after the first matched case will also be executed because control falls through.</p>
 <p>The program will be ill-formed if there is more than one default statement in a single switch-statement.</p>
-<pre align="center" data-zoom-id="id-d446b06a-56c8-4c8c-97ef-6e10bacd4afa" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-765bb40a-929b-483b-87e3-e43387d7d07b" class="mermaid align-center">
         flowchart LR
     A([&quot;Switch Condition Evaluated&quot;]) --&gt; B{&quot;Case 1 Match&quot;}
     B -- True --&gt; C[&quot;Execute Case 1 Statements, then Break&quot;]

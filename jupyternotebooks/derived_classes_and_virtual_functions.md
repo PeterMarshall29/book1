@@ -43,7 +43,7 @@ In the following example, the base class is `Person`, and the derived class is `
 
 
 
-``````{code_example-start} Derived Class Example
+``````{code_example-start} Derived Classes 
 :label: exampleAD1
 :class: dropdown
 :nonumber:
@@ -226,7 +226,7 @@ The virtual member function must be defined in the class it is first declared in
 
 When a derived class does not need a particular virtual function it does not need to provide a definition even though the function is listed as virtual and available
 
-``````{code_example-start} Virtual Member Functions Example
+``````{code_example-start} Virtual Member Functions
 :label: exampleAD3
 :class: dropdown
 :nonumber:
@@ -324,7 +324,7 @@ Abstract classes are useful for representing general concepts from which more sp
 
 An abstract class is created by declaring at least one {term}`pure virtual member function` which is done by assigning `=0` to a function declaration.
 
-``````{code_example-start} Virtual Member Functions Example
+``````{code_example-start} Virtual Member Functions
 :label: exampleAD4
 :class: dropdown
 :nonumber:

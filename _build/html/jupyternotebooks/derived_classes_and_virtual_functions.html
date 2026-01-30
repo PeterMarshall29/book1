@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.57732955-0d5b-4d85-b89e-a779b49ceed5.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.73e82b79-8d1e-4db2-ae3c-fd53de6a40dd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/derived_classes_and_virtual_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -569,7 +569,7 @@ document.write(`
 <p>In the following example, the base class is <code class="docutils literal notranslate"><span class="pre">Person</span></code>, and the derived class is <code class="docutils literal notranslate"><span class="pre">Student</span></code>.</p>
 <div class="code_example dropdown admonition" id="exampleAD1">
 
-<p class="admonition-title">Code Example: Derived Class Example </p>
+<p class="admonition-title">Code Example: Derived Classes </p>
 <section id="code_example-content">
 <p>An example of a derived class:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -609,7 +609,7 @@ document.write(`
 </div>
 <div class="code_explanation dropdown admonition" id="explanationAD1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD1"> Code Example: Derived Class Example </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD1"> Code Example: Derived Classes </a></p>
 <section id="code_explanation-content">
 <p>Every instance of the derived class <code class="docutils literal notranslate"><span class="pre">student</span></code> also has data members called <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were inherited from <code class="docutils literal notranslate"><span class="pre">Person</span></code>, including the constuctor - i.e. there is no need to create new versions of the inherited members.</p>
 <p>This is not a good example for several reasons.</p>
@@ -717,7 +717,7 @@ using Base::Base;
 <p>When a derived class does not need a particular virtual function it does not need to provide a definition even though the function is listed as virtual and available</p>
 <div class="code_example dropdown admonition" id="exampleAD3">
 
-<p class="admonition-title">Code Example: Virtual Member Functions Example </p>
+<p class="admonition-title">Code Example: Virtual Member Functions </p>
 <section id="code_example-content">
 <p>An example of virtual member functions:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -762,7 +762,7 @@ using Base::Base;
 </div>
 <div class="code_explanation dropdown admonition" id="explanationAD3">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD3"> Code Example: Virtual Member Functions Example </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD3"> Code Example: Virtual Member Functions </a></p>
 <section id="code_explanation-content">
 <p>Every instance of the derived class <code class="docutils literal notranslate"><span class="pre">Student</span></code> also has the data members called <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were inherited from the base class <code class="docutils literal notranslate"><span class="pre">Person</span></code>.</p>
 <p>Note: there is no constructor, or setter’s for the person class, so not much can be done with it.</p>
@@ -799,7 +799,7 @@ ADD example showing why vitual is needed - works without it but works differentl
 <p>An abstract class is created by declaring at least one <a class="reference internal" href="glossary.html#term-Pure-Virtual-Member-Function"><span class="xref std std-term">pure virtual member function</span></a> which is done by assigning <code class="docutils literal notranslate"><span class="pre">=0</span></code> to a function declaration.</p>
 <div class="code_example dropdown admonition" id="exampleAD4">
 
-<p class="admonition-title">Code Example: Virtual Member Functions Example </p>
+<p class="admonition-title">Code Example: Virtual Member Functions </p>
 <section id="code_example-content">
 <p>Example of creating an abstract class:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>

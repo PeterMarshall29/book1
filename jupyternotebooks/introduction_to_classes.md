@@ -407,9 +407,8 @@ int main() {
 `````{code_explanation} exampleZ5
 :label: explanationZ5
 :class: dropdown
+Always remember to initialise the data members if you rely on implicit default construction!
 `````
-Always initialise if you rely on implicit default construction!
-
 ``````{code_example-end} 
 ``````
 
@@ -497,10 +496,11 @@ int main() {
 `````{code_explanation} exampleZ6
 :label: explanationZ6
 :class: dropdown
-`````
+
 If `day` were not a static data member - each instance of `Date` would have a separate copy of `day` whose values would be unconnected.
 
 Static data members must be public.
+`````
 
 ``````{code_example-end} 
 ``````

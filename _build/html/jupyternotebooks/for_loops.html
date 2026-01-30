@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.4379a85c-a9bb-45c9-a48a-3025ddb10a94.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\for_loops.cbede427-5fea-49e5-8f9d-7bb14d0dbafb.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b6739774-8be2-4fc4-bb6a-1641dea06ae5] svg, .mermaid[data-zoom-id=id-e8924081-2d3c-491b-8160-d45766d59aa7] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-3b360f7e-9a77-4b8c-851a-89f00e6a5a99] svg, .mermaid[data-zoom-id=id-f2387a9b-ea89-4ade-871a-8d4714e20dc0] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -614,7 +614,7 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-b6739774-8be2-4fc4-bb6a-1641dea06ae5" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-3b360f7e-9a77-4b8c-851a-89f00e6a5a99" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -645,7 +645,7 @@ document.write(`
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-e8924081-2d3c-491b-8160-d45766d59aa7" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-f2387a9b-ea89-4ade-871a-8d4714e20dc0" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input
