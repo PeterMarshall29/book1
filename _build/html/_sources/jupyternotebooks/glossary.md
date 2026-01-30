@@ -81,7 +81,7 @@ Comma Operator
   The comma operator allows multiple expressions to be evaluated sequentially, returning the value of the last expression. Used when a single expression is required but it is desirable to perform multiple operations at that point in the code.
 
 Comments
-  Comments are plain text in a computer program that are only intended as a note to the programr. Comments are useful as in-code documentation and are also used by programrs to hide sections of a program from the compiler temporarily - useful during development/debugging.
+  Comments are plain text in a computer program that are only intended as a note to the programmer. Comments are useful as in-code documentation and are also used by programmers to hide sections of a program from the compiler temporarily - useful during development/debugging.
 
 Compiler
   The part of a C++ implementation that produces object code from a translation unit. Compilers transform source code into other types of code - most often, into native machine code that is interpreted directly by the {term}`CPU`.
@@ -126,7 +126,7 @@ Constructors
   Special member functions that are automatically called when an object of its class is created. Constructors have the same name as their class and have no return type.
 
 Core Language
-  The fundamental components of the C++ language not found in the Standard Library, whose  libraries are constructed from the core language.
+  The fundamental components of the C++ language not found in the Standard Library, whose libraries are constructed from the core language.
 
 Copy-Assignment
   Replacement of the contents of one object with the contents of a second object; the second object is unaffected by the operation. Can also initialise an object. 
@@ -198,7 +198,7 @@ Empty Statement
   A statement that consists of only a semicolon `;`. It does nothing and is often referred to as a {term}`null statement`. Empty statements are used where the syntax requires a statement, but the contents are optionally not required, to provide an empty body to a `for` or `while` loop, or to carry a label at the end of a compound statement.
 
 Encapsulation
-  The enforcement of abstraction by mechanisms that prevent access to implementation details of an object, or a group of objects, except through a well-defined {term}`interface`. C++ enforces encapsulation of private and proteced members of a class as long as users do not violate the type system using casts. 
+  The enforcement of abstraction by mechanisms that prevent access to implementation details of an object, or a group of objects, except through a well-defined {term}`interface`. C++ enforces encapsulation of private and protected members of a class provided that users do not violate the type system using casts. 
 
 Entity
   The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces. 
@@ -342,7 +342,7 @@ Header Files
   Header files in C++ are essential for organizing and managing code in large projects. They contain declarations of functions, classes, variables, and other identifiers, that inform the compiler about the existence and type of these elements without providing their actual implementation. This separation allows multiple source files to share the same declarations, ensuring consistency and reducing errors, and include them wherever needed, reducing redundancy and improving code maintainability.
 
 Heap
-  The heap is a region of memory used for dynamic memory allocation. Unlike the stack, the heap is managed manually by the programr or automatically by a garbage collector.
+  The heap is a region of memory used for dynamic memory allocation. Unlike the stack, the heap is managed manually by the programmer or automatically by a garbage collector.
 
 Identifier
   The {term}`name` given to any {term}`entity` that may have a used defined name.
@@ -354,7 +354,7 @@ Immutable
   Fixed, constant, not permitted to change after initialisation.
 
 Implementation
-  Different versions of C++, produced by different organisations. Some behaviours are defined by the ISO C++ Standard, others depend on the implementation.
+  Different versions of C++, produced by different organisations. Some behaviours are defined by the ISO C++ Standard; others depend on the implementation.
 
 Infix Operator
   Operator that sits between two variables, denoting an operation using both variable (the operands). As opposed to unary, prefix and postfix, operators that act on one variable positioned before or after it respectively.
@@ -405,10 +405,10 @@ Iterators
   Iterators are objects that act as pointers to elements within a container (arrays, vectors, lists, etc.) making it simple to traverse and manipulate the elements of a container without exposing the underlying structure e.g. the user may not need to know the number of elements in advance, or the type of container. Some functions specifically require iterators, which are most easily produced in these cases by another member function, such as `begin()`. 
 
 Keyword
-  An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programr. [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keywords.html).
+  An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programmer. [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keywords.html).
 
 Keywords
-  An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programr. [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keywords.html).
+  An identifier used by the C++ language standard. Keywords are reserved; they may not be declared as an identifier by a programmer. [Keywords in the C++ language](https://en.cppreference.com/w/cpp/keywords.html).
 
 Linkage
   linkage refers to how names can refer to the same entities across different scopes or translation units. Internal Linkage - Identifiers can only be seen within a translation unit. External Linkage - Identifiers can be seen in other translation units. No Linkage - Identifiers can only be seen in the scope where they are defined. Linkage is determined by how identifiers are declared, and it affects how names can refer to the same object, function, or other entity throughout the program. 
@@ -450,8 +450,8 @@ Macros
 Member
   Types, variables and constants, and functions declared within the scope of, and therefore belonging to, a class.
 
-Member Intialiser List
-  Initialise list for members of a class specified in the construtor
+Member Initialiser List
+  Initialise list for members of a class specified in the constructor.
 
 Memory Address
   A computer memory address is a unique identifier assigned to a specific location in a computer's memory, allowing the CPU and other hardware components to access and manipulate stored data efficiently. Memory addresses are typically represented as an array of hexadecimal values of a fixed length.
@@ -599,7 +599,7 @@ Regular Expression
   Regular expressions are used for pattern matching within strings. They are part of the `<regex>` library that provides tools to define, search, and manipulate patterns in text.
 
 Regular Expressions
-  Regular expressions are used for pattern matching within strings. They are part of the `<regex>` library that provides tools to define, search, and manipulate patterns in te
+  Regular expressions are used for pattern matching within strings. They are part of the `<regex>` library that provides tools to define, search, and manipulate patterns in text.
 
 Reserved Characters
   Some characters cannot be freely used because they have special meaning in the syntax. Some may be overloaded. Examples: `#`, `\`, arithmetic operators, comparison operators, punctuation symbols. 
@@ -659,7 +659,7 @@ Static Memory
   Memory allocated by the {term}`linker`
 
 String
-  Sequence of characters collected into a single variable - a `char` array - denoted by a literal enclosed in double quote marks `""`. `std::string` provides a methods for manipulating strings. `std::string` behaves like a containter but is not part of the C++ <container> library.
+  Sequence of characters collected into a single variable - a `char` array - denoted by a literal enclosed in double quote marks `""`. `std::string` provides methods for manipulating strings. `std::string` behaves like a container but is not part of the C++ <container> library.
 
 String Data Type
   Data consisting of a sequence of characters, bracketed by `""`. Requires inclusion of `<string>` and access via `std::` namespace scope.
@@ -741,6 +741,18 @@ Value Category
 
 Value Categories
   Each C++ expression (an operator with its operands, literals, variables, etc.) is characterized by two independent properties: a type and a [value category](https://en.cppreference.com/w/cpp/language/value_category.html). The include lvalues and rvalues.
+
+Virtual Function
+  A member function that a derived class can override; the primary mechanism for run-time polymorphism in C++. A virtual member function is sometimes called a method.
+
+Virtual Functions
+  A member function that a derived class can override; the primary mechanism for run-time polymorphism in C++. A virtual member function is sometimes called a method.
+
+Virtual Member Function
+  A member function that a derived class can override; the primary mechanism for run-time polymorphism in C++. A virtual member function is sometimes called a method.
+
+Virtual Member Functions
+  A member function that a derived class can override; the primary mechanism for run-time polymorphism in C++. A virtual member function is sometimes called a method.
 
 Void
   Used to declare that a function returns nothing. Cannot be used to declare a variable as having no type. Used to declare that a pointer is of universal type i.e. void* pointer to a name that’s type is not defined yet.

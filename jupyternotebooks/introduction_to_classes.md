@@ -166,10 +166,11 @@ int main() {
 :label: explanationZ2
 :class: dropdown
 
-`````
 Setters are only required if the data members will be altered after initialisation - often classes only have constructors.
 
 An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.
+
+`````
 
 ``````{code_example-end} 
 ``````

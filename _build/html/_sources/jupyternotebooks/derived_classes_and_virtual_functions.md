@@ -56,7 +56,7 @@ An example of a derived class:
 #include<string>
 class Person {
 protected:
-    std::string name{};
+    std::string name;
     int age{};
 public:
     void displayInfo() const {
@@ -89,7 +89,11 @@ int main() {
 
 Every instance of the derived class `student` also has data members called `name` and `age` that were inherited from `Person`, including the constuctor - i.e. there is no need to create new versions of the inherited members.
 
-Note: there is no constructor, or setter's for the `person` class, so not much can be done with it in this example. 
+This is not a good example for several reasons.
+
+In this example, the base class has only it's default constructor - so can only be intialised with default value - and since there are no accessor function either, an instanc of Person would be fairly useless.
+
+Because there is only the default constructor - we cannot use member list initalisaiton in the constructor yet, although parameterised construction is fine.
 
 `````
 
@@ -105,7 +109,13 @@ At destruction, the destructor of the base class object is called last, after th
 
 ## Construction of Derived Classes
 
-It is better to use constructors with member list initialisation and to use **constructor chaining**, as shown in this example:
+It is better to use constructors with member list initialisation, however C++ does not permit the initialisation of inherited data members using the normal member initialiser list technique - this ensures that a const base class member is permitted - since such a value would be set by the base class constructor before the derived constructor starts.
+
+As shown above - not const data members (and references) can be changed by a parameterised constructor, which is OK if we ignore that the value is actually being set twice! Once by the base constructor, possibly to a default value, and again by the derived class constructor.
+
+Data members may only be initialised by a constructor of the same class they are declared in.
+
+The solution is to include a call to the base class constructor in the member intialiser list. This is best practice and should be adopted, as shown in this example:
 
 ``````{code_example-start} Derived Class Construction
 :label: exampleAD2
@@ -163,11 +173,11 @@ The constructor for derived classes must call the base class's constructor.
 This ensures the base class is constructed before extra data is added to make the instance of your derived class. This requires that there must be a constructor for the base class.
 
 Order of construction is important - Call the base class constructors in order of derivation, i.e. if Class3 is derived from Class2, which is derived from Class1, the Class1 constructor musst be called first, followed by the Class2 constructor and so on.
+
 `````
 
 ``````{code_example-end} 
 ``````
-
 
 
 ## More on Access Specifiers
@@ -273,25 +283,16 @@ Note: there is no constructor, or setter's for the person class, so not much can
 ``````{code_example-end} 
 ``````
 
-
+<!-- 
 ADD example showing why vitual is needed - works without it but works differently for pointers and referecnes see https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170
 
-## Constructor Chaining
-
-A useful tec
-
-Student( std::string init_name, int init_age, const std::string& init_id)
-        : Person(init_name, init_age), studentID(init_id) {}
-
-
-
-If the base class is abstract, then constructor chaining is the only option.        
+  
 
 ## Override
 
 `override` is used to designate a member function that overrides a virtual function in a base class.
 
-`override` is a reserved keyword when used immediately after a member function declaration.
+`override` is a reserved keyword when used immediately after a member function declaration. -->
 
 
 ## Virtual Destructors
@@ -344,7 +345,7 @@ Person can not longer be instantiated.
 
 Try altering the code in the previous example.
 
-If the derived class uses the virtual member function `displayInfo()` - the method must be redclared, and a definition provided in the usual manner.
+If the derived class uses the virtual member function `displayInfo()` - the method must be redeclared, and a definition provided in the usual manner.
 ``````{code_example-end}
 ``````
 
@@ -356,11 +357,4 @@ Consider the example presented in Virtual functions. The intent of class Account
 
 
 
-## Encapsulation
 
-Encapsulation
-Encapsulation is defined as the process of wrapping data and the methods into a single unit, typically a class. It is like a protective shield that prevents the data from being accessed by the code outside the shield.
-
-Technically, in encapsulation the variables or the data in a class is hidden from any other class and can be accessed only through any member function of the class in which they are declared.
-In encapsulation, the data in a class is hidden from other classes, which is similar to what data-hiding does.
-Encapsulation can be achieved by declaring all the variables in a class as private and writing public methods in the class to set and get the values of the variables.

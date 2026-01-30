@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.489a7b09-d49d-4e18-adb6-8a8b8199acaf.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\derived_classes_and_virtual_functions.57732955-0d5b-4d85-b89e-a779b49ceed5.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/derived_classes_and_virtual_functions';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -533,11 +533,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-of-derived-classes">Construction of Derived Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-access-specifiers">More on Access Specifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-functions">Virtual Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructor-chaining">Constructor Chaining</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override">Override</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-destructors">Virtual Destructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-classes">Abstract Classes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
 </ul>
             </nav>
         </div>
@@ -581,7 +578,7 @@ document.write(`
 <span class="cp">#include</span><span class="cpf">&lt;string&gt;</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
 <span class="k">protected</span><span class="o">:</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">{};</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">displayInfo</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
@@ -615,7 +612,9 @@ document.write(`
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAD1"> Code Example: Derived Class Example </a></p>
 <section id="code_explanation-content">
 <p>Every instance of the derived class <code class="docutils literal notranslate"><span class="pre">student</span></code> also has data members called <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> that were inherited from <code class="docutils literal notranslate"><span class="pre">Person</span></code>, including the constuctor - i.e. there is no need to create new versions of the inherited members.</p>
-<p>Note: there is no constructor, or setter’s for the <code class="docutils literal notranslate"><span class="pre">person</span></code> class, so not much can be done with it in this example.</p>
+<p>This is not a good example for several reasons.</p>
+<p>In this example, the base class has only it’s default constructor - so can only be intialised with default value - and since there are no accessor function either, an instanc of Person would be fairly useless.</p>
+<p>Because there is only the default constructor - we cannot use member list initalisaiton in the constructor yet, although parameterised construction is fine.</p>
 </section>
 </div>
 </section>
@@ -625,7 +624,10 @@ document.write(`
 <p>At destruction, the destructor of the base class object is called last, after the derived class object has been destroyed.</p>
 <section id="construction-of-derived-classes">
 <h2>Construction of Derived Classes<a class="headerlink" href="#construction-of-derived-classes" title="Permalink to this heading">#</a></h2>
-<p>It is better to use constructors with member list initialisation and to use <strong>constructor chaining</strong>, as shown in this example:</p>
+<p>It is better to use constructors with member list initialisation, however C++ does not permit the initialisation of inherited data members using the normal member initialiser list technique - this ensures that a const base class member is permitted - since such a value would be set by the base class constructor before the derived constructor starts.</p>
+<p>As shown above - not const data members (and references) can be changed by a parameterised constructor, which is OK if we ignore that the value is actually being set twice! Once by the base constructor, possibly to a default value, and again by the derived class constructor.</p>
+<p>Data members may only be initialised by a constructor of the same class they are declared in.</p>
+<p>The solution is to include a call to the base class constructor in the member intialiser list. This is best practice and should be adopted, as shown in this example:</p>
 <div class="code_example dropdown admonition" id="exampleAD2">
 
 <p class="admonition-title">Code Example: Derived Class Construction </p>
@@ -711,7 +713,7 @@ using Base::Base;
 <p>Declaring a particular function as <code class="docutils literal notranslate"><span class="pre">virtual</span></code> in the base class allows that function identifier to act as an interface to the definitions of the function in both the base and derived classes. The compiler and linker will guarantee the correct correspondence between objects and the functions applied to them.</p>
 <p>A function in a derived class with the same identifier and argument type list as one in the base class is said to <strong>override</strong> the base class version that would otherwise be inherited. The virutal base function can be overrided with a different return type in the derived version.</p>
 <p>The only constraint on a virtual function being an interface to its variants defined in derived classes is that is that argument types cannot differ from those of the base declaration, and only minor changes are allowed for the return type.</p>
-<p>The virtual member function must be defined in the class it is first declared in - see pure <span class="xref std std-term">virtual functions</span> and <a class="reference internal" href="glossary.html#term-Abstract-Classes"><span class="xref std std-term">abstract classes</span></a>.</p>
+<p>The virtual member function must be defined in the class it is first declared in - see pure <a class="reference internal" href="glossary.html#term-Virtual-Functions"><span class="xref std std-term">virtual functions</span></a> and <a class="reference internal" href="glossary.html#term-Abstract-Classes"><span class="xref std std-term">abstract classes</span></a>.</p>
 <p>When a derived class does not need a particular virtual function it does not need to provide a definition even though the function is listed as virtual and available</p>
 <div class="code_example dropdown admonition" id="exampleAD3">
 
@@ -767,21 +769,16 @@ using Base::Base;
 </section>
 </div>
 </section>
-</div><p>ADD example showing why vitual is needed - works without it but works differently for pointers and referecnes see <a class="reference external" href="https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170">https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170</a></p>
-</section>
-<section id="constructor-chaining">
-<h2>Constructor Chaining<a class="headerlink" href="#constructor-chaining" title="Permalink to this heading">#</a></h2>
-<p>A useful tec</p>
-<dl class="simple myst">
-<dt>Student( std::string init_name, int init_age, const std::string&amp; init_id)</dt><dd><p>Person(init_name, init_age), studentID(init_id) {}</p>
-</dd>
-</dl>
-<p>If the base class is abstract, then constructor chaining is the only option.</p>
-</section>
-<section id="override">
-<h2>Override<a class="headerlink" href="#override" title="Permalink to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">override</span></code> is used to designate a member function that overrides a virtual function in a base class.</p>
-<p><code class="docutils literal notranslate"><span class="pre">override</span></code> is a reserved keyword when used immediately after a member function declaration.</p>
+</div><!-- 
+ADD example showing why vitual is needed - works without it but works differently for pointers and referecnes see https://learn.microsoft.com/en-us/cpp/cpp/virtual-functions?view=msvc-170
+
+  
+
+## Override
+
+`override` is used to designate a member function that overrides a virtual function in a base class.
+
+`override` is a reserved keyword when used immediately after a member function declaration. -->
 </section>
 <section id="virtual-destructors">
 <h2>Virtual Destructors<a class="headerlink" href="#virtual-destructors" title="Permalink to this heading">#</a></h2>
@@ -817,19 +814,11 @@ using Base::Base;
 </div>
 <p>Person can not longer be instantiated.</p>
 <p>Try altering the code in the previous example.</p>
-<p>If the derived class uses the virtual member function <code class="docutils literal notranslate"><span class="pre">displayInfo()</span></code> - the method must be redclared, and a definition provided in the usual manner.</p>
+<p>If the derived class uses the virtual member function <code class="docutils literal notranslate"><span class="pre">displayInfo()</span></code> - the method must be redeclared, and a definition provided in the usual manner.</p>
 </section>
 </div><p>Although you may not create an an object of the abstract class type, it is still possible to use pointers and references to abstract class types.</p>
 <p>You create an abstract class by declaring at least one pure virtual member function. That’s a virtual function declared by using the pure specifier (= 0) syntax. Classes derived from the abstract class must implement the pure virtual function or they, too, are abstract classes.</p>
 <p>Consider the example presented in Virtual functions. The intent of class Account is to provide general functionality, but objects of type Account are too general to be useful. That means Account is a good candidate for an abstract class:</p>
-</section>
-<section id="encapsulation">
-<h2>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this heading">#</a></h2>
-<p>Encapsulation
-Encapsulation is defined as the process of wrapping data and the methods into a single unit, typically a class. It is like a protective shield that prevents the data from being accessed by the code outside the shield.</p>
-<p>Technically, in encapsulation the variables or the data in a class is hidden from any other class and can be accessed only through any member function of the class in which they are declared.
-In encapsulation, the data in a class is hidden from other classes, which is similar to what data-hiding does.
-Encapsulation can be achieved by declaring all the variables in a class as private and writing public methods in the class to set and get the values of the variables.</p>
 </section>
 </section>
 
@@ -900,11 +889,8 @@ Encapsulation can be achieved by declaring all the variables in a class as priva
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-of-derived-classes">Construction of Derived Classes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-access-specifiers">More on Access Specifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-functions">Virtual Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructor-chaining">Constructor Chaining</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override">Override</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-destructors">Virtual Destructors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-classes">Abstract Classes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
 </ul>
   </nav></div>
 
