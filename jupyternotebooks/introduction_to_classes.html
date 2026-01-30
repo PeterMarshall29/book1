@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.94ad2732-2282-4e0f-aa65-4bf5f51b769d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.a487c4a9-3e92-47a9-bbb9-2b742a703b25.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_classes';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -689,10 +689,10 @@ Try - comment out the init statement and try to print out the value of day.</p>
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleZ2"> Code Example: Accessing Private Data Members </a></p>
 <section id="code_explanation-content">
-</section>
-</div>
 <p>Setters are only required if the data members will be altered after initialisation - often classes only have constructors.</p>
 <p>An alternative to a getter would be a member function for printing to the terminal, or to file, if those are the only things done with the data.</p>
+</section>
+</div>
 </section>
 </div></section>
 <section id="inline-member-functions">
@@ -769,7 +769,7 @@ Try - comment out the init statement and try to print out the value of day.</p>
 </div></section>
 <section id="member-initialiser-lists">
 <h2>Member Initialiser Lists<a class="headerlink" href="#member-initialiser-lists" title="Permalink to this heading">#</a></h2>
-<p>The preferred way to write a constructor is to include a <span class="xref std std-term">member initialiser list</span>, which initialise class data members before the body of the constructor is evaluated. The body of the constructor then has the advantage of access to initialised data members.</p>
+<p>The preferred way to write a constructor is to include a <a class="reference internal" href="glossary.html#term-Member-Initialiser-List"><span class="xref std std-term">member initialiser list</span></a>, which initialise class data members before the body of the constructor is evaluated. The body of the constructor then has the advantage of access to initialised data members.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="o">::</span><span class="n">Date</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">init_day</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">day</span><span class="p">(</span><span class="n">init_day</span><span class="p">),</span><span class="w"> </span><span class="n">month</span><span class="p">(</span><span class="n">init_month</span><span class="p">),</span><span class="w"> </span><span class="n">year</span><span class="p">(</span><span class="n">init_year</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
 </div>

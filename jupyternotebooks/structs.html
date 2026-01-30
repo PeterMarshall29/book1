@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\structs.f4ef8d5f-1f9d-467c-ae98-4afe5b768844.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\structs.e384ec25-952f-48db-bbb4-724478db92a4.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/structs';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -532,8 +532,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-instantiating-a-struct">Creating and Instantiating a Struct</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialising-the-data-held-by-an-instance">Initialising the Data held by an Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#altering-the-value-of-the-data-members-of-an-instance">Altering the Value of the Data Members of an Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-by-function">Initialisation by Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-structs-by-pointer">Accessing Structs by Pointer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">Constructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-details">Technical Details</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-arithmetic-functions">Adding arithmetic functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members-functions-called-with-stuct-type-name-not-instance-name">Static members functions – called with stuct type name not instance name.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members-functions">Static Members Functions</a></li>
 </ul>
             </nav>
         </div>
@@ -558,7 +563,7 @@ document.write(`
 <p>A struct is declared as follows:</p>
 <div class="code_example dropdown admonition" id="exampleY1">
 
-<p class="admonition-title">Code Example: Basic Struct Example 1 </p>
+<p class="admonition-title">Code Example: Struct Example 1 </p>
 <section id="code_example-content">
 <p>Example of a simple struct - RationalNumber.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
@@ -581,7 +586,7 @@ document.write(`
 </div>
 <div class="code_explanation dropdown admonition" id="explanationY1">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY1"> Code Example: Basic Struct Example 1 </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY1"> Code Example: Struct Example 1 </a></p>
 <section id="code_explanation-content">
 <p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
 </section>
@@ -595,7 +600,7 @@ document.write(`
 <p>Values of a struct may also be initialised using an initialiser list <code class="docutils literal notranslate"><span class="pre">{}</span></code> - do keep the order of parameters the same as the listing.</p>
 <div class="code_example dropdown admonition" id="exampleY2">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 2 </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -616,20 +621,19 @@ document.write(`
 </div>
 <div class="code_explanation dropdown admonition" id="explanationY2">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY2"> Code Example: Basic Struct Example 2 </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY2"> Code Example: Struct Example 2 </a></p>
 <section id="code_explanation-content">
 <p>Note: <code class="docutils literal notranslate"><span class="pre">size0f()</span></code> does not work the same for stucts, because of memory layout issues with structs that vary between architectures and implementations.</p>
-<p>It is best to order members in a struct in size order i.e. largest member first e.g. doubles then ints then chars etc.</p>
+<p>It is best to order members in a struct in size order i.e. largest member first e.g. <code class="docutils literal notranslate"><span class="pre">double</span></code> then <code class="docutils literal notranslate"><span class="pre">int</span></code> then <code class="docutils literal notranslate"><span class="pre">char</span></code> types etc.</p>
 </section>
 </div>
 </section>
-</div><p>Note: <code class="docutils literal notranslate"><span class="pre">size0f()</span></code> does not work the same for stucts, because of memory layout issues with structs that vary between architectures and implementations.</p>
-<p>It is best to order members in a struct in size order i.e. largest member first e.g. doubles then ints then chars etc.</p>
-<p>Both the list and the .notation may be used to modify existing values.</p>
-<p>First improvement: use a function for initialisation.</p>
+</div></section>
+<section id="altering-the-value-of-the-data-members-of-an-instance">
+<h2>Altering the Value of the Data Members of an Instance<a class="headerlink" href="#altering-the-value-of-the-data-members-of-an-instance" title="Permalink to this heading">#</a></h2>
 <div class="code_example dropdown admonition" id="exampleY3">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 3 </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -652,17 +656,21 @@ document.write(`
 </div>
 <div class="code_explanation dropdown admonition" id="explanationY3">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY3"> Code Example: Basic Struct Example 2 </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY3"> Code Example: Struct Example 3 </a></p>
 <section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
+<p>Both the list and the .notation may be used to modify existing values.</p>
 </section>
 </div>
 </section>
-</div><p>We can create a helper function to initialise a copy of the struct and to check for invalid entries etc.</p>
+</div></section>
+<section id="initialisation-by-function">
+<h2>Initialisation by Function<a class="headerlink" href="#initialisation-by-function" title="Permalink to this heading">#</a></h2>
+<p>We can create a non-member function to initialise a copy of the struct and to check for invalid entries etc.</p>
 <div class="code_example dropdown admonition" id="exampleY4">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 4 </p>
 <section id="code_example-content">
+<p>Intialisaton by non-member function:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -683,19 +691,20 @@ document.write(`
 </div>
 <div class="code_explanation dropdown admonition" id="explanationY4">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY4"> Code Example: Basic Struct Example 2 </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY4"> Code Example: Struct Example 4 </a></p>
 <section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
 </section>
 </div>
+<p>This initialisation function passes a reference to the rational number.</p>
+<p>Note that a referenced object is not a copy and can therefore be modified.</p>
+<p>But there is not yet any explicit connection between the functions and the struct; it is usually better to use a member function.</p>
+<p>This is not generally how structs are initialised.</p>
 </section>
-</div><p>This initialisation function passes a reference to the rational number.
-Note that a referenced object is not a copy and can therefore be modified.
-But there is not yet any explicit connection between the functions and the struct; it is usually better to use a member function.</p>
-<div class="code_example dropdown admonition" id="exampleY5">
+</div><div class="code_example dropdown admonition" id="exampleY5">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 5 </p>
 <section id="code_example-content">
+<p>Using a member function for initalisation:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -721,19 +730,18 @@ But there is not yet any explicit connection between the functions and the struc
 </div>
 <div class="code_explanation dropdown admonition" id="explanationY5">
 
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY5"> Code Example: Basic Struct Example 2 </a></p>
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY5"> Code Example: Struct Example 5 </a></p>
 <section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
+<p>Now <code class="docutils literal notranslate"><span class="pre">init_</span></code> is a member function and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation on an instance.</p>
+<p>Its better to separate the declaration of the struct from the definitions.</p>
 </section>
 </div>
 </section>
-</div><p>Now <code class="docutils literal notranslate"><span class="pre">init_</span></code> is a member function and must be called using the <code class="docutils literal notranslate"><span class="pre">.</span></code> notation on an instance.
-Its better to separate the declaration of the struct from the definitions.</p>
-<p>Declaring the init function inside the struct but defining it outside :</p>
-<div class="code_example dropdown admonition" id="exampleY6">
+</div><div class="code_example dropdown admonition" id="exampleY6">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 6 </p>
 <section id="code_example-content">
+<p>Declaring the init function inside the struct but defining it outside :</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -759,20 +767,18 @@ Its better to separate the declaration of the struct from the definitions.</p>
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY6">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY6"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
 </section>
-</div>
-</section>
-</div><p>Instead of passing by reference, as struct can be accessed by a pointer.
-Structures are often accessed through pointers using the <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> the struct pointer member dereference operator. When p is a pointer, <code class="docutils literal notranslate"><span class="pre">p-&gt;m</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">(*p).m</span></code> .</p>
+</div></section>
+<section id="accessing-structs-by-pointer">
+<h2>Accessing Structs by Pointer<a class="headerlink" href="#accessing-structs-by-pointer" title="Permalink to this heading">#</a></h2>
+<p>Instead of passing by reference, as struct can be accessed by a pointer.</p>
+<p>Structures are often accessed through pointers using the <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> the struct pointer member dereference operator.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">p</span></code> is a pointer, <code class="docutils literal notranslate"><span class="pre">p-&gt;m</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">(*p).m</span></code> .</p>
 <div class="code_example dropdown admonition" id="exampleY7">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 7 </p>
 <section id="code_example-content">
+<p>Using pointer member dereferencing operator <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -801,19 +807,12 @@ Structures are often accessed through pointers using the <code class="docutils l
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY7">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY7"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
 </section>
-</div>
-</section>
-</div><p>Or using the pointer to the struct itself,</p>
-<div class="code_example dropdown admonition" id="exampleY8">
+</div><div class="code_example dropdown admonition" id="exampleY8">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 8 </p>
 <section id="code_example-content">
+<p>Or using the pointer to the struct itself:</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -825,20 +824,17 @@ Structures are often accessed through pointers using the <code class="docutils l
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY8">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY8"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
 </section>
-</div>
-</section>
-</div><p>Because a struct is a simple class, one with members that are public by default, a struct can have member functions and constructors.
-A constructor is a member function that specifically initialises an instance of a struct or class.
-Constructors are member functions with the same name as the struct (or class) that is used for initialisation. Failing to initialise a struct that has a constructor will produce be caught by the compiler.</p>
+</div></section>
+<section id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this heading">#</a></h2>
+<p>The best method is initialisation it to use a constructor.</p>
+<p>A constructor is a member function that specifically initialises an instance of a struct or class.</p>
+<p>Constructors are member functions with the same name as the struct (or class) that is used for initialisation.</p>
+<p>Failing to initialise a struct that has a constructor will produce be caught by the compiler.</p>
 <div class="code_example dropdown admonition" id="exampleY9">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 9 Constructors </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -861,19 +857,7 @@ Constructors are member functions with the same name as the struct (or class) th
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY9">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY9"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
-</section>
-</div>
-</section>
-</div><p>Or inside the function</p>
-<div class="code_example dropdown admonition" id="exampleY10">
-
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
-<section id="code_example-content">
+<p>Or inside the function</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -893,19 +877,7 @@ Constructors are member functions with the same name as the struct (or class) th
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY10">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY10"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
-</section>
-</div>
-</section>
-</div><p>We can also use the standard method of initialisation but be careful not to use the same name for the contructor parameters.</p>
-<div class="code_example dropdown admonition" id="exampleY11">
-
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
-<section id="code_example-content">
+<p>We can also use the standard method of initialisation, but be careful not to use the same name for the contructor parameters.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -926,19 +898,7 @@ Constructors are member functions with the same name as the struct (or class) th
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY11">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY11"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
-</section>
-</div>
-</section>
-</div><p>Or,</p>
-<div class="code_example dropdown admonition" id="exampleY12">
-
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
-<section id="code_example-content">
+<p>Or,</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -960,20 +920,7 @@ Constructors are member functions with the same name as the struct (or class) th
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY12">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY12"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
-</section>
-</div>
-</section>
-</div><p>Since it’s a member function, the reference to myRationalNumber is redundant</p>
 <p>Structs can also be returned, for example, although we do not need to return anything from the init function:</p>
-<div class="code_example dropdown admonition" id="exampleY13">
-
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
-<section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -997,27 +944,22 @@ Constructors are member functions with the same name as the struct (or class) th
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY13">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY13"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
 </section>
-</div>
-</section>
-</div><p>Technical details.
-A struct is a simple class whose members are public by default; a class has private members.</p>
-<p>The name of the struct can be used within its own declaration i.e. the name is available after it has been seen by the compiler, not after the declaration has been completed as with most declarations.
-New instances of a struct may not be declared inside the struct however, only pointers to instances.
-The name of a struct can be used before definition provided that the name of a member or the size of the struct is no needed to be known.
-Most uses required the definition to be completed first.</p>
-<p>Basic operations such as <code class="docutils literal notranslate"><span class="pre">==</span></code> are not available to a struct by default, so these must all be defined by the user for each new struct.</p>
+</div></section>
+<section id="technical-details">
+<h2>Technical Details<a class="headerlink" href="#technical-details" title="Permalink to this heading">#</a></h2>
+<p>A struct is a simple class whose members are public by default; a class has private members.</p>
+<p>The name of the struct can be used within its own declaration i.e. the name is available after it has been seen by the compiler, not after the declaration has been completed as with most declarations.</p>
+<p>New instances of a struct may not be declared inside the struct however, only pointers to instances.</p>
+<p>The name of a struct can be used before definition provided that the name of a member or the size of the struct is no needed to be known.</p>
+<p>Most uses required the definition to be completed first.</p>
 </section>
 <section id="adding-arithmetic-functions">
 <h2>Adding arithmetic functions<a class="headerlink" href="#adding-arithmetic-functions" title="Permalink to this heading">#</a></h2>
+<p>Basic operations such as <code class="docutils literal notranslate"><span class="pre">==</span></code> are not available to a struct by default, so these must all be defined by the user for each new struct.</p>
 <div class="code_example dropdown admonition" id="exampleY14">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 10 </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1052,19 +994,7 @@ Most uses required the definition to be completed first.</p>
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY14">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY14"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
-</section>
-</div>
-</section>
-</div><p>These can be written in a neater fashion using <code class="docutils literal notranslate"><span class="pre">this</span></code>, which is a pointer to the instance that the member functions and members belong to.</p>
-<div class="code_example dropdown admonition" id="exampleY15">
-
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
-<section id="code_example-content">
+<p>These can be written in a neater fashion using <code class="docutils literal notranslate"><span class="pre">this</span></code>, which is a pointer to the instance that the member functions and members belong to.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -1097,20 +1027,14 @@ Most uses required the definition to be completed first.</p>
 </div>
 </div>
 </div>
-<div class="code_explanation dropdown admonition" id="explanationY15">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY15"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
-</section>
-</div>
 </section>
 </div></section>
-<section id="static-members-functions-called-with-stuct-type-name-not-instance-name">
-<h2>Static members functions – called with stuct type name not instance name.<a class="headerlink" href="#static-members-functions-called-with-stuct-type-name-not-instance-name" title="Permalink to this heading">#</a></h2>
+<section id="static-members-functions">
+<h2>Static Members Functions<a class="headerlink" href="#static-members-functions" title="Permalink to this heading">#</a></h2>
+<p>Static member functions are called with struct type name, not instance name.</p>
 <div class="code_example dropdown admonition" id="exampleY16">
 
-<p class="admonition-title">Code Example: Basic Struct Example 2 </p>
+<p class="admonition-title">Code Example: Struct Example 11 </p>
 <section id="code_example-content">
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
@@ -1144,13 +1068,6 @@ Most uses required the definition to be completed first.</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="code_explanation dropdown admonition" id="explanationY16">
-
-<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleY16"> Code Example: Basic Struct Example 2 </a></p>
-<section id="code_explanation-content">
-<p>Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.</p>
-</section>
 </div>
 </section>
 </div></section>
@@ -1222,8 +1139,13 @@ Most uses required the definition to be completed first.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-instantiating-a-struct">Creating and Instantiating a Struct</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialising-the-data-held-by-an-instance">Initialising the Data held by an Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#altering-the-value-of-the-data-members-of-an-instance">Altering the Value of the Data Members of an Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialisation-by-function">Initialisation by Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-structs-by-pointer">Accessing Structs by Pointer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">Constructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-details">Technical Details</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-arithmetic-functions">Adding arithmetic functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members-functions-called-with-stuct-type-name-not-instance-name">Static members functions – called with stuct type name not instance name.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-members-functions">Static Members Functions</a></li>
 </ul>
   </nav></div>
 

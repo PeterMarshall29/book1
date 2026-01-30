@@ -28,7 +28,7 @@ Stucts, like most types, can be passed into and returned from functions, by valu
 ## Creating and Instantiating a Struct
 A struct is declared as follows:
 
-``````{code_example-start} Basic Struct Example 1
+``````{code_example-start} Struct Example 1
 :label: exampleY1
 :class: dropdown
 :nonumber:
@@ -66,7 +66,7 @@ The members of a struct are held in the order of declaration, so list initialisa
 
 Values of a struct may also be initialised using an initialiser list `{}` - do keep the order of parameters the same as the listing.
 
-``````{code_example-start} Basic Struct Example 2
+``````{code_example-start} Struct Example 2
 :label: exampleY2
 :class: dropdown
 :nonumber:
@@ -91,19 +91,15 @@ int main() {
 :class: dropdown
 Note: `size0f()` does not work the same for stucts, because of memory layout issues with structs that vary between architectures and implementations.
 
-It is best to order members in a struct in size order i.e. largest member first e.g. doubles then ints then chars etc.
+It is best to order members in a struct in size order i.e. largest member first e.g. `double` then `int` then `char` types etc.
 `````
 ``````{code_example-end} 
 ``````
-Note: `size0f()` does not work the same for stucts, because of memory layout issues with structs that vary between architectures and implementations.
+## Altering the Value of the Data Members of an Instance
 
-It is best to order members in a struct in size order i.e. largest member first e.g. doubles then ints then chars etc.
 
-Both the list and the .notation may be used to modify existing values. 
 
-First improvement: use a function for initialisation.
-
-``````{code_example-start} Basic Struct Example 2
+``````{code_example-start} Struct Example 3
 :label: exampleY3
 :class: dropdown
 :nonumber:
@@ -128,18 +124,21 @@ int main() {
 `````{code_explanation} exampleY3
 :label: explanationY3
 :class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
+Both the list and the .notation may be used to modify existing values. 
 
 `````
 
 ``````{code_example-end} 
 ``````
-We can create a helper function to initialise a copy of the struct and to check for invalid entries etc.
-``````{code_example-start} Basic Struct Example 2
+## Initialisation by Function
+
+We can create a non-member function to initialise a copy of the struct and to check for invalid entries etc.
+``````{code_example-start} Struct Example 4
 :label: exampleY4
 :class: dropdown
 :nonumber:
 ``````
+Intialisaton by non-member function:
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -159,20 +158,24 @@ int main() {
 `````{code_explanation} exampleY4
 :label: explanationY4
 :class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
 
 `````
+This initialisation function passes a reference to the rational number. 
 
+Note that a referenced object is not a copy and can therefore be modified.
+
+But there is not yet any explicit connection between the functions and the struct; it is usually better to use a member function.
+
+This is not generally how structs are initialised.
 ``````{code_example-end} 
 ``````
-This initialisation function passes a reference to the rational number. 
-Note that a referenced object is not a copy and can therefore be modified.
-But there is not yet any explicit connection between the functions and the struct; it is usually better to use a member function.
-``````{code_example-start} Basic Struct Example 2
+
+``````{code_example-start} Struct Example 5
 :label: exampleY5
 :class: dropdown
 :nonumber:
 ``````
+Using a member function for initalisation:
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -197,21 +200,20 @@ int main() {
 `````{code_explanation} exampleY5
 :label: explanationY5
 :class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
-
-``````{code_example-end} 
-``````
 Now `init_` is a member function and must be called using the `.` notation on an instance.
+
 Its better to separate the declaration of the struct from the definitions.
 
-Declaring the init function inside the struct but defining it outside :
-``````{code_example-start} Basic Struct Example 2
+`````
+``````{code_example-end} 
+``````
+
+``````{code_example-start} Struct Example 6
 :label: exampleY6
 :class: dropdown
 :nonumber:
 ``````
+Declaring the init function inside the struct but defining it outside :
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -235,23 +237,23 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY6
-:label: explanationY6
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
 
 ``````{code_example-end} 
 ``````
+## Accessing Structs by Pointer
 
 Instead of passing by reference, as struct can be accessed by a pointer.
-Structures are often accessed through pointers using the `->` the struct pointer member dereference operator. When p is a pointer, `p->m` is equivalent to `(*p).m` .
-``````{code_example-start} Basic Struct Example 2
+
+Structures are often accessed through pointers using the `->` the struct pointer member dereference operator. 
+
+When `p` is a pointer, `p->m` is equivalent to `(*p).m` .
+
+``````{code_example-start} Struct Example 7
 :label: exampleY7
 :class: dropdown
 :nonumber:
 ``````
+Using pointer member dereferencing operator `->`:
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -278,21 +280,16 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY7
-:label: explanationY7
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
 
 ``````{code_example-end} 
 ``````
-Or using the pointer to the struct itself, 
-``````{code_example-start} Basic Struct Example 2
+
+``````{code_example-start} Struct Example 8
 :label: exampleY8
 :class: dropdown
 :nonumber:
 ``````
+Or using the pointer to the struct itself:
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -302,19 +299,19 @@ void RationalNumber::init_RationalNumber(RationalNumber* rationalNumber, int num
     else throw std::invalid_argument("Denominator cannot be zero.");
 }
 `````
-`````{code_explanation} exampleY8
-:label: explanationY8
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
 
 ``````{code_example-end} 
 ``````
-Because a struct is a simple class, one with members that are public by default, a struct can have member functions and constructors.
+## Constructors
+
+The best method is initialisation it to use a constructor.
+
 A constructor is a member function that specifically initialises an instance of a struct or class.
-Constructors are member functions with the same name as the struct (or class) that is used for initialisation. Failing to initialise a struct that has a constructor will produce be caught by the compiler.
-``````{code_example-start} Basic Struct Example 2
+
+Constructors are member functions with the same name as the struct (or class) that is used for initialisation. 
+
+Failing to initialise a struct that has a constructor will produce be caught by the compiler.
+``````{code_example-start} Struct Example 9 Constructors
 :label: exampleY9
 :class: dropdown
 :nonumber:
@@ -338,21 +335,8 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY9
-:label: explanationY9
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
-
-``````{code_example-end} 
-``````
 Or inside the function 
-``````{code_example-start} Basic Struct Example 2
-:label: exampleY10
-:class: dropdown
-:nonumber:
-``````
+
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -370,21 +354,9 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY10
-:label: explanationY10
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
 
-`````
+We can also use the standard method of initialisation, but be careful not to use the same name for the contructor parameters.
 
-``````{code_example-end} 
-``````
-We can also use the standard method of initialisation but be careful not to use the same name for the contructor parameters.
-``````{code_example-start} Basic Struct Example 2
-:label: exampleY11
-:class: dropdown
-:nonumber:
-``````
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -403,21 +375,8 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY11
-:label: explanationY11
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
-
-``````{code_example-end} 
-``````
 Or,
-``````{code_example-start} Basic Struct Example 2
-:label: exampleY12
-:class: dropdown
-:nonumber:
-``````
+
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -437,25 +396,8 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY12
-:label: explanationY12
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
-
-``````{code_example-end} 
-``````
-
-
-Since it's a member function, the reference to myRationalNumber is redundant
-
 Structs can also be returned, for example, although we do not need to return anything from the init function:
-``````{code_example-start} Basic Struct Example 2
-:label: exampleY13
-:class: dropdown
-:nonumber:
-``````
+
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -477,13 +419,6 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY13
-:label: explanationY13
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
-
 ``````{code_example-end} 
 ``````
 
@@ -492,19 +427,23 @@ Values can be set manually after the creation of an instance of the struct, beca
 
 
 
-Technical details.
+## Technical Details
 A struct is a simple class whose members are public by default; a class has private members.
 
 The name of the struct can be used within its own declaration i.e. the name is available after it has been seen by the compiler, not after the declaration has been completed as with most declarations. 
+
 New instances of a struct may not be declared inside the struct however, only pointers to instances.
+
 The name of a struct can be used before definition provided that the name of a member or the size of the struct is no needed to be known. 
+
 Most uses required the definition to be completed first.
 
 
+## Adding arithmetic functions
+
 Basic operations such as `==` are not available to a struct by default, so these must all be defined by the user for each new struct.
 
-## Adding arithmetic functions
-``````{code_example-start} Basic Struct Example 2
+``````{code_example-start} Struct Example 10
 :label: exampleY14
 :class: dropdown
 :nonumber:
@@ -540,21 +479,9 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY14
-:label: explanationY14
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
 
-`````
-
-``````{code_example-end} 
-``````
 These can be written in a neater fashion using `this`, which is a pointer to the instance that the member functions and members belong to.
-``````{code_example-start} Basic Struct Example 2
-:label: exampleY15
-:class: dropdown
-:nonumber:
-``````
+
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
@@ -585,19 +512,15 @@ int main() {
     return 0;
 }
 `````
-`````{code_explanation} exampleY15
-:label: explanationY15
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
-`````
 
 ``````{code_example-end} 
 ``````
 
-## Static members functions – called with stuct type name not instance name.
+## Static Members Functions
 
-``````{code_example-start} Basic Struct Example 2
+Static member functions are called with struct type name, not instance name.
+
+``````{code_example-start} Struct Example 11
 :label: exampleY16
 :class: dropdown
 :nonumber:
@@ -632,12 +555,6 @@ int main() {
     std::cout << "My Rational Number = " << sum.numerator << " / " << sum.denominator << '\n';
     return 0;
 }
-`````
-`````{code_explanation} exampleY16
-:label: explanationY16
-:class: dropdown
-Values can be set manually after the creation of an instance of the struct, because the data members are publicly accessible by default.
-
 `````
 
 ``````{code_example-end} 

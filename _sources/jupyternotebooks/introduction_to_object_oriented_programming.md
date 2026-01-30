@@ -82,6 +82,10 @@ Most compiler allow a simpler alternative - the above 3 directives can be replac
 
 The purpose of separate compilations is to allow {term}`encapsulation`, which is the separation of the design of the class from the use of the class.
 
+Encapsulation is the process of wrapping data and the methods into a single unit, usually a class, for the purpose of preventing that data being accessed by external code i.e. code outside the encapsulation (the class).
+
+Encapsulation is achieved by hiding the data as private members of class so that it may only be accessed through any public member functions provided in the same class in which it was declared.
+
 Encapsulation is not just useful for your own programmes, but is extremely valuable for any software that may be distributed.
 
 The designer of the class, may make the interface and implementation files public, but only the source code for the interface file needs to be shared i.e. crucial details of the implementation are hidden from other programmers because they are in compiled object files i.e. in binary.
