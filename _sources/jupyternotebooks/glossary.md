@@ -14,6 +14,12 @@ kernelspec:
 
 ```{glossary}
 
+Abstract Class
+  A class that only defines an interface - used as a base class. Declaring a {term}`pure virtual member function` makes the class abstract and prevents creation of objects of the abstract class. Use of abstract classes is one of the most effective ways of minimizing the impact of changes in a C++ program and for minimizing compilation time.
+
+Abstract Classes
+  Classes that only defines an interface - used as a base class. Declaring a {term}`pure virtual member function` makes the class abstract and prevents creation of objects of the abstract class. Use of abstract classes is one of the most effective ways of minimizing the impact of changes in a C++ program and for minimizing compilation time.
+
 Alias
   An alternative name - declared to refer to an existing object, that can be used anywhere the original identifier would be used.
 
@@ -191,6 +197,9 @@ Embedded Programmes
 Empty Statement
   A statement that consists of only a semicolon `;`. It does nothing and is often referred to as a {term}`null statement`. Empty statements are used where the syntax requires a statement, but the contents are optionally not required, to provide an empty body to a `for` or `while` loop, or to carry a label at the end of a compound statement.
 
+Encapsulation
+  The enforcement of abstraction by mechanisms that prevent access to implementation details of an object, or a group of objects, except through a well-defined {term}`interface`. C++ enforces encapsulation of private and proteced members of a class as long as users do not violate the type system using casts. 
+
 Entity
   The entities of a C++ program are values, objects, references, functions, enumerators, types, class members, templates, template specializations, and namespaces. 
 
@@ -259,6 +268,15 @@ For-loop
 
 Free store
   {term}`memory` allocated by `new`; also called {term}`dynamic memory`. Dynamic memory is an amount of memory of indeterminate size used up during execution of a program as new objects are created. Often standard library facilities, such as `vector`, can be used to avoid explicit use of the free store.
+
+Friend
+  Function or class explicitly granted access to members of a class by that class.
+
+Friends
+  Functions or classes explicitly granted access to members of a class by that class.
+
+Friend Function
+  A non-member function that has permission to access the private and protected members of a class - declared inside the class using the friend keyword, but defined outside of the classes scope, like a normal function.
 
 Function
   A named sequence of statements that can be invoked/called by a program, optionally using arguments supplied by the function call, to optionally return a value to the program. The type of the function includes the comma separated list of the types of its argument and the type of the value returned. Functions are useful because they are reusable, making code more efficient to write and execute. Functions can be identified by a name with `()`attached.
@@ -364,6 +382,12 @@ Input
 
 Integer type
   Type for integer values (whole numbers - positive and negative and zero). May be preceded by one or two modifiers - `signed`, `unsigned`, `short`, `long`, `long long`. The modifiers may be used on their own, and `int` is implied; but `signed` and `unsigned` may also precede `char`.
+
+Interface
+  A set of declarations that defines how a part of a program can be accessed. The list of public members, and the {term}`friends` of a {term}`class`, that other code may use. A class without data members defines a pure interface. The protected members provide an additional interface for use by members of derived classes.
+
+Interface Function
+  A function that can access the representation of a class.
 
 Iteration
   Iteration means repetition. In computing the same set of instructions, possibly with variations in values, often need to be repeated. Iteration statements are used to instruct the program to repeat a sequence of statements a variable number of times. 
@@ -552,6 +576,12 @@ Programming Paradigms
 
 prvalue
   'pure {term}`rvalue`' expressions including literals, function calls, arithmetic and logical evaluations and comparisons, whose evaluation computes the value of an operand of a built-in operator (no result object) or initializes an object (a result object is created). The result object may be a variable, an object created by new-expression, or a ‘temporary’ created by temporary materialization.
+
+Pure Virtual Member Function
+  A virtual member function in a base class that is declared using the pure specifier `= 0` syntax, which makes the class abstract.
+
+Pure Virtual Member Functions
+  Virtual member functions in a base class that are declared using the pure specifier `= 0` syntax, which makes the class abstract.
 
 Range
   a sequence of elements that can be iterated over.

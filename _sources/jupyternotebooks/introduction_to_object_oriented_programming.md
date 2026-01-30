@@ -41,3 +41,59 @@ Using classes can provide a clear and logical structure, making the code easier 
 
 However, for beginners, concepts such as classes, objects, inheritance, and polymorphism can add confusion, and time - there is a learning curve to anything worth knowing, but the investments will pay off if you are serious about coding or using computational physics. Object oriented programmes are often harder to debug, but will be more easily 
 
+
+## File Management - Best Practice in OOP
+
+Best practice for writing an object-oriented program in C++ is to split your code into three sections, and to place each section in a separate file:
+
+- Class definitions should be put into an interface file, which is a .h header file - includes the declaration of the data members and member functions. It defines the number and types of the members and is normally named after the class itself i.e. the Bubble class would be defined in the Bubble.h interface file.
+- Member function definitions should be located in implementation .cpp files.
+- The application i.e. the main() is then in the application file.
+
+The interface file defines the number and types of the members and is normally named after the class itself i.e. the Bubble class would be defined in the Bubble.h interface file.
+
+The implementation file contains the definition of all the member function required by class and is usually named after the class, but differentiated by have a .cpp file type, e.g. Bubble.cpp.
+
+The application file is the core program file containing the `main()` function, which has a name that matches its purpose/project.
+
+The interface file must be included in both the implementation and application files, which are separately compiled into .obj object files before being the linker creates the executable file.
+ 
+## Creating an Interface file
+
+The interface file may be included in multiple compilation files, which will cause a compiler error unless handled correctly. 
+
+To avoid this problem the interface file containing the class definition should contain the following preprocessor directives.
+```{code-block} cpp
+#ifndef ClassName_H
+#define ClassName_H
+// Contents of ClassName.h go here - i.e. the class definition.
+#endif
+```
+
+When ClassName.h is included in both an implementation file and an application file, the instruction of include subsequent copies, after the first, will be ignored by the compiler.
+
+Most compiler allow a simpler alternative - the above 3 directives can be replaced by the single directive:
+```{code-block} cpp
+#pragma once
+```
+`Pragma` is not a part of the C++ standard, so you need to be able to use the full version, which will always work.
+
+### Encapsulation
+
+The purpose of separate compilations is to allow {term}`encapsulation`, which is the separation of the design of the class from the use of the class.
+
+Encapsulation is not just useful for your own programmes, but is extremely valuable for any software that may be distributed.
+
+The designer of the class, may make the interface and implementation files public, but only the source code for the interface file needs to be shared i.e. crucial details of the implementation are hidden from other programmers because they are in compiled object files i.e. in binary.
+
+It should be possible to change an implementation file without affecting applications that depend on it, provided the interface remains unchanged, and the code is well written and maintained.
+
+Users, including the authoring programmer, can then include the interface in their application file before compilation, which links the application object file to the implementation file to produce the executable.
+
+Benefits of encapsulation:
+- Because there are two copies of the interface, one inside the already compiled implementation file, and the second inside the application file, any alteration to the interface is prevented.
+- The more complicated implementation code is protected because it is not accessible to generaly users.
+
+To make an encapsulated class useful, it is necessry to provide documentation, which is generally a text document called the public interface, that provides names and details of the available member functions etc..
+
+

@@ -172,7 +172,9 @@ Order of construction is important - Call the base class constructors in order o
 
 ## More on Access Specifiers
 
-The access specifier `protected` indicates that the data members may only used by the class and by classes derived from it.
+The access specifier `protected` indicates that the data members may only used by the class and by classes derived from it. `name` and `age` are protected membere - they are accessible in derived classes but not outside.
+
+`class Student : public Person` - specifies that `Student` publicly inherits from `Person`.
 
 Using the `public` access modifier for the derived class maintains the same access level for inheritable members of the base class. Any accessible members of the base class, i.e.  `public` or `protected` data members or member functions, become private members of the derived class. Since we want to call the member function `dispayInfo()` we need to make the derived class from a public declared base class.
 
@@ -182,20 +184,7 @@ Inhertiance is almost always public, protected inheritance is never used, but pr
 
 Private inheritance is used when some of a classes public member functions are to be used for a second class.
 
-Inheritance Syntax:
-`class Student : public Person` means Student publicly inherits from Person.
 
-Protected Members:
-`name` and `age` are protected so they are accessible in derived classes but not outside.
-
-Constructor Chaining:
-The derived class constructor calls the base class constructor using : Person(name, age).
-
-Method Overriding:
-displayInfo() is declared virtual in the base class and overridden in the derived class.
-
-Polymorphism:
-Using a Person* pointer to a Student object calls the overridden method.
 
 <!-- ## Inheriting Constructors
 
@@ -215,7 +204,7 @@ using Base::Base;
 (Virtual Functions)=
 ## Virtual Functions
 
-Virtual member functions allow the programmer to declare functions in a base class that can be redefined in each derived class. 
+**Virtual member functions**, also know **methods** allow the programmer to declare functions in a base class that can be redefined in each derived class. 
 
 Declaring a particular function as `virtual` in the base class allows that function identifier to act as an interface to the definitions of the function in both the base and derived classes. The compiler and linker will guarantee the correct correspondence between objects and the functions applied to them.
 
@@ -223,9 +212,7 @@ A function in a derived class with the same identifier and argument type list as
 
 The only constraint on a virtual function being an interface to its variants defined in derived classes is that is that argument types cannot differ from those of the base declaration, and only minor changes are allowed for the return type.
 
-A virtual member function is also know as a **method**.
-
-The virtual member function must be defined in the class it is first declared in - see pure virtual functions and abstract classes.
+The virtual member function must be defined in the class it is first declared in - see pure {term}`virtual functions` and {term}`abstract classes`.
 
 When a derived class does not need a particular virtual function it does not need to provide a definition even though the function is listed as virtual and available
 
@@ -258,7 +245,7 @@ private:
 public:
     Student( std::string init_name, int init_age, const std::string& init_id)
         : Person(init_name, init_age), studentID(init_id) {}
-    void displayInfo() {
+    virtual void displayInfo() {
         std::cout << "Student Name: " << name << "\nAge: " << age << "\nStudent ID: " << studentID << '\n';
     }
 };
@@ -272,7 +259,7 @@ int main() {
     std::cout << "\n";
     return 0;
 }
-```
+`````
 `````{code_explanation} exampleAD3
 :label: explanationAD3
 :class: dropdown
@@ -291,7 +278,14 @@ ADD example showing why vitual is needed - works without it but works differentl
 
 ## Constructor Chaining
 
+A useful tec
 
+Student( std::string init_name, int init_age, const std::string& init_id)
+        : Person(init_name, init_age), studentID(init_id) {}
+
+
+
+If the base class is abstract, then constructor chaining is the only option.        
 
 ## Override
 
@@ -302,7 +296,7 @@ ADD example showing why vitual is needed - works without it but works differentl
 
 ## Virtual Destructors
 
-Destructors can be virutal - best practice is to make the base destructor virtual in any case involving polymorphism.
+Destructors can be virtual - it is considered best practice is to make the base destructor virtual in any case involving polymorphism.
 
 If a virtual function is used anywhere in the class hierarchy a virtual destructor should be added to prevent memory leaks.
 
@@ -310,7 +304,7 @@ In the `Person:Student` example above, the data members of any instances of `per
 
 If polymorphism is involved, then the polymorphic variable, a pointer, is stored on the `term`{stack} and must be deleted. When the `delete` operator is used on a pointer to an object, the objects destructor is called. However. if the ppinterr is to an instance of `Student`, this is still a pointer to `Person`, so the `delete` operator tries to destroy an non-existent instance of `Person`, and the `Student` object is untouched - a memory leak has occurred (unwanted student object still taking up space in memory).
 
-Making the base class destructor `virtual`ensure this issue is handled correctly.
+Making the base class destructor `virtual` ensures this issue is handled correctly.
 
 ```{code-block} cpp
 :linenos:
@@ -320,10 +314,46 @@ virtual ~Person(){}
 
 
 ## Abstract Classes
-reqrite
-Abstraction in C++ is the process of hiding the implementation details and only showing the essential details or features to the user. It allows to focus on what an object does rather than how it does it.
 
-In C++ abstraction is achieved using abstract classes (classes that have at least one pure virtual function).
+Abstraction is the hiding of the details of a programmes implementation from the programme's user, who can only see the essential details required for the interface.
+
+In C++ abstraction is achieved using {Term}`abstract classes` - which are classes that cannot be instantiated i.e. you cannot create on named instance of the abstract class. 
+
+Abstract classes are useful for representing general concepts from which more specific classes may be derived - they are typically base classes for other classes and contain at least one pure virtual function. A pure virtual function is a virtual function that is declared using the pure specifier `= 0`.
+
+An abstract class is created by declaring at least one {term}`pure virtual member function` which is done by assigning `=0` to a function declaration.
+
+``````{code_example-start} Virtual Member Functions Example
+:label: exampleAD4
+:class: dropdown
+:nonumber:
+``````
+Example of creating an abstract class:
+```{code-block} cpp
+:linenos:
+class Person {
+protected:
+    std::string name;
+    int age;
+public:
+    Person(std::string init_name, int init_age) : name(init_name), age(init_age) {} 
+    virtual void displayInfo() = 0;
+};
+```
+Person can not longer be instantiated.
+
+Try altering the code in the previous example.
+
+If the derived class uses the virtual member function `displayInfo()` - the method must be redclared, and a definition provided in the usual manner.
+``````{code_example-end}
+``````
+
+Although you may not create an an object of the abstract class type, it is still possible to use pointers and references to abstract class types.
+
+You create an abstract class by declaring at least one pure virtual member function. That's a virtual function declared by using the pure specifier (= 0) syntax. Classes derived from the abstract class must implement the pure virtual function or they, too, are abstract classes.
+
+Consider the example presented in Virtual functions. The intent of class Account is to provide general functionality, but objects of type Account are too general to be useful. That means Account is a good candidate for an abstract class:
+
 
 
 ## Encapsulation
