@@ -124,13 +124,14 @@ return 0;
 :label: explanationAC2
 :class: dropdown
 
-`````
+
 In this example a function has been defined that takes two arguments; a template parameter for the arry type and an interger.
 
 Because one of the arguments was expected to always be an integer, it was possible to explicitly define the second template parameter as an `int`. 
 
 An explicitly defined type is often referred to as a non-type template parameter, because what is being specified is a value, rather than a generic type, although it might be more accurate to state that the type is predefined.
 
+`````
 ``````{code_example-end} 
 ``````
 Then we can extend this by adding the function `bubbleSorter()` that sorts the array using the **bubble** method. 
@@ -186,7 +187,6 @@ int main() {
 :label: explanationAC3
 :class: dropdown
 
-`````
 Simple arrays are passed to functions as pointers to the first element, so everything said about pointers applies to arrays.
 
 The first argument/parameter is of type `T*`, i.e. the argument will be a pointer to a an unspecified type that is "hidden" behind `T`. 
@@ -196,7 +196,7 @@ It is the type of the array/pointer that is generic, the first argument cannot b
 I have used `myArray` as the identifier, to remind myself that this template function acts on an array, but the name is not important otherwise.
 
 In this template example, `myArray` stands for an array, whose elements are of type `T`
-
+`````
 ``````{code_example-end} 
 ``````
 
@@ -246,11 +246,10 @@ int main() {
 :label: explanationAC4
 :class: dropdown
 
-`````
 By using a Template function, the types of the signatures of the functions passed to it do not need to be specified.
 
 Note: if only one template parameter had been called - then the types for each instance would need to be the same.
-
+`````
 ``````{code_example-end} 
 ``````
 
@@ -295,9 +294,9 @@ int main() {
 :label: explanationAC5
 :class: dropdown
 
-`````
-Note how the second version has two template parameters.
 
+Note how the second version has two template parameters.
+`````
 ``````{code_example-end} 
 ``````
 

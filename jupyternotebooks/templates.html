@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\templates.8967332e-d463-4404-89c9-0b879efeeb09.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\templates.18cfa85b-6879-4da2-b1d6-59bed4f4d876.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/templates';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -646,11 +646,11 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC2"> Code Example: Function Templates 2 </a></p>
 <section id="code_explanation-content">
-</section>
-</div>
 <p>In this example a function has been defined that takes two arguments; a template parameter for the arry type and an interger.</p>
 <p>Because one of the arguments was expected to always be an integer, it was possible to explicitly define the second template parameter as an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <p>An explicitly defined type is often referred to as a non-type template parameter, because what is being specified is a value, rather than a generic type, although it might be more accurate to state that the type is predefined.</p>
+</section>
+</div>
 </section>
 </div><p>Then we can extend this by adding the function <code class="docutils literal notranslate"><span class="pre">bubbleSorter()</span></code> that sorts the array using the <strong>bubble</strong> method.</p>
 <p>The crucial detail is that now the <code class="docutils literal notranslate"><span class="pre">bubbleSorter()</span></code> function calls the  <code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> function.</p>
@@ -703,13 +703,13 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC3"> Code Example: Function Templates 3 </a></p>
 <section id="code_explanation-content">
-</section>
-</div>
 <p>Simple arrays are passed to functions as pointers to the first element, so everything said about pointers applies to arrays.</p>
 <p>The first argument/parameter is of type <code class="docutils literal notranslate"><span class="pre">T*</span></code>, i.e. the argument will be a pointer to a an unspecified type that is “hidden” behind <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
 <p>It is the type of the array/pointer that is generic, the first argument cannot be other than a pointer.</p>
 <p>I have used <code class="docutils literal notranslate"><span class="pre">myArray</span></code> as the identifier, to remind myself that this template function acts on an array, but the name is not important otherwise.</p>
 <p>In this template example, <code class="docutils literal notranslate"><span class="pre">myArray</span></code> stands for an array, whose elements are of type <code class="docutils literal notranslate"><span class="pre">T</span></code></p>
+</section>
+</div>
 </section>
 </div><section id="template-functions-with-several-type-parameters">
 <h2>Template Functions with Several Type Parameters<a class="headerlink" href="#template-functions-with-several-type-parameters" title="Permalink to this heading">#</a></h2>
@@ -755,10 +755,10 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC4"> Code Example: Function Templates 4 </a></p>
 <section id="code_explanation-content">
-</section>
-</div>
 <p>By using a Template function, the types of the signatures of the functions passed to it do not need to be specified.</p>
 <p>Note: if only one template parameter had been called - then the types for each instance would need to be the same.</p>
+</section>
+</div>
 </section>
 </div></section>
 <section id="overloading-template-functions">
@@ -802,9 +802,9 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC5"> Code Example: Function Templates 5 </a></p>
 <section id="code_explanation-content">
+<p>Note how the second version has two template parameters.</p>
 </section>
 </div>
-<p>Note how the second version has two template parameters.</p>
 </section>
 </div></section>
 <section id="instantiation">
