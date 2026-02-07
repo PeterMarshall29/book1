@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 (Classes)=
-# Classes in C++
+# Classes
 
 The `class` keyword declares a class or defines an object of class type. A class is a user-defined type, consisting of a set of members, and each class is a new namespace containing its members. 
 
@@ -533,8 +533,9 @@ appropriate behaviour can be provided.
 Similarly, class objects can be copied by assignment. For example:
 ```{code-block} cpp
 :linenos:
-void f(Date& d) {
-  date = my_birthday;
+void functionToSetAnyDate(Date& dateObjectToSet) {
+  Date my_birthday{22,3,1999};
+  dateObjectToSet = my_birthday;
 }
 ```
 Again, the default semantics is a member-wise copy. Alternatively, for a class X, the user can define an appropriate assignment operator.
