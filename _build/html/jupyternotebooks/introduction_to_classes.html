@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Classes in C++ &#8212; Introduction to C++ Programming</title>
+    <title>Classes &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.415c7a1c-8099-48d7-9977-adb33b786861.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_classes.a0a9cae9-bef4-45ab-be8f-ab57002f4efe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/introduction_to_classes';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -77,7 +77,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Inheritance - Derived Classes" href="derived_classes_and_virtual_functions.html" />
-    <link rel="prev" title="Structs in C++" href="structs.html" />
+    <link rel="prev" title="Structs" href="structs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -252,12 +252,12 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Oriented Programming Semester 2</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Classes in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="derived_classes_and_virtual_functions.html">Inheritance - Derived Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polymorphism.html">Polymorphism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates Functions and Classes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates - Functions and Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
@@ -520,7 +520,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Classes in C++</h1>
+    <h1>Classes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -555,8 +555,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="classes-in-c">
-<span id="classes"></span><h1>Classes in C++<a class="headerlink" href="#classes-in-c" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="classes">
+<span id="id1"></span><h1>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword declares a class or defines an object of class type. A class is a user-defined type, consisting of a set of members, and each class is a new namespace containing its members.</p>
 <p>The most common members are “data members” (variables) and “member functions”, followed by operators and some other language features.</p>
 <p>An instance of a class is created in the same way as an instance of a <code class="docutils literal notranslate"><span class="pre">double</span></code> or an <code class="docutils literal notranslate"><span class="pre">int</span></code> and new instances of classes are referred to as objects - hence object-oriented programming primarily refers to the use of instances of classes.</p>
@@ -1018,9 +1018,10 @@ Try - comment out the init statement and try to print out the value of day.</p>
 <p>The copy of a class object contains a copy of each member - If that default is not the behaviour wanted for a class X, a more
 appropriate behaviour can be provided.</p>
 <p>Similarly, class objects can be copied by assignment. For example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">Date</span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">2</span><span class="w">  </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_birthday</span><span class="p">;</span>
-<span class="linenos">3</span><span class="p">}</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">functionToSetAnyDate</span><span class="p">(</span><span class="n">Date</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dateObjectToSet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">  </span><span class="n">Date</span><span class="w"> </span><span class="n">my_birthday</span><span class="p">{</span><span class="mi">22</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1999</span><span class="p">};</span>
+<span class="linenos">3</span><span class="w">  </span><span class="n">dateObjectToSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_birthday</span><span class="p">;</span>
+<span class="linenos">4</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Again, the default semantics is a member-wise copy. Alternatively, for a class X, the user can define an appropriate assignment operator.</p>
@@ -1170,7 +1171,7 @@ appropriate behaviour can be provided.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Structs in C++</p>
+        <p class="prev-next-title">Structs</p>
       </div>
     </a>
     <a class="right-next"

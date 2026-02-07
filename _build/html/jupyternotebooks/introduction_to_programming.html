@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.e27ed44c-d13a-4da6-a359-1b28acd5b337.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\introduction_to_programming.908f6138-8328-45ce-920c-1f6309ab5bd6.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 2 === -1 ? all_mermaids.length : 2;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-cf0fbd64-2113-4b59-b81b-6cd1c4ddb714] svg, .mermaid[data-zoom-id=id-e223450c-a3a1-487a-b101-7860da574690] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-900bb32e-21d7-4139-bc2d-4b0f0c62576d] svg, .mermaid[data-zoom-id=id-96121b76-05f8-41d2-82cc-1a289ae26120] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -289,12 +289,12 @@ window.addEventListener("load", load);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Oriented Programming Semester 2</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="derived_classes_and_virtual_functions.html">Inheritance - Derived Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polymorphism.html">Polymorphism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates Functions and Classes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates - Functions and Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
@@ -697,7 +697,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><pre align="center" data-zoom-id="id-cf0fbd64-2113-4b59-b81b-6cd1c4ddb714" class="mermaid align-center">
+<tr class="row-even"><td><pre align="center" data-zoom-id="id-900bb32e-21d7-4139-bc2d-4b0f0c62576d" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;Input/output&quot;/]
   B --&gt; C[&quot;Process&quot;]
@@ -728,7 +728,7 @@ Each flowchart diagram shows the flow of information, from start to end of the p
   linkStyle 7 stroke:#AA00FF,fill:none
   linkStyle 8 stroke:#AA00FF
     </pre></td>
-<td><pre align="center" data-zoom-id="id-e223450c-a3a1-487a-b101-7860da574690" class="mermaid align-center">
+<td><pre align="center" data-zoom-id="id-96121b76-05f8-41d2-82cc-1a289ae26120" class="mermaid align-center">
         flowchart TB
   A([&quot;Start&quot;]) --&gt; B[/&quot;`Output: 
     Request for Input

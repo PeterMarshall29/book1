@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Templates Functions and Classes. &#8212; Introduction to C++ Programming</title>
+    <title>Templates - Functions and Classes &#8212; Introduction to C++ Programming</title>
   
   
   
@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\templates.18cfa85b-6879-4da2-b1d6-59bed4f4d876.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\templates.8a00cc02-6fc2-4959-a802-4a46bf5f43f3.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/templates';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -252,12 +252,12 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Oriented Programming Semester 2</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="derived_classes_and_virtual_functions.html">Inheritance - Derived Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polymorphism.html">Polymorphism</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Templates Functions and Classes.</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Templates - Functions and Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
@@ -520,7 +520,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Templates Functions and Classes.</h1>
+    <h1>Templates - Functions and Classes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -533,6 +533,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-functions-with-several-type-parameters">Template Functions with Several Type Parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overloading-template-functions">Overloading Template Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantiation">Instantiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-type-specification">Explicit Type Specification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advice-on-using-templates">Advice on using Templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">Practice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-templates">Class Templates</a></li>
@@ -548,27 +549,28 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="templates-functions-and-classes">
-<span id="templates"></span><h1>Templates Functions and Classes.<a class="headerlink" href="#templates-functions-and-classes" title="Permalink to this heading">#</a></h1>
+<span id="templates"></span><h1>Templates - Functions and Classes<a class="headerlink" href="#templates-functions-and-classes" title="Permalink to this heading">#</a></h1>
 <p>Templates are used for generalisation and specialisation.</p>
 <p>Templates are used to create generic functions and classes i.e. functions and classes were the return and argument, or parameter, types are not declared in their definitions - this allows the same code logic to be used with different data types.</p>
 <p>Templates are one of two main options for “generic” programming. The second option is to use class hierarchies and virtual functions.</p>
-<p>Generic programming means writing code that works with a variety of types presented as arguments provided those arguments types meet specific syntactic and semantic requirements.</p>
-<p>It is often that case that the same code logic needs to applied to different data types -  rather than overload the function (writing multiple functions with the same identifier but different parameter/type lists- remember return types cannot differentiate  overloads).</p>
-<p>At compile time a set of non-template functions are generated.</p>
+<p>Generic programming means writing code that works with a variety of types presented as arguments, provided the arguments’ types meet specific syntactic and semantic requirements.</p>
+<p>It is often that case that the same code logic needs to apply to different data types - rather than overload the function (writing multiple functions with the same identifier but different parameter/type lists- remember return types cannot differentiate overloads).</p>
+<p>At compile time a set of non-template functions and classes are generated.</p>
 <p>The description of the template function begins with the keyword template, followed by a list of symbolic types in angle brackets.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Q</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>This is the template header. The function can start on the following line or continue after the header.</p>
-<p>The identifier <code class="docutils literal notranslate"><span class="pre">T</span></code> is a placeholder for a generic type.  Wherever a type name would normally be placed in a function definition, <code class="docutils literal notranslate"><span class="pre">T</span></code> may now be used.</p>
+<p>The identifier <code class="docutils literal notranslate"><span class="pre">T</span></code> is a placeholder for a generic type, which is called a <strong>template parameter</strong>.  Wherever a type name would normally be placed in a function definition, <code class="docutils literal notranslate"><span class="pre">T</span></code> may now be used.</p>
 <p>If the same type would be specified more than once, then <code class="docutils literal notranslate"><span class="pre">T</span></code> is just repeated. If a second or third type are required, then additional generic type names are required.</p>
-<p><code class="docutils literal notranslate"><span class="pre">T</span></code> is traditional in text books, but an identifier may be used, for example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">T</span></code> is traditional in textbooks, and when more template parameters are required, they are traditionally capital letters, but any identifier may be used, for example:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">FirstType</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">SecondType</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">AnotherType</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>The actual type required is determined by the compiler and used when the function is called.</p>
+<p>At compile time, every instance of a template parameter is replaced by a concrete type determined by the compiler, which are then used in the class instances, or when the function is called.</p>
+<p>The process of the compiler generating a class or function from the templates is called <strong>template instantiation</strong>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">T&amp;</span></code> may also be used to pass by reference etc.</p>
-<p>If a single generic type parameter is used more than once, then the supplied types much match.</p>
+<p>If a single generic-type parameter is used more than once, then the supplied types much match.</p>
 <div class="code_example dropdown admonition" id="exampleAC1">
 
 <p class="admonition-title">Code Example: Function Templates 1 </p>
@@ -584,9 +586,9 @@ document.write(`
 <span class="p">}</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Calls the template function using a character argument </span>
-<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Calls the template function using an integer argument</span>
-<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Calls the template function using a string argument </span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Template function instantiated with char type argument </span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Template function instantiated with int type argument </span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Template function instantiated with std::string type argument </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -598,7 +600,7 @@ document.write(`
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC1"> Code Example: Function Templates 1 </a></p>
 <section id="code_explanation-content">
 <p>Whenever the <code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> function is called, <code class="docutils literal notranslate"><span class="pre">T</span></code> is determined by the type of the argument passed to the function, and the function is executed with this value of the template parameter.</p>
-<p>Note: in older code, using older versions of the standard,  typename is replaced by class.</p>
+<p>Note: in older code, using older versions of the C++ standard,  <code class="docutils literal notranslate"><span class="pre">typename</span></code> is replaced by <code class="docutils literal notranslate"><span class="pre">class</span></code> .</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">myPrinter</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">2</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arg</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="linenos">3</span><span class="p">}</span>
@@ -607,7 +609,7 @@ document.write(`
 </section>
 </div>
 </section>
-</div><p>There are many ways to use <strong>Template Functions</strong>. In the next example, the function  <code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> now prints the contents of an array.</p>
+</div><p>There are many ways to use <strong>Template Functions</strong>. In the next example, the function <code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> now prints the contents of an array.</p>
 <div class="code_example dropdown admonition" id="exampleAC2">
 
 <p class="admonition-title">Code Example: Function Templates 2 </p>
@@ -616,18 +618,18 @@ document.write(`
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">myPrinter1</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">arrayName</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Type of T is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arrayName</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Type of T is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arrayName</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">myPrinter2</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">arrayName</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Type of T is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arrayName</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Type of T is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">arrayName</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">myArray1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
@@ -646,9 +648,9 @@ document.write(`
 
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC2"> Code Example: Function Templates 2 </a></p>
 <section id="code_explanation-content">
-<p>In this example a function has been defined that takes two arguments; a template parameter for the arry type and an interger.</p>
+<p>In this example a function has been defined that takes two arguments: a template parameter for the array type and an integer.</p>
 <p>Because one of the arguments was expected to always be an integer, it was possible to explicitly define the second template parameter as an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-<p>An explicitly defined type is often referred to as a non-type template parameter, because what is being specified is a value, rather than a generic type, although it might be more accurate to state that the type is predefined.</p>
+<p>An explicitly defined type is often referred to as a <strong>non-type template parameter</strong>, because what is being specified is a value, rather than a generic type, although it might be more accurate to state that the type is predefined.</p>
 </section>
 </div>
 </section>
@@ -704,7 +706,7 @@ document.write(`
 <p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC3"> Code Example: Function Templates 3 </a></p>
 <section id="code_explanation-content">
 <p>Simple arrays are passed to functions as pointers to the first element, so everything said about pointers applies to arrays.</p>
-<p>The first argument/parameter is of type <code class="docutils literal notranslate"><span class="pre">T*</span></code>, i.e. the argument will be a pointer to a an unspecified type that is “hidden” behind <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<p>The first argument/parameter is of type <code class="docutils literal notranslate"><span class="pre">T*</span></code>, i.e. the argument will be a pointer to an unspecified type that is “hidden” behind <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
 <p>It is the type of the array/pointer that is generic, the first argument cannot be other than a pointer.</p>
 <p>I have used <code class="docutils literal notranslate"><span class="pre">myArray</span></code> as the identifier, to remind myself that this template function acts on an array, but the name is not important otherwise.</p>
 <p>In this template example, <code class="docutils literal notranslate"><span class="pre">myArray</span></code> stands for an array, whose elements are of type <code class="docutils literal notranslate"><span class="pre">T</span></code></p>
@@ -764,7 +766,7 @@ document.write(`
 <section id="overloading-template-functions">
 <h2>Overloading Template Functions<a class="headerlink" href="#overloading-template-functions" title="Permalink to this heading">#</a></h2>
 <p>Several template functions may be created with the same identifier.</p>
-<p>For example we could have a function called <code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> that takes one argument in one version but takes two arguments in a second version.</p>
+<p>For example, we could have a function called <code class="docutils literal notranslate"><span class="pre">myPrinter()</span></code> that takes one argument in one version but takes two arguments in a second version.</p>
 <div class="code_example dropdown admonition" id="exampleAC5">
 
 <p class="admonition-title">Code Example: Function Templates 5 </p>
@@ -775,24 +777,24 @@ document.write(`
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 <span class="c1">// The version of the template function with one argument</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">myPrinter</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Function takes one argument:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First argument: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Function takes one argument:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First argument: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="c1">// The version of the template function with two arguments</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T2</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">myPrinter</span><span class="p">(</span><span class="n">T1</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Function takes two arguments:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First argument: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Second argument: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Function takes two arguments:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First argument: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Second argument: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span>
-<span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
-<span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
-<span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="mi">321</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;String&quot;</span><span class="p">);</span>
-<span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;B&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">456</span><span class="p">);</span>
-<span class="w">	</span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;D&#39;</span><span class="p">);</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="mi">321</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;String&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;B&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">456</span><span class="p">);</span>
+<span class="w">    </span><span class="n">myPrinter</span><span class="p">(</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;D&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -811,14 +813,37 @@ document.write(`
 <h2>Instantiation<a class="headerlink" href="#instantiation" title="Permalink to this heading">#</a></h2>
 <p>When a program containing templates is compiled, a separate version of the template function is created for each concrete type required, which is called template instantiation; each of these are called non-template functions.</p>
 </section>
+<section id="explicit-type-specification">
+<h2>Explicit Type Specification<a class="headerlink" href="#explicit-type-specification" title="Permalink to this heading">#</a></h2>
+<p>The type used by a template function or class can be specified explicitly by including the type in angle brackets after the function name or class type name.</p>
+<div class="code_example dropdown admonition" id="exampleAC6">
+
+<p class="admonition-title">Code Example: Function Templates 6 </p>
+<section id="code_example-content">
+<p>For example, the three calls to <code class="docutils literal notranslate"><span class="pre">myPrinter</span></code> in example 1 above could be written as:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">myPrinter</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Calls the template function using a character argument </span>
+<span class="n">myPrinter</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Calls the template function using an integer argument</span>
+<span class="n">myPrinter</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;String&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Calls the template function using a string argument </span>
+</pre></div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationAC6">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC6"> Code Example: Function Templates 6 </a></p>
+<section id="code_explanation-content">
+<p>This would be unnecessary in this simple example; the compiler can deduce the correct types from the arguments supplied.</p>
+<p>Explicit Type specification is only required for Classes, or when there may be ambiguity.</p>
+</section>
+</div>
+</section>
+</div></section>
 <section id="advice-on-using-templates">
 <h2>Advice on using Templates<a class="headerlink" href="#advice-on-using-templates" title="Permalink to this heading">#</a></h2>
 <p>It is not advisable to start by writing a program with templates initially.</p>
 <p>It is usually quicker to work with a working version of the program that has an overloaded function, i.e. one for each data type, and then replace the specified types with template parameters; this helps you avoid using some inbuild function that does not work, or behaves differently, for all the types you may consider.</p>
-<p>Place all template definition in a header file. Every time the compiler reaches an instance of a template, it assesses both the template and its arguments, in order to determine what code to produce - this ofter requires the program to have a fully defined template everywhere it is used i.e. including member functions and any template functions they call.</p>
+<p>Place all template definition in a header file. Every time the compiler reaches an instance of a template, it assesses both the template and its arguments, to determine what code to produce - this often requires the program to have a fully defined template everywhere it is used i.e. including member functions and any template functions they call.</p>
 <p>Keep templates as simple as possible.</p>
 <p>Always test template programmes with all possibly types.</p>
-<p>Use template based libraries e.g. the C++ standard library, for generality, type safety, and performance.</p>
+<p>Use template-based libraries e.g. the C++ standard library, for generality, type safety, and performance.</p>
 </section>
 <section id="practice">
 <h2>Practice<a class="headerlink" href="#practice" title="Permalink to this heading">#</a></h2>
@@ -826,35 +851,18 @@ document.write(`
 
 <p class="admonition-title">Exercise  Templates Exercise 1  </p>
 <section id="exercise-content">
-<p>Create a family of functions to compare two values, of char, int, float, and double types, and then return the larger value. Then replace the family of functions with a single template function.</p>
+<p>Create a family of functions to compare two values of <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">double</span></code> types, and then return the larger value. Then replace the family of functions with a single template function.</p>
 <div class="cell tag_remove-output tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="o">&lt;!--</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="nf">greater</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">greater</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">float</span><span class="w"> </span><span class="n">greater</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">double</span><span class="w"> </span><span class="n">greater</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="o">--&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The greater of &#39;a&#39; and &#39;B&#39;: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">greater</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The greater of -1 and 1: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">greater</span><span class="p">(</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The greater of 3.14 and sqrt(10): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">greater</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
@@ -870,10 +878,10 @@ document.write(`
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseAC6"> Exercise  Templates Exercise 1  </a></p>
 <section id="solution-content">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">2</span><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">3</span><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-<span class="linenos">4</span><span class="w">	</span><span class="p">}</span>
-<span class="linenos">5</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+<span class="linenos">2</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+<span class="linenos">4</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">5</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
 <span class="linenos">6</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -888,7 +896,7 @@ document.write(`
 <span class="linenos">4</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Obviously this will have limited usefulness - the type in angle brackets tells the compiler to produce the concrete version of the function that uses two doubles.</p>
+<p>Obviously, this will have limited usefulness - the type in angle brackets tells the compiler to produce the concrete version of the function that uses two doubles.</p>
 <p>Explicit type determination only works if the supplied values can by converted during the call.</p>
 </div>
 </section>
@@ -902,24 +910,23 @@ document.write(`
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 
-
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">myFirstInteger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
-<span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">22.22</span><span class="p">;</span>
-<span class="w">	</span><span class="kt">double</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">44.44</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myFirstString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; fish &quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">mySecondString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; fingers &quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;After swapping &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">mySwapFunction</span><span class="p">(</span><span class="n">myFirstInteger</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="p">);</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;we get: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;After swapping &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">mySwapFunction</span><span class="p">(</span><span class="n">myFirstDouble</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="p">);</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;we get: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;After swapping &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="n">mySwapFunction</span><span class="p">(</span><span class="n">myFirstString</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondString</span><span class="p">);</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;we get: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myFirstInteger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">22.22</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">44.44</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">myFirstString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; fish &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">mySecondString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; fingers &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;After swapping &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mySwapFunction</span><span class="p">(</span><span class="n">myFirstInteger</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;we get: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondInteger</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;After swapping &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mySwapFunction</span><span class="p">(</span><span class="n">myFirstDouble</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;we get: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondDouble</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;After swapping &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mySwapFunction</span><span class="p">(</span><span class="n">myFirstString</span><span class="p">,</span><span class="w"> </span><span class="n">mySecondString</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;we get: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myFirstString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mySecondString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;. </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -930,9 +937,9 @@ document.write(`
 <p class="admonition-title">Solution to <a class="reference internal" href="#exerciseAC7"> Exercise  Templates Exercise 2  </a></p>
 <section id="solution-content">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mySwapFunction</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">2</span><span class="w">	</span><span class="n">T</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
-<span class="linenos">3</span><span class="w">	</span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
-<span class="linenos">4</span><span class="w">	</span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="linenos">2</span><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+<span class="linenos">3</span><span class="w">    </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+<span class="linenos">4</span><span class="w">    </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 <span class="linenos">5</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -942,17 +949,63 @@ document.write(`
 </div></section>
 <section id="class-templates">
 <h2>Class Templates<a class="headerlink" href="#class-templates" title="Permalink to this heading">#</a></h2>
-<p>Copied from micosoft
-A class template can inherit all the constructors from a type argument if that type specifies a base class:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="linenos">2</span><span class="k">class</span><span class="w"> </span><span class="nc">DerivedClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">3</span><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">T</span><span class="p">;</span><span class="w">   </span><span class="c1">// declare the constructors from T</span>
-<span class="linenos">4</span><span class="w">    </span><span class="c1">// ...</span>
-<span class="linenos">5</span><span class="p">};</span>
+<p>A class template is a construct that generates a class at compile time based on arguments the user supplies for the template parameters.</p>
+<p>The key difference to function templates is that each instance of a class template must have explicit type specification.</p>
+<div class="code_example dropdown admonition" id="exampleAC8">
+
+<p class="admonition-title">Code Example: Function Templates 8 </p>
+<section id="code_example-content">
+<p>An example of overloading template functions:</p>
+<div class="cell tag_remove-output tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyGenericArrayClass</span><span class="w"> </span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">pointerToMyArray</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">MyGenericArrayClass</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">initLength</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">initLength</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pointerToMyArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="n">length</span><span class="p">]();</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">MyGenericArrayClass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">pointerToMyArray</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pointerToMyArray</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">getLength</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MyGenericArrayClass</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intArray</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">intArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<span class="w">    </span><span class="n">intArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">36</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Int Array elements: &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">intArray</span><span class="p">.</span><span class="n">getLength</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">intArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">MyGenericArrayClass</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">doubleArray</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="n">doubleArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Double Array element at index 1: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">doubleArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>A deriving class can’t inherit from multiple base classes if those base classes have constructors that have an identical signature.</p>
+</div>
+</div>
+<div class="code_explanation dropdown admonition" id="explanationAC8">
+
+<p class="admonition-title">Explanation of  <a class="reference internal" href="#exampleAC8"> Code Example: Function Templates 8 </a></p>
+<section id="code_explanation-content">
+<p>Try removing the <code class="docutils literal notranslate"><span class="pre">&lt;int&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;double&gt;</span></code>.</p>
 </section>
+</div>
+</section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1022,6 +1075,7 @@ A class template can inherit all the constructors from a type argument if that t
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-functions-with-several-type-parameters">Template Functions with Several Type Parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overloading-template-functions">Overloading Template Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instantiation">Instantiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-type-specification">Explicit Type Specification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advice-on-using-templates">Advice on using Templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">Practice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-templates">Class Templates</a></li>

@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.f31676c8-2f4b-4040-82fb-a465c72669a7.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\types.3c0704f6-aec8-493c-9810-31ca83871d31.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
@@ -82,7 +82,7 @@ const load = async () => {
     const mermaids_to_add_zoom = 1 === -1 ? all_mermaids.length : 1;
     const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
     if(mermaids_to_add_zoom > 0) {
-        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-fc81d38b-eca4-41e9-949f-a335144e463d] svg");
+        var svgs = d3.selectAll(".mermaid[data-zoom-id=id-b6abb2ab-584c-4cb1-9627-f98086b64dd8] svg");
         if(all_mermaids.length !== mermaids_processed.length) {
             // try again in a sec, wait for mermaids to load
             setTimeout(load, 200);
@@ -289,12 +289,12 @@ window.addEventListener("load", load);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object Oriented Programming Semester 2</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs in C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_object_oriented_programming.html">OOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">Structs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_to_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="derived_classes_and_virtual_functions.html">Inheritance - Derived Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polymorphism.html">Polymorphism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates Functions and Classes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates - Functions and Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random_numbers.html">Random Numbers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">C++ Programming in Visual Studio</span></p>
@@ -636,7 +636,7 @@ document.write(`
 <h3>Implicit Casting<a class="headerlink" href="#implicit-casting" title="Permalink to this heading">#</a></h3>
 <div class="tip margin admonition">
 <p class="admonition-title">Type Promotion Hierarchy</p>
-<pre align="center" data-zoom-id="id-fc81d38b-eca4-41e9-949f-a335144e463d" class="mermaid align-center">
+<pre align="center" data-zoom-id="id-b6abb2ab-584c-4cb1-9627-f98086b64dd8" class="mermaid align-center">
         flowchart BT
     A[&quot;bool&quot;] --&gt; B[&quot;char&quot;]
     B --&gt; C[&quot;int&quot;]

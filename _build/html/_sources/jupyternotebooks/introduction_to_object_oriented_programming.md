@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 (Object-oriented Programming)=
-# OOP in C++
+# OOP
 
 Programs are written to solve specific problems, and for all but the simplest tasks, we can take different approaches, each potentially offering benefits over the others.
 

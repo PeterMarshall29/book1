@@ -10,7 +10,7 @@ kernelspec:
   name: cpp20
 ---
 (structs)=
-# Structs in C++
+# Structs
 
 Structs are user defined types, and a subset of classes.
 

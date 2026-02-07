@@ -10,18 +10,18 @@ kernelspec:
   name: cpp20
 ---
 (templates)=
-# Templates Functions and Classes.
+# Templates - Functions and Classes
 Templates are used for generalisation and specialisation. 
 
 Templates are used to create generic functions and classes i.e. functions and classes were the return and argument, or parameter, types are not declared in their definitions - this allows the same code logic to be used with different data types.
 
 Templates are one of two main options for "generic" programming. The second option is to use class hierarchies and virtual functions.
 
-Generic programming means writing code that works with a variety of types presented as arguments provided those arguments types meet specific syntactic and semantic requirements. 
+Generic programming means writing code that works with a variety of types presented as arguments, provided the arguments’ types meet specific syntactic and semantic requirements. 
 
-It is often that case that the same code logic needs to applied to different data types -  rather than overload the function (writing multiple functions with the same identifier but different parameter/type lists- remember return types cannot differentiate  overloads). 
+It is often that case that the same code logic needs to apply to different data types - rather than overload the function (writing multiple functions with the same identifier but different parameter/type lists- remember return types cannot differentiate overloads). 
 
-At compile time a set of non-template functions are generated.
+At compile time a set of non-template functions and classes are generated.
 
 The description of the template function begins with the keyword template, followed by a list of symbolic types in angle brackets. 
 ```{code-block} cpp
@@ -29,20 +29,22 @@ template <typename R, typename T, typename Q>
 ```
 This is the template header. The function can start on the following line or continue after the header.
 
-The identifier `T` is a placeholder for a generic type.  Wherever a type name would normally be placed in a function definition, `T` may now be used. 
+The identifier `T` is a placeholder for a generic type, which is called a **template parameter**.  Wherever a type name would normally be placed in a function definition, `T` may now be used. 
 
 If the same type would be specified more than once, then `T` is just repeated. If a second or third type are required, then additional generic type names are required.
 
-`T` is traditional in text books, but an identifier may be used, for example:
+`T` is traditional in textbooks, and when more template parameters are required, they are traditionally capital letters, but any identifier may be used, for example:
 
 ```{code-block} cpp
 template <typename FirstType, typename SecondType, typename AnotherType>
 ```
-The actual type required is determined by the compiler and used when the function is called. 
+At compile time, every instance of a template parameter is replaced by a concrete type determined by the compiler, which are then used in the class instances, or when the function is called. 
+
+The process of the compiler generating a class or function from the templates is called **template instantiation**.
 
 `T&` may also be used to pass by reference etc.
 
-If a single generic type parameter is used more than once, then the supplied types much match.
+If a single generic-type parameter is used more than once, then the supplied types much match.
 
 ``````{code_example-start} Function Templates 1
 :label: exampleAC1
@@ -61,9 +63,9 @@ template<typename T> void myPrinter (T arg) {
 }
 
 int main() {
-    myPrinter('A'); // Calls the template function using a character argument 
-    myPrinter(1);  // Calls the template function using an integer argument
-    myPrinter("String"); // Calls the template function using a string argument 
+    myPrinter('A'); // Template function instantiated with char type argument 
+    myPrinter(1);  // Template function instantiated with int type argument 
+    myPrinter("String"); // Template function instantiated with std::string type argument 
     return 0;
 }
 `````
@@ -73,7 +75,7 @@ int main() {
 :class: dropdown
 Whenever the `myPrinter()` function is called, `T` is determined by the type of the argument passed to the function, and the function is executed with this value of the template parameter.
 
-Note: in older code, using older versions of the standard,  typename is replaced by class.
+Note: in older code, using older versions of the C++ standard,  `typename` is replaced by `class` .
 ```{code-block} cpp
 :linenos:
 template<class T> void myPrinter (T arg) {
@@ -84,7 +86,7 @@ template<class T> void myPrinter (T arg) {
 ``````{code_example-end} 
 ``````
 
-There are many ways to use **Template Functions**. In the next example, the function  `myPrinter()` now prints the contents of an array.
+There are many ways to use **Template Functions**. In the next example, the function `myPrinter()` now prints the contents of an array.
 
 ``````{code_example-start} Function Templates 2
 :label: exampleAC2
@@ -96,18 +98,18 @@ Template function using non-type template parameter example:
 :linenos:
 :tags: [remove-output, skip-execution]
 template<typename T> void myPrinter1(T* arrayName, int n) {
-	std::cout << "Type of T is: " << typeid(T).name() << '\n';
-	for (int i = 0; i < n; i++) {
-		std::cout << arrayName[i] << " ";
-	}
-	std::cout << '\n';
+    std::cout << "Type of T is: " << typeid(T).name() << '\n';
+    for (int i = 0; i < n; i++) {
+        std::cout << arrayName[i] << " ";
+    }
+    std::cout << '\n';
 }
 template <typename T, int N> void myPrinter2(T (&arrayName)[N]) {
-	std::cout << "Type of T is: " << typeid(T).name() << '\n';
-	for (int i = 0; i < N; i++) {
-		std::cout << arrayName[i] << " ";
-	}
-	std::cout << '\n';
+    std::cout << "Type of T is: " << typeid(T).name() << '\n';
+    for (int i = 0; i < N; i++) {
+        std::cout << arrayName[i] << " ";
+    }
+    std::cout << '\n';
 }
 int main() {
 int myArray1[5] = { 1 , 2, 3, 4, 5 };
@@ -124,12 +126,11 @@ return 0;
 :label: explanationAC2
 :class: dropdown
 
-
-In this example a function has been defined that takes two arguments; a template parameter for the arry type and an interger.
+In this example a function has been defined that takes two arguments: a template parameter for the array type and an integer.
 
 Because one of the arguments was expected to always be an integer, it was possible to explicitly define the second template parameter as an `int`. 
 
-An explicitly defined type is often referred to as a non-type template parameter, because what is being specified is a value, rather than a generic type, although it might be more accurate to state that the type is predefined.
+An explicitly defined type is often referred to as a **non-type template parameter**, because what is being specified is a value, rather than a generic type, although it might be more accurate to state that the type is predefined.
 
 `````
 ``````{code_example-end} 
@@ -189,7 +190,7 @@ int main() {
 
 Simple arrays are passed to functions as pointers to the first element, so everything said about pointers applies to arrays.
 
-The first argument/parameter is of type `T*`, i.e. the argument will be a pointer to a an unspecified type that is "hidden" behind `T`. 
+The first argument/parameter is of type `T*`, i.e. the argument will be a pointer to an unspecified type that is "hidden" behind `T`. 
 
 It is the type of the array/pointer that is generic, the first argument cannot be other than a pointer.
 
@@ -199,7 +200,6 @@ In this template example, `myArray` stands for an array, whose elements are of t
 `````
 ``````{code_example-end} 
 ``````
-
 
 ## Template Functions with Several Type Parameters
 
@@ -256,7 +256,7 @@ Note: if only one template parameter had been called - then the types for each i
 ## Overloading Template Functions 
 Several template functions may be created with the same identifier. 
 
-For example we could have a function called `myPrinter()` that takes one argument in one version but takes two arguments in a second version.
+For example, we could have a function called `myPrinter()` that takes one argument in one version but takes two arguments in a second version.
 ``````{code_example-start} Function Templates 5
 :label: exampleAC5
 :class: dropdown
@@ -269,31 +269,30 @@ An example of overloading template functions:
 #include <iostream> 
 // The version of the template function with one argument
 template<typename T> void myPrinter(T x) {
-	std::cout << "Function takes one argument:\n";
-	std::cout << "First argument: " << x << '\n';
+    std::cout << "Function takes one argument:\n";
+    std::cout << "First argument: " << x << '\n';
 }
 // The version of the template function with two arguments
 template<typename T1, typename T2> void myPrinter(T1 x, T2 y) {
-	std::cout << "Function takes two arguments:\n";
-	std::cout << "First argument: " << x << '\n';
-	std::cout << "Second argument: " << y << '\n';
+    std::cout << "Function takes two arguments:\n";
+    std::cout << "First argument: " << x << '\n';
+    std::cout << "Second argument: " << y << '\n';
 }
 
 int main() { 
-	myPrinter('A');
-	myPrinter(123);
-	myPrinter("String");
-	myPrinter(321, "String");
-	myPrinter('B', 456);
-	myPrinter('C', 'D');
-	return 0;
+    myPrinter('A');
+    myPrinter(123);
+    myPrinter("String");
+    myPrinter(321, "String");
+    myPrinter('B', 456);
+    myPrinter('C', 'D');
+    return 0;
 }
 `````
 
 `````{code_explanation} exampleAC5
 :label: explanationAC5
 :class: dropdown
-
 
 Note how the second version has two template parameters.
 `````
@@ -303,19 +302,44 @@ Note how the second version has two template parameters.
 ## Instantiation
 When a program containing templates is compiled, a separate version of the template function is created for each concrete type required, which is called template instantiation; each of these are called non-template functions.
 
+## Explicit Type Specification
+
+The type used by a template function or class can be specified explicitly by including the type in angle brackets after the function name or class type name. 
+
+``````{code_example-start} Function Templates 6
+:label: exampleAC6
+:class: dropdown
+:nonumber:
+``````
+For example, the three calls to `myPrinter` in example 1 above could be written as:
+`````{code-block} c++
+myPrinter<char>('A'); // Calls the template function using a character argument 
+myPrinter<int>(1);  // Calls the template function using an integer argument
+myPrinter<std::string>("String"); // Calls the template function using a string argument 
+`````
+`````{code_explanation} exampleAC6
+:label: explanationAC6
+:class: dropdown
+This would be unnecessary in this simple example; the compiler can deduce the correct types from the arguments supplied.
+
+Explicit Type specification is only required for Classes, or when there may be ambiguity.
+
+`````
+``````{code_example-end} 
+``````
 
 ## Advice on using Templates
 It is not advisable to start by writing a program with templates initially.
 
 It is usually quicker to work with a working version of the program that has an overloaded function, i.e. one for each data type, and then replace the specified types with template parameters; this helps you avoid using some inbuild function that does not work, or behaves differently, for all the types you may consider.
 
-Place all template definition in a header file. Every time the compiler reaches an instance of a template, it assesses both the template and its arguments, in order to determine what code to produce - this ofter requires the program to have a fully defined template everywhere it is used i.e. including member functions and any template functions they call. 
+Place all template definition in a header file. Every time the compiler reaches an instance of a template, it assesses both the template and its arguments, to determine what code to produce - this often requires the program to have a fully defined template everywhere it is used i.e. including member functions and any template functions they call. 
 
 Keep templates as simple as possible.
 
 Always test template programmes with all possibly types.
 
-Use template based libraries e.g. the C++ standard library, for generality, type safety, and performance.
+Use template-based libraries e.g. the C++ standard library, for generality, type safety, and performance.
 
 ## Practice
 ``````{exercise-start} Templates Exercise 1
@@ -323,37 +347,19 @@ Use template based libraries e.g. the C++ standard library, for generality, type
 :class: dropdown
 :nonumber:
 ``````
-Create a family of functions to compare two values, of char, int, float, and double types, and then return the larger value. Then replace the family of functions with a single template function.
-
+Create a family of functions to compare two values of `char`, `int`, `float`, and `double` types, and then return the larger value. Then replace the family of functions with a single template function.
 
 `````{code-cell} c++
 :linenos:
 :tags: [remove-output, skip-execution]
 #include <iostream>
-<!-- char greater (char first, char second) {
-	if (first > second) {
-		return first;
-	}
-	return second;
+char greater (char first, char second) {
+    if (first > second) {
+        return first;
+    }
+    return second;
 }
-int greater(int first, int second) {
-	if (first > second) {
-		return first;
-	}
-	return second;
-}
-float greater(float first, float second) {
-	if (first > second) {
-		return first;
-	}
-	return second;
-}
-double greater(double first, double second) {
-	if (first > second) {
-		return first;
-	}
-	return second;
-} -->
+
 int main() {
 std::cout << "The greater of 'a' and 'B': " << greater('a', 'B') << '\n';
 std::cout << "The greater of -1 and 1: " << greater(-1, 1) << '\n';
@@ -369,10 +375,10 @@ return 0;
 ````{code-block} cpp
 :linenos:
 template<typename T> T greater (T first, T second) {
-	if (first > second) {
-		return first;
-	}
-	return second;
+    if (first > second) {
+        return first;
+    }
+    return second;
 }
 ````
 `````
@@ -387,7 +393,7 @@ return 0;
 }
 ```
 
-Obviously this will have limited usefulness - the type in angle brackets tells the compiler to produce the concrete version of the function that uses two doubles.
+Obviously, this will have limited usefulness - the type in angle brackets tells the compiler to produce the concrete version of the function that uses two doubles.
 
 Explicit type determination only works if the supplied values can by converted during the call.
 ````
@@ -405,24 +411,23 @@ Write a generic function that will swap two values passed by reference.
 #include <iostream>
 #include <string>
 
-
 int main() {
-	int myFirstInteger = 10;
-	int mySecondInteger = 13;
-	double myFirstDouble = 22.22;
-	double mySecondDouble = 44.44;
-	std::string myFirstString = " fish ";
-	std::string mySecondString = " fingers ";
-	std::cout << "After swapping " << myFirstInteger << " and " << mySecondInteger << ", ";
-	mySwapFunction(myFirstInteger, mySecondInteger);
-	std::cout << "we get: " << myFirstInteger << " and " << mySecondInteger << ". \n";
-	std::cout << "After swapping " << myFirstDouble << " and " << mySecondDouble << ", ";
-	mySwapFunction(myFirstDouble, mySecondDouble);
-	std::cout << "we get: " << myFirstDouble << " and " << mySecondDouble << ". \n";
-	std::cout << "After swapping " << myFirstString << " and " << mySecondString << ", ";
-	mySwapFunction(myFirstString, mySecondString);
-	std::cout << "we get: " << myFirstString << " and " << mySecondString << ". \n";
-	return 0;
+    int myFirstInteger = 10;
+    int mySecondInteger = 13;
+    double myFirstDouble = 22.22;
+    double mySecondDouble = 44.44;
+    std::string myFirstString = " fish ";
+    std::string mySecondString = " fingers ";
+    std::cout << "After swapping " << myFirstInteger << " and " << mySecondInteger << ", ";
+    mySwapFunction(myFirstInteger, mySecondInteger);
+    std::cout << "we get: " << myFirstInteger << " and " << mySecondInteger << ". \n";
+    std::cout << "After swapping " << myFirstDouble << " and " << mySecondDouble << ", ";
+    mySwapFunction(myFirstDouble, mySecondDouble);
+    std::cout << "we get: " << myFirstDouble << " and " << mySecondDouble << ". \n";
+    std::cout << "After swapping " << myFirstString << " and " << mySecondString << ", ";
+    mySwapFunction(myFirstString, mySecondString);
+    std::cout << "we get: " << myFirstString << " and " << mySecondString << ". \n";
+    return 0;
 }
 `````
 `````{solution} exerciseAC7
@@ -431,9 +436,9 @@ int main() {
 ````{code-block} cpp
 :linenos:
 template <typename T> void mySwapFunction(T& first, T& second) {
-	T temp = first;
-	first = second;
-	second = temp;
+    T temp = first;
+    first = second;
+    second = temp;
 }
 
 ````
@@ -444,17 +449,61 @@ template <typename T> void mySwapFunction(T& first, T& second) {
 
 ## Class Templates
 
-Copied from micosoft
-A class template can inherit all the constructors from a type argument if that type specifies a base class:
+A class template is a construct that generates a class at compile time based on arguments the user supplies for the template parameters.
 
-```{code-block} cpp
+The key difference to function templates is that each instance of a class template must have explicit type specification.
+
+``````{code_example-start} Function Templates 8
+:label: exampleAC8
+:class: dropdown
+:nonumber:
+``````
+An example of overloading template functions:
+`````{code-cell} c++
 :linenos:
-template< typename T >
-class DerivedClass : T {
-    using T::T;   // declare the constructors from T
-    // ...
+:tags: [remove-output, skip-execution]
+#include <iostream> 
+template <typename T>
+class MyGenericArrayClass {
+private:
+    T* pointerToMyArray;
+    int length;
+public:
+    MyGenericArrayClass(int initLength) : length(initLength) {
+        pointerToMyArray = new T[length](); 
+    }
+    ~MyGenericArrayClass() {
+        delete[] pointerToMyArray;
+    }
+    T& operator[](int index) {
+        return pointerToMyArray[index];
+    }
+    int getLength() {
+        return length;
+    }
 };
-```
-A deriving class can't inherit from multiple base classes if those base classes have constructors that have an identical signature.
 
+int main() {
+    MyGenericArrayClass<int> intArray(10);
+    intArray[0] = 12;
+    intArray[4] = 36;
+    std::cout << "Int Array elements: ";
+    for (int i = 0; i < intArray.getLength(); ++i) {
+        std::cout << intArray[i] << " ";
+    }
+    std::cout << '\n'; 
+    MyGenericArrayClass<double> doubleArray(5);
+    doubleArray[1] = 3.14;
+    std::cout << "Double Array element at index 1: " << doubleArray[1] << '\n';
+    return 0;
+}
+`````
 
+`````{code_explanation} exampleAC8
+:label: explanationAC8
+:class: dropdown
+Try removing the `<int>` or `<double>`.
+
+`````
+``````{code_example-end} 
+``````
