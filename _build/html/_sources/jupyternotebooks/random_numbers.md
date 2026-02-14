@@ -25,9 +25,12 @@ The German Federal Office for Information Security has established the key crite
 2. A sequence of numbers which is indistinguishable from 'truly random' numbers using specified statistical tests.
 3. It should be impossible to calculate, or guess, from any given sub-sequence, any previous or future values in the sequence.
 4. It should be impossible, for all practical purposes, for an attacker to calculate, or guess, the values used in the random number algorithm.
+
 Points 3 and 4 are crucial for many applications. (This section is paraphrased from [wiki](https://en.wikipedia.org/wiki/Pseudorandom_number_generator))
 
-Computers are very bad a generating random numbers - this is an obvious consequence of their machine nature - computers are only capable of following instructions - whatever algorithm you tell a computer to follow, it will repeated identically every time - so why would the output be different, let alone random? In fact we should expect the output of a computer program to be entirely predictable, barring user mistakes i.e. they are deterministic. 
+## Generating Random Numbers
+
+Computers are very bad at generating random numbers - this is an obvious consequence of their machine nature - computers are only capable of following instructions - whatever algorithm you tell a computer to follow, it will repeat identically every time - so why would the output be different, let alone random? In fact, we should expect the output of a computer program to be entirely predictable, barring user mistakes i.e. they are deterministic. 
 
 The deterministic nature of all programs makes proper randomness impossible, however, the degree of randomness required for scientific computing applications, or gaming, is quite different to that required for cryptography i.e. truly random is required for security applications, but random-like is sufficient for most purposes.
 
@@ -35,110 +38,132 @@ The deterministic nature of all programs makes proper randomness impossible, how
 :name: random1
 No eight-ing.
 ```
-In reality, computers generate pseudo-random numbers - a sequence of pseudo-random numbers should approximate the properties of a sequence of random numbers - but the sequence is deterministic i.e. the same sequence of numbers is always produced, from the .
+In reality, computers generate pseudo-random numbers - a sequence of pseudo-random numbers should approximate the properties of a sequence of random numbers - but the sequence is deterministic i.e. the same sequence of numbers is always produced, from the same starting point (called the seed value) - e.g. using algorithm **A**, and starting at value **N**, the same sequence is produced every time.
 
-Pseudo-random number generators (PRNG) are algorithms that generate pseudo-random numbers, also known as deterministic random number/bit generators. When a PRNG runs it produces the same sequence of digits every time, and eventually that sequence will be repeated. The number of digits in each cycle is called the period of the PRNG - the higher the number the better e.g. The Mersenne Twister algorithm has a period of $2^{19937}-1$.
+Pseudo-random number generators (PRNG's) are algorithms that generate pseudo-random numbers, also known as deterministic random number (or bit) generators. When a PRNG runs it produces the same sequence of digits every time, and eventually that sequence will be repeated. The number of digits in each completer cycle is called the **period** of the PRNG - the higher the number, the better, e.g. The Mersenne Twister algorithm has a period of $2^{19937}-1$.
 
-Deterministic random number generation is not entirely useless, it may be desirable to reproduce calculations involving random numbers, but for cryptography it would be a disaster i.e. once the pattern is established, it becomes possible to predict the next number, facilitating decryption.
+Deterministic random number generation is not entirely useless, for example, it may be desirable to reproduce calculations involving random numbers. But for cryptography it would be a disaster i.e. once the pattern is established, it becomes possible to predict the next number, facilitating decryption.
 
-To vary the numbers produced every time the PRNG runs, a seed value is used. The sequence produced for a specific seed value is always the same - and therefore still deterministic and reproducible if required - but the seed may be itself be random, or a secret value for weak encyption.
+To vary the numbers produced every time the PRNG runs, a seed value is used. The sequence produced for a specific seed value is always the same - and therefore still deterministic, and reproducible, if required - but the seed may itself be random, or a secret value for weak encryption.
 
-A PRNG takes an initial value, called the seed, and uses it to produce a sequence of numbers which are supposed to "look random". The seed determines the sequence, so you can make the random number generation in a program reproducible by providing an explicit seed. If no seed is provided, a different one will be used each time the program runs.
+A PRNG using a seed produces a sequence of numbers that are supposed to "look" random. The seed determines the sequence, so you can make the random number generation in a program reproducible by providing an explicit seed. If no seed is provided, a different one may be used each time the program runs, depending on the algorithm.
 
-The quality of the deviates produced depends on the mathematical algorithms used and random number generators are not all equal - care must be take to test and verify the method used. Always use the algroithm that produces the longest period of randomness
+The quality of the deviates produced depends on the mathematical algorithms used and random number generators are not all equal - care must be taken to test and verify the method used. Always use the algorithm that produces the longest period of randomness.
 
 ## rand()
 An older implementation of a random number generator in C++ is the `rand()` function. 
 
-`rand()` is not thread-safe, which is a modern problem - older computers had only one core.
+`rand()` is not thread-safe, which is a more recent problem - older computers had only one core.
 
-A call to `rand()` returns a pseudo-random integer value on [0 and RAND\_MAX] - repeated calls generate the next number in the sequence generated by the algorithm within `rand()`.
+A call to `rand()` returns a pseudo-random integer value on [0 and RAND\_MAX] - repeated calls return the next number in the sequence generated by the algorithm within `rand()`.
 
 ## srand()
-The `srand()` function, seeds the pseudo-random number generator used by `rand()` with the value of the `seed`, which must be an unsigned integer.
+The `srand()` function, seeds the pseudo-random number generator used by `rand()` with the value of the **seed**, which must be an unsigned integer.
 
 Defined in standard library as: 
 ```{code-block} cpp
-:linenos:
 void srand( unsigned seed );
 ```
 
-If rand() is used before any calls to `srand()`, `rand() behaves` as if it was seeded with 
+If `rand()` is used before any calls to `srand()`, `rand()` behaves as if it was seeded with the value 1. 
+`````{code_example-start} Using rand() and srand()
+:class: dropdown
+:nonumber:
+`````
+Try the following examples:
 ```{code-block} cpp
 :linenos:
-void srand( unsigned seed );
+	unsigned int seed{ 12 };
+	std::cout << rand() << '\n';
+	std::cout << rand() << '\n';
+	srand(1);
+	std::cout << rand() << '\n';
+	std::cout << rand() << '\n';
+	srand(seed);
+	std::cout << rand() << '\n';
+	std::cout << rand() << '\n';
 ```
-
+`````{code_example-end}
+`````
 N.B Each time `rand()` is seeded with the same seed, it must produce the same sequence of values.
 
 Clearly then the key to producing a truly random number would be a random seed - but this just moves the problem along a step.
 
-A useful way to increase the randomness is to use time for the seed - obvioulsy running the program at the same time every day would generate the same result - but in most cases the starting time would itself be a random event.
+A useful way to increase the randomness is to use time for the seed - obviously running the program at the same time every day might generate the same result, unless the date was included etc. - but in most cases the starting time would itself be a random event.
 
-The `<ctime>` library is useful for this purpose and it is standard practice is to use the result of a call to time(0) as the seed. time() returns a time_t value, which is usually an integral type. 
+The `<ctime>` library is useful for this purpose and it is standard practice to use the result of a call to `time(0)` as a seed. `time()` returns a `time_t` value, which is usually an integral type. 
 
-Generally speaking, the pseudo-random number generator should only be seeded once, before any calls to `rand()`, and the start of the program. It should not be repeatedly seeded, or reseeded every time you wish to generate a new batch of pseudo-random numbers.
+The pseudo-random number generator should only be seeded once, before any calls to `rand()`, and the start of the program. It should not be repeatedly seeded, or reseeded every time you wish to generate a new batch of pseudo-random numbers. To generate pseudo-randomness - the random number generator should be separated from the program using the random numbers.
 
-For random number generation, there is an additional requirement - a sequence of random numbers must be uncorrelated, and therefore produce the correct distribution over time - which is a standard test.???
-
-
-
-There are agreed statistical tests that determine the degree of randomness of a random number generator, which any good random number generators must be able to pass.
-
-To generate pseudorandomness - the random number generator must be separated from the program using the random numbers
-
-
+For true random number generation, there is an additional requirement - the sequence of random numbers must be uncorrelated and therefore produce the correct distribution over time. There are agreed statistical tests that determine the degree of randomness of a random number generator, which any good random number generators must be able to pass.
 
 ## `<random>`
 
-
-
+```{note} 
+:class: margin
 [`<random>`](https://en.cppreference.com/w/cpp/header/random.html)
+```
+The `<random>` header has many options, all of which are superior to `rand()`, which is simpler to use but now deprecated i.e. don't use it after this lesson.
+```{note}
+:class: margin
+[Why `<random>` is better than `rand()`.](https://learn.microsoft.com/en-us/shows/goingnative-2013/rand-considered-harmful)
+```
 
-The random header has many options, all of which are superior to `rand()`, which is simpler to use but now deprecated i.e. don't use it after this lesson.
+In C++, a class template designed to generate uniform random number sequences is referred to as an **engine**. Each engine has a unique name that is often associate with the distinct algorithm it uses to produce values.
 
-[Why <random> is better than rand().](https://learn.microsoft.com/en-us/shows/goingnative-2013/rand-considered-harmful)
+The random number generators discussed so far all generated uniform distributions of random numbers.
 
+To create a non-uniform distribution the engine can be combined with a distribution function to produce values distributed in the required manner according to the associated mathematical probability density, or discrete density, function.
 
-In C++, a class template designed to generate uniform random number sequences is referred to as an engine. The different generators being different engines with unique names following different algorithms.
+Microsoft's C++ website states "The most useful pairing for most applications is the **mt19937** engine with `uniform_int_distribution` ".
 
-The random number generators discussed so far generated uniform distribtutions of random numbers.
+Both the engine and the distribution are function objects of the standard library's `<random>` facility.
 
-To create a non-uniform distribution the engine can be combined with a distribution to produce values distributed in the required manner according to the associated mathematical probability density, or discrete density, function.
+## Generating Truly Random Numbers
 
-Microsoft's C++ website states "The most useful pairing for most applications is the mt19937 engine with uniform_int_distribution".
-
-Both the engine and the distribution are function objects of the standard library facility <random>.
-
-To generate random numbers we first need to generate an instance of an engine.
+To generate random numbers, we first need to generate an instance of an engine.
 
 `default_random_engine` generates pseudo-random numbers - unless seeded with a non-deterministic value - and is usually the fastest option.
-`````{syntax-start} default_random_engine
+`````{code_example-start} default_random_engine
 :class: dropdown
+:nonumber:
 `````
+Try the following code:
 ```{code-block} cpp
 :linenos:
     default_random_engine myEngine;
     default_random_engine myEngine2(mySeedValue); // int mySeedValue needs to exist!
     std::cout << myEngine(); // call
 ```
-`````{syntax-end}
+`````{code_example-end}
 `````
 Random has a variety of engines, providing alternative options for pseudo-random number generation, each with pro's and con's:
 
-`````{syntax-start} Other PRNG Options
+`````{code_example-start} Other PRNG Options
 :class: dropdown
+:nonumber:
 `````
+Alternatives to default_random_engine:
 ```{code-block} cpp
 :linenos:
 linear_congruential_engine<unsigned int,a,c,m> myLCEngine;
 mersenne_twister_engine<unsigned int,w,n,m,r,a,u,d,s,t,c,l,f> myMTEngine;
 subtract_with_carry_engine<unsigned int,w,s,r> mySWCEngine;
 ```
-You can find the value for the variables online - e.g. most are on the Wikipedia page.
+You can find the values for the required variables online - e.g. most are on the pseudo-random number Wikipedia page.
 
-Although you can construct a generator from these engines directly, it is recommended you use one of these predefined typedefs:
+Although you can construct a generator from these engines directly, it is recommended you use one of these predefined `typedef` names:
+````{admonition} Typedef
+:class: dropdown
+`typedef` is used as a keyword in a declaration that associates an identifier with a `type`. The typedef identifier can then be used as a synonym for the type.
 
+```{code-block} cpp
+typedef unsigned int U_int;
+U_int myInt{3};  //Creates a new unsigned int called myInt
+```
+Type aliases provide the same functionality as `typedef` declarations using a different syntax and are also applicable to template names.
+
+````
 For example: `mt19937` is the 32-bit Mersenne twister engine created by Matsumoto and Nishimura, 1998.
 
 ```{code-block} cpp
@@ -147,78 +172,86 @@ std::mt19937 myGenerator(345);  //Deterministic - integer seed required.
 std::random_device myEngine;  // Non-deterministic generator - see next section.
 std::mt19937 myGenerator2(myEngine());  // Seed mersenne twister with random seed.
 ```
-`````{syntax-end}
+`````{code_example-end}
 `````
 ## Truly Random Numbers
 
-The class `random_device` is defined in <random> and provides truly random number - i.e. the sequence produced is different every time.
+The class `random_device` is defined in `<random>` and provides truly random number generation - i.e. the sequence produced is different every time.
 
-`random_device` is intended for applications such as cryptography.
+`std::random_device` is a uniformly-distributed, integer, random number generator that produces non-deterministic random numbers; `random_device` is intended for applications such as cryptography.
 
-`std::random_device` is a uniformly-distributed, integer, random number generator that produces non-deterministic random numbers.
-
-`````{syntax-start} random_device
+`````{code_example-start} random_device
 :class: dropdown
+:nonumber:
 `````
-We create an instance of random_device as follows:
+We create an instance of `random_device` as follows:
 ```{code-block} cpp
 :linenos:
     std::random_device myEngine;
-    //std::random_device myEngine2 {myEntropySource}; // Not needed, myEntropy Source is a String identifying a source of random numbers, such as a geiger counter
+    //std::random_device myEngine2 {myEntropySource}; // Not needed - myEntropy Source is a String identifying a source of random numbers, such as a geiger counter
 	std::cout << myEngine.entropy() << '\n';
 ```
-`````{syntax-end}
+`````{code_example-end}
 `````
-The `entropy()` member function return an estimate of the random number device entropy, which is a floating-point value between 0 and $log_2 (max()+1) (which is equal to `std::numeric_limits<unsigned int>::digits`). 
+The `entropy()` member function returns an estimate of the random number device's entropy, which is a floating-point value between 0 and $log_2 (max()+1)$ (which is equal to `std::numeric_limits<unsigned int>::digits`). 
 
-If the device has n states whose individual probabilities are $P_0$,...,$P_{n-1}$, the device entropy S is defined as:
+If the device has **n** states whose individual probabilities are **$P_0$,...,$P_{n-1}$**, the device entropy **S** is defined as:
 
 $$ S = −\Sigma^{n-1}_{i=0} P_{i}log(P_i)$$
 
-A deterministic random number generator (e.g. a pseudo-random engine) has entropy zero. 
+A deterministic random number generator (e.g. a pseudo-random engine) has entropy of zero. 
 
 `std::random_device` is a non-deterministic uniform random bit generator, although implementations are allowed to implement `std::random_device` using a pseudo-random number engine if there is no support for non-deterministic random number generation.
 
 This function is not fully implemented in some standard libraries. For example, LLVM libc++ prior to version 12 always returns zero even though the device is non-deterministic. In comparison, Microsoft Visual C++ implementation always returns `32`, and `boost.random` returns `10`.
 
 ## Distributions
-A random number distribution is a function object that, when called with a random number generator argument, produces a sequence of values of its result type i.e. if the sequence runs long enough, the values produced show the required statistical distribution - you cannot show a normal distribution if you only produce three values, but as part of a longer sequence, all the values are distributed with required randomness.
+A random number distribution is a function object that, when called with a random number generator argument, produces a sequence of values of its result type i.e. if the sequence runs long enough, the values produced show the required statistical distribution - you cannot show a normal distribution if you only produce three values, but as part of a longer sequence, all the values are distributed with the required randomness and frequency.
 
 ### Uniform Deviates
 Uniform deviates are random numbers that lie within a given range, most often [0.0, 1.0] for doubles and $[0, 2^{32}]$ or $[0,2^{64}]$ for integers, and exhibit a uniform probability distribution - meaning that in the range every number is as likely to occur as any other.
 
-Other types of deviates are almost always generated by performing appropriate operations on one or more uniform deviates - so, a reliable source of random uniform deviates is an essential building block for any sort of stochastic modeling or Monte Carlo computer work.
+Other types of deviates are almost always generated by performing appropriate operations on one or more uniform deviates - so, a reliable source of random uniform deviates is an essential building block for any sort of stochastic modelling or Monte Carlo simulation.
 
 ### Normal Distribution 
  
-An alternative to uniform deviates are random numbers generated by a process that has a exhibits a normal (Gaussian) distribution, which has a mean value and standard deviation. 
-`````{syntax-start} default_random_engine
+An alternative to uniform deviates is random numbers generated by a process that exhibits a normal (Gaussian) distribution i.e. a distribution characterised by a well-defined mean value and standard deviation. 
+
+The normal (or Gaussian) distribution has the probability density function:
+```{math}
+p(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp{(-\frac{(x-\mu)^2}{2\sigma^2})}
+```
+  
+With mean value $\mu$ and standard deviation $\sigma$. If $\mu=0$ and $\sigma=1$, it is normally called the **standard normal distribution**
+
+
+`````{code_example-start} Normal Distribution
 :class: dropdown
+:nonumber:
 `````
+Try the following examples:
 ```{code-block} cpp
 :linenos:
 std::random_device myEngine;  
 std::uniform_int_distribution<int> myUniformDistributionOfIntegers { 1, 1000 }; // Default initialised (0, maximum integer)
 std::uniform_real_distribution<double> myUniformDistributionOfDoubles { 0.0 , 10.0 }; // Default initialised to {0,1}
 ```
-`````{syntax-end}
-`````
-
-## Normal Distribution
-
-$$p(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\exp{(-\\frac{(x-\\mu)^2}{2\\sigma^2})}$$
-  
-  with mean value $\\mu$ and standard deviation $\\sigma$. If $\\mu=0$ and $\\sigma=1$, it is normally called the **standard normal distribution**
-
 For a normal distribution:
+```{code-block} cpp
+:linenos:
 double mean = 50;
 double standardDeviation = 10;
 std::random_device myEngine;
 std::normal_distribution<double> myNormalDistribution{ mean, standardDeviation }; 
-
-
-
-To create an instance of a distribution:
+```
+`````{code_example-end}
+`````
+### Generation of Non-Uniform Distributions 
+`````{syntax-start} Using Distributions
+:class: dropdown
+:nonumber:
+`````
+To create an instance of other distributions:
 ```{code-block} cpp
 :linenos:
 uniform_int_distribution<int> myDistributionName {low, high}; // [low:high], high>low
@@ -227,24 +260,29 @@ exponential_distribution<double> myDistributionName {lambda}; // value in $[0:$\
 bernoulli_distribution myDistributionName {p} ; // [true:false]
 normal_distribution<double> myDistributionName {median,standard_deviation};  (-$\inf$:$\inf$)
 ```
-We can identify different types of random numbers.
+`````{syntax-end}
+`````
+One method of generating random variables having continuous nonuniform distributions is the **ratio-of-uniforms** method. 
 
+In this method a point is generated uniformly over a particular region of the plane, and the ratio of the coordinate values of this point yields a deviate with the desired distribution. 
 
+Algorithms which utilize this technique are generally short and often as fast as longer algorithms.
 
-Advanced - we can use the standard library bind() function to make a function object that will invoke the first argument given its second argument.
+### `bind()`
 
+Advanced - we can use the standard library `bind()` function to make a function object that will invoke the first argument given its second argument.
+`````{code_example-start} default_random_engine
+:class: dropdown
+:nonumber:
+`````
+Example of using `bind()` :
 ```{code-block} cpp
 :linenos:
     auto myGenerator = bind(normal_distribution<double>{15,4.0},default_random_engine{});
     for (int i=0; i<500; ++i) cout << myGenerator();
 ```
-
-
-## Generation of Non Uniform Distributions 
-
-Computer Generation of Random Variables Using the Ratio of Uniform Deviates
-The ratio-of-uniforms method for generating random variables having continuous nonuniform distributions is presented. In thin method a point is generated uniformly over a particular region of the plane. The ratio of the coordinate values of thin point yields a deviate with the desired distribution. Algorithms which utilize this technique are generally short and often as fast as longer algorithms.
-
+`````{code_example-end}
+`````
 
   
 ## Linear Congruential Random Number Generators
@@ -252,15 +290,15 @@ The ratio-of-uniforms method for generating random variables having continuous n
 **Linear congruential random number generator** produces a sequence of pseudo-random numbers by iterating the same equation. For example, 
 
 $$x_{n+1} = (ax_{n}+c) \%m$$
-where x, a, c, and m are integers, and $x_0=1$. 
+where $x$, $a$, $c$, and $m$ are integers, and $x_0=1$. 
 
-Notes: a is called the **multiplier** and should be positive. **m** is called the modulus and there are three families of values used, e.g. powers of 2. **c** is called the increment and must be non-negative; if $c > 0$, the method/equation is called a linear congruential generator (LCG). When $c = 0$, it is sometimes called a multiplicative LCG or MLCG. 
+$a$ is called the **multiplier** and should be positive. **m** is called the modulus and there are three families of values used, e.g. powers of 2. **c** is called the increment and must be non-negative; if $c > 0$, the method/equation is called a linear congruential generator (LCG). When $c = 0$, it is sometimes called a multiplicative LCG or MLCG. 
 
-The sequence produces values on $[0,m-1]$, when a floored modulo function is used ( C++ uses the truncated modulo!), and eventually repeats itself with a period that is limited by m. For a carefully chosen combination of m, a, and c, the period will be m. 
+The sequence produces values on $[0,m-1]$, when a floored modulo function is used ( C++ uses the truncated modulo!), and eventually repeats itself with a period that is limited by $m$. For a carefully chosen combination of $m$, $a$, and $c$, the period will be $m$. 
 
-A good set of values to use are [a = 1664525, c = 1013904223, m = $2^{32}$ = 4294967296], which are well-tested.
+A good set of values to use are [$a$ = 1664525, $c$ = 1013904223, $m$ = $2^{32}$ = 4294967296], which are well-tested.
 
-For more information and alternative well-tested values for a, c, and m, see: [Linear_congruential_generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)
+For more information and alternative well-tested values for $a$, $c$, and $m$, see: [Linear_congruential_generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)
 
 
 

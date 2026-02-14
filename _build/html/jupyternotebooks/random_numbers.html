@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\random_numbers.1100ecc5-52db-46ec-8af8-738d460453dd.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\random_numbers.5db865eb-7b95-4001-8fc8-69d8cc6275c6.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/random_numbers';</script>
@@ -532,17 +532,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-numbers">Generating Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rand">rand()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#srand">srand()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random"><code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-truly-random-numbers">Generating Truly Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truly-random-numbers">Truly Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions">Distributions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-deviates">Uniform Deviates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-non-uniform-distributions">Generation of Non-Uniform Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind"><code class="docutils literal notranslate"><span class="pre">bind()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Normal Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-non-uniform-distributions">Generation of Non Uniform Distributions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruential-random-number-generators">Linear Congruential Random Number Generators</a></li>
 </ul>
             </nav>
@@ -566,10 +568,12 @@ document.write(`
 <li><p>A sequence of random numbers has a high probability of containing no identical consecutive elements.</p></li>
 <li><p>A sequence of numbers which is indistinguishable from ‘truly random’ numbers using specified statistical tests.</p></li>
 <li><p>It should be impossible to calculate, or guess, from any given sub-sequence, any previous or future values in the sequence.</p></li>
-<li><p>It should be impossible, for all practical purposes, for an attacker to calculate, or guess, the values used in the random number algorithm.
-Points 3 and 4 are crucial for many applications. (This section is paraphrased from <a class="reference external" href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">wiki</a>)</p></li>
+<li><p>It should be impossible, for all practical purposes, for an attacker to calculate, or guess, the values used in the random number algorithm.</p></li>
 </ol>
-<p>Computers are very bad a generating random numbers - this is an obvious consequence of their machine nature - computers are only capable of following instructions - whatever algorithm you tell a computer to follow, it will repeated identically every time - so why would the output be different, let alone random? In fact we should expect the output of a computer program to be entirely predictable, barring user mistakes i.e. they are deterministic.</p>
+<p>Points 3 and 4 are crucial for many applications. (This section is paraphrased from <a class="reference external" href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">wiki</a>)</p>
+<section id="generating-random-numbers">
+<h2>Generating Random Numbers<a class="headerlink" href="#generating-random-numbers" title="Permalink to this heading">#</a></h2>
+<p>Computers are very bad at generating random numbers - this is an obvious consequence of their machine nature - computers are only capable of following instructions - whatever algorithm you tell a computer to follow, it will repeat identically every time - so why would the output be different, let alone random? In fact, we should expect the output of a computer program to be entirely predictable, barring user mistakes i.e. they are deterministic.</p>
 <p>The deterministic nature of all programs makes proper randomness impossible, however, the degree of randomness required for scientific computing applications, or gaming, is quite different to that required for cryptography i.e. truly random is required for security applications, but random-like is sufficient for most purposes.</p>
 <figure class="align-default" id="random1">
 <img alt="../_images/randomjoke1.png" src="../_images/randomjoke1.png" />
@@ -577,73 +581,105 @@ Points 3 and 4 are crucial for many applications. (This section is paraphrased f
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">No eight-ing.</span><a class="headerlink" href="#random1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In reality, computers generate pseudo-random numbers - a sequence of pseudo-random numbers should approximate the properties of a sequence of random numbers - but the sequence is deterministic i.e. the same sequence of numbers is always produced, from the .</p>
-<p>Pseudo-random number generators (PRNG) are algorithms that generate pseudo-random numbers, also known as deterministic random number/bit generators. When a PRNG runs it produces the same sequence of digits every time, and eventually that sequence will be repeated. The number of digits in each cycle is called the period of the PRNG - the higher the number the better e.g. The Mersenne Twister algorithm has a period of <span class="math notranslate nohighlight">\(2^{19937}-1\)</span>.</p>
-<p>Deterministic random number generation is not entirely useless, it may be desirable to reproduce calculations involving random numbers, but for cryptography it would be a disaster i.e. once the pattern is established, it becomes possible to predict the next number, facilitating decryption.</p>
-<p>To vary the numbers produced every time the PRNG runs, a seed value is used. The sequence produced for a specific seed value is always the same - and therefore still deterministic and reproducible if required - but the seed may be itself be random, or a secret value for weak encyption.</p>
-<p>A PRNG takes an initial value, called the seed, and uses it to produce a sequence of numbers which are supposed to “look random”. The seed determines the sequence, so you can make the random number generation in a program reproducible by providing an explicit seed. If no seed is provided, a different one will be used each time the program runs.</p>
-<p>The quality of the deviates produced depends on the mathematical algorithms used and random number generators are not all equal - care must be take to test and verify the method used. Always use the algroithm that produces the longest period of randomness</p>
+<p>In reality, computers generate pseudo-random numbers - a sequence of pseudo-random numbers should approximate the properties of a sequence of random numbers - but the sequence is deterministic i.e. the same sequence of numbers is always produced, from the same starting point (called the seed value) - e.g. using algorithm <strong>A</strong>, and starting at value <strong>N</strong>, the same sequence is produced every time.</p>
+<p>Pseudo-random number generators (PRNG’s) are algorithms that generate pseudo-random numbers, also known as deterministic random number (or bit) generators. When a PRNG runs it produces the same sequence of digits every time, and eventually that sequence will be repeated. The number of digits in each completer cycle is called the <strong>period</strong> of the PRNG - the higher the number, the better, e.g. The Mersenne Twister algorithm has a period of <span class="math notranslate nohighlight">\(2^{19937}-1\)</span>.</p>
+<p>Deterministic random number generation is not entirely useless, for example, it may be desirable to reproduce calculations involving random numbers. But for cryptography it would be a disaster i.e. once the pattern is established, it becomes possible to predict the next number, facilitating decryption.</p>
+<p>To vary the numbers produced every time the PRNG runs, a seed value is used. The sequence produced for a specific seed value is always the same - and therefore still deterministic, and reproducible, if required - but the seed may itself be random, or a secret value for weak encryption.</p>
+<p>A PRNG using a seed produces a sequence of numbers that are supposed to “look” random. The seed determines the sequence, so you can make the random number generation in a program reproducible by providing an explicit seed. If no seed is provided, a different one may be used each time the program runs, depending on the algorithm.</p>
+<p>The quality of the deviates produced depends on the mathematical algorithms used and random number generators are not all equal - care must be taken to test and verify the method used. Always use the algorithm that produces the longest period of randomness.</p>
+</section>
 <section id="rand">
 <h2>rand()<a class="headerlink" href="#rand" title="Permalink to this heading">#</a></h2>
 <p>An older implementation of a random number generator in C++ is the <code class="docutils literal notranslate"><span class="pre">rand()</span></code> function.</p>
-<p><code class="docutils literal notranslate"><span class="pre">rand()</span></code> is not thread-safe, which is a modern problem - older computers had only one core.</p>
-<p>A call to <code class="docutils literal notranslate"><span class="pre">rand()</span></code> returns a pseudo-random integer value on [0 and RAND_MAX] - repeated calls generate the next number in the sequence generated by the algorithm within <code class="docutils literal notranslate"><span class="pre">rand()</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rand()</span></code> is not thread-safe, which is a more recent problem - older computers had only one core.</p>
+<p>A call to <code class="docutils literal notranslate"><span class="pre">rand()</span></code> returns a pseudo-random integer value on [0 and RAND_MAX] - repeated calls return the next number in the sequence generated by the algorithm within <code class="docutils literal notranslate"><span class="pre">rand()</span></code>.</p>
 </section>
 <section id="srand">
 <h2>srand()<a class="headerlink" href="#srand" title="Permalink to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">srand()</span></code> function, seeds the pseudo-random number generator used by <code class="docutils literal notranslate"><span class="pre">rand()</span></code> with the value of the <code class="docutils literal notranslate"><span class="pre">seed</span></code>, which must be an unsigned integer.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">srand()</span></code> function, seeds the pseudo-random number generator used by <code class="docutils literal notranslate"><span class="pre">rand()</span></code> with the value of the <strong>seed</strong>, which must be an unsigned integer.</p>
 <p>Defined in standard library as:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If rand() is used before any calls to <code class="docutils literal notranslate"><span class="pre">srand()</span></code>, <code class="docutils literal notranslate"><span class="pre">rand()</span> <span class="pre">behaves</span></code> as if it was seeded with</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="p">);</span>
+<p>If <code class="docutils literal notranslate"><span class="pre">rand()</span></code> is used before any calls to <code class="docutils literal notranslate"><span class="pre">srand()</span></code>, <code class="docutils literal notranslate"><span class="pre">rand()</span></code> behaves as if it was seeded with the value 1.</p>
+<div class="code_example dropdown admonition" id="jupyternotebooks/random_numbers-code_example-0">
+
+<p class="admonition-title">Code Example: Using rand() and srand() </p>
+<section id="code_example-content">
+<p>Try the following examples:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">seed</span><span class="p">{</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos">2</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">3</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">4</span><span class="w">	</span><span class="n">srand</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos">5</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">6</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">7</span><span class="w">	</span><span class="n">srand</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+<span class="linenos">8</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="linenos">9</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>N.B Each time <code class="docutils literal notranslate"><span class="pre">rand()</span></code> is seeded with the same seed, it must produce the same sequence of values.</p>
+</section>
+</div><p>N.B Each time <code class="docutils literal notranslate"><span class="pre">rand()</span></code> is seeded with the same seed, it must produce the same sequence of values.</p>
 <p>Clearly then the key to producing a truly random number would be a random seed - but this just moves the problem along a step.</p>
-<p>A useful way to increase the randomness is to use time for the seed - obvioulsy running the program at the same time every day would generate the same result - but in most cases the starting time would itself be a random event.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">&lt;ctime&gt;</span></code> library is useful for this purpose and it is standard practice is to use the result of a call to time(0) as the seed. time() returns a time_t value, which is usually an integral type.</p>
-<p>Generally speaking, the pseudo-random number generator should only be seeded once, before any calls to <code class="docutils literal notranslate"><span class="pre">rand()</span></code>, and the start of the program. It should not be repeatedly seeded, or reseeded every time you wish to generate a new batch of pseudo-random numbers.</p>
-<p>For random number generation, there is an additional requirement - a sequence of random numbers must be uncorrelated, and therefore produce the correct distribution over time - which is a standard test.???</p>
-<p>There are agreed statistical tests that determine the degree of randomness of a random number generator, which any good random number generators must be able to pass.</p>
-<p>To generate pseudorandomness - the random number generator must be separated from the program using the random numbers</p>
+<p>A useful way to increase the randomness is to use time for the seed - obviously running the program at the same time every day might generate the same result, unless the date was included etc. - but in most cases the starting time would itself be a random event.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;ctime&gt;</span></code> library is useful for this purpose and it is standard practice to use the result of a call to <code class="docutils literal notranslate"><span class="pre">time(0)</span></code> as a seed. <code class="docutils literal notranslate"><span class="pre">time()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">time_t</span></code> value, which is usually an integral type.</p>
+<p>The pseudo-random number generator should only be seeded once, before any calls to <code class="docutils literal notranslate"><span class="pre">rand()</span></code>, and the start of the program. It should not be repeatedly seeded, or reseeded every time you wish to generate a new batch of pseudo-random numbers. To generate pseudo-randomness - the random number generator should be separated from the program using the random numbers.</p>
+<p>For true random number generation, there is an additional requirement - the sequence of random numbers must be uncorrelated and therefore produce the correct distribution over time. There are agreed statistical tests that determine the degree of randomness of a random number generator, which any good random number generators must be able to pass.</p>
 </section>
 <section id="random">
 <h2><code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code><a class="headerlink" href="#random" title="Permalink to this heading">#</a></h2>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/header/random.html"><code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code></a></p>
-<p>The random header has many options, all of which are superior to <code class="docutils literal notranslate"><span class="pre">rand()</span></code>, which is simpler to use but now deprecated i.e. don’t use it after this lesson.</p>
-<p><a class="reference external" href="https://learn.microsoft.com/en-us/shows/goingnative-2013/rand-considered-harmful">Why <random> is better than rand().</a></p>
-<p>In C++, a class template designed to generate uniform random number sequences is referred to as an engine. The different generators being different engines with unique names following different algorithms.</p>
-<p>The random number generators discussed so far generated uniform distribtutions of random numbers.</p>
-<p>To create a non-uniform distribution the engine can be combined with a distribution to produce values distributed in the required manner according to the associated mathematical probability density, or discrete density, function.</p>
-<p>Microsoft’s C++ website states “The most useful pairing for most applications is the mt19937 engine with uniform_int_distribution”.</p>
-<p>Both the engine and the distribution are function objects of the standard library facility <random>.</p>
-<p>To generate random numbers we first need to generate an instance of an engine.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code> header has many options, all of which are superior to <code class="docutils literal notranslate"><span class="pre">rand()</span></code>, which is simpler to use but now deprecated i.e. don’t use it after this lesson.</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://learn.microsoft.com/en-us/shows/goingnative-2013/rand-considered-harmful">Why <code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code> is better than <code class="docutils literal notranslate"><span class="pre">rand()</span></code>.</a></p>
+</div>
+<p>In C++, a class template designed to generate uniform random number sequences is referred to as an <strong>engine</strong>. Each engine has a unique name that is often associate with the distinct algorithm it uses to produce values.</p>
+<p>The random number generators discussed so far all generated uniform distributions of random numbers.</p>
+<p>To create a non-uniform distribution the engine can be combined with a distribution function to produce values distributed in the required manner according to the associated mathematical probability density, or discrete density, function.</p>
+<p>Microsoft’s C++ website states “The most useful pairing for most applications is the <strong>mt19937</strong> engine with <code class="docutils literal notranslate"><span class="pre">uniform_int_distribution</span></code> “.</p>
+<p>Both the engine and the distribution are function objects of the standard library’s <code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code> facility.</p>
+</section>
+<section id="generating-truly-random-numbers">
+<h2>Generating Truly Random Numbers<a class="headerlink" href="#generating-truly-random-numbers" title="Permalink to this heading">#</a></h2>
+<p>To generate random numbers, we first need to generate an instance of an engine.</p>
 <p><code class="docutils literal notranslate"><span class="pre">default_random_engine</span></code> generates pseudo-random numbers - unless seeded with a non-deterministic value - and is usually the fastest option.</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/random_numbers-syntax-0">
+<div class="code_example dropdown admonition" id="jupyternotebooks/random_numbers-code_example-1">
 
-<p class="admonition-title"><span class="caption-number">Code Example 1 </span> Rules: default_random_engine </p>
-<section id="syntax-content">
+<p class="admonition-title">Code Example: default_random_engine </p>
+<section id="code_example-content">
+<p>Try the following code:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="n">default_random_engine</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span>
 <span class="linenos">2</span><span class="w">    </span><span class="n">default_random_engine</span><span class="w"> </span><span class="nf">myEngine2</span><span class="p">(</span><span class="n">mySeedValue</span><span class="p">);</span><span class="w"> </span><span class="c1">// int mySeedValue needs to exist!</span>
 <span class="linenos">3</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myEngine</span><span class="p">();</span><span class="w"> </span><span class="c1">// call</span>
 </pre></div>
 </div>
 </section>
-</div>
-<p>Random has a variety of engines, providing alternative options for pseudo-random number generation, each with pro’s and con’s:</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/random_numbers-syntax-1">
+</div><p>Random has a variety of engines, providing alternative options for pseudo-random number generation, each with pro’s and con’s:</p>
+<div class="code_example dropdown admonition" id="jupyternotebooks/random_numbers-code_example-2">
 
-<p class="admonition-title"><span class="caption-number">Code Example 2 </span> Rules: Other PRNG Options </p>
-<section id="syntax-content">
+<p class="admonition-title">Code Example: Other PRNG Options </p>
+<section id="code_example-content">
+<p>Alternatives to default_random_engine:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">linear_congruential_engine</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">m</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myLCEngine</span><span class="p">;</span>
 <span class="linenos">2</span><span class="n">mersenne_twister_engine</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">f</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myMTEngine</span><span class="p">;</span>
 <span class="linenos">3</span><span class="n">subtract_with_carry_engine</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mySWCEngine</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>You can find the value for the variables online - e.g. most are on the Wikipedia page.</p>
-<p>Although you can construct a generator from these engines directly, it is recommended you use one of these predefined typedefs:</p>
+<p>You can find the values for the required variables online - e.g. most are on the pseudo-random number Wikipedia page.</p>
+<p>Although you can construct a generator from these engines directly, it is recommended you use one of these predefined <code class="docutils literal notranslate"><span class="pre">typedef</span></code> names:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Typedef</p>
+<p><code class="docutils literal notranslate"><span class="pre">typedef</span></code> is used as a keyword in a declaration that associates an identifier with a <code class="docutils literal notranslate"><span class="pre">type</span></code>. The typedef identifier can then be used as a synonym for the type.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">U_int</span><span class="p">;</span>
+<span class="n">U_int</span><span class="w"> </span><span class="n">myInt</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span><span class="w">  </span><span class="c1">//Creates a new unsigned int called myInt</span>
+</pre></div>
+</div>
+<p>Type aliases provide the same functionality as <code class="docutils literal notranslate"><span class="pre">typedef</span></code> declarations using a different syntax and are also applicable to template names.</p>
+</div>
 <p>For example: <code class="docutils literal notranslate"><span class="pre">mt19937</span></code> is the 32-bit Mersenne twister engine created by Matsumoto and Nishimura, 1998.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">mt19937</span><span class="w"> </span><span class="nf">myGenerator</span><span class="p">(</span><span class="mi">345</span><span class="p">);</span><span class="w">  </span><span class="c1">//Deterministic - integer seed required.</span>
 <span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span><span class="w">  </span><span class="c1">// Non-deterministic generator - see next section.</span>
@@ -651,68 +687,71 @@ Points 3 and 4 are crucial for many applications. (This section is paraphrased f
 </pre></div>
 </div>
 </section>
-</div>
-</section>
+</div></section>
 <section id="truly-random-numbers">
 <h2>Truly Random Numbers<a class="headerlink" href="#truly-random-numbers" title="Permalink to this heading">#</a></h2>
-<p>The class <code class="docutils literal notranslate"><span class="pre">random_device</span></code> is defined in <random> and provides truly random number - i.e. the sequence produced is different every time.</p>
-<p><code class="docutils literal notranslate"><span class="pre">random_device</span></code> is intended for applications such as cryptography.</p>
-<p><code class="docutils literal notranslate"><span class="pre">std::random_device</span></code> is a uniformly-distributed, integer, random number generator that produces non-deterministic random numbers.</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/random_numbers-syntax-2">
+<p>The class <code class="docutils literal notranslate"><span class="pre">random_device</span></code> is defined in <code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code> and provides truly random number generation - i.e. the sequence produced is different every time.</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::random_device</span></code> is a uniformly-distributed, integer, random number generator that produces non-deterministic random numbers; <code class="docutils literal notranslate"><span class="pre">random_device</span></code> is intended for applications such as cryptography.</p>
+<div class="code_example dropdown admonition" id="jupyternotebooks/random_numbers-code_example-3">
 
-<p class="admonition-title"><span class="caption-number">Code Example 3 </span> Rules: random_device </p>
-<section id="syntax-content">
-<p>We create an instance of random_device as follows:</p>
+<p class="admonition-title">Code Example: random_device </p>
+<section id="code_example-content">
+<p>We create an instance of <code class="docutils literal notranslate"><span class="pre">random_device</span></code> as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span>
-<span class="linenos">2</span><span class="w">    </span><span class="c1">//std::random_device myEngine2 {myEntropySource}; // Not needed, myEntropy Source is a String identifying a source of random numbers, such as a geiger counter</span>
+<span class="linenos">2</span><span class="w">    </span><span class="c1">//std::random_device myEngine2 {myEntropySource}; // Not needed - myEntropy Source is a String identifying a source of random numbers, such as a geiger counter</span>
 <span class="linenos">3</span><span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myEngine</span><span class="p">.</span><span class="n">entropy</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">entropy()</span></code> member function return an estimate of the random number device entropy, which is a floating-point value between 0 and $log_2 (max()+1) (which is equal to <code class="docutils literal notranslate"><span class="pre">std::numeric_limits&lt;unsigned</span> <span class="pre">int&gt;::digits</span></code>).</p>
-<p>If the device has n states whose individual probabilities are <span class="math notranslate nohighlight">\(P_0\)</span>,…,<span class="math notranslate nohighlight">\(P_{n-1}\)</span>, the device entropy S is defined as:</p>
+</div><p>The <code class="docutils literal notranslate"><span class="pre">entropy()</span></code> member function returns an estimate of the random number device’s entropy, which is a floating-point value between 0 and <span class="math notranslate nohighlight">\(log_2 (max()+1)\)</span> (which is equal to <code class="docutils literal notranslate"><span class="pre">std::numeric_limits&lt;unsigned</span> <span class="pre">int&gt;::digits</span></code>).</p>
+<p>If the device has <strong>n</strong> states whose individual probabilities are <strong><span class="math notranslate nohighlight">\(P_0\)</span>,…,<span class="math notranslate nohighlight">\(P_{n-1}\)</span></strong>, the device entropy <strong>S</strong> is defined as:</p>
 <div class="math notranslate nohighlight">
 \[ S = −\Sigma^{n-1}_{i=0} P_{i}log(P_i)\]</div>
-<p>A deterministic random number generator (e.g. a pseudo-random engine) has entropy zero.</p>
+<p>A deterministic random number generator (e.g. a pseudo-random engine) has entropy of zero.</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::random_device</span></code> is a non-deterministic uniform random bit generator, although implementations are allowed to implement <code class="docutils literal notranslate"><span class="pre">std::random_device</span></code> using a pseudo-random number engine if there is no support for non-deterministic random number generation.</p>
 <p>This function is not fully implemented in some standard libraries. For example, LLVM libc++ prior to version 12 always returns zero even though the device is non-deterministic. In comparison, Microsoft Visual C++ implementation always returns <code class="docutils literal notranslate"><span class="pre">32</span></code>, and <code class="docutils literal notranslate"><span class="pre">boost.random</span></code> returns <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
 </section>
 <section id="distributions">
 <h2>Distributions<a class="headerlink" href="#distributions" title="Permalink to this heading">#</a></h2>
-<p>A random number distribution is a function object that, when called with a random number generator argument, produces a sequence of values of its result type i.e. if the sequence runs long enough, the values produced show the required statistical distribution - you cannot show a normal distribution if you only produce three values, but as part of a longer sequence, all the values are distributed with required randomness.</p>
+<p>A random number distribution is a function object that, when called with a random number generator argument, produces a sequence of values of its result type i.e. if the sequence runs long enough, the values produced show the required statistical distribution - you cannot show a normal distribution if you only produce three values, but as part of a longer sequence, all the values are distributed with the required randomness and frequency.</p>
 <section id="uniform-deviates">
 <h3>Uniform Deviates<a class="headerlink" href="#uniform-deviates" title="Permalink to this heading">#</a></h3>
 <p>Uniform deviates are random numbers that lie within a given range, most often [0.0, 1.0] for doubles and <span class="math notranslate nohighlight">\([0, 2^{32}]\)</span> or <span class="math notranslate nohighlight">\([0,2^{64}]\)</span> for integers, and exhibit a uniform probability distribution - meaning that in the range every number is as likely to occur as any other.</p>
-<p>Other types of deviates are almost always generated by performing appropriate operations on one or more uniform deviates - so, a reliable source of random uniform deviates is an essential building block for any sort of stochastic modeling or Monte Carlo computer work.</p>
+<p>Other types of deviates are almost always generated by performing appropriate operations on one or more uniform deviates - so, a reliable source of random uniform deviates is an essential building block for any sort of stochastic modelling or Monte Carlo simulation.</p>
 </section>
 <section id="normal-distribution">
 <h3>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this heading">#</a></h3>
-<p>An alternative to uniform deviates are random numbers generated by a process that has a exhibits a normal (Gaussian) distribution, which has a mean value and standard deviation.</p>
-<div class="syntax dropdown admonition" id="jupyternotebooks/random_numbers-syntax-3">
+<p>An alternative to uniform deviates is random numbers generated by a process that exhibits a normal (Gaussian) distribution i.e. a distribution characterised by a well-defined mean value and standard deviation.</p>
+<p>The normal (or Gaussian) distribution has the probability density function:</p>
+<div class="math notranslate nohighlight">
+\[p(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp{(-\frac{(x-\mu)^2}{2\sigma^2})}\]</div>
+<p>With mean value <span class="math notranslate nohighlight">\(\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>. If <span class="math notranslate nohighlight">\(\mu=0\)</span> and <span class="math notranslate nohighlight">\(\sigma=1\)</span>, it is normally called the <strong>standard normal distribution</strong></p>
+<div class="code_example dropdown admonition" id="jupyternotebooks/random_numbers-code_example-4">
 
-<p class="admonition-title"><span class="caption-number">Code Example 4 </span> Rules: default_random_engine </p>
-<section id="syntax-content">
+<p class="admonition-title">Code Example: Normal Distribution </p>
+<section id="code_example-content">
+<p>Try the following examples:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span><span class="w">  </span>
 <span class="linenos">2</span><span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myUniformDistributionOfIntegers</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Default initialised (0, maximum integer)</span>
 <span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">uniform_real_distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myUniformDistributionOfDoubles</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Default initialised to {0,1}</span>
 </pre></div>
 </div>
-</section>
+<p>For a normal distribution:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kt">double</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="linenos">2</span><span class="kt">double</span><span class="w"> </span><span class="n">standardDeviation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos">3</span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">myEngine</span><span class="p">;</span>
+<span class="linenos">4</span><span class="n">std</span><span class="o">::</span><span class="n">normal_distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myNormalDistribution</span><span class="p">{</span><span class="w"> </span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">standardDeviation</span><span class="w"> </span><span class="p">};</span><span class="w"> </span>
+</pre></div>
 </div>
 </section>
-</section>
-<section id="id2">
-<h2>Normal Distribution<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[\begin{split}p(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\exp{(-\\frac{(x-\\mu)^2}{2\\sigma^2})}\end{split}\]</div>
-<p>with mean value <span class="math notranslate nohighlight">\(\\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\\sigma\)</span>. If <span class="math notranslate nohighlight">\(\\mu=0\)</span> and <span class="math notranslate nohighlight">\(\\sigma=1\)</span>, it is normally called the <strong>standard normal distribution</strong></p>
-<p>For a normal distribution:
-double mean = 50;
-double standardDeviation = 10;
-std::random_device myEngine;
-std::normal_distribution<double> myNormalDistribution{ mean, standardDeviation };</p>
-<p>To create an instance of a distribution:</p>
+</div></section>
+<section id="generation-of-non-uniform-distributions">
+<h3>Generation of Non-Uniform Distributions<a class="headerlink" href="#generation-of-non-uniform-distributions" title="Permalink to this heading">#</a></h3>
+<div class="syntax dropdown admonition" id="jupyternotebooks/random_numbers-syntax-5">
+
+<p class="admonition-title">Syntax Rules: Using Distributions </p>
+<section id="syntax-content">
+<p>To create an instance of other distributions:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>uniform_int_distribution&lt;int&gt; myDistributionName {low, high}; // [low:high], high&gt;low
 <span class="linenos">2</span>uniform_real_distribution&lt;double&gt; myDistributionName {low,high}; // $[low:high)$
 <span class="linenos">3</span>exponential_distribution&lt;double&gt; myDistributionName {lambda}; // value in $[0:$\inf$)$
@@ -720,28 +759,36 @@ std::normal_distribution<double> myNormalDistribution{ mean, standardDeviation }
 <span class="linenos">5</span>normal_distribution&lt;double&gt; myDistributionName {median,standard_deviation};  (-$\inf$:$\inf$)
 </pre></div>
 </div>
-<p>We can identify different types of random numbers.</p>
-<p>Advanced - we can use the standard library bind() function to make a function object that will invoke the first argument given its second argument.</p>
+</section>
+</div><p>One method of generating random variables having continuous nonuniform distributions is the <strong>ratio-of-uniforms</strong> method.</p>
+<p>In this method a point is generated uniformly over a particular region of the plane, and the ratio of the coordinate values of this point yields a deviate with the desired distribution.</p>
+<p>Algorithms which utilize this technique are generally short and often as fast as longer algorithms.</p>
+</section>
+<section id="bind">
+<h3><code class="docutils literal notranslate"><span class="pre">bind()</span></code><a class="headerlink" href="#bind" title="Permalink to this heading">#</a></h3>
+<p>Advanced - we can use the standard library <code class="docutils literal notranslate"><span class="pre">bind()</span></code> function to make a function object that will invoke the first argument given its second argument.</p>
+<div class="code_example dropdown admonition" id="jupyternotebooks/random_numbers-code_example-6">
+
+<p class="admonition-title">Code Example: default_random_engine </p>
+<section id="code_example-content">
+<p>Example of using <code class="docutils literal notranslate"><span class="pre">bind()</span></code> :</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">myGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind</span><span class="p">(</span><span class="n">normal_distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="mf">4.0</span><span class="p">},</span><span class="n">default_random_engine</span><span class="p">{});</span>
 <span class="linenos">2</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">500</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myGenerator</span><span class="p">();</span>
 </pre></div>
 </div>
 </section>
-<section id="generation-of-non-uniform-distributions">
-<h2>Generation of Non Uniform Distributions<a class="headerlink" href="#generation-of-non-uniform-distributions" title="Permalink to this heading">#</a></h2>
-<p>Computer Generation of Random Variables Using the Ratio of Uniform Deviates
-The ratio-of-uniforms method for generating random variables having continuous nonuniform distributions is presented. In thin method a point is generated uniformly over a particular region of the plane. The ratio of the coordinate values of thin point yields a deviate with the desired distribution. Algorithms which utilize this technique are generally short and often as fast as longer algorithms.</p>
+</div></section>
 </section>
 <section id="linear-congruential-random-number-generators">
 <h2>Linear Congruential Random Number Generators<a class="headerlink" href="#linear-congruential-random-number-generators" title="Permalink to this heading">#</a></h2>
 <p><strong>Linear congruential random number generator</strong> produces a sequence of pseudo-random numbers by iterating the same equation. For example,</p>
 <div class="math notranslate nohighlight">
 \[x_{n+1} = (ax_{n}+c) \%m\]</div>
-<p>where x, a, c, and m are integers, and <span class="math notranslate nohighlight">\(x_0=1\)</span>.</p>
-<p>Notes: a is called the <strong>multiplier</strong> and should be positive. <strong>m</strong> is called the modulus and there are three families of values used, e.g. powers of 2. <strong>c</strong> is called the increment and must be non-negative; if <span class="math notranslate nohighlight">\(c &gt; 0\)</span>, the method/equation is called a linear congruential generator (LCG). When <span class="math notranslate nohighlight">\(c = 0\)</span>, it is sometimes called a multiplicative LCG or MLCG.</p>
-<p>The sequence produces values on <span class="math notranslate nohighlight">\([0,m-1]\)</span>, when a floored modulo function is used ( C++ uses the truncated modulo!), and eventually repeats itself with a period that is limited by m. For a carefully chosen combination of m, a, and c, the period will be m.</p>
-<p>A good set of values to use are [a = 1664525, c = 1013904223, m = <span class="math notranslate nohighlight">\(2^{32}\)</span> = 4294967296], which are well-tested.</p>
-<p>For more information and alternative well-tested values for a, c, and m, see: <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear_congruential_generator</a></p>
+<p>where <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(m\)</span> are integers, and <span class="math notranslate nohighlight">\(x_0=1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a\)</span> is called the <strong>multiplier</strong> and should be positive. <strong>m</strong> is called the modulus and there are three families of values used, e.g. powers of 2. <strong>c</strong> is called the increment and must be non-negative; if <span class="math notranslate nohighlight">\(c &gt; 0\)</span>, the method/equation is called a linear congruential generator (LCG). When <span class="math notranslate nohighlight">\(c = 0\)</span>, it is sometimes called a multiplicative LCG or MLCG.</p>
+<p>The sequence produces values on <span class="math notranslate nohighlight">\([0,m-1]\)</span>, when a floored modulo function is used ( C++ uses the truncated modulo!), and eventually repeats itself with a period that is limited by <span class="math notranslate nohighlight">\(m\)</span>. For a carefully chosen combination of <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(a\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>, the period will be <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>A good set of values to use are [<span class="math notranslate nohighlight">\(a\)</span> = 1664525, <span class="math notranslate nohighlight">\(c\)</span> = 1013904223, <span class="math notranslate nohighlight">\(m\)</span> = <span class="math notranslate nohighlight">\(2^{32}\)</span> = 4294967296], which are well-tested.</p>
+<p>For more information and alternative well-tested values for <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(m\)</span>, see: <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear_congruential_generator</a></p>
 </section>
 </section>
 
@@ -809,17 +856,19 @@ The ratio-of-uniforms method for generating random variables having continuous n
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-numbers">Generating Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rand">rand()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#srand">srand()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random"><code class="docutils literal notranslate"><span class="pre">&lt;random&gt;</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-truly-random-numbers">Generating Truly Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truly-random-numbers">Truly Random Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions">Distributions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-deviates">Uniform Deviates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-non-uniform-distributions">Generation of Non-Uniform Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind"><code class="docutils literal notranslate"><span class="pre">bind()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Normal Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-non-uniform-distributions">Generation of Non Uniform Distributions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruential-random-number-generators">Linear Congruential Random Number Generators</a></li>
 </ul>
   </nav></div>
