@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.d3e90b25-f2e2-4153-952d-f2e8c89375e7.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\basic_ideas_and_definitons.a1ddefc9-711d-43a9-bc23-8f489aa60634.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/basic_ideas_and_definitons';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -573,7 +573,8 @@ document.write(`
 </div><p>The simplest type of statement is an <a class="reference internal" href="glossary.html#term-Expression-Statement"><span class="xref std std-term">expression statement</span></a> - i.e. an <a class="reference internal" href="glossary.html#term-Expression"><span class="xref std std-term">expression</span></a> followed by a <a class="reference internal" href="glossary.html#term-Terminator"><span class="xref std std-term">terminator</span></a>.</p>
 <p>Expressions are sequences of <a class="reference internal" href="glossary.html#term-Operators"><span class="xref std std-term">operators</span></a> and their <a class="reference internal" href="glossary.html#term-Operands"><span class="xref std std-term">operands</span></a>, which specify a computation e.g. <code class="docutils literal notranslate"><span class="pre">a+b</span></code> is an expression, <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are operands and <code class="docutils literal notranslate"><span class="pre">+</span></code> is an operator.</p>
 <p>When the expression statement is executed, the expression is evaluated by the computer, producing a result, which will have a <a class="reference internal" href="glossary.html#term-Value"><span class="xref std std-term">value</span></a> and a <a class="reference internal" href="glossary.html#term-Type"><span class="xref std std-term">type</span></a>.</p>
-<p>Statements are always terminated by either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or by <code class="docutils literal notranslate"><span class="pre">{}</span></code> which represents a <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code-block</span></a> i.e. {…some code here…}, which may be empty or contain statements.</p>
+<p>Statements are always terminated by either a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code> or by <code class="docutils literal notranslate"><span class="pre">{}</span></code> .</p>
+<p><code class="docutils literal notranslate"><span class="pre">{}</span></code> represents a <a class="reference internal" href="glossary.html#term-Code-Block"><span class="xref std std-term">code-block</span></a> i.e. {…some code here…}, which may be empty or contain statements.</p>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Only <a class="reference internal" href="glossary.html#term-Directives"><span class="xref std std-term">directives</span></a> do not require termination.</p>
@@ -712,7 +713,7 @@ document.write(`
 </div>
 </section>
 </div><p>More useful functions and constants are provided by <code class="docutils literal notranslate"><span class="pre">&lt;numbers&gt;</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">std::numbers::pi</span></code>.</p>
-<p>Note: In Visual Studio you will need to change the ‘c++language standard’ under ‘project properties’ to ‘c++20’.</p>
+<p>Note: In Visual Studio you will need to change the ‘c++language standard’ under ‘project properties’ to ‘c++20’ if you want to include <code class="docutils literal notranslate"><span class="pre">&lt;numbers&gt;</span></code>, because this library was only released in 2020.</p>
 </section>
 <section id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
@@ -728,7 +729,7 @@ document.write(`
 <p>To create a variable named <code class="docutils literal notranslate"><span class="pre">a</span></code> that holds the integer value of ‘5’, use the statement <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">int</span></code> specifies that the type of the variable named ‘a’ is going to be an integer.</p>
 <p>After this statement in the program, the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> may be used anywhere (see <a class="reference internal" href="glossary.html#term-Scope"><span class="xref std std-term">scope</span></a>) that we want to use its value of <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
-<p>Type in following program into the ‘Live Code’ editor and hit <kbd class="kbd docutils literal notranslate">run</kbd>.</p>
+<p>Type in the following program into the ‘Live Code’ editor and hit <kbd class="kbd docutils literal notranslate">run</kbd>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="linenos">2</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">3</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
@@ -751,7 +752,7 @@ document.write(`
 <section id="exercise-content">
 <p>After a variable has been declared and given a value, the value can be changed.</p>
 <ol class="arabic simple">
-<li><p>After line 4 - <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>:</p></li>
+<li><p>After line 4 - <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> :</p></li>
 </ol>
 <ul class="simple">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">10;</span></code></p></li>
@@ -799,7 +800,7 @@ document.write(`
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h2>
 <p>A <a class="reference internal" href="glossary.html#term-String"><span class="xref std std-term">string</span></a> is a sequence of characters. In C++ strings are represented by the type <code class="docutils literal notranslate"><span class="pre">std::string</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::</span></code> indicates that a standard library facility is needed - in this case <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>.</p>
-<p>A string <a class="reference internal" href="glossary.html#term-Literal"><span class="xref std std-term">literal</span></a> must be enclosed in <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
+<p>A string <a class="reference internal" href="glossary.html#term-Literal"><span class="xref std std-term">literal</span></a> must be enclosed by double quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
 <div class="code_example dropdown admonition" id="exampleb3">
 
 <p class="admonition-title">Code Example: Strings </p>
@@ -924,8 +925,9 @@ proper pronunciation for the angle-bracket characters <code class="docutils lite
 <p class="sd-card-text">&lt;&gt;!*‘’#</p>
 <p class="sd-card-text">^”`$$-</p>
 <p class="sd-card-text">!*=&#64;$_</p>
-<p class="sd-card-text">&amp;[]…/</p>
-<p class="sd-card-text">|{,SYSTEM HALTED</p>
+<p class="sd-card-text">%*&lt;&gt;~#4</p>
+<p class="sd-card-text">&amp;[] . . /</p>
+<p class="sd-card-text">|{ , , SYSTEM HALTED</p>
 </div>
 </div>
 <p>Translation:</p>
@@ -979,7 +981,7 @@ proper pronunciation for the angle-bracket characters <code class="docutils lite
 <td><p>Backslash</p></td>
 <td><p>Identifies intention of a literal backslash</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\'</span></code>, <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></p></td>
 <td><p>Single and double quote marks</p></td>
 <td><p>Identifies intention of a literal quote mark</p></td>
 </tr>

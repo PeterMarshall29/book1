@@ -41,7 +41,7 @@ C++ programs create, destroy, refer to, access, and manipulate {term}`objects`.
 ```{note}
 :class: margin
 For the moment we do not need to worry about computer memory - what it is, how it works, or how the computer program uses it.
-In the past, computer memory was a more limited resource that had to be carefully managed. Today, we do not have to worry about memory until we go to work programs that use a lot of memory and need to perform a lot of computations as quickly as possible.
+In the past, computer memory was a more limited resource that had to be carefully managed. Today, we can forget about memory resources until we work on programs that use a lot of memory and need to perform a lot of computations as quickly as possible.
 ```
 
 An object, in C++, has

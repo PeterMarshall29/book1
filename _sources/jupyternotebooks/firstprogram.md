@@ -12,7 +12,7 @@ kernelspec:
 
 # First C++ Program
 
-The first program that most people ever write simply prints "Hello, World!" to a display device, mainly because it has become a tradition to teach this first. Printing words to screen is also the simplest way to confirm that your software is correctly installed on your system.
+The first program that most people ever write simply prints "Hello, World!" to a display device. It is mainly a matter of tradition now to teach this first, but because printing words to screen is also the simplest way to confirm that your software is correctly installed on your system.
 ```{Admonition} History of the Hello World Program
 :class: seealso margin
 See the [Hello, World! program](https://en.wikipedia.org/wiki/"Hello,_World!"_program) page for the history of the "Hello, world!" program.
@@ -39,7 +39,7 @@ int main() {
 ```
 Type the above code into the empty code window below. Turn on the Live Code editor using the Rocket Icon at the top of the page. 
 
-Please type the code exactly as shown - the program will fail if there are any mistakes in the 'syntax'. 
+Please type the code exactly as shown - the program will fail if there are any mistakes in the {term}`syntax`. 
 
 In {ref}`Listing 1<codea1>` - the highlighted statement is the instruction that the programmer actually wanted to implement - everything else is required to create a working C++ program.
 
@@ -79,14 +79,14 @@ return 0;
 ```
 `main()` is a {term}`function`. Functions are explained {doc}`here <../jupyternotebooks/introduction_to_functions>`, but you can safely leave this topic until week 3.
 
-All C++ programs require a `main()` function (or an equivalent). Longer programs may have many functions - but the `main()` function is always the starting point for the logical implementation of every program.
+All C++ programs require a `main()` function (or an equivalent). Longer programs may have many functions - but the `main()` function is always the starting point for the logical implementation of the program.
 
 Briefly:
 - "main" is the name of the function.
 - The empty parentheses (parens) `main()' indicate that the main function takes no inputs.
-- The leading {term}`keyword` `int` indicates that when the rest of the instructions in the `main()` function have been executed, the program will be end by sending (returning) an integer value.
+- The leading {term}`keyword` `int` indicates that when the rest of the instructions in the `main()` function have been executed, the program will end by sending (returning) an integer value.
 
-To get started - just add `return 0;` to the bottom of all your `main()` functions.
+Until you learn more about this - just add `return 0;` to the bottom of all your `main()` functions.
 
 ```{code-block} cpp
 std :: cout << "Hello, World!\n";
@@ -95,7 +95,7 @@ std :: cout << "Hello, World!\n";
 
 `std` identifies that `cout` is found in the standard library facilities - there is no need to specify which facility. 
 
-`::` is the {term}`scope resolution operator` - think of it as a way of describing the location or ownership of parts of the syntax in order to access them.
+`::` is the {term}`scope resolution operator` - used to identify the location, or ownership, of parts of the syntax, which is required in order to access them.
 
 `<<` is the {term}`insertion operator`; often called the ‘write to’ operator.
 
@@ -143,7 +143,7 @@ Note: The following works differently in the 'Live Code' editor.
 
 In Visual Studio, or Xcode, you would find the following:
 - Any number you return is converted to an integer, so a {term}`floating-point number` will work, but a non-numeric character cause failure because it will be interpreted as a variable name. 
-- Single quotes denote the 'char' type which is used for single characters only. 'char' converts to `int`, so is acceptable. Double quotes denote the `string` type or an array of `char` type, which do not convert to `int`.
+- Single quotes denote the `char` type, which is used for single characters only. `char` converts to `int`, so is acceptable. Double quotes denote the `string` type or an array of `char` type, which do not convert to `int`.
 - `'0'` has code 48 and `"0"` does not work. Again not in live editor. 
 - The returned value is reported to whoever called the function, in the case of main() the system is the caller. In Linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.
 
@@ -180,13 +180,13 @@ int main()
 ``````
 ## C++ Comments
 
-{term}`Comments` are plain text added to a C++ source file that will be not part of the program - they are removed before the source code is compiled.
+{term}`Comments` are plain text added to a C++ source file that will not be treated as part of the program - they are removed before the source code is compiled.
 
 Comments are used as notes for anyone trying to understand the program, and reminders to the authors of what they meant when they wrote the code.
 
-When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by 'commenting them out`.
+When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by 'commenting them out`; i.e. "Comment-out lines 23-26 to check that .....".
 
-Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable, and easier for others to use.
+Some programmers claim that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable, and easier for others to use. Good code does not require many comments.
 
 Since the comments are ignored, there are no special rules for them, except that they must be identified as {term}`comments`.
 
