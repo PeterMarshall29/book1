@@ -141,6 +141,7 @@ The 1's and 0's represent Boolean `true` and `false` .
 Use the `<typeinfo>` library to confirm the comparison expressions are evaluated to `bool` …
 ````{solution} exercisep1
 :class: dropdown
+:label: solutionp1
 Add the following:
 ```{code-block} c++
 #include <typeinfo>

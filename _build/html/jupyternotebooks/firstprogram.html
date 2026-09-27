@@ -69,7 +69,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script defer="defer" src="https://unpkg.com/@popperjs/core@2"></script>
     <script defer="defer" src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.15c268d1-eb67-46da-94bb-b26174f2c12d.js"></script>
+    <script defer="defer" src="../_static/tippy\jupyternotebooks\firstprogram.46c16e74-864c-4fa3-ba06-f66e9b30bbc1.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'jupyternotebooks/firstprogram';</script>
     <script src="../_static/end.js"></script>
     <script src="../_static/game.js"></script>
@@ -544,7 +544,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="first-c-program">
 <h1>First C++ Program<a class="headerlink" href="#first-c-program" title="Permalink to this heading">#</a></h1>
-<p>The first program that most people ever write simply prints “Hello, World!” to a display device, mainly because it has become a tradition to teach this first. Printing words to screen is also the simplest way to confirm that your software is correctly installed on your system.</p>
+<p>The first program that most people ever write simply prints “Hello, World!” to a display device. It is mainly a matter of tradition now to teach this first, but because printing words to screen is also the simplest way to confirm that your software is correctly installed on your system.</p>
 <div class="seealso margin admonition">
 <p class="admonition-title">History of the Hello World Program</p>
 <p>See the <a class="reference external" href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello, World! program</a> page for the history of the “Hello, world!” program.</p>
@@ -568,7 +568,7 @@ document.write(`
 </div>
 </div>
 <p>Type the above code into the empty code window below. Turn on the Live Code editor using the Rocket Icon at the top of the page.</p>
-<p>Please type the code exactly as shown - the program will fail if there are any mistakes in the ‘syntax’.</p>
+<p>Please type the code exactly as shown - the program will fail if there are any mistakes in the <a class="reference internal" href="glossary.html#term-Syntax"><span class="xref std std-term">syntax</span></a>.</p>
 <p>In <a class="reference internal" href="#codea1"><span class="std std-ref">Listing 1</span></a> - the highlighted statement is the instruction that the programmer actually wanted to implement - everything else is required to create a working C++ program.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -603,20 +603,20 @@ document.write(`
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">main()</span></code> is a <a class="reference internal" href="glossary.html#term-Function"><span class="xref std std-term">function</span></a>. Functions are explained <a class="reference internal" href="introduction_to_functions.html"><span class="doc">here</span></a>, but you can safely leave this topic until week 3.</p>
-<p>All C++ programs require a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function (or an equivalent). Longer programs may have many functions - but the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is always the starting point for the logical implementation of every program.</p>
+<p>All C++ programs require a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function (or an equivalent). Longer programs may have many functions - but the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is always the starting point for the logical implementation of the program.</p>
 <p>Briefly:</p>
 <ul class="simple">
 <li><p>“main” is the name of the function.</p></li>
 <li><p>The empty parentheses (parens) `main()’ indicate that the main function takes no inputs.</p></li>
-<li><p>The leading <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> <code class="docutils literal notranslate"><span class="pre">int</span></code> indicates that when the rest of the instructions in the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function have been executed, the program will be end by sending (returning) an integer value.</p></li>
+<li><p>The leading <a class="reference internal" href="glossary.html#term-Keyword"><span class="xref std std-term">keyword</span></a> <code class="docutils literal notranslate"><span class="pre">int</span></code> indicates that when the rest of the instructions in the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function have been executed, the program will end by sending (returning) an integer value.</p></li>
 </ul>
-<p>To get started - just add <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code> to the bottom of all your <code class="docutils literal notranslate"><span class="pre">main()</span></code> functions.</p>
+<p>Until you learn more about this - just add <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code> to the bottom of all your <code class="docutils literal notranslate"><span class="pre">main()</span></code> functions.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cout</span></code> is called the <strong>character output stream</strong>, pronounced “see-out” - this is the command used to instruct the program to write to the screen.</p>
 <p><code class="docutils literal notranslate"><span class="pre">std</span></code> identifies that <code class="docutils literal notranslate"><span class="pre">cout</span></code> is found in the standard library facilities - there is no need to specify which facility.</p>
-<p><code class="docutils literal notranslate"><span class="pre">::</span></code> is the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">scope resolution operator</span></a> - think of it as a way of describing the location or ownership of parts of the syntax in order to access them.</p>
+<p><code class="docutils literal notranslate"><span class="pre">::</span></code> is the <a class="reference internal" href="glossary.html#term-Scope-Resolution-Operator"><span class="xref std std-term">scope resolution operator</span></a> - used to identify the location, or ownership, of parts of the syntax, which is required in order to access them.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> is the <a class="reference internal" href="glossary.html#term-Insertion-Operator"><span class="xref std std-term">insertion operator</span></a>; often called the ‘write to’ operator.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">World!\n&quot;</span></code> is a <code class="docutils literal notranslate"><span class="pre">string</span></code>. String <a class="reference internal" href="glossary.html#term-Literals"><span class="xref std std-term">literals</span></a> are delimited (bracketed) by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>; explained <a class="reference internal" href="char_and_string.html"><span class="doc">here</span></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">\n</span></code> is an <a class="reference internal" href="glossary.html#term-Escape-Sequence"><span class="xref std std-term">escape sequence</span></a> - the escaped character <code class="docutils literal notranslate"><span class="pre">n</span></code> instructs the computer to print anything after it on a new line.</p>
@@ -662,7 +662,7 @@ document.write(`
 <p>In Visual Studio, or Xcode, you would find the following:</p>
 <ul class="simple">
 <li><p>Any number you return is converted to an integer, so a <a class="reference internal" href="glossary.html#term-Floating-Point-Number"><span class="xref std std-term">floating-point number</span></a> will work, but a non-numeric character cause failure because it will be interpreted as a variable name.</p></li>
-<li><p>Single quotes denote the ‘char’ type which is used for single characters only. ‘char’ converts to <code class="docutils literal notranslate"><span class="pre">int</span></code>, so is acceptable. Double quotes denote the <code class="docutils literal notranslate"><span class="pre">string</span></code> type or an array of <code class="docutils literal notranslate"><span class="pre">char</span></code> type, which do not convert to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p>Single quotes denote the <code class="docutils literal notranslate"><span class="pre">char</span></code> type, which is used for single characters only. <code class="docutils literal notranslate"><span class="pre">char</span></code> converts to <code class="docutils literal notranslate"><span class="pre">int</span></code>, so is acceptable. Double quotes denote the <code class="docutils literal notranslate"><span class="pre">string</span></code> type or an array of <code class="docutils literal notranslate"><span class="pre">char</span></code> type, which do not convert to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'0'</span></code> has code 48 and <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> does not work. Again not in live editor.</p></li>
 <li><p>The returned value is reported to whoever called the function, in the case of main() the system is the caller. In Linux the returned value is used to confirm successful termination, 0 indicated success – anything else failure.</p></li>
 </ul>
@@ -703,10 +703,10 @@ document.write(`
 </section>
 </div><section id="c-comments">
 <h2>C++ Comments<a class="headerlink" href="#c-comments" title="Permalink to this heading">#</a></h2>
-<p><a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">Comments</span></a> are plain text added to a C++ source file that will be not part of the program - they are removed before the source code is compiled.</p>
+<p><a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">Comments</span></a> are plain text added to a C++ source file that will not be treated as part of the program - they are removed before the source code is compiled.</p>
 <p>Comments are used as notes for anyone trying to understand the program, and reminders to the authors of what they meant when they wrote the code.</p>
-<p>When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by ‘commenting them out`.</p>
-<p>Some suggest that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable, and easier for others to use.</p>
+<p>When developing a program, it is useful to be able to temporarily hide sections of the code from the compiler by ‘commenting them out`; i.e. “Comment-out lines 23-26 to check that …”.</p>
+<p>Some programmers claim that good code does not require comments, but this is unlikely to be true. Remember that programs can be very long, and you may want to return to a program that you wrote years ago; a small investment in comments usually makes the code more maintainable, and easier for others to use. Good code does not require many comments.</p>
 <p>Since the comments are ignored, there are no special rules for them, except that they must be identified as <a class="reference internal" href="glossary.html#term-Comments"><span class="xref std std-term">comments</span></a>.</p>
 <div class="syntax dropdown admonition" id="jupyternotebooks/firstprogram-syntax-7">
 

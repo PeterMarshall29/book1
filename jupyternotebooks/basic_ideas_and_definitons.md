@@ -38,7 +38,9 @@ Expressions are sequences of {term}`operators` and their {term}`operands`, which
 
 When the expression statement is executed, the expression is evaluated by the computer, producing a result, which will have a {term}`value` and a {term}`type`.
 
-Statements are always terminated by either a semicolon `;` or by `{}` which represents a {term}`code-block` i.e. {...some code here...}, which may be empty or contain statements.
+Statements are always terminated by either a semicolon `;` or by `{}` .
+
+`{}` represents a {term}`code-block` i.e. {...some code here...}, which may be empty or contain statements.
 ```{tip}
 :class: margin
 Only {term}`directives` do not require termination.
@@ -163,7 +165,7 @@ It may be necessary to use `std::` to access these functions in some compilers -
 ````
 More useful functions and constants are provided by `<numbers>`, e.g. `std::numbers::pi`. 
 
-Note: In Visual Studio you will need to change the 'c++language standard' under 'project properties' to 'c++20'.
+Note: In Visual Studio you will need to change the 'c++language standard' under 'project properties' to 'c++20' if you want to include `<numbers>`, because this library was only released in 2020.
 
 ## Variables
 A computer program that can only perform arithmetic on {term}`literal` values written into the original program code would not be very useful. Instead, programmes must be able ask the user for the numeric values that are to be used in the calculations, or read values in from files, which requires the program to store this information and to be able to access and manipulate it later.
@@ -187,7 +189,7 @@ To create a variable named `a` that holds the integer value of '5', use the stat
 
 After this statement in the program, the variable `a` may be used anywhere (see {term}`scope`) that we want to use its value of `5`.
 
-Type in following program into the 'Live Code' editor and hit {kbd}`run`.
+Type in the following program into the 'Live Code' editor and hit {kbd}`run`.
 
 ````{code-block} c++
 :linenos: 
@@ -211,7 +213,7 @@ When the program gets to the instance of the variable `a` following the `<<` ope
 :nonumber:
 After a variable has been declared and given a value, the value can be changed.
 
-1. After line 4 - `std::cout`: 
+1. After line 4 - `std::cout` : 
 - Add `a = 10;`
 - Add a second output statement to print the value of `a` again.
 - Find out what happens if you put the statements in a different order?
@@ -254,7 +256,7 @@ A {term}`string` is a sequence of characters. In C++ strings are represented by 
 
 `std::` indicates that a standard library facility is needed - in this case `<string>`.
 
-A string {term}`literal` must be enclosed in `""`.
+A string {term}`literal` must be enclosed by double quotation marks `""`.
 
 `````{code_example-start} Strings
 :label: exampleb3
@@ -381,11 +383,11 @@ The Waka Waka Poem " by Fred Bremmer and Steve Kroeze.
 
 !*=@$_
 
-%*<>~#4
+\%*<>~#4
 
-&[]../
+&[] . . /
 
-|{,,SYSTEM HALTED
+|{ , , SYSTEM HALTED
 ```
 Translation:
 ```{card}
@@ -437,7 +439,7 @@ Each escape sequence is identified to the program by prefixing `\` to the escape
 * - `\\`
   - Backslash
   - Identifies intention of a literal backslash
-* - `'`, `"`
+* - `\'`, `\"`
   - Single and double quote marks
   - Identifies intention of a literal quote mark
 ```

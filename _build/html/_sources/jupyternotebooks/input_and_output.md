@@ -353,7 +353,7 @@ Putting the template into a source file or header file makes it easier to print 
 
 ## Print debugging
 
-A good reason that `std::cout` is taught before other IO methods is its simplicity - no, really! `std::cout` automatically formats the printed text based on the variable's type, and allows a quick and simple output immediately, when we just want to get started or for {term}`print debugging`, by obviating any additional issues formatting different stings. 
+A good reason that `std::cout` is taught before other IO methods is its simplicity - no, really! `std::cout` automatically formats the printed text based on the variable's type, and allows a quick and simple output immediately, when we just want to get started developing an idea, or for {term}`print debugging`, by obviating any additional issues formatting different stings. 
 
 
 ## printf()
