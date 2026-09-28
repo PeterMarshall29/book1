@@ -114,10 +114,12 @@ Declaration informs the compiler of the existence of an instance of a specified 
 :class: dropdown 
 :nonumber:
 ````
-These are only declarations - most of them cannot be used yet.
+These are only declarations:
+
+(You are not expected to recognise the syntax used in all of these examples, but they will all be introduced in subseqent lessons.)
 
 
-```{code-block} 
+```{code-block} cpp
 :linenos:
 #include <iostream>
 #include <vector>
@@ -125,8 +127,8 @@ These are only declarations - most of them cannot be used yet.
 #include <string>
 double std::sqrt(double);  //function declaration - parameter name optional
 struct Date { int d , m, y; };    //struct declaration
-template<class T> T abs(T a) { return a < 0 ? -a : a; }
-int fac(int n) ;
+template<class T> T abs(T a) { return a < 0 ? -a : a; }  // Template declaration
+int fac(int n) ; //function declaration
 int main() {
     char myChar;
     std::string myString;
@@ -150,7 +152,7 @@ The structure of a declaration is defined by the C++ grammar and has 5 basics pa
 
 * Optional prefix specifiers e.g. `static` or `virtual`.
 * A base type e.g. `vector<double>` or `const int`.
-* A declarator a name and optionally some declarator operators e.g. `p[7]`, `n`.
+* A declarator: a name (identifier), and optionally some declarator operators e.g. `p[7]`, `n`.
 * Optional suffix function specifiers e.g. `const` or `noexcept`.
 * An optional initializer or function body e.g. `={7,5,3}` or `{return x;}`.
 

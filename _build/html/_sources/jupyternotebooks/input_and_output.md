@@ -288,7 +288,7 @@ return 0;
 Notice that the three values are not the same - comparing different pairs would be problematic.
 
 - Add the output from the first code cell to this one - note the final digits - something to keep in mind.
-- Does `std::default` override `std::setprecions()`?
+- Does `std::defaultfloat` override `std::setprecions()`?
 `````{code_example-end}
 `````
 
